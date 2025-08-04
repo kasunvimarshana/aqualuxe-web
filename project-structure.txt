@@ -1,17 +1,12 @@
-aqualuxe-site/
+aqualuxe-stack/
 ├── docker-compose.yml
-├── .env
-├── wordpress/
-│   └── wp-content/
-│       ├── themes/
-│       │   └── aqualuxe/
-│       │       ├── style.css
-│       │       ├── functions.php
-│       │       ├── screenshot.png
-│       │       └── woocommerce/
-│       │           └── ... (WooCommerce overrides)
-│       ├── plugins/
-│       └── uploads/
-├── mysql/
-├── redis/
-└── README.md
+├── .env.example
+├── .gitignore
+├── README.md
+├── wordpress/                ← bind-mounted WordPress core (git-ignored)
+├── wp-content/
+│   └── themes/
+│       └── aqualuxe-child/   ← our child theme (all files below)
+├── mariadb/                  ← MariaDB data volume
+├── redis/                    ← Redis data volume
+└── logs/                     ← nginx / php / wp debug logs
