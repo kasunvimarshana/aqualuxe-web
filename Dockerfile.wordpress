@@ -1,17 +1,40 @@
 FROM wordpress:6.5-php8.3-apache
 
+# Set timezone
+ENV TZ=UTC
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 # Install common dev tools
 RUN apt-get update && apt-get install -y --no-install-recommends \
-        unzip sudo git nano less mariadb-client \
+    unzip sudo git nano less mariadb-client curl ca-certificates \
     && rm -rf /var/lib/apt/lists/*
+
+# Update CA certificates
+RUN update-ca-certificates
 
 # PHP extensions we might need
 RUN docker-php-ext-install -j$(nproc) bcmath exif
 
 # WP-CLI for convenience
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
- && chmod +x wp-cli.phar \
- && mv wp-cli.phar /usr/local/bin/wp
+    && chmod +x wp-cli.phar \
+    && mv wp-cli.phar /usr/local/bin/wp
+
+# Create a mu-plugins directory
+RUN mkdir -p /var/www/html/wp-content/mu-plugins
+
+# Create a mu-plugin to disable SSL verification for development
+RUN echo "<?php\nadd_filter('http_request_args', function(\$args) {\n    \$args['sslverify'] = false;\n    return \$args;\n});" > /var/www/html/wp-content/mu-plugins/disable-ssl-verify.php
+
+# Create a mu-plugin to set timezone
+RUN echo "<?php\ndate_default_timezone_set('UTC');" > /var/www/html/wp-content/mu-plugins/set-timezone.php
+
+# # Add custom config file to wp-config.php
+# RUN echo "if (file_exists(dirname(__FILE__) . '/wp-config-docker.php')) {\n    require_once(dirname(__FILE__) . '/wp-config-docker.php');\n}" >> /var/www/html/wp-config.php
+
+# Create a custom Apache config to set ServerName
+RUN echo "ServerName localhost" > /etc/apache2/conf-available/server-name.conf
+RUN a2enconf server-name
 
 # Ensure correct permissions
 RUN chown -R www-data:www-data /var/www/html

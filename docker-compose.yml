@@ -12,7 +12,7 @@ services:
     volumes:
       - ./mariadb:/var/lib/mysql
     ports:
-      - "3306:3306"
+      - '3306:3306'
 
   redis:
     image: redis:7-alpine
@@ -21,7 +21,7 @@ services:
     volumes:
       - ./redis:/data
     ports:
-      - "6379:6379"
+      - '6379:6379'
 
   wordpress:
     build:
@@ -46,8 +46,9 @@ services:
       - ./wordpress:/var/www/html
       - ./wp-content:/var/www/html/wp-content
       - ./logs:/var/log
+      # - ./wp-config-docker.php:/var/www/html/wp-config-docker.php
     ports:
-      - "8080:80"
+      - '8080:80'
 
   phpmyadmin:
     image: phpmyadmin:5
@@ -59,4 +60,4 @@ services:
       PMA_USER: root
       PMA_PASSWORD: ${DB_ROOT_PW}
     ports:
-      - "8081:80"
+      - '8081:80'
