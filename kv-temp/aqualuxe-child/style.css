@@ -1,0 +1,59 @@
+/*
+ Theme Name: AquaLuxe Child
+ Theme URI: https://example.com/aqualuxe
+ Description: Child theme for AquaLuxe - Premium Ornamental Fish WooCommerce store
+ Author: Kasun Vimarshana
+ Author URI: https://example.com
+ Template: storefront
+ Version: 1.0.0
+ License: GNU General Public License v2 or later
+ License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ Text Domain: aqualuxe
+*/
+
+/* AquaLuxe Color Scheme */
+:root {
+  --primary-color: #0077b6; /* Ocean Blue */
+  --secondary-color: #00b4d8; /* Aqua Blue */
+  --accent-color: #ffd60a; /* Gold */
+  --text-color: #333;
+  --bg-color: #fff;
+
+  /* AquaLuxe */
+  --aqualuxe-primary: #0a4f70; /* Deep blue */
+  --aqualuxe-secondary: #17a2b8; /* Teal */
+  --aqualuxe-accent: #d4af37; /* Gold */
+  --aqualuxe-light: #f8f9fa; /* Light gray */
+  --aqualuxe-dark: #343a40; /* Dark gray */
+  --aqualuxe-white: #ffffff; /* White */
+}
+
+/* General styling */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--primary-color);
+  transition: all 0.3s ease;
+}
+a:hover {
+  color: var(--accent-color);
+}
+
+/* WooCommerce Product Grid */
+.aqualuxe-product-card {
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 15px;
+  text-align: center;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+.aqualuxe-product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}

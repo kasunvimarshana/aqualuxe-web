@@ -1,0 +1,24 @@
+aqualuxe-child/
+├── style.css
+├── functions.php
+├── index.php
+├── screenshot.png
+├── assets/
+│   ├── css/
+│   │   ├── main.css
+│   │   └── responsive.css
+│   ├── js/
+│   │   └── main.js
+│   └── images/
+│       └── logo.png
+├── inc/
+│   ├── hooks.php
+│   ├── setup.php
+│   └── woocommerce.php
+├── template-parts/
+│   ├── header.php
+│   └── footer.php
+└── woocommerce/
+    ├── archive-product.php
+    ├── content-product.php
+    └── single-product.php
