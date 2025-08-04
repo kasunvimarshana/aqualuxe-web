@@ -36,6 +36,9 @@ function aqualuxe_scripts()
         'expand'   => __('Expand child menu', 'aqualuxe'),
         'collapse' => __('Collapse child menu', 'aqualuxe'),
     ));
+
+    // aqualuxe_scripts
+    wp_enqueue_script('aqualuxe-faq', get_stylesheet_directory_uri() . '/assets/js/frontend/faq.js', array(), AQUALUXE_VERSION, true);
 }
 add_action('wp_enqueue_scripts', 'aqualuxe_scripts');
 
