@@ -83,19 +83,6 @@ services:
     networks:
       - aqualuxe-network
 
-  node:
-    build:
-      context: .
-      dockerfile: Dockerfile.node
-    container_name: aqualuxe-node
-    stdin_open: true # docker run -i
-    tty: true # docker run -t
-    volumes:
-      - ./wp-content/themes/aqualuxe:/app
-      - /app/node_modules
-    networks:
-      - aqualuxe-network
-
 networks:
   aqualuxe-network:
     driver: bridge

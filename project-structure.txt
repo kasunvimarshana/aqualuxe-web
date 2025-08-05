@@ -6,7 +6,7 @@ aqualuxe-stack/
 ├── wordpress/                ← bind-mounted WordPress core (git-ignored)
 ├── wp-content/
 │   └── themes/
-│       └── aqualuxe-child/   ← our child theme (all files below)
+│       └── aqualuxe/         ← our theme
 ├── mariadb/                  ← MariaDB data volume
 ├── redis/                    ← Redis data volume
 └── logs/                     ← nginx / php / wp debug logs
