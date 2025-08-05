@@ -73,6 +73,18 @@ function aqualuxe_setup()
 
     // Load text domain.
     load_child_theme_textdomain('aqualuxe', get_stylesheet_directory() . '/languages');
+
+    // Add front page template
+    add_filter('theme_page_templates', function($templates) {
+        $templates['front-page.php'] = 'Front Page';
+        return $templates;
+    });
+
+    // Add page about template
+    add_filter('theme_page_templates', function($templates) {
+        $templates['page-about.php'] = 'About Us';
+        return $templates;
+    });
 }
 add_action('after_setup_theme', 'aqualuxe_setup');
 
