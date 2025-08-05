@@ -3,6 +3,7 @@ version: '3.9'
 services:
   db:
     image: mariadb:11
+    container_name: aqualuxe-db
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PW}
@@ -13,20 +14,26 @@ services:
       - ./mariadb:/var/lib/mysql
     ports:
       - '3306:3306'
+    networks:
+      - aqualuxe-network
 
   redis:
     image: redis:7-alpine
+    container_name: aqualuxe-redis
     restart: unless-stopped
     command: redis-server --appendonly yes
     volumes:
       - ./redis:/data
     ports:
       - '6379:6379'
+    networks:
+      - aqualuxe-network
 
   wordpress:
     build:
       context: .
       dockerfile: Dockerfile.wordpress
+    container_name: aqualuxe-wordpress
     restart: unless-stopped
     depends_on:
       - db
@@ -58,9 +65,12 @@ services:
       - ./logs:/var/log
     ports:
       - '8080:80'
+    networks:
+      - aqualuxe-network
 
   phpmyadmin:
     image: phpmyadmin:5
+    container_name: aqualuxe-phpmyadmin
     restart: unless-stopped
     depends_on:
       - db
@@ -70,3 +80,19 @@ services:
       PMA_PASSWORD: ${DB_ROOT_PW}
     ports:
       - '8081:80'
+    networks:
+      - aqualuxe-network
+
+  node:
+    build:
+      context: ./wordpress/wp-content/themes/aqualuxe
+      dockerfile: Dockerfile.node
+    container_name: aqualuxe-node
+    volumes:
+      - ./wordpress/wp-content/themes/aqualuxe:/app
+    networks:
+      - aqualuxe-network
+
+networks:
+  aqualuxe-network:
+    driver: bridge
