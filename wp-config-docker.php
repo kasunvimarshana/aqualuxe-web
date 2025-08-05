@@ -1,27 +1,28 @@
 <?php
+// Database settings
+define('DB_NAME', getenv('WORDPRESS_DB_NAME'));
+define('DB_USER', getenv('WORDPRESS_DB_USER'));
+define('DB_PASSWORD', getenv('WORDPRESS_DB_PASSWORD'));
+define('DB_HOST', getenv('WORDPRESS_DB_HOST') ?: 'db');
+define('DB_CHARSET', 'utf8');
+define('DB_COLLATE', '');
 
-/**
- * Docker-specific configuration overrides
- */
+// Security keys
+define('AUTH_KEY', getenv('WORDPRESS_AUTH_KEY') ?: 'put your unique phrase here');
+// ... (other keys)
 
-// Disable SSL verification for development
-add_filter('http_request_args', function ($args) {
-    $args['sslverify'] = false;
-    return $args;
-});
+// Table prefix
+$table_prefix = getenv('WORDPRESS_TABLE_PREFIX') ?: 'wp_';
 
-// Set timezone
-date_default_timezone_set('UTC');
+// Debug mode
+define('WP_DEBUG', filter_var(getenv('WORDPRESS_DEBUG'), FILTER_VALIDATE_BOOLEAN));
 
-// Debug settings
-define('WP_DEBUG', true);
-define('WP_DEBUG_LOG', true);
-define('WP_DEBUG_DISPLAY', false);
-@ini_set('display_errors', 0);
+// Additional config
+eval('?>' . getenv('WORDPRESS_CONFIG_EXTRA'));
 
-// Prevent file editing
-define('DISALLOW_FILE_EDIT', true);
+// Absolute path
+if (!defined('ABSPATH')) {
+    define('ABSPATH', __DIR__ . '/');
+}
 
-// Disable plugin and theme updates
-define('WP_AUTO_UPDATE_CORE', false);
-define('AUTOMATIC_UPDATER_DISABLED', true);
+require_once ABSPATH . 'wp-settings.php';

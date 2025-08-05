@@ -42,11 +42,20 @@ services:
         /* Redis Object Cache */
         define('WP_REDIS_HOST', 'redis');
         define('WP_CACHE', true);
+        /* Debug Settings */
+        define('WP_DEBUG_LOG', true);
+        define('WP_DEBUG_DISPLAY', false);
+        /* Handle core files in volume */
+        define('FS_METHOD', 'direct');
     volumes:
+      # Mount entire WordPress core
       - ./wordpress:/var/www/html
-      - ./wp-content:/var/www/html/wp-content
+      # Mount only specific content directories
+      - ./wp-content/plugins:/var/www/html/wp-content/plugins
+      - ./wp-content/themes:/var/www/html/wp-content/themes
+      - ./wp-content/uploads:/var/www/html/wp-content/uploads
+      - ./wp-content/mu-plugins:/var/www/html/wp-content/mu-plugins
       - ./logs:/var/log
-      # - ./wp-config-docker.php:/var/www/html/wp-config-docker.php
     ports:
       - '8080:80'
 
