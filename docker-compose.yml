@@ -85,11 +85,14 @@ services:
 
   node:
     build:
-      context: ./wordpress/wp-content/themes/aqualuxe
+      context: .
       dockerfile: Dockerfile.node
     container_name: aqualuxe-node
+    stdin_open: true # docker run -i
+    tty: true # docker run -t
     volumes:
-      - ./wordpress/wp-content/themes/aqualuxe:/app
+      - ./wp-content/themes/aqualuxe:/app
+      - /app/node_modules
     networks:
       - aqualuxe-network
 
