@@ -1,0 +1,167 @@
+# AquaLuxe Theme Builder
+# Run this in PowerShell on Windows
+
+# Set base path to current directory
+$BasePath = "$PWD\aqualuxe"
+$ZipFile = "$PWD\aqualuxe-theme.zip"
+
+# Remove old theme folder if exists
+if (Test-Path $BasePath) { Remove-Item -Recurse -Force $BasePath }
+if (Test-Path $ZipFile) { Remove-Item -Force $ZipFile }
+
+# Create folders
+$Folders = @(
+    "aqualuxe",
+    "aqualuxe\inc",
+    "aqualuxe\templates",
+    "aqualuxe\woocommerce",
+    "aqualuxe\assets\css",
+    "aqualuxe\assets\js",
+    "aqualuxe\assets\images",
+    "aqualuxe\languages"
+)
+foreach ($Folder in $Folders) {
+    New-Item -ItemType Directory -Path "$PWD\$Folder" | Out-Null
+}
+
+# style.css
+@"
+Theme Name: AquaLuxe
+Theme URI: https://github.com/kasunvimarshana
+Description: Premium WooCommerce Theme for Ornamental Fish Businesses
+Author: Kasun Vimarshana
+Author URI: https://github.com/kasunvimarshana
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: aqualuxe
+Tags: e-commerce, woocommerce, responsive, clean, modern, multipurpose
+"@ | Set-Content "$BasePath\style.css"
+
+# functions.php
+@"
+<?php
+require_once get_template_directory() . '/inc/theme-setup.php';
+require_once get_template_directory() . '/inc/enqueue.php';
+require_once get_template_directory() . '/inc/woocommerce.php';
+require_once get_template_directory() . '/inc/demo-import.php';
+"@ | Set-Content "$BasePath\functions.php"
+
+# inc/theme-setup.php
+@"
+<?php
+function aqualuxe_setup() {
+    load_theme_textdomain('aqualuxe', get_template_directory() . '/languages');
+    add_theme_support('title-tag');
+    add_theme_support('post-thumbnails');
+    add_theme_support('woocommerce');
+    add_theme_support('custom-logo');
+    add_theme_support('automatic-feed-links');
+    add_theme_support('html5', ['search-form', 'gallery', 'caption']);
+    register_nav_menus([
+        'primary' => __('Primary Menu', 'aqualuxe'),
+        'footer'  => __('Footer Menu', 'aqualuxe'),
+    ]);
+}
+add_action('after_setup_theme', 'aqualuxe_setup');
+"@ | Set-Content "$BasePath\inc\theme-setup.php"
+
+# inc/enqueue.php
+@"
+<?php
+function aqualuxe_enqueue_assets() {
+    wp_enqueue_style('aqualuxe-main', get_template_directory_uri() . '/assets/css/main.css', [], '1.0.0');
+    wp_enqueue_script('aqualuxe-main', get_template_directory_uri() . '/assets/js/main.js', ['jquery'], '1.0.0', true);
+}
+add_action('wp_enqueue_scripts', 'aqualuxe_enqueue_assets');
+"@ | Set-Content "$BasePath\inc\enqueue.php"
+
+# inc/woocommerce.php
+@"
+<?php
+add_filter('woocommerce_enqueue_styles', '__return_empty_array');
+add_filter('loop_shop_per_page', function() { return 12; }, 20);
+"@ | Set-Content "$BasePath\inc\woocommerce.php"
+
+# inc/demo-import.php
+@"
+<?php
+function aqualuxe_run_demo_import() {
+    if (get_option('aqualuxe_demo_import_done') === 'yes') return;
+
+    \$pages = [
+        'Home' => ['content' => '<h2>Welcome to AquaLuxe</h2><p>Premium ornamental fish and aquarium products.</p>[products limit="4" columns="4" orderby="date" order="DESC"]'],
+        'Shop' => ['content' => ''],
+        'Cart' => ['content' => '[woocommerce_cart]'],
+        'Checkout' => ['content' => '[woocommerce_checkout]'],
+        'My Account' => ['content' => '[woocommerce_my_account]'],
+        'About' => ['content' => '<h2>About AquaLuxe</h2><p>AquaLuxe is your trusted source for premium ornamental fish and aquarium care products.</p>'],
+        'Contact' => ['content' => '<h2>Contact Us</h2><p>Email: info@aqualuxe.com</p><p>Phone: +94 71 234 5678</p>']
+    ];
+    \$page_ids = [];
+    foreach (\$pages as \$title => \$data) {
+        \$existing = get_page_by_title(\$title);
+        if (!\$existing) {
+            \$page_id = wp_insert_post([
+                'post_title' => \$title,
+                'post_content' => \$data['content'],
+                'post_status' => 'publish',
+                'post_type' => 'page'
+            ]);
+            \$page_ids[\$title] = \$page_id;
+        } else {
+            \$page_ids[\$title] = \$existing->ID;
+        }
+    }
+    update_option('woocommerce_shop_page_id', \$page_ids['Shop']);
+    update_option('woocommerce_cart_page_id', \$page_ids['Cart']);
+    update_option('woocommerce_checkout_page_id', \$page_ids['Checkout']);
+    update_option('woocommerce_myaccount_page_id', \$page_ids['My Account']);
+    update_option('show_on_front', 'page');
+    update_option('page_on_front', \$page_ids['Home']);
+    \$main_menu_id = wp_create_nav_menu('Main Menu');
+    wp_update_nav_menu_item(\$main_menu_id, 0, [
+        'menu-item-title' => 'Home',
+        'menu-item-object' => 'page',
+        'menu-item-object-id' => \$page_ids['Home'],
+        'menu-item-type' => 'post_type',
+        'menu-item-status' => 'publish'
+    ]);
+    set_theme_mod('nav_menu_locations', [
+        'primary' => \$main_menu_id
+    ]);
+    if (class_exists('WC_Product_Simple')) {
+        \$products = [
+            ['Neon Tetra', 'Beautiful small schooling fish perfect for peaceful aquariums.', 3.50],
+            ['Betta Fish', 'Colorful and elegant fish, ideal for single-species tanks.', 5.99],
+            ['Goldfish', 'Classic aquarium favorite, hardy and long-lived.', 2.50]
+        ];
+        foreach (\$products as \$p) {
+            if (!get_page_by_title(\$p[0], OBJECT, 'product')) {
+                \$product_id = wp_insert_post([
+                    'post_title' => \$p[0],
+                    'post_content' => \$p[1],
+                    'post_status' => 'publish',
+                    'post_type' => 'product'
+                ]);
+                update_post_meta(\$product_id, '_price', \$p[2]);
+                update_post_meta(\$product_id, '_regular_price', \$p[2]);
+                wp_set_object_terms(\$product_id, 'simple', 'product_type');
+            }
+        }
+    }
+    update_option('aqualuxe_demo_import_done', 'yes');
+}
+add_action('after_switch_theme', 'aqualuxe_run_demo_import');
+"@ | Set-Content "$BasePath\inc\demo-import.php"
+
+# assets/css/main.css
+"body { font-family: Arial, sans-serif; }" | Set-Content "$BasePath\assets\css\main.css"
+
+# assets/js/main.js
+"(function($){$(document).ready(function(){console.log('AquaLuxe theme loaded.');});})(jQuery);" | Set-Content "$BasePath\assets\js\main.js"
+
+# Create ZIP
+Compress-Archive -Path "$BasePath\*" -DestinationPath $ZipFile -Force
+
+Write-Host "✅ AquaLuxe theme has been built and zipped to: $ZipFile"

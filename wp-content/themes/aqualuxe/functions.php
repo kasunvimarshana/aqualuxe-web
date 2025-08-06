@@ -387,40 +387,40 @@ function aqualuxe_product_structured_data() {
 }
 add_action('wp_head', 'aqualuxe_product_structured_data');
 
-/**
- * Custom breadcrumbs
- */
-function aqualuxe_breadcrumbs() {
-    if (is_front_page()) {
-        return;
-    }
+// /**
+//  * Custom breadcrumbs
+//  */
+// function aqualuxe_breadcrumbs() {
+//     if (is_front_page()) {
+//         return;
+//     }
     
-    $separator = ' / ';
-    $home_title = esc_html__('Home', 'aqualuxe');
+//     $separator = ' / ';
+//     $home_title = esc_html__('Home', 'aqualuxe');
     
-    echo '<nav class="breadcrumbs" aria-label="' . esc_attr__('Breadcrumb Navigation', 'aqualuxe') . '">';
-    echo '<a href="' . esc_url(home_url('/')) . '">' . $home_title . '</a>' . $separator;
+//     echo '<nav class="breadcrumbs" aria-label="' . esc_attr__('Breadcrumb Navigation', 'aqualuxe') . '">';
+//     echo '<a href="' . esc_url(home_url('/')) . '">' . $home_title . '</a>' . $separator;
     
-    if (is_category() || is_single()) {
-        if (is_single()) {
-            $category = get_the_category();
-            if ($category) {
-                echo '<a href="' . esc_url(get_category_link($category[0]->term_id)) . '">' . esc_html($category[0]->cat_name) . '</a>' . $separator;
-            }
-            echo '<span>' . get_the_title() . '</span>';
-        } else {
-            echo '<span>' . single_cat_title('', false) . '</span>';
-        }
-    } elseif (is_page()) {
-        echo '<span>' . get_the_title() . '</span>';
-    } elseif (is_search()) {
-        echo '<span>' . sprintf(esc_html__('Search Results for "%s"', 'aqualuxe'), get_search_query()) . '</span>';
-    } elseif (is_404()) {
-        echo '<span>' . esc_html__('404 Error', 'aqualuxe') . '</span>';
-    }
+//     if (is_category() || is_single()) {
+//         if (is_single()) {
+//             $category = get_the_category();
+//             if ($category) {
+//                 echo '<a href="' . esc_url(get_category_link($category[0]->term_id)) . '">' . esc_html($category[0]->cat_name) . '</a>' . $separator;
+//             }
+//             echo '<span>' . get_the_title() . '</span>';
+//         } else {
+//             echo '<span>' . single_cat_title('', false) . '</span>';
+//         }
+//     } elseif (is_page()) {
+//         echo '<span>' . get_the_title() . '</span>';
+//     } elseif (is_search()) {
+//         echo '<span>' . sprintf(esc_html__('Search Results for "%s"', 'aqualuxe'), get_search_query()) . '</span>';
+//     } elseif (is_404()) {
+//         echo '<span>' . esc_html__('404 Error', 'aqualuxe') . '</span>';
+//     }
     
-    echo '</nav>';
-}
+//     echo '</nav>';
+// }
 
 /**
  * AJAX handler for quick view
