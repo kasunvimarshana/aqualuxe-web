@@ -1,4 +1,5 @@
 <?php
+
 /**
  * AquaLuxe Child Theme Functions
  *
@@ -19,6 +20,7 @@ define('AQUALUXE_THEME_URI', get_template_directory_uri());
 define('AQUALUXE_CHILD_THEME_URI', get_stylesheet_directory_uri());
 
 // Include required files
+require_once AQUALUXE_CHILD_THEME_DIR . '/inc/template-functions.php';
 require_once AQUALUXE_CHILD_THEME_DIR . '/inc/theme-setup.php';
 require_once AQUALUXE_CHILD_THEME_DIR . '/inc/enqueue-scripts.php';
 require_once AQUALUXE_CHILD_THEME_DIR . '/inc/customizer.php';
@@ -32,51 +34,56 @@ require_once AQUALUXE_CHILD_THEME_DIR . '/inc/demo-content.php';
  * 
  * Main class for initializing theme functionality
  */
-class AquaLuxe_Theme {
-    
+class AquaLuxe_Theme
+{
+
     /**
      * Instance of the class
      * 
      * @var AquaLuxe_Theme
      */
     private static $instance;
-    
+
     /**
      * Get instance of the class
      * 
      * @return AquaLuxe_Theme
      */
-    public static function get_instance() {
+    public static function get_instance()
+    {
         if (!isset(self::$instance)) {
             self::$instance = new self();
         }
         return self::$instance;
     }
-    
+
     /**
      * Constructor
      */
-    private function __construct() {
+    private function __construct()
+    {
         $this->init_hooks();
     }
-    
+
     /**
      * Initialize hooks
      */
-    private function init_hooks() {
+    private function init_hooks()
+    {
         add_action('after_setup_theme', array($this, 'theme_setup'));
         add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
         add_action('customize_register', array($this, 'customize_register'));
         add_action('init', array($this, 'register_widgets'));
     }
-    
+
     /**
      * Theme setup
      */
-    public function theme_setup() {
+    public function theme_setup()
+    {
         // Load text domain
         load_child_theme_textdomain('aqualuxe', AQUALUXE_CHILD_THEME_DIR . '/languages');
-        
+
         // Add theme support
         add_theme_support('automatic-feed-links');
         add_theme_support('title-tag');
@@ -87,25 +94,28 @@ class AquaLuxe_Theme {
         add_theme_support('wc-product-gallery-lightbox');
         add_theme_support('wc-product-gallery-slider');
     }
-    
+
     /**
      * Enqueue scripts and styles
      */
-    public function enqueue_scripts() {
+    public function enqueue_scripts()
+    {
         aqualuxe_enqueue_scripts();
     }
-    
+
     /**
      * Register customizer settings
      */
-    public function customize_register($wp_customize) {
+    public function customize_register($wp_customize)
+    {
         aqualuxe_customize_register($wp_customize);
     }
-    
+
     /**
      * Register custom widgets
      */
-    public function register_widgets() {
+    public function register_widgets()
+    {
         // Register custom widget areas
         register_sidebar(array(
             'name' => esc_html__('Shop Sidebar', 'aqualuxe'),
@@ -116,7 +126,7 @@ class AquaLuxe_Theme {
             'before_title' => '<h2 class="widget-title">',
             'after_title' => '</h2>',
         ));
-        
+
         register_sidebar(array(
             'name' => esc_html__('Product Sidebar', 'aqualuxe'),
             'id' => 'product-sidebar',
@@ -132,7 +142,8 @@ class AquaLuxe_Theme {
 /**
  * Initialize the theme
  */
-function aqualuxe_theme() {
+function aqualuxe_theme()
+{
     return AquaLuxe_Theme::get_instance();
 }
 
