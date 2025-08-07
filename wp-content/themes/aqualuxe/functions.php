@@ -1,5 +1,4 @@
 <?php
-
 /**
  * AquaLuxe Child Theme Functions
  *
@@ -36,14 +35,14 @@ require_once AQUALUXE_CHILD_THEME_DIR . '/inc/demo-content.php';
  */
 class AquaLuxe_Theme
 {
-
+    
     /**
      * Instance of the class
      * 
      * @var AquaLuxe_Theme
      */
     private static $instance;
-
+    
     /**
      * Get instance of the class
      * 
@@ -56,7 +55,7 @@ class AquaLuxe_Theme
         }
         return self::$instance;
     }
-
+    
     /**
      * Constructor
      */
@@ -64,26 +63,24 @@ class AquaLuxe_Theme
     {
         $this->init_hooks();
     }
-
+    
     /**
      * Initialize hooks
      */
     private function init_hooks()
     {
         add_action('after_setup_theme', array($this, 'theme_setup'));
+        add_action('init', array($this, 'load_textdomain'));
         add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
         add_action('customize_register', array($this, 'customize_register'));
-        add_action('init', array($this, 'register_widgets'));
+        add_action('widgets_init', array($this, 'register_widgets'));
     }
-
+    
     /**
      * Theme setup
      */
     public function theme_setup()
     {
-        // Load text domain
-        load_child_theme_textdomain('aqualuxe', AQUALUXE_CHILD_THEME_DIR . '/languages');
-
         // Add theme support
         add_theme_support('automatic-feed-links');
         add_theme_support('title-tag');
@@ -94,7 +91,15 @@ class AquaLuxe_Theme
         add_theme_support('wc-product-gallery-lightbox');
         add_theme_support('wc-product-gallery-slider');
     }
-
+    
+    /**
+     * Load text domain
+     */
+    public function load_textdomain()
+    {
+        load_child_theme_textdomain('aqualuxe', AQUALUXE_CHILD_THEME_DIR . '/languages');
+    }
+    
     /**
      * Enqueue scripts and styles
      */
@@ -102,7 +107,7 @@ class AquaLuxe_Theme
     {
         aqualuxe_enqueue_scripts();
     }
-
+    
     /**
      * Register customizer settings
      */
@@ -110,7 +115,7 @@ class AquaLuxe_Theme
     {
         aqualuxe_customize_register($wp_customize);
     }
-
+    
     /**
      * Register custom widgets
      */
@@ -126,7 +131,7 @@ class AquaLuxe_Theme
             'before_title' => '<h2 class="widget-title">',
             'after_title' => '</h2>',
         ));
-
+        
         register_sidebar(array(
             'name' => esc_html__('Product Sidebar', 'aqualuxe'),
             'id' => 'product-sidebar',
