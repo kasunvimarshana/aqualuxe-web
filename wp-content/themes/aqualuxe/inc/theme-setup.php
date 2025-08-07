@@ -50,6 +50,9 @@ if (!function_exists('aqualuxe_theme_setup')) {
         
         // Add support for experimental link color control
         add_theme_support('experimental-link-color');
+        
+        // Add support for editor styles
+        add_theme_support('editor-styles');
     }
 }
 add_action('after_setup_theme', 'aqualuxe_theme_setup');
@@ -125,6 +128,26 @@ if (!function_exists('aqualuxe_widgets_init')) {
             'description' => esc_html__('Add widgets here to appear in footer column 3.', 'aqualuxe'),
             'before_widget' => '<section id="%1$s" class="widget %2$s">',
             'after_widget' => '</section>',
+            'before_title' => '<h2 class="widget-title">',
+            'after_title' => '</h2>',
+        ));
+        
+        register_sidebar(array(
+            'name' => esc_html__('Homepage Hero', 'aqualuxe'),
+            'id' => 'homepage-hero',
+            'description' => esc_html__('Add widgets here to appear in the homepage hero section.', 'aqualuxe'),
+            'before_widget' => '<div id="%1$s" class="hero-widget %2$s">',
+            'after_widget' => '</div>',
+            'before_title' => '<h2 class="widget-title">',
+            'after_title' => '</h2>',
+        ));
+        
+        register_sidebar(array(
+            'name' => esc_html__('Homepage Content', 'aqualuxe'),
+            'id' => 'homepage-content',
+            'description' => esc_html__('Add widgets here to appear in the homepage content area.', 'aqualuxe'),
+            'before_widget' => '<div id="%1$s" class="content-widget %2$s">',
+            'after_widget' => '</div>',
             'before_title' => '<h2 class="widget-title">',
             'after_title' => '</h2>',
         ));
