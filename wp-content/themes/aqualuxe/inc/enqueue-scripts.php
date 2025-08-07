@@ -46,12 +46,20 @@ if (!function_exists('aqualuxe_enqueue_scripts')) {
             AQUALUXE_VERSION
         );
         
+        // Enqueue product components fixes
+        wp_enqueue_style(
+            'aqualuxe-product-fixes',
+            get_stylesheet_directory_uri() . '/assets/css/product-components-fixes.css',
+            array('aqualuxe-style'),
+            AQUALUXE_VERSION
+        );
+        
         // Enqueue WooCommerce specific styles
         if (class_exists('WooCommerce') && (is_woocommerce() || is_cart() || is_checkout() || is_account_page())) {
             wp_enqueue_style(
                 'aqualuxe-woocommerce-style',
                 get_stylesheet_directory_uri() . '/assets/css/woocommerce.css',
-                array('aqualuxe-style'),
+                array('aqualuxe-style', 'aqualuxe-product-fixes'),
                 AQUALUXE_VERSION
             );
         }

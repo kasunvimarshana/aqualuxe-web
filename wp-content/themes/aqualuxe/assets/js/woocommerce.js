@@ -1,5 +1,5 @@
 /**
- * AquaLuxe WooCommerce JavaScript - Luxury Ornamental Fish Theme
+ * AquaLuxe WooCommerce JavaScript
  *
  * @package AquaLuxe
  * @since 1.0.0
@@ -23,8 +23,7 @@
       this.ajaxAddToCart();
       this.quickView();
       this.productGallery();
-      this.productFilters();
-      this.luxuryCheckout();
+      this.responsiveAdjustments();
     },
     
     /**
@@ -59,36 +58,16 @@
               // Update cart count in header
               $('.cart-count').text(response.data.cart_count);
               
-              // Show success message with luxury styling
-              $('body').append('<div class="luxury-notice luxury-notice-success">' + response.data.message + '</div>');
-              $('.luxury-notice').fadeIn().delay(3000).fadeOut(function() {
-                $(this).remove();
-              });
-              
-              // Update cart widget if it exists
-              if (typeof wc_cart_fragments_params !== 'undefined') {
-                $.get(wc_cart_fragments_params.wc_ajax_url.toString().replace('%%endpoint%%', 'get_refreshed_fragments'), function(data) {
-                  if (data && data.fragments) {
-                    $.each(data.fragments, function(key, value) {
-                      $(key).replaceWith(value);
-                    });
-                  }
-                });
-              }
+              // Show success message
+              alert(response.data.message);
             } else {
-              // Show error message with luxury styling
-              $('body').append('<div class="luxury-notice luxury-notice-error">' + response.data.message + '</div>');
-              $('.luxury-notice').fadeIn().delay(3000).fadeOut(function() {
-                $(this).remove();
-              });
+              // Show error message
+              alert(response.data.message);
             }
           },
           error: function() {
-            // Show error message with luxury styling
-            $('body').append('<div class="luxury-notice luxury-notice-error">' + aqualuxe_ajax.i18n.added_to_cart_error + '</div>');
-            $('.luxury-notice').fadeIn().delay(3000).fadeOut(function() {
-              $(this).remove();
-            });
+            // Show error message
+            alert('An error occurred. Please try again.');
           },
           complete: function() {
             // Hide loading indicator
@@ -103,11 +82,6 @@
      * Quick view functionality
      */
     quickView: function() {
-      // Check if quick view is enabled
-      if (typeof aqualuxe_ajax !== 'undefined' && aqualuxe_ajax.quick_view_enabled !== '1') {
-        return;
-      }
-      
       // Quick view button click
       $(document).on('click', '.aqualuxe-quick-view', function(e) {
         e.preventDefault();
@@ -129,28 +103,24 @@
           },
           success: function(response) {
             if (response.success) {
-              // Create modal with luxury styling
+              // Create modal
               var $modal = $('<div class="aqualuxe-quick-view-modal"><div class="aqualuxe-quick-view-content">' + response.data.content + '<button class="aqualuxe-quick-view-close">&times;</button></div></div>');
               
               // Add to body
               $('body').append($modal);
               
-              // Show modal with animation
+              // Show modal
               setTimeout(function() {
                 $modal.addClass('active');
               }, 10);
-              
-              // Initialize any necessary scripts in the modal
-              $modal.find('.variations_form').wc_variation_form();
-              $modal.find('.quantity input').trigger('change');
             } else {
               // Show error message
-              alert(aqualuxe_ajax.i18n.quick_view_error);
+              alert('An error occurred. Please try again.');
             }
           },
           error: function() {
             // Show error message
-            alert(aqualuxe_ajax.i18n.quick_view_error);
+            alert('An error occurred. Please try again.');
           },
           complete: function() {
             // Hide loading indicator
@@ -190,9 +160,7 @@
     productGallery: function() {
       // Add zoom functionality to product images
       if ($.fn.zoom) {
-        $('.woocommerce-product-gallery__image').zoom({
-          magnify: 1.2
-        });
+        $('.woocommerce-product-gallery__image').zoom();
       }
       
       // Add lightbox functionality to product images
@@ -201,56 +169,63 @@
           type: 'image',
           gallery: {
             enabled: true
-          },
-          mainClass: 'mfp-with-zoom',
-          zoom: {
-            enabled: true,
-            duration: 300,
-            easing: 'ease-in-out'
           }
         });
       }
     },
     
     /**
-     * Product filters
+     * Responsive adjustments for product components
      */
-    productFilters: function() {
-      // Handle filter form submission
-      $('.woocommerce-ordering select').on('change', function() {
-        $(this).closest('form').submit();
+    responsiveAdjustments: function() {
+      // Adjust product grid based on screen size
+      function adjustProductGrid() {
+        var windowWidth = $(window).width();
+        var $products = $('.woocommerce ul.products');
+        
+        if (windowWidth < 480) {
+          $products.removeClass('columns-3 columns-4').addClass('columns-1');
+        } else if (windowWidth < 768) {
+          $products.removeClass('columns-1 columns-4').addClass('columns-2');
+        } else {
+          $products.removeClass('columns-1 columns-2').addClass('columns-3');
+        }
+      }
+      
+      // Initial adjustment
+      adjustProductGrid();
+      
+      // Adjust on window resize
+      $(window).resize(function() {
+        adjustProductGrid();
       });
       
-      // Handle category filter links
-      $('.product-categories a').on('click', function(e) {
-        // Add loading state
-        $(this).addClass('loading');
-      });
-    },
-    
-    /**
-     * Luxury checkout enhancements
-     */
-    luxuryCheckout: function() {
-      // Add luxury styling to checkout fields
-      $('.woocommerce-checkout .form-row input, .woocommerce-checkout .form-row select, .woocommerce-checkout .form-row textarea').each(function() {
-        var $field = $(this);
-        var $parent = $field.closest('.form-row');
-        
-        // Add focus effect
-        $field.on('focus', function() {
-          $parent.addClass('focused');
+      // Ensure consistent product card heights
+      function equalizeProductCardHeights() {
+        $('.woocommerce ul.products li.product').each(function() {
+          // Reset height
+          $(this).find('.woocommerce-loop-product__title').css('height', 'auto');
+          
+          // Find max height
+          var maxHeight = 0;
+          $('.woocommerce ul.products li.product .woocommerce-loop-product__title').each(function() {
+            var height = $(this).outerHeight();
+            if (height > maxHeight) {
+              maxHeight = height;
+            }
+          });
+          
+          // Apply max height
+          $('.woocommerce ul.products li.product .woocommerce-loop-product__title').css('height', maxHeight + 'px');
         });
-        
-        $field.on('blur', function() {
-          $parent.removeClass('focused');
-        });
-      });
+      }
       
-      // Handle payment method selection
-      $(document).on('change', 'input[name="payment_method"]', function() {
-        $('.payment_box').slideUp(250);
-        $(this).closest('li').find('.payment_box').slideDown(250);
+      // Initial equalization
+      equalizeProductCardHeights();
+      
+      // Equalize on window resize
+      $(window).resize(function() {
+        equalizeProductCardHeights();
       });
     }
   };
