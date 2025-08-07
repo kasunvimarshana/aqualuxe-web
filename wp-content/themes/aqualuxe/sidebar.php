@@ -3,7 +3,7 @@
  * The sidebar containing the main widget area
  *
  * @package AquaLuxe
- * @version 1.0.0
+ * @since 1.0.0
  */
 
 if (!is_active_sidebar('sidebar-1')) {
@@ -11,6 +11,6 @@ if (!is_active_sidebar('sidebar-1')) {
 }
 ?>
 
-<aside id="secondary" class="widget-area" role="complementary">
-    <?php dynamic_sidebar('sidebar-1'); ?>
-</aside>
+<aside id="secondary" class="widget-area">
+  <?php dynamic_sidebar('sidebar-1'); ?>
+</aside><!-- #secondary -->
