@@ -1,5 +1,5 @@
 /**
- * AquaLuxe Custom JavaScript
+ * AquaLuxe Custom JavaScript - Luxury Ornamental Fish Theme
  *
  * @package AquaLuxe
  * @since 1.0.0
@@ -24,6 +24,8 @@
       this.mobileMenu();
       this.accessibility();
       this.smoothScroll();
+      this.luxuryAnimations();
+      this.productHoverEffects();
     },
     
     /**
@@ -106,6 +108,64 @@
             return false;
           }
         }
+      });
+    },
+    
+    /**
+     * Luxury animations
+     */
+    luxuryAnimations: function() {
+      // Fade in elements when they come into view
+      $('.fade-in').each(function() {
+        var $element = $(this);
+        var elementTop = $element.offset().top;
+        var elementHeight = $element.outerHeight();
+        var windowHeight = $(window).height();
+        var scrollPos = $(window).scrollTop();
+        
+        // Check if element is in viewport
+        if (elementTop < scrollPos + windowHeight && elementTop + elementHeight > scrollPos) {
+          $element.addClass('animated');
+        }
+      });
+      
+      // Animate elements on scroll
+      $(window).scroll(function() {
+        $('.fade-in').each(function() {
+          var $element = $(this);
+          var elementTop = $element.offset().top;
+          var elementHeight = $element.outerHeight();
+          var windowHeight = $(window).height();
+          var scrollPos = $(window).scrollTop();
+          
+          // Check if element is in viewport
+          if (elementTop < scrollPos + windowHeight - 100 && elementTop + elementHeight > scrollPos) {
+            $element.addClass('animated');
+          }
+        });
+      });
+    },
+    
+    /**
+     * Product hover effects
+     */
+    productHoverEffects: function() {
+      // Add hover effect to product images
+      $('.woocommerce ul.products li.product .woocommerce-loop-product__link img').each(function() {
+        var $img = $(this);
+        var $container = $img.closest('.woocommerce-loop-product__link');
+        
+        // Add overlay on hover
+        $container.on('mouseenter', function() {
+          if (!$container.find('.luxury-overlay').length) {
+            $container.append('<div class="luxury-overlay"></div>');
+          }
+          $container.find('.luxury-overlay').addClass('active');
+        });
+        
+        $container.on('mouseleave', function() {
+          $container.find('.luxury-overlay').removeClass('active');
+        });
       });
     }
   };
