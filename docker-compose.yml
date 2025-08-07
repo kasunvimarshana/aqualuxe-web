@@ -58,10 +58,11 @@ services:
       # Mount entire WordPress core
       - ./wordpress:/var/www/html
       # Mount only specific content directories
-      - ./wp-content/plugins:/var/www/html/wp-content/plugins
-      - ./wp-content/themes:/var/www/html/wp-content/themes
-      - ./wp-content/uploads:/var/www/html/wp-content/uploads
-      - ./wp-content/mu-plugins:/var/www/html/wp-content/mu-plugins
+      # - ./wp-content/plugins:/var/www/html/wp-content/plugins
+      # - ./wp-content/themes:/var/www/html/wp-content/themes
+      # - ./wp-content/uploads:/var/www/html/wp-content/uploads
+      # - ./wp-content/mu-plugins:/var/www/html/wp-content/mu-plugins
+      - ./wp-content/themes/aqualuxe:/var/www/html/wp-content/themes/aqualuxe
       - ./logs:/var/log
     ports:
       - '8080:80'
