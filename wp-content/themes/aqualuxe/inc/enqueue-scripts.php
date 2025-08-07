@@ -117,9 +117,9 @@ if (!function_exists('aqualuxe_enqueue_scripts')) {
                 'nonce' => wp_create_nonce('aqualuxe_nonce'),
                 'quick_view_enabled' => get_theme_mod('aqualuxe_quick_view', true) ? '1' : '0',
                 'i18n' => array(
-                    'added_to_cart_success' => esc_html__('Product added to cart successfully!', 'aqualuxe'),
-                    'added_to_cart_error' => esc_html__('Could not add product to cart.', 'aqualuxe'),
-                    'quick_view_error' => esc_html__('Error loading quick view.', 'aqualuxe')
+                    'added_to_cart_success' => __('Product added to cart successfully!', 'aqualuxe'),
+                    'added_to_cart_error' => __('Could not add product to cart.', 'aqualuxe'),
+                    'quick_view_error' => __('Error loading quick view.', 'aqualuxe')
                 )
             ));
         }
