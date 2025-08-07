@@ -110,9 +110,16 @@ if (!function_exists('aqualuxe_product_schema_markup')) {
      */
     function aqualuxe_product_schema_markup() {
         if (class_exists('WooCommerce') && is_product()) {
+            // Get the global product object
             global $product;
             
-            if (!$product) {
+            // If $product is not set or is not a WC_Product object, try to get it properly
+            if (!$product || !is_a($product, 'WC_Product')) {
+                $product = wc_get_product(get_the_ID());
+            }
+            
+            // If we still don't have a product, return
+            if (!$product || !is_a($product, 'WC_Product')) {
                 return;
             }
             
