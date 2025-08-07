@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Define theme constants
-define('AQUALUXE_VERSION', '1.0.0');
+define('AQUALUXE_VERSION', '1.0.1');
 define('AQUALUXE_THEME_DIR', get_template_directory());
 define('AQUALUXE_CHILD_THEME_DIR', get_stylesheet_directory());
 define('AQUALUXE_THEME_URI', get_template_directory_uri());

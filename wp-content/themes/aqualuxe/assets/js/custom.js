@@ -8,6 +8,20 @@
 (function($) {
   'use strict';
   
+  // Throttle function to limit event handler execution
+  function throttle(func, wait) {
+    var timeout;
+    return function() {
+      var context = this, args = arguments;
+      if (!timeout) {
+        timeout = setTimeout(function() {
+          timeout = null;
+          func.apply(context, args);
+        }, wait);
+      }
+    };
+  }
+  
   // Document ready
   $(document).ready(function() {
     // Initialize theme functionality
@@ -37,13 +51,14 @@
         var header = $('.site-header');
         var headerHeight = header.outerHeight();
         
-        $(window).scroll(function() {
+        // Throttle scroll event handler
+        $(window).scroll(throttle(function() {
           if ($(window).scrollTop() > headerHeight) {
             header.addClass('sticky');
           } else {
             header.removeClass('sticky');
           }
-        });
+        }, 100));
       }
     },
     
@@ -60,8 +75,8 @@
       
       // Close mobile menu when clicking outside
       $(document).on('click', function(e) {
-        if (!$(e.target).closest('.main-navigation').length && 
-            !$(e.target).closest('.menu-toggle').length && 
+        if (!$(e.target).closest('.main-navigation').length &&
+            !$(e.target).closest('.menu-toggle').length &&
             $('.main-navigation').hasClass('toggled')) {
           $('.main-navigation').removeClass('toggled');
           $('.menu-toggle').removeClass('active');
@@ -97,7 +112,7 @@
     smoothScroll: function() {
       // Smooth scroll for anchor links
       $('a[href*="#"]:not([href="#"])').on('click', function(e) {
-        if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && 
+        if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') &&
             location.hostname === this.hostname) {
           var target = $(this.hash);
           target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
@@ -115,22 +130,8 @@
      * Luxury animations
      */
     luxuryAnimations: function() {
-      // Fade in elements when they come into view
-      $('.fade-in').each(function() {
-        var $element = $(this);
-        var elementTop = $element.offset().top;
-        var elementHeight = $element.outerHeight();
-        var windowHeight = $(window).height();
-        var scrollPos = $(window).scrollTop();
-        
-        // Check if element is in viewport
-        if (elementTop < scrollPos + windowHeight && elementTop + elementHeight > scrollPos) {
-          $element.addClass('animated');
-        }
-      });
-      
-      // Animate elements on scroll
-      $(window).scroll(function() {
+      // Throttle scroll event handler
+      var throttledScrollHandler = throttle(function() {
         $('.fade-in').each(function() {
           var $element = $(this);
           var elementTop = $element.offset().top;
@@ -143,29 +144,31 @@
             $element.addClass('animated');
           }
         });
-      });
+      }, 100);
+      
+      // Attach throttled scroll handler
+      $(window).scroll(throttledScrollHandler);
+      
+      // Initial check for elements in viewport
+      throttledScrollHandler();
     },
     
     /**
      * Product hover effects
      */
     productHoverEffects: function() {
-      // Add hover effect to product images
-      $('.woocommerce ul.products li.product .woocommerce-loop-product__link img').each(function() {
-        var $img = $(this);
-        var $container = $img.closest('.woocommerce-loop-product__link');
-        
-        // Add overlay on hover
-        $container.on('mouseenter', function() {
-          if (!$container.find('.luxury-overlay').length) {
-            $container.append('<div class="luxury-overlay"></div>');
-          }
-          $container.find('.luxury-overlay').addClass('active');
-        });
-        
-        $container.on('mouseleave', function() {
-          $container.find('.luxury-overlay').removeClass('active');
-        });
+      // Use event delegation for hover effects instead of attaching to each image
+      $('.woocommerce ul.products').on('mouseenter', '.woocommerce-loop-product__link', function() {
+        var $container = $(this);
+        if (!$container.find('.luxury-overlay').length) {
+          $container.append('<div class="luxury-overlay"></div>');
+        }
+        $container.find('.luxury-overlay').addClass('active');
+      });
+      
+      $('.woocommerce ul.products').on('mouseleave', '.woocommerce-loop-product__link', function() {
+        var $container = $(this);
+        $container.find('.luxury-overlay').removeClass('active');
       });
     }
   };

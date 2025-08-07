@@ -55,6 +55,13 @@ if (!$product) {
       </div>
       
       <?php
+      // Display variation options for variable products
+      if ($product->is_type('variable')) {
+        echo '<div class="product-variations">';
+        woocommerce_variable_add_to_cart();
+        echo '</div>';
+      }
+      
       // Display product meta
       if ($product->get_sku() || $product->get_categories()) {
         echo '<div class="product-meta">';
@@ -79,8 +86,10 @@ if (!$product) {
       
       <div class="quick-view-actions">
         <?php
-        // Display add to cart button
-        woocommerce_template_single_add_to_cart();
+        // Display add to cart button (only for non-variable products)
+        if (!$product->is_type('variable')) {
+          woocommerce_template_single_add_to_cart();
+        }
         ?>
         
         <a href="<?php echo esc_url($product->get_permalink()); ?>" class="button view-details">

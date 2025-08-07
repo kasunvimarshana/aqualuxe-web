@@ -35,32 +35,62 @@ if (!function_exists('aqualuxe_opengraph_tags')) {
      * @since 1.0.0
      */
     function aqualuxe_opengraph_tags() {
+        global $post;
+        
+        // Default values
+        $title = get_bloginfo('name');
+        $description = get_bloginfo('description');
+        $url = home_url();
+        $site_name = get_bloginfo('name');
+        $image = '';
+        $type = 'website';
+        
+        // For singular posts/pages
         if (is_singular()) {
-            global $post;
-            
-            // Get post data
             $title = get_the_title();
             $description = wp_trim_words(strip_tags(get_the_excerpt()), 30);
             $url = get_permalink();
-            $site_name = get_bloginfo('name');
             
             // Get featured image
-            $image = '';
             if (has_post_thumbnail($post->ID)) {
                 $image_data = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
                 $image = $image_data[0];
             }
             
-            // Output Open Graph tags
-            echo '<meta property="og:type" content="website">' . "\n";
-            echo '<meta property="og:title" content="' . esc_attr($title) . '">' . "\n";
-            echo '<meta property="og:description" content="' . esc_attr($description) . '">' . "\n";
-            echo '<meta property="og:url" content="' . esc_url($url) . '">' . "\n";
-            echo '<meta property="og:site_name" content="' . esc_attr($site_name) . '">' . "\n";
-            
-            if ($image) {
-                echo '<meta property="og:image" content="' . esc_url($image) . '">' . "\n";
+            $type = 'article';
+        }
+        
+        // For WooCommerce products
+        if (class_exists('WooCommerce') && is_product()) {
+            $product = wc_get_product($post->ID);
+            if ($product) {
+                $title = $product->get_name();
+                $description = wp_trim_words(strip_tags($product->get_short_description()), 30);
+                $type = 'product';
+                
+                // Get product image
+                if (has_post_thumbnail($product->get_id())) {
+                    $image_data = wp_get_attachment_image_src(get_post_thumbnail_id($product->get_id()), 'full');
+                    $image = $image_data[0];
+                }
             }
+        }
+        
+        // Output Open Graph tags
+        echo '<meta property="og:type" content="' . esc_attr($type) . '">' . "\n";
+        echo '<meta property="og:title" content="' . esc_attr($title) . '">' . "\n";
+        echo '<meta property="og:description" content="' . esc_attr($description) . '">' . "\n";
+        echo '<meta property="og:url" content="' . esc_url($url) . '">' . "\n";
+        echo '<meta property="og:site_name" content="' . esc_attr($site_name) . '">' . "\n";
+        
+        if ($image) {
+            echo '<meta property="og:image" content="' . esc_url($image) . '">' . "\n";
+        }
+        
+        // Add locale if available
+        $locale = get_locale();
+        if ($locale) {
+            echo '<meta property="og:locale" content="' . esc_attr($locale) . '">' . "\n";
         }
     }
 }
@@ -74,28 +104,56 @@ if (!function_exists('aqualuxe_twitter_cards')) {
      * @since 1.0.0
      */
     function aqualuxe_twitter_cards() {
+        global $post;
+        
+        // Default values
+        $title = get_bloginfo('name');
+        $description = get_bloginfo('description');
+        $image = '';
+        $card_type = 'summary';
+        
+        // For singular posts/pages
         if (is_singular()) {
-            global $post;
-            
-            // Get post data
             $title = get_the_title();
             $description = wp_trim_words(strip_tags(get_the_excerpt()), 30);
+            $card_type = 'summary_large_image';
             
             // Get featured image
-            $image = '';
             if (has_post_thumbnail($post->ID)) {
                 $image_data = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
                 $image = $image_data[0];
             }
-            
-            // Output Twitter Card tags
-            echo '<meta name="twitter:card" content="summary_large_image">' . "\n";
-            echo '<meta name="twitter:title" content="' . esc_attr($title) . '">' . "\n";
-            echo '<meta name="twitter:description" content="' . esc_attr($description) . '">' . "\n";
-            
-            if ($image) {
-                echo '<meta name="twitter:image" content="' . esc_url($image) . '">' . "\n";
+        }
+        
+        // For WooCommerce products
+        if (class_exists('WooCommerce') && is_product()) {
+            $product = wc_get_product($post->ID);
+            if ($product) {
+                $title = $product->get_name();
+                $description = wp_trim_words(strip_tags($product->get_short_description()), 30);
+                $card_type = 'summary_large_image';
+                
+                // Get product image
+                if (has_post_thumbnail($product->get_id())) {
+                    $image_data = wp_get_attachment_image_src(get_post_thumbnail_id($product->get_id()), 'full');
+                    $image = $image_data[0];
+                }
             }
+        }
+        
+        // Output Twitter Card tags
+        echo '<meta name="twitter:card" content="' . esc_attr($card_type) . '">' . "\n";
+        echo '<meta name="twitter:title" content="' . esc_attr($title) . '">' . "\n";
+        echo '<meta name="twitter:description" content="' . esc_attr($description) . '">' . "\n";
+        
+        if ($image) {
+            echo '<meta name="twitter:image" content="' . esc_url($image) . '">' . "\n";
+        }
+        
+        // Add site Twitter handle if set in customizer
+        $twitter_handle = get_theme_mod('aqualuxe_twitter_handle', '');
+        if ($twitter_handle) {
+            echo '<meta name="twitter:site" content="' . esc_attr($twitter_handle) . '">' . "\n";
         }
     }
 }
@@ -133,7 +191,7 @@ if (!function_exists('aqualuxe_product_schema_markup')) {
                     '@type' => 'Offer',
                     'price' => $product->get_price(),
                     'priceCurrency' => get_woocommerce_currency(),
-                    'availability' => $product->is_in_stock() ? 'InStock' : 'OutOfStock',
+                    'availability' => $product->is_in_stock() ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
                     'url' => $product->get_permalink()
                 )
             );
@@ -150,6 +208,51 @@ if (!function_exists('aqualuxe_product_schema_markup')) {
                 $schema['brand'] = array(
                     '@type' => 'Brand',
                     'name' => $brand
+                );
+            }
+            
+            // Add product category
+            $categories = get_the_terms($product->get_id(), 'product_cat');
+            if ($categories && !is_wp_error($categories)) {
+                $category_names = wp_list_pluck($categories, 'name');
+                $schema['category'] = $category_names;
+            }
+            
+            // Add product tags
+            $tags = get_the_terms($product->get_id(), 'product_tag');
+            if ($tags && !is_wp_error($tags)) {
+                $tag_names = wp_list_pluck($tags, 'name');
+                $schema['keywords'] = implode(', ', $tag_names);
+            }
+            
+            // Add review information if available
+            $reviews = $product->get_reviews();
+            if (!empty($reviews)) {
+                $schema['review'] = array();
+                foreach ($reviews as $review) {
+                    $schema['review'][] = array(
+                        '@type' => 'Review',
+                        'reviewRating' => array(
+                            '@type' => 'Rating',
+                            'ratingValue' => $review->rating
+                        ),
+                        'author' => array(
+                            '@type' => 'Person',
+                            'name' => $review->author
+                        ),
+                        'reviewBody' => $review->comment
+                    );
+                }
+            }
+            
+            // Add aggregate rating if available
+            $rating_count = $product->get_rating_count();
+            $average_rating = $product->get_average_rating();
+            if ($rating_count > 0) {
+                $schema['aggregateRating'] = array(
+                    '@type' => 'AggregateRating',
+                    'ratingValue' => $average_rating,
+                    'reviewCount' => $rating_count
                 );
             }
             

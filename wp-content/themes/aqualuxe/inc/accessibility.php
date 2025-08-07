@@ -147,7 +147,19 @@ if (!function_exists('aqualuxe_skip_links')) {
         <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to primary content', 'aqualuxe'); ?></a>
         <?php if (is_active_sidebar('sidebar-1')) : ?>
             <a class="skip-link screen-reader-text" href="#secondary"><?php esc_html_e('Skip to sidebar', 'aqualuxe'); ?></a>
-        <?php endif;
+        <?php endif; ?>
+        <?php if (class_exists('WooCommerce')) : ?>
+            <a class="skip-link screen-reader-text" href="#main"><?php esc_html_e('Skip to main content', 'aqualuxe'); ?></a>
+            <a class="skip-link screen-reader-text" href="#site-navigation"><?php esc_html_e('Skip to navigation', 'aqualuxe'); ?></a>
+            <?php if (is_shop() || is_product_category() || is_product_tag()) : ?>
+                <a class="skip-link screen-reader-text" href="#product-filter"><?php esc_html_e('Skip to product filter', 'aqualuxe'); ?></a>
+            <?php endif; ?>
+            <?php if (is_cart() || is_checkout()) : ?>
+                <a class="skip-link screen-reader-text" href="#order_review"><?php esc_html_e('Skip to order review', 'aqualuxe'); ?></a>
+            <?php endif; ?>
+        <?php endif; ?>
+        <a class="skip-link screen-reader-text" href="#colophon"><?php esc_html_e('Skip to footer', 'aqualuxe'); ?></a>
+        <?php
     }
 }
 
@@ -207,9 +219,19 @@ if (!function_exists('aqualuxe_heading_structure')) {
      * @since 1.0.0
      */
     function aqualuxe_heading_structure($content) {
-        // This is a placeholder for more complex heading structure adjustments
-        // In a real implementation, you might want to adjust heading levels
-        // based on the context of the page
+        // For blog posts and pages, ensure proper heading hierarchy
+        if (is_single() || is_page()) {
+            // Get the post title
+            $title = get_the_title();
+            
+            // Replace the first h1 with h2 if it's not the post title
+            $content = preg_replace('/<h1>(.*?)<\/h1>/', '<h2>$1</h2>', $content, 1);
+            
+            // If the post title is not in the content, add it as h1
+            if (strpos($content, $title) === false) {
+                $content = '<h1>' . $title . '</h1>' . $content;
+            }
+        }
         
         return $content;
     }

@@ -8,6 +8,20 @@
 (function($) {
   'use strict';
   
+  // Throttle function to limit event handler execution
+  function throttle(func, wait) {
+    var timeout;
+    return function() {
+      var context = this, args = arguments;
+      if (!timeout) {
+        timeout = setTimeout(function() {
+          timeout = null;
+          func.apply(context, args);
+        }, wait);
+      }
+    };
+  }
+  
   // Document ready
   $(document).ready(function() {
     // Initialize WooCommerce functionality
@@ -178,8 +192,8 @@
      * Responsive adjustments for product components
      */
     responsiveAdjustments: function() {
-      // Adjust product grid based on screen size
-      function adjustProductGrid() {
+      // Throttled function to adjust product grid based on screen size
+      var throttledAdjustProductGrid = throttle(function() {
         var windowWidth = $(window).width();
         var $products = $('.woocommerce ul.products');
         
@@ -190,42 +204,38 @@
         } else {
           $products.removeClass('columns-1 columns-2').addClass('columns-3');
         }
-      }
+      }, 100);
       
-      // Initial adjustment
-      adjustProductGrid();
+      // Throttled function to ensure consistent product card heights
+      var throttledEqualizeProductCardHeights = throttle(function() {
+        // Cache jQuery objects to avoid repeated DOM queries
+        var $products = $('.woocommerce ul.products li.product');
+        var $titles = $products.find('.woocommerce-loop-product__title');
+        
+        // Reset height
+        $titles.css('height', 'auto');
+        
+        // Find max height
+        var maxHeight = 0;
+        $titles.each(function() {
+          var height = $(this).outerHeight();
+          if (height > maxHeight) {
+            maxHeight = height;
+          }
+        });
+        
+        // Apply max height
+        $titles.css('height', maxHeight + 'px');
+      }, 100);
+      
+      // Initial adjustments
+      throttledAdjustProductGrid();
+      throttledEqualizeProductCardHeights();
       
       // Adjust on window resize
       $(window).resize(function() {
-        adjustProductGrid();
-      });
-      
-      // Ensure consistent product card heights
-      function equalizeProductCardHeights() {
-        $('.woocommerce ul.products li.product').each(function() {
-          // Reset height
-          $(this).find('.woocommerce-loop-product__title').css('height', 'auto');
-          
-          // Find max height
-          var maxHeight = 0;
-          $('.woocommerce ul.products li.product .woocommerce-loop-product__title').each(function() {
-            var height = $(this).outerHeight();
-            if (height > maxHeight) {
-              maxHeight = height;
-            }
-          });
-          
-          // Apply max height
-          $('.woocommerce ul.products li.product .woocommerce-loop-product__title').css('height', maxHeight + 'px');
-        });
-      }
-      
-      // Initial equalization
-      equalizeProductCardHeights();
-      
-      // Equalize on window resize
-      $(window).resize(function() {
-        equalizeProductCardHeights();
+        throttledAdjustProductGrid();
+        throttledEqualizeProductCardHeights();
       });
     }
   };

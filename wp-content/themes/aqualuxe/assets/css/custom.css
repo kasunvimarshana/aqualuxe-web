@@ -5,7 +5,9 @@
  * @since 1.0.0
  */
 
-/* Variables - Luxury Aquatic Color Palette */
+/*============================================================================
+  #CSS Variables - Luxury Aquatic Color Palette
+==============================================================================*/
 :root {
   /* Primary luxury colors */
   --primary-color: #00a896; /* Deep aqua teal */
@@ -49,7 +51,9 @@
   --spacing-xxl: 4rem;
 }
 
-/* Base Styles - Luxury Typography */
+/*============================================================================
+  #Base Styles - Luxury Typography
+==============================================================================*/
 body {
   font-family: 'Playfair Display', Georgia, serif;
   line-height: 1.6;
@@ -120,7 +124,9 @@ p {
   font-family: 'Lora', Georgia, serif;
 }
 
-/* Luxury Header */
+/*============================================================================
+  #Header - Luxury Header
+==============================================================================*/
 .site-header {
   background: linear-gradient(to bottom, var(--luxury-lighter), var(--luxury-light));
   box-shadow: var(--box-shadow);
@@ -170,7 +176,9 @@ p {
   z-index: 1000;
 }
 
-/* Navigation - Luxury Menu */
+/*============================================================================
+  #Navigation - Luxury Menu
+==============================================================================*/
 .main-navigation {
   background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
   border-radius: var(--border-radius);
@@ -249,7 +257,9 @@ p {
   background: var(--primary-color-hover);
 }
 
-/* Main Content - Luxury Layout */
+/*============================================================================
+  #Main Content - Luxury Layout
+==============================================================================*/
 .site-main {
   padding: var(--spacing-xl) 0;
   max-width: 1200px;
@@ -311,7 +321,9 @@ p {
   margin-bottom: var(--spacing-xs);
 }
 
-/* Footer - Elegant Footer */
+/*============================================================================
+  #Footer - Elegant Footer
+==============================================================================*/
 .site-footer {
   background: linear-gradient(to top, var(--luxury-darker), var(--luxury-dark));
   color: var(--luxury-lighter);
@@ -336,7 +348,9 @@ p {
   margin-top: var(--spacing-lg);
 }
 
-/* Buttons - Luxury Buttons */
+/*============================================================================
+  #Buttons - Luxury Buttons
+==============================================================================*/
 .button,
 button,
 input[type="button"],
@@ -410,7 +424,9 @@ input[type="submit"].button-accent {
   color: var(--luxury-dark);
 }
 
-/* Forms - Elegant Forms */
+/*============================================================================
+  #Forms - Elegant Forms
+==============================================================================*/
 input[type="text"],
 input[type="email"],
 input[type="url"],
@@ -460,7 +476,9 @@ select:focus {
   box-shadow: 0 0 0 3px rgba(0, 168, 150, 0.2);
 }
 
-/* Accessibility - WCAG 2.0 Compliance */
+/*============================================================================
+  #Accessibility - WCAG 2.0 Compliance
+==============================================================================*/
 .screen-reader-text {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
@@ -511,7 +529,9 @@ a.skip-link:focus {
   top: 6px;
 }
 
-/* Responsive - Mobile First */
+/*============================================================================
+  #Responsive - Mobile First
+==============================================================================*/
 @media (max-width: 768px) {
   .main-navigation ul {
     flex-direction: column;
@@ -576,7 +596,9 @@ a.skip-link:focus {
   }
 }
 
-/* Luxury Animations */
+/*============================================================================
+  #Luxury Animations
+==============================================================================*/
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -604,7 +626,9 @@ a.skip-link:focus {
   animation-delay: 0.6s;
 }
 
-/* Luxury Section Styling */
+/*============================================================================
+  #Luxury Section Styling
+==============================================================================*/
 .luxury-section {
   padding: var(--spacing-xl) 0;
   margin: var(--spacing-xl) 0;
@@ -646,7 +670,9 @@ a.skip-link:focus {
   background: var(--accent-color);
 }
 
-/* Luxury Card Styling */
+/*============================================================================
+  #Luxury Card Styling
+==============================================================================*/
 .luxury-card {
   background: var(--luxury-lighter);
   border-radius: var(--border-radius-lg);
@@ -681,7 +707,9 @@ a.skip-link:focus {
   transform: scaleX(1);
 }
 
-/* Luxury Icons */
+/*============================================================================
+  #Luxury Icons
+==============================================================================*/
 .luxury-icon {
   display: inline-block;
   width: 50px;
@@ -695,7 +723,9 @@ a.skip-link:focus {
   margin-bottom: var(--spacing-sm);
 }
 
-/* Luxury Divider */
+/*============================================================================
+  #Luxury Divider
+==============================================================================*/
 .luxury-divider {
   height: 1px;
   background: linear-gradient(to right, transparent, var(--border-color), transparent);
@@ -731,7 +761,9 @@ a.skip-link:focus {
   border-radius: 50%;
 }
 
-/* Luxury Testimonial */
+/*============================================================================
+  #Luxury Testimonial
+==============================================================================*/
 .luxury-testimonial {
   background: linear-gradient(135deg, var(--luxury-light), var(--luxury-gray));
   border-radius: var(--border-radius-lg);
@@ -765,7 +797,9 @@ a.skip-link:focus {
   text-align: right;
 }
 
-/* Luxury Call to Action */
+/*============================================================================
+  #Luxury Call to Action
+==============================================================================*/
 .luxury-cta {
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   border-radius: var(--border-radius-lg);
@@ -816,7 +850,9 @@ a.skip-link:focus {
   }
 }
 
-/* Hero Section - Luxury Banner */
+/*============================================================================
+  #Hero Section - Luxury Banner
+==============================================================================*/
 .hero-section {
   position: relative;
   height: 80vh;
@@ -891,7 +927,9 @@ a.skip-link:focus {
   box-shadow: var(--box-shadow-lg);
 }
 
-/* Featured Products Section */
+/*============================================================================
+  #Featured Products Section
+==============================================================================*/
 .featured-products {
   padding: var(--spacing-xl) 0;
   margin: var(--spacing-xl) 0;
@@ -922,7 +960,9 @@ a.skip-link:focus {
   background: var(--accent-color);
 }
 
-/* Promotional Banners */
+/*============================================================================
+  #Promotional Banners
+==============================================================================*/
 .promo-banner {
   background: linear-gradient(135deg, var(--luxury-dark), var(--secondary-color));
   border-radius: var(--border-radius-lg);
@@ -967,7 +1007,9 @@ a.skip-link:focus {
   margin-right: auto;
 }
 
-/* Testimonials Section */
+/*============================================================================
+  #Testimonials Section
+==============================================================================*/
 .testimonials-section {
   padding: var(--spacing-xl) 0;
   margin: var(--spacing-xl) 0;
@@ -1000,7 +1042,9 @@ a.skip-link:focus {
   background: var(--accent-color);
 }
 
-/* Call to Action Section */
+/*============================================================================
+  #Call to Action Section
+==============================================================================*/
 .cta-section {
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   border-radius: var(--border-radius-lg);
@@ -1045,7 +1089,9 @@ a.skip-link:focus {
   margin-right: auto;
 }
 
-/* Responsive Adjustments for Hero Section */
+/*============================================================================
+  #Responsive Adjustments for Hero Section
+==============================================================================*/
 @media (max-width: 768px) {
   .hero-section {
     height: 60vh;
@@ -1068,7 +1114,7 @@ a.skip-link:focus {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .hero-section {
     height: 50vh;
   }
@@ -1078,6 +1124,11 @@ a.skip-link:focus {
   }
   
   .hero-section .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .hero-section .hero-button {
+    padding: var(--spacing-sm) var(--spacing-lg);
     font-size: 1rem;
   }
   
@@ -1085,7 +1136,89 @@ a.skip-link:focus {
     font-size: 1.5rem;
   }
   
+  .promo-banner p {
+    font-size: 1rem;
+  }
+  
   .cta-section h2 {
     font-size: 1.75rem;
+  }
+  
+  .cta-section p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    height: 40vh;
+  }
+  
+  .hero-section .hero-title {
+    font-size: 1.75rem;
+  }
+  
+  .hero-section .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .hero-section .hero-button {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: 0.9rem;
+  }
+  
+  .promo-banner {
+    padding: var(--spacing-lg);
+  }
+  
+  .promo-banner h3 {
+    font-size: 1.25rem;
+  }
+  
+  .promo-banner p {
+    font-size: 0.9rem;
+  }
+  
+  .cta-section {
+    padding: var(--spacing-lg);
+  }
+  
+  .cta-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .cta-section p {
+    font-size: 0.9rem;
+  }
+}
+
+/*============================================================================
+  #Additional Responsive Adjustments for Luxury Components
+==============================================================================*/
+@media (max-width: 768px) {
+  .luxury-section-title h2 {
+    font-size: 2rem;
+  }
+  
+  .luxury-card {
+    padding: var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .luxury-section-title h2 {
+    font-size: 1.75rem;
+  }
+  
+  .luxury-card {
+    padding: var(--spacing-sm);
+  }
+  
+  .luxury-testimonial {
+    padding: var(--spacing-md);
+  }
+  
+  .luxury-cta {
+    padding: var(--spacing-lg);
   }
 }

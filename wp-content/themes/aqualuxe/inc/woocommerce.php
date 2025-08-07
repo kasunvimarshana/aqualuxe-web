@@ -37,26 +37,29 @@ if (!function_exists('aqualuxe_woocommerce_scripts')) {
      */
     function aqualuxe_woocommerce_scripts() {
         if (class_exists('WooCommerce')) {
-            wp_enqueue_style(
-                'aqualuxe-woocommerce-style',
-                get_stylesheet_directory_uri() . '/assets/css/woocommerce.css',
-                array(),
-                AQUALUXE_VERSION
-            );
-            
-            wp_enqueue_script(
-                'aqualuxe-woocommerce-js',
-                get_stylesheet_directory_uri() . '/assets/js/woocommerce.js',
-                array('jquery'),
-                AQUALUXE_VERSION,
-                true
-            );
-            
-            // Localize script for AJAX
-            wp_localize_script('aqualuxe-woocommerce-js', 'aqualuxe_ajax', array(
-                'ajax_url' => admin_url('admin-ajax.php'),
-                'nonce' => wp_create_nonce('aqualuxe_nonce'),
-            ));
+            // Only load WooCommerce styles and scripts on WooCommerce pages
+            if (is_woocommerce() || is_cart() || is_checkout() || is_account_page()) {
+                wp_enqueue_style(
+                    'aqualuxe-woocommerce-style',
+                    get_stylesheet_directory_uri() . '/assets/css/woocommerce.css',
+                    array(),
+                    AQUALUXE_VERSION
+                );
+                
+                wp_enqueue_script(
+                    'aqualuxe-woocommerce-js',
+                    get_stylesheet_directory_uri() . '/assets/js/woocommerce.js',
+                    array('jquery'),
+                    AQUALUXE_VERSION,
+                    true
+                );
+                
+                // Localize script for AJAX
+                wp_localize_script('aqualuxe-woocommerce-js', 'aqualuxe_ajax', array(
+                    'ajax_url' => admin_url('admin-ajax.php'),
+                    'nonce' => wp_create_nonce('aqualuxe_nonce'),
+                ));
+            }
         }
     }
 }
@@ -160,7 +163,9 @@ if (!function_exists('aqualuxe_ajax_add_to_cart')) {
     function aqualuxe_ajax_add_to_cart() {
         // Verify nonce
         if (!wp_verify_nonce($_POST['nonce'], 'aqualuxe_nonce')) {
-            wp_die('Nonce verification failed');
+            wp_send_json_error(array(
+                'message' => __('Security verification failed. Please refresh the page and try again.', 'aqualuxe')
+            ));
         }
         
         $product_id = intval($_POST['product_id']);
@@ -184,13 +189,21 @@ if (!function_exists('aqualuxe_ajax_add_to_cart')) {
             wp_send_json_success(array(
                 'message' => __('Product added to cart successfully!', 'aqualuxe'),
                 'cart_count' => WC()->cart->get_cart_contents_count(),
-                'cart_total' => WC()->cart->get_cart_total()
+                'cart_total' => WC()->cart->get_cart_total(),
+                'product_data' => $added
             ));
         } else {
-            // Return error response
-            wp_send_json_error(array(
-                'message' => __('Could not add product to cart.', 'aqualuxe')
-            ));
+            // Return error response with more details
+            $product = wc_get_product($product_id);
+            if ($product && !$product->is_in_stock()) {
+                wp_send_json_error(array(
+                    'message' => __('Sorry, this product is out of stock.', 'aqualuxe')
+                ));
+            } else {
+                wp_send_json_error(array(
+                    'message' => __('Could not add product to cart. Please try again.', 'aqualuxe')
+                ));
+            }
         }
     }
 }
@@ -207,14 +220,18 @@ if (!function_exists('aqualuxe_quick_view')) {
     function aqualuxe_quick_view() {
         // Verify nonce
         if (!wp_verify_nonce($_POST['nonce'], 'aqualuxe_nonce')) {
-            wp_die('Nonce verification failed');
+            wp_send_json_error(array(
+                'message' => __('Security verification failed. Please refresh the page and try again.', 'aqualuxe')
+            ));
         }
         
         $product_id = intval($_POST['product_id']);
         $product = wc_get_product($product_id);
         
         if (!$product) {
-            wp_die('Product not found');
+            wp_send_json_error(array(
+                'message' => __('Product not found.', 'aqualuxe')
+            ));
         }
         
         // Return product data
@@ -223,7 +240,8 @@ if (!function_exists('aqualuxe_quick_view')) {
         $content = ob_get_clean();
         
         wp_send_json_success(array(
-            'content' => $content
+            'content' => $content,
+            'product_type' => $product->get_type()
         ));
     }
 }

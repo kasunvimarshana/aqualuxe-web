@@ -5,7 +5,9 @@
  * @since 1.0.0
  */
 
-/* Product Grid - Luxury Display */
+/*============================================================================
+  #Product Grid - Luxury Display
+==============================================================================*/
 .woocommerce ul.products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -15,6 +17,9 @@
   padding: 0;
 }
 
+/*============================================================================
+  #Product Cards - Luxury Display
+==============================================================================*/
 .woocommerce ul.products li.product {
   background: var(--luxury-lighter);
   border-radius: var(--border-radius-lg);
@@ -42,7 +47,9 @@
   flex-direction: column;
 }
 
-/* Product Badges - Luxury Styling */
+/*============================================================================
+  #Product Badges - Luxury Styling
+==============================================================================*/
 .woocommerce ul.products li.product .onsale {
   position: absolute;
   top: var(--spacing-sm);
@@ -60,7 +67,9 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Product Images - Elegant Display */
+/*============================================================================
+  #Product Images - Elegant Display
+==============================================================================*/
 .woocommerce ul.products li.product .woocommerce-loop-product__link img {
   width: 100%;
   height: 250px;
@@ -74,7 +83,9 @@
   transform: scale(1.05);
 }
 
-/* Product Titles - Luxury Typography */
+/*============================================================================
+  #Product Titles - Luxury Typography
+==============================================================================*/
 .woocommerce ul.products li.product .woocommerce-loop-product__title {
   font-family: 'Cormorant Garamond', 'Playfair Display', serif;
   font-size: 1.35rem;
@@ -89,7 +100,9 @@
   min-height: 60px;
 }
 
-/* Product Prices - Elegant Pricing */
+/*============================================================================
+  #Product Prices - Elegant Pricing
+==============================================================================*/
 .woocommerce ul.products li.product .price {
   color: var(--primary-color);
   display: block;
@@ -112,7 +125,9 @@
   color: var(--accent-color);
 }
 
-/* Product Buttons - Luxury Buttons */
+/*============================================================================
+  #Product Buttons - Luxury Buttons
+==============================================================================*/
 .woocommerce ul.products li.product .button {
   margin: 0 var(--spacing-sm) var(--spacing-sm);
   width: calc(100% - 2 * var(--spacing-sm));
@@ -160,7 +175,9 @@
   left: 100%;
 }
 
-/* Single Product - Luxury Layout */
+/*============================================================================
+  #Single Product - Luxury Layout
+==============================================================================*/
 .woocommerce div.product {
   display: grid;
   grid-template-columns: 1fr;
@@ -191,7 +208,9 @@
   box-sizing: border-box;
 }
 
-/* Product Gallery - Elegant Display */
+/*============================================================================
+  #Product Gallery - Elegant Display
+==============================================================================*/
 .woocommerce div.product .woocommerce-product-gallery {
   position: relative;
   width: 100%;
@@ -231,7 +250,9 @@
   transform: scale(1.1);
 }
 
-/* Product Thumbnails - Elegant Display */
+/*============================================================================
+  #Product Thumbnails - Elegant Display
+==============================================================================*/
 .woocommerce div.product .flex-control-thumbs {
   display: flex;
   flex-wrap: wrap;
@@ -261,7 +282,9 @@
   box-shadow: var(--box-shadow-lg);
 }
 
-/* Product Title - Luxury Typography */
+/*============================================================================
+  #Product Title - Luxury Typography
+==============================================================================*/
 .woocommerce div.product .product_title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 2.5rem;
@@ -272,7 +295,9 @@
   line-height: 1.2;
 }
 
-/* Product Price - Elegant Pricing */
+/*============================================================================
+  #Product Price - Elegant Pricing
+==============================================================================*/
 .woocommerce div.product .price {
   font-family: 'Montserrat', sans-serif;
   font-size: 2rem;
@@ -292,7 +317,9 @@
   color: var(--accent-color);
 }
 
-/* Product Description - Elegant Typography */
+/*============================================================================
+  #Product Description - Elegant Typography
+==============================================================================*/
 .woocommerce div.product .woocommerce-product-details__short-description {
   font-family: 'Lora', Georgia, serif;
   font-size: 1.1rem;
@@ -300,7 +327,9 @@
   margin-bottom: var(--spacing-lg);
 }
 
-/* Add to Cart - Luxury Button */
+/*============================================================================
+  #Add to Cart - Luxury Button
+==============================================================================*/
 .woocommerce div.product form.cart {
   margin-bottom: var(--spacing-lg);
   padding: var(--spacing-md) 0;
@@ -349,7 +378,9 @@
   box-shadow: var(--box-shadow-lg);
 }
 
-/* Product Meta - Elegant Information */
+/*============================================================================
+  #Product Meta - Elegant Information
+==============================================================================*/
 .woocommerce div.product .product_meta {
   font-family: 'Montserrat', sans-serif;
   font-size: 0.9rem;
@@ -373,7 +404,9 @@
   text-decoration: underline;
 }
 
-/* Tabs - Luxury Navigation */
+/*============================================================================
+  #Tabs - Luxury Navigation
+==============================================================================*/
 .woocommerce div.product .woocommerce-tabs {
   margin: var(--spacing-xl) 0;
   width: 100%;
@@ -421,7 +454,9 @@
   line-height: 1.8;
 }
 
-/* Related Products - Luxury Display */
+/*============================================================================
+  #Related Products - Luxury Display
+==============================================================================*/
 .woocommerce .related.products {
   margin: var(--spacing-xl) 0;
   width: 100%;
@@ -452,7 +487,9 @@
   gap: var(--spacing-md);
 }
 
-/* Upsells - Luxury Display */
+/*============================================================================
+  #Upsells - Luxury Display
+==============================================================================*/
 .woocommerce .up-sells.products {
   margin: var(--spacing-xl) 0;
   width: 100%;
@@ -483,7 +520,9 @@
   gap: var(--spacing-md);
 }
 
-/* Cart - Luxury Layout */
+/*============================================================================
+  #Cart - Luxury Layout
+==============================================================================*/
 .woocommerce table.cart {
   border-collapse: separate;
   border-spacing: 0;
@@ -629,7 +668,9 @@
   box-shadow: var(--box-shadow-lg);
 }
 
-/* Checkout - Luxury Form */
+/*============================================================================
+  #Checkout - Luxury Form
+==============================================================================*/
 .woocommerce form.checkout {
   display: grid;
   grid-template-columns: 1fr;
@@ -740,7 +781,9 @@
   background: var(--accent-color);
 }
 
-/* Order Details - Elegant Display */
+/*============================================================================
+  #Order Details - Elegant Display
+==============================================================================*/
 .woocommerce table.shop_table {
   border-collapse: separate;
   border-spacing: 0;
@@ -784,7 +827,9 @@
   text-align: right;
 }
 
-/* My Account - Luxury Dashboard */
+/*============================================================================
+  #My Account - Luxury Dashboard
+==============================================================================*/
 .woocommerce .woocommerce-MyAccount-navigation {
   background: var(--luxury-lighter);
   border-radius: var(--border-radius-lg);
@@ -848,7 +893,9 @@
   background: var(--accent-color);
 }
 
-/* Buttons - Luxury Styling */
+/*============================================================================
+  #Buttons - Luxury Styling
+==============================================================================*/
 .woocommerce a.button,
 .woocommerce button.button,
 .woocommerce input.button {
@@ -902,7 +949,9 @@
   left: 100%;
 }
 
-/* Notices - Elegant Alerts */
+/*============================================================================
+  #Notices - Elegant Alerts
+==============================================================================*/
 .woocommerce-message,
 .woocommerce-info,
 .woocommerce-error {
@@ -939,7 +988,9 @@
   flex-shrink: 0;
 }
 
-/* Quick View - Luxury Modal */
+/*============================================================================
+  #Quick View - Luxury Modal
+==============================================================================*/
 .aqualuxe-quick-view-modal {
   position: fixed;
   top: 0;
@@ -1004,7 +1055,9 @@
   background: linear-gradient(to right, var(--primary-color-hover), var(--secondary-color));
 }
 
-/* AJAX Add to Cart - Luxury Loading */
+/*============================================================================
+  #AJAX Add to Cart - Luxury Loading
+==============================================================================*/
 .aqualuxe-ajax-loading {
   display: none;
   margin-left: var(--spacing-sm);
@@ -1021,7 +1074,9 @@
   100% { transform: rotate(360deg); }
 }
 
-/* Luxury Product Categories */
+/*============================================================================
+  #Luxury Product Categories
+==============================================================================*/
 .woocommerce .product-categories {
   display: flex;
   flex-wrap: wrap;
@@ -1053,7 +1108,9 @@
   box-shadow: var(--box-shadow-lg);
 }
 
-/* Luxury Breadcrumbs */
+/*============================================================================
+  #Luxury Breadcrumbs
+==============================================================================*/
 .woocommerce .woocommerce-breadcrumb {
   font-family: 'Montserrat', sans-serif;
   font-size: 0.9rem;
@@ -1077,7 +1134,9 @@
   color: var(--luxury-gray-dark);
 }
 
-/* Luxury Pagination */
+/*============================================================================
+  #Luxury Pagination
+==============================================================================*/
 .woocommerce nav.woocommerce-pagination {
   margin: var(--spacing-xl) 0;
   text-align: center;
@@ -1115,7 +1174,9 @@
   color: var(--luxury-lighter);
 }
 
-/* Luxury Product Filters */
+/*============================================================================
+  #Luxury Product Filters
+==============================================================================*/
 .woocommerce .woocommerce-ordering {
   margin-bottom: var(--spacing-lg);
 }
@@ -1130,7 +1191,9 @@
   box-shadow: var(--box-shadow);
 }
 
-/* Luxury Result Count */
+/*============================================================================
+  #Luxury Result Count
+==============================================================================*/
 .woocommerce .woocommerce-result-count {
   font-family: 'Montserrat', sans-serif;
   font-size: 0.9rem;
@@ -1138,7 +1201,9 @@
   margin-bottom: var(--spacing-lg);
 }
 
-/* Responsive Adjustments */
+/*============================================================================
+  #Responsive Adjustments
+==============================================================================*/
 @media (max-width: 768px) {
   .woocommerce ul.products {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -1186,9 +1251,49 @@
   .woocommerce .woocommerce-checkout-payment {
     order: 2;
   }
+  
+  /* Product tabs */
+  .woocommerce div.product .woocommerce-tabs ul.tabs {
+    flex-direction: column;
+  }
+  
+  .woocommerce div.product .woocommerce-tabs ul.tabs li {
+    width: 100%;
+  }
+  
+  /* Cart table adjustments */
+  .woocommerce table.cart thead {
+    display: none;
+  }
+  
+  .woocommerce table.cart tr {
+    display: block;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .woocommerce table.cart td {
+    display: block;
+    text-align: right;
+    padding: var(--spacing-sm);
+  }
+  
+  .woocommerce table.cart td::before {
+    content: attr(data-title) ": ";
+    float: left;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .woocommerce table.cart .product-thumbnail {
+    text-align: center;
+  }
+  
+  .woocommerce table.cart .product-remove {
+    text-align: right;
+  }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .woocommerce ul.products {
     grid-template-columns: 1fr;
   }
@@ -1221,5 +1326,74 @@
   .woocommerce .wc-proceed-to-checkout .checkout-button {
     padding: var(--spacing-sm) var(--spacing-md);
     font-size: 1rem;
+  }
+  
+  /* Product gallery adjustments */
+  .woocommerce div.product .flex-control-thumbs {
+    gap: var(--spacing-xs);
+  }
+  
+  .woocommerce div.product .flex-control-thumbs li {
+    width: calc(25% - var(--spacing-xs) * 0.75);
+  }
+}
+
+@media (max-width: 480px) {
+  .woocommerce ul.products {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+  }
+  
+  .woocommerce ul.products li.product {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .woocommerce ul.products li.product .woocommerce-loop-product__link img {
+    height: 200px;
+  }
+  
+  .woocommerce div.product .product_title {
+    font-size: 1.5rem;
+  }
+  
+  .woocommerce div.product .price {
+    font-size: 1.25rem;
+  }
+  
+  .woocommerce div.product .flex-control-thumbs li {
+    width: calc(33.333% - var(--spacing-xs) * 0.66);
+  }
+  
+  .woocommerce .cart_totals table th {
+    width: 40%;
+  }
+  
+  .woocommerce .wc-proceed-to-checkout .checkout-button {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.9rem;
+  }
+  
+  /* Product gallery adjustments */
+  .woocommerce div.product .flex-control-thumbs {
+    gap: var(--spacing-xs);
+  }
+  
+  .woocommerce div.product .flex-control-thumbs li {
+    width: calc(33.333% - var(--spacing-xs) * 0.66);
+  }
+  
+  /* Account navigation */
+  .woocommerce .woocommerce-MyAccount-navigation ul {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Pagination adjustments */
+  .woocommerce nav.woocommerce-pagination ul {
+    flex-wrap: wrap;
+  }
+  
+  .woocommerce nav.woocommerce-pagination ul li {
+    margin: var(--spacing-xs);
   }
 }
