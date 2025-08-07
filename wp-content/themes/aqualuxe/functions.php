@@ -27,6 +27,7 @@ require_once AQUALUXE_CHILD_THEME_DIR . '/inc/seo-optimizations.php';
 require_once AQUALUXE_CHILD_THEME_DIR . '/inc/accessibility.php';
 require_once AQUALUXE_CHILD_THEME_DIR . '/inc/demo-content.php';
 require_once AQUALUXE_CHILD_THEME_DIR . '/inc/widgets.php';
+require_once AQUALUXE_CHILD_THEME_DIR . '/inc/template-functions.php';
 
 /**
  * AquaLuxe Theme Class
