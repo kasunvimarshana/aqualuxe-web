@@ -11,13 +11,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Add theme support for WooCommerce
-add_action( 'after_setup_theme', 'aqualuxe_woocommerce_setup' );
 function aqualuxe_woocommerce_setup() {
 	add_theme_support( 'woocommerce' );
 	add_theme_support( 'wc-product-gallery-zoom' );
 	add_theme_support( 'wc-product-gallery-lightbox' );
 	add_theme_support( 'wc-product-gallery-slider' );
 }
+
+// add_action( 'after_setup_theme', 'aqualuxe_woocommerce_setup' );
+// We need to delay the WooCommerce setup until init action to avoid translation issues
+add_action( 'init', 'aqualuxe_woocommerce_setup' );
 
 // Remove default WooCommerce styles
 add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
@@ -89,16 +92,16 @@ function aqualuxe_custom_shop_image_size( $size ) {
 }
 
 // Add custom WooCommerce styles
-add_action( 'wp_enqueue_scripts', 'aqualuxe_woocommerce_styles' );
 function aqualuxe_woocommerce_styles() {
 	wp_enqueue_style( 'aqualuxe-woocommerce', AQUALUXE_URI . '/assets/css/woocommerce.css', array(), AQUALUXE_VERSION );
 }
+add_action( 'wp_enqueue_scripts', 'aqualuxe_woocommerce_styles' );
 
 // Add custom WooCommerce scripts
-add_action( 'wp_enqueue_scripts', 'aqualuxe_woocommerce_scripts' );
 function aqualuxe_woocommerce_scripts() {
 	wp_enqueue_script( 'aqualuxe-woocommerce-js', AQUALUXE_URI . '/assets/js/woocommerce.js', array( 'jquery' ), AQUALUXE_VERSION, true );
 }
+add_action( 'wp_enqueue_scripts', 'aqualuxe_woocommerce_scripts' );
 
 // Customize add to cart message
 add_filter( 'wc_add_to_cart_message_html', 'aqualuxe_add_to_cart_message', 10, 3 );
