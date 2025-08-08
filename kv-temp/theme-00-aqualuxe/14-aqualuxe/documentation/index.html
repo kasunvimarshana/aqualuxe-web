@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaLuxe Theme Documentation</title>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .container {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .sidebar {
+            flex: 1;
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+        }
+        
+        .content {
+            flex: 3;
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        
+        h3 {
+            color: #0056b3;
+            margin-top: 1.5rem;
+        }
+        
+        ul {
+            padding-left: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        code {
+            background: #e9ecef;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        pre {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 1rem;
+            overflow-x: auto;
+        }
+        
+        .nav-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .nav-list li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .nav-list a {
+            text-decoration: none;
+            color: #007bff;
+            display: block;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-list a:hover {
+            background-color: #e9ecef;
+        }
+        
+        .warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .tip {
+            background-color: #d1ecf1;
+            border-left: 4px solid #0dcaf0;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        table, th, td {
+            border: 1px solid #dee2e6;
+        }
+        
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #e9ecef;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>AquaLuxe Theme Documentation</h1>
+        <p class="subtitle">Premium WordPress + WooCommerce Theme for Ornamental Fish Businesses</p>
+    </header>
+    
+    <div class="container">
+        <div class="sidebar">
+            <h3>Table of Contents</h3>
+            <ul class="nav-list">
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#installation">Installation</a></li>
+                <li><a href="#setup">Initial Setup</a></li>
+                <li><a href="#customizer">Theme Customizer</a></li>
+                <li><a href="#woocommerce">WooCommerce Setup</a></li>
+                <li><a href="#templates">Page Templates</a></li>
+                <li><a href="#demo-content">Demo Content</a></li>
+                <li><a href="#customization">Customization</a></li>
+                <li><a href="#troubleshooting">Troubleshooting</a></li>
+                <li><a href="#support">Support</a></li>
+            </ul>
+        </div>
+        
+        <div class="content">
+            <h2 id="introduction">Introduction</h2>
+            <p>Welcome to the documentation for AquaLuxe, a premium WordPress theme designed specifically for high-end ornamental fish farming businesses. This theme combines elegant aquatic visuals with refined typography and smooth micro-interactions to create a luxurious online experience.</p>
+            
+            <p>AquaLuxe features full WooCommerce integration with all standard e-commerce functionality, making it perfect for selling rare fish species, aquarium plants, equipment, and related services.</p>
+            
+            <div class="tip">
+                <strong>Tip:</strong> Always backup your site before making significant changes or updates.
+            </div>
+            
+            <h2 id="installation">Installation</h2>
+            <h3>Prerequisites</h3>
+            <ul>
+                <li>WordPress 5.0 or higher</li>
+                <li>PHP 7.0 or higher</li>
+                <li>MySQL 5.6 or higher</li>
+                <li>WooCommerce plugin (recommended)</li>
+            </ul>
+            
+            <h3>Installing the Theme</h3>
+            <ol>
+                <li>Download the AquaLuxe theme package</li>
+                <li>Log in to your WordPress admin dashboard</li>
+                <li>Navigate to <strong>Appearance > Themes</strong></li>
+                <li>Click <strong>Add New</strong> then <strong>Upload Theme</strong></li>
+                <li>Choose the downloaded theme file and click <strong>Install</strong></li>
+                <li>Click <strong>Activate</strong> to activate the theme</li>
+            </ol>
+            
+            <h2 id="setup">Initial Setup</h2>
+            <h3>Setting Up Menus</h3>
+            <ol>
+                <li>Go to <strong>Appearance > Menus</strong></li>
+                <li>Create a new menu or edit an existing one</li>
+                <li>Add pages, categories, or custom links to your menu</li>
+                <li>Assign the menu to a theme location (Primary Menu or Footer Menu)</li>
+                <li>Save the menu</li>
+            </ol>
+            
+            <h3>Setting Up Widgets</h3>
+            <ol>
+                <li>Go to <strong>Appearance > Widgets</strong></li>
+                <li>Drag and drop widgets to the available widget areas (Sidebar, Footer 1-4)</li>
+                <li>Configure each widget as needed</li>
+                <li>Save changes</li>
+            </ol>
+            
+            <h2 id="customizer">Theme Customizer</h2>
+            <p>The Theme Customizer allows you to make changes to your site and see a preview of those changes in real-time.</p>
+            
+            <h3>Accessing the Customizer</h3>
+            <ol>
+                <li>Go to <strong>Appearance > Customize</strong></li>
+                <li>Use the panels on the left to navigate through customization options</li>
+                <li>See your changes in the preview pane on the right</li>
+                <li>Click <strong>Publish</strong> to save your changes</li>
+            </ol>
+            
+            <h3>Customization Options</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Section</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Site Identity</td>
+                        <td>Logo, site title, tagline</td>
+                    </tr>
+                    <tr>
+                        <td>Colors</td>
+                        <td>Primary color, background color, header/footer colors</td>
+                    </tr>
+                    <tr>
+                        <td>Typography</td>
+                        <td>Heading font, body font, font sizes</td>
+                    </tr>
+                    <tr>
+                        <td>Homepage</td>
+                        <td>Hero section content, featured products, testimonials</td>
+                    </tr>
+                    <tr>
+                        <td>Layout</td>
+                        <td>Site layout, container width</td>
+                    </tr>
+                    <tr>
+                        <td>Social Media</td>
+                        <td>Social media profile URLs</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h2 id="woocommerce">WooCommerce Setup</h2>
+            <h3>Installing WooCommerce</h3>
+            <ol>
+                <li>Go to <strong>Plugins > Add New</strong></li>
+                <li>Search for "WooCommerce"</li>
+                <li>Click <strong>Install Now</strong> and then <strong>Activate</strong></li>
+                <li>Follow the WooCommerce setup wizard to configure your store</li>
+            </ol>
+            
+            <h3>Configuring Payment Gateways</h3>
+            <ol>
+                <li>Go to <strong>WooCommerce > Settings > Payments</strong></li>
+                <li>Enable and configure payment methods (PayPal, Stripe, etc.)</li>
+                <li>Test payment processing</li>
+            </ol>
+            
+            <h3>Setting Up Shipping</h3>
+            <ol>
+                <li>Go to <strong>WooCommerce > Settings > Shipping</strong></li>
+                <li>Configure shipping zones and methods</li>
+                <li>Set up shipping classes if needed</li>
+            </ol>
+            
+            <h2 id="templates">Page Templates</h2>
+            <p>AquaLuxe includes several custom page templates for different content types:</p>
+            
+            <h3>Homepage Template</h3>
+            <p>The homepage template features a hero section, featured products, testimonials, and newsletter signup.</p>
+            
+            <h3>About Page Template</h3>
+            <p>Displays company history, team members, and other about content.</p>
+            
+            <h3>Services Page Template</h3>
+            <p>Showcases services like fish care, breeding programs, and consultation.</p>
+            
+            <h3>Contact Page Template</h3>
+            <p>Includes a contact form and Google Maps integration.</p>
+            
+            <h3>FAQ Page Template</h3>
+            <p>Presents frequently asked questions in an accordion format.</p>
+            
+            <h2 id="demo-content">Demo Content</h2>
+            <p>AquaLuxe includes demo content to help you get started quickly.</p>
+            
+            <h3>Importing Demo Content</h3>
+            <ol>
+                <li>Go to <strong>Appearance > Import Demo Data</strong></li>
+                <li>Choose a demo to import (Main Demo or Minimal Demo)</li>
+                <li>Click <strong>Import Demo</strong></li>
+                <li>Wait for the import process to complete</li>
+                <li>Review and customize the imported content</li>
+            </ol>
+            
+            <div class="warning">
+                <strong>Warning:</strong> Importing demo content will overwrite your existing content. Always backup your site before importing.
+            </div>
+            
+            <h2 id="customization">Customization</h2>
+            <h3>Child Theme</h3>
+            <p>We recommend using a child theme for any customizations to ensure your changes aren't lost during theme updates.</p>
+            
+            <h3>Custom CSS</h3>
+            <p>You can add custom CSS through the Customizer:</p>
+            <ol>
+                <li>Go to <strong>Appearance > Customize > Additional CSS</strong></li>
+                <li>Add your custom CSS</li>
+                <li>Click <strong>Publish</strong></li>
+            </ol>
+            
+            <h3>Custom Hooks</h3>
+            <p>The theme provides several hooks for developers:</p>
+            <ul>
+                <li><code>aqualuxe_before_header</code> - Before the header</li>
+                <li><code>aqualuxe_after_header</code> - After the header</li>
+                <li><code>aqualuxe_before_content</code> - Before the main content</li>
+                <li><code>aqualuxe_after_content</code> - After the main content</li>
+                <li><code>aqualuxe_before_footer</code> - Before the footer</li>
+                <li><code>aqualuxe_after_footer</code> - After the footer</li>
+            </ul>
+            
+            <h2 id="troubleshooting">Troubleshooting</h2>
+            <h3>Common Issues</h3>
+            <ul>
+                <li><strong>Missing styles:</strong> Ensure all theme files are uploaded correctly and clear any caching plugins.</li>
+                <li><strong>WooCommerce pages not displaying correctly:</strong> Make sure WooCommerce is installed and activated, and check that the correct pages are assigned in WooCommerce settings.</li>
+                <li><strong>Menu not displaying:</strong> Check that a menu is assigned to the Primary Menu location in <strong>Appearance > Menus</strong>.</li>
+            </ul>
+            
+            <h3>Getting Support</h3>
+            <p>If you're experiencing issues not covered in this documentation, please contact our support team with the following information:</p>
+            <ul>
+                <li>WordPress version</li>
+                <li>Theme version</li>
+                <li>List of active plugins</li>
+                <li>Description of the issue</li>
+                <li>Steps to reproduce the issue</li>
+            </ul>
+            
+            <h2 id="support">Support</h2>
+            <p>For support, please contact our team at <a href="mailto:support@example.com">support@example.com</a> or visit our website at <a href="https://example.com/support">https://example.com/support</a>.</p>
+            
+            <p>Before contacting support, please:</p>
+            <ul>
+                <li>Check this documentation</li>
+                <li>Ensure your theme and plugins are up to date</li>
+                <li>Deactivate all plugins to check for conflicts</li>
+                <li>Try switching to a default WordPress theme to isolate the issue</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
