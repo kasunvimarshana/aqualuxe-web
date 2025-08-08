@@ -431,9 +431,15 @@ function aqualuxe_import_demo_products( $demo_name ) {
 	
 	// Create products
 	foreach ( $products as $product_data ) {
-		$product = new WC_Product();
+		// Create product based on type
+		if ( $product_data['type'] === 'simple' ) {
+			$product = new WC_Product_Simple();
+		} else {
+			// For other types, default to simple product
+			$product = new WC_Product_Simple();
+		}
+		
 		$product->set_name( $product_data['name'] );
-		$product->set_type( $product_data['type'] );
 		$product->set_regular_price( $product_data['regular_price'] );
 		$product->set_description( $product_data['description'] );
 		$product->set_short_description( $product_data['short_description'] );
