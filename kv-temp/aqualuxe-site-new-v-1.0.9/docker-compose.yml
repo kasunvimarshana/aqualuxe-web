@@ -63,6 +63,7 @@ services:
       # - ./wp-content/uploads:/var/www/html/wp-content/uploads
       # - ./wp-content/mu-plugins:/var/www/html/wp-content/mu-plugins
       - ./wp-content/themes/aqualuxe:/var/www/html/wp-content/themes/aqualuxe
+      - ./mu-plugins:/var/www/html/wp-content/mu-plugins
       - ./logs:/var/log
     ports:
       - '8080:80'
