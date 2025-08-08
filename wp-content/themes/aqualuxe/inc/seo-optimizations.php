@@ -226,7 +226,10 @@ if (!function_exists('aqualuxe_product_schema_markup')) {
             }
             
             // Add review information if available
-            $reviews = $product->get_reviews();
+            $reviews = get_comments(array(
+                'post_id' => $product->get_id(),
+                'status' => 'approve'
+            ));
             if (!empty($reviews)) {
                 $schema['review'] = array();
                 foreach ($reviews as $review) {
@@ -234,13 +237,13 @@ if (!function_exists('aqualuxe_product_schema_markup')) {
                         '@type' => 'Review',
                         'reviewRating' => array(
                             '@type' => 'Rating',
-                            'ratingValue' => $review->rating
+                            'ratingValue' => get_comment_meta($review->comment_ID, 'rating', true)
                         ),
                         'author' => array(
                             '@type' => 'Person',
-                            'name' => $review->author
+                            'name' => $review->comment_author
                         ),
-                        'reviewBody' => $review->comment
+                        'reviewBody' => $review->comment_content
                     );
                 }
             }

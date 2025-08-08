@@ -93,7 +93,7 @@
     },
     
     /**
-     * Quick view functionality
+     * Quick view functionality with enhanced accessibility
      */
     quickView: function() {
       // Quick view button click
@@ -102,6 +102,7 @@
         
         var $button = $(this);
         var productId = $button.data('product_id');
+        var $originalTrigger = $button; // Store original trigger for focus return
         
         // Show loading indicator
         $button.addClass('loading');
@@ -117,8 +118,8 @@
           },
           success: function(response) {
             if (response.success) {
-              // Create modal
-              var $modal = $('<div class="aqualuxe-quick-view-modal"><div class="aqualuxe-quick-view-content">' + response.data.content + '<button class="aqualuxe-quick-view-close">&times;</button></div></div>');
+              // Create modal with proper accessibility attributes
+              var $modal = $('<div class="aqualuxe-quick-view-modal" role="dialog" aria-modal="true" aria-labelledby="quick-view-title"><div class="aqualuxe-quick-view-content">' + response.data.content + '<button class="aqualuxe-quick-view-close" aria-label="Close quick view">&times;</button></div></div>');
               
               // Add to body
               $('body').append($modal);
@@ -126,6 +127,10 @@
               // Show modal
               setTimeout(function() {
                 $modal.addClass('active');
+                
+                // Focus management - move focus to modal
+                $modal.find('h2.product-title').attr('id', 'quick-view-title');
+                $modal.attr('tabindex', '-1').focus();
               }, 10);
             } else {
               // Show error message
@@ -146,11 +151,18 @@
       // Close modal
       $(document).on('click', '.aqualuxe-quick-view-close, .aqualuxe-quick-view-modal', function(e) {
         if (e.target === this) {
-          $('.aqualuxe-quick-view-modal').removeClass('active');
+          var $modal = $('.aqualuxe-quick-view-modal');
+          $modal.removeClass('active');
+          
+          // Return focus to original trigger
+          var $trigger = $('.aqualuxe-quick-view[data-product_id="' + $modal.find('.product_id').val() + '"]');
+          if ($trigger.length) {
+            $trigger.focus();
+          }
           
           // Remove modal after animation
           setTimeout(function() {
-            $('.aqualuxe-quick-view-modal').remove();
+            $modal.remove();
           }, 300);
         }
       });
@@ -158,12 +170,41 @@
       // Close modal with ESC key
       $(document).on('keyup', function(e) {
         if (e.keyCode === 27) {
-          $('.aqualuxe-quick-view-modal').removeClass('active');
+          var $modal = $('.aqualuxe-quick-view-modal');
+          $modal.removeClass('active');
+          
+          // Return focus to original trigger
+          var $trigger = $('.aqualuxe-quick-view[data-product_id="' + $modal.find('.product_id').val() + '"]');
+          if ($trigger.length) {
+            $trigger.focus();
+          }
           
           // Remove modal after animation
           setTimeout(function() {
-            $('.aqualuxe-quick-view-modal').remove();
+            $modal.remove();
           }, 300);
+        }
+      });
+      
+      // Trap focus within modal
+      $(document).on('keydown', '.aqualuxe-quick-view-modal', function(e) {
+        if (e.keyCode === 9) { // Tab key
+          var $modal = $(this);
+          var $focusableElements = $modal.find('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+          var $firstElement = $focusableElements.first();
+          var $lastElement = $focusableElements.last();
+          
+          if (e.shiftKey) { // Shift + Tab
+            if (document.activeElement === $firstElement[0]) {
+              $lastElement.focus();
+              e.preventDefault();
+            }
+          } else { // Tab
+            if (document.activeElement === $lastElement[0]) {
+              $firstElement.focus();
+              e.preventDefault();
+            }
+          }
         }
       });
     },
