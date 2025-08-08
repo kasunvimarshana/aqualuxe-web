@@ -1,121 +1,49 @@
 <?php
 /**
- * AquaLuxe functions and definitions
+ * AquaLuxe Theme Functions
  *
  * @package AquaLuxe
- * @since 1.0.0
  */
 
-// Exit if accessed directly
-if (!defined('ABSPATH')) {
-    exit;
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 
-// Define theme constants
-define('AQUALUXE_VERSION', '1.0.0');
-define('AQUALUXE_THEME_DIR', get_template_directory());
-define('AQUALUXE_THEME_URI', get_template_directory_uri());
-
-// Include required files
-require_once AQUALUXE_THEME_DIR . '/inc/theme-setup.php';
-require_once AQUALUXE_THEME_DIR . '/inc/enqueue-scripts.php';
-require_once AQUALUXE_THEME_DIR . '/inc/customizer.php';
-require_once AQUALUXE_THEME_DIR . '/inc/woocommerce.php';
-require_once AQUALUXE_THEME_DIR . '/inc/seo-optimizations.php';
-require_once AQUALUXE_THEME_DIR . '/inc/accessibility.php';
-require_once AQUALUXE_THEME_DIR . '/inc/demo-content.php';
-require_once AQUALUXE_THEME_DIR . '/inc/widgets.php';
-require_once AQUALUXE_THEME_DIR . '/inc/template-functions.php';
-
-/**
- * AquaLuxe Theme Class
- * 
- * Main class for initializing theme functionality
- */
-class AquaLuxe_Theme {
-    
-    /**
-     * Instance of the class
-     * 
-     * @var AquaLuxe_Theme
-     */
-    private static $instance;
-    
-    /**
-     * Get instance of the class
-     * 
-     * @return AquaLuxe_Theme
-     */
-    public static function get_instance() {
-        if (!isset(self::$instance)) {
-            self::$instance = new self();
-        }
-        return self::$instance;
-    }
-    
-    /**
-     * Constructor
-     */
-    private function __construct() {
-        $this->init_hooks();
-    }
-    
-    /**
-     * Initialize hooks
-     */
-    private function init_hooks() {
-        add_action('after_setup_theme', array($this, 'theme_setup'));
-        add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
-        add_action('customize_register', array($this, 'customize_register'));
-        add_action('init', array($this, 'register_widgets'));
-    }
-    
-    /**
-     * Theme setup
-     */
-    public function theme_setup() {
-        // Load text domain
-        load_theme_textdomain('aqualuxe', AQUALUXE_THEME_DIR . '/languages');
-        
-        // Add theme support
-        add_theme_support('automatic-feed-links');
-        add_theme_support('title-tag');
-        add_theme_support('post-thumbnails');
-        add_theme_support('html5', array('search-form', 'comment-form', 'comment-list', 'gallery', 'caption'));
-        add_theme_support('customize-selective-refresh-widgets');
-        add_theme_support('wc-product-gallery-zoom');
-        add_theme_support('wc-product-gallery-lightbox');
-        add_theme_support('wc-product-gallery-slider');
-    }
-    
-    /**
-     * Enqueue scripts and styles
-     */
-    public function enqueue_scripts() {
-        aqualuxe_enqueue_scripts();
-    }
-    
-    /**
-     * Register customizer settings
-     */
-    public function customize_register($wp_customize) {
-        aqualuxe_customize_register($wp_customize);
-    }
-    
-    /**
-     * Register custom widgets
-     */
-    public function register_widgets() {
-        // Widgets are registered in the widgets file
-    }
+// Define theme version.
+if ( ! defined( 'AQUALUXE_VERSION' ) ) {
+	define( 'AQUALUXE_VERSION', '1.0.0' );
 }
 
-/**
- * Initialize the theme
- */
-function aqualuxe_theme() {
-    return AquaLuxe_Theme::get_instance();
+// Define theme directory path.
+if ( ! defined( 'AQUALUXE_PATH' ) ) {
+	define( 'AQUALUXE_PATH', get_template_directory() );
 }
 
-// Start the theme
-aqualuxe_theme();
+// Define theme directory URI.
+if ( ! defined( 'AQUALUXE_URI' ) ) {
+	define( 'AQUALUXE_URI', get_template_directory_uri() );
+}
+
+// Include theme setup.
+require_once AQUALUXE_PATH . '/inc/theme-setup.php';
+
+// Include enqueue scripts and styles.
+require_once AQUALUXE_PATH . '/inc/enqueue.php';
+
+// Include customizer settings.
+require_once AQUALUXE_PATH . '/inc/customizer.php';
+
+// Include template functions.
+require_once AQUALUXE_PATH . '/inc/template-functions.php';
+
+// Include template tags.
+require_once AQUALUXE_PATH . '/inc/template-tags.php';
+
+// Include WooCommerce functions if WooCommerce is active.
+if ( class_exists( 'WooCommerce' ) ) {
+	require_once AQUALUXE_PATH . '/inc/woocommerce.php';
+}
+
+// Include demo content importer.
+require_once AQUALUXE_PATH . '/inc/demo-importer.php';

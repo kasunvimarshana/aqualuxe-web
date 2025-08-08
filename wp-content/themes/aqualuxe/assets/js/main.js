@@ -1,32 +1,95 @@
 /*
- * WooCommerce JavaScript for AquaLuxe Theme
+ * Main JavaScript for AquaLuxe Theme
  */
 
 (function($) {
 	// Document ready
 	$(document).ready(function() {
-		// Product gallery
-		if ($('.woocommerce-product-gallery').length > 0) {
-			// Initialize product gallery
-			$('.woocommerce-product-gallery').each(function() {
-				const gallery = $(this);
-				const thumbnails = gallery.find('.flex-control-thumbs li');
-				const mainImage = gallery.find('.woocommerce-product-gallery__image img');
-				
-				// Thumbnail click event
-				thumbnails.on('click', function() {
-					const thumbnail = $(this);
-					const imageSrc = thumbnail.find('img').attr('src');
-					
-					// Update main image
-					mainImage.attr('src', imageSrc);
-					
-					// Update active class
-					thumbnails.removeClass('active');
-					thumbnail.addClass('active');
-				});
-			});
+		// Mobile menu toggle
+		$('.menu-toggle').click(function() {
+			$('.main-navigation ul').slideToggle();
+		});
+		
+		// Testimonial slider
+		if ($('.testimonials-slider').length > 0) {
+			let currentIndex = 0;
+			const testimonials = $('.testimonial-item');
+			const totalTestimonials = testimonials.length;
+			
+			// Hide all testimonials except the first one
+			testimonials.hide().eq(0).show();
+			
+			// Auto slide testimonials
+			setInterval(function() {
+				testimonials.hide().eq(currentIndex).fadeIn();
+				currentIndex = (currentIndex + 1) % totalTestimonials;
+			}, 5000);
 		}
+		
+		// Smooth scrolling for anchor links
+		$('a[href^="#"]').on('click', function(event) {
+			const target = $(this.getAttribute('href'));
+			
+			if (target.length) {
+				event.preventDefault();
+				$('html, body').animate({
+					scrollTop: target.offset().top - 80
+				}, 500);
+			}
+		});
+		
+		// Product hover effect
+		$('.product-item').hover(
+			function() {
+				$(this).find('img').css('transform', 'scale(1.05)');
+			},
+			function() {
+				$(this).find('img').css('transform', 'scale(1)');
+			}
+		);
+		
+		// Newsletter form submission
+		$('.newsletter form').on('submit', function(e) {
+			e.preventDefault();
+			
+			const form = $(this);
+			const email = form.find('input[type="email"]').val();
+			const submitButton = form.find('input[type="submit"]');
+			
+			// Basic email validation
+			if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+				alert('Please enter a valid email address');
+				return;
+			}
+			
+			// Disable submit button and show loading text
+			submitButton.prop('disabled', true).val('Submitting...');
+			
+			// Simulate form submission
+			setTimeout(function() {
+				alert('Thank you for subscribing to our newsletter!');
+				form.find('input[type="email"]').val('');
+				submitButton.prop('disabled', false).val('Subscribe');
+			}, 1000);
+		});
+		
+		// Add to cart animation
+		$(document).on('click', '.add_to_cart_button', function() {
+			const button = $(this);
+			const originalText = button.text();
+			
+			button.addClass('adding');
+			button.text('Adding...');
+			
+			setTimeout(() => {
+				button.removeClass('adding');
+				button.text('Added to cart');
+				
+				setTimeout(() => {
+					button.text(originalText);
+				}, 2000);
+			}, 1000);
+		});
 		
 		// Quantity input spinner
 		$(document).on('click', '.quantity .plus, .quantity .minus', function() {
@@ -51,48 +114,6 @@
 			}
 			
 			input.trigger('change');
-		});
-		
-		// Add to cart button
-		$(document).on('click', '.single_add_to_cart_button', function() {
-			const button = $(this);
-			const originalText = button.text();
-			
-			// Disable button and show loading text
-			button.prop('disabled', true).text('Adding to cart...');
-			
-			// Simulate adding to cart
-			setTimeout(function() {
-				button.text('Added to cart');
-				
-				// Update cart count in header
-				const cartCount = $('.cart-count');
-				if (cartCount.length > 0) {
-					const currentCount = parseInt(cartCount.text()) || 0;
-					cartCount.text(currentCount + 1);
-				}
-				
-				// Re-enable button after delay
-				setTimeout(function() {
-					button.prop('disabled', false).text(originalText);
-				}, 2000);
-			}, 1000);
-		});
-		
-		// Remove from cart button
-		$(document).on('click', '.product-remove a', function(e) {
-			e.preventDefault();
-			
-			const removeLink = $(this);
-			const cartItem = removeLink.closest('.cart_item');
-			
-			// Fade out cart item
-			cartItem.fadeOut(function() {
-				$(this).remove();
-				
-				// Update cart totals
-				updateCartTotals();
-			});
 		});
 		
 		// Update cart button
@@ -263,131 +284,6 @@
 				}
 			});
 		}
-		
-		// Product search
-		if ($('.woocommerce-product-search').length > 0) {
-			$('.woocommerce-product-search').on('submit', function(e) {
-				e.preventDefault();
-				const searchTerm = $(this).find('input[name="s"]').val();
-				
-				if (searchTerm.length > 2) {
-					// Simulate search
-					console.log('Searching for: ' + searchTerm);
-				}
-			});
-		}
-		
-		// Mini cart
-		if ($('.widget_shopping_cart').length > 0) {
-			$('.widget_shopping_cart').on('click', '.remove', function(e) {
-				e.preventDefault();
-				const removeLink = $(this);
-				const cartItem = removeLink.closest('.mini_cart_item');
-				
-				// Fade out cart item
-				cartItem.fadeOut(function() {
-					$(this).remove();
-					
-					// Update cart totals
-					updateCartTotals();
-				});
-			});
-		}
-		
-		// Product tabs
-		if ($('.woocommerce-tabs').length > 0) {
-			$('.woocommerce-tabs ul.tabs li a').on('click', function(e) {
-				e.preventDefault();
-				const tabLink = $(this);
-				const tabId = tabLink.attr('href');
-				
-				// Remove active class from all tabs
-				$('.woocommerce-tabs ul.tabs li').removeClass('active');
-				
-				// Add active class to clicked tab
-				tabLink.parent().addClass('active');
-				
-				// Hide all panels
-				$('.woocommerce-tabs .panel').hide();
-				
-				// Show selected panel
-				$(tabId).show();
-			});
-		}
-		
-		// Star ratings
-		if ($('.woocommerce-product-rating').length > 0) {
-			$('.woocommerce-product-rating .star-rating').on('click', function() {
-				const rating = $(this).data('rating');
-				$(this).parent().find('input[name="rating"]').val(rating);
-			});
-		}
-		
-		// Review form
-		if ($('#review_form').length > 0) {
-			$('#review_form').on('submit', function() {
-				let isValid = true;
-				
-				// Validate required fields
-				$(this).find('input, select, textarea').each(function() {
-					if ($(this).prop('required') && !$(this).val()) {
-						isValid = false;
-						$(this).addClass('error');
-					} else {
-						$(this).removeClass('error');
-					}
-				});
-				
-				if (!isValid) {
-					return false;
-				}
-			});
-		}
-		
-		// Price filter
-		if ($('.price_slider').length > 0) {
-			// Initialize price slider
-			$('.price_slider').slider({
-				range: true,
-				min: 0,
-				max: 1000,
-				values: [0, 1000],
-				slide: function(event, ui) {
-					$('.price_slider_amount #min_price').val(ui.values[0]);
-					$('.price_slider_amount #max_price').val(ui.values[1]);
-				}
-			});
-		}
-		
-		// AJAX add to cart
-		$(document).on('click', '.ajax_add_to_cart', function() {
-			const button = $(this);
-			const productID = button.data('product_id');
-			
-			// Disable button and show loading text
-			button.prop('disabled', true).text('Adding...');
-			
-			// Simulate AJAX request
-			setTimeout(function() {
-				button.text('Added to cart');
-				
-				// Update cart count in header
-				const cartCount = $('.cart-count');
-				if (cartCount.length > 0) {
-					const currentCount = parseInt(cartCount.text()) || 0;
-					cartCount.text(currentCount + 1);
-				}
-				
-				// Show success message
-				$('.woocommerce-message').remove();
-				$('form.cart').before('<div class="woocommerce-message">Product added to cart successfully.</div>');
-				
-				// Re-enable button after delay
-				setTimeout(function() {
-					button.prop('disabled', false).text('Add to cart');
-				}, 2000);
-			}, 1000);
-		});
 	});
 	
 	// Window load
@@ -415,35 +311,4 @@
 			$('.site-header').removeClass('sticky');
 		}
 	});
-	
-	// Helper function to update cart totals
-	function updateCartTotals() {
-		// This is a simplified version - in a real implementation, 
-		// you would recalculate the actual cart totals
-		const itemCount = $('.cart_item').length;
-		const total = 0;
-		
-		$('.cart_item').each(function() {
-			const itemTotal = parseFloat($(this).find('.product-subtotal').text().replace('$', ''));
-			if (!isNaN(itemTotal)) {
-				total += itemTotal;
-			}
-		});
-		
-		$('.cart-subtotal .amount').text('$' + total.toFixed(2));
-		$('.order-total .amount').text('$' + total.toFixed(2));
-	}
-	
-	// Helper function to show/hide related products
-	function toggleRelatedProducts() {
-		const relatedProducts = $('.related.products');
-		if (relatedProducts.length > 0) {
-			const products = relatedProducts.find('li.product');
-			if (products.length > 0) {
-				relatedProducts.show();
-			} else {
-				relatedProducts.hide();
-			}
-		}
-	}
 })(jQuery);
