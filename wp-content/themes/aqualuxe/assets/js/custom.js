@@ -1,5 +1,5 @@
 /**
- * AquaLuxe Custom JavaScript - Luxury Ornamental Fish Theme
+ * Custom JavaScript - Luxury Ornamental Fish Theme
  *
  * @package AquaLuxe
  * @since 1.0.0
@@ -63,71 +63,71 @@
     },
     
     /**
-         * Mobile menu functionality
-         */
-        mobileMenu: function() {
-          // Mobile menu toggle
-          $('.menu-toggle').on('click', function(e) {
-            e.preventDefault();
-            $('.main-navigation').toggleClass('toggled');
-            $(this).toggleClass('active');
-            
-            // Update aria-expanded attribute
-            var isExpanded = $(this).attr('aria-expanded') === 'true';
-            $(this).attr('aria-expanded', !isExpanded);
-            
-            // Focus management
-            if ($(this).hasClass('active')) {
-              // When menu is opened, focus on the first link
-              $('.main-navigation ul a').first().focus();
-            } else {
-              // When menu is closed, focus back on the menu toggle
-              $(this).focus();
-            }
-          });
+     * Mobile menu functionality
+     */
+    mobileMenu: function() {
+      // Mobile menu toggle
+      $('.menu-toggle').on('click', function(e) {
+        e.preventDefault();
+        $('.main-navigation').toggleClass('toggled');
+        $(this).toggleClass('active');
+        
+        // Update aria-expanded attribute
+        var isExpanded = $(this).attr('aria-expanded') === 'true';
+        $(this).attr('aria-expanded', !isExpanded);
+        
+        // Focus management
+        if ($(this).hasClass('active')) {
+          // When menu is opened, focus on the first link
+          $('.main-navigation ul a').first().focus();
+        } else {
+          // When menu is closed, focus back on the menu toggle
+          $(this).focus();
+        }
+      });
+      
+      // Close mobile menu when clicking outside
+      $(document).on('click', function(e) {
+        if (!$(e.target).closest('.main-navigation').length &&
+            !$(e.target).closest('.menu-toggle').length &&
+            $('.main-navigation').hasClass('toggled')) {
+          $('.main-navigation').removeClass('toggled');
+          $('.menu-toggle').removeClass('active');
           
-          // Close mobile menu when clicking outside
-          $(document).on('click', function(e) {
-            if (!$(e.target).closest('.main-navigation').length &&
-                !$(e.target).closest('.menu-toggle').length &&
-                $('.main-navigation').hasClass('toggled')) {
-              $('.main-navigation').removeClass('toggled');
-              $('.menu-toggle').removeClass('active');
-              
-              // Update aria-expanded attribute
-              $('.menu-toggle').attr('aria-expanded', 'false');
-              
-              // Focus back on the menu toggle
-              $('.menu-toggle').focus();
-            }
-          });
+          // Update aria-expanded attribute
+          $('.menu-toggle').attr('aria-expanded', 'false');
           
-          // Close mobile menu when clicking on a link
-          $('.main-navigation ul a').on('click', function() {
-            $('.main-navigation').removeClass('toggled');
-            $('.menu-toggle').removeClass('active');
-            
-            // Update aria-expanded attribute
-            $('.menu-toggle').attr('aria-expanded', 'false');
-            
-            // Focus back on the menu toggle
-            $('.menu-toggle').focus();
-          });
+          // Focus back on the menu toggle
+          $('.menu-toggle').focus();
+        }
+      });
+      
+      // Close mobile menu when clicking on a link
+      $('.main-navigation ul a').on('click', function() {
+        $('.main-navigation').removeClass('toggled');
+        $('.menu-toggle').removeClass('active');
+        
+        // Update aria-expanded attribute
+        $('.menu-toggle').attr('aria-expanded', 'false');
+        
+        // Focus back on the menu toggle
+        $('.menu-toggle').focus();
+      });
+      
+      // Close mobile menu when pressing Escape key
+      $(document).on('keydown', function(e) {
+        if (e.keyCode === 27 && $('.main-navigation').hasClass('toggled')) {
+          $('.main-navigation').removeClass('toggled');
+          $('.menu-toggle').removeClass('active');
           
-          // Close mobile menu when pressing Escape key
-          $(document).on('keydown', function(e) {
-            if (e.keyCode === 27 && $('.main-navigation').hasClass('toggled')) {
-              $('.main-navigation').removeClass('toggled');
-              $('.menu-toggle').removeClass('active');
-              
-              // Update aria-expanded attribute
-              $('.menu-toggle').attr('aria-expanded', 'false');
-              
-              // Focus back on the menu toggle
-              $('.menu-toggle').focus();
-            }
-          });
-        },
+          // Update aria-expanded attribute
+          $('.menu-toggle').attr('aria-expanded', 'false');
+          
+          // Focus back on the menu toggle
+          $('.menu-toggle').focus();
+        }
+      });
+    },
     
     /**
      * Accessibility enhancements

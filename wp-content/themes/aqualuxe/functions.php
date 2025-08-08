@@ -1,6 +1,6 @@
 <?php
 /**
- * AquaLuxe Child Theme Functions
+ * AquaLuxe functions and definitions
  *
  * @package AquaLuxe
  * @since 1.0.0
@@ -12,22 +12,20 @@ if (!defined('ABSPATH')) {
 }
 
 // Define theme constants
-define('AQUALUXE_VERSION', '1.0.1');
+define('AQUALUXE_VERSION', '1.0.0');
 define('AQUALUXE_THEME_DIR', get_template_directory());
-define('AQUALUXE_CHILD_THEME_DIR', get_stylesheet_directory());
 define('AQUALUXE_THEME_URI', get_template_directory_uri());
-define('AQUALUXE_CHILD_THEME_URI', get_stylesheet_directory_uri());
 
 // Include required files
-require_once AQUALUXE_CHILD_THEME_DIR . '/inc/theme-setup.php';
-require_once AQUALUXE_CHILD_THEME_DIR . '/inc/enqueue-scripts.php';
-require_once AQUALUXE_CHILD_THEME_DIR . '/inc/customizer.php';
-require_once AQUALUXE_CHILD_THEME_DIR . '/inc/woocommerce.php';
-require_once AQUALUXE_CHILD_THEME_DIR . '/inc/seo-optimizations.php';
-require_once AQUALUXE_CHILD_THEME_DIR . '/inc/accessibility.php';
-require_once AQUALUXE_CHILD_THEME_DIR . '/inc/demo-content.php';
-require_once AQUALUXE_CHILD_THEME_DIR . '/inc/widgets.php';
-require_once AQUALUXE_CHILD_THEME_DIR . '/inc/template-functions.php';
+require_once AQUALUXE_THEME_DIR . '/inc/theme-setup.php';
+require_once AQUALUXE_THEME_DIR . '/inc/enqueue-scripts.php';
+require_once AQUALUXE_THEME_DIR . '/inc/customizer.php';
+require_once AQUALUXE_THEME_DIR . '/inc/woocommerce.php';
+require_once AQUALUXE_THEME_DIR . '/inc/seo-optimizations.php';
+require_once AQUALUXE_THEME_DIR . '/inc/accessibility.php';
+require_once AQUALUXE_THEME_DIR . '/inc/demo-content.php';
+require_once AQUALUXE_THEME_DIR . '/inc/widgets.php';
+require_once AQUALUXE_THEME_DIR . '/inc/template-functions.php';
 
 /**
  * AquaLuxe Theme Class
@@ -77,7 +75,7 @@ class AquaLuxe_Theme {
      */
     public function theme_setup() {
         // Load text domain
-        load_child_theme_textdomain('aqualuxe', AQUALUXE_CHILD_THEME_DIR . '/languages');
+        load_theme_textdomain('aqualuxe', AQUALUXE_THEME_DIR . '/languages');
         
         // Add theme support
         add_theme_support('automatic-feed-links');

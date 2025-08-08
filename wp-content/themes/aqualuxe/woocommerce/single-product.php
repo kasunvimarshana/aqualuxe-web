@@ -2,27 +2,35 @@
 /**
  * The Template for displaying all single products
  *
- * @package AquaLuxe
- * @since 1.0.0
+ * This template can be overridden by copying it to yourtheme/woocommerce/single-product.php.
+ * HOWEVER, on occasion WooCommerce will need to update template files and you
+ * (the theme developer) will need to copy the new files to your theme to
+ * maintain compatibility. We try to do this as little as possible, but it does
+ * happen. When this occurs the version of the template file will be bumped and
+ * the readme will list any important changes.
+ *
+ * @see https://docs.woocommerce.com/document/template-structure/
+ * @package WooCommerce\Templates
+ * @version 1.6.4
  */
 
 defined('ABSPATH') || exit;
 
 get_header('shop'); ?>
 
-<main id="primary" class="site-main">
+<div id="primary" class="content-area">
+    <main id="main" class="site-main">
 
-  <?php
-  while (have_posts()) :
-    the_post();
-    
-    // Load the single product content
-    wc_get_template_part('content', 'single-product');
-    
-  endwhile; // End of the loop.
-  ?>
+    <?php
+    while (have_posts()) :
+        the_post();
 
-</main><!-- #main -->
+        wc_get_template_part('content', 'single-product');
+    endwhile;
+    ?>
+
+    </main><!-- #main -->
+</div><!-- #primary -->
 
 <?php
 get_footer('shop');

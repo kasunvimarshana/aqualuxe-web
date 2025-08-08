@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme Setup
+ * Theme Setup - Luxury Ornamental Fish Theme
  *
  * @package AquaLuxe
  * @since 1.0.0
@@ -18,13 +18,40 @@ if (!function_exists('aqualuxe_theme_setup')) {
      * @since 1.0.0
      */
     function aqualuxe_theme_setup() {
-        // Load text domain
+        /*
+         * Make theme available for translation.
+         * Translations can be filed in the /languages/ directory.
+         */
         load_child_theme_textdomain('aqualuxe', get_stylesheet_directory() . '/languages');
-        
-        // Add theme support
+
+        // Add default posts and comments RSS feed links to head.
         add_theme_support('automatic-feed-links');
+
+        /*
+         * Let WordPress manage the document title.
+         * By adding theme support, we declare that this theme does not use a
+         * hard-coded <title> tag in the document head, and expect WordPress to
+         * provide it for us.
+         */
         add_theme_support('title-tag');
+
+        /*
+         * Enable support for Post Thumbnails on posts and pages.
+         *
+         * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+         */
         add_theme_support('post-thumbnails');
+
+        // This theme uses wp_nav_menu() in one location.
+        register_nav_menus(array(
+            'primary' => __('Primary Menu', 'aqualuxe'),
+            'footer'  => __('Footer Menu', 'aqualuxe'),
+        ));
+
+        /*
+         * Switch default core markup for search form, comment form, and comments
+         * to output valid HTML5.
+         */
         add_theme_support('html5', array(
             'search-form',
             'comment-form',
@@ -33,26 +60,90 @@ if (!function_exists('aqualuxe_theme_setup')) {
             'caption',
             'style',
             'script',
+            'navigation-widgets',
         ));
+
+        // Add theme support for selective refresh for widgets.
         add_theme_support('customize-selective-refresh-widgets');
+
+        // Add support for WooCommerce.
+        add_theme_support('woocommerce');
         add_theme_support('wc-product-gallery-zoom');
         add_theme_support('wc-product-gallery-lightbox');
         add_theme_support('wc-product-gallery-slider');
-        
-        // Add support for full and wide align images
-        add_theme_support('align-wide');
-        
-        // Add support for responsive embedded content
+
+        // Add support for responsive embedded content.
         add_theme_support('responsive-embeds');
-        
-        // Add support for custom line height
-        add_theme_support('custom-line-height');
-        
-        // Add support for experimental link color control
-        add_theme_support('experimental-link-color');
-        
-        // Add support for editor styles
-        add_theme_support('editor-styles');
+
+        // Add support for custom logo.
+        add_theme_support('custom-logo', array(
+            'height'      => 100,
+            'width'       => 400,
+            'flex-height' => true,
+            'flex-width'  => true,
+            'header-text' => array('site-title', 'site-description'),
+        ));
+
+        // Add support for custom background.
+        add_theme_support('custom-background', apply_filters('aqualuxe_custom_background_args', array(
+            'default-color' => 'ffffff',
+            'default-image' => '',
+        )));
+
+        // Add support for custom header.
+        add_theme_support('custom-header', apply_filters('aqualuxe_custom_header_args', array(
+            'default-image'          => '',
+            'default-text-color'     => '000000',
+            'width'                  => 1920,
+            'height'                 => 400,
+            'flex-height'            => true,
+            'flex-width'             => true,
+            'wp-head-callback'       => 'aqualuxe_header_style',
+            'admin-head-callback'    => '',
+            'admin-preview-callback' => '',
+        )));
+
+        // Add support for post formats.
+        add_theme_support('post-formats', array(
+            'aside',
+            'gallery',
+            'link',
+            'image',
+            'quote',
+            'status',
+            'video',
+            'audio',
+            'chat',
+        ));
+
+        // Add support for starter content.
+        add_theme_support('starter-content', array(
+            'widgets' => array(
+                // Place widgets in the sidebar
+                'sidebar-1' => array(
+                    'text_business_info',
+                    'search',
+                    'recent-posts',
+                    'recent-comments',
+                    'categories',
+                    'meta',
+                ),
+            ),
+            'nav_menus' => array(
+                'primary' => array(
+                    'name' => __('Primary Menu', 'aqualuxe'),
+                ),
+                'footer' => array(
+                    'name' => __('Footer Menu', 'aqualuxe'),
+                ),
+            ),
+            'posts' => array(
+                'home',
+                'about',
+                'contact',
+                'blog',
+            ),
+        ));
     }
 }
 add_action('after_setup_theme', 'aqualuxe_theme_setup');
@@ -61,95 +152,115 @@ if (!function_exists('aqualuxe_content_width')) {
     /**
      * Set the content width in pixels, based on the theme's design and stylesheet.
      *
-     * @since 1.0.0
+     * Priority 0 to make it available to lower priority callbacks.
+     *
+     * @global int $content_width
      */
     function aqualuxe_content_width() {
+        // This variable is intended to be overruled from themes.
         $GLOBALS['content_width'] = apply_filters('aqualuxe_content_width', 1200);
     }
 }
 add_action('after_setup_theme', 'aqualuxe_content_width', 0);
 
-if (!function_exists('aqualuxe_register_menus')) {
+if (!function_exists('aqualuxe_header_style')) {
     /**
-     * Register navigation menus
+     * Styles the header image and text displayed on the blog.
      *
-     * @since 1.0.0
+     * @see aqualuxe_custom_header_setup().
      */
-    function aqualuxe_register_menus() {
-        register_nav_menus(array(
-            'primary' => esc_html__('Primary Menu', 'aqualuxe'),
-            'secondary' => esc_html__('Secondary Menu', 'aqualuxe'),
-            'handheld' => esc_html__('Handheld Menu', 'aqualuxe'),
-        ));
+    function aqualuxe_header_style() {
+        $header_text_color = get_header_textcolor();
+
+        /*
+         * If no custom options for text are set, let's bail.
+         * get_header_textcolor() options: Any hex value, 'blank' to hide text. Default: add_theme_support('custom-header').
+         */
+        if (get_theme_support('custom-header', 'default-text-color') === $header_text_color) {
+            return;
+        }
+
+        // If we get this far, we have custom styles. Let's do this.
+        ?>
+        <style type="text/css">
+        <?php
+        // Has the text been hidden?
+        if (!display_header_text()) :
+        ?>
+            .site-title,
+            .site-description {
+                position: absolute;
+                clip: rect(1px, 1px, 1px, 1px);
+            }
+        <?php
+            // If the user has set a custom color for the text use that.
+            else :
+        ?>
+            .site-title a,
+            .site-description {
+                color: #<?php echo esc_attr($header_text_color); ?>;
+            }
+        <?php endif; ?>
+        </style>
+        <?php
     }
 }
-add_action('init', 'aqualuxe_register_menus');
 
 if (!function_exists('aqualuxe_widgets_init')) {
     /**
-     * Register widget area
+     * Register widget area.
      *
-     * @since 1.0.0
+     * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
      */
     function aqualuxe_widgets_init() {
         register_sidebar(array(
-            'name' => esc_html__('Sidebar', 'aqualuxe'),
-            'id' => 'sidebar-1',
-            'description' => esc_html__('Add widgets here.', 'aqualuxe'),
+            'name'          => __('Sidebar', 'aqualuxe'),
+            'id'            => 'sidebar-1',
+            'description'   => __('Add widgets here.', 'aqualuxe'),
             'before_widget' => '<section id="%1$s" class="widget %2$s">',
-            'after_widget' => '</section>',
-            'before_title' => '<h2 class="widget-title">',
-            'after_title' => '</h2>',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
         ));
         
         register_sidebar(array(
-            'name' => esc_html__('Footer 1', 'aqualuxe'),
-            'id' => 'footer-1',
-            'description' => esc_html__('Add widgets here to appear in footer column 1.', 'aqualuxe'),
+            'name'          => __('Footer Widget Area 1', 'aqualuxe'),
+            'id'            => 'footer-1',
+            'description'   => __('Add widgets here.', 'aqualuxe'),
             'before_widget' => '<section id="%1$s" class="widget %2$s">',
-            'after_widget' => '</section>',
-            'before_title' => '<h2 class="widget-title">',
-            'after_title' => '</h2>',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
         ));
         
         register_sidebar(array(
-            'name' => esc_html__('Footer 2', 'aqualuxe'),
-            'id' => 'footer-2',
-            'description' => esc_html__('Add widgets here to appear in footer column 2.', 'aqualuxe'),
+            'name'          => __('Footer Widget Area 2', 'aqualuxe'),
+            'id'            => 'footer-2',
+            'description'   => __('Add widgets here.', 'aqualuxe'),
             'before_widget' => '<section id="%1$s" class="widget %2$s">',
-            'after_widget' => '</section>',
-            'before_title' => '<h2 class="widget-title">',
-            'after_title' => '</h2>',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
         ));
         
         register_sidebar(array(
-            'name' => esc_html__('Footer 3', 'aqualuxe'),
-            'id' => 'footer-3',
-            'description' => esc_html__('Add widgets here to appear in footer column 3.', 'aqualuxe'),
+            'name'          => __('Footer Widget Area 3', 'aqualuxe'),
+            'id'            => 'footer-3',
+            'description'   => __('Add widgets here.', 'aqualuxe'),
             'before_widget' => '<section id="%1$s" class="widget %2$s">',
-            'after_widget' => '</section>',
-            'before_title' => '<h2 class="widget-title">',
-            'after_title' => '</h2>',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
         ));
         
         register_sidebar(array(
-            'name' => esc_html__('Homepage Hero', 'aqualuxe'),
-            'id' => 'homepage-hero',
-            'description' => esc_html__('Add widgets here to appear in the homepage hero section.', 'aqualuxe'),
-            'before_widget' => '<div id="%1$s" class="hero-widget %2$s">',
-            'after_widget' => '</div>',
-            'before_title' => '<h2 class="widget-title">',
-            'after_title' => '</h2>',
-        ));
-        
-        register_sidebar(array(
-            'name' => esc_html__('Homepage Content', 'aqualuxe'),
-            'id' => 'homepage-content',
-            'description' => esc_html__('Add widgets here to appear in the homepage content area.', 'aqualuxe'),
-            'before_widget' => '<div id="%1$s" class="content-widget %2$s">',
-            'after_widget' => '</div>',
-            'before_title' => '<h2 class="widget-title">',
-            'after_title' => '</h2>',
+            'name'          => __('Footer Widget Area 4', 'aqualuxe'),
+            'id'            => 'footer-4',
+            'description'   => __('Add widgets here.', 'aqualuxe'),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
         ));
     }
 }
