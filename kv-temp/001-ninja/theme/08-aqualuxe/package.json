@@ -1,0 +1,49 @@
+{
+  "name": "aqualuxe",
+  "version": "1.0.0",
+  "description": "AquaLuxe - Premium WordPress Theme for Ornamental Fish Farming Business",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "postcss src/css/tailwind.css -o assets/css/style.css",
+    "watch:css": "postcss src/css/tailwind.css -o assets/css/style.css --watch",
+    "build:js": "webpack --mode production",
+    "watch:js": "webpack --mode development --watch",
+    "build": "npm run build:css && npm run build:js",
+    "dev": "concurrently &quot;npm run watch:css&quot; &quot;npm run watch:js&quot;",
+    "lint:js": "eslint assets/js/*.js",
+    "lint:css": "stylelint &quot;src/css/**/*.css&quot;",
+    "lint": "npm run lint:js && npm run lint:css"
+  },
+  "keywords": [
+    "wordpress",
+    "theme",
+    "woocommerce",
+    "aquarium",
+    "fish",
+    "tailwindcss"
+  ],
+  "author": "NinjaTech AI",
+  "license": "GPL-2.0-or-later",
+  "devDependencies": {
+    "@babel/core": "^7.23.0",
+    "@babel/preset-env": "^7.22.20",
+    "autoprefixer": "^10.4.16",
+    "babel-loader": "^9.1.3",
+    "concurrently": "^8.2.1",
+    "eslint": "^8.50.0",
+    "postcss": "^8.4.31",
+    "postcss-cli": "^10.1.0",
+    "stylelint": "^15.10.3",
+    "stylelint-config-standard": "^34.0.0",
+    "tailwindcss": "^3.3.5",
+    "terser-webpack-plugin": "^5.3.9",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie <= 11"
+  ]
+}

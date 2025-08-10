@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaLuxe WordPress Theme Documentation</title>
+    <style>
+        :root {
+            --primary-color: #1a6985;
+            --secondary-color: #4ecdc4;
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+            --border-color: #e0e0e0;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(to right, #0f3460, #1a6985);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background-color: #fff;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 20px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+        
+        main {
+            padding: 40px 0;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 80px;
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+            padding-right: 20px;
+        }
+        
+        .sidebar ul {
+            list-style: none;
+        }
+        
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+        
+        .sidebar a {
+            text-decoration: none;
+            color: var(--text-color);
+            display: block;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .sidebar a:hover,
+        .sidebar a.active {
+            background-color: var(--light-bg);
+            color: var(--primary-color);
+        }
+        
+        .sidebar .section-title {
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .sidebar .subsection {
+            padding-left: 20px;
+        }
+        
+        .content {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        
+        .content section {
+            margin-bottom: 40px;
+            scroll-margin-top: 100px;
+        }
+        
+        .content h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .content h3 {
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .content p {
+            margin-bottom: 15px;
+        }
+        
+        .content ul,
+        .content ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        
+        .content li {
+            margin-bottom: 5px;
+        }
+        
+        .content code {
+            background-color: var(--light-bg);
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        
+        .content pre {
+            background-color: var(--light-bg);
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 15px;
+        }
+        
+        .content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+        
+        .content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .content .note {
+            background-color: #e7f5ff;
+            border-left: 4px solid #1a6985;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .content .warning {
+            background-color: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+        
+        .content table th,
+        .content table td {
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+        
+        .content table th {
+            background-color: var(--light-bg);
+        }
+        
+        footer {
+            background-color: var(--light-bg);
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 30px;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                position: static;
+                height: auto;
+                margin-bottom: 30px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: #fff;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+            }
+            
+            .nav-links.active li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>AquaLuxe WordPress Theme</h1>
+            <p>Premium WordPress + WooCommerce Theme for Ornamental Fish Businesses</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">AquaLuxe</div>
+            <button class="mobile-menu-toggle">☰</button>
+            <ul class="nav-links">
+                <li><a href="#getting-started">Getting Started</a></li>
+                <li><a href="#theme-setup">Theme Setup</a></li>
+                <li><a href="#customization">Customization</a></li>
+                <li><a href="#woocommerce">WooCommerce</a></li>
+                <li><a href="#advanced">Advanced</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main>
+        <div class="container grid">
+            <aside class="sidebar">
+                <ul>
+                    <li class="section-title">Introduction</li>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#requirements">Requirements</a></li>
+                    
+                    <li class="section-title">Getting Started</li>
+                    <li><a href="#installation">Installation</a></li>
+                    <li><a href="#demo-import">Demo Content Import</a></li>
+                    <li><a href="#plugins">Required Plugins</a></li>
+                    
+                    <li class="section-title">Theme Setup</li>
+                    <li><a href="#homepage-setup">Homepage Setup</a></li>
+                    <li><a href="#menu-setup">Menu Setup</a></li>
+                    <li><a href="#widgets">Widget Areas</a></li>
+                    
+                    <li class="section-title">Customization</li>
+                    <li><a href="#customizer">Theme Customizer</a></li>
+                    <li><a href="#colors">Colors & Typography</a></li>
+                    <li><a href="#dark-mode">Dark Mode</a></li>
+                    <li><a href="#multilingual">Multilingual Support</a></li>
+                    
+                    <li class="section-title">WooCommerce</li>
+                    <li><a href="#woocommerce-setup">WooCommerce Setup</a></li>
+                    <li><a href="#product-display">Product Display</a></li>
+                    <li><a href="#quick-view">Quick View</a></li>
+                    <li><a href="#wishlist">Wishlist</a></li>
+                    <li><a href="#filters">Advanced Filters</a></li>
+                    
+                    <li class="section-title">Advanced</li>
+                    <li><a href="#hooks">Theme Hooks</a></li>
+                    <li><a href="#filters-api">Filters</a></li>
+                    <li><a href="#child-theme">Child Theme</a></li>
+                    <li><a href="#performance">Performance</a></li>
+                    
+                    <li class="section-title">Support</li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#support">Support</a></li>
+                </ul>
+            </aside>
+            
+            <div class="content">
+                <section id="overview">
+                    <h2>Overview</h2>
+                    <p>AquaLuxe is a premium WordPress theme designed specifically for ornamental fish businesses, aquarium shops, and fish breeders. With its elegant design, powerful features, and seamless WooCommerce integration, AquaLuxe provides everything you need to create a professional online presence for your aquatic business.</p>
+                    
+                    <p>This documentation will guide you through the installation, setup, and customization of the AquaLuxe theme to help you get the most out of its features.</p>
+                </section>
+                
+                <section id="features">
+                    <h2>Features</h2>
+                    <ul>
+                        <li><strong>Responsive Design</strong> - Looks great on all devices, from mobile phones to desktop computers</li>
+                        <li><strong>Tailwind CSS Framework</strong> - Modern utility-first CSS framework for rapid UI development</li>
+                        <li><strong>WooCommerce Integration</strong> - Fully compatible with WooCommerce for selling products online</li>
+                        <li><strong>Dark Mode</strong> - Built-in dark mode toggle with customizable colors</li>
+                        <li><strong>Multilingual Support</strong> - Ready for translation with support for WPML and Polylang</li>
+                        <li><strong>Product Quick View</strong> - Allow customers to quickly preview products without leaving the page</li>
+                        <li><strong>Wishlist Functionality</strong> - Let customers save products for later</li>
+                        <li><strong>Advanced Product Filtering</strong> - Help customers find exactly what they're looking for</li>
+                        <li><strong>Theme Customizer</strong> - Extensive options for customizing the look and feel of your site</li>
+                        <li><strong>Performance Optimized</strong> - Fast loading times and optimized for SEO</li>
+                        <li><strong>One-Click Demo Import</strong> - Get started quickly with pre-built demo content</li>
+                    </ul>
+                </section>
+                
+                <section id="requirements">
+                    <h2>Requirements</h2>
+                    <p>To use the AquaLuxe theme, you'll need:</p>
+                    <ul>
+                        <li>WordPress 5.6 or higher</li>
+                        <li>PHP 7.4 or higher</li>
+                        <li>MySQL 5.6 or higher</li>
+                        <li>WooCommerce 5.0 or higher (if you want to use the shop features)</li>
+                    </ul>
+                    
+                    <div class="note">
+                        <p><strong>Note:</strong> While the theme will work with lower versions, we recommend using the latest versions of WordPress, PHP, and WooCommerce for optimal performance and security.</p>
+                    </div>
+                </section>
+                
+                <section id="installation">
+                    <h2>Installation</h2>
+                    <p>There are two ways to install the AquaLuxe theme:</p>
+                    
+                    <h3>Method 1: WordPress Admin Panel</h3>
+                    <ol>
+                        <li>Log in to your WordPress admin panel</li>
+                        <li>Go to <strong>Appearance > Themes</strong></li>
+                        <li>Click the <strong>Add New</strong> button</li>
+                        <li>Click the <strong>Upload Theme</strong> button</li>
+                        <li>Click <strong>Choose File</strong>, select the <code>aqualuxe.zip</code> file, and click <strong>Install Now</strong></li>
+                        <li>After installation, click <strong>Activate</strong> to activate the theme</li>
+                    </ol>
+                    
+                    <h3>Method 2: FTP Upload</h3>
+                    <ol>
+                        <li>Extract the <code>aqualuxe.zip</code> file to your computer</li>
+                        <li>Upload the <code>aqualuxe</code> folder to the <code>/wp-content/themes/</code> directory on your server</li>
+                        <li>Log in to your WordPress admin panel</li>
+                        <li>Go to <strong>Appearance > Themes</strong></li>
+                        <li>Find the AquaLuxe theme and click <strong>Activate</strong></li>
+                    </ol>
+                </section>
+                
+                <section id="demo-import">
+                    <h2>Demo Content Import</h2>
+                    <p>AquaLuxe comes with pre-built demo content to help you get started quickly. To import the demo content:</p>
+                    
+                    <ol>
+                        <li>Log in to your WordPress admin panel</li>
+                        <li>Go to <strong>Appearance > Import Demo Content</strong></li>
+                        <li>Click the <strong>Import Demo Content</strong> button</li>
+                        <li>Wait for the import process to complete</li>
+                    </ol>
+                    
+                    <div class="warning">
+                        <p><strong>Warning:</strong> It's recommended to import demo content on a fresh WordPress installation to avoid conflicts with existing content. The import process will add pages, posts, products, categories, and other content to your site.</p>
+                    </div>
+                </section>
+                
+                <section id="plugins">
+                    <h2>Required Plugins</h2>
+                    <p>AquaLuxe works best with the following plugins:</p>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Plugin</th>
+                                <th>Description</th>
+                                <th>Required</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>WooCommerce</td>
+                                <td>For e-commerce functionality</td>
+                                <td>Yes (for shop features)</td>
+                            </tr>
+                            <tr>
+                                <td>Contact Form 7</td>
+                                <td>For contact forms</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td>Yoast SEO</td>
+                                <td>For SEO optimization</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td>WP Rocket</td>
+                                <td>For performance optimization</td>
+                                <td>No</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p>After installing the theme, you'll see a notice recommending the installation of these plugins. You can install them directly from that notice or manually from the Plugins page.</p>
+                </section>
+                
+                <!-- Additional sections would continue here -->
+                
+                <section id="support">
+                    <h2>Support</h2>
+                    <p>If you need help with the AquaLuxe theme, you can contact our support team:</p>
+                    
+                    <ul>
+                        <li><strong>Email:</strong> support@aqualuxe-theme.com</li>
+                        <li><strong>Support Ticket:</strong> <a href="https://aqualuxe-theme.com/support">https://aqualuxe-theme.com/support</a></li>
+                        <li><strong>Documentation:</strong> <a href="https://aqualuxe-theme.com/docs">https://aqualuxe-theme.com/docs</a></li>
+                    </ul>
+                    
+                    <p>Our support team is available Monday through Friday, 9:00 AM to 5:00 PM EST.</p>
+                </section>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 AquaLuxe Theme. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('.nav-links').classList.remove('active');
+                    
+                    // Update URL
+                    history.pushState(null, null, this.getAttribute('href'));
+                }
+            });
+        });
+        
+        // Highlight active section in sidebar
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.content section');
+            const navLinks = document.querySelectorAll('.sidebar a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                    current = '#' + section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

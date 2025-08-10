@@ -1,0 +1,19 @@
+
+> aqualuxe@1.0.0 build
+> npm run build:css
+
+
+> aqualuxe@1.0.0 build:css
+> postcss src/css/tailwind.css -o assets/css/style.css
+
+Error: Cannot apply unknown utility class `font-sans`. Are you using CSS modules or similar and missing `@reference`? https://tailwindcss.com/docs/functions-and-directives#reference-directive
+    at onInvalidCandidate (/workspace/node_modules/@tailwindcss/node/node_modules/tailwindcss/dist/lib.js:18:1312)
+    at ge (/workspace/node_modules/@tailwindcss/node/node_modules/tailwindcss/dist/lib.js:13:29803)
+    at /workspace/node_modules/@tailwindcss/node/node_modules/tailwindcss/dist/lib.js:18:373
+    at I (/workspace/node_modules/@tailwindcss/node/node_modules/tailwindcss/dist/lib.js:3:1656)
+    at je (/workspace/node_modules/@tailwindcss/node/node_modules/tailwindcss/dist/lib.js:18:172)
+    at bi (/workspace/node_modules/@tailwindcss/node/node_modules/tailwindcss/dist/lib.js:35:780)
+    at async yi (/workspace/node_modules/@tailwindcss/node/node_modules/tailwindcss/dist/lib.js:35:1123)
+    at async _r (/workspace/node_modules/@tailwindcss/node/dist/index.js:10:3384)
+    at async p (/workspace/node_modules/@tailwindcss/postcss/dist/index.js:10:4019)
+    at async Object.Once (/workspace/node_modules/@tailwindcss/postcss/dist/index.js:10:4290)

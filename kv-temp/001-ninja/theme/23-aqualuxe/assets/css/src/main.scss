@@ -1,0 +1,55 @@
+/**
+ * AquaLuxe Theme Styles
+ *
+ * This is the main stylesheet for the AquaLuxe theme.
+ * It imports Tailwind CSS and our custom styles.
+ */
+
+/* Tailwind CSS */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom Base Styles */
+@import 'base/variables';
+@import 'base/typography';
+@import 'base/global';
+
+/* Components */
+@import 'components/buttons';
+@import 'components/forms';
+@import 'components/navigation';
+@import 'components/header';
+@import 'components/footer';
+@import 'components/sidebar';
+@import 'components/widgets';
+@import 'components/cards';
+@import 'components/pagination';
+@import 'components/comments';
+@import 'components/modals';
+
+/* Layout */
+@import 'layout/grid';
+@import 'layout/containers';
+@import 'layout/sections';
+
+/* Pages */
+@import 'pages/home';
+@import 'pages/blog';
+@import 'pages/single';
+@import 'pages/archive';
+@import 'pages/search';
+@import 'pages/404';
+@import 'pages/contact';
+
+/* WooCommerce */
+@import 'woocommerce/shop';
+@import 'woocommerce/product';
+@import 'woocommerce/cart';
+@import 'woocommerce/checkout';
+@import 'woocommerce/account';
+
+/* Utilities */
+@import 'utilities/animations';
+@import 'utilities/dark-mode';
+@import 'utilities/accessibility';

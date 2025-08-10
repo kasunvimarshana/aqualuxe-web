@@ -1,0 +1,360 @@
+/**
+ * AquaLuxe Print Styles
+ *
+ * CSS styles for print-friendly fish care guides
+ *
+ * @package AquaLuxe
+ * @since 1.0.0
+ */
+
+@media print {
+    /* Reset page margins and background */
+    @page {
+        margin: 0.5in;
+    }
+    
+    body {
+        background: #fff !important;
+        color: #000 !important;
+        font-size: 12pt;
+        line-height: 1.5;
+        font-family: "Times New Roman", Times, serif;
+    }
+    
+    /* Hide unnecessary elements */
+    header.site-header,
+    nav.main-navigation,
+    nav.secondary-navigation,
+    aside.widget-area,
+    footer.site-footer,
+    .site-header-cart,
+    .site-search,
+    .comments-area,
+    .fish-species-share,
+    .fish-product-link,
+    .fish-species-tools,
+    .related-fish-species,
+    .fish-species-footer,
+    .tabs-nav,
+    button,
+    .button,
+    .social-share-buttons {
+        display: none !important;
+    }
+    
+    /* Main content layout */
+    .site-content {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        float: none !important;
+    }
+    
+    .content-area {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        float: none !important;
+    }
+    
+    /* Fish species header */
+    .fish-species-header {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 20pt;
+        page-break-inside: avoid;
+    }
+    
+    .fish-species-image {
+        width: 40%;
+        margin-right: 20pt;
+    }
+    
+    .fish-species-image img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .fish-species-title-area {
+        width: 60%;
+    }
+    
+    .entry-title {
+        font-size: 24pt;
+        margin: 0 0 5pt 0;
+        color: #000 !important;
+    }
+    
+    .scientific-name {
+        font-size: 16pt;
+        font-style: italic;
+        margin: 0 0 10pt 0;
+    }
+    
+    .fish-taxonomy {
+        margin-bottom: 10pt;
+    }
+    
+    .fish-taxonomy span {
+        display: block;
+        margin-bottom: 5pt;
+    }
+    
+    .fish-species-key-specs {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 15pt;
+        border: 1pt solid #ccc;
+        padding: 10pt;
+    }
+    
+    .key-spec {
+        width: 50%;
+        margin-bottom: 8pt;
+    }
+    
+    .spec-label {
+        font-weight: bold;
+    }
+    
+    /* Show all tab content */
+    .fish-species-tabs {
+        border: none !important;
+    }
+    
+    .tab-pane {
+        display: block !important;
+        margin-bottom: 20pt;
+        page-break-before: always;
+    }
+    
+    .tab-pane:first-of-type {
+        page-break-before: avoid;
+    }
+    
+    /* Add tab titles for print */
+    .tab-pane::before {
+        content: attr(id);
+        display: block;
+        font-size: 18pt;
+        font-weight: bold;
+        margin-bottom: 10pt;
+        text-transform: capitalize;
+        border-bottom: 1pt solid #000;
+        padding-bottom: 5pt;
+    }
+    
+    /* Fish specifications */
+    .fish-specifications h3,
+    .fish-care-guide h3,
+    .fish-compatibility h3,
+    .fish-breeding h3 {
+        font-size: 16pt;
+        margin: 0 0 10pt 0;
+    }
+    
+    .specs-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10pt;
+        margin-bottom: 15pt;
+    }
+    
+    .spec-item {
+        padding: 8pt;
+        border: 1pt solid #ccc;
+    }
+    
+    .spec-name {
+        font-weight: bold;
+    }
+    
+    /* Water parameters chart */
+    .water-parameters-chart {
+        margin-top: 15pt;
+        page-break-inside: avoid;
+    }
+    
+    .water-parameters-chart h4 {
+        font-size: 14pt;
+        margin: 0 0 10pt 0;
+    }
+    
+    .parameter-range {
+        margin-bottom: 15pt;
+    }
+    
+    .parameter-label {
+        font-weight: bold;
+    }
+    
+    .range-bar {
+        height: 10pt;
+        background-color: #eee;
+        border: 1pt solid #ccc;
+        position: relative;
+        margin: 5pt 0;
+    }
+    
+    .range-fill {
+        position: absolute;
+        height: 100%;
+        background-color: #666;
+    }
+    
+    .range-scale {
+        display: flex;
+        justify-content: space-between;
+        font-size: 8pt;
+    }
+    
+    .range-values {
+        font-weight: bold;
+        text-align: center;
+    }
+    
+    /* Care guide */
+    .care-section {
+        margin-bottom: 15pt;
+    }
+    
+    .care-section h4 {
+        font-size: 14pt;
+        margin: 0 0 8pt 0;
+        border-bottom: 1pt solid #ccc;
+        padding-bottom: 3pt;
+    }
+    
+    /* Compatibility */
+    .compatibility-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15pt;
+        margin-bottom: 15pt;
+    }
+    
+    .compatibility-column {
+        padding: 10pt;
+        border: 1pt solid #ccc;
+    }
+    
+    .compatibility-column h4 {
+        font-size: 14pt;
+        margin: 0 0 8pt 0;
+    }
+    
+    .compatibility-notes {
+        margin-top: 15pt;
+        padding: 10pt;
+        border: 1pt solid #ccc;
+    }
+    
+    /* Breeding */
+    .breeding-difficulty {
+        margin-bottom: 15pt;
+        padding: 10pt;
+        border: 1pt solid #ccc;
+    }
+    
+    .breeding-difficulty h4 {
+        font-size: 14pt;
+        margin: 0 0 8pt 0;
+    }
+    
+    .difficulty-meter {
+        margin-top: 10pt;
+    }
+    
+    .difficulty-label {
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 5pt;
+    }
+    
+    .breeding-tips {
+        margin-top: 15pt;
+    }
+    
+    .breeding-tips h4 {
+        font-size: 14pt;
+        margin: 0 0 8pt 0;
+        border-bottom: 1pt solid #ccc;
+        padding-bottom: 3pt;
+    }
+    
+    /* Links */
+    a {
+        color: #000 !important;
+        text-decoration: none !important;
+    }
+    
+    /* Show URLs for external links */
+    a[href^="http"]:after {
+        content: " (" attr(href) ")";
+        font-size: 10pt;
+        font-style: italic;
+    }
+    
+    /* Don't show URL for internal links */
+    a[href^="#"]:after,
+    a[href^="/"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+    
+    /* Tables */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 15pt;
+        page-break-inside: avoid;
+    }
+    
+    table, th, td {
+        border: 1pt solid #ccc;
+    }
+    
+    th, td {
+        padding: 8pt;
+        text-align: left;
+    }
+    
+    th {
+        background-color: #f5f5f5;
+    }
+    
+    /* Add page footer with copyright */
+    #footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        font-size: 9pt;
+        text-align: center;
+        border-top: 1pt solid #ccc;
+        padding-top: 5pt;
+    }
+    
+    #footer:after {
+        content: "© AquaLuxe Fish Care Guide - Printed from " attr(data-url) " - Page " counter(page);
+    }
+    
+    /* Add print-specific header */
+    .fish-species-single:before {
+        content: "AquaLuxe Fish Care Guide";
+        display: block;
+        text-align: center;
+        font-size: 10pt;
+        margin-bottom: 10pt;
+        color: #666;
+    }
+    
+    /* Add print date */
+    .fish-species-single:after {
+        content: "Printed on " attr(data-print-date);
+        display: block;
+        text-align: center;
+        font-size: 10pt;
+        margin-top: 20pt;
+        color: #666;
+    }
+}

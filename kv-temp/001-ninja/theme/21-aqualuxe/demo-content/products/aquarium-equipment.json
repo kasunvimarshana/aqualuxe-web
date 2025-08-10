@@ -1,0 +1,113 @@
+[
+  {
+    "name": "AquaLuxe Pro Filter System",
+    "slug": "aqualuxe-pro-filter-system",
+    "category": "Aquarium Equipment",
+    "price": 79.99,
+    "regular_price": 99.99,
+    "sale_price": 79.99,
+    "description": "The AquaLuxe Pro Filter System is a premium 3-stage filtration solution designed for aquariums up to 75 gallons. This advanced system combines mechanical, biological, and chemical filtration to maintain crystal-clear water and optimal conditions for your aquatic life. The whisper-quiet operation ensures a peaceful environment, while the adjustable flow rate allows customization based on your tank's needs. The filter includes a self-priming pump for easy startup and maintenance, and the modular design makes filter media replacement simple and mess-free. Each unit comes with a starter pack of premium filter media and a 2-year manufacturer warranty.",
+    "short_description": "Premium 3-stage filtration system for aquariums up to 75 gallons.",
+    "image": "equipment1.svg",
+    "stock_quantity": 15,
+    "weight": "2.5",
+    "dimensions": {
+      "length": "12",
+      "width": "8",
+      "height": "10"
+    },
+    "attributes": [
+      {
+        "name": "Tank Size",
+        "options": ["Up to 75 gallons"]
+      },
+      {
+        "name": "Flow Rate",
+        "options": ["300 GPH (adjustable)"]
+      },
+      {
+        "name": "Filtration Type",
+        "options": ["Mechanical", "Biological", "Chemical"]
+      },
+      {
+        "name": "Power Consumption",
+        "options": ["25W"]
+      }
+    ],
+    "tags": ["filter", "water-quality", "premium"]
+  },
+  {
+    "name": "AquaLuxe Smart LED Lighting System",
+    "slug": "aqualuxe-smart-led-lighting-system",
+    "category": "Aquarium Equipment",
+    "price": 129.99,
+    "regular_price": 149.99,
+    "sale_price": 129.99,
+    "description": "Transform your aquarium with the AquaLuxe Smart LED Lighting System, a customizable lighting solution that brings out the vibrant colors of your fish and promotes healthy plant growth. This advanced system features full-spectrum RGB+W LEDs with independent color channels that can be adjusted to create the perfect lighting environment for any aquarium setup. The built-in smart controller allows you to program sunrise/sunset effects, cloud cover simulation, and moonlight modes for a natural day/night cycle. Compatible with our AquaLuxe mobile app (iOS and Android), you can control your lighting remotely and even sync it with other AquaLuxe smart aquarium products. The slim, waterproof aluminum housing ensures durability while the adjustable mounting brackets fit most standard aquarium sizes.",
+    "short_description": "Customizable full-spectrum LED lighting system with smart controls and natural effects.",
+    "image": "equipment1.svg",
+    "stock_quantity": 20,
+    "weight": "1.8",
+    "dimensions": {
+      "length": "24",
+      "width": "4",
+      "height": "1"
+    },
+    "attributes": [
+      {
+        "name": "Length",
+        "options": ["24 inches", "36 inches", "48 inches"]
+      },
+      {
+        "name": "Wattage",
+        "options": ["30W", "45W", "60W"]
+      },
+      {
+        "name": "Color Channels",
+        "options": ["RGB+W (Red, Green, Blue, White)"]
+      },
+      {
+        "name": "Connectivity",
+        "options": ["Bluetooth", "Wi-Fi"]
+      }
+    ],
+    "tags": ["lighting", "smart-device", "plant-growth", "premium"]
+  },
+  {
+    "name": "AquaLuxe CO2 Diffusion System",
+    "slug": "aqualuxe-co2-diffusion-system",
+    "category": "Aquarium Equipment",
+    "price": 149.99,
+    "regular_price": 169.99,
+    "sale_price": 149.99,
+    "description": "The AquaLuxe CO2 Diffusion System is a complete solution for planted aquariums, providing precise carbon dioxide supplementation for lush, vibrant plant growth. This professional-grade system includes a high-quality aluminum CO2 cylinder (2L), precision dual-stage regulator with solenoid valve, bubble counter, check valve, and a high-efficiency ceramic diffuser. The integrated solenoid allows for automatic on/off control when connected to a timer (sold separately), ensuring CO2 is only dispensed during photosynthesis periods. The precision needle valve allows for fine-tuning of CO2 levels, while the included drop checker helps monitor CO2 concentration in your aquarium. This complete system provides everything needed to transform your planted aquarium into a thriving underwater garden.",
+    "short_description": "Complete CO2 system for planted aquariums with precision control and monitoring.",
+    "image": "equipment1.svg",
+    "stock_quantity": 10,
+    "weight": "4.5",
+    "dimensions": {
+      "length": "12",
+      "width": "8",
+      "height": "16"
+    },
+    "attributes": [
+      {
+        "name": "Tank Size",
+        "options": ["Up to 100 gallons"]
+      },
+      {
+        "name": "Cylinder Size",
+        "options": ["2L Aluminum"]
+      },
+      {
+        "name": "Regulator Type",
+        "options": ["Dual-stage with Solenoid"]
+      },
+      {
+        "name": "Includes",
+        "options": ["Regulator, Bubble Counter, Check Valve, Diffuser, Drop Checker"]
+      }
+    ],
+    "tags": ["planted-tank", "CO2", "plant-growth", "advanced"]
+  }
+]
