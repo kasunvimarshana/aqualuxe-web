@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaLuxe Accessibility Testing Tool</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #0d9488;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #0c4a6e;
+            border-bottom: 2px solid #e0f2fe;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .url-input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        .load-btn {
+            padding: 10px 15px;
+            background-color: #14b8a6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .load-btn:hover {
+            background-color: #0d9488;
+        }
+        .iframe-container {
+            width: 100%;
+            height: 500px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .test-section {
+            margin-bottom: 30px;
+            background-color: #f0fdfa;
+            padding: 15px;
+            border-radius: 4px;
+        }
+        .test-section h3 {
+            margin-top: 0;
+            color: #0f766e;
+        }
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .test-item {
+            background-color: white;
+            padding: 15px;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .test-item h4 {
+            margin-top: 0;
+            color: #075985;
+        }
+        .test-item p {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .test-status {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .status-indicator {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .status-pass {
+            background-color: #10b981;
+        }
+        .status-fail {
+            background-color: #ef4444;
+        }
+        .status-na {
+            background-color: #d1d5db;
+        }
+        .test-notes {
+            margin-top: 10px;
+        }
+        .test-notes textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+            min-height: 60px;
+            font-family: inherit;
+            font-size: 14px;
+        }
+        .tools-section {
+            margin-bottom: 20px;
+        }
+        .tools-section button {
+            margin-right: 10px;
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            background-color: #e0f2fe;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .tools-section button:hover {
+            background-color: #bae6fd;
+        }
+        .summary {
+            margin-top: 30px;
+        }
+        .summary textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>AquaLuxe Accessibility Testing Tool</h1>
+        
+        <div class="controls">
+            <input type="text" class="url-input" id="urlInput" placeholder="Enter URL to test (e.g., http://localhost:8000)" value="http://localhost:8000">
+            <button class="load-btn" id="loadBtn">Load URL</button>
+        </div>
+        
+        <div class="iframe-container">
+            <iframe id="testFrame" src="about:blank"></iframe>
+        </div>
+        
+        <div class="tools-section">
+            <h2>Testing Tools</h2>
+            <button id="keyboardBtn">Test Keyboard Navigation</button>
+            <button id="contrastBtn">Check Color Contrast</button>
+            <button id="headingsBtn">Check Heading Structure</button>
+            <button id="altTextBtn">Check Alt Text</button>
+            <button id="ariaBtn">Check ARIA Attributes</button>
+        </div>
+        
+        <div class="test-section">
+            <h2>WCAG 2.1 AA Checklist</h2>
+            
+            <div class="test-grid">
+                <div class="test-item">
+                    <h4>Keyboard Navigation</h4>
+                    <p>All functionality is operable through a keyboard interface.</p>
+                    <div class="test-status">
+                        <div class="status-indicator status-na" data-status="na" id="keyboard-status"></div>
+                        <span>Not tested</span>
+                    </div>
+                    <div class="test-notes">
+                        <textarea placeholder="Enter test notes here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="test-item">
+                    <h4>Color Contrast</h4>
+                    <p>Text has sufficient contrast against its background (4.5:1 for normal text, 3:1 for large text).</p>
+                    <div class="test-status">
+                        <div class="status-indicator status-na" data-status="na" id="contrast-status"></div>
+                        <span>Not tested</span>
+                    </div>
+                    <div class="test-notes">
+                        <textarea placeholder="Enter test notes here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="test-item">
+                    <h4>Text Alternatives</h4>
+                    <p>All non-text content has text alternatives (alt text for images).</p>
+                    <div class="test-status">
+                        <div class="status-indicator status-na" data-status="na" id="alt-status"></div>
+                        <span>Not tested</span>
+                    </div>
+                    <div class="test-notes">
+                        <textarea placeholder="Enter test notes here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="test-item">
+                    <h4>Heading Structure</h4>
+                    <p>Headings and labels describe topic or purpose. Heading levels are used in correct order.</p>
+                    <div class="test-status">
+                        <div class="status-indicator status-na" data-status="na" id="headings-status"></div>
+                        <span>Not tested</span>
+                    </div>
+                    <div class="test-notes">
+                        <textarea placeholder="Enter test notes here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="test-item">
+                    <h4>Focus Visibility</h4>
+                    <p>Keyboard focus indicator is visible and clear.</p>
+                    <div class="test-status">
+                        <div class="status-indicator status-na" data-status="na" id="focus-status"></div>
+                        <span>Not tested</span>
+                    </div>
+                    <div class="test-notes">
+                        <textarea placeholder="Enter test notes here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="test-item">
+                    <h4>Form Labels</h4>
+                    <p>All form elements have associated labels.</p>
+                    <div class="test-status">
+                        <div class="status-indicator status-na" data-status="na" id="form-status"></div>
+                        <span>Not tested</span>
+                    </div>
+                    <div class="test-notes">
+                        <textarea placeholder="Enter test notes here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="test-item">
+                    <h4>ARIA Attributes</h4>
+                    <p>ARIA attributes are used correctly to enhance accessibility.</p>
+                    <div class="test-status">
+                        <div class="status-indicator status-na" data-status="na" id="aria-status"></div>
+                        <span>Not tested</span>
+                    </div>
+                    <div class="test-notes">
+                        <textarea placeholder="Enter test notes here..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="test-item">
+                    <h4>Skip Links</h4>
+                    <p>Skip links are provided to bypass navigation and go to main content.</p>
+                    <div class="test-status">
+                        <div class="status-indicator status-na" data-status="na" id="skip-status"></div>
+                        <span>Not tested</span>
+                    </div>
+                    <div class="test-notes">
+                        <textarea placeholder="Enter test notes here..."></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="summary">
+            <h2>Test Summary</h2>
+            <textarea id="summaryArea" placeholder="Enter your overall accessibility assessment here..."></textarea>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlInput = document.getElementById('urlInput');
+            const loadBtn = document.getElementById('loadBtn');
+            const testFrame = document.getElementById('testFrame');
+            const statusIndicators = document.querySelectorAll('.status-indicator');
+            
+            // Load URL
+            loadBtn.addEventListener('click', function() {
+                const url = urlInput.value.trim();
+                if (url) {
+                    testFrame.src = url;
+                }
+            });
+            
+            // Status toggle
+            statusIndicators.forEach(indicator => {
+                indicator.addEventListener('click', function() {
+                    const currentStatus = this.getAttribute('data-status');
+                    let newStatus, newClass, newText;
+                    
+                    if (currentStatus === 'na') {
+                        newStatus = 'pass';
+                        newClass = 'status-pass';
+                        newText = 'Pass';
+                    } else if (currentStatus === 'pass') {
+                        newStatus = 'fail';
+                        newClass = 'status-fail';
+                        newText = 'Fail';
+                    } else {
+                        newStatus = 'na';
+                        newClass = 'status-na';
+                        newText = 'Not tested';
+                    }
+                    
+                    // Update status
+                    this.setAttribute('data-status', newStatus);
+                    this.className = 'status-indicator ' + newClass;
+                    this.nextElementSibling.textContent = newText;
+                });
+            });
+            
+            // Tool buttons
+            document.getElementById('keyboardBtn').addEventListener('click', function() {
+                alert('Keyboard Navigation Test:\n\n1. Press Tab key repeatedly to navigate through the page\n2. Check if all interactive elements can be focused\n3. Check if the focus order is logical\n4. Try to interact with focused elements using Enter or Space');
+            });
+            
+            document.getElementById('contrastBtn').addEventListener('click', function() {
+                alert('Color Contrast Test:\n\n1. Use a color contrast analyzer tool (like WebAIM\'s Contrast Checker)\n2. Check text against its background\n3. Normal text should have a ratio of at least 4.5:1\n4. Large text should have a ratio of at least 3:1');
+            });
+            
+            document.getElementById('headingsBtn').addEventListener('click', function() {
+                alert('Heading Structure Test:\n\n1. Use browser developer tools to inspect headings\n2. Check if headings follow a logical hierarchy (h1, then h2, etc.)\n3. Verify that headings accurately describe their sections\n4. Ensure there is only one h1 per page');
+            });
+            
+            document.getElementById('altTextBtn').addEventListener('click', function() {
+                alert('Alt Text Test:\n\n1. Use browser developer tools to inspect images\n2. Check if all images have appropriate alt attributes\n3. Decorative images should have empty alt text (alt="")\n4. Functional images should have descriptive alt text');
+            });
+            
+            document.getElementById('ariaBtn').addEventListener('click', function() {
+                alert('ARIA Attributes Test:\n\n1. Use browser developer tools to inspect elements with ARIA attributes\n2. Check if ARIA roles are used appropriately\n3. Verify that ARIA states and properties are correct\n4. Ensure ARIA landmarks are used for major sections');
+            });
+            
+            // Load default URL on start
+            loadBtn.click();
+        });
+    </script>
+</body>
+</html>
