@@ -1,0 +1,425 @@
+/**
+ * AquaLuxe Theme - Functions
+ *
+ * This file contains all the functions used throughout the theme.
+ */
+
+// Strip unit from value
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+// Convert px to rem
+@function rem($pixels, $context: 16) {
+  @return ($pixels / $context) * 1rem;
+}
+
+// Convert px to em
+@function em($pixels, $context: 16) {
+  @return ($pixels / $context) * 1em;
+}
+
+// Get color from palette
+@function color($color-name, $shade: 500) {
+  @if $color-name == 'primary' {
+    @if $shade == 50 { @return $color-primary-50; }
+    @if $shade == 100 { @return $color-primary-100; }
+    @if $shade == 200 { @return $color-primary-200; }
+    @if $shade == 300 { @return $color-primary-300; }
+    @if $shade == 400 { @return $color-primary-400; }
+    @if $shade == 500 { @return $color-primary-500; }
+    @if $shade == 600 { @return $color-primary-600; }
+    @if $shade == 700 { @return $color-primary-700; }
+    @if $shade == 800 { @return $color-primary-800; }
+    @if $shade == 900 { @return $color-primary-900; }
+  }
+  
+  @if $color-name == 'secondary' {
+    @if $shade == 50 { @return $color-secondary-50; }
+    @if $shade == 100 { @return $color-secondary-100; }
+    @if $shade == 200 { @return $color-secondary-200; }
+    @if $shade == 300 { @return $color-secondary-300; }
+    @if $shade == 400 { @return $color-secondary-400; }
+    @if $shade == 500 { @return $color-secondary-500; }
+    @if $shade == 600 { @return $color-secondary-600; }
+    @if $shade == 700 { @return $color-secondary-700; }
+    @if $shade == 800 { @return $color-secondary-800; }
+    @if $shade == 900 { @return $color-secondary-900; }
+  }
+  
+  @if $color-name == 'accent' {
+    @if $shade == 50 { @return $color-accent-50; }
+    @if $shade == 100 { @return $color-accent-100; }
+    @if $shade == 200 { @return $color-accent-200; }
+    @if $shade == 300 { @return $color-accent-300; }
+    @if $shade == 400 { @return $color-accent-400; }
+    @if $shade == 500 { @return $color-accent-500; }
+    @if $shade == 600 { @return $color-accent-600; }
+    @if $shade == 700 { @return $color-accent-700; }
+    @if $shade == 800 { @return $color-accent-800; }
+    @if $shade == 900 { @return $color-accent-900; }
+  }
+  
+  @if $color-name == 'success' {
+    @if $shade == 50 { @return $color-success-50; }
+    @if $shade == 100 { @return $color-success-100; }
+    @if $shade == 200 { @return $color-success-200; }
+    @if $shade == 300 { @return $color-success-300; }
+    @if $shade == 400 { @return $color-success-400; }
+    @if $shade == 500 { @return $color-success-500; }
+    @if $shade == 600 { @return $color-success-600; }
+    @if $shade == 700 { @return $color-success-700; }
+    @if $shade == 800 { @return $color-success-800; }
+    @if $shade == 900 { @return $color-success-900; }
+  }
+  
+  @if $color-name == 'warning' {
+    @if $shade == 50 { @return $color-warning-50; }
+    @if $shade == 100 { @return $color-warning-100; }
+    @if $shade == 200 { @return $color-warning-200; }
+    @if $shade == 300 { @return $color-warning-300; }
+    @if $shade == 400 { @return $color-warning-400; }
+    @if $shade == 500 { @return $color-warning-500; }
+    @if $shade == 600 { @return $color-warning-600; }
+    @if $shade == 700 { @return $color-warning-700; }
+    @if $shade == 800 { @return $color-warning-800; }
+    @if $shade == 900 { @return $color-warning-900; }
+  }
+  
+  @if $color-name == 'error' {
+    @if $shade == 50 { @return $color-error-50; }
+    @if $shade == 100 { @return $color-error-100; }
+    @if $shade == 200 { @return $color-error-200; }
+    @if $shade == 300 { @return $color-error-300; }
+    @if $shade == 400 { @return $color-error-400; }
+    @if $shade == 500 { @return $color-error-500; }
+    @if $shade == 600 { @return $color-error-600; }
+    @if $shade == 700 { @return $color-error-700; }
+    @if $shade == 800 { @return $color-error-800; }
+    @if $shade == 900 { @return $color-error-900; }
+  }
+  
+  @if $color-name == 'neutral' {
+    @if $shade == 50 { @return $color-neutral-50; }
+    @if $shade == 100 { @return $color-neutral-100; }
+    @if $shade == 200 { @return $color-neutral-200; }
+    @if $shade == 300 { @return $color-neutral-300; }
+    @if $shade == 400 { @return $color-neutral-400; }
+    @if $shade == 500 { @return $color-neutral-500; }
+    @if $shade == 600 { @return $color-neutral-600; }
+    @if $shade == 700 { @return $color-neutral-700; }
+    @if $shade == 800 { @return $color-neutral-800; }
+    @if $shade == 900 { @return $color-neutral-900; }
+  }
+  
+  @return null;
+}
+
+// Get dark mode color from palette
+@function color-dark($color-name, $shade: 500) {
+  @if $color-name == 'primary' {
+    @if $shade == 50 { @return $color-primary-50-dark; }
+    @if $shade == 100 { @return $color-primary-100-dark; }
+    @if $shade == 200 { @return $color-primary-200-dark; }
+    @if $shade == 300 { @return $color-primary-300-dark; }
+    @if $shade == 400 { @return $color-primary-400-dark; }
+    @if $shade == 500 { @return $color-primary-500-dark; }
+    @if $shade == 600 { @return $color-primary-600-dark; }
+    @if $shade == 700 { @return $color-primary-700-dark; }
+    @if $shade == 800 { @return $color-primary-800-dark; }
+    @if $shade == 900 { @return $color-primary-900-dark; }
+  }
+  
+  @if $color-name == 'secondary' {
+    @if $shade == 50 { @return $color-secondary-50-dark; }
+    @if $shade == 100 { @return $color-secondary-100-dark; }
+    @if $shade == 200 { @return $color-secondary-200-dark; }
+    @if $shade == 300 { @return $color-secondary-300-dark; }
+    @if $shade == 400 { @return $color-secondary-400-dark; }
+    @if $shade == 500 { @return $color-secondary-500-dark; }
+    @if $shade == 600 { @return $color-secondary-600-dark; }
+    @if $shade == 700 { @return $color-secondary-700-dark; }
+    @if $shade == 800 { @return $color-secondary-800-dark; }
+    @if $shade == 900 { @return $color-secondary-900-dark; }
+  }
+  
+  @if $color-name == 'accent' {
+    @if $shade == 50 { @return $color-accent-50-dark; }
+    @if $shade == 100 { @return $color-accent-100-dark; }
+    @if $shade == 200 { @return $color-accent-200-dark; }
+    @if $shade == 300 { @return $color-accent-300-dark; }
+    @if $shade == 400 { @return $color-accent-400-dark; }
+    @if $shade == 500 { @return $color-accent-500-dark; }
+    @if $shade == 600 { @return $color-accent-600-dark; }
+    @if $shade == 700 { @return $color-accent-700-dark; }
+    @if $shade == 800 { @return $color-accent-800-dark; }
+    @if $shade == 900 { @return $color-accent-900-dark; }
+  }
+  
+  @if $color-name == 'success' {
+    @if $shade == 50 { @return $color-success-50-dark; }
+    @if $shade == 100 { @return $color-success-100-dark; }
+    @if $shade == 200 { @return $color-success-200-dark; }
+    @if $shade == 300 { @return $color-success-300-dark; }
+    @if $shade == 400 { @return $color-success-400-dark; }
+    @if $shade == 500 { @return $color-success-500-dark; }
+    @if $shade == 600 { @return $color-success-600-dark; }
+    @if $shade == 700 { @return $color-success-700-dark; }
+    @if $shade == 800 { @return $color-success-800-dark; }
+    @if $shade == 900 { @return $color-success-900-dark; }
+  }
+  
+  @if $color-name == 'warning' {
+    @if $shade == 50 { @return $color-warning-50-dark; }
+    @if $shade == 100 { @return $color-warning-100-dark; }
+    @if $shade == 200 { @return $color-warning-200-dark; }
+    @if $shade == 300 { @return $color-warning-300-dark; }
+    @if $shade == 400 { @return $color-warning-400-dark; }
+    @if $shade == 500 { @return $color-warning-500-dark; }
+    @if $shade == 600 { @return $color-warning-600-dark; }
+    @if $shade == 700 { @return $color-warning-700-dark; }
+    @if $shade == 800 { @return $color-warning-800-dark; }
+    @if $shade == 900 { @return $color-warning-900-dark; }
+  }
+  
+  @if $color-name == 'error' {
+    @if $shade == 50 { @return $color-error-50-dark; }
+    @if $shade == 100 { @return $color-error-100-dark; }
+    @if $shade == 200 { @return $color-error-200-dark; }
+    @if $shade == 300 { @return $color-error-300-dark; }
+    @if $shade == 400 { @return $color-error-400-dark; }
+    @if $shade == 500 { @return $color-error-500-dark; }
+    @if $shade == 600 { @return $color-error-600-dark; }
+    @if $shade == 700 { @return $color-error-700-dark; }
+    @if $shade == 800 { @return $color-error-800-dark; }
+    @if $shade == 900 { @return $color-error-900-dark; }
+  }
+  
+  @if $color-name == 'neutral' {
+    @if $shade == 50 { @return $color-neutral-50-dark; }
+    @if $shade == 100 { @return $color-neutral-100-dark; }
+    @if $shade == 200 { @return $color-neutral-200-dark; }
+    @if $shade == 300 { @return $color-neutral-300-dark; }
+    @if $shade == 400 { @return $color-neutral-400-dark; }
+    @if $shade == 500 { @return $color-neutral-500-dark; }
+    @if $shade == 600 { @return $color-neutral-600-dark; }
+    @if $shade == 700 { @return $color-neutral-700-dark; }
+    @if $shade == 800 { @return $color-neutral-800-dark; }
+    @if $shade == 900 { @return $color-neutral-900-dark; }
+  }
+  
+  @return null;
+}
+
+// Get spacing value
+@function spacing($key) {
+  @if $key == 0 { @return $spacing-0; }
+  @if $key == 'px' { @return $spacing-px; }
+  @if $key == 0.5 { @return $spacing-0-5; }
+  @if $key == 1 { @return $spacing-1; }
+  @if $key == 1.5 { @return $spacing-1-5; }
+  @if $key == 2 { @return $spacing-2; }
+  @if $key == 2.5 { @return $spacing-2-5; }
+  @if $key == 3 { @return $spacing-3; }
+  @if $key == 3.5 { @return $spacing-3-5; }
+  @if $key == 4 { @return $spacing-4; }
+  @if $key == 5 { @return $spacing-5; }
+  @if $key == 6 { @return $spacing-6; }
+  @if $key == 7 { @return $spacing-7; }
+  @if $key == 8 { @return $spacing-8; }
+  @if $key == 9 { @return $spacing-9; }
+  @if $key == 10 { @return $spacing-10; }
+  @if $key == 11 { @return $spacing-11; }
+  @if $key == 12 { @return $spacing-12; }
+  @if $key == 14 { @return $spacing-14; }
+  @if $key == 16 { @return $spacing-16; }
+  @if $key == 20 { @return $spacing-20; }
+  @if $key == 24 { @return $spacing-24; }
+  @if $key == 28 { @return $spacing-28; }
+  @if $key == 32 { @return $spacing-32; }
+  @if $key == 36 { @return $spacing-36; }
+  @if $key == 40 { @return $spacing-40; }
+  @if $key == 44 { @return $spacing-44; }
+  @if $key == 48 { @return $spacing-48; }
+  @if $key == 52 { @return $spacing-52; }
+  @if $key == 56 { @return $spacing-56; }
+  @if $key == 60 { @return $spacing-60; }
+  @if $key == 64 { @return $spacing-64; }
+  @if $key == 72 { @return $spacing-72; }
+  @if $key == 80 { @return $spacing-80; }
+  @if $key == 96 { @return $spacing-96; }
+  @if $key == 128 { @return $spacing-128; }
+  @if $key == 144 { @return $spacing-144; }
+  
+  @return null;
+}
+
+// Get font size
+@function font-size($key) {
+  @if $key == 'xs' { @return $font-size-xs; }
+  @if $key == 'sm' { @return $font-size-sm; }
+  @if $key == 'base' { @return $font-size-base; }
+  @if $key == 'lg' { @return $font-size-lg; }
+  @if $key == 'xl' { @return $font-size-xl; }
+  @if $key == '2xl' { @return $font-size-2xl; }
+  @if $key == '3xl' { @return $font-size-3xl; }
+  @if $key == '4xl' { @return $font-size-4xl; }
+  @if $key == '5xl' { @return $font-size-5xl; }
+  @if $key == '6xl' { @return $font-size-6xl; }
+  @if $key == '7xl' { @return $font-size-7xl; }
+  @if $key == '8xl' { @return $font-size-8xl; }
+  @if $key == '9xl' { @return $font-size-9xl; }
+  
+  @return null;
+}
+
+// Get font weight
+@function font-weight($key) {
+  @if $key == 'thin' { @return $font-weight-thin; }
+  @if $key == 'extralight' { @return $font-weight-extralight; }
+  @if $key == 'light' { @return $font-weight-light; }
+  @if $key == 'normal' { @return $font-weight-normal; }
+  @if $key == 'medium' { @return $font-weight-medium; }
+  @if $key == 'semibold' { @return $font-weight-semibold; }
+  @if $key == 'bold' { @return $font-weight-bold; }
+  @if $key == 'extrabold' { @return $font-weight-extrabold; }
+  @if $key == 'black' { @return $font-weight-black; }
+  
+  @return null;
+}
+
+// Get line height
+@function line-height($key) {
+  @if $key == 'none' { @return $line-height-none; }
+  @if $key == 'tight' { @return $line-height-tight; }
+  @if $key == 'snug' { @return $line-height-snug; }
+  @if $key == 'normal' { @return $line-height-normal; }
+  @if $key == 'relaxed' { @return $line-height-relaxed; }
+  @if $key == 'loose' { @return $line-height-loose; }
+  
+  @return null;
+}
+
+// Get border radius
+@function border-radius($key) {
+  @if $key == 'none' { @return $border-radius-none; }
+  @if $key == 'sm' { @return $border-radius-sm; }
+  @if $key == 'default' { @return $border-radius-default; }
+  @if $key == 'md' { @return $border-radius-md; }
+  @if $key == 'lg' { @return $border-radius-lg; }
+  @if $key == 'xl' { @return $border-radius-xl; }
+  @if $key == '2xl' { @return $border-radius-2xl; }
+  @if $key == '3xl' { @return $border-radius-3xl; }
+  @if $key == 'full' { @return $border-radius-full; }
+  
+  @return null;
+}
+
+// Get box shadow
+@function box-shadow($key) {
+  @if $key == 'sm' { @return $box-shadow-sm; }
+  @if $key == 'default' { @return $box-shadow-default; }
+  @if $key == 'md' { @return $box-shadow-md; }
+  @if $key == 'lg' { @return $box-shadow-lg; }
+  @if $key == 'xl' { @return $box-shadow-xl; }
+  @if $key == '2xl' { @return $box-shadow-2xl; }
+  @if $key == 'inner' { @return $box-shadow-inner; }
+  @if $key == 'none' { @return $box-shadow-none; }
+  @if $key == 'primary' { @return $box-shadow-primary; }
+  @if $key == 'accent' { @return $box-shadow-accent; }
+  
+  @return null;
+}
+
+// Get z-index
+@function z-index($key) {
+  @if $key == 0 { @return $z-index-0; }
+  @if $key == 10 { @return $z-index-10; }
+  @if $key == 20 { @return $z-index-20; }
+  @if $key == 30 { @return $z-index-30; }
+  @if $key == 40 { @return $z-index-40; }
+  @if $key == 50 { @return $z-index-50; }
+  @if $key == 60 { @return $z-index-60; }
+  @if $key == 70 { @return $z-index-70; }
+  @if $key == 80 { @return $z-index-80; }
+  @if $key == 90 { @return $z-index-90; }
+  @if $key == 100 { @return $z-index-100; }
+  @if $key == 'auto' { @return $z-index-auto; }
+  
+  @return null;
+}
+
+// Get transition property
+@function transition-property($key) {
+  @if $key == 'default' { @return $transition-property-default; }
+  @if $key == 'colors' { @return $transition-property-colors; }
+  @if $key == 'opacity' { @return $transition-property-opacity; }
+  @if $key == 'shadow' { @return $transition-property-shadow; }
+  @if $key == 'transform' { @return $transition-property-transform; }
+  
+  @return null;
+}
+
+// Get transition timing function
+@function transition-timing($key) {
+  @if $key == 'default' { @return $transition-timing-default; }
+  @if $key == 'linear' { @return $transition-timing-linear; }
+  @if $key == 'in' { @return $transition-timing-in; }
+  @if $key == 'out' { @return $transition-timing-out; }
+  @if $key == 'in-out' { @return $transition-timing-in-out; }
+  
+  @return null;
+}
+
+// Get transition duration
+@function transition-duration($key) {
+  @if $key == 'default' { @return $transition-duration-default; }
+  @if $key == 75 { @return $transition-duration-75; }
+  @if $key == 100 { @return $transition-duration-100; }
+  @if $key == 150 { @return $transition-duration-150; }
+  @if $key == 200 { @return $transition-duration-200; }
+  @if $key == 300 { @return $transition-duration-300; }
+  @if $key == 500 { @return $transition-duration-500; }
+  @if $key == 700 { @return $transition-duration-700; }
+  @if $key == 1000 { @return $transition-duration-1000; }
+  
+  @return null;
+}
+
+// Calculate fluid font size
+@function fluid-font-size($min-size, $max-size, $min-width: 320px, $max-width: 1280px) {
+  $slope: ($max-size - $min-size) / ($max-width - $min-width);
+  $y-intercept: $min-size - $slope * $min-width;
+  
+  @return clamp(#{$min-size}, #{$y-intercept} + #{$slope} * 100vw, #{$max-size});
+}
+
+// Calculate aspect ratio
+@function aspect-ratio($width, $height) {
+  @return percentage($height / $width);
+}
+
+// Get contrast color (black or white) based on background color
+@function contrast-color($color) {
+  $r: red($color);
+  $g: green($color);
+  $b: blue($color);
+  
+  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+  
+  @if ($yiq >= 128) {
+    @return #000000;
+  } @else {
+    @return #ffffff;
+  }
+}
+
+// Lighten color by percentage
+@function lighten-color($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+// Darken color by percentage
+@function darken-color($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}

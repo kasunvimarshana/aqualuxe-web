@@ -1,0 +1,216 @@
+/**
+ * AquaLuxe WordPress Theme
+ * Typography Styles
+ */
+
+/* Base Typography */
+body {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-4);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-secondary);
+}
+
+h1 {
+  font-size: var(--font-size-4xl);
+  
+  @include respond-to(md) {
+    font-size: var(--font-size-5xl);
+  }
+}
+
+h2 {
+  font-size: var(--font-size-3xl);
+  
+  @include respond-to(md) {
+    font-size: var(--font-size-4xl);
+  }
+}
+
+h3 {
+  font-size: var(--font-size-2xl);
+  
+  @include respond-to(md) {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+h4 {
+  font-size: var(--font-size-xl);
+  
+  @include respond-to(md) {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+h5 {
+  font-size: var(--font-size-lg);
+  
+  @include respond-to(md) {
+    font-size: var(--font-size-xl);
+  }
+}
+
+h6 {
+  font-size: var(--font-size-base);
+  
+  @include respond-to(md) {
+    font-size: var(--font-size-lg);
+  }
+}
+
+/* Paragraphs */
+p {
+  margin-top: 0;
+  margin-bottom: var(--spacing-4);
+}
+
+/* Links */
+a {
+  color: var(--color-link);
+  text-decoration: none;
+  transition: color var(--transition-duration) var(--transition-timing-function);
+  
+  &:hover,
+  &:focus {
+    color: var(--color-link-hover);
+    text-decoration: underline;
+  }
+}
+
+/* Lists */
+ul, ol {
+  margin-top: 0;
+  margin-bottom: var(--spacing-4);
+  padding-left: var(--spacing-5);
+}
+
+li {
+  margin-bottom: var(--spacing-2);
+}
+
+/* Blockquotes */
+blockquote {
+  margin: 0 0 var(--spacing-4);
+  padding: var(--spacing-4);
+  border-left: 4px solid var(--color-primary);
+  background-color: var(--color-gray-50);
+  font-style: italic;
+  
+  p:last-child {
+    margin-bottom: 0;
+  }
+  
+  cite {
+    display: block;
+    margin-top: var(--spacing-2);
+    font-size: var(--font-size-sm);
+    font-style: normal;
+    color: var(--color-gray-600);
+  }
+}
+
+/* Code */
+pre, code, kbd, samp {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+}
+
+pre {
+  margin: 0 0 var(--spacing-4);
+  padding: var(--spacing-4);
+  overflow: auto;
+  background-color: var(--color-gray-100);
+  border-radius: var(--border-radius);
+}
+
+code {
+  padding: var(--spacing-1) var(--spacing-2);
+  background-color: var(--color-gray-100);
+  border-radius: var(--border-radius);
+}
+
+/* Tables */
+table {
+  width: 100%;
+  margin-bottom: var(--spacing-4);
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: var(--spacing-2) var(--spacing-3);
+  border: 1px solid var(--color-border);
+}
+
+th {
+  background-color: var(--color-gray-50);
+  font-weight: var(--font-weight-bold);
+  text-align: left;
+}
+
+/* Small Text */
+small {
+  font-size: var(--font-size-sm);
+}
+
+/* Horizontal Rule */
+hr {
+  margin: var(--spacing-6) 0;
+  border: 0;
+  border-top: 1px solid var(--color-border);
+}
+
+/* WordPress Content */
+.entry-content {
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: var(--spacing-6);
+    margin-bottom: var(--spacing-4);
+  }
+  
+  > *:first-child {
+    margin-top: 0;
+  }
+  
+  img {
+    margin-bottom: var(--spacing-4);
+  }
+  
+  .wp-block-image figcaption {
+    margin-top: var(--spacing-2);
+    text-align: center;
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-600);
+  }
+  
+  .wp-block-quote {
+    @extend blockquote;
+  }
+  
+  .wp-block-pullquote {
+    padding: var(--spacing-6) 0;
+    margin: var(--spacing-6) 0;
+    text-align: center;
+    border-top: 4px solid var(--color-primary);
+    border-bottom: 4px solid var(--color-primary);
+    
+    blockquote {
+      margin: 0;
+      padding: 0;
+      border-left: none;
+      background-color: transparent;
+    }
+  }
+  
+  .wp-block-table {
+    @extend table;
+  }
+}

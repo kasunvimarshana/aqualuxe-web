@@ -1,0 +1,221 @@
+/**
+ * Newsletter Component Styles
+ *
+ * Styles for newsletter signup components throughout the AquaLuxe theme
+ */
+
+.newsletter {
+  @apply relative;
+  
+  // Newsletter container
+  &__container {
+    @apply bg-white rounded-lg p-6 shadow-md;
+    
+    .dark & {
+      @apply bg-neutral-800;
+    }
+  }
+  
+  // Newsletter header
+  &__header {
+    @apply mb-4;
+  }
+  
+  // Newsletter title
+  &__title {
+    @apply text-xl font-bold mb-2 font-display;
+    
+    .dark & {
+      @apply text-white;
+    }
+  }
+  
+  // Newsletter description
+  &__description {
+    @apply text-neutral-600;
+    
+    .dark & {
+      @apply text-neutral-300;
+    }
+  }
+  
+  // Newsletter form
+  &__form {
+    @apply flex flex-col sm:flex-row gap-2;
+  }
+  
+  // Newsletter input
+  &__input {
+    @apply flex-1 px-4 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+    
+    .dark & {
+      @apply bg-neutral-700 border-neutral-600 text-white;
+    }
+    
+    &::placeholder {
+      @apply text-neutral-400;
+      
+      .dark & {
+        @apply text-neutral-500;
+      }
+    }
+  }
+  
+  // Newsletter button
+  &__button {
+    @apply px-6 py-2 bg-primary-600 text-white font-medium rounded-md hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+    
+    .dark & {
+      @apply bg-primary-700 hover:bg-primary-800 focus:ring-offset-neutral-800;
+    }
+  }
+  
+  // Newsletter footer
+  &__footer {
+    @apply mt-4 text-sm text-neutral-500;
+    
+    .dark & {
+      @apply text-neutral-400;
+    }
+    
+    a {
+      @apply text-primary-600 hover:text-primary-700;
+      
+      .dark & {
+        @apply text-primary-400 hover:text-primary-300;
+      }
+    }
+  }
+  
+  // Newsletter variants
+  
+  // Inline newsletter
+  &--inline {
+    .newsletter__form {
+      @apply flex-row;
+    }
+  }
+  
+  // Boxed newsletter
+  &--boxed {
+    .newsletter__container {
+      @apply border border-neutral-200;
+      
+      .dark & {
+        @apply border-neutral-700;
+      }
+    }
+  }
+  
+  // Compact newsletter
+  &--compact {
+    .newsletter__container {
+      @apply p-4;
+    }
+    
+    .newsletter__title {
+      @apply text-lg;
+    }
+    
+    .newsletter__description {
+      @apply text-sm;
+    }
+  }
+  
+  // Featured newsletter
+  &--featured {
+    .newsletter__container {
+      @apply bg-primary-50 border-l-4 border-primary-500;
+      
+      .dark & {
+        @apply bg-primary-900 bg-opacity-30 border-primary-600;
+      }
+    }
+    
+    .newsletter__title {
+      @apply text-primary-700;
+      
+      .dark & {
+        @apply text-primary-300;
+      }
+    }
+  }
+}
+
+// Newsletter section
+.newsletter-section {
+  @apply relative py-16 bg-primary-50;
+  
+  .dark & {
+    @apply bg-primary-900 bg-opacity-20;
+  }
+  
+  &__wave {
+    @apply absolute bottom-0 left-0 right-0 w-full h-16 text-white;
+    
+    .dark & {
+      @apply text-neutral-900;
+    }
+  }
+  
+  &__container {
+    @apply container mx-auto px-4;
+  }
+  
+  &__content {
+    @apply max-w-2xl mx-auto text-center;
+  }
+  
+  &__title {
+    @apply text-3xl md:text-4xl font-bold mb-4 font-display;
+    
+    .dark & {
+      @apply text-white;
+    }
+  }
+  
+  &__description {
+    @apply text-lg mb-6 text-neutral-600;
+    
+    .dark & {
+      @apply text-neutral-300;
+    }
+  }
+  
+  .newsletter__form {
+    @apply max-w-md mx-auto;
+  }
+}
+
+// Footer newsletter
+.footer-newsletter {
+  @apply mb-8;
+  
+  .newsletter__title {
+    @apply text-lg text-white;
+  }
+  
+  .newsletter__description {
+    @apply text-sm text-neutral-300 mb-4;
+  }
+  
+  .newsletter__form {
+    @apply flex flex-col sm:flex-row gap-2;
+  }
+  
+  .newsletter__input {
+    @apply bg-neutral-800 border-neutral-700 text-white;
+    
+    &::placeholder {
+      @apply text-neutral-500;
+    }
+  }
+  
+  .newsletter__button {
+    @apply bg-accent-500 hover:bg-accent-600;
+  }
+  
+  .newsletter__footer {
+    @apply text-neutral-400;
+  }
+}

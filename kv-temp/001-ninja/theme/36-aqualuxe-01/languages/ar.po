@@ -1,0 +1,111 @@
+# Arabic translation for AquaLuxe WordPress theme.
+# Copyright (C) 2025 AquaLuxe
+# This file is distributed under the MIT.
+msgid ""
+msgstr ""
+"Project-Id-Version: AquaLuxe 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/aqualuxe\n"
+"POT-Creation-Date: 2025-08-15T19:40:23+00:00\n"
+"PO-Revision-Date: 2025-08-15 19:40+0000\n"
+"Last-Translator: Arabic Translator <translator@example.com>\n"
+"Language-Team: Arabic <ar@example.com>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Manual\n"
+"X-Domain: aqualuxe\n"
+
+#. Theme Name of the theme
+#. Author of the theme
+#: style.css
+msgid "AquaLuxe"
+msgstr "أكوالوكس"
+
+#. Description of the theme
+#: style.css
+msgid "AquaLuxe is a premium WordPress theme designed for aquatic businesses. It features a dual-state architecture that works seamlessly with or without WooCommerce, delivering elegant design, robust functionality, and exceptional user experience."
+msgstr "أكوالوكس هو قالب ووردبريس متميز مصمم للأعمال المائية. يتميز بهندسة ثنائية الحالة تعمل بسلاسة مع أو بدون WooCommerce، مما يوفر تصميمًا أنيقًا، ووظائف قوية، وتجربة مستخدم استثنائية."
+
+#: 404.php:16
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "عفوا! لا يمكن العثور على تلك الصفحة."
+
+#: 404.php:17
+msgid "It looks like nothing was found at this location."
+msgstr "يبدو أنه لم يتم العثور على شيء في هذا الموقع."
+
+#: 404.php:22
+msgid "404 Not Found"
+msgstr "404 غير موجود"
+
+#: 404.php:26
+msgid "Perhaps searching can help you find what you're looking for:"
+msgstr "ربما يساعدك البحث في العثور على ما تبحث عنه:"
+
+#: 404.php:31
+msgid "Here are some helpful links instead:"
+msgstr "إليك بعض الروابط المفيدة بدلاً من ذلك:"
+
+#: 404.php:35
+msgid "Site Navigation"
+msgstr "التنقل في الموقع"
+
+#: 404.php:37
+#: inc/seo/schema.php:532
+#: inc/template-functions/breadcrumbs.php:22
+msgid "Home"
+msgstr "الرئيسية"
+
+#: 404.php:38
+#: inc/template-functions/breadcrumbs.php:270
+msgid "Blog"
+msgstr "المدونة"
+
+#: 404.php:40
+#: inc/template-functions/breadcrumbs.php:285
+#: inc/template-functions/breadcrumbs.php:297
+#: inc/template-functions/breadcrumbs.php:336
+#: inc/template-functions/breadcrumbs.php:356
+msgid "Shop"
+msgstr "المتجر"
+
+#. translators: %s: Text displayed for sticky posts
+#: templates/content/content.php:38
+msgid "Featured"
+msgstr "مميز"
+
+#. translators: %s: pingback URL
+#: inc/hooks/filters.php:67
+#, php-format
+msgid "<link rel=&quot;pingback&quot; href=&quot;%s&quot;>"
+msgstr "<link rel=&quot;pingback&quot; href=&quot;%s&quot;>"
+
+#: inc/hooks/filters.php:214
+msgid "Name *"
+msgstr "الاسم *"
+
+#: inc/hooks/filters.php:222
+msgid "Email *"
+msgstr "البريد الإلكتروني *"
+
+#: inc/hooks/filters.php:230
+msgid "Website"
+msgstr "الموقع الإلكتروني"
+
+#: inc/hooks/filters.php:249
+msgid "Comment *"
+msgstr "التعليق *"
+
+#: inc/hooks/filters.php:314
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+#: inc/hooks/filters.php:314
+msgid "My Account"
+msgstr "حسابي"
+
+#: inc/hooks/filters.php:331
+msgid "Toggle Dark Mode"
+msgstr "تبديل الوضع المظلم"

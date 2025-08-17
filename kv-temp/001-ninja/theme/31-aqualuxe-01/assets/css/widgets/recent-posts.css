@@ -1,0 +1,283 @@
+/**
+ * AquaLuxe Recent Posts Widget Styles
+ */
+
+/* Base Styles */
+.aqualuxe-recent-posts {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.aqualuxe-recent-posts-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.aqualuxe-recent-post-item {
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.aqualuxe-recent-post-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Thumbnail */
+.aqualuxe-recent-post-thumbnail {
+    margin-bottom: 10px;
+}
+
+.aqualuxe-recent-post-thumbnail img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+.aqualuxe-recent-post-thumbnail a:hover img {
+    transform: scale(1.05);
+}
+
+/* Post Title */
+.aqualuxe-recent-post-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 8px;
+    line-height: 1.3;
+}
+
+.aqualuxe-recent-post-title a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.aqualuxe-recent-post-title a:hover {
+    color: #0073aa;
+}
+
+/* Post Meta */
+.aqualuxe-recent-post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 8px;
+}
+
+.aqualuxe-recent-post-date,
+.aqualuxe-recent-post-author,
+.aqualuxe-recent-post-comments {
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.aqualuxe-recent-post-meta i.aqualuxe-icon {
+    margin-right: 5px;
+    font-size: 14px;
+}
+
+/* Icons */
+.aqualuxe-icon-calendar:before {
+    content: "\f073";
+    font-family: "dashicons";
+}
+
+.aqualuxe-icon-user:before {
+    content: "\f110";
+    font-family: "dashicons";
+}
+
+.aqualuxe-icon-comment:before {
+    content: "\f101";
+    font-family: "dashicons";
+}
+
+/* Post Excerpt */
+.aqualuxe-recent-post-excerpt {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* Read More Link */
+.aqualuxe-recent-post-readmore {
+    margin-top: 8px;
+}
+
+.aqualuxe-readmore-link {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #0073aa;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.aqualuxe-readmore-link:hover {
+    color: #005177;
+}
+
+.aqualuxe-readmore-link:after {
+    content: "\2192";
+    margin-left: 5px;
+    transition: margin-left 0.2s ease;
+}
+
+.aqualuxe-readmore-link:hover:after {
+    margin-left: 8px;
+}
+
+/* List Layout */
+.aqualuxe-recent-posts-list {
+    display: block;
+}
+
+/* Grid Layout */
+.aqualuxe-recent-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+.aqualuxe-recent-posts-grid .aqualuxe-recent-post-item {
+    margin-bottom: 0;
+}
+
+/* Compact Layout */
+.aqualuxe-recent-posts-compact .aqualuxe-recent-post-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.aqualuxe-recent-posts-compact .aqualuxe-recent-post-thumbnail {
+    width: 80px;
+    margin-right: 15px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+}
+
+.aqualuxe-recent-posts-compact .aqualuxe-recent-post-content {
+    flex: 1;
+}
+
+.aqualuxe-recent-posts-compact .aqualuxe-recent-post-title {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.aqualuxe-recent-posts-compact .aqualuxe-recent-post-excerpt {
+    display: none;
+}
+
+/* Featured Layout */
+.aqualuxe-recent-posts-featured .aqualuxe-recent-post-item:first-child {
+    margin-bottom: 30px;
+}
+
+.aqualuxe-recent-posts-featured .aqualuxe-recent-post-item:first-child .aqualuxe-recent-post-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.aqualuxe-recent-posts-featured .aqualuxe-recent-post-item:not(:first-child) {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.aqualuxe-recent-posts-featured .aqualuxe-recent-post-item:not(:first-child) .aqualuxe-recent-post-thumbnail {
+    width: 80px;
+    margin-right: 15px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+}
+
+.aqualuxe-recent-posts-featured .aqualuxe-recent-post-item:not(:first-child) .aqualuxe-recent-post-content {
+    flex: 1;
+}
+
+.aqualuxe-recent-posts-featured .aqualuxe-recent-post-item:not(:first-child) .aqualuxe-recent-post-title {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.aqualuxe-recent-posts-featured .aqualuxe-recent-post-item:not(:first-child) .aqualuxe-recent-post-excerpt,
+.aqualuxe-recent-posts-featured .aqualuxe-recent-post-item:not(:first-child) .aqualuxe-recent-post-readmore {
+    display: none;
+}
+
+/* Animation Effects */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.aqualuxe-recent-posts-list.with-animation .aqualuxe-recent-post-item {
+    animation: fadeIn 0.5s ease forwards;
+    opacity: 0;
+}
+
+.aqualuxe-recent-posts-list.with-animation .aqualuxe-recent-post-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.aqualuxe-recent-posts-list.with-animation .aqualuxe-recent-post-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.aqualuxe-recent-posts-list.with-animation .aqualuxe-recent-post-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.aqualuxe-recent-posts-list.with-animation .aqualuxe-recent-post-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.aqualuxe-recent-posts-list.with-animation .aqualuxe-recent-post-item:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+/* Hover Effects */
+.aqualuxe-recent-post-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-effect-shadow .aqualuxe-recent-post-item:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.hover-effect-border .aqualuxe-recent-post-item {
+    border: 1px solid transparent;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.hover-effect-border .aqualuxe-recent-post-item:hover {
+    border-color: #e5e5e5;
+}
+
+.hover-effect-scale .aqualuxe-recent-post-item:hover {
+    transform: scale(1.03);
+}
+
+/* Responsive Styles */
+@media (max-width: 767px) {
+    .aqualuxe-recent-posts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .aqualuxe-recent-posts-featured .aqualuxe-recent-post-item:first-child .aqualuxe-recent-post-title {
+        font-size: 16px;
+    }
+}

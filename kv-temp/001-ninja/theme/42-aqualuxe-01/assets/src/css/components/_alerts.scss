@@ -1,0 +1,760 @@
+/**
+ * Alerts Component
+ *
+ * Styles for alerts throughout the AquaLuxe theme.
+ */
+
+// Base alert styles
+.alert {
+  position: relative;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+// Alert variants
+.alert-primary {
+  color: theme('colors.primary.700');
+  background-color: theme('colors.primary.100');
+  border-color: theme('colors.primary.200');
+  
+  .dark & {
+    color: theme('colors.primary.300');
+    background-color: theme('colors.primary.900');
+    border-color: theme('colors.primary.800');
+  }
+  
+  a {
+    color: theme('colors.primary.800');
+    font-weight: 500;
+    
+    .dark & {
+      color: theme('colors.primary.200');
+    }
+    
+    &:hover {
+      color: theme('colors.primary.900');
+      
+      .dark & {
+        color: theme('colors.primary.100');
+      }
+    }
+  }
+}
+
+.alert-secondary {
+  color: theme('colors.secondary.700');
+  background-color: theme('colors.secondary.100');
+  border-color: theme('colors.secondary.200');
+  
+  .dark & {
+    color: theme('colors.secondary.300');
+    background-color: theme('colors.secondary.900');
+    border-color: theme('colors.secondary.800');
+  }
+  
+  a {
+    color: theme('colors.secondary.800');
+    font-weight: 500;
+    
+    .dark & {
+      color: theme('colors.secondary.200');
+    }
+    
+    &:hover {
+      color: theme('colors.secondary.900');
+      
+      .dark & {
+        color: theme('colors.secondary.100');
+      }
+    }
+  }
+}
+
+.alert-success {
+  color: darken(theme('colors.success'), 30%);
+  background-color: lighten(theme('colors.success'), 45%);
+  border-color: lighten(theme('colors.success'), 35%);
+  
+  .dark & {
+    color: lighten(theme('colors.success'), 30%);
+    background-color: darken(theme('colors.success'), 45%);
+    border-color: darken(theme('colors.success'), 35%);
+  }
+  
+  a {
+    color: darken(theme('colors.success'), 35%);
+    font-weight: 500;
+    
+    .dark & {
+      color: lighten(theme('colors.success'), 35%);
+    }
+    
+    &:hover {
+      color: darken(theme('colors.success'), 40%);
+      
+      .dark & {
+        color: lighten(theme('colors.success'), 40%);
+      }
+    }
+  }
+}
+
+.alert-danger {
+  color: darken(theme('colors.error'), 30%);
+  background-color: lighten(theme('colors.error'), 45%);
+  border-color: lighten(theme('colors.error'), 35%);
+  
+  .dark & {
+    color: lighten(theme('colors.error'), 30%);
+    background-color: darken(theme('colors.error'), 45%);
+    border-color: darken(theme('colors.error'), 35%);
+  }
+  
+  a {
+    color: darken(theme('colors.error'), 35%);
+    font-weight: 500;
+    
+    .dark & {
+      color: lighten(theme('colors.error'), 35%);
+    }
+    
+    &:hover {
+      color: darken(theme('colors.error'), 40%);
+      
+      .dark & {
+        color: lighten(theme('colors.error'), 40%);
+      }
+    }
+  }
+}
+
+.alert-warning {
+  color: darken(theme('colors.warning'), 30%);
+  background-color: lighten(theme('colors.warning'), 45%);
+  border-color: lighten(theme('colors.warning'), 35%);
+  
+  .dark & {
+    color: lighten(theme('colors.warning'), 30%);
+    background-color: darken(theme('colors.warning'), 45%);
+    border-color: darken(theme('colors.warning'), 35%);
+  }
+  
+  a {
+    color: darken(theme('colors.warning'), 35%);
+    font-weight: 500;
+    
+    .dark & {
+      color: lighten(theme('colors.warning'), 35%);
+    }
+    
+    &:hover {
+      color: darken(theme('colors.warning'), 40%);
+      
+      .dark & {
+        color: lighten(theme('colors.warning'), 40%);
+      }
+    }
+  }
+}
+
+.alert-info {
+  color: darken(theme('colors.info'), 30%);
+  background-color: lighten(theme('colors.info'), 45%);
+  border-color: lighten(theme('colors.info'), 35%);
+  
+  .dark & {
+    color: lighten(theme('colors.info'), 30%);
+    background-color: darken(theme('colors.info'), 45%);
+    border-color: darken(theme('colors.info'), 35%);
+  }
+  
+  a {
+    color: darken(theme('colors.info'), 35%);
+    font-weight: 500;
+    
+    .dark & {
+      color: lighten(theme('colors.info'), 35%);
+    }
+    
+    &:hover {
+      color: darken(theme('colors.info'), 40%);
+      
+      .dark & {
+        color: lighten(theme('colors.info'), 40%);
+      }
+    }
+  }
+}
+
+.alert-light {
+  color: theme('colors.neutral.700');
+  background-color: theme('colors.neutral.100');
+  border-color: theme('colors.neutral.200');
+  
+  .dark & {
+    color: theme('colors.neutral.300');
+    background-color: theme('colors.neutral.800');
+    border-color: theme('colors.neutral.700');
+  }
+  
+  a {
+    color: theme('colors.neutral.800');
+    font-weight: 500;
+    
+    .dark & {
+      color: theme('colors.neutral.200');
+    }
+    
+    &:hover {
+      color: theme('colors.neutral.900');
+      
+      .dark & {
+        color: theme('colors.neutral.100');
+      }
+    }
+  }
+}
+
+.alert-dark {
+  color: theme('colors.neutral.100');
+  background-color: theme('colors.neutral.800');
+  border-color: theme('colors.neutral.700');
+  
+  .dark & {
+    color: theme('colors.neutral.800');
+    background-color: theme('colors.neutral.200');
+    border-color: theme('colors.neutral.300');
+  }
+  
+  a {
+    color: theme('colors.neutral.200');
+    font-weight: 500;
+    
+    .dark & {
+      color: theme('colors.neutral.700');
+    }
+    
+    &:hover {
+      color: theme('colors.white');
+      
+      .dark & {
+        color: theme('colors.neutral.900');
+      }
+    }
+  }
+}
+
+// Alert with dismiss button
+.alert-dismissible {
+  padding-right: 3.5rem;
+  
+  .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem 1.25rem;
+    color: inherit;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+    
+    &:hover {
+      opacity: 1;
+    }
+    
+    svg {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+}
+
+// Alert with icon
+.alert-with-icon {
+  display: flex;
+  align-items: flex-start;
+  
+  .alert-icon {
+    margin-right: 1rem;
+    
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+  
+  .alert-content {
+    flex: 1;
+  }
+}
+
+// Alert with title
+.alert-with-title {
+  .alert-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .alert-message {
+    margin-bottom: 0;
+  }
+}
+
+// Alert with border left
+.alert-border-left {
+  border-left-width: 4px;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  border-radius: 0;
+}
+
+// Alert with border top
+.alert-border-top {
+  border-top-width: 4px;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  border-radius: 0;
+}
+
+// Alert with shadow
+.alert-shadow {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  
+  .dark & {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+}
+
+// Alert with rounded corners
+.alert-rounded {
+  border-radius: 9999px;
+}
+
+// Alert with background only
+.alert-bg-only {
+  border: none;
+}
+
+// Alert sizes
+.alert-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.alert-lg {
+  padding: 1.5rem 2rem;
+  font-size: 1.125rem;
+}
+
+// Alert with actions
+.alert-with-actions {
+  .alert-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    
+    .btn {
+      font-size: 0.875rem;
+      padding: 0.375rem 0.75rem;
+    }
+  }
+}
+
+// Alert with progress
+.alert-with-progress {
+  overflow: hidden;
+  
+  .alert-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.3);
+    transition: width 0.3s ease;
+  }
+}
+
+// Alert animations
+.alert-fade-in {
+  animation: alertFadeIn 0.3s ease;
+}
+
+.alert-slide-in {
+  animation: alertSlideIn 0.3s ease;
+}
+
+.alert-bounce-in {
+  animation: alertBounceIn 0.5s ease;
+}
+
+@keyframes alertFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes alertSlideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes alertBounceIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// Toast alerts
+.toast {
+  position: fixed;
+  z-index: 9999;
+  max-width: 350px;
+  overflow: hidden;
+  background-color: theme('colors.white');
+  border: 1px solid theme('colors.neutral.200');
+  border-radius: 0.25rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  
+  .dark & {
+    background-color: theme('colors.neutral.800');
+    border-color: theme('colors.neutral.700');
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+  }
+  
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  &.top-right {
+    top: 1rem;
+    right: 1rem;
+  }
+  
+  &.top-left {
+    top: 1rem;
+    left: 1rem;
+  }
+  
+  &.bottom-right {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  
+  &.bottom-left {
+    bottom: 1rem;
+    left: 1rem;
+  }
+  
+  &.top-center {
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  &.bottom-center {
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.toast-header {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: theme('colors.neutral.50');
+  border-bottom: 1px solid theme('colors.neutral.200');
+  
+  .dark & {
+    background-color: theme('colors.neutral.900');
+    border-bottom-color: theme('colors.neutral.700');
+  }
+  
+  .toast-title {
+    font-weight: 600;
+    color: theme('colors.neutral.800');
+    flex: 1;
+    
+    .dark & {
+      color: theme('colors.neutral.200');
+    }
+  }
+  
+  .toast-close {
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+    
+    &:hover {
+      opacity: 1;
+    }
+    
+    svg {
+      width: 0.875rem;
+      height: 0.875rem;
+    }
+  }
+}
+
+.toast-body {
+  padding: 1rem;
+  color: theme('colors.neutral.700');
+  
+  .dark & {
+    color: theme('colors.neutral.300');
+  }
+}
+
+// Special AquaLuxe alert styles
+.alert-aqua {
+  position: relative;
+  background-color: theme('colors.primary.50');
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  overflow: hidden;
+  
+  .dark & {
+    background-color: theme('colors.primary.900');
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: theme('colors.primary.500');
+    
+    .dark & {
+      background-color: theme('colors.primary.400');
+    }
+  }
+  
+  .alert-content {
+    padding-left: 1rem;
+  }
+  
+  &.alert-success::before {
+    background-color: theme('colors.success');
+  }
+  
+  &.alert-danger::before {
+    background-color: theme('colors.error');
+  }
+  
+  &.alert-warning::before {
+    background-color: theme('colors.warning');
+  }
+  
+  &.alert-info::before {
+    background-color: theme('colors.info');
+  }
+}
+
+.alert-luxe {
+  position: relative;
+  background-color: theme('colors.white');
+  border: 1px solid theme('colors.neutral.200');
+  border-radius: 0;
+  padding: 1.5rem;
+  
+  .dark & {
+    background-color: theme('colors.neutral.800');
+    border-color: theme('colors.neutral.700');
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: theme('colors.secondary.500');
+    border-radius: 50%;
+    
+    .dark & {
+      background-color: theme('colors.secondary.400');
+    }
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: theme('colors.secondary.500');
+    border-radius: 50%;
+    
+    .dark & {
+      background-color: theme('colors.secondary.400');
+    }
+  }
+  
+  .alert-content {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+  }
+  
+  &.alert-success {
+    .alert-content {
+      color: theme('colors.success');
+    }
+    
+    &::before, &::after {
+      background-color: theme('colors.success');
+    }
+  }
+  
+  &.alert-danger {
+    .alert-content {
+      color: theme('colors.error');
+    }
+    
+    &::before, &::after {
+      background-color: theme('colors.error');
+    }
+  }
+  
+  &.alert-warning {
+    .alert-content {
+      color: theme('colors.warning');
+    }
+    
+    &::before, &::after {
+      background-color: theme('colors.warning');
+    }
+  }
+  
+  &.alert-info {
+    .alert-content {
+      color: theme('colors.info');
+    }
+    
+    &::before, &::after {
+      background-color: theme('colors.info');
+    }
+  }
+}
+
+// WooCommerce alerts
+.woocommerce-message,
+.woocommerce-info,
+.woocommerce-error,
+.woocommerce-notice {
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 0.25rem;
+  list-style: none;
+  
+  a.button {
+    float: right;
+    margin-top: -0.25rem;
+    margin-bottom: -0.25rem;
+    margin-left: 1rem;
+    padding: 0.375rem 0.75rem;
+    background-color: theme('colors.white');
+    color: currentColor;
+    border: 1px solid currentColor;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      background-color: currentColor;
+      color: theme('colors.white');
+      
+      .dark & {
+        color: theme('colors.neutral.900');
+      }
+    }
+  }
+}
+
+.woocommerce-message {
+  background-color: lighten(theme('colors.success'), 45%);
+  color: darken(theme('colors.success'), 30%);
+  border-left: 4px solid theme('colors.success');
+  
+  .dark & {
+    background-color: darken(theme('colors.success'), 45%);
+    color: lighten(theme('colors.success'), 30%);
+  }
+}
+
+.woocommerce-info {
+  background-color: lighten(theme('colors.info'), 45%);
+  color: darken(theme('colors.info'), 30%);
+  border-left: 4px solid theme('colors.info');
+  
+  .dark & {
+    background-color: darken(theme('colors.info'), 45%);
+    color: lighten(theme('colors.info'), 30%);
+  }
+}
+
+.woocommerce-error {
+  background-color: lighten(theme('colors.error'), 45%);
+  color: darken(theme('colors.error'), 30%);
+  border-left: 4px solid theme('colors.error');
+  
+  .dark & {
+    background-color: darken(theme('colors.error'), 45%);
+    color: lighten(theme('colors.error'), 30%);
+  }
+  
+  li {
+    margin-bottom: 0.5rem;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.woocommerce-notice {
+  background-color: lighten(theme('colors.warning'), 45%);
+  color: darken(theme('colors.warning'), 30%);
+  border-left: 4px solid theme('colors.warning');
+  
+  .dark & {
+    background-color: darken(theme('colors.warning'), 45%);
+    color: lighten(theme('colors.warning'), 30%);
+  }
+}

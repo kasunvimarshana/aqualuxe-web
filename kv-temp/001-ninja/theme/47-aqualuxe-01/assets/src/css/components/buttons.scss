@@ -1,0 +1,96 @@
+/**
+ * Button styles for AquaLuxe theme
+ */
+
+/* Additional button styles beyond the base Tailwind classes */
+.wp-block-button__link {
+  @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md transition-colors duration-200;
+}
+
+.wp-block-button:not(.is-style-outline) .wp-block-button__link {
+  @apply bg-primary-600 text-white hover:bg-primary-700;
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link {
+  @apply border-primary-600 text-primary-600 hover:bg-primary-50;
+}
+
+/* Product buttons */
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button {
+  @apply inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md bg-primary-600 text-white hover:bg-primary-700 transition-colors duration-200;
+}
+
+.woocommerce #respond input#submit.alt,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt {
+  @apply bg-secondary-600 hover:bg-secondary-700;
+}
+
+/* Wishlist button */
+.wishlist-button {
+  @apply inline-flex items-center justify-center w-10 h-10 rounded-full bg-white text-gray-700 hover:text-primary-600 shadow-sm transition-colors duration-200;
+
+  &.in-wishlist {
+    @apply text-primary-600;
+  }
+}
+
+/* Quick view button */
+.quick-view-button {
+  @apply inline-flex items-center justify-center px-3 py-1 text-xs font-medium rounded bg-white text-gray-700 hover:text-primary-600 shadow-sm transition-colors duration-200;
+}
+
+/* Back to top button */
+.back-to-top-btn {
+  @apply inline-flex items-center justify-center p-3 rounded-full bg-primary-600 text-white hover:bg-primary-700 shadow-md transition-colors duration-200;
+}
+
+/* Social share buttons */
+.social-share-button {
+  @apply inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-200 text-gray-700 hover:bg-primary-600 hover:text-white transition-colors duration-200;
+}
+
+/* Dark mode button styles */
+.dark {
+  .wp-block-button:not(.is-style-outline) .wp-block-button__link {
+    @apply bg-primary-700 hover:bg-primary-800;
+  }
+
+  .wp-block-button.is-style-outline .wp-block-button__link {
+    @apply border-primary-400 text-primary-400 hover:bg-gray-700;
+  }
+
+  .woocommerce #respond input#submit,
+  .woocommerce a.button,
+  .woocommerce button.button,
+  .woocommerce input.button {
+    @apply bg-primary-700 hover:bg-primary-800;
+  }
+
+  .woocommerce #respond input#submit.alt,
+  .woocommerce a.button.alt,
+  .woocommerce button.button.alt,
+  .woocommerce input.button.alt {
+    @apply bg-secondary-700 hover:bg-secondary-800;
+  }
+
+  .wishlist-button {
+    @apply bg-gray-700 text-gray-300 hover:text-primary-400;
+  }
+
+  .quick-view-button {
+    @apply bg-gray-700 text-gray-300 hover:text-primary-400;
+  }
+
+  .back-to-top-btn {
+    @apply bg-primary-700 hover:bg-primary-800;
+  }
+
+  .social-share-button {
+    @apply bg-gray-700 text-gray-300 hover:bg-primary-700 hover:text-white;
+  }
+}

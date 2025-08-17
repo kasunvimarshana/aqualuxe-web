@@ -1,0 +1,476 @@
+/**
+ * Animation and transition effects for AquaLuxe theme
+ */
+
+/* Base transition for all interactive elements */
+.transition-base {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+/* Hover lift effect for cards and product items */
+.hover-lift {
+  @apply transition-transform duration-300 ease-out;
+  
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+/* Hover scale effect for images and thumbnails */
+.hover-scale {
+  @apply transition-transform duration-300 ease-out overflow-hidden;
+  
+  img {
+    @apply transition-transform duration-500 ease-out;
+  }
+  
+  &:hover img {
+    transform: scale(1.05);
+  }
+}
+
+/* Hover glow effect for featured elements */
+.hover-glow {
+  @apply transition-all duration-300 ease-out;
+  
+  &:hover {
+    @apply shadow-glow;
+  }
+}
+
+/* Fade-in animation */
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide-in animations from different directions */
+.slide-in-up {
+  animation: slideInUp 0.5s ease-out forwards;
+}
+
+.slide-in-down {
+  animation: slideInDown 0.5s ease-out forwards;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.5s ease-out forwards;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.5s ease-out forwards;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Staggered animation for lists and grids */
+.stagger-animation > * {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@for $i from 1 through 12 {
+  .stagger-animation > *:nth-child(#{$i}) {
+    animation-delay: #{$i * 0.1}s;
+  }
+}
+
+/* Pulse animation for notifications and alerts */
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Ripple effect for buttons */
+.ripple {
+  position: relative;
+  overflow: hidden;
+  
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform 0.5s, opacity 1s;
+  }
+  
+  &:active::after {
+    transform: scale(0, 0);
+    opacity: 0.3;
+    transition: 0s;
+  }
+}
+
+/* Shimmer loading effect */
+.shimmer {
+  background: linear-gradient(90deg, 
+    rgba(255,255,255,0) 0%, 
+    rgba(255,255,255,0.2) 50%, 
+    rgba(255,255,255,0) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Floating animation for hero elements */
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Water ripple animation for aquatic elements */
+.water-ripple {
+  position: relative;
+  
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(0, 119, 182, 0.2);
+    transform: translate(-50%, -50%);
+    animation: ripple 3s linear infinite;
+  }
+  
+  &::after {
+    animation-delay: 1.5s;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.8;
+  }
+  100% {
+    width: 200%;
+    height: 200%;
+    opacity: 0;
+  }
+}
+
+/* Bubble animation for aquatic backgrounds */
+.bubble {
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -100px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: bubble 4s infinite ease-in;
+  }
+  
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -100px;
+    left: 30%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    animation: bubble 5s infinite ease-in;
+    animation-delay: 1s;
+  }
+}
+
+@keyframes bubble {
+  0% {
+    bottom: -100px;
+    opacity: 0.5;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateX(10px);
+  }
+  100% {
+    bottom: 100%;
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+}
+
+/* Wave animation for section dividers */
+.wave-divider {
+  position: relative;
+  height: 70px;
+  overflow: hidden;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 10px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%230077B6'%3E%3C/path%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%230077B6'%3E%3C/path%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%230077B6'%3E%3C/path%3E%3C/svg%3E") no-repeat;
+    background-size: cover;
+    background-position: center;
+    animation: wave 20s linear infinite;
+  }
+}
+
+@keyframes wave {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 1200px;
+  }
+}
+
+/* Spin animation for loading indicators */
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Fade-in-up animation for page transitions */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scroll reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reveal animations with different directions */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-left.active,
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Apply animations to specific elements */
+
+/* Product cards */
+.product {
+  @apply hover-lift;
+  
+  .product-image {
+    @apply hover-scale;
+  }
+}
+
+/* Blog post cards */
+.post-card {
+  @apply hover-lift;
+  
+  .post-thumbnail {
+    @apply hover-scale;
+  }
+}
+
+/* Buttons with ripple effect */
+.btn {
+  @apply ripple;
+}
+
+/* Featured sections */
+.featured-section {
+  @apply reveal;
+}
+
+/* Hero elements */
+.hero-image {
+  @apply float;
+}
+
+/* Aquatic decorative elements */
+.aquatic-decoration {
+  @apply water-ripple;
+}
+
+/* Section backgrounds with bubbles */
+.aquatic-background {
+  @apply bubble;
+}
+
+/* Loading indicators */
+.loading-indicator {
+  @apply spin;
+}
+
+/* Dark mode transitions */
+.dark-mode-transition {
+  @apply transition-colors duration-500 ease-in-out;
+}
+
+/* Add smooth transitions to dark mode toggle */
+body,
+.site-header,
+.site-footer,
+.main-navigation,
+.mobile-menu,
+.widget-area,
+.comment,
+.btn,
+.form-input,
+.form-textarea,
+.form-select {
+  @apply transition-colors duration-500 ease-in-out;
+}
+
+/* Add JavaScript support for scroll reveal */
+document.addEventListener('DOMContentLoaded', function() {
+  const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  
+  function checkReveal() {
+    const windowHeight = window.innerHeight;
+    const revealPoint = 150;
+    
+    revealElements.forEach(element => {
+      const elementTop = element.getBoundingClientRect().top;
+      
+      if (elementTop < windowHeight - revealPoint) {
+        element.classList.add('active');
+      }
+    });
+  }
+  
+  window.addEventListener('scroll', checkReveal);
+  window.addEventListener('resize', checkReveal);
+  
+  // Initial check
+  checkReveal();
+});

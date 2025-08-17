@@ -1,0 +1,15 @@
+/**
+ * AquaLuxe WordPress Theme
+ * Tailwind CSS Integration
+ */
+
+/* Import Tailwind base, components, and utilities */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+ * Note: We're disabling Tailwind's preflight in the tailwind.config.js file
+ * to avoid conflicts with WordPress styles. This allows us to use Tailwind's
+ * utility classes without affecting WordPress's default styling.
+ */

@@ -1,0 +1,212 @@
+/**
+ * Testimonials Component Styles
+ *
+ * Styles for testimonial components throughout the AquaLuxe theme
+ */
+
+.testimonial {
+  @apply relative;
+  
+  // Testimonial container
+  &__container {
+    @apply bg-white rounded-lg p-6 shadow-md relative z-10;
+    
+    .dark & {
+      @apply bg-neutral-800;
+    }
+  }
+  
+  // Testimonial quote
+  &__quote {
+    @apply text-neutral-700 mb-4 relative;
+    
+    .dark & {
+      @apply text-neutral-300;
+    }
+    
+    &::before {
+      content: "\201C";
+      @apply text-5xl text-primary-300 absolute -top-6 -left-2 opacity-50 font-serif;
+      
+      .dark & {
+        @apply text-primary-700;
+      }
+    }
+  }
+  
+  // Testimonial author
+  &__author {
+    @apply flex items-center;
+  }
+  
+  // Testimonial author image
+  &__author-image {
+    @apply w-12 h-12 rounded-full mr-4 object-cover;
+  }
+  
+  // Testimonial author info
+  &__author-info {
+    @apply flex flex-col;
+  }
+  
+  // Testimonial author name
+  &__author-name {
+    @apply font-semibold text-neutral-900;
+    
+    .dark & {
+      @apply text-neutral-100;
+    }
+  }
+  
+  // Testimonial author title
+  &__author-title {
+    @apply text-sm text-neutral-500;
+    
+    .dark & {
+      @apply text-neutral-400;
+    }
+  }
+  
+  // Testimonial rating
+  &__rating {
+    @apply flex mt-1;
+    
+    .star {
+      @apply text-accent-500 w-4 h-4;
+      
+      &--empty {
+        @apply text-neutral-300;
+        
+        .dark & {
+          @apply text-neutral-600;
+        }
+      }
+    }
+  }
+  
+  // Testimonial variants
+  
+  // Card testimonial
+  &--card {
+    @apply mb-6;
+    
+    .testimonial__container {
+      @apply border border-neutral-200;
+      
+      .dark & {
+        @apply border-neutral-700;
+      }
+    }
+  }
+  
+  // Bubble testimonial
+  &--bubble {
+    .testimonial__container {
+      @apply mb-4;
+      
+      &::after {
+        content: "";
+        @apply absolute bottom-0 left-6 w-4 h-4 bg-white transform rotate-45 translate-y-2 border-r border-b border-neutral-200;
+        
+        .dark & {
+          @apply bg-neutral-800 border-neutral-700;
+        }
+      }
+    }
+    
+    .testimonial__author {
+      @apply ml-6;
+    }
+  }
+  
+  // Minimal testimonial
+  &--minimal {
+    .testimonial__container {
+      @apply bg-transparent shadow-none p-0;
+    }
+    
+    .testimonial__quote {
+      @apply border-l-4 border-primary-300 pl-4 italic;
+      
+      &::before {
+        content: none;
+      }
+    }
+  }
+  
+  // Featured testimonial
+  &--featured {
+    .testimonial__container {
+      @apply bg-primary-50 border-l-4 border-primary-500;
+      
+      .dark & {
+        @apply bg-primary-900 bg-opacity-30 border-primary-600;
+      }
+    }
+    
+    .testimonial__quote {
+      @apply text-lg;
+      
+      &::before {
+        @apply text-primary-500;
+        
+        .dark & {
+          @apply text-primary-400;
+        }
+      }
+    }
+  }
+}
+
+// Testimonial grid
+.testimonial-grid {
+  @apply grid gap-6;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+// Testimonial slider
+.testimonial-slider {
+  @apply relative py-8;
+  
+  .swiper-pagination {
+    @apply bottom-0;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    @apply text-primary-600;
+    
+    .dark & {
+      @apply text-primary-400;
+    }
+    
+    &::after {
+      @apply text-base;
+    }
+  }
+}
+
+// Testimonial with background
+.testimonial-section {
+  @apply relative py-16 bg-primary-50;
+  
+  .dark & {
+    @apply bg-primary-900 bg-opacity-20;
+  }
+  
+  &__wave {
+    @apply absolute bottom-0 left-0 right-0 w-full h-16 text-white;
+    
+    .dark & {
+      @apply text-neutral-900;
+    }
+  }
+  
+  &__title {
+    @apply text-3xl md:text-4xl font-bold text-center mb-12 font-display;
+  }
+  
+  &__container {
+    @apply container mx-auto px-4;
+  }
+}

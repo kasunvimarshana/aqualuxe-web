@@ -1,0 +1,874 @@
+/**
+ * Newsletter Component
+ *
+ * Styles for newsletter signup forms throughout the AquaLuxe theme.
+ */
+
+// Base newsletter styles
+.newsletter {
+  position: relative;
+  padding: 3rem 0;
+  
+  .newsletter-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: theme('colors.neutral.900');
+    
+    .dark & {
+      color: theme('colors.neutral.100');
+    }
+    
+    @media (min-width: theme('screens.md')) {
+      font-size: 2rem;
+    }
+  }
+  
+  .newsletter-description {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+    color: theme('colors.neutral.700');
+    
+    .dark & {
+      color: theme('colors.neutral.300');
+    }
+  }
+  
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+    
+    @media (min-width: theme('screens.md')) {
+      flex-direction: row;
+    }
+    
+    input[type="email"] {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border: 1px solid theme('colors.neutral.300');
+      border-radius: 0.25rem;
+      font-size: 1rem;
+      
+      .dark & {
+        border-color: theme('colors.neutral.600');
+        background-color: theme('colors.neutral.800');
+        color: theme('colors.neutral.100');
+      }
+      
+      &:focus {
+        outline: none;
+        border-color: theme('colors.primary.500');
+        box-shadow: 0 0 0 2px rgba(0, 175, 204, 0.2);
+        
+        .dark & {
+          box-shadow: 0 0 0 2px rgba(0, 175, 204, 0.4);
+        }
+      }
+      
+      &::placeholder {
+        color: theme('colors.neutral.500');
+        
+        .dark & {
+          color: theme('colors.neutral.400');
+        }
+      }
+    }
+    
+    button {
+      padding: 0.75rem 1.5rem;
+      background-color: theme('colors.primary.500');
+      color: theme('colors.white');
+      border: none;
+      border-radius: 0.25rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      
+      &:hover {
+        background-color: theme('colors.primary.600');
+      }
+      
+      .dark & {
+        background-color: theme('colors.primary.600');
+        
+        &:hover {
+          background-color: theme('colors.primary.700');
+        }
+      }
+    }
+  }
+  
+  .newsletter-privacy {
+    font-size: 0.875rem;
+    margin-top: 1rem;
+    color: theme('colors.neutral.500');
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    .dark & {
+      color: theme('colors.neutral.400');
+    }
+    
+    a {
+      color: theme('colors.primary.500');
+      text-decoration: none;
+      
+      .dark & {
+        color: theme('colors.primary.400');
+      }
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// Newsletter with background
+.newsletter-bg {
+  background-color: theme('colors.primary.50');
+  padding: 4rem 0;
+  
+  .dark & {
+    background-color: theme('colors.primary.900');
+  }
+  
+  .newsletter-container {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+// Newsletter with border
+.newsletter-border {
+  border: 1px solid theme('colors.neutral.200');
+  border-radius: 0.5rem;
+  padding: 2.5rem;
+  
+  .dark & {
+    border-color: theme('colors.neutral.700');
+  }
+  
+  .newsletter-container {
+    text-align: center;
+  }
+}
+
+// Newsletter horizontal
+.newsletter-horizontal {
+  .newsletter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+    @media (min-width: theme('screens.lg')) {
+      flex-direction: row;
+      text-align: left;
+    }
+  }
+  
+  .newsletter-content {
+    margin-bottom: 2rem;
+    
+    @media (min-width: theme('screens.lg')) {
+      flex: 1;
+      margin-bottom: 0;
+      margin-right: 3rem;
+    }
+  }
+  
+  .newsletter-form-container {
+    width: 100%;
+    max-width: 500px;
+    
+    @media (min-width: theme('screens.lg')) {
+      width: 40%;
+    }
+  }
+}
+
+// Newsletter with image
+.newsletter-image {
+  position: relative;
+  overflow: hidden;
+  
+  .newsletter-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.15;
+  }
+  
+  .newsletter-container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+// Newsletter in card
+.newsletter-card {
+  background-color: theme('colors.white');
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  padding: 2.5rem;
+  
+  .dark & {
+    background-color: theme('colors.neutral.800');
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .newsletter-container {
+    text-align: center;
+  }
+}
+
+// Newsletter popup
+.newsletter-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .popup-container {
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    background-color: theme('colors.white');
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+    
+    .dark & {
+      background-color: theme('colors.neutral.800');
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+  }
+  
+  .popup-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: theme('colors.neutral.100');
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    
+    .dark & {
+      background-color: theme('colors.neutral.700');
+    }
+    
+    svg {
+      width: 1rem;
+      height: 1rem;
+      color: theme('colors.neutral.700');
+      
+      .dark & {
+        color: theme('colors.neutral.300');
+      }
+    }
+    
+    &:hover {
+      background-color: theme('colors.neutral.200');
+      
+      .dark & {
+        background-color: theme('colors.neutral.600');
+      }
+    }
+  }
+  
+  .newsletter-container {
+    text-align: center;
+  }
+}
+
+// Newsletter with social proof
+.newsletter-social-proof {
+  .newsletter-container {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .social-proof {
+    margin-top: 2rem;
+    
+    .social-proof-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: theme('colors.neutral.700');
+      
+      .dark & {
+        color: theme('colors.neutral.300');
+      }
+    }
+    
+    .social-proof-logos {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      
+      img {
+        height: 30px;
+        width: auto;
+        filter: grayscale(100%);
+        opacity: 0.7;
+        transition: all 0.2s ease;
+        
+        &:hover {
+          filter: grayscale(0);
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+// Newsletter with countdown
+.newsletter-countdown {
+  .newsletter-container {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .countdown {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    
+    .countdown-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 60px;
+      
+      .countdown-number {
+        font-size: 2rem;
+        font-weight: 700;
+        color: theme('colors.primary.500');
+        
+        .dark & {
+          color: theme('colors.primary.400');
+        }
+      }
+      
+      .countdown-label {
+        font-size: 0.875rem;
+        color: theme('colors.neutral.500');
+        
+        .dark & {
+          color: theme('colors.neutral.400');
+        }
+      }
+    }
+    
+    .countdown-separator {
+      font-size: 2rem;
+      font-weight: 700;
+      color: theme('colors.neutral.300');
+      align-self: flex-start;
+      margin-top: 0.25rem;
+      
+      .dark & {
+        color: theme('colors.neutral.600');
+      }
+    }
+  }
+}
+
+// Newsletter with incentive
+.newsletter-incentive {
+  .newsletter-container {
+    display: flex;
+    flex-direction: column;
+    
+    @media (min-width: theme('screens.lg')) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+  
+  .newsletter-content {
+    margin-bottom: 2rem;
+    
+    @media (min-width: theme('screens.lg')) {
+      flex: 1;
+      margin-bottom: 0;
+      margin-right: 3rem;
+    }
+  }
+  
+  .newsletter-incentive-image {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    
+    @media (min-width: theme('screens.lg')) {
+      width: 40%;
+      margin: 0;
+    }
+    
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+    }
+  }
+  
+  .incentive-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: theme('colors.accent.500');
+    color: theme('colors.neutral.900');
+    font-weight: 600;
+    border-radius: 9999px;
+    margin-bottom: 1.5rem;
+    
+    .dark & {
+      color: theme('colors.neutral.900');
+    }
+  }
+}
+
+// Newsletter with tabs
+.newsletter-tabs {
+  .newsletter-container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .tabs {
+    display: flex;
+    border-bottom: 1px solid theme('colors.neutral.200');
+    margin-bottom: 2rem;
+    
+    .dark & {
+      border-bottom-color: theme('colors.neutral.700');
+    }
+    
+    .tab {
+      padding: 1rem 1.5rem;
+      font-weight: 600;
+      color: theme('colors.neutral.500');
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s ease;
+      
+      .dark & {
+        color: theme('colors.neutral.400');
+      }
+      
+      &:hover {
+        color: theme('colors.neutral.700');
+        
+        .dark & {
+          color: theme('colors.neutral.300');
+        }
+      }
+      
+      &.active {
+        color: theme('colors.primary.500');
+        border-bottom-color: theme('colors.primary.500');
+        
+        .dark & {
+          color: theme('colors.primary.400');
+          border-bottom-color: theme('colors.primary.400');
+        }
+      }
+    }
+  }
+  
+  .tab-content {
+    .tab-pane {
+      display: none;
+      
+      &.active {
+        display: block;
+      }
+    }
+  }
+}
+
+// Newsletter with steps
+.newsletter-steps {
+  .newsletter-container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    position: relative;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 1rem;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: theme('colors.neutral.200');
+      z-index: 0;
+      
+      .dark & {
+        background-color: theme('colors.neutral.700');
+      }
+    }
+    
+    .step {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+      .step-number {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        background-color: theme('colors.white');
+        border: 2px solid theme('colors.neutral.300');
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 0.875rem;
+        color: theme('colors.neutral.600');
+        margin-bottom: 0.5rem;
+        
+        .dark & {
+          background-color: theme('colors.neutral.800');
+          border-color: theme('colors.neutral.600');
+          color: theme('colors.neutral.400');
+        }
+      }
+      
+      .step-label {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: theme('colors.neutral.600');
+        
+        .dark & {
+          color: theme('colors.neutral.400');
+        }
+      }
+      
+      &.active {
+        .step-number {
+          background-color: theme('colors.primary.500');
+          border-color: theme('colors.primary.500');
+          color: theme('colors.white');
+        }
+        
+        .step-label {
+          color: theme('colors.primary.500');
+          
+          .dark & {
+            color: theme('colors.primary.400');
+          }
+        }
+      }
+      
+      &.completed {
+        .step-number {
+          background-color: theme('colors.success');
+          border-color: theme('colors.success');
+          color: theme('colors.white');
+        }
+      }
+    }
+  }
+  
+  .step-content {
+    .step-pane {
+      display: none;
+      
+      &.active {
+        display: block;
+      }
+    }
+  }
+  
+  .step-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    
+    button {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.25rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      
+      &.btn-prev {
+        background-color: theme('colors.neutral.100');
+        color: theme('colors.neutral.700');
+        border: 1px solid theme('colors.neutral.300');
+        
+        .dark & {
+          background-color: theme('colors.neutral.700');
+          color: theme('colors.neutral.300');
+          border-color: theme('colors.neutral.600');
+        }
+        
+        &:hover {
+          background-color: theme('colors.neutral.200');
+          
+          .dark & {
+            background-color: theme('colors.neutral.600');
+          }
+        }
+      }
+      
+      &.btn-next {
+        background-color: theme('colors.primary.500');
+        color: theme('colors.white');
+        border: none;
+        
+        &:hover {
+          background-color: theme('colors.primary.600');
+        }
+        
+        .dark & {
+          background-color: theme('colors.primary.600');
+          
+          &:hover {
+            background-color: theme('colors.primary.700');
+          }
+        }
+      }
+    }
+  }
+}
+
+// Special AquaLuxe newsletter styles
+.newsletter-aqua {
+  position: relative;
+  background-color: theme('colors.primary.50');
+  overflow: hidden;
+  
+  .dark & {
+    background-color: theme('colors.primary.900');
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/water-pattern.svg');
+    background-size: cover;
+    opacity: 0.05;
+    z-index: 0;
+  }
+  
+  .newsletter-container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .newsletter-form {
+    position: relative;
+    
+    input[type="email"] {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      padding-right: 7rem;
+      border: none;
+      border-radius: 9999px;
+      font-size: 1rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      
+      .dark & {
+        background-color: theme('colors.neutral.800');
+        color: theme('colors.neutral.100');
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+      
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px theme('colors.primary.300'), 0 2px 5px rgba(0, 0, 0, 0.05);
+        
+        .dark & {
+          box-shadow: 0 0 0 2px theme('colors.primary.700'), 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+    
+    button {
+      position: absolute;
+      top: 0.25rem;
+      right: 0.25rem;
+      bottom: 0.25rem;
+      padding: 0 1.5rem;
+      background-color: theme('colors.primary.500');
+      color: theme('colors.white');
+      border: none;
+      border-radius: 9999px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      
+      &:hover {
+        background-color: theme('colors.primary.600');
+      }
+      
+      .dark & {
+        background-color: theme('colors.primary.600');
+        
+        &:hover {
+          background-color: theme('colors.primary.700');
+        }
+      }
+    }
+  }
+}
+
+.newsletter-luxe {
+  position: relative;
+  padding: 4rem 0;
+  
+  .newsletter-container {
+    position: relative;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: -2rem;
+      left: -2rem;
+      width: 5rem;
+      height: 5rem;
+      border-top: 2px solid theme('colors.secondary.300');
+      border-left: 2px solid theme('colors.secondary.300');
+      z-index: 0;
+      
+      .dark & {
+        border-color: theme('colors.secondary.700');
+      }
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2rem;
+      right: -2rem;
+      width: 5rem;
+      height: 5rem;
+      border-bottom: 2px solid theme('colors.secondary.300');
+      border-right: 2px solid theme('colors.secondary.300');
+      z-index: 0;
+      
+      .dark & {
+        border-color: theme('colors.secondary.700');
+      }
+    }
+  }
+  
+  .newsletter-title {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+  }
+  
+  .newsletter-form {
+    position: relative;
+    z-index: 1;
+    
+    input[type="email"] {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      border: 1px solid theme('colors.neutral.300');
+      border-radius: 0;
+      font-size: 1rem;
+      
+      .dark & {
+        border-color: theme('colors.neutral.600');
+        background-color: theme('colors.neutral.800');
+        color: theme('colors.neutral.100');
+      }
+      
+      &:focus {
+        outline: none;
+        border-color: theme('colors.secondary.500');
+        
+        .dark & {
+          border-color: theme('colors.secondary.400');
+        }
+      }
+    }
+    
+    button {
+      width: 100%;
+      margin-top: 1rem;
+      padding: 1rem 1.5rem;
+      background-color: theme('colors.secondary.500');
+      color: theme('colors.white');
+      border: none;
+      border-radius: 0;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      
+      &:hover {
+        background-color: theme('colors.secondary.600');
+      }
+      
+      .dark & {
+        background-color: theme('colors.secondary.600');
+        
+        &:hover {
+          background-color: theme('colors.secondary.700');
+        }
+      }
+    }
+  }
+}

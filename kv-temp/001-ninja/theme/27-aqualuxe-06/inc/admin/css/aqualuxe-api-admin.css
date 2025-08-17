@@ -1,0 +1,434 @@
+/**
+ * AquaLuxe API Admin CSS
+ */
+
+/* Dashboard */
+.aqualuxe-api-dashboard {
+    margin-top: 20px;
+}
+
+.aqualuxe-api-stats {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.aqualuxe-api-stat-card {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+    padding: 15px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    min-width: 200px;
+    border-radius: 3px;
+}
+
+.aqualuxe-api-stat-card h3 {
+    margin-top: 0;
+    color: #23282d;
+}
+
+.aqualuxe-api-stat-card .stat-value {
+    font-size: 24px;
+    font-weight: 600;
+    color: #0073aa;
+}
+
+.aqualuxe-api-card {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 3px;
+}
+
+.aqualuxe-api-card h2 {
+    margin-top: 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Settings */
+.aqualuxe-api-settings {
+    margin-top: 20px;
+}
+
+.aqualuxe-api-settings .form-table th {
+    width: 250px;
+}
+
+.aqualuxe-api-settings .form-table td {
+    vertical-align: top;
+}
+
+.aqualuxe-api-settings .form-table td p.description {
+    margin-top: 5px;
+}
+
+.aqualuxe-api-key-container {
+    background: #f9f9f9;
+    border: 1px solid #e5e5e5;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 3px;
+}
+
+.aqualuxe-api-key-container h3 {
+    margin-top: 0;
+}
+
+.aqualuxe-api-key-field {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.aqualuxe-api-key-field label {
+    width: 120px;
+    font-weight: 600;
+}
+
+.aqualuxe-api-key-field input {
+    flex: 1;
+    background: #fff;
+}
+
+/* Notifications */
+.aqualuxe-api-notifications {
+    margin-top: 20px;
+}
+
+.aqualuxe-api-notification-types {
+    background: #f9f9f9;
+    border: 1px solid #e5e5e5;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 3px;
+}
+
+.aqualuxe-api-notification-type {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.aqualuxe-api-notification-type:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.aqualuxe-api-device-stats {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.aqualuxe-api-device-stat {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+    padding: 15px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    min-width: 150px;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.aqualuxe-api-device-stat h3 {
+    margin-top: 0;
+    color: #23282d;
+}
+
+.aqualuxe-api-device-stat .stat-value {
+    font-size: 24px;
+    font-weight: 600;
+    color: #0073aa;
+}
+
+/* Sync */
+.aqualuxe-api-sync {
+    margin-top: 20px;
+}
+
+.aqualuxe-api-sync-entities {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.aqualuxe-api-sync-entity {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+    padding: 15px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    min-width: 200px;
+    border-radius: 3px;
+}
+
+.aqualuxe-api-sync-entity h3 {
+    margin-top: 0;
+    color: #23282d;
+}
+
+.aqualuxe-api-sync-entity .sync-progress {
+    margin-top: 10px;
+    height: 20px;
+    background-color: #f1f1f1;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.aqualuxe-api-sync-entity .sync-progress-bar {
+    height: 100%;
+    background-color: #0073aa;
+    text-align: center;
+    color: #fff;
+    line-height: 20px;
+    font-size: 12px;
+}
+
+.aqualuxe-api-sync-entity .sync-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    font-size: 12px;
+    color: #666;
+}
+
+/* Logs */
+.aqualuxe-api-logs {
+    margin-top: 20px;
+}
+
+.aqualuxe-api-logs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.aqualuxe-api-logs-table th,
+.aqualuxe-api-logs-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.aqualuxe-api-logs-table th {
+    background-color: #f9f9f9;
+    font-weight: 600;
+}
+
+.aqualuxe-api-logs-table tr:hover td {
+    background-color: #f9f9f9;
+}
+
+.aqualuxe-api-logs-table .column-timestamp {
+    width: 150px;
+}
+
+.aqualuxe-api-logs-table .column-endpoint {
+    width: 250px;
+}
+
+.aqualuxe-api-logs-table .column-method {
+    width: 80px;
+}
+
+.aqualuxe-api-logs-table .column-status {
+    width: 80px;
+}
+
+.aqualuxe-api-logs-table .column-ip {
+    width: 120px;
+}
+
+.aqualuxe-api-logs-table .column-time {
+    width: 80px;
+}
+
+.aqualuxe-api-logs-table .status-200 {
+    color: #46b450;
+}
+
+.aqualuxe-api-logs-table .status-400,
+.aqualuxe-api-logs-table .status-401,
+.aqualuxe-api-logs-table .status-403,
+.aqualuxe-api-logs-table .status-404 {
+    color: #dc3232;
+}
+
+.aqualuxe-api-logs-table .status-500 {
+    color: #dc3232;
+    font-weight: bold;
+}
+
+.aqualuxe-api-logs-pagination {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.aqualuxe-api-logs-pagination .page-numbers {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-right: 5px;
+    border: 1px solid #e5e5e5;
+    background: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.aqualuxe-api-logs-pagination .page-numbers.current {
+    background: #0073aa;
+    color: #fff;
+    border-color: #0073aa;
+}
+
+/* Documentation */
+.aqualuxe-api-docs {
+    margin-top: 20px;
+}
+
+.aqualuxe-api-docs-nav {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.aqualuxe-api-docs-nav-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-right: 5px;
+    border: 1px solid #e5e5e5;
+    border-bottom: none;
+    border-radius: 3px 3px 0 0;
+    background: #f9f9f9;
+}
+
+.aqualuxe-api-docs-nav-item.active {
+    background: #fff;
+    border-bottom: 1px solid #fff;
+    margin-bottom: -1px;
+}
+
+.aqualuxe-api-docs-content {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    padding: 20px;
+    border-radius: 0 3px 3px 3px;
+}
+
+.aqualuxe-api-docs-section {
+    display: none;
+}
+
+.aqualuxe-api-docs-section.active {
+    display: block;
+}
+
+.aqualuxe-api-docs-section h3 {
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.aqualuxe-api-docs-section pre {
+    background: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    overflow: auto;
+}
+
+.aqualuxe-api-docs-section code {
+    background: #f9f9f9;
+    padding: 2px 5px;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+}
+
+/* Buttons */
+.aqualuxe-api-button {
+    display: inline-block;
+    padding: 8px 15px;
+    background: #0073aa;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.aqualuxe-api-button:hover {
+    background: #0082c3;
+    color: #fff;
+}
+
+.aqualuxe-api-button.secondary {
+    background: #f7f7f7;
+    color: #555;
+    border: 1px solid #ccc;
+}
+
+.aqualuxe-api-button.secondary:hover {
+    background: #fafafa;
+    color: #23282d;
+}
+
+.aqualuxe-api-button.danger {
+    background: #dc3232;
+}
+
+.aqualuxe-api-button.danger:hover {
+    background: #ea4949;
+}
+
+/* Utilities */
+.aqualuxe-api-notice {
+    padding: 10px 15px;
+    margin: 15px 0;
+    border-radius: 3px;
+}
+
+.aqualuxe-api-notice.success {
+    background-color: #ecf7ed;
+    border-left: 4px solid #46b450;
+}
+
+.aqualuxe-api-notice.error {
+    background-color: #fbeaea;
+    border-left: 4px solid #dc3232;
+}
+
+.aqualuxe-api-notice.warning {
+    background-color: #fff8e5;
+    border-left: 4px solid #ffb900;
+}
+
+.aqualuxe-api-notice.info {
+    background-color: #e5f5fa;
+    border-left: 4px solid #00a0d2;
+}
+
+.aqualuxe-api-loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-top-color: #0073aa;
+    border-radius: 50%;
+    animation: aqualuxe-api-spin 1s linear infinite;
+}
+
+@keyframes aqualuxe-api-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
