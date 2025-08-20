@@ -1,0 +1,405 @@
+// AquaLuxe Theme Mixins
+// ---------------------
+
+// Responsive breakpoints
+// Usage: @include respond-to('medium') { ... }
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'xs' {
+    @media (min-width: $breakpoint-xs) {
+      @content;
+    }
+  } @else if $breakpoint == 'sm' {
+    @media (min-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $breakpoint == 'md' {
+    @media (min-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $breakpoint == 'lg' {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
+  } @else if $breakpoint == 'xl' {
+    @media (min-width: $breakpoint-xl) {
+      @content;
+    }
+  } @else if $breakpoint == '2xl' {
+    @media (min-width: $breakpoint-2xl) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+// Container
+@mixin container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+// Flexbox utilities
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Grid utilities
+@mixin grid-columns($columns: 12, $gap: $spacing-4) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+// Typography
+@mixin heading-1 {
+  font-family: var(--font-serif);
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  margin-bottom: $spacing-6;
+  
+  @include respond-to('md') {
+    font-size: $font-size-5xl;
+  }
+  
+  @include respond-to('lg') {
+    font-size: $font-size-6xl;
+  }
+}
+
+@mixin heading-2 {
+  font-family: var(--font-serif);
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  margin-bottom: $spacing-5;
+  
+  @include respond-to('md') {
+    font-size: $font-size-4xl;
+  }
+}
+
+@mixin heading-3 {
+  font-family: var(--font-serif);
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  margin-bottom: $spacing-4;
+  
+  @include respond-to('md') {
+    font-size: $font-size-3xl;
+  }
+}
+
+@mixin heading-4 {
+  font-family: var(--font-serif);
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  margin-bottom: $spacing-4;
+  
+  @include respond-to('md') {
+    font-size: $font-size-2xl;
+  }
+}
+
+@mixin heading-5 {
+  font-family: var(--font-serif);
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  margin-bottom: $spacing-3;
+  
+  @include respond-to('md') {
+    font-size: $font-size-xl;
+  }
+}
+
+@mixin heading-6 {
+  font-family: var(--font-serif);
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  margin-bottom: $spacing-3;
+  
+  @include respond-to('md') {
+    font-size: $font-size-lg;
+  }
+}
+
+// Buttons
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-2 $spacing-4;
+  font-family: var(--font-sans);
+  font-weight: $font-weight-medium;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+  text-align: center;
+  text-decoration: none;
+  border-radius: $border-radius;
+  transition: all $transition-duration-300 $transition-timing-ease-in-out;
+  cursor: pointer;
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.4);
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+  background-color: var(--color-primary);
+  color: $color-white;
+  border: 1px solid var(--color-primary);
+  
+  &:hover, &:focus {
+    background-color: var(--color-primary-600);
+    border-color: var(--color-primary-600);
+  }
+  
+  &:active {
+    background-color: var(--color-primary-700);
+    border-color: var(--color-primary-700);
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background-color: var(--color-secondary);
+  color: $color-white;
+  border: 1px solid var(--color-secondary);
+  
+  &:hover, &:focus {
+    background-color: var(--color-secondary-600);
+    border-color: var(--color-secondary-600);
+  }
+  
+  &:active {
+    background-color: var(--color-secondary-700);
+    border-color: var(--color-secondary-700);
+  }
+}
+
+@mixin button-accent {
+  @include button-base;
+  background-color: var(--color-accent);
+  color: $color-white;
+  border: 1px solid var(--color-accent);
+  
+  &:hover, &:focus {
+    background-color: var(--color-accent-600);
+    border-color: var(--color-accent-600);
+  }
+  
+  &:active {
+    background-color: var(--color-accent-700);
+    border-color: var(--color-accent-700);
+  }
+}
+
+@mixin button-outline {
+  @include button-base;
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  
+  &:hover, &:focus {
+    background-color: var(--color-primary-50);
+  }
+  
+  &:active {
+    background-color: var(--color-primary-100);
+  }
+}
+
+@mixin button-ghost {
+  @include button-base;
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1px solid transparent;
+  
+  &:hover, &:focus {
+    background-color: var(--color-primary-50);
+  }
+  
+  &:active {
+    background-color: var(--color-primary-100);
+  }
+}
+
+// Cards
+@mixin card {
+  background-color: var(--color-bg-primary);
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-md;
+  overflow: hidden;
+  transition: transform $transition-duration-300 $transition-timing-ease-in-out, 
+              box-shadow $transition-duration-300 $transition-timing-ease-in-out;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+// Images
+@mixin image-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@mixin image-contain {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+// Aspect ratios
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  
+  &::before {
+    content: '';
+    display: block;
+    padding-top: ($height / $width) * 100%;
+  }
+  
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// Truncate text
+@mixin truncate($lines: 1) {
+  @if $lines == 1 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+// Visually hidden (accessible for screen readers)
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+// Clearfix
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+// Animations
+@mixin fade-in($duration: 0.3s, $delay: 0s) {
+  animation: fadeIn $duration ease-in-out $delay forwards;
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin fade-in-up($duration: 0.3s, $delay: 0s, $distance: 20px) {
+  animation: fadeInUp $duration ease-in-out $delay forwards;
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY($distance);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+// WooCommerce specific mixins
+@mixin woo-button {
+  @include button-primary;
+}
+
+@mixin woo-alt-button {
+  @include button-secondary;
+}
+
+@mixin woo-price {
+  color: var(--woocommerce-price-color);
+  font-weight: $font-weight-bold;
+}
+
+@mixin woo-sale-badge {
+  background-color: var(--woocommerce-color);
+  color: $color-white;
+  padding: $spacing-1 $spacing-2;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  border-radius: $border-radius;
+  position: absolute;
+  top: $spacing-4;
+  right: $spacing-4;
+  z-index: 10;
+}
+
+// RTL Support
+@mixin rtl {
+  [dir="rtl"] & {
+    @content;
+  }
+}
