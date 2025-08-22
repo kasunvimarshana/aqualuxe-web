@@ -1,0 +1,191 @@
+/**
+ * WooCommerce Product Card Styles
+ *
+ * Styles for product cards in loops.
+ */
+
+// Products container
+ul.products {
+  @apply grid gap-6;
+
+  &.columns-1 {
+    @apply grid-cols-1;
+  }
+
+  &.columns-2 {
+    @apply grid-cols-1 md:grid-cols-2;
+  }
+
+  &.columns-3 {
+    @apply grid-cols-1 sm:grid-cols-2 lg:grid-cols-3;
+  }
+
+  &.columns-4 {
+    @apply grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+  }
+
+  &.columns-5 {
+    @apply grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5;
+  }
+
+  &.columns-6 {
+    @apply grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6;
+  }
+
+  // Different layouts
+  &.layout-grid {
+    li.product {
+      @apply flex flex-col;
+    }
+  }
+
+  &.layout-list {
+    @apply grid-cols-1;
+
+    li.product {
+      @apply flex flex-col md:flex-row;
+
+      .product-image {
+        @apply w-full md:w-1/3 md:pr-6;
+      }
+
+      .product-details {
+        @apply w-full md:w-2/3;
+      }
+    }
+  }
+}
+
+// Product card
+li.product {
+  @apply bg-white rounded-lg shadow-soft overflow-hidden transition-shadow duration-300;
+
+  &:hover {
+    @apply shadow-medium;
+
+    .product-image img {
+      @apply scale-105;
+    }
+
+    .product-actions {
+      @apply opacity-100;
+    }
+  }
+
+  // Product image container
+  .product-image {
+    @apply relative overflow-hidden;
+
+    img {
+      @apply w-full h-auto transition-transform duration-300;
+    }
+  }
+
+  // Product details
+  .product-details {
+    @apply p-4;
+  }
+
+  // Product title
+  .woocommerce-loop-product__title {
+    @apply text-lg font-medium mb-2 transition-colors duration-300;
+
+    &:hover {
+      @apply text-primary;
+    }
+  }
+
+  // Product price
+  .price {
+    @apply mb-3;
+  }
+
+  // Product rating
+  .star-rating {
+    @apply mb-3;
+  }
+
+  // Product actions
+  .product-actions {
+    @apply absolute bottom-4 left-0 right-0 flex justify-center items-center space-x-2 opacity-0 transition-opacity duration-300;
+  }
+
+  // Add to cart
+  .button.add_to_cart_button {
+    @apply text-sm px-4 py-2;
+  }
+
+  // Quick view button
+  .quick-view-button {
+    @apply bg-white text-gray-700 p-2 rounded-full shadow-sm transition duration-300;
+
+    &:hover {
+      @apply bg-gray-100;
+    }
+  }
+
+  // Wishlist button
+  .wishlist-button {
+    @apply bg-white text-gray-700 p-2 rounded-full shadow-sm transition duration-300;
+
+    &:hover {
+      @apply text-red-500;
+    }
+
+    &.in-wishlist {
+      @apply text-red-500;
+    }
+  }
+
+  // Categories
+  .product-category {
+    @apply text-xs text-gray-500 mb-1;
+
+    a {
+      @apply hover:text-primary;
+    }
+  }
+
+  // Out of stock overlay
+  .outofstock-overlay {
+    @apply absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center;
+
+    span {
+      @apply bg-white text-gray-800 py-2 px-4 rounded font-medium;
+    }
+  }
+}
+
+// Product category card
+.product-category {
+  @apply bg-white rounded-lg shadow-soft overflow-hidden transition-shadow duration-300;
+
+  &:hover {
+    @apply shadow-medium;
+
+    img {
+      @apply scale-105;
+    }
+  }
+
+  a {
+    @apply block;
+  }
+
+  img {
+    @apply w-full h-auto transition-transform duration-300;
+  }
+
+  h2 {
+    @apply p-4 text-lg font-medium text-center;
+
+    mark {
+      @apply bg-transparent text-gray-500 font-normal;
+    }
+  }
+}
+
+// Sale flash
+.onsale {
+  @apply absolute top-4 left-4 z-10 bg-accent text-white text-xs font-bold uppercase py-1 px-2 rounded;
+}
