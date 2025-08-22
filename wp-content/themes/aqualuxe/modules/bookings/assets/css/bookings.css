@@ -1,0 +1,610 @@
+/**
+ * Bookings Module Styles
+ */
+
+/* Booking Form */
+.aqualuxe-booking-form {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: var(--wp--preset--color--background);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.aqualuxe-booking-form__title {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--wp--preset--color--primary);
+}
+
+.aqualuxe-booking-form__section {
+    margin-bottom: 1.5rem;
+}
+
+.aqualuxe-booking-form__section-title {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--wp--preset--color--heading);
+}
+
+.aqualuxe-booking-form__field {
+    margin-bottom: 1rem;
+}
+
+.aqualuxe-booking-form__label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--wp--preset--color--heading);
+}
+
+.aqualuxe-booking-form__input,
+.aqualuxe-booking-form__select,
+.aqualuxe-booking-form__textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--wp--preset--color--border);
+    border-radius: 0.25rem;
+    background-color: var(--wp--preset--color--white);
+    color: var(--wp--preset--color--text);
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.5;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.aqualuxe-booking-form__input:focus,
+.aqualuxe-booking-form__select:focus,
+.aqualuxe-booking-form__textarea:focus {
+    border-color: var(--wp--preset--color--primary);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(var(--wp--preset--color--primary-rgb), 0.2);
+}
+
+.aqualuxe-booking-form__input:disabled,
+.aqualuxe-booking-form__select:disabled,
+.aqualuxe-booking-form__textarea:disabled {
+    background-color: var(--wp--preset--color--light-gray);
+    cursor: not-allowed;
+}
+
+.aqualuxe-booking-form__textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.aqualuxe-booking-form__service-select {
+    margin-bottom: 1rem;
+}
+
+.aqualuxe-booking-form__date-input {
+    margin-bottom: 1rem;
+}
+
+.aqualuxe-booking-form__time-select {
+    margin-bottom: 1rem;
+}
+
+.aqualuxe-booking-form__customer-fields {
+    display: none;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--wp--preset--color--border);
+}
+
+.aqualuxe-booking-form__submit {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: var(--wp--preset--color--primary);
+    color: var(--wp--preset--color--white);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.aqualuxe-booking-form__submit:hover {
+    background-color: var(--wp--preset--color--primary-dark);
+}
+
+.aqualuxe-booking-form__submit:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(var(--wp--preset--color--primary-rgb), 0.4);
+}
+
+.aqualuxe-booking-form__submit:disabled {
+    background-color: var(--wp--preset--color--light-gray);
+    cursor: not-allowed;
+}
+
+.aqualuxe-booking-form__message {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.aqualuxe-booking-form__message--info {
+    background-color: #e6f7ff;
+    border: 1px solid #91d5ff;
+    color: #0050b3;
+}
+
+.aqualuxe-booking-form__message--success {
+    background-color: #f6ffed;
+    border: 1px solid #b7eb8f;
+    color: #389e0d;
+}
+
+.aqualuxe-booking-form__message--warning {
+    background-color: #fffbe6;
+    border: 1px solid #ffe58f;
+    color: #ad8b00;
+}
+
+.aqualuxe-booking-form__message--error {
+    background-color: #fff2f0;
+    border: 1px solid #ffccc7;
+    color: #cf1322;
+}
+
+/* Service Card */
+.aqualuxe-service-card {
+    margin-bottom: 2rem;
+    border-radius: 0.5rem;
+    background-color: var(--wp--preset--color--background);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.aqualuxe-service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.aqualuxe-service-card__image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.aqualuxe-service-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.aqualuxe-service-card:hover .aqualuxe-service-card__image img {
+    transform: scale(1.05);
+}
+
+.aqualuxe-service-card__content {
+    padding: 1.5rem;
+}
+
+.aqualuxe-service-card__title {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--wp--preset--color--heading);
+}
+
+.aqualuxe-service-card__description {
+    margin-bottom: 1rem;
+    color: var(--wp--preset--color--text);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.aqualuxe-service-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    color: var(--wp--preset--color--text-light);
+}
+
+.aqualuxe-service-card__meta-item {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.aqualuxe-service-card__meta-icon {
+    margin-right: 0.25rem;
+    width: 1rem;
+    height: 1rem;
+}
+
+.aqualuxe-service-card__price {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--wp--preset--color--primary);
+    margin-bottom: 1rem;
+}
+
+.aqualuxe-service-card__button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: var(--wp--preset--color--primary);
+    color: var(--wp--preset--color--white);
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.aqualuxe-service-card__button:hover {
+    background-color: var(--wp--preset--color--primary-dark);
+    color: var(--wp--preset--color--white);
+    text-decoration: none;
+}
+
+/* Service Grid */
+.aqualuxe-service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Booking Calendar */
+.aqualuxe-booking-calendar {
+    margin-bottom: 2rem;
+}
+
+.aqualuxe-booking-calendar__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.aqualuxe-booking-calendar__title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--wp--preset--color--heading);
+}
+
+.aqualuxe-booking-calendar__controls {
+    display: flex;
+    align-items: center;
+}
+
+.aqualuxe-booking-calendar__select {
+    margin-left: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid var(--wp--preset--color--border);
+    border-radius: 0.25rem;
+    background-color: var(--wp--preset--color--white);
+    color: var(--wp--preset--color--text);
+    font-family: inherit;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.aqualuxe-booking-calendar__table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--wp--preset--color--border);
+    background-color: var(--wp--preset--color--white);
+}
+
+.aqualuxe-booking-calendar__table th {
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--wp--preset--color--border);
+    background-color: var(--wp--preset--color--light);
+    color: var(--wp--preset--color--heading);
+    font-weight: 600;
+    text-align: center;
+}
+
+.aqualuxe-booking-calendar__table td {
+    padding: 0.5rem;
+    border: 1px solid var(--wp--preset--color--border);
+    text-align: center;
+    vertical-align: top;
+    height: 100px;
+}
+
+.aqualuxe-booking-calendar__date {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--wp--preset--color--heading);
+}
+
+.aqualuxe-booking-calendar__cell {
+    position: relative;
+}
+
+.aqualuxe-booking-calendar__cell--other-month {
+    background-color: var(--wp--preset--color--light-gray);
+    color: var(--wp--preset--color--text-light);
+}
+
+.aqualuxe-booking-calendar__cell--today {
+    background-color: rgba(var(--wp--preset--color--primary-rgb), 0.1);
+}
+
+.aqualuxe-booking-calendar__cell--available {
+    cursor: pointer;
+}
+
+.aqualuxe-booking-calendar__cell--unavailable {
+    background-color: var(--wp--preset--color--light-gray);
+    cursor: not-allowed;
+}
+
+.aqualuxe-booking-calendar__cell--blocked {
+    background-color: #fff2f0;
+    cursor: not-allowed;
+}
+
+.aqualuxe-booking-calendar__availability {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.8rem;
+    color: var(--wp--preset--color--text-light);
+}
+
+.aqualuxe-booking-calendar__availability--available {
+    color: #389e0d;
+}
+
+.aqualuxe-booking-calendar__availability--limited {
+    color: #ad8b00;
+}
+
+.aqualuxe-booking-calendar__availability--unavailable {
+    color: #cf1322;
+}
+
+/* Booking Confirmation */
+.aqualuxe-booking-confirmation {
+    padding: 2rem;
+    border-radius: 0.5rem;
+    background-color: var(--wp--preset--color--background);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.aqualuxe-booking-confirmation__title {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--wp--preset--color--primary);
+}
+
+.aqualuxe-booking-confirmation__message {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.aqualuxe-booking-confirmation__details {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: var(--wp--preset--color--light);
+}
+
+.aqualuxe-booking-confirmation__detail {
+    display: flex;
+    margin-bottom: 0.75rem;
+}
+
+.aqualuxe-booking-confirmation__detail:last-child {
+    margin-bottom: 0;
+}
+
+.aqualuxe-booking-confirmation__detail-label {
+    flex: 0 0 120px;
+    font-weight: 500;
+    color: var(--wp--preset--color--heading);
+}
+
+.aqualuxe-booking-confirmation__detail-value {
+    flex: 1;
+}
+
+.aqualuxe-booking-confirmation__buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.aqualuxe-booking-confirmation__button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: var(--wp--preset--color--primary);
+    color: var(--wp--preset--color--white);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.aqualuxe-booking-confirmation__button:hover {
+    background-color: var(--wp--preset--color--primary-dark);
+    color: var(--wp--preset--color--white);
+    text-decoration: none;
+}
+
+.aqualuxe-booking-confirmation__button--secondary {
+    background-color: var(--wp--preset--color--light);
+    color: var(--wp--preset--color--text);
+    border: 1px solid var(--wp--preset--color--border);
+}
+
+.aqualuxe-booking-confirmation__button--secondary:hover {
+    background-color: var(--wp--preset--color--light-gray);
+    color: var(--wp--preset--color--text);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .aqualuxe-service-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .aqualuxe-booking-calendar__table th,
+    .aqualuxe-booking-calendar__table td {
+        padding: 0.5rem 0.25rem;
+        font-size: 0.9rem;
+    }
+    
+    .aqualuxe-booking-calendar__date {
+        font-size: 0.9rem;
+    }
+    
+    .aqualuxe-booking-calendar__availability {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .aqualuxe-booking-calendar__header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .aqualuxe-booking-calendar__controls {
+        margin-top: 1rem;
+        width: 100%;
+    }
+    
+    .aqualuxe-booking-calendar__select {
+        flex: 1;
+        margin-left: 0;
+        margin-right: 0.5rem;
+    }
+    
+    .aqualuxe-booking-calendar__select:last-child {
+        margin-right: 0;
+    }
+    
+    .aqualuxe-booking-confirmation__detail {
+        flex-direction: column;
+    }
+    
+    .aqualuxe-booking-confirmation__detail-label {
+        margin-bottom: 0.25rem;
+    }
+}
+
+/* Dark Mode Support */
+.dark .aqualuxe-booking-form {
+    background-color: var(--wp--preset--color--dark);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dark .aqualuxe-booking-form__input,
+.dark .aqualuxe-booking-form__select,
+.dark .aqualuxe-booking-form__textarea {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: var(--wp--preset--color--white);
+}
+
+.dark .aqualuxe-booking-form__input:focus,
+.dark .aqualuxe-booking-form__select:focus,
+.dark .aqualuxe-booking-form__textarea:focus {
+    border-color: var(--wp--preset--color--primary);
+    box-shadow: 0 0 0 2px rgba(var(--wp--preset--color--primary-rgb), 0.4);
+}
+
+.dark .aqualuxe-booking-form__input:disabled,
+.dark .aqualuxe-booking-form__select:disabled,
+.dark .aqualuxe-booking-form__textarea:disabled {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.dark .aqualuxe-booking-form__customer-fields {
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .aqualuxe-service-card {
+    background-color: var(--wp--preset--color--dark);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dark .aqualuxe-service-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.dark .aqualuxe-booking-calendar__table {
+    border-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--wp--preset--color--dark);
+}
+
+.dark .aqualuxe-booking-calendar__table th {
+    border-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark .aqualuxe-booking-calendar__table td {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .aqualuxe-booking-calendar__cell--other-month {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.dark .aqualuxe-booking-calendar__cell--today {
+    background-color: rgba(var(--wp--preset--color--primary-rgb), 0.2);
+}
+
+.dark .aqualuxe-booking-calendar__cell--unavailable {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.dark .aqualuxe-booking-calendar__cell--blocked {
+    background-color: rgba(207, 19, 34, 0.1);
+}
+
+.dark .aqualuxe-booking-confirmation {
+    background-color: var(--wp--preset--color--dark);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dark .aqualuxe-booking-confirmation__details {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark .aqualuxe-booking-confirmation__button--secondary {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: var(--wp--preset--color--white);
+}
+
+.dark .aqualuxe-booking-confirmation__button--secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--wp--preset--color--white);
+}

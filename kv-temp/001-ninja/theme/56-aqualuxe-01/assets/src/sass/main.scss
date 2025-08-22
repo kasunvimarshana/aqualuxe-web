@@ -1,0 +1,55 @@
+/**
+ * AquaLuxe Theme Main Stylesheet
+ * 
+ * This is the main stylesheet for the AquaLuxe theme.
+ * It imports all the necessary partials and sets up the base styles.
+ */
+
+// Base styles
+@import 'base/variables';
+@import 'base/mixins';
+@import 'base/normalize';
+@import 'base/typography';
+@import 'base/animations';
+@import 'base/utilities';
+
+// Layout components
+@import 'layouts/header';
+@import 'layouts/footer';
+@import 'layouts/sidebar';
+@import 'layouts/grid';
+@import 'layouts/navigation';
+
+// Page-specific styles
+@import 'layouts/home';
+@import 'layouts/about';
+@import 'layouts/contact';
+@import 'layouts/blog';
+@import 'layouts/archive';
+@import 'layouts/single';
+@import 'layouts/page';
+
+// Components
+@import 'components/buttons';
+@import 'components/forms';
+@import 'components/cards';
+@import 'components/hero';
+@import 'components/testimonials';
+@import 'components/cta';
+@import 'components/modal';
+@import 'components/tabs';
+@import 'components/accordion';
+@import 'components/slider';
+@import 'components/pagination';
+@import 'components/breadcrumbs';
+@import 'components/alerts';
+
+// Module-specific styles
+@import 'modules/dark-mode';
+@import 'modules/multilingual';
+
+// Vendor styles (if needed)
+// @import 'vendors/some-plugin';
+
+// WooCommerce styles (loaded conditionally if WooCommerce is active)
+// These are imported in woocommerce.scss
