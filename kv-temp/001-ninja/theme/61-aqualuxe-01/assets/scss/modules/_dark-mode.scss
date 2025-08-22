@@ -1,0 +1,525 @@
+/**
+ * AquaLuxe Theme - Dark Mode Module
+ *
+ * Styles for the dark mode functionality.
+ */
+
+// Dark mode toggle button
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  padding: $spacing-2;
+  cursor: pointer;
+  color: $color-gray-700;
+  font-size: $font-size-lg;
+  position: relative;
+  transition: $transition-base;
+  
+  &:hover {
+    color: $color-primary;
+  }
+  
+  .icon-sun,
+  .icon-moon {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .icon-moon {
+    position: absolute;
+    top: $spacing-2;
+    left: $spacing-2;
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  
+  .icon-sun {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Dark mode active state
+.dark-mode {
+  // Toggle button styles when dark mode is active
+  .dark-mode-toggle {
+    color: $dark-text;
+    
+    &:hover {
+      color: lighten($color-primary, 15%);
+    }
+    
+    .icon-moon {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .icon-sun {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+  }
+  
+  // Base styles
+  background-color: $dark-bg;
+  color: $dark-text;
+  
+  // Headings
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6 {
+    color: $dark-text;
+  }
+  
+  // Links
+  a {
+    color: lighten($color-primary, 15%);
+    
+    &:hover,
+    &:focus {
+      color: lighten($color-primary, 25%);
+    }
+  }
+  
+  // Borders
+  hr {
+    border-color: $dark-border;
+  }
+  
+  // Form elements
+  input[type="text"],
+  input[type="email"],
+  input[type="url"],
+  input[type="password"],
+  input[type="search"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="range"],
+  input[type="date"],
+  input[type="month"],
+  input[type="week"],
+  input[type="time"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="color"],
+  textarea,
+  select {
+    background-color: $dark-input;
+    border-color: $dark-border;
+    color: $dark-text;
+    
+    &:focus {
+      border-color: lighten($color-primary, 15%);
+      box-shadow: 0 0 0 0.2rem rgba(lighten($color-primary, 15%), 0.25);
+    }
+    
+    &::placeholder {
+      color: darken($dark-text, 30%);
+    }
+  }
+  
+  // Tables
+  table {
+    color: $dark-text;
+    
+    th {
+      background-color: $dark-bg-light;
+      border-color: $dark-border;
+    }
+    
+    td {
+      border-color: $dark-border;
+    }
+    
+    tr:nth-child(even) {
+      background-color: rgba($dark-bg-light, 0.5);
+    }
+  }
+  
+  // Cards
+  .card {
+    background-color: $dark-bg-light;
+    border-color: $dark-border;
+    
+    .card-header {
+      background-color: rgba($dark-bg-light, 0.5);
+      border-color: $dark-border;
+    }
+    
+    .card-footer {
+      background-color: rgba($dark-bg-light, 0.5);
+      border-color: $dark-border;
+    }
+  }
+  
+  // Blockquotes
+  blockquote {
+    background-color: $dark-bg-light;
+    border-left-color: lighten($color-primary, 10%);
+  }
+  
+  // Code
+  code {
+    background-color: $dark-bg-light;
+    color: lighten($color-secondary, 15%);
+  }
+  
+  pre {
+    background-color: $dark-bg-light;
+    color: $dark-text;
+  }
+  
+  // Alerts
+  .alert {
+    background-color: $dark-bg-light;
+    border-color: $dark-border;
+    
+    &.alert-primary {
+      background-color: rgba($color-primary, 0.2);
+      border-color: rgba($color-primary, 0.3);
+      color: lighten($color-primary, 20%);
+    }
+    
+    &.alert-secondary {
+      background-color: rgba($color-secondary, 0.2);
+      border-color: rgba($color-secondary, 0.3);
+      color: lighten($color-secondary, 20%);
+    }
+    
+    &.alert-success {
+      background-color: rgba($color-success, 0.2);
+      border-color: rgba($color-success, 0.3);
+      color: lighten($color-success, 20%);
+    }
+    
+    &.alert-info {
+      background-color: rgba($color-info, 0.2);
+      border-color: rgba($color-info, 0.3);
+      color: lighten($color-info, 20%);
+    }
+    
+    &.alert-warning {
+      background-color: rgba($color-warning, 0.2);
+      border-color: rgba($color-warning, 0.3);
+      color: lighten($color-warning, 20%);
+    }
+    
+    &.alert-danger {
+      background-color: rgba($color-danger, 0.2);
+      border-color: rgba($color-danger, 0.3);
+      color: lighten($color-danger, 20%);
+    }
+  }
+  
+  // Badges
+  .badge {
+    &.badge-light {
+      background-color: $dark-text;
+      color: $dark-bg;
+    }
+    
+    &.badge-dark {
+      background-color: $dark-bg-light;
+      color: $dark-text;
+    }
+  }
+  
+  // Modals
+  .modal-content {
+    background-color: $dark-bg-light;
+    border-color: $dark-border;
+    
+    .modal-header {
+      border-color: $dark-border;
+    }
+    
+    .modal-footer {
+      border-color: $dark-border;
+    }
+    
+    .close {
+      color: $dark-text;
+      text-shadow: none;
+      
+      &:hover {
+        color: $color-white;
+      }
+    }
+  }
+  
+  // Dropdowns
+  .dropdown-menu {
+    background-color: $dark-bg-light;
+    border-color: $dark-border;
+    
+    .dropdown-item {
+      color: $dark-text;
+      
+      &:hover,
+      &:focus {
+        color: $dark-text;
+        background-color: rgba($color-white, 0.05);
+      }
+      
+      &.active,
+      &:active {
+        color: $color-white;
+        background-color: $color-primary;
+      }
+    }
+    
+    .dropdown-divider {
+      border-color: $dark-border;
+    }
+  }
+  
+  // List groups
+  .list-group {
+    .list-group-item {
+      background-color: $dark-bg-light;
+      border-color: $dark-border;
+      color: $dark-text;
+      
+      &.active {
+        background-color: $color-primary;
+        border-color: $color-primary;
+        color: $color-white;
+      }
+    }
+  }
+  
+  // Navs and tabs
+  .nav-tabs {
+    border-color: $dark-border;
+    
+    .nav-link {
+      &:hover,
+      &:focus {
+        border-color: $dark-border;
+      }
+      
+      &.active {
+        color: $dark-text;
+        background-color: $dark-bg;
+        border-color: $dark-border $dark-border $dark-bg;
+      }
+    }
+  }
+  
+  .nav-pills {
+    .nav-link.active {
+      background-color: $color-primary;
+      color: $color-white;
+    }
+  }
+  
+  // Pagination
+  .pagination {
+    .page-link {
+      background-color: $dark-bg-light;
+      border-color: $dark-border;
+      color: $dark-text;
+      
+      &:hover {
+        background-color: lighten($dark-bg-light, 5%);
+        border-color: $dark-border;
+        color: lighten($color-primary, 15%);
+      }
+    }
+    
+    .page-item.active .page-link {
+      background-color: $color-primary;
+      border-color: $color-primary;
+      color: $color-white;
+    }
+    
+    .page-item.disabled .page-link {
+      background-color: $dark-bg-light;
+      border-color: $dark-border;
+      color: darken($dark-text, 30%);
+    }
+  }
+  
+  // Progress bars
+  .progress {
+    background-color: $dark-bg-light;
+    
+    .progress-bar {
+      background-color: $color-primary;
+    }
+  }
+  
+  // Tooltips
+  .tooltip {
+    .tooltip-inner {
+      background-color: $dark-bg-light;
+      color: $dark-text;
+    }
+    
+    .arrow::before {
+      border-top-color: $dark-bg-light;
+      border-bottom-color: $dark-bg-light;
+    }
+    
+    &.bs-tooltip-right .arrow::before {
+      border-right-color: $dark-bg-light;
+    }
+    
+    &.bs-tooltip-left .arrow::before {
+      border-left-color: $dark-bg-light;
+    }
+  }
+  
+  // Popovers
+  .popover {
+    background-color: $dark-bg-light;
+    border-color: $dark-border;
+    
+    .popover-header {
+      background-color: rgba($dark-bg-light, 0.5);
+      border-color: $dark-border;
+      color: $dark-text;
+    }
+    
+    .popover-body {
+      color: $dark-text;
+    }
+    
+    .arrow::before {
+      border-top-color: $dark-border;
+      border-bottom-color: $dark-border;
+    }
+    
+    .arrow::after {
+      border-top-color: $dark-bg-light;
+      border-bottom-color: $dark-bg-light;
+    }
+    
+    &.bs-popover-right {
+      .arrow::before {
+        border-right-color: $dark-border;
+      }
+      
+      .arrow::after {
+        border-right-color: $dark-bg-light;
+      }
+    }
+    
+    &.bs-popover-left {
+      .arrow::before {
+        border-left-color: $dark-border;
+      }
+      
+      .arrow::after {
+        border-left-color: $dark-bg-light;
+      }
+    }
+  }
+  
+  // Toasts
+  .toast {
+    background-color: $dark-bg-light;
+    border-color: $dark-border;
+    
+    .toast-header {
+      background-color: rgba($dark-bg-light, 0.5);
+      border-color: $dark-border;
+      color: $dark-text;
+    }
+    
+    .toast-body {
+      color: $dark-text;
+    }
+  }
+  
+  // Switches
+  .custom-switch {
+    .custom-control-label::before {
+      background-color: $dark-bg-light;
+      border-color: $dark-border;
+    }
+    
+    .custom-control-input:checked ~ .custom-control-label::before {
+      background-color: $color-primary;
+      border-color: $color-primary;
+    }
+    
+    .custom-control-input:focus ~ .custom-control-label::before {
+      box-shadow: 0 0 0 0.2rem rgba(lighten($color-primary, 15%), 0.25);
+    }
+  }
+  
+  // Custom select
+  .custom-select {
+    background-color: $dark-input;
+    border-color: $dark-border;
+    color: $dark-text;
+    
+    &:focus {
+      border-color: lighten($color-primary, 15%);
+      box-shadow: 0 0 0 0.2rem rgba(lighten($color-primary, 15%), 0.25);
+    }
+  }
+  
+  // Custom file input
+  .custom-file-label {
+    background-color: $dark-input;
+    border-color: $dark-border;
+    color: $dark-text;
+    
+    &::after {
+      background-color: $dark-bg-light;
+      color: $dark-text;
+    }
+  }
+  
+  // Utility classes
+  .text-dark {
+    color: $dark-text !important;
+  }
+  
+  .text-light {
+    color: $color-gray-300 !important;
+  }
+  
+  .bg-light {
+    background-color: $dark-bg-light !important;
+  }
+  
+  .bg-dark {
+    background-color: $dark-bg !important;
+  }
+  
+  .border {
+    border-color: $dark-border !important;
+  }
+  
+  .border-top {
+    border-top-color: $dark-border !important;
+  }
+  
+  .border-right {
+    border-right-color: $dark-border !important;
+  }
+  
+  .border-bottom {
+    border-bottom-color: $dark-border !important;
+  }
+  
+  .border-left {
+    border-left-color: $dark-border !important;
+  }
+}
+
+// Dark mode transition
+body,
+body * {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+// System preference detection
+@media (prefers-color-scheme: dark) {
+  :root:not(.light-mode) {
+    // Apply dark mode styles when system preference is dark
+    // and user hasn't explicitly chosen light mode
+    @extend .dark-mode;
+  }
+}
