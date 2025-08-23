@@ -1,79 +1,156 @@
-# AquaLuxe Theme – TODO
+# AquaLuxe WordPress Theme Development Todo
 
-## Core Theme
-- [x] Finalize theme supports and setup in `core/setup.php`
-- [x] Complete all helper functions in `core/helpers.php`
-- [x] Implement all hooks and template tags in `core/hooks.php` and `core/template-tags.php`
-- [x] Ensure all Customizer options (logo, colors, typography, layout) are present in `core/customizer.php`
-- [x] Integrate demo content importer in `core/demo-importer.php`
+## 1. Project Setup
+- [x] Create theme directory structure
+- [x] Set up package.json with dependencies
+- [x] Configure webpack.mix.js for asset compilation
+- [x] Create Tailwind configuration
+- [x] Set up autoloader for PHP classes
+- [x] Create theme.json for WordPress block editor support
 
-## Modular Features (modules/)
-- [x] Multilingual: Add language switcher, translation hooks, and .pot files
-- [x] Dark Mode: Toggle with persistent preference, ARIA support
-- [x] Subscriptions: WooCommerce Subscriptions integration, fallback if plugin missing
-- [x] Auctions: Custom post type, bidding logic, WC integration
-- [x] Bookings: Calendar, booking forms, WC Bookings support
-- [x] Events: Events calendar, ticketing, templates
-- [x] Wholesale/B2B: Pricing, registration, approval workflow
-- [x] Trade-ins/Auctions: Submission forms, moderation, auction logic
-- [x] Services: Booking, scheduling, service listing
-- [x] Franchise/Licensing: Inquiry forms, partner portal
-- [x] R&D/Sustainability: Content, reporting, showcase
-- [x] Affiliate/Referrals: Referral tracking, rewards
+## 2. Core Theme Architecture
+- [x] Implement main theme class with singleton pattern
+- [x] Create hooks system for extensibility
+- [x] Set up asset management with cache busting
+- [x] Implement theme customizer
+- [x] Create template hierarchy
+- [x] Set up translation support
+- [x] Implement dark mode with persistent preference
 
-## Assets & Build
-- [x] Place all raw assets in `assets/src/`
-- [x] Configure `webpack.mix.js` for JS, CSS, Sass, images, fonts
-- [x] Ensure Tailwind is set up via npm only
-- [x] Output all compiled assets to `assets/dist/` with hashed filenames
-- [x] Never enqueue raw files; use `mix-manifest.json` for cache-busting
+## 3. Module System
+- [x] Create module loader class
+- [x] Implement module configuration system
+- [x] Set up module activation/deactivation
+- [x] Create base module class
 
-## Templates
-- [x] Create all core page templates in `templates/`
-- [x] Override WooCommerce templates in `woocommerce/` with graceful fallback
-- [x] Add semantic HTML5, ARIA, schema.org, Open Graph meta
-- [x] Implement lazy loading for images
+## 4. Core Modules
+- [x] Implement multilingual module
+- [x] Create dark mode module
+- [ ] Set up demo content importer
+- [x] Implement bookings module
+  - [x] Create custom post types for bookings and bookable items
+  - [x] Implement booking form with availability checking
+  - [x] Add booking calendar with event display
+  - [x] Build admin interface for managing bookings
+  - [x] Integrate with WooCommerce for payment processing
+- [x] Create events calendar module
+  - [x] Implement custom post types for events and venues
+  - [x] Create event calendar with filtering options
+  - [x] Add event widgets and shortcodes
+  - [x] Build admin interface for managing events
+  - [x] Add support for recurring events and venue management
+- [x] Set up subscriptions/memberships module
+  - [x] Create custom post types for subscriptions and memberships
+  - [x] Implement content restriction based on membership level
+  - [x] Add user profile integration for membership management
+  - [x] Build admin interface for managing subscriptions
+  - [x] Add automated emails for membership events
+- [x] Implement services module
+  - [x] Create custom post type for services
+  - [x] Implement service categories and tags
+  - [x] Build service detail template
+  - [x] Create service listing/grid template
+  - [x] Add service booking integration with Bookings module
+  - [x] Implement service pricing display
+- [ ] Create gallery/portfolio module
+  - [ ] Create custom post type for portfolio items
+  - [ ] Implement portfolio categories and tags
+  - [ ] Build portfolio detail template with image gallery
+  - [ ] Create portfolio grid/masonry layout
+  - [ ] Add lightbox functionality for images
+- [ ] Implement reviews/testimonials module
+  - [ ] Create custom post type for testimonials
+  - [ ] Implement star rating system
+  - [ ] Build testimonial submission form
+  - [ ] Create testimonial carousel/slider
+  - [ ] Add testimonial verification system
+- [ ] Implement wholesale/B2B module
+  - [ ] Create wholesale user roles and permissions
+  - [ ] Implement wholesale pricing system
+  - [ ] Build wholesale registration form
+  - [ ] Create wholesale-only product visibility
+  - [ ] Add bulk order functionality
+- [ ] Create auctions/trade-ins module
+  - [ ] Create custom post type for auction items
+  - [ ] Implement bidding system
+  - [ ] Build auction timer functionality
+  - [ ] Create trade-in valuation form
+  - [ ] Add notification system for auction events
+- [ ] Set up affiliate/referrals module
+  - [ ] Create affiliate user roles and registration
+  - [ ] Implement referral tracking system
+  - [ ] Build affiliate dashboard
+  - [ ] Create commission calculation system
+  - [ ] Add affiliate link generator
+- [ ] Create franchise/licensing module
+  - [ ] Create franchise location custom post type
+  - [ ] Implement location finder with map
+  - [ ] Build franchise application form
+  - [ ] Create franchise-specific content areas
+  - [ ] Add territory management system
 
-## Security, SEO, Performance
-- [x] Strict sanitization, escaping, and nonces for all user input
-- [x] SEO meta, Open Graph, schema.org via hooks
-- [x] Minify and optimize all assets
-- [x] Ensure no external CDNs are used
+## 5. WooCommerce Integration
+- [x] Set up WooCommerce support
+- [x] Create template overrides
+- [ ] Implement product quick view
+- [ ] Set up advanced filtering
+- [ ] Create wishlist functionality
+- [ ] Implement multicurrency support
+- [ ] Set up international shipping optimization
+- [ ] Create checkout enhancements
 
-## Admin UX
-- [x] Intuitive admin panels for content, layouts, services, events, products, settings
-- [x] Theme Customizer: logo, colors, typography, layout
-- [x] Demo content importer (WXR/JSON)
+## 6. Templates and Layouts
+- [x] Create header templates
+- [x] Implement footer templates
+- [ ] Set up homepage template with sections
+  - [ ] Create hero section with slider/video
+  - [ ] Implement featured services section
+  - [ ] Build testimonials showcase
+  - [ ] Add latest events section
+  - [ ] Create featured products section
+- [ ] Create about page template
+- [ ] Implement services page template
+- [ ] Set up blog templates
+- [ ] Create contact page with map and form
+- [ ] Implement FAQ page template
+- [ ] Set up legal pages templates
 
-## WooCommerce
-- [x] Shop, product types (physical, digital, variable, grouped)
-- [x] Quick-view, advanced filtering, wishlist, multicurrency readiness
-- [x] Optimized international shipping & checkout
-- [x] Shop categories: rare fish, plants, equipment, care supplies
-- [x] Product details: high-res images, reviews, related products
+## 7. Assets and Styling
+- [x] Set up SCSS structure
+- [x] Create base styles
+- [x] Implement responsive design
+- [ ] Create component styles
+- [x] Set up JavaScript modules
+- [ ] Implement micro-interactions
+- [ ] Create utility functions
 
-## Core Pages & Demo Content
-- [x] Home: hero, featured, testimonials, newsletter
-- [x] About: history, mission, values, sustainability, team
-- [x] Services: design, maintenance, quarantine, breeding, consultation
-- [x] Blog: care guides, aquascaping, news
-- [x] Contact: map, form, contact methods
-- [x] FAQ: shipping, care, purchasing, export/import
-- [x] Legal: privacy, terms, shipping/returns, cookies
+## 8. Performance and SEO
+- [ ] Implement schema.org markup
+- [ ] Set up Open Graph metadata
+- [ ] Create lazy loading for images
+- [ ] Optimize asset loading
+- [ ] Implement caching strategies
+- [ ] Create sitemap functionality
 
-## Testing & CI
-- [x] Add unit and E2E tests in `tests/`
-- [x] Set up CI pipeline (build, lint, test)
+## 9. Testing and Quality Assurance
+- [ ] Set up unit tests
+- [ ] Create e2e tests
+- [ ] Implement CI pipeline
+- [ ] Perform cross-browser testing
+- [ ] Test responsive design
+- [ ] Validate accessibility
+- [ ] Conduct security audit
 
-## Documentation
-- [x] Installation/setup guide
-- [x] Build/deploy instructions
-- [x] User & developer documentation
-- [x] License file
+## 10. Documentation
+- [ ] Create developer documentation
+- [ ] Write user documentation
+- [ ] Create installation guide
+- [ ] Write customization documentation
+- [ ] Create module documentation
+- [ ] Set up inline code documentation
 
-## Code Audit
-- [x] Remove duplicate definitions, hooks, enqueues, template issues
-- [x] Fix all PHP parse errors
-- [x] Ensure cross-browser/device compatibility
-- [x] LTS maintainability, security hardening, scalability
-
+## 11. Deployment
+- [ ] Create build script
+- [ ] Set up deployment process
+- [ ] Create release package
+- [ ] Write deployment instructions
