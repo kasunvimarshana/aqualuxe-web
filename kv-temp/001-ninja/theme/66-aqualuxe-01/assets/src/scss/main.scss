@@ -1,0 +1,70 @@
+/**
+ * AquaLuxe Main Stylesheet
+ *
+ * This is the main stylesheet for the AquaLuxe theme.
+ * It imports all other stylesheets and defines global styles.
+ */
+
+/* Import Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import variables */
+@import 'variables';
+
+/* Import mixins */
+@import 'mixins';
+
+/* Import base styles */
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/forms';
+@import 'base/buttons';
+@import 'base/accessibility';
+
+/* Import layout styles */
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/sidebar';
+@import 'layout/grid';
+@import 'layout/navigation';
+
+/* Import component styles */
+@import 'components/breadcrumbs';
+@import 'components/pagination';
+@import 'components/social-icons';
+@import 'components/cards';
+@import 'components/widgets';
+@import 'components/comments';
+@import 'components/search';
+@import 'components/modal';
+@import 'components/tabs';
+@import 'components/accordion';
+@import 'components/carousel';
+@import 'components/alerts';
+@import 'components/badges';
+@import 'components/newsletter';
+
+/* Import page-specific styles */
+@import 'pages/home';
+@import 'pages/about';
+@import 'pages/contact';
+@import 'pages/services';
+@import 'pages/blog';
+@import 'pages/single';
+@import 'pages/archive';
+@import 'pages/404';
+
+/* Import utilities */
+@import 'utilities/animations';
+@import 'utilities/helpers';
+
+/* Import dark mode styles */
+@import 'dark-mode';
+
+/* Import responsive styles */
+@import 'responsive';
+
+/* Import print styles */
+@import 'print';
