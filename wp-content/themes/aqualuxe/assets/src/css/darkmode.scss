@@ -1,0 +1,9 @@
+// Dark mode overrides
+:root.dark {
+  --color-bg: #0a192f;
+  --color-text: #b6e0fe;
+}
+body.dark {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
