@@ -72,3 +72,42 @@ require_once AQUALUXE_INC_DIR . 'core/class-theme.php';
 
 // Initialize the theme
 AquaLuxe\Core\Theme::get_instance();
+
+// --- WooCommerce Product Quick View Integration ---
+add_action( 'wp_enqueue_scripts', function() {
+    // Enqueue quick view JS (adjust path if needed)
+    wp_enqueue_script(
+        'aqualuxe-quick-view',
+        AQUALUXE_URI . 'assets/dist/js/quick-view.js',
+        array('jquery'),
+        AQUALUXE_VERSION,
+        true
+    );
+    // Localize script for AJAX
+    wp_localize_script('aqualuxe-quick-view', 'aqualuxe_quick_view', array(
+        'ajax_url' => admin_url('admin-ajax.php'),
+        'i18n_quick_view' => __('Quick View', 'aqualuxe'),
+    ));
+});
+
+add_action( 'wp_ajax_aqualuxe_quick_view', 'aqualuxe_quick_view_ajax' );
+add_action( 'wp_ajax_nopriv_aqualuxe_quick_view', 'aqualuxe_quick_view_ajax' );
+
+/**
+ * AJAX handler for WooCommerce product quick view
+ */
+function aqualuxe_quick_view_ajax() {
+    if ( ! isset( $_POST['product_id'] ) ) {
+        wp_send_json_error( array( 'error' => 'Missing product ID.' ) );
+    }
+    $product_id = absint( $_POST['product_id'] );
+    $product = wc_get_product( $product_id );
+    if ( ! $product ) {
+        wp_send_json_error( array( 'error' => 'Product not found.' ) );
+    }
+    // Render quick view template (adjust path if needed)
+    ob_start();
+    wc_get_template( 'quick-view.php', array( 'product' => $product ), '', get_template_directory() . '/woocommerce/' );
+    $html = ob_get_clean();
+    wp_send_json_success( array( 'html' => $html ) );
+}
