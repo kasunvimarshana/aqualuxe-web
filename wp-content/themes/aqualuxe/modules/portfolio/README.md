@@ -1,21 +1,26 @@
+
 # AquaLuxe Portfolio Module
 
-This module adds a custom post type for portfolio/gallery items, with categories, tags, image galleries, and a lightbox. It is fully modular and can be enabled/disabled independently.
+This module provides a custom post type (CPT) for Portfolio/Gallery items, with:
+- Custom taxonomies (Categories, Tags)
+- Front-end templates for archive and single items
+- Gallery meta box for multiple images per item
+- Masonry grid and lightbox support (JS/CSS)
+- Admin UI for managing gallery images
 
 ## Features
-- Custom post type: Portfolio
-- Categories & tags
-- Portfolio grid & single templates
-- Image gallery with lightbox
-- Masonry-ready grid
-- Modular assets (JS/CSS)
+- `aqualuxe_portfolio` CPT
+- `portfolio_category` and `portfolio_tag` taxonomies
+- Gallery meta box with WordPress media uploader
+- Front-end templates: `archive-portfolio.php`, `single-portfolio.php`
+- JS/CSS for grid, lightbox, and admin gallery UI
 
 ## Usage
-- Place images in the featured image or gallery fields.
-- Use the Portfolio post type in the admin to add/edit items.
-- Visit `/portfolio/` for the archive grid, or single items for detail view.
+- Add/edit Portfolio items in WP Admin
+- Use the Gallery meta box to add multiple images
+- Front-end displays grid (archive) and gallery/lightbox (single)
 
 ## Developer Notes
-- All assets are in `assets/` and should be compiled to `assets/dist/` by the main theme build process.
-- Templates are in `templates/` and can be overridden in the main theme if needed.
-- The module is loaded via `inc/init.php`.
+- All assets are loaded conditionally
+- Lint errors in static analysis are expected (WordPress functions)
+- Extend as needed for custom layouts or features

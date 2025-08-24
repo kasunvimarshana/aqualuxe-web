@@ -1,3 +1,7 @@
+// Load Demo Importer Module
+if ( file_exists( AQUALUXE_MODULES_DIR . 'demo-importer/class-demo-importer.php' ) ) {
+    require_once AQUALUXE_MODULES_DIR . 'demo-importer/class-demo-importer.php';
+}
 <?php
 /**
  * AquaLuxe functions and definitions
