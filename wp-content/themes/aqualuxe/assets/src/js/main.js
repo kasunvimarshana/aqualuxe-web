@@ -22,6 +22,8 @@ import './modules/preloader';
 import './modules/cookie-notice';
 import './modules/newsletter';
 import './modules/search';
+import './modules/portfolio-lightbox';
+import './modules/testimonials-carousel';
 
 // Initialize AOS
 AOS.init({
