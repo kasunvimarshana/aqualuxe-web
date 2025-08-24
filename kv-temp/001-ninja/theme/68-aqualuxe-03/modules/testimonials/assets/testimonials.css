@@ -1,0 +1,18 @@
+/* Testimonials Module Styles (stub) */
+.testimonials-list, .testimonial-carousel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.testimonial-item {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 2rem;
+  margin: 1rem 0;
+  flex: 1 1 300px;
+}
+.testimonial-author {
+  font-weight: bold;
+  margin-top: 1rem;
+}

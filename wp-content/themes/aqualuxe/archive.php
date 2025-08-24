@@ -30,13 +30,6 @@ if ( $layout === 'full-width' ) {
         <div id="primary" class="content-area">
             <main id="main" class="site-main">
 
-            <?php
-            // Show advanced filtering form on WooCommerce shop and product archives
-            if ( function_exists( 'is_shop' ) && ( is_shop() || is_product_category() || is_product_tag() ) ) {
-                get_template_part( 'template-parts/filtering/form' );
-            }
-            ?>
-
             <?php if ( have_posts() ) : ?>
 
                 <header class="page-header">
