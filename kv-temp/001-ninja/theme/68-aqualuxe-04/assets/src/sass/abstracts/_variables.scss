@@ -1,0 +1,129 @@
+/**
+ * Variables
+ *
+ * This file contains all the variables used in the theme.
+ *
+ * @package AquaLuxe
+ * @since 1.0.0
+ */
+
+// Colors
+$color-primary: var(--aqualuxe-primary-color, #0073aa);
+$color-secondary: var(--aqualuxe-secondary-color, #23282d);
+$color-accent: var(--aqualuxe-accent-color, #00a0d2);
+$color-text: var(--aqualuxe-text-color, #333333);
+$color-heading: var(--aqualuxe-heading-color, #222222);
+$color-background: var(--aqualuxe-background-color, #ffffff);
+$color-dark-text: var(--aqualuxe-dark-text-color, #e0e0e0);
+$color-dark-heading: var(--aqualuxe-dark-heading-color, #ffffff);
+$color-dark-background: var(--aqualuxe-dark-background-color, #121212);
+
+// Typography
+$font-family-body: var(--aqualuxe-body-font, 'Inter', sans-serif);
+$font-family-heading: var(--aqualuxe-heading-font, 'Playfair Display', serif);
+$font-size-base: var(--aqualuxe-font-size-base, 16px);
+$line-height: var(--aqualuxe-line-height, 1.6);
+$font-weight: var(--aqualuxe-font-weight, 400);
+$heading-font-weight: var(--aqualuxe-heading-font-weight, 700);
+
+// Font sizes
+$font-size-xs: 0.75rem;   // 12px
+$font-size-sm: 0.875rem;  // 14px
+$font-size-md: 1rem;      // 16px
+$font-size-lg: 1.125rem;  // 18px
+$font-size-xl: 1.25rem;   // 20px
+$font-size-2xl: 1.5rem;   // 24px
+$font-size-3xl: 1.875rem; // 30px
+$font-size-4xl: 2.25rem;  // 36px
+$font-size-5xl: 3rem;     // 48px
+$font-size-6xl: 4rem;     // 64px
+
+// Spacing
+$spacing-xs: 0.25rem;  // 4px
+$spacing-sm: 0.5rem;   // 8px
+$spacing-md: 1rem;     // 16px
+$spacing-lg: 1.5rem;   // 24px
+$spacing-xl: 2rem;     // 32px
+$spacing-2xl: 3rem;    // 48px
+$spacing-3xl: 4rem;    // 64px
+$spacing-4xl: 6rem;    // 96px
+$spacing-5xl: 8rem;    // 128px
+
+// Layout
+$container-width: var(--aqualuxe-container-width, 1200px);
+$sidebar-width: var(--aqualuxe-sidebar-width, 30%);
+$content-width: var(--aqualuxe-content-width, 70%);
+$grid-columns: 12;
+$grid-gutter: $spacing-md;
+
+// Breakpoints
+$breakpoint-xs: 480px;
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+// Border radius
+$border-radius-sm: 0.125rem; // 2px
+$border-radius-md: 0.25rem;  // 4px
+$border-radius-lg: 0.5rem;   // 8px
+$border-radius-xl: 1rem;     // 16px
+$border-radius-full: 9999px;
+
+// Box shadows
+$box-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$box-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$box-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$box-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+$box-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+// Z-index
+$z-index-dropdown: 50;
+$z-index-sticky: 80;
+$z-index-fixed: 90;
+$z-index-header: 100;
+$z-index-modal: 200;
+$z-index-popover: 300;
+$z-index-tooltip: 400;
+
+// Transitions
+$transition-duration: 0.3s;
+$transition-timing: ease-in-out;
+
+// Header
+$header-height: 80px;
+$header-height-mobile: 60px;
+$header-top-bar-height: 40px;
+
+// Footer
+$footer-padding: $spacing-2xl 0;
+$footer-background: $color-secondary;
+$footer-text-color: #ffffff;
+
+// Buttons
+$button-padding: $spacing-sm $spacing-lg;
+$button-border-radius: $border-radius-md;
+$button-font-weight: 600;
+
+// Forms
+$input-padding: $spacing-sm $spacing-md;
+$input-border-radius: $border-radius-md;
+$input-border-color: #ddd;
+$input-background: #fff;
+$input-focus-border-color: $color-primary;
+$input-focus-box-shadow: 0 0 0 3px rgba($color-primary, 0.25);
+
+// Cards
+$card-padding: $spacing-lg;
+$card-border-radius: $border-radius-lg;
+$card-background: #fff;
+$card-box-shadow: $box-shadow-md;
+
+// WooCommerce
+$woocommerce-primary: $color-primary;
+$woocommerce-secondary: $color-secondary;
+$woocommerce-accent: $color-accent;
+$woocommerce-info: #3d9cd2;
+$woocommerce-error: #e2401c;
+$woocommerce-success: #0f834d;

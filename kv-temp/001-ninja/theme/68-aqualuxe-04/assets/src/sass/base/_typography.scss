@@ -1,0 +1,328 @@
+/**
+ * Typography
+ *
+ * This file contains the typography styles for the theme.
+ *
+ * @package AquaLuxe
+ * @since 1.0.0
+ */
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-family-heading;
+    font-weight: $heading-font-weight;
+    line-height: 1.2;
+    margin-bottom: $spacing-md;
+    color: $color-heading;
+}
+
+h1 {
+    font-size: $font-size-4xl;
+    margin-top: $spacing-2xl;
+
+    @include md {
+        font-size: $font-size-5xl;
+    }
+}
+
+h2 {
+    font-size: $font-size-3xl;
+    margin-top: $spacing-xl;
+
+    @include md {
+        font-size: $font-size-4xl;
+    }
+}
+
+h3 {
+    font-size: $font-size-2xl;
+    margin-top: $spacing-lg;
+
+    @include md {
+        font-size: $font-size-3xl;
+    }
+}
+
+h4 {
+    font-size: $font-size-xl;
+    margin-top: $spacing-md;
+
+    @include md {
+        font-size: $font-size-2xl;
+    }
+}
+
+h5 {
+    font-size: $font-size-lg;
+    margin-top: $spacing-md;
+
+    @include md {
+        font-size: $font-size-xl;
+    }
+}
+
+h6 {
+    font-size: $font-size-md;
+    margin-top: $spacing-md;
+
+    @include md {
+        font-size: $font-size-lg;
+    }
+}
+
+// Paragraphs
+p {
+    margin-bottom: $spacing-md;
+    line-height: $line-height;
+}
+
+// Lists
+ul, ol {
+    margin-bottom: $spacing-md;
+    padding-left: $spacing-lg;
+}
+
+ul {
+    list-style-type: disc;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+li {
+    margin-bottom: $spacing-xs;
+}
+
+// Blockquotes
+blockquote {
+    margin: $spacing-lg 0;
+    padding: $spacing-md $spacing-lg;
+    border-left: 4px solid $color-primary;
+    background-color: rgba($color-primary, 0.05);
+    font-style: italic;
+
+    p {
+        margin-bottom: $spacing-sm;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    cite {
+        display: block;
+        font-style: normal;
+        font-size: $font-size-sm;
+        margin-top: $spacing-sm;
+        color: rgba($color-text, 0.7);
+    }
+}
+
+// Code
+pre, code, kbd, samp {
+    font-family: monospace, monospace;
+    font-size: 0.9em;
+}
+
+pre {
+    overflow: auto;
+    padding: $spacing-md;
+    margin-bottom: $spacing-md;
+    background-color: #f5f5f5;
+    border-radius: $border-radius-md;
+}
+
+code {
+    padding: 0.2em 0.4em;
+    background-color: #f5f5f5;
+    border-radius: $border-radius-sm;
+}
+
+pre code {
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+}
+
+// Horizontal rule
+hr {
+    height: 1px;
+    background-color: rgba($color-text, 0.1);
+    border: 0;
+    margin: $spacing-xl 0;
+}
+
+// Small text
+small {
+    font-size: $font-size-sm;
+}
+
+// Text formatting
+strong, b {
+    font-weight: 700;
+}
+
+em, i {
+    font-style: italic;
+}
+
+mark {
+    background-color: rgba($color-accent, 0.2);
+    padding: 0.1em 0.3em;
+}
+
+// Abbreviations
+abbr[title] {
+    border-bottom: 1px dotted;
+    cursor: help;
+}
+
+// Addresses
+address {
+    font-style: normal;
+    margin-bottom: $spacing-md;
+}
+
+// Definition lists
+dl {
+    margin-bottom: $spacing-md;
+}
+
+dt {
+    font-weight: 700;
+}
+
+dd {
+    margin-left: $spacing-md;
+    margin-bottom: $spacing-sm;
+}
+
+// Subscript and superscript
+sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+sup {
+    top: -0.5em;
+}
+
+// Links
+a {
+    color: $color-primary;
+    text-decoration: none;
+    @include transition(color);
+
+    &:hover, &:focus {
+        color: $color-accent;
+        text-decoration: underline;
+    }
+}
+
+// Text alignment
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+// Text transform
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.text-lowercase {
+    text-transform: lowercase;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+// Font weights
+.font-light {
+    font-weight: 300;
+}
+
+.font-normal {
+    font-weight: 400;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+// Font styles
+.font-italic {
+    font-style: italic;
+}
+
+// Text colors
+.text-primary {
+    color: $color-primary;
+}
+
+.text-secondary {
+    color: $color-secondary;
+}
+
+.text-accent {
+    color: $color-accent;
+}
+
+.text-muted {
+    color: rgba($color-text, 0.7);
+}
+
+// Dark mode
+@include dark-mode {
+    h1, h2, h3, h4, h5, h6 {
+        color: $color-dark-heading;
+    }
+
+    blockquote {
+        background-color: rgba($color-primary, 0.1);
+        border-left-color: $color-primary;
+
+        cite {
+            color: rgba($color-dark-text, 0.7);
+        }
+    }
+
+    code, pre {
+        background-color: rgba(#fff, 0.1);
+    }
+
+    hr {
+        background-color: rgba($color-dark-text, 0.2);
+    }
+
+    .text-muted {
+        color: rgba($color-dark-text, 0.7);
+    }
+}
