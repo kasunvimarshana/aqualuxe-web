@@ -114,7 +114,7 @@ class Services {
     public function register_post_types() {
         // Register service post type
         register_post_type(
-            'aqualuxe_service',
+            'aqlx_service',
             [
                 'labels'              => [
                     'name'                  => __( 'Services', 'aqualuxe' ),
@@ -154,7 +154,7 @@ class Services {
 
         // Register service package post type
         register_post_type(
-            'aqualuxe_service_pkg',
+            'aqlx_service_pkg',
             [
                 'labels'              => [
                     'name'                  => __( 'Service Packages', 'aqualuxe' ),
@@ -179,7 +179,7 @@ class Services {
                 'public'              => true,
                 'publicly_queryable'  => true,
                 'show_ui'             => true,
-                'show_in_menu'        => 'edit.php?post_type=aqualuxe_service',
+                'show_in_menu'        => 'edit.php?post_type=aqlx_service',
                 'query_var'           => true,
                 'rewrite'             => [ 'slug' => 'service-package' ],
                 'capability_type'     => 'post',
@@ -201,7 +201,7 @@ class Services {
         // Register service category taxonomy
         register_taxonomy(
             'service_category',
-            [ 'aqualuxe_service', 'aqualuxe_service_pkg' ],
+            [ 'aqlx_service', 'aqlx_service_pkg' ],
             [
                 'labels'            => [
                     'name'                       => __( 'Service Categories', 'aqualuxe' ),
@@ -234,7 +234,7 @@ class Services {
         // Register service tag taxonomy
         register_taxonomy(
             'service_tag',
-            [ 'aqualuxe_service', 'aqualuxe_service_pkg' ],
+            [ 'aqlx_service', 'aqlx_service_pkg' ],
             [
                 'labels'            => [
                     'name'                       => __( 'Service Tags', 'aqualuxe' ),

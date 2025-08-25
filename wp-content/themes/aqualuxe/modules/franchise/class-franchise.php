@@ -37,7 +37,7 @@ class Franchise {
             'supports' => [ 'title', 'editor', 'thumbnail', 'custom-fields' ],
             'show_in_rest' => true,
         ];
-        register_post_type( 'aqualuxe_franchise_location', $args );
+    register_post_type( 'aqlx_franchise_loc', $args );
     }
 
     public function application_form_shortcode() {

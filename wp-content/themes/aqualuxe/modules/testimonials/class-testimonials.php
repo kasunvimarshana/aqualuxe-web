@@ -38,7 +38,7 @@ class Testimonials {
             'supports' => [ 'title', 'editor', 'thumbnail', 'custom-fields' ],
             'show_in_rest' => true,
         ];
-        register_post_type( 'aqualuxe_testimonial', $args );
+    register_post_type( 'aqlx_testimonial', $args );
     }
 
     public function add_rating_meta_box() {
@@ -46,7 +46,7 @@ class Testimonials {
             'testimonial_rating',
             __( 'Star Rating', 'aqualuxe' ),
             [ $this, 'render_rating_meta_box' ],
-            'aqualuxe_testimonial',
+            'aqlx_testimonial',
             'side',
             'default'
         );

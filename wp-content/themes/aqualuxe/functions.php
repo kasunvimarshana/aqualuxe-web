@@ -15,6 +15,7 @@ define( 'AQUALUXE_URI', trailingslashit( get_template_directory_uri() ) );
 define( 'AQUALUXE_ASSETS_URI', trailingslashit( AQUALUXE_URI . 'assets/dist' ) );
 define( 'AQUALUXE_INC_DIR', trailingslashit( AQUALUXE_DIR . 'inc' ) );
 define( 'AQUALUXE_MODULES_DIR', trailingslashit( AQUALUXE_DIR . 'modules' ) );
+define( 'AQUALUXE_MODULES_URL', trailingslashit( AQUALUXE_URI . 'modules' ) );
 
 /**
  * Autoloader for theme classes
@@ -67,8 +68,13 @@ function aqualuxe_autoloader( $class_name ) {
 // Register the autoloader
 spl_autoload_register( 'aqualuxe_autoloader' );
 
+
 // Load the theme core
 require_once AQUALUXE_INC_DIR . 'core/class-theme.php';
 
 // Initialize the theme
 AquaLuxe\Core\Theme::get_instance();
+
+add_action('init', function() {
+    load_theme_textdomain('aqualuxe', get_template_directory() . '/languages');
+});

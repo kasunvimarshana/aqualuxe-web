@@ -93,7 +93,7 @@ class Wholesale {
 
     public function restrict_wholesale_products( $query ) {
         if ( is_admin() || ! $query->is_main_query() ) return;
-        if ( is_shop() || is_product_category() ) {
+    if ( ( function_exists( 'is_shop' ) && is_shop() ) || ( function_exists( 'is_product_category' ) && is_product_category() ) ) {
             if ( current_user_can( 'wholesale_customer' ) ) {
                 // Show all products
                 return;

@@ -33,14 +33,14 @@ class Admin {
      */
     private function init_hooks() {
         // Add admin columns
-        add_filter( 'manage_aqualuxe_service_posts_columns', [ $this, 'add_service_columns' ] );
-        add_action( 'manage_aqualuxe_service_posts_custom_column', [ $this, 'render_service_columns' ], 10, 2 );
-        add_filter( 'manage_edit-aqualuxe_service_sortable_columns', [ $this, 'sortable_service_columns' ] );
+    add_filter( 'manage_aqlx_service_posts_columns', [ $this, 'add_service_columns' ] );
+    add_action( 'manage_aqlx_service_posts_custom_column', [ $this, 'render_service_columns' ], 10, 2 );
+    add_filter( 'manage_edit-aqlx_service_sortable_columns', [ $this, 'sortable_service_columns' ] );
 
         // Add admin columns for service packages
-        add_filter( 'manage_aqualuxe_service_pkg_posts_columns', [ $this, 'add_service_package_columns' ] );
-        add_action( 'manage_aqualuxe_service_pkg_posts_custom_column', [ $this, 'render_service_package_columns' ], 10, 2 );
-        add_filter( 'manage_edit-aqualuxe_service_pkg_sortable_columns', [ $this, 'sortable_service_package_columns' ] );
+    add_filter( 'manage_aqlx_service_pkg_posts_columns', [ $this, 'add_service_package_columns' ] );
+    add_action( 'manage_aqlx_service_pkg_posts_custom_column', [ $this, 'render_service_package_columns' ], 10, 2 );
+    add_filter( 'manage_edit-aqlx_service_pkg_sortable_columns', [ $this, 'sortable_service_package_columns' ] );
 
         // Add admin filters
         add_action( 'restrict_manage_posts', [ $this, 'add_admin_filters' ] );
@@ -251,7 +251,7 @@ class Admin {
      * @return void
      */
     public function add_admin_filters( $post_type ) {
-        if ( 'aqualuxe_service' !== $post_type ) {
+    if ( 'aqlx_service' !== $post_type ) {
             return;
         }
 
@@ -309,7 +309,7 @@ class Admin {
         global $pagenow;
 
         // Check if we're in the correct screen
-        if ( ! is_admin() || 'edit.php' !== $pagenow || ! $query->is_main_query() || 'aqualuxe_service' !== $query->get( 'post_type' ) ) {
+    if ( ! is_admin() || 'edit.php' !== $pagenow || ! $query->is_main_query() || 'aqlx_service' !== $query->get( 'post_type' ) ) {
             return;
         }
 

@@ -66,7 +66,7 @@ class Setup {
      */
     public function setup_theme() {
         // Make theme available for translation
-        load_theme_textdomain( 'aqualuxe', AQUALUXE_DIR . 'languages' );
+    // Translation loading handled in functions.php at 'init' only. No early loading here.
 
         // Add default posts and comments RSS feed links to head
         add_theme_support( 'automatic-feed-links' );

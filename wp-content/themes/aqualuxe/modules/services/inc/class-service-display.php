@@ -60,7 +60,7 @@ class Service_Display {
     public function service_single_template( $template ) {
         global $post;
 
-        if ( 'aqualuxe_service' === $post->post_type ) {
+    if ( 'aqlx_service' === $post->post_type ) {
             $custom_template = locate_template( 'aqualuxe/services/single-service.php' );
             
             if ( $custom_template ) {
@@ -72,7 +72,7 @@ class Service_Display {
             if ( file_exists( $plugin_template ) ) {
                 return $plugin_template;
             }
-        } elseif ( 'aqualuxe_service_pkg' === $post->post_type ) {
+    } elseif ( 'aqlx_service_pkg' === $post->post_type ) {
             $custom_template = locate_template( 'aqualuxe/services/single-service-package.php' );
             
             if ( $custom_template ) {
@@ -96,7 +96,7 @@ class Service_Display {
      * @return string
      */
     public function service_archive_template( $template ) {
-        if ( is_post_type_archive( 'aqualuxe_service' ) ) {
+    if ( is_post_type_archive( 'aqlx_service' ) ) {
             $custom_template = locate_template( 'aqualuxe/services/archive-service.php' );
             
             if ( $custom_template ) {
@@ -108,7 +108,7 @@ class Service_Display {
             if ( file_exists( $plugin_template ) ) {
                 return $plugin_template;
             }
-        } elseif ( is_post_type_archive( 'aqualuxe_service_pkg' ) ) {
+    } elseif ( is_post_type_archive( 'aqlx_service_pkg' ) ) {
             $custom_template = locate_template( 'aqualuxe/services/archive-service-package.php' );
             
             if ( $custom_template ) {
@@ -162,7 +162,7 @@ class Service_Display {
             return $classes;
         }
 
-        if ( 'aqualuxe_service' === $post->post_type ) {
+    if ( 'aqlx_service' === $post->post_type ) {
             $classes[] = 'aqualuxe-service';
             $classes[] = 'aqualuxe-service-single';
 
@@ -177,12 +177,12 @@ class Service_Display {
             if ( $price_type ) {
                 $classes[] = 'aqualuxe-service-price-' . $price_type;
             }
-        } elseif ( 'aqualuxe_service_pkg' === $post->post_type ) {
+    } elseif ( 'aqlx_service_pkg' === $post->post_type ) {
             $classes[] = 'aqualuxe-service-package';
             $classes[] = 'aqualuxe-service-package-single';
-        } elseif ( is_post_type_archive( 'aqualuxe_service' ) ) {
+    } elseif ( is_post_type_archive( 'aqlx_service' ) ) {
             $classes[] = 'aqualuxe-service-archive';
-        } elseif ( is_post_type_archive( 'aqualuxe_service_pkg' ) ) {
+    } elseif ( is_post_type_archive( 'aqlx_service_pkg' ) ) {
             $classes[] = 'aqualuxe-service-package-archive';
         } elseif ( is_tax( 'service_category' ) || is_tax( 'service_tag' ) ) {
             $classes[] = 'aqualuxe-service-taxonomy';
@@ -204,9 +204,9 @@ class Service_Display {
             return $content;
         }
 
-        if ( 'aqualuxe_service' === $post->post_type ) {
+    if ( 'aqlx_service' === $post->post_type ) {
             return $this->get_service_content( $post, $content );
-        } elseif ( 'aqualuxe_service_pkg' === $post->post_type ) {
+    } elseif ( 'aqlx_service_pkg' === $post->post_type ) {
             return $this->get_service_package_content( $post, $content );
         }
 
@@ -286,7 +286,7 @@ class Service_Display {
     public function add_service_schema() {
         global $post;
 
-        if ( ! $post || ! is_singular( 'aqualuxe_service' ) ) {
+    if ( ! $post || ! is_singular( 'aqlx_service' ) ) {
             return;
         }
 

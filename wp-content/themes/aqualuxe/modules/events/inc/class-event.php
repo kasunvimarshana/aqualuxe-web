@@ -127,7 +127,7 @@ class Event {
 
         $event = get_post( $this->id );
 
-        if ( ! $event || 'aqualuxe_event' !== $event->post_type ) {
+    if ( ! $event || 'aqlx_event' !== $event->post_type ) {
             return false;
         }
 
@@ -160,7 +160,7 @@ class Event {
             'post_title'   => $this->title,
             'post_content' => $this->description,
             'post_status'  => 'publish',
-            'post_type'    => 'aqualuxe_event',
+            'post_type'    => 'aqlx_event',
         ];
 
         if ( $this->id ) {

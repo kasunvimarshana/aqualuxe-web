@@ -53,7 +53,7 @@ class Service {
     private function load() {
         $post = get_post( $this->id );
 
-        if ( ! $post || 'aqualuxe_service' !== $post->post_type ) {
+    if ( ! $post || 'aqlx_service' !== $post->post_type ) {
             return;
         }
 
@@ -359,7 +359,7 @@ class Service {
         }
 
         $args = [
-            'post_type'      => 'aqualuxe_service',
+            'post_type'      => 'aqlx_service',
             'posts_per_page' => $limit,
             'post__not_in'   => [ $this->id ],
             'tax_query'      => [
@@ -388,7 +388,7 @@ class Service {
      */
     public function get_packages() {
         $args = [
-            'post_type'      => 'aqualuxe_service_pkg',
+            'post_type'      => 'aqlx_service_pkg',
             'posts_per_page' => -1,
             'meta_query'     => [
                 [

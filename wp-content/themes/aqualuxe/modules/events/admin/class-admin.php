@@ -57,14 +57,14 @@ class Admin {
         // Save meta box data
         add_action( 'save_post', [ $this, 'save_meta_box_data' ] );
 
-        // Add admin columns
-        add_filter( 'manage_aqualuxe_event_posts_columns', [ $this, 'add_event_columns' ] );
-        add_action( 'manage_aqualuxe_event_posts_custom_column', [ $this, 'render_event_columns' ], 10, 2 );
-        add_filter( 'manage_edit-aqualuxe_event_sortable_columns', [ $this, 'sortable_event_columns' ] );
+    // Add admin columns
+    add_filter( 'manage_aqlx_event_posts_columns', [ $this, 'add_event_columns' ] );
+    add_action( 'manage_aqlx_event_posts_custom_column', [ $this, 'render_event_columns' ], 10, 2 );
+    add_filter( 'manage_edit-aqlx_event_sortable_columns', [ $this, 'sortable_event_columns' ] );
 
-        add_filter( 'manage_aqualuxe_venue_posts_columns', [ $this, 'add_venue_columns' ] );
-        add_action( 'manage_aqualuxe_venue_posts_custom_column', [ $this, 'render_venue_columns' ], 10, 2 );
-        add_filter( 'manage_edit-aqualuxe_venue_sortable_columns', [ $this, 'sortable_venue_columns' ] );
+    add_filter( 'manage_aqlx_venue_posts_columns', [ $this, 'add_venue_columns' ] );
+    add_action( 'manage_aqlx_venue_posts_custom_column', [ $this, 'render_venue_columns' ], 10, 2 );
+    add_filter( 'manage_edit-aqlx_venue_sortable_columns', [ $this, 'sortable_venue_columns' ] );
 
         // Add admin filters
         add_action( 'restrict_manage_posts', [ $this, 'add_admin_filters' ] );
@@ -98,7 +98,7 @@ class Admin {
             'aqualuxe-event-details',
             __( 'Event Details', 'aqualuxe' ),
             [ $this, 'render_event_details_meta_box' ],
-            'aqualuxe_event',
+            'aqlx_event',
             'normal',
             'high'
         );
@@ -107,7 +107,7 @@ class Admin {
             'aqualuxe-event-venue',
             __( 'Event Venue', 'aqualuxe' ),
             [ $this, 'render_event_venue_meta_box' ],
-            'aqualuxe_event',
+            'aqlx_event',
             'side',
             'default'
         );
@@ -116,7 +116,7 @@ class Admin {
             'aqualuxe-event-organizer',
             __( 'Event Organizer', 'aqualuxe' ),
             [ $this, 'render_event_organizer_meta_box' ],
-            'aqualuxe_event',
+            'aqlx_event',
             'side',
             'default'
         );
@@ -126,7 +126,7 @@ class Admin {
             'aqualuxe-venue-details',
             __( 'Venue Details', 'aqualuxe' ),
             [ $this, 'render_venue_details_meta_box' ],
-            'aqualuxe_venue',
+            'aqlx_venue',
             'normal',
             'high'
         );
@@ -135,7 +135,7 @@ class Admin {
             'aqualuxe-venue-location',
             __( 'Venue Location', 'aqualuxe' ),
             [ $this, 'render_venue_location_meta_box' ],
-            'aqualuxe_venue',
+            'aqlx_venue',
             'normal',
             'high'
         );
@@ -144,7 +144,7 @@ class Admin {
             'aqualuxe-venue-contact',
             __( 'Venue Contact', 'aqualuxe' ),
             [ $this, 'render_venue_contact_meta_box' ],
-            'aqualuxe_venue',
+            'aqlx_venue',
             'side',
             'default'
         );

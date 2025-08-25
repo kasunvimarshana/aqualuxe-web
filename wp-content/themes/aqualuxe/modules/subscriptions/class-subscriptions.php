@@ -49,22 +49,34 @@ class Subscriptions {
     private function includes() {
         // Include admin files only in admin
         if ( is_admin() ) {
-            require_once __DIR__ . '/admin/class-admin.php';
+            $admin_file = __DIR__ . '/admin/class-admin.php';
+            if ( file_exists( $admin_file ) ) {
+                require_once $admin_file;
+            }
         }
 
         // Include frontend files
-        require_once __DIR__ . '/inc/class-subscription.php';
-        require_once __DIR__ . '/inc/class-membership.php';
-        require_once __DIR__ . '/inc/class-member.php';
-        require_once __DIR__ . '/inc/class-subscription-shortcodes.php';
-        require_once __DIR__ . '/inc/class-subscription-widgets.php';
+        $frontend_files = array(
+            __DIR__ . '/inc/class-subscription.php',
+            __DIR__ . '/inc/class-membership.php',
+            __DIR__ . '/inc/class-member.php',
+            __DIR__ . '/inc/class-subscription-shortcodes.php',
+            __DIR__ . '/inc/class-subscription-widgets.php',
+        );
+        foreach ( $frontend_files as $file ) {
+            if ( file_exists( $file ) ) {
+                require_once $file;
+            }
+        }
 
         // Include WooCommerce integration if WooCommerce is active
         if ( class_exists( 'WooCommerce' ) ) {
-            require_once __DIR__ . '/inc/class-woocommerce-integration.php';
+            $woo_file = __DIR__ . '/inc/class-woocommerce-integration.php';
+            if ( file_exists( $woo_file ) ) {
+                require_once $woo_file;
+            }
         }
     }
-
     /**
      * Initialize hooks
      *
@@ -127,7 +139,7 @@ class Subscriptions {
     public function register_post_types() {
         // Register subscription plan post type
         register_post_type(
-            'aqualuxe_subscription',
+            'aqlx_subscription',
             [
                 'labels'              => [
                     'name'                  => __( 'Subscription Plans', 'aqualuxe' ),
@@ -167,7 +179,7 @@ class Subscriptions {
 
         // Register membership post type
         register_post_type(
-            'aqualuxe_membership',
+            'aqlx_membership',
             [
                 'labels'              => [
                     'name'                  => __( 'Memberships', 'aqualuxe' ),
@@ -313,8 +325,14 @@ class Subscriptions {
      * @return void
      */
     public function register_shortcodes() {
-        $shortcodes = new Subscription_Shortcodes();
-        $shortcodes->register_shortcodes();
+        if ( class_exists( 'Subscription_Shortcodes' ) ) {
+            $shortcodes = new Subscription_Shortcodes();
+            $shortcodes->register_shortcodes();
+        } else {
+            if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+                error_log( 'Subscription_Shortcodes class not found. Shortcodes will not be registered.' );
+            }
+        }
     }
 
     /**

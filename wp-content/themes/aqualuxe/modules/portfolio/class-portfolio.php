@@ -36,14 +36,14 @@ class Portfolio {
             'supports' => [ 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields' ],
             'show_in_rest' => true,
         ];
-        register_post_type( 'aqualuxe_portfolio', $args );
+    register_post_type( 'aqlx_portfolio', $args );
     }
 
     public function register_taxonomies() {
         // Categories
         register_taxonomy(
             'portfolio_category',
-            'aqualuxe_portfolio',
+            'aqlx_portfolio',
             [
                 'label' => __( 'Portfolio Categories', 'aqualuxe' ),
                 'hierarchical' => true,
@@ -53,7 +53,7 @@ class Portfolio {
         // Tags
         register_taxonomy(
             'portfolio_tag',
-            'aqualuxe_portfolio',
+            'aqlx_portfolio',
             [
                 'label' => __( 'Portfolio Tags', 'aqualuxe' ),
                 'hierarchical' => false,
