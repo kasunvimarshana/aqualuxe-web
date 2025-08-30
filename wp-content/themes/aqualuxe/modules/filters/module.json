@@ -1,6 +1,0 @@
-{
-  "name": "Shop Filters",
-  "slug": "filters",
-  "class": "AquaLuxe\\Modules\\Filters\\Module",
-  "enabled": true
-}

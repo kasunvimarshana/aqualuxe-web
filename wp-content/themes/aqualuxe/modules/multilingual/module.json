@@ -1,6 +1,0 @@
-{
-  "name": "Multilingual",
-  "slug": "multilingual",
-  "class": "AquaLuxe\\Modules\\Multilingual\\Module",
-  "enabled": true
-}

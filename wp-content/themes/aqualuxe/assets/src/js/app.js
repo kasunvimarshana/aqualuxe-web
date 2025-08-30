@@ -1,40 +1,46 @@
-import './dark-mode';
+'use strict';
 
-// Quick View modal
 (function(){
-  const delegate = (e, selector, cb) => {
-    const target = e.target.closest(selector);
-    if (target) cb(target, e);
-  };
+  const root = document.documentElement;
 
-  document.addEventListener('click', async (e) => {
-    delegate(e, '[data-aqlx-quickview]', async (btn) => {
-      e.preventDefault();
-      const pid = btn.getAttribute('data-product-id');
-      if (!pid) return;
-      try {
-        const res = await fetch(AquaLuxe.ajaxUrl + '?action=aqlx_quick_view&pid=' + encodeURIComponent(pid), {
-          headers: { 'X-WP-Nonce': AquaLuxe.nonce }
-        });
-        const html = await res.text();
-        const modal = document.createElement('div');
-        modal.className = 'fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4';
-        modal.innerHTML = '<div class="bg-white dark:bg-slate-800 rounded-lg max-w-2xl w-full p-4 relative">' + html + '<button class="absolute top-2 right-2" aria-label="Close">✕</button></div>';
-        document.body.appendChild(modal);
-        modal.addEventListener('click', (ev)=>{ if (ev.target === modal || ev.target.closest('button[aria-label="Close"]')) modal.remove(); });
-      } catch(err) { console.error(err); }
+  // Dark mode toggle with localStorage persistence
+  const toggle = document.querySelector('[data-theme-toggle]');
+  const STORAGE_KEY = 'aqualuxe:theme';
+  const persisted = localStorage.getItem(STORAGE_KEY);
+  if (persisted === 'dark' || (!persisted && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    root.classList.add('dark');
+  }
+  if (toggle) {
+    toggle.addEventListener('click', function(){
+      root.classList.toggle('dark');
+      localStorage.setItem(STORAGE_KEY, root.classList.contains('dark') ? 'dark' : 'light');
     });
+  }
 
-    // Wishlist toggle
-    delegate(e, '[data-aqlx-wishlist]', (btn) => {
-      e.preventDefault();
-      const pid = btn.getAttribute('data-product-id');
-      if (!pid) return;
-      const key = 'aqlx_wishlist';
-      const list = new Set(JSON.parse(localStorage.getItem(key) || '[]'));
-      if (list.has(pid)) { list.delete(pid); btn.setAttribute('aria-pressed','false'); btn.innerText=AquaLuxe.i18n.removedFromWishlist; }
-      else { list.add(pid); btn.setAttribute('aria-pressed','true'); btn.innerText=AquaLuxe.i18n.addedToWishlist; }
-      localStorage.setItem(key, JSON.stringify([...list]));
+  // Mobile nav
+  const navBtn = document.querySelector('[data-nav-toggle]');
+  const nav = document.getElementById('primary-menu');
+  if (navBtn && nav) {
+    navBtn.addEventListener('click', () => {
+      const expanded = navBtn.getAttribute('aria-expanded') === 'true' || false;
+      navBtn.setAttribute('aria-expanded', String(!expanded));
+      nav.classList.toggle('hidden');
     });
-  });
+  }
+
+  // Lazy load images with loading=lazy as default handled in PHP; intersection observer for bg images
+  const lazyEls = document.querySelectorAll('[data-lazy-bg]');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const bg = el.getAttribute('data-lazy-bg');
+          if (bg) el.style.backgroundImage = `url(${bg})`;
+          observer.unobserve(el);
+        }
+      });
+    });
+    lazyEls.forEach(el => io.observe(el));
+  }
 })();

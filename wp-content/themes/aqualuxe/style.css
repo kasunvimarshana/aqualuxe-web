@@ -1,14 +1,20 @@
 /*
 Theme Name: AquaLuxe
-Theme URI: https://example.com/aqualuxe
-Author: AquaLuxe
-Author URI: https://example.com
-Description: Modular, multitenant, multilingual, multicurrency WordPress theme with dual-state architecture (with/without WooCommerce). Built with Tailwind and Laravel Mix.
+Theme URI: https://aqualuxe.example
+Author: AquaLuxe Team
+Author URI: https://aqualuxe.example
+Description: Luxury aquatic WooCommerce-ready theme with modular architecture.
 Version: 1.0.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Requires at least: 6.5
+Tested up to: 6.6
+Requires PHP: 8.0
+License: GPL-3.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: aqualuxe
-Tags: e-commerce, custom-colors, custom-logo, custom-menu, featured-images, theme-options, translation-ready, accessibility-ready
+Domain Path: /languages
+Tags: e-commerce, blog, custom-colors, custom-logo, custom-menu, featured-images, rtl-language-support, translation-ready, theme-options, accessibility-ready, one-column, two-columns, flexible-header
 */
 
-/* Compiled CSS is output to assets/dist. Do not edit here. */
+/* Built assets are enqueued from assets/dist via mix-manifest.json */
+
+/* Place a 1200x900 screenshot.png at the theme root for WP preview. */
