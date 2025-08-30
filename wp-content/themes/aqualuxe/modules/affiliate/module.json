@@ -1,6 +1,0 @@
-{
-  "name": "Affiliate & Referrals",
-  "slug": "affiliate",
-  "class": "AquaLuxe\\Modules\\Affiliate\\Module",
-  "enabled": true
-}
