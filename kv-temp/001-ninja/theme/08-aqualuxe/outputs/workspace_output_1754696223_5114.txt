@@ -1,4 +1,0 @@
-total 0
-drwxr-xr-x 2 root root 23 Aug  8 23:35 .
-drwxr-xr-x 6 root root 74 Aug  8 23:34 ..
--rw-r--r-- 1 root root  0 Aug  8 23:35 style.css
