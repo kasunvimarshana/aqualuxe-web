@@ -1,6 +1,0 @@
-{
-  "name": "Multivendor Compatibility",
-  "slug": "multivendor",
-  "class": "AquaLuxe\\Modules\\Multivendor\\Module",
-  "enabled": true
-}
