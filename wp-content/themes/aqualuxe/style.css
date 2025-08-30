@@ -1,17 +1,14 @@
 /*
 Theme Name: AquaLuxe
-Description: Premium aquatic lifestyle theme with modular architecture, WooCommerce integration, and luxury design. Bringing elegance to aquatic life - globally.
+Theme URI: https://example.com/aqualuxe
+Author: AquaLuxe
+Author URI: https://example.com
+Description: Modular, multitenant, multilingual, multicurrency WordPress theme with dual-state architecture (with/without WooCommerce). Built with Tailwind and Laravel Mix.
 Version: 1.0.0
-Author: AquaLuxe Team
-Author URI: https://aqualuxe.com
-License: GPL v2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: aqualuxe
-Domain Path: /languages
-Requires at least: 6.0
-Tested up to: 6.4
-Requires PHP: 8.0
-Tags: e-commerce, luxury, aquatic, responsive, customizable, woocommerce, multilingual, accessibility-ready
+Tags: e-commerce, custom-colors, custom-logo, custom-menu, featured-images, theme-options, translation-ready, accessibility-ready
 */
 
-/* Theme styles are compiled from assets/src and loaded via webpack */
+/* Compiled CSS is output to assets/dist. Do not edit here. */

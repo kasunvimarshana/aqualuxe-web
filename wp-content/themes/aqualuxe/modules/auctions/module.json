@@ -1,0 +1,6 @@
+{
+  "name": "Auctions & Trade-ins",
+  "slug": "auctions",
+  "class": "AquaLuxe\\Modules\\Auctions\\Module",
+  "enabled": true
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Subscriptions & Memberships",
+  "slug": "subscriptions",
+  "class": "AquaLuxe\\Modules\\Subscriptions\\Module",
+  "enabled": true
+}
