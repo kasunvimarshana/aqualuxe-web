@@ -41,8 +41,7 @@ Toggle in header; persists via REST and cookie.
 Theme provides base styles and layout. Degrades gracefully if WooCommerce is not active.
 
 ## Demo content
-
-See `demo/` folder. Import via WordPress importer.
+Use Appearance > Setup & Demo to import a complete demo (pages, menus, Woo categories/products, widgets) or to fully reset the site to a clean slate. Demo seed lives under `demo/`.
 
 ## License
 

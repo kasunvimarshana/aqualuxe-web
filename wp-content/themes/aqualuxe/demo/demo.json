@@ -12,7 +12,7 @@
     {"title": "Cookie Policy", "slug": "cookies"}
   ],
   "menus": {
-    "primary": ["home", "shop", "services", "blog", "contact"],
+  "primary": ["home", "services", "blog", "contact"],
     "footer": ["privacy-policy", "terms", "shipping-returns", "cookies"]
   }
 }
