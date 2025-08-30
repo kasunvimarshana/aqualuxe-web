@@ -1,40 +1,33 @@
 <?php
 namespace AquaLuxe\Modules\Franchise;
 
-add_action('init', function(){
-    register_post_type('partner', [
-        'label' => __('Partners', 'aqualuxe'),
-        'public' => false,
-        'show_ui' => true,
-        'supports' => ['title','editor'],
-        'show_in_rest' => true,
-    ]);
-});
-
-add_shortcode('franchise_inquiry', function(){
-    ob_start();
-    ?>
-    <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" class="grid gap-3 max-w-xl">
-      <input type="hidden" name="action" value="aqualuxe_franchise" />
-      <?php wp_nonce_field('aqualuxe_franchise'); ?>
-      <label><?php esc_html_e('Company', 'aqualuxe'); ?><input class="block w-full px-3 py-2 border rounded" type="text" name="company" required /></label>
-      <label><?php esc_html_e('Email', 'aqualuxe'); ?><input class="block w-full px-3 py-2 border rounded" type="email" name="email" required /></label>
-      <label><?php esc_html_e('Message', 'aqualuxe'); ?><textarea class="block w-full px-3 py-2 border rounded" name="message" rows="5" required></textarea></label>
-      <button class="btn-primary"><?php esc_html_e('Submit', 'aqualuxe'); ?></button>
-    </form>
-    <?php
-    return ob_get_clean();
-});
-
-add_action('admin_post_nopriv_aqualuxe_franchise', __NAMESPACE__.'\handle');
-add_action('admin_post_aqualuxe_franchise', __NAMESPACE__.'\handle');
-function handle(){
-    check_admin_referer('aqualuxe_franchise');
-    $title = sanitize_text_field($_POST['company'] ?? '');
-    $email = sanitize_email($_POST['email'] ?? '');
-    $msg = wp_kses_post($_POST['message'] ?? '');
-    $id = wp_insert_post(['post_type' => 'partner', 'post_status' => 'pending', 'post_title' => $title, 'post_content' => $msg]);
-    if ($id) update_post_meta($id, '_email', $email);
-    wp_safe_redirect(wp_get_referer() ?: home_url('/'));
-    exit;
+class Module {
+    public static function init(): void {
+        add_shortcode('aqlx_franchise_form', [__CLASS__, 'form']);
+        add_action('admin_post_nopriv_aqlx_franchise', [__CLASS__, 'handle']);
+        add_action('admin_post_aqlx_franchise', [__CLASS__, 'handle']);
+    }
+    public static function form(): string {
+        $action = esc_url(admin_url('admin-post.php'));
+        $nonce = wp_create_nonce('aqlx_franchise');
+        return '<form method="post" action="' . $action . '" class="grid gap-3 max-w-xl">'
+            . '<input type="hidden" name="action" value="aqlx_franchise" />'
+            . '<input type="hidden" name="_wpnonce" value="' . esc_attr($nonce) . '" />'
+            . '<label><span>' . esc_html__('Company','aqualuxe') . '</span><input class="border rounded px-3 py-2 w-full" name="company" required></label>'
+            . '<label><span>' . esc_html__('Country','aqualuxe') . '</span><input class="border rounded px-3 py-2 w-full" name="country" required></label>'
+            . '<label><span>' . esc_html__('Email','aqualuxe') . '</span><input class="border rounded px-3 py-2 w-full" type="email" name="email" required></label>'
+            . '<button class="btn-primary" type="submit">' . esc_html__('Submit Inquiry','aqualuxe') . '</button>'
+            . '</form>';
+    }
+    public static function handle(): void {
+        check_admin_referer('aqlx_franchise');
+        $msg = sprintf("Company: %s\nCountry: %s\nEmail: %s",
+            sanitize_text_field($_POST['company'] ?? ''),
+            sanitize_text_field($_POST['country'] ?? ''),
+            sanitize_email($_POST['email'] ?? '')
+        );
+        wp_mail(get_option('admin_email'), '[AquaLuxe] Franchise Inquiry', $msg);
+        wp_safe_redirect(add_query_arg('sent','1', wp_get_referer() ?: home_url('/')));
+        exit;
+    }
 }

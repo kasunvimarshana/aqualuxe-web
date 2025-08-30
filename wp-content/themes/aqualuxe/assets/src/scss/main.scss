@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Brand basics */
+:root {
+  --aqlx-primary: #0ea5e9;
+  --aqlx-accent: #22d3ee;
+  --aqlx-font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Noto Sans;
+  --aqlx-maxw: 1280px;
+}
+
+html { scroll-behavior: smooth; }
+body { @apply font-sans text-slate-800 bg-white dark:bg-slate-900 dark:text-slate-100; }
+
+.container { max-width: var(--aqlx-maxw); }
+
+/***** Components *****/
+.btn { @apply inline-flex items-center justify-center rounded-md px-4 py-2 font-medium transition; }
+.btn-primary { @apply btn bg-primary text-white hover:brightness-110; }
+.btn-outline { @apply btn border border-primary text-primary hover:bg-primary hover:text-white; }
+
+.header-shadow { box-shadow: 0 1px 10px rgba(0,0,0,.06); }
+
+/* Micro-interactions */
+.card { @apply transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-lg; }
+
+/* Accessibility helpers */
+.skip-link { position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; }
+.skip-link:focus { left:1rem; top:1rem; width:auto; height:auto; z-index:9999; @apply bg-white text-black p-2 rounded; }

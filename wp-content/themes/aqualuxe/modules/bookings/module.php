@@ -1,39 +1,45 @@
 <?php
 namespace AquaLuxe\Modules\Bookings;
 
-\add_action('init', function(){
-    \register_post_type('booking_request', [
-        'label' => \__('Bookings', 'aqualuxe'),
-        'public' => false,
-        'show_ui' => true,
-        'supports' => ['title','editor'],
-    ]);
-});
-
-\add_shortcode('aqualuxe_booking', function(){
-    \ob_start(); ?>
-    <form method="post" action="<?php echo \esc_url(\admin_url('admin-post.php')); ?>" class="grid gap-3 max-w-xl">
-      <input type="hidden" name="action" value="aqualuxe_booking" />
-      <?php \wp_nonce_field('aqualuxe_booking'); ?>
-      <label><?php \esc_html_e('Name', 'aqualuxe'); ?><input class="block w-full px-3 py-2 border rounded" type="text" name="name" required /></label>
-      <label><?php \esc_html_e('Email', 'aqualuxe'); ?><input class="block w-full px-3 py-2 border rounded" type="email" name="email" required /></label>
-      <label><?php \esc_html_e('Preferred Date', 'aqualuxe'); ?><input class="block w-full px-3 py-2 border rounded" type="date" name="date" required /></label>
-      <label><?php \esc_html_e('Notes', 'aqualuxe'); ?><textarea class="block w-full px-3 py-2 border rounded" name="notes" rows="4"></textarea></label>
-      <button class="btn-primary"><?php \esc_html_e('Request Booking', 'aqualuxe'); ?></button>
-    </form>
-    <?php return \ob_get_clean();
-});
-
-\add_action('admin_post_nopriv_aqualuxe_booking', __NAMESPACE__.'\handle');
-\add_action('admin_post_aqualuxe_booking', __NAMESPACE__.'\handle');
-function handle(){
-    \check_admin_referer('aqualuxe_booking');
-    $name = \sanitize_text_field($_POST['name'] ?? '');
-    $email = \sanitize_email($_POST['email'] ?? '');
-    $date = \sanitize_text_field($_POST['date'] ?? '');
-    $notes = \wp_kses_post($_POST['notes'] ?? '');
-    $id = \wp_insert_post(['post_type' => 'booking_request', 'post_status' => 'pending', 'post_title' => $name.' - '.$date, 'post_content' => $notes]);
-    if ($id) \update_post_meta($id, '_email', $email);
-    \wp_safe_redirect(\wp_get_referer() ?: \home_url('/'));
-    exit;
+class Module {
+    public static function init(): void {
+        add_action('init', [__CLASS__, 'register_cpt']);
+        add_shortcode('aqlx_booking_form', [__CLASS__, 'form']);
+        add_action('admin_post_nopriv_aqlx_booking', [__CLASS__, 'handle']);
+        add_action('admin_post_aqlx_booking', [__CLASS__, 'handle']);
+    }
+    public static function register_cpt(): void {
+        register_post_type('booking', [
+            'label' => __('Bookings','aqualuxe'),
+            'public'=> false,
+            'show_ui'=> true,
+            'menu_icon' => 'dashicons-calendar-alt',
+            'supports' => ['title','editor'],
+        ]);
+    }
+    public static function form($atts=[]): string {
+        $action = esc_url(admin_url('admin-post.php'));
+        $nonce = wp_create_nonce('aqlx_booking');
+        ob_start();
+        ?>
+        <form class="grid gap-3 max-w-xl" method="post" action="<?php echo $action; ?>">
+          <input type="hidden" name="action" value="aqlx_booking" />
+          <input type="hidden" name="_wpnonce" value="<?php echo esc_attr($nonce); ?>" />
+          <label><span><?php esc_html_e('Service','aqualuxe'); ?></span><input class="border rounded px-3 py-2 w-full" name="service" required></label>
+          <label><span><?php esc_html_e('Preferred Date','aqualuxe'); ?></span><input class="border rounded px-3 py-2 w-full" type="date" name="date" required></label>
+          <label><span><?php esc_html_e('Name','aqualuxe'); ?></span><input class="border rounded px-3 py-2 w-full" name="name" required></label>
+          <label><span><?php esc_html_e('Email','aqualuxe'); ?></span><input class="border rounded px-3 py-2 w-full" type="email" name="email" required></label>
+          <button class="btn-primary" type="submit"><?php esc_html_e('Request Booking','aqualuxe'); ?></button>
+        </form>
+        <?php
+        return ob_get_clean();
+    }
+    public static function handle(): void {
+        check_admin_referer('aqlx_booking');
+        $title = sanitize_text_field(($_POST['service'] ?? '') . ' - ' . ($_POST['date'] ?? ''));
+        $content = sprintf("Name: %s\nEmail: %s", sanitize_text_field($_POST['name'] ?? ''), sanitize_email($_POST['email'] ?? ''));
+        wp_insert_post(['post_type'=>'booking','post_status'=>'publish','post_title'=>$title,'post_content'=>$content]);
+        wp_safe_redirect(add_query_arg('booked','1', wp_get_referer() ?: home_url('/services')));
+        exit;
+    }
 }

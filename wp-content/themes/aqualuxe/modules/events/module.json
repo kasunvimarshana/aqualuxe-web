@@ -1,0 +1,6 @@
+{
+  "name": "Events",
+  "slug": "events",
+  "class": "AquaLuxe\\Modules\\Events\\Module",
+  "enabled": true
+}

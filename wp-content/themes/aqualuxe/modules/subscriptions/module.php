@@ -1,19 +1,14 @@
 <?php
 namespace AquaLuxe\Modules\Subscriptions;
 
-\add_action('init', function(){
-    \add_role('aqualuxe_member', \__('Member', 'aqualuxe'), ['read' => true]);
-    \register_post_type('membership', [
-        'label' => \__('Memberships', 'aqualuxe'),
-        'public' => false,
-        'show_ui' => true,
-        'supports' => ['title','editor'],
-        'show_in_rest' => true,
-    ]);
-});
-
-// Gate content via shortcode [members_only]...[/members_only]
-\add_shortcode('members_only', function($atts, $content){
-    if (\current_user_can('aqualuxe_member') || \current_user_can('administrator')) return \do_shortcode($content);
-    return '<p>'.\esc_html__('Members only content.', 'aqualuxe').'</p>';
-});
+class Module {
+    public static function init(): void {
+        // If Woo Subscriptions is active, you could register additional hooks here.
+        add_shortcode('aqlx_membership_notice', [__CLASS__, 'notice']);
+    }
+    public static function notice(): string {
+        if (!class_exists('WooCommerce')) return '';
+        $txt = __('Members enjoy exclusive discounts and early access to rare species.','aqualuxe');
+        return '<div class="p-4 rounded bg-sky-50 border border-sky-200">' . esc_html($txt) . '</div>';
+    }
+}
