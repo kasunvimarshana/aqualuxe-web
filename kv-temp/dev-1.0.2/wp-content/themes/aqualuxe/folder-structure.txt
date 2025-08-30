@@ -1,0 +1,65 @@
+aqualuxe/
+├── assets/
+│   ├── css/
+│   │   ├── admin/
+│   │   │   └── admin.css
+│   │   ├── editor-style.css
+│   │   ├── frontend/
+│   │   │   ├── woocommerce.css
+│   │   │   └── style.css
+│   │   └── woocommerce.css
+│   ├── fonts/
+│   ├── images/
+│   │   ├── logo.png
+│   │   └── screenshot.png
+│   └── js/
+│       ├── admin/
+│       │   └── admin.js
+│       ├── frontend/
+│       │   ├── navigation.js
+│       │   ├── site.js
+│       │   └── woocommerce.js
+│       └── customizer.js
+├── inc/
+│   ├── aqualuxe-functions.php
+│   ├── aqualuxe-template-functions.php
+│   ├── aqualuxe-template-hooks.php
+│   ├── woocommerce/
+│   │   ├── aqualuxe-woocommerce-functions.php
+│   │   ├── aqualuxe-woocommerce-hooks.php
+│   │   └── class-aqualuxe-woocommerce.php
+│   └── customizer/
+│       ├── aqualuxe-customizer-functions.php
+│       └── aqualuxe-customizer-options.php
+├── languages/
+│   └── aqualuxe.pot
+├── template-parts/
+│   ├── header/
+│   │   └── branding.php
+│   ├── footer/
+│   │   └── site-info.php
+│   └── post/
+│       └── content.php
+├── woocommerce/
+│   ├── global/
+│   │   └── breadcrumb.php
+│   ├── loop/
+│   │   └── add-to-cart.php
+│   ├── single-product/
+│   │   ├── add-to-cart/
+│   │   │   └── simple.php
+│   │   └── product-image.php
+│   └── archive-product.php
+├── 404.php
+├── archive.php
+├── comments.php
+├── footer.php
+├── functions.php
+├── header.php
+├── index.php
+├── page.php
+├── search.php
+├── searchform.php
+├── sidebar.php
+├── single.php
+└── style.css

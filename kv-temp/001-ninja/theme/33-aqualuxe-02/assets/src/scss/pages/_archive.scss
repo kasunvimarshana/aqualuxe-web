@@ -1,0 +1,304 @@
+/**
+ * Archive Page Styles
+ *
+ * Styles specific to archive pages (category, tag, author, date)
+ */
+
+.archive {
+  @apply py-12;
+  
+  // Archive header
+  &__header {
+    @apply container mx-auto px-4 mb-12 text-center;
+    
+    &-title {
+      @apply text-3xl md:text-4xl font-bold mb-4 font-display;
+      
+      .dark & {
+        @apply text-white;
+      }
+    }
+    
+    &-description {
+      @apply text-lg text-neutral-600 max-w-2xl mx-auto;
+      
+      .dark & {
+        @apply text-neutral-400;
+      }
+    }
+  }
+  
+  // Archive content
+  &__content {
+    @apply container mx-auto px-4;
+  }
+  
+  // Archive layout
+  &__layout {
+    @apply grid gap-8;
+    
+    &--with-sidebar {
+      @apply lg:grid-cols-3;
+      
+      .archive__main {
+        @apply lg:col-span-2;
+      }
+      
+      .archive__sidebar {
+        @apply lg:col-span-1;
+      }
+    }
+  }
+  
+  // Archive main content
+  &__main {
+    @apply space-y-8;
+  }
+  
+  // Archive sidebar
+  &__sidebar {
+    @apply space-y-8;
+  }
+  
+  // Archive posts
+  &__posts {
+    @apply space-y-8;
+  }
+  
+  // Archive post
+  &__post {
+    @apply bg-white rounded-lg overflow-hidden shadow-sm transition-shadow duration-300 hover:shadow-md;
+    
+    .dark & {
+      @apply bg-neutral-800;
+    }
+    
+    &-image {
+      @apply w-full h-48 md:h-64 object-cover;
+    }
+    
+    &-content {
+      @apply p-6;
+    }
+    
+    &-meta {
+      @apply flex items-center text-sm text-neutral-500 mb-2;
+      
+      .dark & {
+        @apply text-neutral-400;
+      }
+      
+      span {
+        @apply mr-4 last:mr-0;
+      }
+      
+      a {
+        @apply text-primary-600 hover:text-primary-700;
+        
+        .dark & {
+          @apply text-primary-400 hover:text-primary-300;
+        }
+      }
+    }
+    
+    &-title {
+      @apply text-xl font-bold mb-2 hover:text-primary-600;
+      
+      .dark & {
+        @apply text-white hover:text-primary-400;
+      }
+    }
+    
+    &-excerpt {
+      @apply text-neutral-600 mb-4;
+      
+      .dark & {
+        @apply text-neutral-300;
+      }
+    }
+    
+    &-readmore {
+      @apply inline-flex items-center text-primary-600 font-medium hover:text-primary-700;
+      
+      .dark & {
+        @apply text-primary-400 hover:text-primary-300;
+      }
+      
+      svg {
+        @apply ml-2 w-4 h-4;
+      }
+    }
+  }
+  
+  // Archive pagination
+  &__pagination {
+    @apply mt-12;
+  }
+  
+  // Archive filters
+  &__filters {
+    @apply bg-neutral-50 p-6 rounded-lg mb-8;
+    
+    .dark & {
+      @apply bg-neutral-800;
+    }
+    
+    &-title {
+      @apply text-lg font-bold mb-4;
+      
+      .dark & {
+        @apply text-white;
+      }
+    }
+    
+    &-form {
+      @apply space-y-4;
+    }
+    
+    &-group {
+      @apply space-y-2;
+    }
+    
+    &-label {
+      @apply block text-neutral-700 font-medium;
+      
+      .dark & {
+        @apply text-neutral-300;
+      }
+    }
+    
+    &-select {
+      @apply w-full px-4 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+      
+      .dark & {
+        @apply bg-neutral-700 border-neutral-600 text-white;
+      }
+    }
+    
+    &-button {
+      @apply w-full px-4 py-2 bg-primary-600 text-white font-medium rounded-md hover:bg-primary-700 transition-colors duration-300;
+      
+      .dark & {
+        @apply bg-primary-700 hover:bg-primary-800;
+      }
+    }
+  }
+  
+  // Archive empty state
+  &__empty {
+    @apply bg-white p-8 rounded-lg text-center;
+    
+    .dark & {
+      @apply bg-neutral-800;
+    }
+    
+    &-icon {
+      @apply w-16 h-16 mx-auto mb-4 text-neutral-400;
+    }
+    
+    &-title {
+      @apply text-xl font-bold mb-2;
+      
+      .dark & {
+        @apply text-white;
+      }
+    }
+    
+    &-text {
+      @apply text-neutral-600 mb-6;
+      
+      .dark & {
+        @apply text-neutral-400;
+      }
+    }
+    
+    &-button {
+      @apply inline-block px-6 py-2 bg-primary-600 text-white font-medium rounded-md hover:bg-primary-700 transition-colors duration-300;
+      
+      .dark & {
+        @apply bg-primary-700 hover:bg-primary-800;
+      }
+    }
+  }
+  
+  // Category archive specific
+  &--category {
+    .archive__header {
+      @apply relative py-16 bg-primary-50 mb-12;
+      
+      .dark & {
+        @apply bg-primary-900 bg-opacity-20;
+      }
+    }
+  }
+  
+  // Tag archive specific
+  &--tag {
+    .archive__header-title {
+      @apply inline-flex items-center;
+      
+      &::before {
+        content: "#";
+        @apply mr-2 text-primary-500;
+        
+        .dark & {
+          @apply text-primary-400;
+        }
+      }
+    }
+  }
+  
+  // Author archive specific
+  &--author {
+    .archive__header {
+      @apply text-left;
+    }
+    
+    .archive__header-author {
+      @apply flex items-center mb-6;
+    }
+    
+    .archive__header-avatar {
+      @apply w-20 h-20 rounded-full mr-6 object-cover;
+    }
+    
+    .archive__header-meta {
+      @apply text-neutral-600;
+      
+      .dark & {
+        @apply text-neutral-400;
+      }
+    }
+    
+    .archive__header-social {
+      @apply flex mt-4 space-x-4;
+      
+      a {
+        @apply text-neutral-500 hover:text-primary-600;
+        
+        .dark & {
+          @apply text-neutral-400 hover:text-primary-400;
+        }
+      }
+    }
+  }
+  
+  // Date archive specific
+  &--date {
+    .archive__header-title {
+      @apply flex flex-col items-center;
+    }
+    
+    .archive__header-month {
+      @apply text-lg text-primary-600 mb-1;
+      
+      .dark & {
+        @apply text-primary-400;
+      }
+    }
+    
+    .archive__header-year {
+      @apply text-4xl font-bold;
+    }
+  }
+}

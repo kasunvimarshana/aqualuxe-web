@@ -1,0 +1,241 @@
+/**
+ * AquaLuxe Theme Header Styles
+ *
+ * This file contains styles for the site header.
+ */
+
+@layer components {
+  /* Site Header */
+  .site-header {
+    @apply bg-white dark:bg-gray-900 shadow-sm relative z-30;
+    
+    /* Sticky Header */
+    &.sticky-header {
+      @apply fixed top-0 left-0 w-full animate-slideDown;
+    }
+    
+    /* Header Container */
+    .header-container {
+      @apply container mx-auto px-4 flex items-center justify-between py-4;
+    }
+    
+    /* Site Branding */
+    .site-branding {
+      @apply flex items-center;
+      
+      /* Custom Logo */
+      .custom-logo-link {
+        @apply block;
+        
+        img {
+          @apply h-10 w-auto;
+        }
+      }
+      
+      /* Site Title */
+      .site-title {
+        @apply text-xl font-bold text-gray-900 dark:text-white m-0;
+        
+        a {
+          @apply text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 no-underline;
+        }
+      }
+      
+      /* Site Description */
+      .site-description {
+        @apply text-sm text-gray-600 dark:text-gray-400 mt-1 hidden sm:block;
+      }
+    }
+    
+    /* Header Right */
+    .header-right {
+      @apply flex items-center space-x-4;
+    }
+    
+    /* Header Actions */
+    .header-actions {
+      @apply flex items-center space-x-2;
+      
+      /* Header Action Button */
+      .header-action-btn {
+        @apply p-2 rounded-full text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900;
+        
+        svg {
+          @apply w-5 h-5;
+        }
+      }
+    }
+    
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      @apply lg:hidden p-2 rounded-md text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900;
+      
+      svg {
+        @apply w-6 h-6;
+      }
+    }
+  }
+  
+  /* Header Layouts */
+  
+  /* Header Layout 1: Logo Left, Menu Center, Actions Right */
+  .header-layout-1 {
+    .header-container {
+      @apply grid grid-cols-3 items-center;
+      
+      .site-branding {
+        @apply col-span-1;
+      }
+      
+      .main-navigation {
+        @apply col-span-1 hidden lg:flex justify-center;
+      }
+      
+      .header-right {
+        @apply col-span-1 justify-end;
+      }
+    }
+  }
+  
+  /* Header Layout 2: Logo Left, Menu and Actions Right */
+  .header-layout-2 {
+    .header-container {
+      @apply flex items-center justify-between;
+      
+      .header-right {
+        @apply flex items-center space-x-6;
+        
+        .main-navigation {
+          @apply hidden lg:flex;
+        }
+      }
+    }
+  }
+  
+  /* Header Layout 3: Logo Center, Menu and Actions on Sides */
+  .header-layout-3 {
+    .header-container {
+      @apply grid grid-cols-3 items-center;
+      
+      .main-navigation.left {
+        @apply col-span-1 hidden lg:flex justify-start;
+      }
+      
+      .site-branding {
+        @apply col-span-1 flex justify-center;
+      }
+      
+      .header-right {
+        @apply col-span-1 justify-end;
+        
+        .main-navigation.right {
+          @apply hidden lg:flex mr-6;
+        }
+      }
+    }
+  }
+  
+  /* Top Bar */
+  .top-bar {
+    @apply bg-gray-100 dark:bg-gray-800 py-2 text-sm text-gray-600 dark:text-gray-400;
+    
+    .top-bar-container {
+      @apply container mx-auto px-4 flex flex-wrap items-center justify-between;
+    }
+    
+    /* Top Bar Left */
+    .top-bar-left {
+      @apply flex items-center space-x-4;
+      
+      .contact-info {
+        @apply flex items-center space-x-4;
+        
+        a {
+          @apply flex items-center hover:text-primary-600 dark:hover:text-primary-400;
+          
+          svg {
+            @apply w-4 h-4 mr-1;
+          }
+        }
+      }
+    }
+    
+    /* Top Bar Right */
+    .top-bar-right {
+      @apply flex items-center space-x-4;
+      
+      /* Social Links */
+      .social-links {
+        @apply flex items-center space-x-2;
+        
+        a {
+          @apply text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400;
+          
+          svg {
+            @apply w-4 h-4;
+          }
+        }
+      }
+      
+      /* Secondary Navigation */
+      .secondary-navigation {
+        @apply hidden md:flex items-center space-x-4;
+        
+        a {
+          @apply hover:text-primary-600 dark:hover:text-primary-400;
+        }
+      }
+    }
+  }
+  
+  /* Admin Bar Adjustments */
+  .admin-bar {
+    .site-header.sticky-header {
+      @apply mt-8 md:mt-10;
+    }
+  }
+  
+  /* Transparent Header */
+  .has-transparent-header {
+    .site-header {
+      @apply bg-transparent absolute top-0 left-0 w-full shadow-none;
+      
+      .site-title a,
+      .site-description,
+      .main-navigation .menu > .menu-item > a,
+      .header-action-btn {
+        @apply text-white;
+      }
+      
+      .main-navigation .menu > .menu-item > a:hover,
+      .header-action-btn:hover {
+        @apply text-white/80;
+      }
+      
+      .mobile-menu-toggle {
+        @apply text-white hover:text-white/80 hover:bg-white/10;
+      }
+    }
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 1023px) {
+    .site-header {
+      .header-container {
+        @apply grid grid-cols-2;
+        
+        .site-branding {
+          @apply col-span-1;
+        }
+        
+        .header-right {
+          @apply col-span-1 justify-end;
+        }
+        
+        .main-navigation {
+          @apply hidden;
+        }
+      }
+    }
+  }
+}

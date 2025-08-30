@@ -1,0 +1,162 @@
+/**
+ * AquaLuxe Theme Variables
+ *
+ * This file contains all the variables used throughout the theme.
+ */
+
+// Colors
+// These are defined in Tailwind config, but we define them here as well for SCSS usage
+$color-primary: #0077B6;
+$color-primary-light: #CCE7F2;
+$color-primary-dark: #00486D;
+
+$color-secondary: #48CAE4;
+$color-secondary-light: #B7E7F3;
+$color-secondary-dark: #127A8F;
+
+$color-accent: #00B4D8;
+$color-accent-light: #99E3F3;
+$color-accent-dark: #006C82;
+
+$color-dark: #03045E;
+$color-dark-light: #9999C3;
+$color-dark-dark: #010125;
+
+$color-light: #F8F9FA;
+$color-light-dark: #CED4DA;
+$color-light-darker: #6C757D;
+
+$color-success: #28a745;
+$color-info: #17a2b8;
+$color-warning: #ffc107;
+$color-danger: #dc3545;
+
+$color-white: #ffffff;
+$color-black: #000000;
+
+$color-gray-100: #f8f9fa;
+$color-gray-200: #e9ecef;
+$color-gray-300: #dee2e6;
+$color-gray-400: #ced4da;
+$color-gray-500: #adb5bd;
+$color-gray-600: #6c757d;
+$color-gray-700: #495057;
+$color-gray-800: #343a40;
+$color-gray-900: #212529;
+
+// Typography
+$font-family-sans: 'Poppins', sans-serif;
+$font-family-serif: 'Playfair Display', serif;
+$font-family-mono: monospace;
+
+$font-size-base: 1rem;
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.25rem;
+$font-size-2xl: 1.5rem;
+$font-size-3xl: 1.875rem;
+$font-size-4xl: 2.25rem;
+$font-size-5xl: 3rem;
+
+$line-height-tight: 1.2;
+$line-height-snug: 1.375;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.625;
+$line-height-loose: 2;
+
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Spacing
+$spacing-0: 0;
+$spacing-1: 0.25rem;
+$spacing-2: 0.5rem;
+$spacing-3: 0.75rem;
+$spacing-4: 1rem;
+$spacing-5: 1.25rem;
+$spacing-6: 1.5rem;
+$spacing-8: 2rem;
+$spacing-10: 2.5rem;
+$spacing-12: 3rem;
+$spacing-16: 4rem;
+$spacing-20: 5rem;
+$spacing-24: 6rem;
+$spacing-32: 8rem;
+$spacing-40: 10rem;
+$spacing-48: 12rem;
+$spacing-56: 14rem;
+$spacing-64: 16rem;
+
+// Breakpoints
+$breakpoint-xs: 0;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+// Container
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+);
+
+// Z-index
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
+
+// Borders
+$border-width: 1px;
+$border-width-0: 0;
+$border-width-2: 2px;
+$border-width-4: 4px;
+$border-width-8: 8px;
+
+$border-radius-none: 0;
+$border-radius-sm: 0.2rem;
+$border-radius: 0.25rem;
+$border-radius-lg: 0.5rem;
+$border-radius-xl: 1rem;
+$border-radius-2xl: 2rem;
+$border-radius-full: 9999px;
+
+// Shadows
+$box-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+$box-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$box-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$box-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+$box-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+$box-shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+$box-shadow-none: none;
+
+// Transitions
+$transition-base: all 0.2s ease-in-out;
+$transition-slow: all 0.3s ease-in-out;
+$transition-slower: all 0.5s ease-in-out;
+$transition-fast: all 0.1s ease-in-out;
+
+// Header
+$header-height: 80px;
+$header-height-mobile: 60px;
+$header-top-height: 40px;
+$header-top-height-mobile: 30px;
+
+// Footer
+$footer-padding-top: 5rem;
+$footer-padding-bottom: 2rem;
+
+// Sidebar
+$sidebar-width: 300px;

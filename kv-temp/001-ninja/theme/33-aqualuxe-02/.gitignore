@@ -1,0 +1,67 @@
+# AquaLuxe Theme - .gitignore
+
+# Node.js dependencies
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Build artifacts
+/assets/css/
+/assets/js/
+/assets/images/sprite.svg
+/assets/assets-manifest.json
+/assets/mix-manifest.json
+/assets/service-worker.js
+/assets/workbox-*.js
+
+# Development files
+.DS_Store
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+.phpcs.cache
+.phpunit.result.cache
+.env
+.env.*
+!.env.example
+
+# Temporary files
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+.cache/
+.sass-cache/
+.eslintcache
+.stylelintcache
+
+# WordPress specific
+wp-config.php
+wp-content/advanced-cache.php
+wp-content/backup-db/
+wp-content/backups/
+wp-content/blogs.dir/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/uploads/
+wp-content/wp-cache-config.php
+wp-content/plugins/hello.php
+
+# Exclude compiled assets from source control
+# But keep the directory structure
+!assets/css/.gitkeep
+!assets/js/.gitkeep
+!assets/images/.gitkeep
+!assets/fonts/.gitkeep
+
+# Include source files
+!assets/src/**/*
+
+# Exclude local development files
+local-config.php

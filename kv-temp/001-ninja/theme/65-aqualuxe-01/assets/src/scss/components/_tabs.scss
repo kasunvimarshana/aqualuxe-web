@@ -1,0 +1,301 @@
+/**
+ * Tabs Component
+ */
+
+// Base tabs styles
+.tabs {
+  @apply mb-8;
+  
+  &__nav {
+    @apply flex border-b border-gray-200 dark:border-gray-700 mb-6;
+    
+    &-item {
+      @apply mr-2;
+      
+      &:last-child {
+        @apply mr-0;
+      }
+    }
+    
+    &-link {
+      @apply inline-block py-2 px-4 border-b-2 border-transparent text-gray-600 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400 font-medium transition-colors duration-200;
+      
+      &--active {
+        @apply border-primary-600 dark:border-primary-400 text-primary-600 dark:text-primary-400;
+      }
+    }
+  }
+  
+  &__content {
+    @apply relative;
+  }
+  
+  &__panel {
+    @apply hidden;
+    
+    &--active {
+      @apply block;
+    }
+  }
+  
+  // Tabs variants
+  &--pills {
+    .tabs__nav {
+      @apply border-0 mb-6;
+    }
+    
+    .tabs__nav-link {
+      @apply py-2 px-4 rounded-lg border-0 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400;
+      
+      &--active {
+        @apply bg-primary-600 text-white dark:bg-primary-500 dark:text-white;
+      }
+    }
+  }
+  
+  &--boxed {
+    .tabs__nav {
+      @apply border-0 mb-0;
+    }
+    
+    .tabs__nav-link {
+      @apply py-3 px-6 border border-gray-200 dark:border-gray-700 border-b-0 rounded-t-lg bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-400;
+      
+      &--active {
+        @apply bg-white dark:bg-gray-900 text-primary-600 dark:text-primary-400;
+      }
+    }
+    
+    .tabs__content {
+      @apply border border-gray-200 dark:border-gray-700 rounded-b-lg rounded-tr-lg p-6 bg-white dark:bg-gray-900;
+    }
+  }
+  
+  &--vertical {
+    @apply flex flex-col md:flex-row;
+    
+    .tabs__nav {
+      @apply flex-col border-b-0 md:border-r border-gray-200 dark:border-gray-700 mb-0 md:pr-4 md:mr-6;
+    }
+    
+    .tabs__nav-item {
+      @apply mb-2 mr-0;
+      
+      &:last-child {
+        @apply mb-0;
+      }
+    }
+    
+    .tabs__nav-link {
+      @apply block border-b-0 md:border-l-2 py-3 px-4;
+      
+      &--active {
+        @apply border-b-0 md:border-l-2 border-primary-600 dark:border-primary-400;
+      }
+    }
+    
+    .tabs__content {
+      @apply flex-grow;
+    }
+  }
+  
+  &--icons {
+    .tabs__nav-link {
+      @apply flex items-center;
+      
+      svg {
+        @apply w-5 h-5 mr-2;
+      }
+    }
+  }
+  
+  &--centered {
+    .tabs__nav {
+      @apply justify-center;
+    }
+  }
+  
+  &--equal {
+    .tabs__nav {
+      @apply w-full;
+    }
+    
+    .tabs__nav-item {
+      @apply flex-grow text-center;
+    }
+    
+    .tabs__nav-link {
+      @apply w-full;
+    }
+  }
+  
+  &--animated {
+    .tabs__panel {
+      @apply transition-opacity duration-300 ease-in-out opacity-0 absolute inset-0;
+      
+      &--active {
+        @apply opacity-100 relative;
+      }
+    }
+  }
+}
+
+// Product tabs (WooCommerce)
+.product-tabs {
+  @apply mt-12;
+  
+  .tabs__nav {
+    @apply border-b border-gray-200 dark:border-gray-700 mb-6;
+  }
+  
+  .tabs__nav-link {
+    @apply inline-block py-3 px-6 border-b-2 border-transparent text-gray-600 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400 font-medium transition-colors duration-200;
+    
+    &--active {
+      @apply border-primary-600 dark:border-primary-400 text-primary-600 dark:text-primary-400;
+    }
+  }
+  
+  .tabs__panel {
+    @apply hidden;
+    
+    &--active {
+      @apply block;
+    }
+    
+    h2 {
+      @apply text-xl font-bold text-gray-900 dark:text-gray-100 mb-4;
+    }
+  }
+}
+
+// Accordion tabs (mobile responsive)
+.accordion-tabs {
+  @apply mb-8;
+  
+  &__nav {
+    @apply hidden md:flex border-b border-gray-200 dark:border-gray-700 mb-6;
+    
+    &-item {
+      @apply mr-2;
+      
+      &:last-child {
+        @apply mr-0;
+      }
+    }
+    
+    &-link {
+      @apply inline-block py-2 px-4 border-b-2 border-transparent text-gray-600 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400 font-medium transition-colors duration-200;
+      
+      &--active {
+        @apply border-primary-600 dark:border-primary-400 text-primary-600 dark:text-primary-400;
+      }
+    }
+  }
+  
+  &__content {
+    @apply relative;
+  }
+  
+  &__panel {
+    @apply hidden md:block;
+    
+    &--active {
+      @apply block;
+    }
+  }
+  
+  // Mobile accordion
+  &__accordion {
+    @apply md:hidden space-y-2;
+  }
+  
+  &__accordion-item {
+    @apply border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden;
+  }
+  
+  &__accordion-header {
+    @apply bg-gray-50 dark:bg-gray-800 p-4 cursor-pointer;
+  }
+  
+  &__accordion-button {
+    @apply flex items-center justify-between w-full text-left font-medium text-gray-900 dark:text-gray-100;
+    
+    svg {
+      @apply w-5 h-5 text-gray-500 dark:text-gray-400 transform transition-transform duration-200;
+    }
+    
+    &--active {
+      @apply text-primary-600 dark:text-primary-400;
+      
+      svg {
+        @apply rotate-180 text-primary-600 dark:text-primary-400;
+      }
+    }
+  }
+  
+  &__accordion-body {
+    @apply p-4 border-t border-gray-200 dark:border-gray-700 hidden;
+    
+    &--active {
+      @apply block;
+    }
+  }
+}
+
+// Tab slider
+.tab-slider {
+  @apply mb-8;
+  
+  &__nav {
+    @apply flex border-b border-gray-200 dark:border-gray-700 mb-6 relative;
+    
+    &-item {
+      @apply mr-6;
+      
+      &:last-child {
+        @apply mr-0;
+      }
+    }
+    
+    &-link {
+      @apply inline-block py-2 border-b-2 border-transparent text-gray-600 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400 font-medium transition-colors duration-200 whitespace-nowrap;
+      
+      &--active {
+        @apply border-primary-600 dark:border-primary-400 text-primary-600 dark:text-primary-400;
+      }
+    }
+    
+    &-indicator {
+      @apply absolute bottom-0 h-0.5 bg-primary-600 dark:bg-primary-400 transition-all duration-300;
+    }
+    
+    &-arrows {
+      @apply flex items-center ml-auto;
+    }
+    
+    &-arrow {
+      @apply w-8 h-8 flex items-center justify-center text-gray-500 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400 transition-colors duration-200;
+      
+      svg {
+        @apply w-5 h-5;
+      }
+      
+      &--disabled {
+        @apply opacity-50 cursor-not-allowed hover:text-gray-500 dark:hover:text-gray-400;
+      }
+    }
+  }
+  
+  &__content {
+    @apply relative overflow-hidden;
+  }
+  
+  &__panels {
+    @apply flex transition-transform duration-300;
+  }
+  
+  &__panel {
+    @apply w-full flex-shrink-0;
+  }
+}

@@ -1,0 +1,158 @@
+/**
+ * Hero Component Styles
+ *
+ * Styles for hero sections throughout the AquaLuxe theme
+ */
+
+.hero {
+  @apply relative overflow-hidden;
+  
+  // Hero container
+  &__container {
+    @apply container mx-auto px-4 py-16 md:py-24 lg:py-32 relative z-10;
+  }
+  
+  // Hero content
+  &__content {
+    @apply max-w-2xl;
+    
+    &--centered {
+      @apply mx-auto text-center;
+    }
+    
+    &--right {
+      @apply ml-auto text-right;
+    }
+  }
+  
+  // Hero title
+  &__title {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold mb-4 font-display;
+    
+    &--light {
+      @apply text-white;
+    }
+  }
+  
+  // Hero subtitle
+  &__subtitle {
+    @apply text-xl md:text-2xl mb-6 font-light;
+    
+    &--light {
+      @apply text-white/90;
+    }
+  }
+  
+  // Hero description
+  &__description {
+    @apply text-base md:text-lg mb-8;
+    
+    &--light {
+      @apply text-white/80;
+    }
+  }
+  
+  // Hero actions
+  &__actions {
+    @apply flex flex-wrap gap-4;
+    
+    &--centered {
+      @apply justify-center;
+    }
+    
+    &--right {
+      @apply justify-end;
+    }
+  }
+  
+  // Hero background
+  &__background {
+    @apply absolute inset-0 w-full h-full object-cover;
+    
+    &--overlay {
+      @apply after:absolute after:inset-0 after:bg-primary-900/50 after:z-0;
+    }
+    
+    &--gradient {
+      @apply after:absolute after:inset-0 after:bg-gradient-to-r after:from-primary-900/70 after:to-transparent after:z-0;
+    }
+    
+    &--waves {
+      @apply after:absolute after:bottom-0 after:left-0 after:right-0 after:h-24 after:bg-wave-pattern after:bg-repeat-x after:bg-bottom after:z-10;
+    }
+  }
+  
+  // Hero with bubbles animation
+  &--bubbles {
+    @apply before:absolute before:inset-0 before:bg-bubble-pattern before:opacity-20 before:animate-float before:z-0;
+  }
+  
+  // Hero with fish animation
+  &--fish {
+    @apply overflow-hidden;
+    
+    .fish-animation {
+      @apply absolute z-0 opacity-30;
+      
+      &--1 {
+        @apply top-1/4 left-0 animate-swim-slow;
+      }
+      
+      &--2 {
+        @apply top-2/3 right-0 animate-swim-reverse;
+      }
+      
+      &--3 {
+        @apply bottom-1/4 left-1/4 animate-swim-medium;
+      }
+    }
+  }
+  
+  // Hero slider
+  &--slider {
+    @apply h-screen max-h-[800px];
+    
+    .swiper-slide {
+      @apply h-full;
+    }
+    
+    .hero__container {
+      @apply h-full flex items-center;
+    }
+  }
+  
+  // Hero fullscreen
+  &--fullscreen {
+    @apply min-h-screen flex items-center;
+  }
+  
+  // Hero with video background
+  &--video {
+    @apply overflow-hidden;
+    
+    video {
+      @apply absolute inset-0 w-full h-full object-cover;
+    }
+  }
+}
+
+// Responsive adjustments
+@screen md {
+  .hero {
+    &__container {
+      @apply py-24;
+    }
+  }
+}
+
+@screen lg {
+  .hero {
+    &__container {
+      @apply py-32;
+    }
+    
+    &__content {
+      @apply max-w-3xl;
+    }
+  }
+}

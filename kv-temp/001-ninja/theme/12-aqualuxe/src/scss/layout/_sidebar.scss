@@ -1,0 +1,736 @@
+// AquaLuxe Theme Sidebar Styles
+// --------------------------
+
+// Sidebar
+.sidebar {
+  @include respond-to(xs) {
+    margin-top: $spacing-xl;
+  }
+  
+  .widget {
+    margin-bottom: $spacing-xl;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    .widget-title {
+      font-size: $font-size-lg;
+      margin-bottom: $spacing-md;
+      padding-bottom: $spacing-sm;
+      border-bottom: 1px solid $light-gray;
+      position: relative;
+      
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 50px;
+        height: 2px;
+        background-color: $primary-color;
+      }
+    }
+    
+    // Default widget styling
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      
+      li {
+        padding: $spacing-sm 0;
+        border-bottom: 1px solid $light-gray;
+        
+        &:last-child {
+          border-bottom: none;
+        }
+        
+        a {
+          color: $dark-gray;
+          text-decoration: none;
+          transition: $transition-base;
+          
+          &:hover {
+            color: $primary-color;
+          }
+          
+          &:before {
+            content: '\f105';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            margin-right: $spacing-xs;
+            color: $primary-color;
+          }
+        }
+      }
+    }
+    
+    // Search widget
+    &.widget_search {
+      .search-form {
+        position: relative;
+        
+        .search-field {
+          width: 100%;
+          padding: $spacing-sm;
+          padding-right: 50px;
+          border: 1px solid $light-gray;
+          border-radius: $border-radius;
+          
+          &:focus {
+            border-color: $primary-color;
+            outline: none;
+          }
+        }
+        
+        .search-submit {
+          position: absolute;
+          top: 0;
+          right: 0;
+          height: 100%;
+          width: 50px;
+          background-color: $primary-color;
+          border: none;
+          color: $white;
+          border-radius: 0 $border-radius $border-radius 0;
+          cursor: pointer;
+          transition: $transition-base;
+          
+          &:hover {
+            background-color: $primary-dark;
+          }
+        }
+      }
+    }
+    
+    // Recent posts widget
+    &.widget_recent_entries {
+      ul {
+        li {
+          padding: $spacing-md 0;
+          
+          a {
+            display: block;
+            font-weight: $font-weight-medium;
+            margin-bottom: $spacing-xs;
+            
+            &:before {
+              display: none;
+            }
+          }
+          
+          .post-date {
+            display: block;
+            font-size: $font-size-sm;
+            color: $gray;
+          }
+        }
+      }
+    }
+    
+    // Recent comments widget
+    &.widget_recent_comments {
+      ul {
+        li {
+          color: $gray;
+          
+          a {
+            color: $dark-gray;
+            
+            &:before {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    
+    // Archives widget
+    &.widget_archive {
+      ul {
+        li {
+          color: $gray;
+        }
+      }
+    }
+    
+    // Categories widget
+    &.widget_categories {
+      ul {
+        li {
+          color: $gray;
+          
+          ul {
+            margin-left: $spacing-md;
+            margin-top: $spacing-sm;
+            border-top: 1px solid $light-gray;
+          }
+        }
+      }
+    }
+    
+    // Tag cloud widget
+    &.widget_tag_cloud {
+      .tagcloud {
+        display: flex;
+        flex-wrap: wrap;
+        
+        a {
+          display: inline-block;
+          padding: $spacing-xs $spacing-sm;
+          margin: 0 $spacing-xs $spacing-xs 0;
+          font-size: $font-size-sm !important;
+          background-color: $off-white;
+          color: $dark-gray;
+          border-radius: $border-radius-sm;
+          text-decoration: none;
+          transition: $transition-base;
+          
+          &:hover {
+            background-color: $primary-color;
+            color: $white;
+          }
+        }
+      }
+    }
+    
+    // Calendar widget
+    &.widget_calendar {
+      table {
+        width: 100%;
+        
+        caption {
+          text-align: center;
+          margin-bottom: $spacing-sm;
+          font-weight: $font-weight-medium;
+        }
+        
+        th,
+        td {
+          padding: $spacing-xs;
+          text-align: center;
+          border: 1px solid $light-gray;
+        }
+        
+        th {
+          background-color: $off-white;
+          font-weight: $font-weight-medium;
+        }
+        
+        tbody {
+          td {
+            a {
+              display: block;
+              background-color: $primary-color;
+              color: $white;
+              text-decoration: none;
+              
+              &:hover {
+                background-color: $primary-dark;
+              }
+            }
+          }
+        }
+        
+        #prev,
+        #next {
+          padding: $spacing-xs 0;
+          border: none;
+          
+          a {
+            color: $dark-gray;
+            text-decoration: none;
+            
+            &:hover {
+              color: $primary-color;
+            }
+          }
+        }
+        
+        #prev {
+          text-align: left;
+        }
+        
+        #next {
+          text-align: right;
+        }
+      }
+    }
+    
+    // Text widget
+    &.widget_text {
+      .textwidget {
+        p {
+          margin-bottom: $spacing-md;
+          
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+        
+        img {
+          margin: $spacing-md 0;
+        }
+      }
+    }
+    
+    // Custom HTML widget
+    &.widget_custom_html {
+      .custom-html-widget {
+        p {
+          margin-bottom: $spacing-md;
+          
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+    
+    // About widget (custom)
+    &.widget_about {
+      .about-image {
+        margin-bottom: $spacing-md;
+        
+        img {
+          border-radius: $border-radius;
+        }
+      }
+      
+      .about-content {
+        p {
+          margin-bottom: $spacing-md;
+          
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+      
+      .about-signature {
+        margin-top: $spacing-md;
+        max-width: 150px;
+      }
+    }
+    
+    // Social widget (custom)
+    &.widget_social {
+      .social-icons {
+        display: flex;
+        flex-wrap: wrap;
+        
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: $off-white;
+          color: $dark-gray;
+          margin-right: $spacing-sm;
+          margin-bottom: $spacing-sm;
+          transition: $transition-base;
+          
+          &:hover {
+            background-color: $primary-color;
+            color: $white;
+            transform: translateY(-3px);
+          }
+        }
+      }
+    }
+    
+    // Newsletter widget (custom)
+    &.widget_newsletter {
+      .newsletter-form {
+        position: relative;
+        
+        input[type="email"] {
+          width: 100%;
+          padding: $spacing-sm;
+          padding-right: 50px;
+          border: 1px solid $light-gray;
+          border-radius: $border-radius;
+          
+          &:focus {
+            border-color: $primary-color;
+            outline: none;
+          }
+        }
+        
+        button {
+          position: absolute;
+          top: 0;
+          right: 0;
+          height: 100%;
+          width: 50px;
+          background-color: $primary-color;
+          border: none;
+          color: $white;
+          border-radius: 0 $border-radius $border-radius 0;
+          cursor: pointer;
+          transition: $transition-base;
+          
+          &:hover {
+            background-color: $primary-dark;
+          }
+        }
+      }
+      
+      .newsletter-info {
+        margin-top: $spacing-sm;
+        font-size: $font-size-sm;
+        color: $gray;
+      }
+    }
+    
+    // Recent posts with thumbnails (custom)
+    &.widget_recent_posts {
+      .recent-post {
+        display: flex;
+        align-items: center;
+        padding: $spacing-sm 0;
+        border-bottom: 1px solid $light-gray;
+        
+        &:last-child {
+          border-bottom: none;
+        }
+        
+        .recent-post-thumbnail {
+          flex: 0 0 80px;
+          margin-right: $spacing-md;
+          
+          img {
+            border-radius: $border-radius-sm;
+          }
+        }
+        
+        .recent-post-content {
+          flex: 1;
+          
+          h6 {
+            margin: 0 0 $spacing-xs;
+            font-size: $font-size-base;
+            
+            a {
+              color: $dark-gray;
+              text-decoration: none;
+              
+              &:hover {
+                color: $primary-color;
+              }
+            }
+          }
+          
+          .recent-post-date {
+            font-size: $font-size-sm;
+            color: $gray;
+          }
+        }
+      }
+    }
+    
+    // Contact info widget (custom)
+    &.widget_contact_info {
+      .contact-info {
+        li {
+          display: flex;
+          align-items: flex-start;
+          padding: $spacing-sm 0;
+          
+          i {
+            color: $primary-color;
+            margin-right: $spacing-sm;
+            margin-top: 4px;
+          }
+          
+          span {
+            flex: 1;
+          }
+          
+          a {
+            color: $dark-gray;
+            text-decoration: none;
+            
+            &:hover {
+              color: $primary-color;
+            }
+            
+            &:before {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    
+    // Featured species widget (custom)
+    &.widget_featured_species {
+      .featured-species {
+        background-color: $off-white;
+        border-radius: $border-radius;
+        overflow: hidden;
+        
+        .featured-species-image {
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+        
+        .featured-species-content {
+          padding: $spacing-md;
+          
+          h4 {
+            margin: 0 0 $spacing-xs;
+            font-size: $font-size-lg;
+            
+            a {
+              color: $dark-gray;
+              text-decoration: none;
+              
+              &:hover {
+                color: $primary-color;
+              }
+            }
+          }
+          
+          .species-meta {
+            margin-bottom: $spacing-sm;
+            font-size: $font-size-sm;
+            color: $gray;
+            
+            span {
+              display: inline-block;
+              margin-right: $spacing-sm;
+              
+              i {
+                color: $primary-color;
+                margin-right: $spacing-xs;
+              }
+            }
+          }
+          
+          p {
+            margin-bottom: $spacing-md;
+          }
+          
+          .btn {
+            display: inline-block;
+            padding: $spacing-xs $spacing-md;
+            background-color: $primary-color;
+            color: $white;
+            border-radius: $border-radius-sm;
+            text-decoration: none;
+            transition: $transition-base;
+            
+            &:hover {
+              background-color: $primary-dark;
+            }
+          }
+        }
+      }
+    }
+    
+    // WooCommerce widgets
+    &.woocommerce {
+      // Price filter
+      &.widget_price_filter {
+        .price_slider_wrapper {
+          .price_slider {
+            height: 4px;
+            background-color: $light-gray;
+            margin-bottom: $spacing-md;
+            margin-top: $spacing-lg;
+            position: relative;
+            
+            .ui-slider-range {
+              position: absolute;
+              height: 100%;
+              background-color: $primary-color;
+            }
+            
+            .ui-slider-handle {
+              position: absolute;
+              width: 16px;
+              height: 16px;
+              background-color: $primary-color;
+              border-radius: 50%;
+              top: -6px;
+              margin-left: -8px;
+              cursor: pointer;
+              box-shadow: 0 0 0 0 rgba($primary-color, 0.3);
+              transition: box-shadow 0.3s ease;
+              
+              &:hover,
+              &:focus {
+                box-shadow: 0 0 0 5px rgba($primary-color, 0.3);
+              }
+            }
+          }
+          
+          .price_slider_amount {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+            .price_label {
+              font-size: $font-size-sm;
+              color: $gray;
+            }
+            
+            button {
+              background-color: $primary-color;
+              color: $white;
+              border: none;
+              padding: $spacing-xs $spacing-sm;
+              border-radius: $border-radius-sm;
+              cursor: pointer;
+              transition: $transition-base;
+              
+              &:hover {
+                background-color: $primary-dark;
+              }
+            }
+          }
+        }
+      }
+      
+      // Product categories
+      &.widget_product_categories {
+        ul {
+          li {
+            color: $gray;
+            
+            .count {
+              float: right;
+              background-color: $off-white;
+              padding: 0 $spacing-xs;
+              border-radius: $border-radius-sm;
+              font-size: $font-size-sm;
+            }
+            
+            ul {
+              margin-left: $spacing-md;
+              margin-top: $spacing-sm;
+              border-top: 1px solid $light-gray;
+            }
+          }
+        }
+      }
+      
+      // Products
+      &.widget_products,
+      &.widget_top_rated_products,
+      &.widget_recently_viewed_products,
+      &.widget_recent_reviews {
+        ul.product_list_widget {
+          li {
+            display: flex;
+            align-items: center;
+            padding: $spacing-sm 0;
+            
+            a {
+              flex: 1;
+              font-weight: $font-weight-medium;
+              
+              &:before {
+                display: none;
+              }
+              
+              img {
+                float: left;
+                width: 60px;
+                margin-right: $spacing-sm;
+                border-radius: $border-radius-sm;
+              }
+            }
+            
+            .star-rating {
+              margin: $spacing-xs 0;
+            }
+            
+            .amount {
+              color: $primary-color;
+              font-weight: $font-weight-medium;
+            }
+            
+            del {
+              color: $gray;
+              margin-right: $spacing-xs;
+              font-weight: $font-weight-normal;
+            }
+            
+            ins {
+              text-decoration: none;
+            }
+          }
+        }
+      }
+      
+      // Product search
+      &.widget_product_search {
+        form {
+          position: relative;
+          
+          .search-field {
+            width: 100%;
+            padding: $spacing-sm;
+            padding-right: 50px;
+            border: 1px solid $light-gray;
+            border-radius: $border-radius;
+            
+            &:focus {
+              border-color: $primary-color;
+              outline: none;
+            }
+          }
+          
+          button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 50px;
+            background-color: $primary-color;
+            border: none;
+            color: $white;
+            border-radius: 0 $border-radius $border-radius 0;
+            cursor: pointer;
+            transition: $transition-base;
+            
+            &:hover {
+              background-color: $primary-dark;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Sidebar variations
+.sidebar-boxed {
+  .widget {
+    background-color: $white;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow-sm;
+    padding: $spacing-lg;
+  }
+}
+
+.sidebar-bordered {
+  .widget {
+    border: 1px solid $light-gray;
+    border-radius: $border-radius;
+    padding: $spacing-lg;
+  }
+}
+
+// Sticky sidebar
+.sticky-sidebar {
+  position: sticky;
+  top: 30px;
+}

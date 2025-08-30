@@ -1,0 +1,225 @@
+/*
+Theme Name: AquaLuxe
+Theme URI: https://github.com/kasunvimarshana
+Description: Premium WooCommerce Child Theme for Ornamental Fish Business
+Author: Kasun Vimarshana
+Author URI: https://github.com/kasunvimarshana
+Template: storefront
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: aqualuxe
+Tags: e-commerce, woocommerce, responsive, clean, modern, multipurpose
+*/
+
+/*------------------------------------*\
+  #VARIABLES
+\*------------------------------------*/
+
+:root {
+  --aqualuxe-primary: #0073e6;
+  --aqualuxe-secondary: #005a87;
+  --aqualuxe-accent: #00c3ff;
+  --aqualuxe-text: #333333;
+  --aqualuxe-bg: #ffffff;
+  --aqualuxe-border: #e5e5e5;
+  --aqualuxe-success: #4caf50;
+  --aqualuxe-warning: #ff9800;
+  --aqualuxe-error: #f44336;
+}
+
+/*------------------------------------*\
+  #BASE
+\*------------------------------------*/
+
+body {
+  font-family: 'Arial', sans-serif;
+  color: var(--aqualuxe-text);
+  background-color: var(--aqualuxe-bg);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--aqualuxe-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--aqualuxe-secondary);
+  text-decoration: underline;
+}
+
+/*------------------------------------*\
+  #HEADER
+\*------------------------------------*/
+
+.site-header {
+  background-color: var(--aqualuxe-bg);
+  border-bottom: 1px solid var(--aqualuxe-border);
+  padding: 1rem 0;
+}
+
+.custom-logo-link {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.site-title {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.site-description {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+}
+
+/*------------------------------------*\
+  #NAVIGATION
+\*------------------------------------*/
+
+.main-navigation {
+  background-color: var(--aqualuxe-primary);
+}
+
+.main-navigation ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.main-navigation li {
+  position: relative;
+}
+
+.main-navigation a {
+  color: white;
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+}
+
+.main-navigation a:hover {
+  background-color: var(--aqualuxe-secondary);
+}
+
+/*------------------------------------*\
+  #PRODUCTS
+\*------------------------------------*/
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+}
+
+.product-item {
+  border: 1px solid var(--aqualuxe-border);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.product-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.product-content {
+  padding: 1rem;
+}
+
+.product-title {
+  font-size: 1.2rem;
+  margin: 0 0 0.5rem;
+}
+
+.product-price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--aqualuxe-primary);
+  margin: 0 0 0.5rem;
+}
+
+.add_to_cart_button {
+  background-color: var(--aqualuxe-primary);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.add_to_cart_button:hover {
+  background-color: var(--aqualuxe-secondary);
+  text-decoration: none;
+}
+
+/*------------------------------------*\
+  #CART
+\*------------------------------------*/
+
+.cart_totals {
+  background-color: #f9f9f9;
+  padding: 2rem;
+  border-radius: 4px;
+}
+
+/*------------------------------------*\
+  #FOOTER
+\*------------------------------------*/
+
+.site-footer {
+  background-color: var(--aqualuxe-secondary);
+  color: white;
+  padding: 2rem 0;
+}
+
+.site-info {
+  background-color: var(--aqualuxe-primary);
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/*------------------------------------*\
+  #RESPONSIVE
+\*------------------------------------*/
+
+@media (max-width: 768px) {
+  .main-navigation ul {
+    flex-direction: column;
+  }
+  
+  .products {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .site-title {
+    font-size: 1.5rem;
+  }
+  
+  .products {
+    grid-template-columns: 1fr;
+  }
+}

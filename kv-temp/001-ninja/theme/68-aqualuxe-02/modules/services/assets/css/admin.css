@@ -1,0 +1,246 @@
+/**
+ * AquaLuxe Services Module Admin Styles
+ */
+
+/* Meta Box Styles */
+.aqualuxe-meta-box-row {
+    margin-bottom: 15px;
+}
+
+.aqualuxe-meta-box-row label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.aqualuxe-meta-box-row input[type="text"],
+.aqualuxe-meta-box-row input[type="number"],
+.aqualuxe-meta-box-row input[type="email"],
+.aqualuxe-meta-box-row input[type="tel"],
+.aqualuxe-meta-box-row input[type="date"],
+.aqualuxe-meta-box-row input[type="time"],
+.aqualuxe-meta-box-row select,
+.aqualuxe-meta-box-row textarea {
+    width: 100%;
+}
+
+.aqualuxe-meta-box-row .description {
+    margin-top: 5px;
+    color: #666;
+    font-style: italic;
+}
+
+/* Service Package Services */
+.aqualuxe-service-package-services {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.aqualuxe-service-package-services label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: normal;
+}
+
+/* Admin Columns */
+.column-price,
+.column-duration,
+.column-location,
+.column-bookable {
+    width: 15%;
+}
+
+.column-services {
+    width: 25%;
+}
+
+.sale-price {
+    color: #d54e21;
+    font-weight: 600;
+}
+
+/* Dashboard Widget */
+.aqualuxe-dashboard-widget {
+    padding: 0 12px;
+}
+
+.aqualuxe-dashboard-counts {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.aqualuxe-dashboard-count {
+    text-align: center;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 3px;
+    width: 30%;
+}
+
+.aqualuxe-dashboard-count .count {
+    display: block;
+    font-size: 24px;
+    font-weight: 600;
+    color: #0073aa;
+}
+
+.aqualuxe-dashboard-count .label {
+    display: block;
+    margin-top: 5px;
+    color: #666;
+}
+
+.aqualuxe-dashboard-categories {
+    margin-bottom: 20px;
+}
+
+.aqualuxe-dashboard-categories h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.aqualuxe-dashboard-categories ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.aqualuxe-dashboard-categories li {
+    margin-bottom: 5px;
+}
+
+.aqualuxe-dashboard-categories a {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.aqualuxe-dashboard-categories .count {
+    color: #999;
+}
+
+.aqualuxe-dashboard-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* Settings Page */
+.aqualuxe-settings-section {
+    margin-bottom: 30px;
+}
+
+.aqualuxe-settings-section h2 {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.aqualuxe-settings-field {
+    margin-bottom: 15px;
+}
+
+.aqualuxe-settings-field label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.aqualuxe-settings-field .description {
+    margin-top: 5px;
+    color: #666;
+    font-style: italic;
+}
+
+/* Service Features */
+.aqualuxe-service-features-editor {
+    margin-top: 10px;
+}
+
+.aqualuxe-service-features-editor .feature-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.aqualuxe-service-features-editor .feature-item input {
+    flex-grow: 1;
+    margin-right: 8px;
+}
+
+.aqualuxe-service-features-editor .feature-item button {
+    flex-shrink: 0;
+}
+
+.aqualuxe-service-features-editor .add-feature {
+    margin-top: 10px;
+}
+
+/* Admin Notices */
+.aqualuxe-service-notice {
+    padding: 10px;
+    margin: 15px 0;
+    border-left: 4px solid #0073aa;
+    background-color: #f9f9f9;
+}
+
+.aqualuxe-service-notice.notice-info {
+    border-left-color: #00a0d2;
+}
+
+.aqualuxe-service-notice.notice-success {
+    border-left-color: #46b450;
+}
+
+.aqualuxe-service-notice.notice-warning {
+    border-left-color: #ffb900;
+}
+
+.aqualuxe-service-notice.notice-error {
+    border-left-color: #dc3232;
+}
+
+/* WooCommerce Integration */
+.aqualuxe-woocommerce-integration {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin-top: 15px;
+}
+
+.aqualuxe-woocommerce-integration h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.aqualuxe-woocommerce-integration .button {
+    margin-top: 10px;
+}
+
+/* Responsive Admin */
+@media screen and (max-width: 782px) {
+    .aqualuxe-dashboard-counts {
+        flex-direction: column;
+    }
+    
+    .aqualuxe-dashboard-count {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .aqualuxe-dashboard-actions {
+        flex-direction: column;
+    }
+    
+    .aqualuxe-dashboard-actions .button {
+        margin-bottom: 10px;
+    }
+}

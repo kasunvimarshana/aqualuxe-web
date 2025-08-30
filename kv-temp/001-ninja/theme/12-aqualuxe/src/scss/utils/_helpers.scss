@@ -1,0 +1,535 @@
+// AquaLuxe Theme Helper Classes
+// ----------------------------
+
+// Display utilities
+.d-none {
+  display: none !important;
+}
+
+.d-inline {
+  display: inline !important;
+}
+
+.d-inline-block {
+  display: inline-block !important;
+}
+
+.d-block {
+  display: block !important;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.d-inline-flex {
+  display: inline-flex !important;
+}
+
+.d-grid {
+  display: grid !important;
+}
+
+// Flex utilities
+.flex-row {
+  flex-direction: row !important;
+}
+
+.flex-column {
+  flex-direction: column !important;
+}
+
+.flex-wrap {
+  flex-wrap: wrap !important;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap !important;
+}
+
+.justify-content-start {
+  justify-content: flex-start !important;
+}
+
+.justify-content-end {
+  justify-content: flex-end !important;
+}
+
+.justify-content-center {
+  justify-content: center !important;
+}
+
+.justify-content-between {
+  justify-content: space-between !important;
+}
+
+.justify-content-around {
+  justify-content: space-around !important;
+}
+
+.align-items-start {
+  align-items: flex-start !important;
+}
+
+.align-items-end {
+  align-items: flex-end !important;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+.align-items-baseline {
+  align-items: baseline !important;
+}
+
+.align-items-stretch {
+  align-items: stretch !important;
+}
+
+// Text utilities
+.text-left {
+  text-align: left !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-justify {
+  text-align: justify !important;
+}
+
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+
+.text-lowercase {
+  text-transform: lowercase !important;
+}
+
+.text-capitalize {
+  text-transform: capitalize !important;
+}
+
+.font-weight-light {
+  font-weight: $font-weight-light !important;
+}
+
+.font-weight-normal {
+  font-weight: $font-weight-normal !important;
+}
+
+.font-weight-medium {
+  font-weight: $font-weight-medium !important;
+}
+
+.font-weight-semibold {
+  font-weight: $font-weight-semibold !important;
+}
+
+.font-weight-bold {
+  font-weight: $font-weight-bold !important;
+}
+
+// Text colors
+.text-primary {
+  color: $primary-color !important;
+}
+
+.text-secondary {
+  color: $secondary-color !important;
+}
+
+.text-white {
+  color: $white !important;
+}
+
+.text-black {
+  color: $black !important;
+}
+
+.text-gray {
+  color: $gray !important;
+}
+
+.text-success {
+  color: $success-color !important;
+}
+
+.text-warning {
+  color: $warning-color !important;
+}
+
+.text-error {
+  color: $error-color !important;
+}
+
+.text-info {
+  color: $info-color !important;
+}
+
+// Background colors
+.bg-primary {
+  background-color: $primary-color !important;
+}
+
+.bg-secondary {
+  background-color: $secondary-color !important;
+}
+
+.bg-white {
+  background-color: $white !important;
+}
+
+.bg-light {
+  background-color: $light-gray !important;
+}
+
+.bg-dark {
+  background-color: $dark-gray !important;
+}
+
+.bg-black {
+  background-color: $black !important;
+}
+
+// Spacing utilities
+@each $size, $length in (
+  "0": 0,
+  "xs": $spacing-xs,
+  "sm": $spacing-sm,
+  "md": $spacing-md,
+  "lg": $spacing-lg,
+  "xl": $spacing-xl,
+  "xxl": $spacing-xxl
+) {
+  // Margin
+  .m-#{$size} {
+    margin: $length !important;
+  }
+  
+  .mt-#{$size} {
+    margin-top: $length !important;
+  }
+  
+  .mr-#{$size} {
+    margin-right: $length !important;
+  }
+  
+  .mb-#{$size} {
+    margin-bottom: $length !important;
+  }
+  
+  .ml-#{$size} {
+    margin-left: $length !important;
+  }
+  
+  .mx-#{$size} {
+    margin-right: $length !important;
+    margin-left: $length !important;
+  }
+  
+  .my-#{$size} {
+    margin-top: $length !important;
+    margin-bottom: $length !important;
+  }
+  
+  // Padding
+  .p-#{$size} {
+    padding: $length !important;
+  }
+  
+  .pt-#{$size} {
+    padding-top: $length !important;
+  }
+  
+  .pr-#{$size} {
+    padding-right: $length !important;
+  }
+  
+  .pb-#{$size} {
+    padding-bottom: $length !important;
+  }
+  
+  .pl-#{$size} {
+    padding-left: $length !important;
+  }
+  
+  .px-#{$size} {
+    padding-right: $length !important;
+    padding-left: $length !important;
+  }
+  
+  .py-#{$size} {
+    padding-top: $length !important;
+    padding-bottom: $length !important;
+  }
+}
+
+// Auto margins
+.m-auto {
+  margin: auto !important;
+}
+
+.mt-auto {
+  margin-top: auto !important;
+}
+
+.mr-auto {
+  margin-right: auto !important;
+}
+
+.mb-auto {
+  margin-bottom: auto !important;
+}
+
+.ml-auto {
+  margin-left: auto !important;
+}
+
+.mx-auto {
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+.my-auto {
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+}
+
+// Width and height utilities
+.w-100 {
+  width: 100% !important;
+}
+
+.w-75 {
+  width: 75% !important;
+}
+
+.w-50 {
+  width: 50% !important;
+}
+
+.w-25 {
+  width: 25% !important;
+}
+
+.w-auto {
+  width: auto !important;
+}
+
+.h-100 {
+  height: 100% !important;
+}
+
+.h-75 {
+  height: 75% !important;
+}
+
+.h-50 {
+  height: 50% !important;
+}
+
+.h-25 {
+  height: 25% !important;
+}
+
+.h-auto {
+  height: auto !important;
+}
+
+// Border utilities
+.border {
+  border: $border-width solid $border-color !important;
+}
+
+.border-top {
+  border-top: $border-width solid $border-color !important;
+}
+
+.border-right {
+  border-right: $border-width solid $border-color !important;
+}
+
+.border-bottom {
+  border-bottom: $border-width solid $border-color !important;
+}
+
+.border-left {
+  border-left: $border-width solid $border-color !important;
+}
+
+.border-0 {
+  border: 0 !important;
+}
+
+.border-top-0 {
+  border-top: 0 !important;
+}
+
+.border-right-0 {
+  border-right: 0 !important;
+}
+
+.border-bottom-0 {
+  border-bottom: 0 !important;
+}
+
+.border-left-0 {
+  border-left: 0 !important;
+}
+
+.border-primary {
+  border-color: $primary-color !important;
+}
+
+.border-secondary {
+  border-color: $secondary-color !important;
+}
+
+.border-white {
+  border-color: $white !important;
+}
+
+.border-light {
+  border-color: $light-gray !important;
+}
+
+.border-dark {
+  border-color: $dark-gray !important;
+}
+
+// Border radius
+.rounded {
+  border-radius: $border-radius !important;
+}
+
+.rounded-top {
+  border-top-left-radius: $border-radius !important;
+  border-top-right-radius: $border-radius !important;
+}
+
+.rounded-right {
+  border-top-right-radius: $border-radius !important;
+  border-bottom-right-radius: $border-radius !important;
+}
+
+.rounded-bottom {
+  border-bottom-right-radius: $border-radius !important;
+  border-bottom-left-radius: $border-radius !important;
+}
+
+.rounded-left {
+  border-top-left-radius: $border-radius !important;
+  border-bottom-left-radius: $border-radius !important;
+}
+
+.rounded-circle {
+  border-radius: 50% !important;
+}
+
+.rounded-0 {
+  border-radius: 0 !important;
+}
+
+// Visibility
+.visible {
+  visibility: visible !important;
+}
+
+.invisible {
+  visibility: hidden !important;
+}
+
+// Screen reader only (accessibility)
+.sr-only {
+  @include visually-hidden;
+}
+
+.sr-only-focusable {
+  @include visually-hidden;
+  
+  &:active,
+  &:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+}
+
+// Clearfix
+.clearfix {
+  @include clearfix;
+}
+
+// Overflow
+.overflow-auto {
+  overflow: auto !important;
+}
+
+.overflow-hidden {
+  overflow: hidden !important;
+}
+
+// Position
+.position-static {
+  position: static !important;
+}
+
+.position-relative {
+  position: relative !important;
+}
+
+.position-absolute {
+  position: absolute !important;
+}
+
+.position-fixed {
+  position: fixed !important;
+}
+
+.position-sticky {
+  position: sticky !important;
+}
+
+// Fixed positions
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: z-index("fixed");
+}
+
+.fixed-bottom {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: z-index("fixed");
+}
+
+// Shadow
+.shadow-sm {
+  box-shadow: $box-shadow-sm !important;
+}
+
+.shadow {
+  box-shadow: $box-shadow !important;
+}
+
+.shadow-lg {
+  box-shadow: $box-shadow-lg !important;
+}
+
+.shadow-none {
+  box-shadow: none !important;
+}

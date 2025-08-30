@@ -1,0 +1,135 @@
+/**
+ * AquaLuxe Theme WooCommerce Stylesheet
+ * 
+ * This stylesheet contains all WooCommerce-specific styles.
+ * It will only be loaded if WooCommerce is active.
+ */
+
+// Base WooCommerce styles
+@import 'base/variables';
+@import 'base/mixins';
+
+// WooCommerce layout components
+@import 'layouts/shop';
+@import 'layouts/product';
+@import 'layouts/cart';
+@import 'layouts/checkout';
+@import 'layouts/account';
+
+// WooCommerce components
+@import 'components/product-card';
+@import 'components/product-gallery';
+@import 'components/product-tabs';
+@import 'components/cart-widget';
+@import 'components/mini-cart';
+@import 'components/checkout-form';
+@import 'components/order-details';
+@import 'components/filters';
+@import 'components/quick-view';
+@import 'components/wishlist';
+
+// WooCommerce modules
+@import 'modules/wholesale';
+@import 'modules/auctions';
+@import 'modules/bookings';
+@import 'modules/subscriptions';
+@import 'modules/trade-ins';
+@import 'modules/multicurrency';
+
+/**
+ * WooCommerce specific overrides
+ */
+
+// Shop page
+.woocommerce-products-header {
+  margin-bottom: 2rem;
+}
+
+.woocommerce-result-count,
+.woocommerce-ordering {
+  margin-bottom: 2rem;
+}
+
+// Product cards
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  
+  .product {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+// Single product
+.single-product {
+  div.product {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  .woocommerce-product-gallery {
+    position: relative;
+  }
+  
+  .entry-summary {
+    .price {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .cart {
+      margin-top: 2rem;
+    }
+  }
+}
+
+// Cart
+.woocommerce-cart {
+  .cart-collaterals {
+    margin-top: 2rem;
+  }
+}
+
+// Checkout
+.woocommerce-checkout {
+  form.checkout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+// Account
+.woocommerce-account {
+  .woocommerce-MyAccount-navigation {
+    margin-bottom: 2rem;
+    
+    @media (min-width: 768px) {
+      float: left;
+      width: 30%;
+      margin-right: 5%;
+    }
+  }
+  
+  .woocommerce-MyAccount-content {
+    @media (min-width: 768px) {
+      float: right;
+      width: 65%;
+    }
+  }
+}

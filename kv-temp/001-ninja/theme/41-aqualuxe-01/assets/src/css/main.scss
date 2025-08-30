@@ -1,0 +1,74 @@
+/**
+ * AquaLuxe Theme Main Stylesheet
+ *
+ * This is the main SCSS file that imports all other SCSS files.
+ * It is compiled to CSS using webpack.mix.js.
+ */
+
+/* Tailwind CSS */
+@import 'tailwind/base';
+@import 'tailwind/components';
+@import 'tailwind/utilities';
+
+/* Variables */
+@import 'variables/colors';
+@import 'variables/typography';
+@import 'variables/spacing';
+@import 'variables/breakpoints';
+
+/* Base Styles */
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/forms';
+@import 'base/buttons';
+@import 'base/accessibility';
+
+/* Layout */
+@import 'layout/grid';
+@import 'layout/header';
+@import 'layout/navigation';
+@import 'layout/sidebar';
+@import 'layout/footer';
+@import 'layout/container';
+
+/* Components */
+@import 'components/hero';
+@import 'components/cards';
+@import 'components/modals';
+@import 'components/tabs';
+@import 'components/accordion';
+@import 'components/carousel';
+@import 'components/pagination';
+@import 'components/breadcrumbs';
+@import 'components/alerts';
+@import 'components/badges';
+@import 'components/testimonials';
+@import 'components/team';
+@import 'components/cta';
+
+/* Pages */
+@import 'pages/home';
+@import 'pages/about';
+@import 'pages/services';
+@import 'pages/contact';
+@import 'pages/blog';
+@import 'pages/single';
+@import 'pages/archive';
+@import 'pages/404';
+
+/* WooCommerce */
+@import 'woocommerce/shop';
+@import 'woocommerce/product';
+@import 'woocommerce/cart';
+@import 'woocommerce/checkout';
+@import 'woocommerce/account';
+@import 'woocommerce/widgets';
+
+/* Utilities */
+@import 'utilities/dark-mode';
+@import 'utilities/animations';
+@import 'utilities/helpers';
+
+/* Vendor Overrides */
+@import 'vendor/swiper';
+@import 'vendor/alpine';

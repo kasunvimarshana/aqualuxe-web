@@ -1,0 +1,45 @@
+// Portfolio module styles
+.portfolio-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  img {
+    cursor: pointer;
+    border-radius: 8px;
+    transition: box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    &:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.16);
+    }
+  }
+}
+.portfolio-lightbox-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .portfolio-lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.32);
+  }
+}
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+.portfolio-item {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+  &:hover {
+    box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+  }
+}

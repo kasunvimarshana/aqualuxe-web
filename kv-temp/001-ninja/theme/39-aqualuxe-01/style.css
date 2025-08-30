@@ -1,0 +1,18 @@
+<?php
+/*
+Theme Name: AquaLuxe
+Description: Premium WordPress WooCommerce theme for luxury aquatic retail. Features dual-state architecture, multivendor support, and elegant aquatic design.
+Version: 1.0.0
+Author: AquaLuxe Team
+Text Domain: aqualuxe
+Domain Path: /languages
+Requires at least: 6.0
+Tested up to: 6.4
+Requires PHP: 8.0
+License: GPL v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Tags: e-commerce, woocommerce, responsive, custom-header, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, accessibility-ready
+*/
+
+/* Theme styles are compiled via webpack and enqueued properly in functions.php */
+/* This file serves as the theme header for WordPress recognition */

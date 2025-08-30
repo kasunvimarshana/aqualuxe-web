@@ -1,0 +1,405 @@
+/**
+ * Button component styles
+ */
+
+/* Base button styles */
+.button,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.wp-block-button__link {
+  @apply inline-flex items-center justify-center px-6 py-3 rounded-md font-medium text-center transition-all duration-200 cursor-pointer;
+  
+  /* Default button style */
+  @apply bg-primary text-white border border-transparent;
+  
+  &:hover, &:focus {
+    @apply bg-primary-dark text-white outline-none;
+  }
+  
+  &:focus {
+    @apply ring-2 ring-primary ring-opacity-50;
+  }
+  
+  &:active {
+    @apply transform scale-95;
+  }
+  
+  &:disabled, &.disabled {
+    @apply opacity-50 cursor-not-allowed;
+    
+    &:hover {
+      @apply bg-primary text-white;
+    }
+  }
+}
+
+/* Button sizes */
+.button {
+  &.button-sm {
+    @apply px-4 py-2 text-sm;
+  }
+  
+  &.button-lg {
+    @apply px-8 py-4 text-lg;
+  }
+  
+  &.button-xl {
+    @apply px-10 py-5 text-xl;
+  }
+}
+
+/* Button variants */
+.button {
+  &.button-secondary {
+    @apply bg-secondary text-white;
+    
+    &:hover, &:focus {
+      @apply bg-secondary-dark;
+    }
+    
+    &:focus {
+      @apply ring-secondary;
+    }
+  }
+  
+  &.button-accent {
+    @apply bg-accent text-white;
+    
+    &:hover, &:focus {
+      @apply bg-accent-dark;
+    }
+    
+    &:focus {
+      @apply ring-accent;
+    }
+  }
+  
+  &.button-outline {
+    @apply bg-transparent text-primary border-primary;
+    
+    &:hover, &:focus {
+      @apply bg-primary text-white;
+    }
+  }
+  
+  &.button-outline-secondary {
+    @apply bg-transparent text-secondary border-secondary;
+    
+    &:hover, &:focus {
+      @apply bg-secondary text-white;
+    }
+  }
+  
+  &.button-outline-accent {
+    @apply bg-transparent text-accent border-accent;
+    
+    &:hover, &:focus {
+      @apply bg-accent text-white;
+    }
+  }
+  
+  &.button-text {
+    @apply bg-transparent text-primary border-transparent p-0;
+    
+    &:hover, &:focus {
+      @apply bg-transparent text-primary-dark;
+    }
+    
+    &:active {
+      @apply transform-none;
+    }
+  }
+  
+  &.button-light {
+    @apply bg-gray-100 text-gray-800;
+    
+    &:hover, &:focus {
+      @apply bg-gray-200;
+    }
+  }
+  
+  &.button-dark {
+    @apply bg-gray-800 text-white;
+    
+    &:hover, &:focus {
+      @apply bg-gray-900;
+    }
+  }
+}
+
+/* Button with icon */
+.button-icon {
+  @apply inline-flex items-center;
+  
+  .icon {
+    @apply w-5 h-5;
+  }
+  
+  &.icon-left {
+    .icon {
+      @apply mr-2;
+    }
+  }
+  
+  &.icon-right {
+    .icon {
+      @apply ml-2;
+    }
+  }
+}
+
+/* Button group */
+.button-group {
+  @apply inline-flex;
+  
+  .button {
+    @apply rounded-none;
+    
+    &:first-child {
+      @apply rounded-l-md;
+    }
+    
+    &:last-child {
+      @apply rounded-r-md;
+    }
+    
+    &:not(:first-child) {
+      @apply -ml-px;
+    }
+  }
+}
+
+/* Full width button */
+.button-block {
+  @apply w-full;
+}
+
+/* Rounded button */
+.button-rounded {
+  @apply rounded-full;
+}
+
+/* WooCommerce buttons */
+.woocommerce {
+  #respond input#submit,
+  a.button,
+  button.button,
+  input.button {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-md font-medium text-center transition-all duration-200 cursor-pointer;
+    @apply bg-primary text-white border border-transparent;
+    
+    &:hover, &:focus {
+      @apply bg-primary-dark text-white outline-none;
+    }
+    
+    &:focus {
+      @apply ring-2 ring-primary ring-opacity-50;
+    }
+    
+    &:active {
+      @apply transform scale-95;
+    }
+    
+    &:disabled, &.disabled {
+      @apply opacity-50 cursor-not-allowed;
+      
+      &:hover {
+        @apply bg-primary text-white;
+      }
+    }
+    
+    &.alt {
+      @apply bg-accent;
+      
+      &:hover, &:focus {
+        @apply bg-accent-dark;
+      }
+      
+      &:focus {
+        @apply ring-accent;
+      }
+    }
+    
+    &.loading {
+      @apply opacity-75;
+      
+      &:after {
+        content: "";
+        @apply block w-4 h-4 ml-2 border-2 border-white border-t-transparent rounded-full animate-spin;
+      }
+    }
+    
+    &.added {
+      @apply bg-green-600;
+      
+      &:after {
+        content: "✓";
+        @apply ml-2;
+      }
+    }
+  }
+  
+  #respond input#submit.loading,
+  a.button.loading,
+  button.button.loading,
+  input.button.loading {
+    @apply opacity-75 relative pr-8;
+    
+    &:after {
+      content: "";
+      @apply block w-4 h-4 absolute right-2 top-1/2 -mt-2 border-2 border-white border-t-transparent rounded-full animate-spin;
+    }
+  }
+  
+  #respond input#submit.added,
+  a.button.added,
+  button.button.added,
+  input.button.added {
+    &:after {
+      content: "✓";
+      @apply ml-2;
+    }
+  }
+  
+  .woocommerce-form-login__submit,
+  .woocommerce-form-register__submit,
+  .checkout-button,
+  #place_order {
+    @apply w-full;
+  }
+}
+
+/* Add to cart button */
+.add_to_cart_button {
+  &.product_type_simple {
+    @apply relative;
+    
+    &.loading {
+      @apply opacity-75;
+      
+      &:after {
+        content: "";
+        @apply block w-4 h-4 ml-2 border-2 border-white border-t-transparent rounded-full animate-spin;
+      }
+    }
+    
+    &.added {
+      @apply bg-green-600;
+      
+      &:after {
+        content: "✓";
+        @apply ml-2;
+      }
+    }
+  }
+}
+
+/* Quick view button */
+.quick-view-button {
+  @apply bg-gray-800 text-white;
+  
+  &:hover, &:focus {
+    @apply bg-gray-900;
+  }
+}
+
+/* Wishlist button */
+.wishlist-button {
+  @apply bg-gray-100 text-gray-800;
+  
+  &:hover, &:focus {
+    @apply bg-gray-200;
+  }
+  
+  &.in-wishlist {
+    @apply bg-red-500 text-white;
+    
+    &:hover, &:focus {
+      @apply bg-red-600;
+    }
+  }
+}
+
+/* Compare button */
+.compare-button {
+  @apply bg-gray-100 text-gray-800;
+  
+  &:hover, &:focus {
+    @apply bg-gray-200;
+  }
+  
+  &.in-compare {
+    @apply bg-blue-500 text-white;
+    
+    &:hover, &:focus {
+      @apply bg-blue-600;
+    }
+  }
+}
+
+/* Quantity buttons */
+.quantity {
+  @apply relative inline-flex items-center;
+  
+  .qty {
+    @apply w-16 text-center;
+  }
+  
+  .minus,
+  .plus {
+    @apply absolute w-6 h-6 flex items-center justify-center bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 border border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200;
+  }
+  
+  .minus {
+    @apply left-0 rounded-l-md;
+  }
+  
+  .plus {
+    @apply right-0 rounded-r-md;
+  }
+}
+
+/* Dark mode adjustments */
+.dark {
+  .button,
+  button,
+  input[type="button"],
+  input[type="reset"],
+  input[type="submit"],
+  .wp-block-button__link {
+    &.button-light {
+      @apply bg-gray-700 text-white;
+      
+      &:hover, &:focus {
+        @apply bg-gray-600;
+      }
+    }
+    
+    &.button-dark {
+      @apply bg-gray-900 text-white;
+      
+      &:hover, &:focus {
+        @apply bg-gray-800;
+      }
+    }
+  }
+  
+  .quick-view-button {
+    @apply bg-gray-700;
+    
+    &:hover, &:focus {
+      @apply bg-gray-600;
+    }
+  }
+  
+  .wishlist-button,
+  .compare-button {
+    @apply bg-gray-700 text-white;
+    
+    &:hover, &:focus {
+      @apply bg-gray-600;
+    }
+  }
+}

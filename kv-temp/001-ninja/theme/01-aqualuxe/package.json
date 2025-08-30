@@ -1,0 +1,42 @@
+{
+  "name": "aqualuxe",
+  "version": "1.0.0",
+  "description": "Premium WordPress theme for ornamental fish farming business",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run development",
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "prod": "npm run production",
+    "production": "mix --production"
+  },
+  "keywords": [
+    "wordpress",
+    "theme",
+    "woocommerce",
+    "aquarium",
+    "fish"
+  ],
+  "author": "NinjaTech AI",
+  "license": "GPL-2.0-or-later",
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
+    "autoprefixer": "^10.4.16",
+    "browser-sync": "^2.29.3",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "cross-env": "^7.0.3",
+    "laravel-mix": "^6.0.49",
+    "postcss": "^8.4.32",
+    "postcss-import": "^15.1.0",
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.69.5",
+    "sass-loader": "^13.3.2",
+    "tailwindcss": "^3.3.6"
+  },
+  "dependencies": {
+    "alpinejs": "^3.13.3"
+  }
+}

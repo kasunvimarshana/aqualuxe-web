@@ -1,0 +1,456 @@
+/**
+ * AquaLuxe Sidebar Styles
+ *
+ * This file contains sidebar styles for the theme.
+ *
+ * @package AquaLuxe
+ * @since 1.0.0
+ */
+
+/* Sidebar */
+.widget-area {
+  padding-left: 0;
+  
+  @include respond-to(md) {
+    padding-left: 2rem;
+  }
+}
+
+/* Sidebar Position */
+.sidebar-position-left {
+  .site-content-inner {
+    flex-direction: row-reverse;
+  }
+  
+  .widget-area {
+    padding-left: 0;
+    padding-right: 0;
+    
+    @include respond-to(md) {
+      padding-left: 0;
+      padding-right: 2rem;
+    }
+  }
+}
+
+.sidebar-position-none {
+  .widget-area {
+    display: none;
+  }
+}
+
+/* Site Content Layout */
+.site-content-inner {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.site-main {
+  flex: 1 0 100%;
+  
+  @include respond-to(md) {
+    flex: 1 0 calc(100% - 300px);
+  }
+}
+
+.widget-area {
+  flex: 1 0 100%;
+  
+  @include respond-to(md) {
+    flex: 0 0 300px;
+  }
+}
+
+/* Widget */
+.widget {
+  margin-bottom: 2rem;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.widget-title {
+  font-size: var(--font-size-lg);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--color-border);
+}
+
+/* Widget Lists */
+.widget {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+    li {
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--color-border-light);
+      
+      &:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+    }
+    
+    ul {
+      margin-top: 0.75rem;
+      padding-left: 1rem;
+      
+      li {
+        margin-bottom: 0.5rem;
+        padding-bottom: 0.5rem;
+        
+        &:last-child {
+          padding-bottom: 0;
+        }
+      }
+    }
+    
+    a {
+      color: var(--color-text);
+      text-decoration: none;
+      transition: color var(--transition-normal);
+      
+      &:hover, &:focus {
+        color: var(--color-primary);
+      }
+    }
+  }
+}
+
+/* Widget Search */
+.widget_search {
+  .search-form {
+    position: relative;
+  }
+  
+  .search-field {
+    width: 100%;
+    padding-right: 3rem;
+  }
+  
+  .search-submit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0;
+    width: 3rem;
+    background-color: transparent;
+    color: var(--color-text);
+    
+    &:hover, &:focus {
+      color: var(--color-primary);
+      background-color: transparent;
+      box-shadow: none;
+    }
+    
+    svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+}
+
+/* Widget Recent Posts */
+.widget_recent_entries {
+  li {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .post-date {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+    margin-top: 0.25rem;
+  }
+}
+
+/* Widget Recent Comments */
+.widget_recent_comments {
+  .recentcomments {
+    color: var(--color-text-light);
+    
+    a {
+      color: var(--color-text);
+      
+      &:hover, &:focus {
+        color: var(--color-primary);
+      }
+    }
+  }
+}
+
+/* Widget Archives & Categories */
+.widget_archive,
+.widget_categories {
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .count {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+    background-color: var(--color-background-light);
+    border-radius: var(--border-radius-full);
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+/* Widget Tag Cloud */
+.widget_tag_cloud {
+  .tagcloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    
+    a {
+      display: inline-block;
+      font-size: var(--font-size-sm) !important;
+      color: var(--color-text);
+      background-color: var(--color-background-light);
+      border-radius: var(--border-radius-md);
+      padding: 0.25rem 0.75rem;
+      text-decoration: none;
+      transition: all var(--transition-normal);
+      
+      &:hover, &:focus {
+        color: white;
+        background-color: var(--color-primary);
+      }
+    }
+  }
+}
+
+/* Widget Calendar */
+.widget_calendar {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  caption {
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  
+  th, td {
+    text-align: center;
+    padding: 0.25rem;
+  }
+  
+  #today {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    background-color: var(--color-background-light);
+  }
+  
+  #prev, #next {
+    padding-top: 0.5rem;
+  }
+  
+  #prev {
+    text-align: left;
+  }
+  
+  #next {
+    text-align: right;
+  }
+}
+
+/* Widget Text */
+.widget_text {
+  .textwidget {
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* Widget Media */
+.widget_media_image {
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Widget Custom Menu */
+.widget_nav_menu {
+  .menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+    .menu-item {
+      margin-bottom: 0.5rem;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    
+    .sub-menu {
+      margin-top: 0.5rem;
+      padding-left: 1rem;
+    }
+  }
+}
+
+/* Widget RSS */
+.widget_rss {
+  .widget-title {
+    .rsswidget {
+      display: inline-block;
+      
+      &:first-child {
+        display: none;
+      }
+      
+      img {
+        display: none;
+      }
+    }
+  }
+  
+  ul {
+    li {
+      margin-bottom: 1.5rem;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+  .rsswidget {
+    font-weight: var(--font-weight-bold);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+  
+  .rss-date {
+    display: block;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+    margin-bottom: 0.5rem;
+  }
+  
+  .rssSummary {
+    margin-bottom: 0.5rem;
+  }
+  
+  cite {
+    display: block;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+    font-style: italic;
+  }
+}
+
+/* WooCommerce Widgets */
+.woocommerce-widget-layered-nav,
+.widget_rating_filter,
+.widget_price_filter,
+.widget_product_categories,
+.widget_recently_viewed_products,
+.widget_recent_reviews,
+.widget_top_rated_products,
+.widget_products {
+  ul {
+    li {
+      a {
+        display: flex;
+        align-items: center;
+        
+        &::before {
+          content: '';
+          display: inline-block;
+          width: 0.5rem;
+          height: 0.5rem;
+          border: 1px solid var(--color-border);
+          margin-right: 0.5rem;
+          transition: all var(--transition-normal);
+        }
+        
+        &:hover::before, &:focus::before {
+          border-color: var(--color-primary);
+          background-color: var(--color-primary);
+        }
+      }
+      
+      &.chosen a::before {
+        background-color: var(--color-primary);
+        border-color: var(--color-primary);
+      }
+    }
+  }
+}
+
+/* Dark Mode */
+@include dark-mode {
+  .widget-title {
+    border-bottom-color: var(--color-border-dark);
+  }
+  
+  .widget ul li {
+    border-bottom-color: var(--color-border-dark);
+  }
+  
+  .widget ul a {
+    color: var(--color-dark-text);
+    
+    &:hover, &:focus {
+      color: var(--color-primary-light);
+    }
+  }
+  
+  .widget_search .search-submit {
+    color: var(--color-dark-text);
+    
+    &:hover, &:focus {
+      color: var(--color-primary-light);
+    }
+  }
+  
+  .widget_recent_entries .post-date,
+  .widget_recent_comments .recentcomments,
+  .widget_archive .count,
+  .widget_categories .count,
+  .widget_rss .rss-date,
+  .widget_rss cite {
+    color: rgba(var(--color-dark-text-rgb), 0.7);
+  }
+  
+  .widget_recent_comments .recentcomments a {
+    color: var(--color-dark-text);
+    
+    &:hover, &:focus {
+      color: var(--color-primary-light);
+    }
+  }
+  
+  .widget_tag_cloud .tagcloud a {
+    color: var(--color-dark-text);
+    background-color: var(--color-dark-background-light);
+    
+    &:hover, &:focus {
+      color: var(--color-dark-background);
+      background-color: var(--color-primary-light);
+    }
+  }
+  
+  .widget_calendar #today {
+    color: var(--color-primary-light);
+    background-color: var(--color-dark-background-light);
+  }
+}

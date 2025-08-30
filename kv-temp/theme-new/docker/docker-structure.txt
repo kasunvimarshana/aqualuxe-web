@@ -1,0 +1,16 @@
+docker/
+├── docker-compose.yml
+├── .env
+├── .env.example
+├── nginx/
+│   └── default.conf
+├── php/
+│   ├── Dockerfile
+│   └── php.ini
+├── mysql/
+│   └── my.cnf
+├── redis/
+│   └── redis.conf
+└── wordpress/
+    ├── wp-config.php
+    └── uploads.ini

@@ -1,0 +1,381 @@
+/**
+ * Tooltips Component
+ */
+
+// Base tooltip styles
+.tooltip {
+  @apply relative inline-block;
+  
+  &__content {
+    @apply absolute z-10 px-3 py-2 text-sm font-medium text-white bg-gray-900 dark:bg-gray-700 rounded-lg shadow-lg opacity-0 invisible transition-opacity duration-200 whitespace-nowrap;
+    
+    &::after {
+      content: '';
+      @apply absolute w-2 h-2 bg-gray-900 dark:bg-gray-700 transform rotate-45;
+    }
+  }
+  
+  &:hover {
+    .tooltip__content {
+      @apply opacity-100 visible;
+    }
+  }
+  
+  // Tooltip positions
+  &--top {
+    .tooltip__content {
+      @apply bottom-full left-1/2 -translate-x-1/2 mb-2;
+      
+      &::after {
+        @apply bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2;
+      }
+    }
+  }
+  
+  &--bottom {
+    .tooltip__content {
+      @apply top-full left-1/2 -translate-x-1/2 mt-2;
+      
+      &::after {
+        @apply top-0 left-1/2 -translate-x-1/2 -translate-y-1/2;
+      }
+    }
+  }
+  
+  &--left {
+    .tooltip__content {
+      @apply right-full top-1/2 -translate-y-1/2 mr-2;
+      
+      &::after {
+        @apply right-0 top-1/2 -translate-y-1/2 translate-x-1/2;
+      }
+    }
+  }
+  
+  &--right {
+    .tooltip__content {
+      @apply left-full top-1/2 -translate-y-1/2 ml-2;
+      
+      &::after {
+        @apply left-0 top-1/2 -translate-y-1/2 -translate-x-1/2;
+      }
+    }
+  }
+  
+  // Tooltip variants
+  &--light {
+    .tooltip__content {
+      @apply bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700;
+      
+      &::after {
+        @apply bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700;
+        border-width: 1px 0 0 1px;
+      }
+    }
+    
+    &.tooltip--bottom {
+      .tooltip__content::after {
+        border-width: 0 0 1px 1px;
+      }
+    }
+    
+    &.tooltip--left {
+      .tooltip__content::after {
+        border-width: 1px 1px 0 0;
+      }
+    }
+    
+    &.tooltip--right {
+      .tooltip__content::after {
+        border-width: 0 1px 1px 0;
+      }
+    }
+  }
+  
+  &--primary {
+    .tooltip__content {
+      @apply bg-primary-600 dark:bg-primary-700;
+      
+      &::after {
+        @apply bg-primary-600 dark:bg-primary-700;
+      }
+    }
+  }
+  
+  &--success {
+    .tooltip__content {
+      @apply bg-green-600 dark:bg-green-700;
+      
+      &::after {
+        @apply bg-green-600 dark:bg-green-700;
+      }
+    }
+  }
+  
+  &--warning {
+    .tooltip__content {
+      @apply bg-yellow-600 dark:bg-yellow-700;
+      
+      &::after {
+        @apply bg-yellow-600 dark:bg-yellow-700;
+      }
+    }
+  }
+  
+  &--error {
+    .tooltip__content {
+      @apply bg-red-600 dark:bg-red-700;
+      
+      &::after {
+        @apply bg-red-600 dark:bg-red-700;
+      }
+    }
+  }
+  
+  // Tooltip sizes
+  &--sm {
+    .tooltip__content {
+      @apply px-2 py-1 text-xs;
+    }
+  }
+  
+  &--lg {
+    .tooltip__content {
+      @apply px-4 py-3 text-base;
+    }
+  }
+  
+  // Tooltip with multiline content
+  &--multiline {
+    .tooltip__content {
+      @apply whitespace-normal max-w-xs text-center;
+    }
+  }
+  
+  // Tooltip with HTML content
+  &--rich {
+    .tooltip__content {
+      @apply whitespace-normal p-4 max-w-xs;
+      
+      h4 {
+        @apply font-bold mb-2;
+      }
+      
+      p {
+        @apply mb-2 last:mb-0;
+      }
+      
+      img {
+        @apply rounded mb-2;
+      }
+    }
+  }
+}
+
+// Popover (larger tooltip with more content)
+.popover {
+  @apply relative inline-block;
+  
+  &__content {
+    @apply absolute z-10 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 opacity-0 invisible transition-opacity duration-200 w-64;
+    
+    &::after {
+      content: '';
+      @apply absolute w-3 h-3 bg-white dark:bg-gray-800 transform rotate-45 border border-gray-200 dark:border-gray-700;
+    }
+  }
+  
+  &__header {
+    @apply flex items-center justify-between mb-3 pb-2 border-b border-gray-200 dark:border-gray-700;
+  }
+  
+  &__title {
+    @apply font-bold text-gray-900 dark:text-gray-100;
+  }
+  
+  &__close {
+    @apply p-1 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors duration-200;
+    
+    svg {
+      @apply w-4 h-4;
+    }
+  }
+  
+  &__body {
+    @apply text-gray-700 dark:text-gray-300 text-sm;
+    
+    p {
+      @apply mb-3 last:mb-0;
+    }
+  }
+  
+  &__footer {
+    @apply mt-3 pt-2 border-t border-gray-200 dark:border-gray-700 flex justify-end space-x-2;
+  }
+  
+  &__button {
+    @apply text-sm font-medium py-1 px-3 rounded transition-colors duration-200;
+    
+    &--primary {
+      @apply bg-primary-600 hover:bg-primary-700 text-white;
+    }
+    
+    &--secondary {
+      @apply bg-gray-200 hover:bg-gray-300 text-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-200;
+    }
+  }
+  
+  &:hover,
+  &--active {
+    .popover__content {
+      @apply opacity-100 visible;
+    }
+  }
+  
+  // Popover positions
+  &--top {
+    .popover__content {
+      @apply bottom-full left-1/2 -translate-x-1/2 mb-3;
+      
+      &::after {
+        @apply bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 border-t-0 border-l-0;
+      }
+    }
+  }
+  
+  &--bottom {
+    .popover__content {
+      @apply top-full left-1/2 -translate-x-1/2 mt-3;
+      
+      &::after {
+        @apply top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 border-b-0 border-r-0;
+      }
+    }
+  }
+  
+  &--left {
+    .popover__content {
+      @apply right-full top-1/2 -translate-y-1/2 mr-3;
+      
+      &::after {
+        @apply right-0 top-1/2 -translate-y-1/2 translate-x-1/2 border-t-0 border-r-0;
+      }
+    }
+  }
+  
+  &--right {
+    .popover__content {
+      @apply left-full top-1/2 -translate-y-1/2 ml-3;
+      
+      &::after {
+        @apply left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 border-b-0 border-l-0;
+      }
+    }
+  }
+}
+
+// Help tooltip
+.help-tooltip {
+  @apply inline-flex items-center justify-center w-4 h-4 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 text-xs cursor-help ml-1 align-middle;
+  
+  &__content {
+    @apply absolute z-10 px-3 py-2 text-sm font-medium text-white bg-gray-900 dark:bg-gray-700 rounded-lg shadow-lg opacity-0 invisible transition-opacity duration-200 max-w-xs whitespace-normal;
+    
+    &::after {
+      content: '';
+      @apply absolute w-2 h-2 bg-gray-900 dark:bg-gray-700 transform rotate-45;
+    }
+  }
+  
+  &:hover {
+    .help-tooltip__content {
+      @apply opacity-100 visible;
+    }
+  }
+  
+  // Default position (top)
+  .help-tooltip__content {
+    @apply bottom-full left-1/2 -translate-x-1/2 mb-2;
+    
+    &::after {
+      @apply bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2;
+    }
+  }
+}
+
+// Product tooltip (WooCommerce)
+.product-tooltip {
+  @apply relative inline-block;
+  
+  &__content {
+    @apply absolute z-10 p-3 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 opacity-0 invisible transition-opacity duration-200 w-64;
+    
+    &::after {
+      content: '';
+      @apply absolute w-3 h-3 bg-white dark:bg-gray-800 transform rotate-45 border border-gray-200 dark:border-gray-700;
+    }
+  }
+  
+  &__product {
+    @apply flex items-center;
+  }
+  
+  &__image {
+    @apply w-16 h-16 rounded-md overflow-hidden flex-shrink-0 mr-3;
+    
+    img {
+      @apply w-full h-full object-cover;
+    }
+  }
+  
+  &__details {
+    @apply flex-grow;
+  }
+  
+  &__title {
+    @apply font-medium text-gray-900 dark:text-gray-100 mb-1;
+  }
+  
+  &__price {
+    @apply text-sm font-medium text-gray-900 dark:text-gray-100;
+    
+    del {
+      @apply text-gray-500 dark:text-gray-400 mr-1 font-normal;
+    }
+    
+    ins {
+      @apply no-underline text-red-600 dark:text-red-400;
+    }
+  }
+  
+  &__rating {
+    @apply flex items-center mt-1;
+    
+    &-stars {
+      @apply flex text-yellow-400;
+      
+      svg {
+        @apply w-3 h-3;
+      }
+    }
+    
+    &-count {
+      @apply text-xs text-gray-500 dark:text-gray-400 ml-1;
+    }
+  }
+  
+  &:hover {
+    .product-tooltip__content {
+      @apply opacity-100 visible;
+    }
+  }
+  
+  // Default position (top)
+  .product-tooltip__content {
+    @apply bottom-full left-1/2 -translate-x-1/2 mb-3;
+    
+    &::after {
+      @apply bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 border-t-0 border-l-0;
+    }
+  }
+}

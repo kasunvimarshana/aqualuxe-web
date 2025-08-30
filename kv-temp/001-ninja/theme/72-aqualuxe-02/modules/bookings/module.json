@@ -1,0 +1,6 @@
+{
+  "name": "Bookings",
+  "slug": "bookings",
+  "class": "AquaLuxe\\Modules\\Bookings\\Module",
+  "enabled": true
+}

@@ -1,0 +1,256 @@
+/**
+ * AquaLuxe Multilingual Module Styles
+ *
+ * @package AquaLuxe
+ * @subpackage Modules/Multilingual
+ * @since 1.0.0
+ */
+
+/* Language Switcher Base Styles */
+.aqualuxe-language-switcher {
+  position: relative;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 1.5;
+  z-index: 100;
+}
+
+.aqualuxe-language-switcher__flag {
+  width: 16px;
+  height: 11px;
+  margin-right: 5px;
+  vertical-align: middle;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.aqualuxe-language-switcher__name {
+  vertical-align: middle;
+}
+
+.aqualuxe-language-switcher__icon {
+  display: inline-block;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.aqualuxe-language-switcher__icon svg {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+  transition: transform 0.2s ease;
+}
+
+/* Dropdown Style */
+.aqualuxe-language-switcher--dropdown {
+  position: relative;
+}
+
+.aqualuxe-language-switcher--dropdown .aqualuxe-language-switcher__current {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.aqualuxe-language-switcher--dropdown:hover .aqualuxe-language-switcher__current {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.aqualuxe-language-switcher--dropdown .aqualuxe-language-switcher__list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 150px;
+  margin: 0;
+  padding: 5px 0;
+  list-style: none;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  z-index: 101;
+}
+
+.aqualuxe-language-switcher--dropdown:hover .aqualuxe-language-switcher__list {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.aqualuxe-language-switcher--dropdown .aqualuxe-language-switcher__item {
+  margin: 0;
+  padding: 0;
+}
+
+.aqualuxe-language-switcher--dropdown .aqualuxe-language-switcher__link {
+  display: flex;
+  align-items: center;
+  padding: 8px 15px;
+  color: inherit;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.aqualuxe-language-switcher--dropdown .aqualuxe-language-switcher__link:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Horizontal Style */
+.aqualuxe-language-switcher--horizontal .aqualuxe-language-switcher__list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.aqualuxe-language-switcher--horizontal .aqualuxe-language-switcher__item {
+  margin: 0 10px 0 0;
+  padding: 0;
+}
+
+.aqualuxe-language-switcher--horizontal .aqualuxe-language-switcher__item:last-child {
+  margin-right: 0;
+}
+
+.aqualuxe-language-switcher--horizontal .aqualuxe-language-switcher__link,
+.aqualuxe-language-switcher--horizontal .aqualuxe-language-switcher__link--current {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.aqualuxe-language-switcher--horizontal .aqualuxe-language-switcher__link:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.aqualuxe-language-switcher--horizontal .aqualuxe-language-switcher__link--current {
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Vertical Style */
+.aqualuxe-language-switcher--vertical .aqualuxe-language-switcher__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.aqualuxe-language-switcher--vertical .aqualuxe-language-switcher__item {
+  margin: 0 0 5px 0;
+  padding: 0;
+}
+
+.aqualuxe-language-switcher--vertical .aqualuxe-language-switcher__item:last-child {
+  margin-bottom: 0;
+}
+
+.aqualuxe-language-switcher--vertical .aqualuxe-language-switcher__link,
+.aqualuxe-language-switcher--vertical .aqualuxe-language-switcher__link--current {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.aqualuxe-language-switcher--vertical .aqualuxe-language-switcher__link:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.aqualuxe-language-switcher--vertical .aqualuxe-language-switcher__link--current {
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Location Specific Styles */
+/* Header */
+.aqualuxe-language-switcher--header {
+  margin-left: 20px;
+}
+
+/* Footer */
+.aqualuxe-language-switcher--footer {
+  margin-top: 20px;
+}
+
+/* Mobile */
+.aqualuxe-language-switcher--mobile {
+  display: block;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* WooCommerce Account */
+.aqualuxe-language-switcher--woocommerce_account {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* WooCommerce Checkout */
+.aqualuxe-checkout-language-switcher {
+  margin-bottom: 20px;
+}
+
+/* WooCommerce Cart */
+.aqualuxe-cart-language-switcher {
+  margin-bottom: 20px;
+}
+
+/* Dark Mode Compatibility */
+.dark-mode .aqualuxe-language-switcher--dropdown .aqualuxe-language-switcher__current:hover,
+.dark-mode .aqualuxe-language-switcher--dropdown .aqualuxe-language-switcher__link:hover,
+.dark-mode .aqualuxe-language-switcher--horizontal .aqualuxe-language-switcher__link:hover,
+.dark-mode .aqualuxe-language-switcher--vertical .aqualuxe-language-switcher__link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .aqualuxe-language-switcher--dropdown .aqualuxe-language-switcher__list {
+  background-color: #222;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .aqualuxe-language-switcher--horizontal .aqualuxe-language-switcher__link--current,
+.dark-mode .aqualuxe-language-switcher--vertical .aqualuxe-language-switcher__link--current {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .aqualuxe-language-switcher--header {
+    margin-left: 10px;
+  }
+  
+  .aqualuxe-language-switcher--dropdown .aqualuxe-language-switcher__list {
+    right: 0;
+    left: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .aqualuxe-language-switcher--horizontal .aqualuxe-language-switcher__list {
+    flex-direction: column;
+  }
+  
+  .aqualuxe-language-switcher--horizontal .aqualuxe-language-switcher__item {
+    margin: 0 0 5px 0;
+  }
+  
+  .aqualuxe-language-switcher--horizontal .aqualuxe-language-switcher__item:last-child {
+    margin-bottom: 0;
+  }
+}

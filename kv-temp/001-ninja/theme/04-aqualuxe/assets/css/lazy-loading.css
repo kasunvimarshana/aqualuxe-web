@@ -1,0 +1,67 @@
+/**
+ * AquaLuxe Lazy Loading Styles
+ *
+ * CSS styles for lazy loading images
+ *
+ * @package AquaLuxe
+ * @since 1.0.0
+ */
+
+/* Lazy loading image styles */
+img.lazy {
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+}
+
+img.lazy.loaded {
+    opacity: 1;
+}
+
+/* Placeholder styles */
+.placeholder {
+    background-color: #f5f7f9;
+    position: relative;
+    overflow: hidden;
+}
+
+.placeholder::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -150px;
+    top: 0;
+    height: 100%;
+    width: 150px;
+    background: linear-gradient(to right, transparent 0%, #e0e0e0 50%, transparent 100%);
+    animation: loading 1.5s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+}
+
+@keyframes loading {
+    from {
+        left: -150px;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+/* Fish species grid placeholders */
+.fish-species-grid .fish-species-image.placeholder {
+    height: 200px;
+}
+
+.related-fish-grid .related-fish-image.placeholder {
+    height: 150px;
+}
+
+/* Single fish species placeholder */
+.fish-species-single .fish-species-image.placeholder {
+    min-height: 300px;
+}
+
+/* Print styles - show all images when printing */
+@media print {
+    img.lazy {
+        opacity: 1;
+    }
+}

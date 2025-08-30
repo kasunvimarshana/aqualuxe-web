@@ -1,0 +1,841 @@
+<?php
+/**
+ * WooCommerce integration
+ *
+ * @package AquaLuxe
+ * @since 1.0.0
+ */
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+// Ensure WooCommerce is active before proceeding.
+if ( ! class_exists( 'WooCommerce' ) ) {
+	return;
+}
+
+/**
+ * AquaLuxe WooCommerce Integration Class
+ */
+class AquaLuxe_WooCommerce {
+
+	/**
+	 * Constructor.
+	 */
+	public function __construct() {
+		// Setup hooks.
+		$this->setup_hooks();
+	}
+
+	/**
+	 * Setup hooks.
+	 */
+	private function setup_hooks() {
+		// Theme support.
+		add_action( 'after_setup_theme', array( $this, 'woocommerce_setup' ) );
+
+		// Scripts and styles.
+		add_action( 'wp_enqueue_scripts', array( $this, 'woocommerce_scripts' ) );
+
+		// Layout hooks.
+		add_action( 'woocommerce_before_main_content', array( $this, 'wrapper_start' ), 10 );
+		add_action( 'woocommerce_after_main_content', array( $this, 'wrapper_end' ), 10 );
+
+		// Remove default WooCommerce wrappers.
+		remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
+		remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
+
+		// Modify product loops.
+		add_filter( 'woocommerce_product_loop_start', array( $this, 'product_loop_start' ) );
+		add_filter( 'woocommerce_product_loop_end', array( $this, 'product_loop_end' ) );
+		add_filter( 'woocommerce_loop_add_to_cart_link', array( $this, 'loop_add_to_cart_link' ), 10, 2 );
+
+		// Products per page.
+		add_filter( 'loop_shop_per_page', array( $this, 'products_per_page' ) );
+		add_filter( 'loop_shop_columns', array( $this, 'loop_columns' ) );
+
+		// Related products.
+		add_filter( 'woocommerce_output_related_products_args', array( $this, 'related_products_args' ) );
+
+		// Product gallery.
+		add_filter( 'woocommerce_single_product_image_gallery_classes', array( $this, 'product_gallery_classes' ) );
+
+		// Cart fragments.
+		add_filter( 'woocommerce_add_to_cart_fragments', array( $this, 'cart_link_fragment' ) );
+
+		// Quick view.
+		if ( get_theme_mod( 'aqualuxe_quick_view', true ) ) {
+			add_action( 'woocommerce_after_shop_loop_item', array( $this, 'quick_view_button' ), 15 );
+			add_action( 'wp_ajax_aqualuxe_quick_view', array( $this, 'quick_view_ajax' ) );
+			add_action( 'wp_ajax_nopriv_aqualuxe_quick_view', array( $this, 'quick_view_ajax' ) );
+			add_action( 'wp_footer', array( $this, 'quick_view_modal' ) );
+		}
+
+		// Wishlist.
+		if ( get_theme_mod( 'aqualuxe_wishlist', true ) ) {
+			add_action( 'woocommerce_after_shop_loop_item', array( $this, 'wishlist_button' ), 20 );
+			add_action( 'woocommerce_single_product_summary', array( $this, 'wishlist_button' ), 35 );
+			add_action( 'wp_ajax_aqualuxe_wishlist_add', array( $this, 'wishlist_add_ajax' ) );
+			add_action( 'wp_ajax_nopriv_aqualuxe_wishlist_add', array( $this, 'wishlist_add_ajax' ) );
+			add_action( 'wp_ajax_aqualuxe_wishlist_remove', array( $this, 'wishlist_remove_ajax' ) );
+			add_action( 'wp_ajax_nopriv_aqualuxe_wishlist_remove', array( $this, 'wishlist_remove_ajax' ) );
+		}
+
+		// Header cart.
+		if ( get_theme_mod( 'aqualuxe_header_cart', true ) ) {
+			add_action( 'aqualuxe_header_icons', array( $this, 'header_cart' ) );
+		}
+
+		// Header account.
+		if ( get_theme_mod( 'aqualuxe_header_account', true ) ) {
+			add_action( 'aqualuxe_header_icons', array( $this, 'header_account' ) );
+		}
+
+		// Header wishlist.
+		if ( get_theme_mod( 'aqualuxe_header_wishlist', true ) && get_theme_mod( 'aqualuxe_wishlist', true ) ) {
+			add_action( 'aqualuxe_header_icons', array( $this, 'header_wishlist' ) );
+		}
+
+		// Product tabs.
+		if ( 'default' !== get_theme_mod( 'aqualuxe_product_tabs', 'default' ) ) {
+			add_filter( 'woocommerce_product_tabs', array( $this, 'product_tabs' ), 98 );
+			if ( 'vertical' === get_theme_mod( 'aqualuxe_product_tabs', 'default' ) ) {
+				add_filter( 'woocommerce_product_tabs_wrapper_class', array( $this, 'product_tabs_wrapper_class' ) );
+			} elseif ( 'accordion' === get_theme_mod( 'aqualuxe_product_tabs', 'default' ) ) {
+				remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+				add_action( 'woocommerce_after_single_product_summary', array( $this, 'output_product_data_accordion' ), 10 );
+			}
+		}
+
+		// Upsell products.
+		if ( ! get_theme_mod( 'aqualuxe_upsell_products', true ) ) {
+			remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
+		}
+
+		// Cross-sell products.
+		if ( ! get_theme_mod( 'aqualuxe_cross_sell_products', true ) ) {
+			remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
+		}
+
+		// Related products.
+		if ( ! get_theme_mod( 'aqualuxe_related_products', true ) ) {
+			remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+		}
+	}
+
+	/**
+	 * WooCommerce specific scripts & stylesheets.
+	 */
+	public function woocommerce_scripts() {
+		// Enqueue WooCommerce styles and scripts only on WooCommerce pages.
+		if ( is_woocommerce() || is_cart() || is_checkout() || is_account_page() ) {
+			wp_enqueue_style( 'aqualuxe-woocommerce', AQUALUXE_URI . 'assets/dist/css/woocommerce.css', array(), AQUALUXE_VERSION );
+			wp_enqueue_script( 'aqualuxe-woocommerce', AQUALUXE_URI . 'assets/dist/js/woocommerce.js', array( 'jquery' ), AQUALUXE_VERSION, true );
+
+			// Localize script.
+			wp_localize_script(
+				'aqualuxe-woocommerce',
+				'aqualuxeWooCommerce',
+				array(
+					'ajaxUrl'             => admin_url( 'admin-ajax.php' ),
+					'ajaxNonce'           => wp_create_nonce( 'aqualuxe-woocommerce' ),
+					'isCartPage'          => is_cart(),
+					'isCheckoutPage'      => is_checkout(),
+					'isAccountPage'       => is_account_page(),
+					'quickViewEnabled'    => get_theme_mod( 'aqualuxe_quick_view', true ),
+					'wishlistEnabled'     => get_theme_mod( 'aqualuxe_wishlist', true ),
+					'i18n'                => array(
+						'addToCart'        => esc_html__( 'Add to cart', 'aqualuxe' ),
+						'addingToCart'     => esc_html__( 'Adding...', 'aqualuxe' ),
+						'addedToCart'      => esc_html__( 'Added!', 'aqualuxe' ),
+						'viewCart'         => esc_html__( 'View cart', 'aqualuxe' ),
+						'addToWishlist'    => esc_html__( 'Add to wishlist', 'aqualuxe' ),
+						'addingToWishlist' => esc_html__( 'Adding...', 'aqualuxe' ),
+						'addedToWishlist'  => esc_html__( 'Added to wishlist!', 'aqualuxe' ),
+						'viewWishlist'     => esc_html__( 'View wishlist', 'aqualuxe' ),
+						'quickView'        => esc_html__( 'Quick view', 'aqualuxe' ),
+						'loading'          => esc_html__( 'Loading...', 'aqualuxe' ),
+					),
+				)
+			);
+		}
+	}
+
+	/**
+	 * WooCommerce setup function.
+	 */
+	public function woocommerce_setup() {
+		// Add support for WooCommerce features.
+		add_theme_support( 'woocommerce' );
+
+		// Product gallery features.
+		if ( get_theme_mod( 'aqualuxe_product_gallery_zoom', true ) ) {
+			add_theme_support( 'wc-product-gallery-zoom' );
+		}
+		if ( get_theme_mod( 'aqualuxe_product_gallery_lightbox', true ) ) {
+			add_theme_support( 'wc-product-gallery-lightbox' );
+		}
+		if ( get_theme_mod( 'aqualuxe_product_gallery_slider', true ) ) {
+			add_theme_support( 'wc-product-gallery-slider' );
+		}
+	}
+
+	/**
+	 * Before Content.
+	 * Wraps all WooCommerce content in wrappers which match the theme markup.
+	 */
+	public function wrapper_start() {
+		?>
+		<div id="primary" class="content-area">
+			<main id="main" class="site-main" role="main">
+		<?php
+	}
+
+	/**
+	 * After Content.
+	 * Closes the wrapping divs.
+	 */
+	public function wrapper_end() {
+		?>
+			</main><!-- #main -->
+		</div><!-- #primary -->
+		<?php
+	}
+
+	/**
+	 * Product loop start.
+	 *
+	 * @param string $html Product loop start HTML.
+	 * @return string Modified HTML.
+	 */
+	public function product_loop_start( $html ) {
+		$columns = $this->loop_columns();
+		$layout  = get_theme_mod( 'aqualuxe_shop_layout', 'grid' );
+
+		$classes = array(
+			'products',
+			'columns-' . $columns,
+			'layout-' . $layout,
+		);
+
+		return '<ul class="' . esc_attr( implode( ' ', $classes ) ) . '">';
+	}
+
+	/**
+	 * Product loop end.
+	 *
+	 * @param string $html Product loop end HTML.
+	 * @return string Modified HTML.
+	 */
+	public function product_loop_end( $html ) {
+		return '</ul>';
+	}
+
+	/**
+	 * Modify add to cart link.
+	 *
+	 * @param string $html Add to cart link HTML.
+	 * @param object $product Product object.
+	 * @return string Modified HTML.
+	 */
+	public function loop_add_to_cart_link( $html, $product ) {
+		// Add custom classes to the add to cart button.
+		$html = str_replace( 'button', 'button aqualuxe-add-to-cart-button', $html );
+		return $html;
+	}
+
+	/**
+	 * Products per page.
+	 *
+	 * @return int Number of products per page.
+	 */
+	public function products_per_page() {
+		return get_theme_mod( 'aqualuxe_products_per_page', 12 );
+	}
+
+	/**
+	 * Product columns.
+	 *
+	 * @return int Number of columns.
+	 */
+	public function loop_columns() {
+		return get_theme_mod( 'aqualuxe_products_per_row', 4 );
+	}
+
+	/**
+	 * Related products args.
+	 *
+	 * @param array $args Related products args.
+	 * @return array Modified args.
+	 */
+	public function related_products_args( $args ) {
+		$args['posts_per_page'] = get_theme_mod( 'aqualuxe_related_products_count', 4 );
+		$args['columns']        = get_theme_mod( 'aqualuxe_products_per_row', 4 );
+		return $args;
+	}
+
+	/**
+	 * Product gallery classes.
+	 *
+	 * @param array $classes Gallery classes.
+	 * @return array Modified classes.
+	 */
+	public function product_gallery_classes( $classes ) {
+		$classes[] = 'aqualuxe-product-gallery';
+		return $classes;
+	}
+
+	/**
+	 * Cart link fragment.
+	 *
+	 * @param array $fragments Cart fragments.
+	 * @return array Modified fragments.
+	 */
+	public function cart_link_fragment( $fragments ) {
+		ob_start();
+		$this->header_cart_content();
+		$fragments['div.aqualuxe-header-cart-content'] = ob_get_clean();
+
+		ob_start();
+		$this->header_cart_count();
+		$fragments['span.aqualuxe-header-cart-count'] = ob_get_clean();
+
+		return $fragments;
+	}
+
+	/**
+	 * Header cart.
+	 */
+	public function header_cart() {
+		?>
+		<div class="aqualuxe-header-cart">
+			<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="aqualuxe-header-cart-link">
+				<span class="aqualuxe-header-cart-icon">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<circle cx="9" cy="21" r="1"></circle>
+						<circle cx="20" cy="21" r="1"></circle>
+						<path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+					</svg>
+					<?php $this->header_cart_count(); ?>
+				</span>
+				<span class="aqualuxe-header-cart-label"><?php esc_html_e( 'Cart', 'aqualuxe' ); ?></span>
+			</a>
+			<div class="aqualuxe-header-cart-dropdown">
+				<?php $this->header_cart_content(); ?>
+			</div>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Header cart count.
+	 */
+	public function header_cart_count() {
+		?>
+		<span class="aqualuxe-header-cart-count">
+			<?php echo esc_html( WC()->cart->get_cart_contents_count() ); ?>
+		</span>
+		<?php
+	}
+
+	/**
+	 * Header cart content.
+	 */
+	public function header_cart_content() {
+		?>
+		<div class="aqualuxe-header-cart-content">
+			<?php if ( ! WC()->cart->is_empty() ) : ?>
+				<ul class="aqualuxe-header-cart-items">
+					<?php
+					foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
+						$_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
+						$product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
+
+						if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_widget_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
+							$product_name      = apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key );
+							$thumbnail         = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
+							$product_price     = apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
+							$product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
+							?>
+							<li class="aqualuxe-header-cart-item">
+								<a href="<?php echo esc_url( $product_permalink ); ?>" class="aqualuxe-header-cart-item-image">
+									<?php echo wp_kses_post( $thumbnail ); ?>
+								</a>
+								<div class="aqualuxe-header-cart-item-details">
+									<a href="<?php echo esc_url( $product_permalink ); ?>" class="aqualuxe-header-cart-item-name">
+										<?php echo wp_kses_post( $product_name ); ?>
+									</a>
+									<div class="aqualuxe-header-cart-item-price">
+										<?php echo wp_kses_post( $product_price ); ?> &times; <?php echo esc_html( $cart_item['quantity'] ); ?>
+									</div>
+								</div>
+								<a href="<?php echo esc_url( wc_get_cart_remove_url( $cart_item_key ) ); ?>" class="aqualuxe-header-cart-item-remove" aria-label="<?php esc_attr_e( 'Remove this item', 'aqualuxe' ); ?>">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<line x1="18" y1="6" x2="6" y2="18"></line>
+										<line x1="6" y1="6" x2="18" y2="18"></line>
+									</svg>
+								</a>
+							</li>
+							<?php
+						}
+					}
+					?>
+				</ul>
+				<div class="aqualuxe-header-cart-subtotal">
+					<span class="aqualuxe-header-cart-subtotal-label"><?php esc_html_e( 'Subtotal:', 'aqualuxe' ); ?></span>
+					<span class="aqualuxe-header-cart-subtotal-amount"><?php echo wp_kses_post( WC()->cart->get_cart_subtotal() ); ?></span>
+				</div>
+				<div class="aqualuxe-header-cart-buttons">
+					<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="aqualuxe-header-cart-button aqualuxe-header-cart-button-cart">
+						<?php esc_html_e( 'View Cart', 'aqualuxe' ); ?>
+					</a>
+					<a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="aqualuxe-header-cart-button aqualuxe-header-cart-button-checkout">
+						<?php esc_html_e( 'Checkout', 'aqualuxe' ); ?>
+					</a>
+				</div>
+			<?php else : ?>
+				<div class="aqualuxe-header-cart-empty">
+					<p><?php esc_html_e( 'No products in the cart.', 'aqualuxe' ); ?></p>
+					<a href="<?php echo esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ); ?>" class="aqualuxe-header-cart-button aqualuxe-header-cart-button-shop">
+						<?php esc_html_e( 'Return to shop', 'aqualuxe' ); ?>
+					</a>
+				</div>
+			<?php endif; ?>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Header account.
+	 */
+	public function header_account() {
+		?>
+		<div class="aqualuxe-header-account">
+			<a href="<?php echo esc_url( wc_get_account_endpoint_url( 'dashboard' ) ); ?>" class="aqualuxe-header-account-link">
+				<span class="aqualuxe-header-account-icon">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+						<circle cx="12" cy="7" r="4"></circle>
+					</svg>
+				</span>
+				<span class="aqualuxe-header-account-label">
+					<?php
+					if ( is_user_logged_in() ) {
+						esc_html_e( 'Account', 'aqualuxe' );
+					} else {
+						esc_html_e( 'Login', 'aqualuxe' );
+					}
+					?>
+				</span>
+			</a>
+			<?php if ( is_user_logged_in() ) : ?>
+				<div class="aqualuxe-header-account-dropdown">
+					<ul class="aqualuxe-header-account-links">
+						<?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : ?>
+							<li class="aqualuxe-header-account-link-item <?php echo wc_get_account_menu_item_classes( $endpoint ); ?>">
+								<a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>"><?php echo esc_html( $label ); ?></a>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
+			<?php endif; ?>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Header wishlist.
+	 */
+	public function header_wishlist() {
+		// Get wishlist items from cookies or user meta.
+		$wishlist_items = $this->get_wishlist_items();
+		$count          = count( $wishlist_items );
+		?>
+		<div class="aqualuxe-header-wishlist">
+			<a href="<?php echo esc_url( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) . 'wishlist/' ); ?>" class="aqualuxe-header-wishlist-link">
+				<span class="aqualuxe-header-wishlist-icon">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+					</svg>
+					<span class="aqualuxe-header-wishlist-count"><?php echo esc_html( $count ); ?></span>
+				</span>
+				<span class="aqualuxe-header-wishlist-label"><?php esc_html_e( 'Wishlist', 'aqualuxe' ); ?></span>
+			</a>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Quick view button.
+	 */
+	public function quick_view_button() {
+		global $product;
+		?>
+		<a href="#" class="aqualuxe-quick-view-button" data-product-id="<?php echo esc_attr( $product->get_id() ); ?>">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<circle cx="11" cy="11" r="8"></circle>
+				<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+				<line x1="11" y1="8" x2="11" y2="14"></line>
+				<line x1="8" y1="11" x2="14" y2="11"></line>
+			</svg>
+			<span><?php esc_html_e( 'Quick View', 'aqualuxe' ); ?></span>
+		</a>
+		<?php
+	}
+
+	/**
+	 * Quick view AJAX handler.
+	 */
+	public function quick_view_ajax() {
+		// Check nonce.
+		if ( ! check_ajax_referer( 'aqualuxe-woocommerce', 'nonce', false ) ) {
+			wp_send_json_error( 'Invalid nonce' );
+		}
+
+		// Get product ID.
+		$product_id = isset( $_POST['product_id'] ) ? absint( $_POST['product_id'] ) : 0;
+
+		if ( ! $product_id ) {
+			wp_send_json_error( 'Invalid product ID' );
+		}
+
+		// Get product.
+		$product = wc_get_product( $product_id );
+
+		if ( ! $product ) {
+			wp_send_json_error( 'Product not found' );
+		}
+
+		// Start output buffer.
+		ob_start();
+
+		// Output product template.
+		?>
+		<div class="aqualuxe-quick-view-content">
+			<div class="aqualuxe-quick-view-images">
+				<?php
+				// Show product images.
+				if ( has_post_thumbnail( $product_id ) ) {
+					$attachment_ids = $product->get_gallery_image_ids();
+					$image_id       = get_post_thumbnail_id( $product_id );
+					$image_url      = wp_get_attachment_image_url( $image_id, 'woocommerce_single' );
+					$image_alt      = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
+					?>
+					<div class="aqualuxe-quick-view-main-image">
+						<img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>">
+					</div>
+					<?php if ( ! empty( $attachment_ids ) ) : ?>
+						<div class="aqualuxe-quick-view-thumbnails">
+							<div class="aqualuxe-quick-view-thumbnail active" data-image-url="<?php echo esc_url( $image_url ); ?>">
+								<?php echo wp_get_attachment_image( $image_id, 'thumbnail' ); ?>
+							</div>
+							<?php
+							foreach ( $attachment_ids as $attachment_id ) {
+								$image_url = wp_get_attachment_image_url( $attachment_id, 'woocommerce_single' );
+								?>
+								<div class="aqualuxe-quick-view-thumbnail" data-image-url="<?php echo esc_url( $image_url ); ?>">
+									<?php echo wp_get_attachment_image( $attachment_id, 'thumbnail' ); ?>
+								</div>
+								<?php
+							}
+							?>
+						</div>
+					<?php endif; ?>
+					<?php
+				} else {
+					echo wp_kses_post( wc_placeholder_img( 'woocommerce_single' ) );
+				}
+				?>
+			</div>
+			<div class="aqualuxe-quick-view-details">
+				<h2 class="aqualuxe-quick-view-title"><?php echo esc_html( $product->get_name() ); ?></h2>
+				<div class="aqualuxe-quick-view-price"><?php echo wp_kses_post( $product->get_price_html() ); ?></div>
+				<div class="aqualuxe-quick-view-rating">
+					<?php
+					if ( $product->get_rating_count() > 0 ) {
+						woocommerce_template_loop_rating();
+					} else {
+						echo '<div class="star-rating"></div>';
+					}
+					?>
+				</div>
+				<div class="aqualuxe-quick-view-description">
+					<?php echo wp_kses_post( $product->get_short_description() ); ?>
+				</div>
+				<div class="aqualuxe-quick-view-add-to-cart">
+					<?php woocommerce_template_single_add_to_cart(); ?>
+				</div>
+				<div class="aqualuxe-quick-view-meta">
+					<?php if ( wc_product_sku_enabled() && $product->get_sku() ) : ?>
+						<span class="aqualuxe-quick-view-sku">
+							<?php esc_html_e( 'SKU:', 'aqualuxe' ); ?> <span><?php echo esc_html( $product->get_sku() ); ?></span>
+						</span>
+					<?php endif; ?>
+					<?php if ( $product->get_category_ids() ) : ?>
+						<span class="aqualuxe-quick-view-categories">
+							<?php esc_html_e( 'Categories:', 'aqualuxe' ); ?> <?php echo wp_kses_post( wc_get_product_category_list( $product_id, ', ' ) ); ?>
+						</span>
+					<?php endif; ?>
+					<?php if ( $product->get_tag_ids() ) : ?>
+						<span class="aqualuxe-quick-view-tags">
+							<?php esc_html_e( 'Tags:', 'aqualuxe' ); ?> <?php echo wp_kses_post( wc_get_product_tag_list( $product_id, ', ' ) ); ?>
+						</span>
+					<?php endif; ?>
+				</div>
+				<div class="aqualuxe-quick-view-actions">
+					<a href="<?php echo esc_url( $product->get_permalink() ); ?>" class="aqualuxe-quick-view-view-details">
+						<?php esc_html_e( 'View Full Details', 'aqualuxe' ); ?>
+					</a>
+				</div>
+			</div>
+		</div>
+		<?php
+
+		// Get output buffer.
+		$output = ob_get_clean();
+
+		// Send response.
+		wp_send_json_success( $output );
+	}
+
+	/**
+	 * Quick view modal.
+	 */
+	public function quick_view_modal() {
+		?>
+		<div id="aqualuxe-quick-view-modal" class="aqualuxe-quick-view-modal" aria-hidden="true">
+			<div class="aqualuxe-quick-view-modal-overlay"></div>
+			<div class="aqualuxe-quick-view-modal-container" role="dialog" aria-modal="true" aria-labelledby="aqualuxe-quick-view-modal-title">
+				<div class="aqualuxe-quick-view-modal-content">
+					<button class="aqualuxe-quick-view-modal-close" aria-label="<?php esc_attr_e( 'Close', 'aqualuxe' ); ?>">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<line x1="18" y1="6" x2="6" y2="18"></line>
+							<line x1="6" y1="6" x2="18" y2="18"></line>
+						</svg>
+					</button>
+					<div class="aqualuxe-quick-view-modal-body">
+						<div class="aqualuxe-quick-view-modal-loading">
+							<div class="aqualuxe-quick-view-modal-spinner"></div>
+							<p><?php esc_html_e( 'Loading...', 'aqualuxe' ); ?></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Wishlist button.
+	 */
+	public function wishlist_button() {
+		global $product;
+
+		// Get wishlist items.
+		$wishlist_items = $this->get_wishlist_items();
+		$in_wishlist    = in_array( $product->get_id(), $wishlist_items, true );
+		$action         = $in_wishlist ? 'remove' : 'add';
+		$label          = $in_wishlist ? esc_html__( 'Remove from wishlist', 'aqualuxe' ) : esc_html__( 'Add to wishlist', 'aqualuxe' );
+		$icon_class     = $in_wishlist ? 'aqualuxe-wishlist-button-icon-added' : 'aqualuxe-wishlist-button-icon';
+		?>
+		<a href="#" class="aqualuxe-wishlist-button" data-product-id="<?php echo esc_attr( $product->get_id() ); ?>" data-action="<?php echo esc_attr( $action ); ?>" aria-label="<?php echo esc_attr( $label ); ?>">
+			<span class="<?php echo esc_attr( $icon_class ); ?>">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+				</svg>
+			</span>
+			<span class="aqualuxe-wishlist-button-label"><?php echo esc_html( $label ); ?></span>
+		</a>
+		<?php
+	}
+
+	/**
+	 * Wishlist add AJAX handler.
+	 */
+	public function wishlist_add_ajax() {
+		// Check nonce.
+		if ( ! check_ajax_referer( 'aqualuxe-woocommerce', 'nonce', false ) ) {
+			wp_send_json_error( 'Invalid nonce' );
+		}
+
+		// Get product ID.
+		$product_id = isset( $_POST['product_id'] ) ? absint( $_POST['product_id'] ) : 0;
+
+		if ( ! $product_id ) {
+			wp_send_json_error( 'Invalid product ID' );
+		}
+
+		// Get wishlist items.
+		$wishlist_items = $this->get_wishlist_items();
+
+		// Add product to wishlist.
+		if ( ! in_array( $product_id, $wishlist_items, true ) ) {
+			$wishlist_items[] = $product_id;
+		}
+
+		// Save wishlist items.
+		$this->save_wishlist_items( $wishlist_items );
+
+		// Send response.
+		wp_send_json_success(
+			array(
+				'action'  => 'remove',
+				'label'   => esc_html__( 'Remove from wishlist', 'aqualuxe' ),
+				'message' => esc_html__( 'Product added to wishlist!', 'aqualuxe' ),
+				'count'   => count( $wishlist_items ),
+			)
+		);
+	}
+
+	/**
+	 * Wishlist remove AJAX handler.
+	 */
+	public function wishlist_remove_ajax() {
+		// Check nonce.
+		if ( ! check_ajax_referer( 'aqualuxe-woocommerce', 'nonce', false ) ) {
+			wp_send_json_error( 'Invalid nonce' );
+		}
+
+		// Get product ID.
+		$product_id = isset( $_POST['product_id'] ) ? absint( $_POST['product_id'] ) : 0;
+
+		if ( ! $product_id ) {
+			wp_send_json_error( 'Invalid product ID' );
+		}
+
+		// Get wishlist items.
+		$wishlist_items = $this->get_wishlist_items();
+
+		// Remove product from wishlist.
+		$wishlist_items = array_diff( $wishlist_items, array( $product_id ) );
+
+		// Save wishlist items.
+		$this->save_wishlist_items( $wishlist_items );
+
+		// Send response.
+		wp_send_json_success(
+			array(
+				'action'  => 'add',
+				'label'   => esc_html__( 'Add to wishlist', 'aqualuxe' ),
+				'message' => esc_html__( 'Product removed from wishlist!', 'aqualuxe' ),
+				'count'   => count( $wishlist_items ),
+			)
+		);
+	}
+
+	/**
+	 * Get wishlist items.
+	 *
+	 * @return array Wishlist items.
+	 */
+	private function get_wishlist_items() {
+		$wishlist_items = array();
+
+		// Get wishlist items from user meta if logged in.
+		if ( is_user_logged_in() ) {
+			$user_id       = get_current_user_id();
+			$wishlist_meta = get_user_meta( $user_id, 'aqualuxe_wishlist', true );
+
+			if ( $wishlist_meta ) {
+				$wishlist_items = json_decode( $wishlist_meta, true );
+			}
+		} else {
+			// Get wishlist items from cookies if not logged in.
+			if ( isset( $_COOKIE['aqualuxe_wishlist'] ) ) {
+				$wishlist_items = json_decode( sanitize_text_field( wp_unslash( $_COOKIE['aqualuxe_wishlist'] ) ), true );
+			}
+		}
+
+		return is_array( $wishlist_items ) ? $wishlist_items : array();
+	}
+
+	/**
+	 * Save wishlist items.
+	 *
+	 * @param array $wishlist_items Wishlist items.
+	 */
+	private function save_wishlist_items( $wishlist_items ) {
+		// Save wishlist items to user meta if logged in.
+		if ( is_user_logged_in() ) {
+			$user_id = get_current_user_id();
+			update_user_meta( $user_id, 'aqualuxe_wishlist', wp_json_encode( $wishlist_items ) );
+		}
+
+		// Save wishlist items to cookies if not logged in.
+		$expiry = time() + MONTH_IN_SECONDS;
+		setcookie( 'aqualuxe_wishlist', wp_json_encode( $wishlist_items ), $expiry, COOKIEPATH, COOKIE_DOMAIN );
+	}
+
+	/**
+	 * Product tabs.
+	 *
+	 * @param array $tabs Product tabs.
+	 * @return array Modified tabs.
+	 */
+	public function product_tabs( $tabs ) {
+		// Reorder tabs.
+		$tabs_order = array(
+			'description'            => 10,
+			'additional_information' => 20,
+			'reviews'                => 30,
+		);
+
+		foreach ( $tabs as $key => $tab ) {
+			if ( isset( $tabs_order[ $key ] ) ) {
+				$tabs[ $key ]['priority'] = $tabs_order[ $key ];
+			}
+		}
+
+		return $tabs;
+	}
+
+	/**
+	 * Product tabs wrapper class.
+	 *
+	 * @param string $class Wrapper class.
+	 * @return string Modified class.
+	 */
+	public function product_tabs_wrapper_class( $class ) {
+		return $class . ' aqualuxe-tabs-vertical';
+	}
+
+	/**
+	 * Output product data accordion.
+	 */
+	public function output_product_data_accordion() {
+		global $product;
+
+		$tabs = apply_filters( 'woocommerce_product_tabs', array() );
+
+		if ( ! empty( $tabs ) ) :
+			?>
+			<div class="aqualuxe-product-accordion wc-tabs-wrapper">
+				<?php foreach ( $tabs as $key => $tab ) : ?>
+					<div class="aqualuxe-accordion-item">
+						<h3 class="aqualuxe-accordion-header">
+							<button class="aqualuxe-accordion-button" type="button" aria-expanded="false" aria-controls="aqualuxe-accordion-content-<?php echo esc_attr( $key ); ?>">
+								<?php echo wp_kses_post( apply_filters( 'woocommerce_product_' . $key . '_tab_title', $tab['title'], $key ) ); ?>
+								<span class="aqualuxe-accordion-icon"></span>
+							</button>
+						</h3>
+						<div id="aqualuxe-accordion-content-<?php echo esc_attr( $key ); ?>" class="aqualuxe-accordion-content">
+							<div class="aqualuxe-accordion-body">
+								<?php
+								if ( isset( $tab['callback'] ) ) {
+									call_user_func( $tab['callback'], $key, $tab );
+								}
+								?>
+							</div>
+						</div>
+					</div>
+				<?php endforeach; ?>
+			</div>
+			<?php
+		endif;
+	}
+}
+
+// Initialize the class.
+new AquaLuxe_WooCommerce();

@@ -1,0 +1,136 @@
+# WordPress - ignore core, configuration, examples, uploads and logs.
+# https://github.com/github/gitignore/blob/main/WordPress.gitignore
+
+# Core
+/wp-admin/
+/wp-includes/
+/wp-content/index.php
+/wp-content/languages
+/wp-content/plugins/index.php
+/wp-content/themes/index.php
+/wp-content/uploads/
+/license.txt
+/readme.html
+/wp-*.php
+/xmlrpc.php
+
+# Configuration
+wp-config.php
+
+# Example themes
+/wp-content/themes/twenty*/
+
+# Example plugin
+/wp-content/plugins/hello.php
+
+# Uploads
+/wp-content/uploads/
+
+# Log files
+*.log
+
+# htaccess
+/.htaccess
+
+# All plugins
+# Note: If you wish to whitelist plugins,
+# uncomment the next line
+#/wp-content/plugins
+
+# All themes
+# Note: If you wish to whitelist themes,
+# uncomment the next line
+#/wp-content/themes
+
+# Node.js dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+.pnp/
+.pnp.js
+
+# Build files
+/assets/css/
+/assets/js/
+/assets/images/sprite.svg
+/assets/vendor/
+/assets/css/critical/
+/assets/assets-manifest.json
+/dist/
+/build/
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Editor directories and files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Cache files
+.sass-cache/
+.cache/
+.parcel-cache/
+
+# Temporary files
+*.tmp
+*.bak
+*.backup
+*.old
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+/coverage/
+/cypress/videos/
+/cypress/screenshots/
+
+# Compiled source
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Lock files - uncomment if you want to ignore them
+# package-lock.json
+# yarn.lock
+# composer.lock
+
+# Composer
+/vendor/

@@ -1,0 +1,162 @@
+{
+  "sidebar-1": [
+    {
+      "id": "search-2",
+      "widget": "search",
+      "title": "Search",
+      "params": []
+    },
+    {
+      "id": "recent-posts-2",
+      "widget": "recent-posts",
+      "title": "Recent Posts",
+      "params": {
+        "number": 5,
+        "show_date": true
+      }
+    },
+    {
+      "id": "categories-2",
+      "widget": "categories",
+      "title": "Categories",
+      "params": {
+        "count": true,
+        "hierarchical": true,
+        "dropdown": false
+      }
+    },
+    {
+      "id": "tag_cloud-2",
+      "widget": "tag_cloud",
+      "title": "Tags",
+      "params": {
+        "taxonomy": "post_tag"
+      }
+    }
+  ],
+  "product-filters": [
+    {
+      "id": "aqualuxe_category_filter-2",
+      "widget": "aqualuxe_category_filter",
+      "title": "Product Categories",
+      "params": {
+        "title": "Product Categories",
+        "show_hierarchy": true,
+        "show_count": true
+      }
+    },
+    {
+      "id": "aqualuxe_price_filter-2",
+      "widget": "aqualuxe_price_filter",
+      "title": "Filter by Price",
+      "params": {
+        "title": "Filter by Price"
+      }
+    },
+    {
+      "id": "aqualuxe_attribute_filter-2",
+      "widget": "aqualuxe_attribute_filter",
+      "title": "Filter by Material",
+      "params": {
+        "title": "Filter by Material",
+        "attribute": "material",
+        "query_type": "and",
+        "display_type": "list"
+      }
+    },
+    {
+      "id": "aqualuxe_attribute_filter-3",
+      "widget": "aqualuxe_attribute_filter",
+      "title": "Filter by Size",
+      "params": {
+        "title": "Filter by Size",
+        "attribute": "size",
+        "query_type": "and",
+        "display_type": "list"
+      }
+    },
+    {
+      "id": "aqualuxe_attribute_filter-4",
+      "widget": "aqualuxe_attribute_filter",
+      "title": "Filter by Color",
+      "params": {
+        "title": "Filter by Color",
+        "attribute": "color",
+        "query_type": "or",
+        "display_type": "color"
+      }
+    },
+    {
+      "id": "aqualuxe_rating_filter-2",
+      "widget": "aqualuxe_rating_filter",
+      "title": "Filter by Rating",
+      "params": {
+        "title": "Filter by Rating"
+      }
+    },
+    {
+      "id": "aqualuxe_active_filters-2",
+      "widget": "aqualuxe_active_filters",
+      "title": "Active Filters",
+      "params": {
+        "title": "Active Filters"
+      }
+    }
+  ],
+  "footer-1": [
+    {
+      "id": "text-2",
+      "widget": "text",
+      "title": "About AquaLuxe",
+      "params": {
+        "text": "AquaLuxe specializes in premium aquatic products for residential and commercial properties. Our mission is to transform ordinary spaces into extraordinary aquatic experiences.",
+        "filter": true
+      }
+    }
+  ],
+  "footer-2": [
+    {
+      "id": "nav_menu-2",
+      "widget": "nav_menu",
+      "title": "Quick Links",
+      "params": {
+        "nav_menu": 3
+      }
+    }
+  ],
+  "footer-3": [
+    {
+      "id": "text-3",
+      "widget": "text",
+      "title": "Contact Us",
+      "params": {
+        "text": "<strong>Address:</strong> 123 Ocean Avenue, Marina District, San Francisco, CA 94123<br><strong>Phone:</strong> (415) 555-0123<br><strong>Email:</strong> info@aqualuxe.example.com<br><strong>Hours:</strong> Monday-Friday 9am-6pm, Saturday 10am-4pm, Sunday Closed",
+        "filter": true
+      }
+    }
+  ],
+  "footer-4": [
+    {
+      "id": "social-widget-2",
+      "widget": "social-widget",
+      "title": "Follow Us",
+      "params": {
+        "title": "Follow Us",
+        "facebook": "https://facebook.com/aqualuxe",
+        "twitter": "https://twitter.com/aqualuxe",
+        "instagram": "https://instagram.com/aqualuxe",
+        "pinterest": "https://pinterest.com/aqualuxe",
+        "youtube": "https://youtube.com/aqualuxe"
+      }
+    },
+    {
+      "id": "custom_html-2",
+      "widget": "custom_html",
+      "title": "Newsletter",
+      "params": {
+        "title": "Newsletter",
+        "content": "<form class=&quot;newsletter-form&quot;>\n  <input type=&quot;email&quot; placeholder=&quot;Your email address&quot; required>\n  <button type=&quot;submit&quot;>Subscribe</button>\n</form>"
+      }
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+[
+    {
+        "demo_id": "product_1",
+        "post_title": "Royal Blue Tiger Discus",
+        "post_content": "<p>The Royal Blue Tiger Discus is one of the most striking color varieties available in the aquarium hobby. This premium specimen features vibrant blue coloration with distinctive tiger-like vertical stripes.</p>\n\n<h2>Characteristics</h2>\n<p>Our Royal Blue Tiger Discus are captive-bred from champion bloodlines, ensuring excellent genetics, vibrant coloration, and robust health. Each specimen is carefully selected for quality and receives individual attention during the quarantine and conditioning process.</p>\n\n<h2>Care Requirements</h2>\n<ul>\n<li><strong>Tank Size:</strong> Minimum 50 gallons for a small group</li>\n<li><strong>Water Parameters:</strong> Temperature 82-86°F (28-30°C), pH 6.0-7.0, very soft water</li>\n<li><strong>Diet:</strong> High-quality discus pellets, frozen bloodworms, beef heart mix, and other protein-rich foods</li>\n<li><strong>Compatibility:</strong> Best kept with other discus or peaceful community fish that tolerate high temperatures</li>\n</ul>\n\n<h2>Size Information</h2>\n<p>The specimens offered are young adults measuring approximately 3.5-4 inches (9-10 cm) in diameter. With proper care, they can grow to 6-8 inches (15-20 cm).</p>\n\n<h2>Shipping Information</h2>\n<p>All discus are carefully packaged in insulated containers with heat packs (during cold weather) or cooling packs (during hot weather) to maintain optimal temperature during transit. We ship via overnight delivery only to ensure the fish arrive in excellent condition.</p>\n\n<p><strong>Note:</strong> Live arrival guarantee applies when following our acclimation instructions. Please ensure someone is available to receive the package on the delivery date.</p>",
+        "post_excerpt": "Premium captive-bred Royal Blue Tiger Discus with striking blue coloration and distinctive tiger-like vertical stripes. Raised in optimal conditions and carefully selected for quality.",
+        "post_status": "publish",
+        "featured_image": "royal-blue-tiger-discus.jpg",
+        "gallery_images": [
+            "royal-blue-tiger-discus-2.jpg",
+            "royal-blue-tiger-discus-3.jpg",
+            "royal-blue-tiger-discus-4.jpg"
+        ],
+        "product_type": "simple",
+        "regular_price": "129.99",
+        "sale_price": "119.99",
+        "sku": "FISH-DISC-RBT-01",
+        "stock_status": "instock",
+        "stock_quantity": 5,
+        "weight": "0.5",
+        "dimensions": {
+            "length": "12",
+            "width": "12",
+            "height": "12"
+        },
+        "terms": {
+            "product_cat": ["Fish", "Cichlids", "Discus"],
+            "product_tag": ["Premium", "Tropical", "Rare"]
+        },
+        "attributes": {
+            "Origin": {
+                "taxonomy": "pa_origin",
+                "terms": ["Captive Bred"],
+                "visible": true,
+                "variation": false
+            },
+            "Adult Size": {
+                "taxonomy": "pa_adult-size",
+                "terms": ["6-8 inches"],
+                "visible": true,
+                "variation": false
+            },
+            "Care Level": {
+                "taxonomy": "pa_care-level",
+                "terms": ["Advanced"],
+                "visible": true,
+                "variation": false
+            }
+        },
+        "meta": {
+            "_care_instructions": "Maintain water temperature between 82-86°F (28-30°C) with pH 6.0-7.0 and very soft water. Feed 3-5 times daily with high-quality discus food. Perform water changes of 25-50% twice weekly.",
+            "_origin": "Southeast Asia (Captive Bred)",
+            "_tank_size": "50+ gallons",
+            "_water_conditions": "Temperature: 82-86°F (28-30°C), pH: 6.0-7.0, Soft water (GH: 1-4)",
+            "_compatibility": "Other discus, cardinal tetras, rummy-nose tetras, peaceful catfish",
+            "_rarity_level": "Premium"
+        }
+    },
+    {
+        "demo_id": "product_2",
+        "post_title": "AquaLuxe Crystal Clear 60-Gallon Rimless Aquarium",
+        "post_content": "<p>The AquaLuxe Crystal Clear 60-Gallon Rimless Aquarium represents the pinnacle of modern aquarium design, combining elegant aesthetics with premium functionality. This handcrafted aquarium features ultra-clear low-iron glass for unparalleled clarity and a seamless rimless design that creates a stunning floating water effect.</p>\n\n<h2>Features</h2>\n<ul>\n<li><strong>Premium Low-Iron Glass:</strong> 10mm ultra-clear glass provides exceptional clarity and distortion-free viewing</li>\n<li><strong>Seamless Rimless Design:</strong> Precision-crafted with polished edges for a contemporary, minimalist aesthetic</li>\n<li><strong>Diamond-Polished Edges:</strong> Meticulously finished edges ensure safety and elegance</li>\n<li><strong>Precision Silicone Work:</strong> Professional-grade black silicone application with clean, consistent seams</li>\n<li><strong>Reinforced Bottom Panel:</strong> Extra thickness for structural integrity and stability</li>\n<li><strong>Leveling Mat Included:</strong> High-density foam mat to ensure proper weight distribution</li>\n</ul>\n\n<h2>Specifications</h2>\n<ul>\n<li><strong>Capacity:</strong> 60 US gallons (227 liters)</li>\n<li><strong>Dimensions:</strong> 36&quot; × 18&quot; × 20&quot; (91.4cm × 45.7cm × 50.8cm)</li>\n<li><strong>Glass Thickness:</strong> 10mm ultra-clear low-iron glass</li>\n<li><strong>Weight (Empty):</strong> Approximately 85 lbs (38.5 kg)</li>\n<li><strong>Weight (Filled):</strong> Approximately 585 lbs (265 kg)</li>\n</ul>\n\n<h2>Recommended Equipment</h2>\n<p>This aquarium is designed to work perfectly with the AquaLuxe Cabinet Stand (sold separately) and our range of filtration systems. For optimal setup, we recommend:</p>\n<ul>\n<li>AquaLuxe 36&quot; Cabinet Stand</li>\n<li>AquaLuxe Pro Canister Filter (Model 350 or higher)</li>\n<li>AquaLuxe Slimline LED Lighting System</li>\n</ul>\n\n<h2>Warranty</h2>\n<p>The AquaLuxe Crystal Clear Rimless Aquarium comes with a 3-year limited warranty against manufacturing defects when used under normal aquarium conditions and with proper support.</p>\n\n<p><strong>Note:</strong> Professional installation is recommended. The aquarium must be placed on a properly leveled, flat surface capable of supporting the total weight when filled.</p>",
+        "post_excerpt": "Premium 60-gallon rimless aquarium featuring 10mm ultra-clear low-iron glass, precision craftsmanship, and elegant design. Perfect for creating a stunning aquascape or reef display.",
+        "post_status": "publish",
+        "featured_image": "crystal-clear-aquarium.jpg",
+        "gallery_images": [
+            "crystal-clear-aquarium-2.jpg",
+            "crystal-clear-aquarium-3.jpg",
+            "crystal-clear-aquarium-4.jpg"
+        ],
+        "product_type": "simple",
+        "regular_price": "599.99",
+        "sale_price": "",
+        "sku": "TANK-CC-60G-01",
+        "stock_status": "instock",
+        "stock_quantity": 3,
+        "weight": "38.5",
+        "dimensions": {
+            "length": "91.4",
+            "width": "45.7",
+            "height": "50.8"
+        },
+        "terms": {
+            "product_cat": ["Aquariums", "Premium", "Rimless"],
+            "product_tag": ["Low-Iron", "Rimless", "High-End"]
+        },
+        "attributes": {
+            "Capacity": {
+                "taxonomy": "pa_capacity",
+                "terms": ["60 Gallons"],
+                "visible": true,
+                "variation": false
+            },
+            "Glass Type": {
+                "taxonomy": "pa_glass-type",
+                "terms": ["Low-Iron"],
+                "visible": true,
+                "variation": false
+            },
+            "Style": {
+                "taxonomy": "pa_style",
+                "terms": ["Rimless"],
+                "visible": true,
+                "variation": false
+            }
+        },
+        "meta": {
+            "_assembly_required": "No, but professional installation recommended",
+            "_warranty": "3-year limited warranty",
+            "_shipping_info": "Ships via freight carrier with specialized packaging. Additional shipping fees apply.",
+            "_recommended_accessories": "AquaLuxe 36&quot; Cabinet Stand, AquaLuxe Pro Canister Filter, AquaLuxe Slimline LED Lighting System"
+        }
+    },
+    {
+        "demo_id": "product_3",
+        "post_title": "AquaLuxe Professional Planted Aquarium Substrate - 9L",
+        "post_content": "<p>AquaLuxe Professional Planted Aquarium Substrate is a premium nutrient-rich substrate specifically formulated for planted aquariums. This advanced substrate provides the perfect foundation for luxuriant aquatic plant growth while maintaining optimal water parameters.</p>\n\n<h2>Features</h2>\n<ul>\n<li><strong>Complete Nutrient Formula:</strong> Contains essential macro and micronutrients for robust plant growth</li>\n<li><strong>Active pH Buffering:</strong> Naturally stabilizes pH to ideal levels for most aquatic plants (6.5-7.0)</li>\n<li><strong>Optimal Grain Size:</strong> Perfect balance between root anchoring and beneficial bacterial colonization</li>\n<li><strong>Ammonia-Free Formula:</strong> Safe for immediate fish introduction after setup</li>\n<li><strong>Long-lasting Performance:</strong> Maintains nutrient availability for 12-18 months</li>\n<li><strong>Low Dust Formula:</strong> Minimal clouding during setup for faster tank cycling</li>\n</ul>\n\n<h2>Specifications</h2>\n<ul>\n<li><strong>Volume:</strong> 9 liters (approximately 9.5 quarts)</li>\n<li><strong>Color:</strong> Rich dark brown</li>\n<li><strong>Grain Size:</strong> 2-5mm</li>\n<li><strong>Coverage:</strong> Approximately 9-10 square feet at 2-inch depth</li>\n<li><strong>Weight:</strong> Approximately 8 kg (17.6 lbs)</li>\n</ul>\n\n<h2>Usage Guidelines</h2>\n<p>For optimal results:</p>\n<ul>\n<li>Create a substrate layer of 2-3 inches (5-7.5 cm) depth</li>\n<li>For larger tanks, use multiple bags to achieve proper depth</li>\n<li>Can be used alone or capped with decorative sand or gravel</li>\n<li>No rinsing required before use</li>\n<li>For advanced setups, consider adding AquaLuxe Substrate Additives for enhanced results</li>\n</ul>\n\n<h2>Compatibility</h2>\n<p>Ideal for all freshwater planted aquariums, including:</p>\n<ul>\n<li>Nature aquascapes</li>\n<li>Dutch-style planted tanks</li>\n<li>Iwagumi layouts</li>\n<li>Community planted aquariums</li>\n<li>Shrimp tanks</li>\n</ul>\n\n<p><strong>Note:</strong> This substrate may slightly lower pH initially. Monitor water parameters during the first few weeks after setup.</p>",
+        "post_excerpt": "Premium nutrient-rich planted aquarium substrate with pH buffering properties and essential nutrients for luxuriant aquatic plant growth. Ideal for all freshwater planted aquarium styles.",
+        "post_status": "publish",
+        "featured_image": "planted-substrate.jpg",
+        "gallery_images": [
+            "planted-substrate-2.jpg",
+            "planted-substrate-3.jpg"
+        ],
+        "product_type": "simple",
+        "regular_price": "39.99",
+        "sale_price": "34.99",
+        "sku": "SUBS-PLANT-9L-01",
+        "stock_status": "instock",
+        "stock_quantity": 25,
+        "weight": "8",
+        "dimensions": {
+            "length": "40",
+            "width": "25",
+            "height": "15"
+        },
+        "terms": {
+            "product_cat": ["Substrates", "Plant Supplies", "Aquascaping"],
+            "product_tag": ["Planted Tank", "Aquascaping", "Nutrients"]
+        },
+        "attributes": {
+            "Volume": {
+                "taxonomy": "pa_volume",
+                "terms": ["9 Liters"],
+                "visible": true,
+                "variation": false
+            },
+            "Type": {
+                "taxonomy": "pa_substrate-type",
+                "terms": ["Nutrient-Rich"],
+                "visible": true,
+                "variation": false
+            },
+            "Application": {
+                "taxonomy": "pa_application",
+                "terms": ["Planted Aquariums"],
+                "visible": true,
+                "variation": false
+            }
+        },
+        "meta": {
+            "_usage_instructions": "Create a substrate layer of 2-3 inches (5-7.5 cm) depth. No rinsing required before use.",
+            "_coverage": "Approximately 9-10 square feet at 2-inch depth",
+            "_shelf_life": "5 years when stored in cool, dry conditions in original packaging",
+            "_recommended_accessories": "AquaLuxe Root Tabs, AquaLuxe Substrate Additives, AquaLuxe Aquascaping Tools"
+        }
+    }
+]
