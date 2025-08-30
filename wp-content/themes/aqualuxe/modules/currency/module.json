@@ -1,6 +1,0 @@
-{
-  "name": "Currency Switcher",
-  "slug": "currency",
-  "class": "AquaLuxe\\Modules\\Currency\\Module",
-  "enabled": true
-}
