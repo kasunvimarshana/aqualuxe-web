@@ -1,0 +1,20 @@
+{
+  "name": "aqualuxe",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/style.css",
+    "build:css:prod": "NODE_ENV=production tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/style.css --minify",
+    "watch:css": "tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/style.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "AquaLuxe WooCommerce Child Theme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.10"
+  }
+}

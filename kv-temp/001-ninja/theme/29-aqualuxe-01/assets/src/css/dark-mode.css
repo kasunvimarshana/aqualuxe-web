@@ -1,0 +1,142 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* 
+ * Dark mode specific styles for AquaLuxe theme
+ */
+
+/* Base dark mode styles */
+.dark body {
+  @apply bg-dark-800 text-dark-100;
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  @apply text-white;
+}
+
+.dark a {
+  @apply text-primary-400 hover:text-primary-300;
+}
+
+/* Form elements in dark mode */
+.dark input[type="text"],
+.dark input[type="email"],
+.dark input[type="url"],
+.dark input[type="password"],
+.dark input[type="number"],
+.dark input[type="date"],
+.dark input[type="datetime-local"],
+.dark input[type="month"],
+.dark input[type="search"],
+.dark input[type="tel"],
+.dark input[type="time"],
+.dark input[type="week"],
+.dark textarea,
+.dark select {
+  @apply bg-dark-700 border-dark-600 text-white focus:border-primary-400 focus:ring-primary-400;
+}
+
+/* Dark mode toggle button */
+.dark-mode-toggle {
+  @apply relative inline-flex items-center h-6 rounded-full w-11 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500;
+}
+
+.dark-mode-toggle[aria-checked="false"] {
+  @apply bg-dark-300;
+}
+
+.dark-mode-toggle[aria-checked="true"] {
+  @apply bg-primary-600;
+}
+
+.dark-mode-toggle-knob {
+  @apply inline-block h-4 w-4 transform rounded-full bg-white transition-transform;
+}
+
+.dark-mode-toggle[aria-checked="false"] .dark-mode-toggle-knob {
+  @apply translate-x-1;
+}
+
+.dark-mode-toggle[aria-checked="true"] .dark-mode-toggle-knob {
+  @apply translate-x-6;
+}
+
+/* Dark mode specific component styles */
+.dark .site-header {
+  @apply bg-dark-800 border-dark-700;
+}
+
+.dark .card {
+  @apply bg-dark-700 border-dark-600;
+}
+
+.dark .btn-outline {
+  @apply border-primary-400 text-primary-400 hover:bg-dark-700;
+}
+
+/* Dark mode product styles */
+.dark .product-card {
+  @apply bg-dark-700 border-dark-600;
+}
+
+.dark .product-title {
+  @apply text-white hover:text-primary-400;
+}
+
+.dark .product-price {
+  @apply text-white;
+}
+
+/* Dark mode blog styles */
+.dark .post-card {
+  @apply bg-dark-700 border-dark-600;
+}
+
+.dark .post-title {
+  @apply text-white hover:text-primary-400;
+}
+
+.dark .post-meta {
+  @apply text-dark-300;
+}
+
+.dark .post-excerpt {
+  @apply text-dark-200;
+}
+
+/* Dark mode widget styles */
+.dark .widget-title {
+  @apply border-dark-600 text-white;
+}
+
+/* Dark mode pagination */
+.dark .page-numbers {
+  @apply bg-dark-700 text-dark-200 hover:bg-dark-600;
+}
+
+.dark .page-numbers.current {
+  @apply bg-primary-600 text-white hover:bg-primary-700;
+}
+
+/* Dark mode tables */
+.dark table {
+  @apply border-dark-600;
+}
+
+.dark th {
+  @apply bg-dark-700 text-white border-dark-600;
+}
+
+.dark td {
+  @apply border-dark-600;
+}
+
+.dark tr:nth-child(even) {
+  @apply bg-dark-750;
+}
+
+/* Dark mode code blocks */
+.dark pre, .dark code {
+  @apply bg-dark-900 text-dark-100 border-dark-700;
+}

@@ -1,0 +1,415 @@
+/**
+ * Mixins
+ *
+ * This file contains all the mixins used in the theme.
+ *
+ * @package AquaLuxe
+ * @since 1.0.0
+ */
+
+/**
+ * Media queries
+ */
+@mixin media-up($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Invalid breakpoint: #{$breakpoint}.";
+  }
+}
+
+@mixin media-down($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint) - 0.02) {
+      @content;
+    }
+  } @else {
+    @warn "Invalid breakpoint: #{$breakpoint}.";
+  }
+}
+
+@mixin media-between($lower, $upper) {
+  @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+    @media (min-width: map-get($breakpoints, $lower)) and (max-width: map-get($breakpoints, $upper) - 0.02) {
+      @content;
+    }
+  } @else {
+    @warn "Invalid breakpoint: #{$lower} or #{$upper}.";
+  }
+}
+
+/**
+ * Flexbox
+ */
+@mixin flex($direction: row, $wrap: nowrap, $justify: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/**
+ * Grid
+ */
+@mixin grid($columns: 1, $gap: var(--aqualuxe-grid-gutter)) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+@mixin grid-auto-fill($min-width: 250px, $gap: var(--aqualuxe-grid-gutter)) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($min-width, 1fr));
+  gap: $gap;
+}
+
+/**
+ * Typography
+ */
+@mixin font-size($size, $line-height: null) {
+  font-size: $size;
+  @if $line-height {
+    line-height: $line-height;
+  }
+}
+
+@mixin heading {
+  font-family: var(--aqualuxe-heading-font-family);
+  font-weight: var(--aqualuxe-font-weight-bold);
+  line-height: var(--aqualuxe-heading-line-height);
+  color: var(--aqualuxe-heading-color);
+  margin-top: 0;
+  margin-bottom: var(--aqualuxe-spacing-md);
+}
+
+@mixin truncate($lines: 1) {
+  @if $lines == 1 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/**
+ * Positioning
+ */
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin absolute-fill {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/**
+ * Transitions
+ */
+@mixin transition($properties...) {
+  $transitions: ();
+  @each $property in $properties {
+    $transitions: append($transitions, $property var(--aqualuxe-transition-duration) var(--aqualuxe-transition-timing-function), comma);
+  }
+  transition: $transitions;
+}
+
+/**
+ * Shadows
+ */
+@mixin box-shadow($level: 'default') {
+  @if $level == 'sm' {
+    box-shadow: var(--aqualuxe-box-shadow-sm);
+  } @else if $level == 'default' {
+    box-shadow: var(--aqualuxe-box-shadow);
+  } @else if $level == 'lg' {
+    box-shadow: var(--aqualuxe-box-shadow-lg);
+  } @else if $level == 'xl' {
+    box-shadow: var(--aqualuxe-box-shadow-xl);
+  } @else {
+    box-shadow: $level;
+  }
+}
+
+/**
+ * Buttons
+ */
+@mixin button-base {
+  display: inline-block;
+  font-family: var(--aqualuxe-body-font-family);
+  font-weight: var(--aqualuxe-font-weight-medium);
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: var(--aqualuxe-border-radius);
+  @include transition(color, background-color, border-color, box-shadow);
+  cursor: pointer;
+  
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+  
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(var(--aqualuxe-primary-color-rgb), 0.25);
+  }
+  
+  &:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-variant($background, $border, $hover-background, $hover-border, $active-background, $active-border) {
+  color: #fff;
+  background-color: $background;
+  border-color: $border;
+
+  &:hover {
+    color: #fff;
+    background-color: $hover-background;
+    border-color: $hover-border;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(mix(#fff, $background, 15%), 0.5);
+  }
+
+  &:active {
+    color: #fff;
+    background-color: $active-background;
+    border-color: $active-border;
+  }
+}
+
+@mixin button-outline-variant($color) {
+  color: $color;
+  border-color: $color;
+  background-color: transparent;
+
+  &:hover {
+    color: #fff;
+    background-color: $color;
+    border-color: $color;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba($color, 0.5);
+  }
+
+  &:active {
+    color: #fff;
+    background-color: $color;
+    border-color: $color;
+  }
+}
+
+/**
+ * Forms
+ */
+@mixin form-control {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--aqualuxe-text-color);
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid var(--aqualuxe-border-color);
+  border-radius: var(--aqualuxe-border-radius);
+  @include transition(border-color, box-shadow);
+
+  &:focus {
+    color: var(--aqualuxe-text-color);
+    background-color: #fff;
+    border-color: var(--aqualuxe-primary-color-light);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(var(--aqualuxe-primary-color-rgb), 0.25);
+  }
+
+  &::placeholder {
+    color: #6c757d;
+    opacity: 1;
+  }
+
+  &:disabled,
+  &[readonly] {
+    background-color: #e9ecef;
+    opacity: 1;
+  }
+}
+
+/**
+ * Cards
+ */
+@mixin card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid var(--aqualuxe-border-color);
+  border-radius: var(--aqualuxe-border-radius);
+  @include box-shadow('sm');
+  @include transition(transform, box-shadow);
+  
+  &:hover {
+    transform: translateY(-5px);
+    @include box-shadow('default');
+  }
+}
+
+/**
+ * Images
+ */
+@mixin img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+@mixin img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/**
+ * Hover effects
+ */
+@mixin hover-zoom($scale: 1.05) {
+  overflow: hidden;
+  
+  img {
+    @include transition(transform);
+  }
+  
+  &:hover img {
+    transform: scale($scale);
+  }
+}
+
+@mixin hover-opacity($opacity: 0.8) {
+  @include transition(opacity);
+  
+  &:hover {
+    opacity: $opacity;
+  }
+}
+
+/**
+ * Animations
+ */
+@mixin keyframes($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin animation($name, $duration: 1s, $timing-function: ease, $delay: 0s, $iteration-count: 1, $direction: normal, $fill-mode: none) {
+  animation-name: $name;
+  animation-duration: $duration;
+  animation-timing-function: $timing-function;
+  animation-delay: $delay;
+  animation-iteration-count: $iteration-count;
+  animation-direction: $direction;
+  animation-fill-mode: $fill-mode;
+}
+
+/**
+ * Dark mode
+ */
+@mixin dark-mode {
+  .dark-mode & {
+    @content;
+  }
+}
+
+/**
+ * Container
+ */
+@mixin container {
+  width: 100%;
+  padding-right: var(--aqualuxe-container-padding);
+  padding-left: var(--aqualuxe-container-padding);
+  margin-right: auto;
+  margin-left: auto;
+  max-width: var(--aqualuxe-container-width);
+}
+
+/**
+ * Section
+ */
+@mixin section {
+  padding: var(--aqualuxe-spacing-xl) 0;
+  
+  @include media-up(md) {
+    padding: var(--aqualuxe-spacing-xxl) 0;
+  }
+}
+
+/**
+ * Clearfix
+ */
+@mixin clearfix {
+  &::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+}
+
+/**
+ * Visually hidden
+ */
+@mixin visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}

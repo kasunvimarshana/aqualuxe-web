@@ -1,0 +1,773 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0"
+	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:wp="http://wordpress.org/export/1.2/"
+>
+
+<channel>
+	<title>AquaLuxe Demo</title>
+	<link>https://aqualuxetheme.com</link>
+	<description>AquaLuxe Theme Demo Content</description>
+	<pubDate>Mon, 08 Aug 2025 06:23:54 +0000</pubDate>
+	<language>en-US</language>
+	<wp:wxr_version>1.2</wp:wxr_version>
+	<wp:base_site_url>https://aqualuxetheme.com</wp:base_site_url>
+	<wp:base_blog_url>https://aqualuxetheme.com</wp:base_blog_url>
+
+	<!-- Pages -->
+	<item>
+		<title>Home</title>
+		<link>https://aqualuxetheme.com/</link>
+		<pubDate>Mon, 08 Aug 2025 06:23:54 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://aqualuxetheme.com/?page_id=2</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:cover {"url":"https://aqualuxetheme.com/wp-content/uploads/2025/08/hero-aquarium.jpg","id":123,"dimRatio":50,"overlayColor":"primary","minHeight":800,"contentPosition":"center center","align":"full"} -->
+<div class="wp-block-cover alignfull has-primary-background-color" style="min-height:800px"><span aria-hidden="true" class="wp-block-cover__background has-primary-background-color has-background-dim"></span><img class="wp-block-cover__image-background wp-image-123" alt="Beautiful aquarium with tropical fish" src="https://aqualuxetheme.com/wp-content/uploads/2025/08/hero-aquarium.jpg" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:heading {"level":1,"align":"center","textColor":"white","fontSize":"huge"} -->
+<h1 class="has-text-align-center has-white-color has-text-color has-huge-font-size">Welcome to AquaLuxe</h1>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"center","textColor":"white","fontSize":"large"} -->
+<p class="has-text-align-center has-white-color has-text-color has-large-font-size">Premium Aquarium Products &amp; Services</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+<div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"accent","textColor":"white"} -->
+<div class="wp-block-button"><a class="wp-block-button__link has-white-color has-accent-background-color has-text-color has-background">Shop Now</a></div>
+<!-- /wp:button -->
+
+<!-- wp:button {"textColor":"white","className":"is-style-outline"} -->
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-white-color has-text-color">Our Services</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div></div>
+<!-- /wp:cover -->
+
+<!-- wp:group {"align":"full","backgroundColor":"background","className":"features-section","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull features-section has-background-background-color has-background"><!-- wp:heading {"textAlign":"center","style":{"spacing":{"margin":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|40"}}}} -->
+<h2 class="has-text-align-center" style="margin-top:var(--wp--preset--spacing--60);margin-bottom:var(--wp--preset--spacing--40)">Why Choose AquaLuxe</h2>
+<!-- /wp:heading -->
+
+<!-- wp:columns {"align":"wide"} -->
+<div class="wp-block-columns alignwide"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"id":124,"sizeSlug":"medium","linkDestination":"none","className":"is-style-rounded"} -->
+<figure class="wp-block-image size-medium is-style-rounded"><img src="https://aqualuxetheme.com/wp-content/uploads/2025/08/feature-1.jpg" alt="Premium quality fish" class="wp-image-124"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3,"textAlign":"center"} -->
+<h3 class="has-text-align-center">Premium Quality</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center">We source only the healthiest fish and highest quality aquarium products for our customers.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"id":125,"sizeSlug":"medium","linkDestination":"none","className":"is-style-rounded"} -->
+<figure class="wp-block-image size-medium is-style-rounded"><img src="https://aqualuxetheme.com/wp-content/uploads/2025/08/feature-2.jpg" alt="Expert advice" class="wp-image-125"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3,"textAlign":"center"} -->
+<h3 class="has-text-align-center">Expert Advice</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center">Our team of aquarium experts is always ready to help with personalized advice and solutions.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"id":126,"sizeSlug":"medium","linkDestination":"none","className":"is-style-rounded"} -->
+<figure class="wp-block-image size-medium is-style-rounded"><img src="https://aqualuxetheme.com/wp-content/uploads/2025/08/feature-3.jpg" alt="Maintenance service" class="wp-image-126"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3,"textAlign":"center"} -->
+<h3 class="has-text-align-center">Maintenance Services</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center">We offer professional aquarium maintenance services to keep your underwater world thriving.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"full","backgroundColor":"primary","textColor":"white","className":"cta-section","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull cta-section has-white-color has-primary-background-color has-text-color has-background"><!-- wp:heading {"textAlign":"center","textColor":"white"} -->
+<h2 class="has-text-align-center has-white-color has-text-color">Featured Products</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"center","textColor":"white"} -->
+<p class="has-text-align-center has-white-color has-text-color">Discover our selection of premium aquarium products</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:woocommerce/product-new {"columns":4,"rows":1,"alignButtons":true,"contentVisibility":{"image":true,"title":true,"price":true,"rating":true,"button":true}} /--></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"full","backgroundColor":"background-alt","className":"testimonials-section","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull testimonials-section has-background-alt-background-color has-background"><!-- wp:heading {"textAlign":"center"} -->
+<h2 class="has-text-align-center">What Our Customers Say</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center">Read testimonials from our satisfied customers</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:columns {"align":"wide"} -->
+<div class="wp-block-columns alignwide"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:quote {"align":"center","className":"is-style-default"} -->
+<blockquote class="wp-block-quote has-text-align-center is-style-default"><!-- wp:paragraph -->
+<p>"AquaLuxe has transformed my home with their stunning custom aquarium. Their maintenance service is exceptional, and my fish have never been healthier!"</p>
+<!-- /wp:paragraph --><cite>— Sarah Johnson</cite></blockquote>
+<!-- /wp:quote --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:quote {"align":"center"} -->
+<blockquote class="wp-block-quote has-text-align-center"><!-- wp:paragraph -->
+<p>"The team at AquaLuxe provided expert advice that helped me set up the perfect reef tank. Their product quality is unmatched in the industry."</p>
+<!-- /wp:paragraph --><cite>— Michael Chen</cite></blockquote>
+<!-- /wp:quote --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:quote {"align":"center"} -->
+<blockquote class="wp-block-quote has-text-align-center"><!-- wp:paragraph -->
+<p>"I've been shopping at AquaLuxe for years, and their selection of rare fish species and aquarium supplies is simply the best in the region."</p>
+<!-- /wp:paragraph --><cite>— David Miller</cite></blockquote>
+<!-- /wp:quote --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></div>
+<!-- /wp:group -->
+
+<!-- wp:cover {"url":"https://aqualuxetheme.com/wp-content/uploads/2025/08/newsletter-bg.jpg","id":127,"dimRatio":70,"overlayColor":"primary","minHeight":400,"contentPosition":"center center","align":"full","className":"newsletter-section"} -->
+<div class="wp-block-cover alignfull newsletter-section" style="min-height:400px"><span aria-hidden="true" class="wp-block-cover__background has-primary-background-color has-background-dim-70 has-background-dim"></span><img class="wp-block-cover__image-background wp-image-127" alt="Underwater scene" src="https://aqualuxetheme.com/wp-content/uploads/2025/08/newsletter-bg.jpg" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:heading {"textAlign":"center","textColor":"white"} -->
+<h2 class="has-text-align-center has-white-color has-text-color">Subscribe to Our Newsletter</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"center","textColor":"white"} -->
+<p class="has-text-align-center has-white-color has-text-color">Stay updated with the latest products, services, and aquarium care tips</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:html -->
+<form class="newsletter-form">
+  <div class="newsletter-form-inner">
+    <input type="email" placeholder="Your email address" required>
+    <button type="submit" class="button">Subscribe</button>
+  </div>
+</form>
+<!-- /wp:html --></div></div>
+<!-- /wp:cover -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>2</wp:post_id>
+		<wp:post_date>2025-08-08 06:23:54</wp:post_date>
+		<wp:post_date_gmt>2025-08-08 06:23:54</wp:post_date_gmt>
+		<wp:post_modified>2025-08-08 06:23:54</wp:post_modified>
+		<wp:post_modified_gmt>2025-08-08 06:23:54</wp:post_modified_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>home</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>page</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key>_wp_page_template</wp:meta_key>
+			<wp:meta_value><![CDATA[front-page.php]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	
+	<item>
+		<title>About Us</title>
+		<link>https://aqualuxetheme.com/about/</link>
+		<pubDate>Mon, 08 Aug 2025 06:23:54 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://aqualuxetheme.com/?page_id=3</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:heading {"level":1} -->
+<h1>About AquaLuxe</h1>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Welcome to AquaLuxe, where passion for aquatic life meets exceptional service and expertise. Since our founding in 2010, we've been dedicated to providing premium aquarium products, expert advice, and professional services to aquarium enthusiasts of all levels.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Our mission is to help our customers create and maintain beautiful, healthy aquatic environments while promoting responsible and sustainable aquarium keeping practices.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2>Our Story</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>AquaLuxe began as a small local fish store founded by marine biologist Dr. James Anderson. With a PhD in Marine Biology and a lifelong passion for aquatic ecosystems, Dr. Anderson set out to create a different kind of aquarium store—one that combined scientific expertise with exceptional customer service.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Over the years, AquaLuxe has grown from a small local shop to a comprehensive aquarium center offering a wide range of products, custom aquarium design services, and professional maintenance programs. Despite our growth, we remain committed to our founding principles of quality, expertise, and customer satisfaction.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"align":"center","id":128,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image aligncenter size-large"><img src="https://aqualuxetheme.com/wp-content/uploads/2025/08/our-store.jpg" alt="AquaLuxe store interior" class="wp-image-128"/><figcaption class="wp-element-caption">Our flagship store in Palo Alto, California</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading -->
+<h2>Our Team</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>At AquaLuxe, our team consists of passionate aquarium enthusiasts with extensive knowledge and experience in various aspects of aquarium keeping. From marine biologists to experienced hobbyists, our staff is dedicated to providing expert advice and exceptional service.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:columns -->
+<div class="wp-block-columns"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"id":129,"sizeSlug":"medium","linkDestination":"none"} -->
+<figure class="wp-block-image size-medium"><img src="https://aqualuxetheme.com/wp-content/uploads/2025/08/team-1.jpg" alt="Dr. James Anderson" class="wp-image-129"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3,"textAlign":"center"} -->
+<h3 class="has-text-align-center">Dr. James Anderson</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center">Founder & CEO<br>PhD in Marine Biology</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"id":130,"sizeSlug":"medium","linkDestination":"none"} -->
+<figure class="wp-block-image size-medium"><img src="https://aqualuxetheme.com/wp-content/uploads/2025/08/team-2.jpg" alt="Sarah Chen" class="wp-image-130"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3,"textAlign":"center"} -->
+<h3 class="has-text-align-center">Sarah Chen</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center">Head of Aquarium Design<br>15+ Years Experience</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"id":131,"sizeSlug":"medium","linkDestination":"none"} -->
+<figure class="wp-block-image size-medium"><img src="https://aqualuxetheme.com/wp-content/uploads/2025/08/team-3.jpg" alt="Michael Rodriguez" class="wp-image-131"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3,"textAlign":"center"} -->
+<h3 class="has-text-align-center">Michael Rodriguez</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center">Maintenance Director<br>Certified Aquarist</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:heading -->
+<h2>Our Values</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul><!-- wp:list-item -->
+<li><strong>Quality</strong>: We source only the healthiest fish and highest quality products for our customers.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Expertise</strong>: Our team is continuously educated on the latest aquarium technologies and best practices.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Sustainability</strong>: We are committed to environmentally responsible practices in all aspects of our business.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Education</strong>: We believe in empowering our customers with knowledge to become successful aquarium keepers.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Community</strong>: We actively support and engage with the local and global aquarium community.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2>Visit Us</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>We invite you to visit our store and experience the AquaLuxe difference. Our knowledgeable staff is ready to assist you with all your aquarium needs, from selecting the perfect fish to designing a custom aquarium for your home or office.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:columns -->
+<div class="wp-block-columns"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:heading {"level":3} -->
+<h3>Store Hours</h3>
+<!-- /wp:heading -->
+
+<!-- wp:table {"className":"is-style-stripes"} -->
+<figure class="wp-block-table is-style-stripes"><table><tbody><tr><td>Monday - Friday</td><td>10:00 AM - 7:00 PM</td></tr><tr><td>Saturday</td><td>9:00 AM - 6:00 PM</td></tr><tr><td>Sunday</td><td>11:00 AM - 5:00 PM</td></tr></tbody></table></figure>
+<!-- /wp:table --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:heading {"level":3} -->
+<h3>Contact Information</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>Address</strong>: 123 Aquarium Way, Palo Alto, CA 94301<br><strong>Phone</strong>: (555) 123-4567<br><strong>Email</strong>: info@aqualuxetheme.com</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:html -->
+<div class="map-container">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25366.76030388535!2d-122.17330687356592!3d37.44193329905782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fa4d4367d5555%3A0xc9116b14ce32f91!2sPalo%20Alto%2C%20CA!5e0!3m2!1sen!2sus!4v1628097035296!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+<!-- /wp:html -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>3</wp:post_id>
+		<wp:post_date>2025-08-08 06:23:54</wp:post_date>
+		<wp:post_date_gmt>2025-08-08 06:23:54</wp:post_date_gmt>
+		<wp:post_modified>2025-08-08 06:23:54</wp:post_modified>
+		<wp:post_modified_gmt>2025-08-08 06:23:54</wp:post_modified_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>about</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>page</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key>_wp_page_template</wp:meta_key>
+			<wp:meta_value><![CDATA[template-about.php]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<!-- Services -->
+	<item>
+		<title>Aquarium Maintenance</title>
+		<link>https://aqualuxetheme.com/services/aquarium-maintenance/</link>
+		<pubDate>Mon, 08 Aug 2025 06:23:54 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://aqualuxetheme.com/?post_type=aqualuxe_service&amp;p=10</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>Our professional aquarium maintenance service ensures your aquatic environment remains healthy and beautiful. Our certified technicians handle everything from water changes to equipment checks, allowing you to enjoy your aquarium without the hassle of maintenance.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2>Service Includes</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul><!-- wp:list-item -->
+<li>Regular water testing and parameter adjustments</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Partial water changes</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Filter cleaning and media replacement</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Algae removal</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Substrate vacuuming</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Equipment inspection and maintenance</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Fish health assessment</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Plant trimming and care (freshwater)</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Coral and invertebrate care (saltwater)</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2>Maintenance Plans</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>We offer flexible maintenance plans to suit your needs and budget:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:table {"className":"is-style-stripes"} -->
+<figure class="wp-block-table is-style-stripes"><table><thead><tr><th>Plan</th><th>Frequency</th><th>Details</th></tr></thead><tbody><tr><td>Basic</td><td>Monthly</td><td>Essential maintenance for stable aquariums</td></tr><tr><td>Standard</td><td>Bi-weekly</td><td>Comprehensive care for most aquarium types</td></tr><tr><td>Premium</td><td>Weekly</td><td>Complete care for high-tech or sensitive systems</td></tr><tr><td>Custom</td><td>As needed</td><td>Tailored to your specific requirements</td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:paragraph -->
+<p>Contact us today to schedule a consultation and discuss which maintenance plan is right for your aquarium.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[Professional aquarium maintenance services to keep your underwater world thriving. Our expert technicians handle water changes, equipment maintenance, and more.]]></excerpt:encoded>
+		<wp:post_id>10</wp:post_id>
+		<wp:post_date>2025-08-08 06:23:54</wp:post_date>
+		<wp:post_date_gmt>2025-08-08 06:23:54</wp:post_date_gmt>
+		<wp:post_modified>2025-08-08 06:23:54</wp:post_modified>
+		<wp:post_modified_gmt>2025-08-08 06:23:54</wp:post_modified_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>aquarium-maintenance</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>aqualuxe_service</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key>_aqualuxe_service_price</wp:meta_key>
+			<wp:meta_value><![CDATA[From $99/month]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_aqualuxe_service_duration</wp:meta_key>
+			<wp:meta_value><![CDATA[1-2 hours per visit]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<!-- Blog Post -->
+	<item>
+		<title>Beginner's Guide to Freshwater Aquariums</title>
+		<link>https://aqualuxetheme.com/beginners-guide-to-freshwater-aquariums/</link>
+		<pubDate>Mon, 08 Aug 2025 06:23:54 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://aqualuxetheme.com/?p=20</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>Setting up your first freshwater aquarium can be an exciting but sometimes overwhelming experience. With proper planning and knowledge, you can create a beautiful and healthy aquatic environment that will bring you joy for years to come. This beginner's guide will walk you through the essential steps and considerations for starting your freshwater aquarium journey.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2>Choosing the Right Tank</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>When selecting your first aquarium, it's often recommended to start with a larger tank rather than a smaller one. While this might seem counterintuitive, larger tanks (20 gallons or more) are actually more forgiving for beginners because they provide more stable water conditions.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Consider these factors when choosing your tank:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul><!-- wp:list-item -->
+<li><strong>Size</strong>: A 20-30 gallon tank is ideal for beginners</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Material</strong>: Glass or acrylic (glass is more scratch-resistant but heavier)</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Shape</strong>: Standard rectangular tanks are easiest to maintain</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Location</strong>: Choose a spot away from direct sunlight and on a sturdy surface that can support the weight</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2>Essential Equipment</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>A successful aquarium requires several key pieces of equipment:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul><!-- wp:list-item -->
+<li><strong>Filter</strong>: The heart of your aquarium's ecosystem, removing waste and providing biological filtration</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Heater</strong>: Most tropical fish require water temperatures between 75-80°F (24-27°C)</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Thermometer</strong>: To monitor water temperature</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Lighting</strong>: Provides illumination and supports plant growth</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Substrate</strong>: Gravel or sand for the tank bottom</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Water conditioner</strong>: Removes chlorine and chloramine from tap water</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Test kit</strong>: To monitor ammonia, nitrite, nitrate, and pH levels</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2>The Nitrogen Cycle</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Before adding fish to your new aquarium, it's crucial to establish the nitrogen cycle. This biological process converts toxic ammonia (from fish waste) into less harmful nitrates through beneficial bacteria.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Steps to cycle your tank:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list {"ordered":true} -->
+<ol><!-- wp:list-item -->
+<li>Set up your tank with all equipment running</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Add a source of ammonia (fish food, pure ammonia, or a few hardy fish)</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Test water parameters regularly</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Wait for ammonia to rise, then drop as nitrite appears</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Wait for nitrite to drop as nitrate appears</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>When ammonia and nitrite read zero, and nitrate is present, your tank is cycled</li>
+<!-- /wp:list-item --></ol>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>This process typically takes 4-6 weeks. Patience during this phase is essential for long-term success.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2>Choosing Fish</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>When selecting fish for your first aquarium, consider these factors:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul><!-- wp:list-item -->
+<li><strong>Hardiness</strong>: Choose species known to be resilient and forgiving</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Compatibility</strong>: Research which species can peacefully coexist</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Adult size</strong>: Consider how large the fish will grow</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Bioload</strong>: Different species produce different amounts of waste</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Water parameters</strong>: Choose fish that thrive in similar conditions</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>Some excellent beginner-friendly fish include:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul><!-- wp:list-item -->
+<li>Tetras (Neon, Black Skirt, Ember)</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Danios (Zebra, Celestial Pearl)</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Corydoras Catfish</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Platies</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Guppies</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Betta Fish (in appropriate setups)</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2>Aquarium Maintenance</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Regular maintenance is essential for a healthy aquarium:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul><!-- wp:list-item -->
+<li><strong>Weekly</strong>: Test water parameters, perform 10-25% water changes</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>Monthly</strong>: Clean filter media (in aquarium water, never tap water), check equipment</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><strong>As needed</strong>: Trim plants, clean algae, vacuum substrate</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2>Common Beginner Mistakes</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul><!-- wp:list-item -->
+<li>Overstocking the tank with too many fish</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Overfeeding (feed only what fish can consume in 2-3 minutes)</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Skipping water changes</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Adding fish before the tank is fully cycled</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Changing too much water at once</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Using soap or household cleaners near the aquarium</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2>Conclusion</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Starting a freshwater aquarium is a rewarding hobby that combines science, art, and nature. By taking the time to properly set up your tank, cycle it completely, and select appropriate fish, you'll be setting yourself up for success. Remember that patience is key in this hobby—rushing any part of the process often leads to problems down the road.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>At AquaLuxe, we're always here to help with advice, products, and services to support your aquarium journey. Feel free to visit our store or contact us with any questions about setting up your first freshwater aquarium.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[New to the world of aquariums? This comprehensive guide covers everything you need to know to set up and maintain your first freshwater aquarium, from equipment selection to fish choices and maintenance routines.]]></excerpt:encoded>
+		<wp:post_id>20</wp:post_id>
+		<wp:post_date>2025-08-08 06:23:54</wp:post_date>
+		<wp:post_date_gmt>2025-08-08 06:23:54</wp:post_date_gmt>
+		<wp:post_modified>2025-08-08 06:23:54</wp:post_modified>
+		<wp:post_modified_gmt>2025-08-08 06:23:54</wp:post_modified_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>beginners-guide-to-freshwater-aquariums</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="category" nicename="guides"><![CDATA[Guides]]></category>
+		<category domain="post_tag" nicename="beginners"><![CDATA[Beginners]]></category>
+		<category domain="post_tag" nicename="freshwater"><![CDATA[Freshwater]]></category>
+		<category domain="post_tag" nicename="setup"><![CDATA[Setup]]></category>
+	</item>
+
+	<!-- Menu Items -->
+	<item>
+		<title>Main Menu</title>
+		<link>https://aqualuxetheme.com/main-menu/</link>
+		<pubDate>Mon, 08 Aug 2025 06:23:54 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://aqualuxetheme.com/?p=100</guid>
+		<description></description>
+		<content:encoded><![CDATA[Main Menu]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>100</wp:post_id>
+		<wp:post_date>2025-08-08 06:23:54</wp:post_date>
+		<wp:post_date_gmt>2025-08-08 06:23:54</wp:post_date_gmt>
+		<wp:post_modified>2025-08-08 06:23:54</wp:post_modified>
+		<wp:post_modified_gmt>2025-08-08 06:23:54</wp:post_modified_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>main-menu</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>nav_menu_item</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_type</wp:meta_key>
+			<wp:meta_value><![CDATA[custom]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_menu_item_parent</wp:meta_key>
+			<wp:meta_value><![CDATA[0]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_object_id</wp:meta_key>
+			<wp:meta_value><![CDATA[100]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_object</wp:meta_key>
+			<wp:meta_value><![CDATA[custom]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_target</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_classes</wp:meta_key>
+			<wp:meta_value><![CDATA[a:1:{i:0;s:0:"";}]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_xfn</wp:meta_key>
+			<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_menu_item_url</wp:meta_key>
+			<wp:meta_value><![CDATA[https://aqualuxetheme.com/]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+</channel>
+</rss>

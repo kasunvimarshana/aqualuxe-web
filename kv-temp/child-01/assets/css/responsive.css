@@ -1,0 +1,164 @@
+/**
+ * AquaLuxe Responsive Styles
+ *
+ * @package AquaLuxe
+ */
+
+/* Large Devices (Desktops) */
+@media only screen and (max-width: 1200px) {
+  .container {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+
+  .products {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Medium Devices (Tablets) */
+@media only screen and (max-width: 992px) {
+  .site-branding .site-title {
+    font-size: 2rem;
+  }
+
+  .header-actions {
+    gap: 15px;
+  }
+
+  .search-form input[type='search'] {
+    width: 180px;
+  }
+
+  .primary-menu {
+    gap: 20px;
+  }
+
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .footer-widgets {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+/* Small Devices (Landscape Phones) */
+@media only screen and (max-width: 768px) {
+  .header-top {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .site-branding {
+    text-align: center;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .search-form input[type='search'] {
+    width: 100%;
+  }
+
+  .main-navigation {
+    padding: 10px 0;
+  }
+
+  .primary-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .primary-menu a {
+    font-size: 0.85rem;
+  }
+
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-widgets {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+}
+
+/* Extra Small Devices (Portrait Phones) */
+@media only screen and (max-width: 576px) {
+  .site-branding .site-title {
+    font-size: 1.8rem;
+  }
+
+  .site-branding .site-description {
+    font-size: 0.9rem;
+  }
+
+  .header-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .search-form {
+    width: 100%;
+  }
+
+  .header-cart {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .primary-menu {
+    gap: 10px;
+  }
+
+  .primary-menu a {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+
+  .products {
+    grid-template-columns: 1fr;
+  }
+
+  .product .woocommerce-loop-product__title {
+    font-size: 1.1rem;
+  }
+
+  .product .images {
+    margin-bottom: 20px;
+  }
+
+  .product .entry-title {
+    font-size: 1.5rem;
+  }
+
+  .product .price {
+    font-size: 1.5rem;
+  }
+
+  .product .quantity {
+    float: none;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .product .quantity input {
+    width: 100%;
+  }
+
+  .product .single_add_to_cart_button {
+    width: 100%;
+  }
+}

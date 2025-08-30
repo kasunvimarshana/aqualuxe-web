@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- This is a simplified version of a WordPress export file for demo purposes -->
+<!-- In a real theme, this would be a complete WordPress export file with all demo content -->
+<rss version="2.0"
+	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:wp="http://wordpress.org/export/1.2/"
+>
+<channel>
+	<title>AquaLuxe Demo</title>
+	<link>https://aqualuxe.example.com</link>
+	<description>AquaLuxe Demo Content</description>
+	<pubDate>Tue, 12 Aug 2025 22:48:49 +0000</pubDate>
+	<language>en-US</language>
+	<wp:wxr_version>1.2</wp:wxr_version>
+	<wp:base_site_url>https://aqualuxe.example.com</wp:base_site_url>
+	<wp:base_blog_url>https://aqualuxe.example.com</wp:base_blog_url>
+
+	<!-- Sample Page: Home -->
+	<item>
+		<title>Home</title>
+		<link>https://aqualuxe.example.com/</link>
+		<pubDate>Tue, 12 Aug 2025 22:48:49 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://aqualuxe.example.com/?page_id=2</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>Welcome to AquaLuxe, your premier destination for luxury aquatic products and services.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>2</wp:post_id>
+		<wp:post_date>2025-08-12 22:48:49</wp:post_date>
+		<wp:post_date_gmt>2025-08-12 22:48:49</wp:post_date_gmt>
+		<wp:post_modified>2025-08-12 22:48:49</wp:post_modified>
+		<wp:post_modified_gmt>2025-08-12 22:48:49</wp:post_modified_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>home</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>page</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key>_wp_page_template</wp:meta_key>
+			<wp:meta_value><![CDATA[front-page.php]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<!-- Sample Page: About -->
+	<item>
+		<title>About</title>
+		<link>https://aqualuxe.example.com/about/</link>
+		<pubDate>Tue, 12 Aug 2025 22:48:49 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://aqualuxe.example.com/?page_id=3</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>Learn about our company history, mission, values, and team.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>3</wp:post_id>
+		<wp:post_date>2025-08-12 22:48:49</wp:post_date>
+		<wp:post_date_gmt>2025-08-12 22:48:49</wp:post_date_gmt>
+		<wp:post_modified>2025-08-12 22:48:49</wp:post_modified>
+		<wp:post_modified_gmt>2025-08-12 22:48:49</wp:post_modified_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>about</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>page</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key>_wp_page_template</wp:meta_key>
+			<wp:meta_value><![CDATA[page-about.php]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<!-- Sample Page: Services -->
+	<item>
+		<title>Services</title>
+		<link>https://aqualuxe.example.com/services/</link>
+		<pubDate>Tue, 12 Aug 2025 22:48:49 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://aqualuxe.example.com/?page_id=4</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>Explore our range of aquarium design, maintenance, quarantine, breeding, and consultation services.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>4</wp:post_id>
+		<wp:post_date>2025-08-12 22:48:49</wp:post_date>
+		<wp:post_date_gmt>2025-08-12 22:48:49</wp:post_date_gmt>
+		<wp:post_modified>2025-08-12 22:48:49</wp:post_modified>
+		<wp:post_modified_gmt>2025-08-12 22:48:49</wp:post_modified_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>services</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>page</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key>_wp_page_template</wp:meta_key>
+			<wp:meta_value><![CDATA[page-services.php]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<!-- Sample Page: Blog -->
+	<item>
+		<title>Blog</title>
+		<link>https://aqualuxe.example.com/blog/</link>
+		<pubDate>Tue, 12 Aug 2025 22:48:49 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://aqualuxe.example.com/?page_id=5</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>Read our latest articles on aquarium care, aquascaping tips, and industry news.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>5</wp:post_id>
+		<wp:post_date>2025-08-12 22:48:49</wp:post_date>
+		<wp:post_date_gmt>2025-08-12 22:48:49</wp:post_date_gmt>
+		<wp:post_modified>2025-08-12 22:48:49</wp:post_modified>
+		<wp:post_modified_gmt>2025-08-12 22:48:49</wp:post_modified_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>blog</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>page</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key>_wp_page_template</wp:meta_key>
+			<wp:meta_value><![CDATA[page-blog.php]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<!-- Sample Page: Contact -->
+	<item>
+		<title>Contact</title>
+		<link>https://aqualuxe.example.com/contact/</link>
+		<pubDate>Tue, 12 Aug 2025 22:48:49 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://aqualuxe.example.com/?page_id=6</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>Get in touch with us through our contact form or find our location on the map.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>6</wp:post_id>
+		<wp:post_date>2025-08-12 22:48:49</wp:post_date>
+		<wp:post_date_gmt>2025-08-12 22:48:49</wp:post_date_gmt>
+		<wp:post_modified>2025-08-12 22:48:49</wp:post_modified>
+		<wp:post_modified_gmt>2025-08-12 22:48:49</wp:post_modified_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>contact</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>page</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key>_wp_page_template</wp:meta_key>
+			<wp:meta_value><![CDATA[page-contact.php]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<!-- Sample Page: FAQ -->
+	<item>
+		<title>FAQ</title>
+		<link>https://aqualuxe.example.com/faq/</link>
+		<pubDate>Tue, 12 Aug 2025 22:48:49 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://aqualuxe.example.com/?page_id=7</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>Find answers to frequently asked questions about shipping, care, purchasing, and export/import processes.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>7</wp:post_id>
+		<wp:post_date>2025-08-12 22:48:49</wp:post_date>
+		<wp:post_date_gmt>2025-08-12 22:48:49</wp:post_date_gmt>
+		<wp:post_modified>2025-08-12 22:48:49</wp:post_modified>
+		<wp:post_modified_gmt>2025-08-12 22:48:49</wp:post_modified_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>faq</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>page</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key>_wp_page_template</wp:meta_key>
+			<wp:meta_value><![CDATA[page-faq.php]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<!-- Sample Blog Post -->
+	<item>
+		<title>Essential Aquarium Maintenance Tips</title>
+		<link>https://aqualuxe.example.com/essential-aquarium-maintenance-tips/</link>
+		<pubDate>Tue, 12 Aug 2025 22:48:49 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://aqualuxe.example.com/?p=8</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>Regular maintenance is crucial for a healthy aquarium ecosystem. Here are some essential tips to keep your aquarium in top condition.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2>Water Quality Management</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Maintaining proper water quality is the foundation of a healthy aquarium. Test your water parameters regularly, including pH, ammonia, nitrite, and nitrate levels. Perform partial water changes of 20-25% every 1-2 weeks, depending on your tank's bioload.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2>Filtration System Maintenance</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Clean your filter media regularly, but avoid replacing all media at once to preserve beneficial bacteria. Rinse mechanical filter media in tank water (not tap water) to remove debris while preserving the bacterial colony.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2>Algae Control</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Manage algae growth by controlling light exposure, maintaining proper nutrient levels, and introducing algae-eating species. Regular scraping of glass surfaces and cleaning of decorations will help keep your aquarium looking pristine.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2>Substrate Cleaning</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Use a gravel vacuum during water changes to remove debris from the substrate. This helps prevent the buildup of organic waste that can lead to poor water quality and algae problems.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2>Equipment Inspection</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Regularly check all equipment including heaters, thermometers, air pumps, and lighting systems to ensure they're functioning properly. Replace or repair any malfunctioning equipment promptly.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[Regular maintenance is crucial for a healthy aquarium ecosystem. Here are some essential tips to keep your aquarium in top condition.]]></excerpt:encoded>
+		<wp:post_id>8</wp:post_id>
+		<wp:post_date>2025-08-12 22:48:49</wp:post_date>
+		<wp:post_date_gmt>2025-08-12 22:48:49</wp:post_date_gmt>
+		<wp:post_modified>2025-08-12 22:48:49</wp:post_modified>
+		<wp:post_modified_gmt>2025-08-12 22:48:49</wp:post_modified_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>essential-aquarium-maintenance-tips</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="category" nicename="care-guides"><![CDATA[Care Guides]]></category>
+	</item>
+
+	<!-- Sample Product -->
+	<item>
+		<title>Premium Aquarium Filter System</title>
+		<link>https://aqualuxe.example.com/product/premium-aquarium-filter-system/</link>
+		<pubDate>Tue, 12 Aug 2025 22:48:49 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://aqualuxe.example.com/?post_type=product&#038;p=9</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>Our Premium Aquarium Filter System provides superior filtration for tanks up to 100 gallons. This advanced system combines mechanical, biological, and chemical filtration to ensure crystal clear water and optimal conditions for your aquatic life.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2>Features</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul>
+<li>Three-stage filtration process</li>
+<li>Ultra-quiet operation (less than 25 dB)</li>
+<li>Energy-efficient motor</li>
+<li>Adjustable flow rate (100-500 GPH)</li>
+<li>Easy maintenance design</li>
+<li>Includes all necessary media</li>
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2>Specifications</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table><tbody><tr><td>Dimensions</td><td>12" x 8" x 18"</td></tr><tr><td>Weight</td><td>5.2 lbs</td></tr><tr><td>Power Consumption</td><td>15W</td></tr><tr><td>Flow Rate</td><td>100-500 GPH</td></tr><tr><td>Tank Size</td><td>Up to 100 gallons</td></tr><tr><td>Warranty</td><td>3 years</td></tr></tbody></table></figure>
+<!-- /wp:table -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[Our Premium Aquarium Filter System provides superior filtration for tanks up to 100 gallons. This advanced system combines mechanical, biological, and chemical filtration to ensure crystal clear water and optimal conditions for your aquatic life.]]></excerpt:encoded>
+		<wp:post_id>9</wp:post_id>
+		<wp:post_date>2025-08-12 22:48:49</wp:post_date>
+		<wp:post_date_gmt>2025-08-12 22:48:49</wp:post_date_gmt>
+		<wp:post_modified>2025-08-12 22:48:49</wp:post_modified>
+		<wp:post_modified_gmt>2025-08-12 22:48:49</wp:post_modified_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>premium-aquarium-filter-system</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>product</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="product_cat" nicename="filtration"><![CDATA[Filtration]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_regular_price</wp:meta_key>
+			<wp:meta_value><![CDATA[199.99]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_sale_price</wp:meta_key>
+			<wp:meta_value><![CDATA[179.99]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_price</wp:meta_key>
+			<wp:meta_value><![CDATA[179.99]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_stock_status</wp:meta_key>
+			<wp:meta_value><![CDATA[instock]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+
+	<!-- Navigation Menu -->
+	<wp:term>
+		<wp:term_id>1</wp:term_id>
+		<wp:term_taxonomy>nav_menu</wp:term_taxonomy>
+		<wp:term_slug>primary-menu</wp:term_slug>
+		<wp:term_name><![CDATA[Primary Menu]]></wp:term_name>
+	</wp:term>
+
+	<!-- Categories -->
+	<wp:term>
+		<wp:term_id>2</wp:term_id>
+		<wp:term_taxonomy>category</wp:term_taxonomy>
+		<wp:term_slug>care-guides</wp:term_slug>
+		<wp:term_name><![CDATA[Care Guides]]></wp:term_name>
+	</wp:term>
+
+	<!-- Product Categories -->
+	<wp:term>
+		<wp:term_id>3</wp:term_id>
+		<wp:term_taxonomy>product_cat</wp:term_taxonomy>
+		<wp:term_slug>filtration</wp:term_slug>
+		<wp:term_name><![CDATA[Filtration]]></wp:term_name>
+	</wp:term>
+</channel>
+</rss>

@@ -1,0 +1,301 @@
+/**
+ * WooCommerce Quick View Styles
+ */
+
+// Quick view modal
+.woocommerce-quickview-modal {
+  @apply fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 invisible transition-opacity duration-300;
+  
+  &--active {
+    @apply opacity-100 visible;
+  }
+  
+  &__overlay {
+    @apply absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm;
+  }
+  
+  &__container {
+    @apply relative bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-5xl w-full max-h-[90vh] overflow-hidden transform scale-95 transition-transform duration-300;
+    
+    .woocommerce-quickview-modal--active & {
+      @apply scale-100;
+    }
+  }
+  
+  &__close {
+    @apply absolute top-4 right-4 z-10 p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors duration-200;
+    
+    svg {
+      @apply w-5 h-5;
+    }
+  }
+  
+  &__content {
+    @apply flex flex-col md:flex-row max-h-[90vh] overflow-y-auto;
+  }
+  
+  &__images {
+    @apply w-full md:w-1/2 p-4;
+  }
+  
+  &__image {
+    @apply mb-4;
+    
+    img {
+      @apply w-full h-auto rounded-lg;
+    }
+  }
+  
+  &__thumbnails {
+    @apply flex space-x-2;
+    
+    &-item {
+      @apply w-16 h-16 rounded-md overflow-hidden cursor-pointer border-2 border-transparent;
+      
+      &--active {
+        @apply border-primary-500;
+      }
+      
+      img {
+        @apply w-full h-full object-cover;
+      }
+    }
+  }
+  
+  &__details {
+    @apply w-full md:w-1/2 p-4 md:p-6;
+  }
+  
+  &__title {
+    @apply text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2;
+  }
+  
+  &__price {
+    @apply text-xl font-bold text-gray-900 dark:text-gray-100 mb-4;
+    
+    del {
+      @apply text-gray-500 dark:text-gray-400 text-lg mr-2 font-normal;
+    }
+    
+    ins {
+      @apply no-underline text-red-600 dark:text-red-400;
+    }
+    
+    .woocommerce-Price-currencySymbol {
+      @apply mr-1;
+    }
+  }
+  
+  &__rating {
+    @apply flex items-center mb-4;
+    
+    &-stars {
+      @apply flex text-yellow-400;
+      
+      svg {
+        @apply w-5 h-5;
+      }
+    }
+    
+    &-count {
+      @apply text-sm text-gray-500 dark:text-gray-400 ml-2;
+    }
+    
+    &-link {
+      @apply text-sm text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 transition-colors duration-200 ml-4;
+    }
+  }
+  
+  &__description {
+    @apply text-gray-600 dark:text-gray-300 mb-6;
+    
+    p {
+      @apply mb-4 last:mb-0;
+    }
+  }
+  
+  &__stock {
+    @apply mb-6;
+    
+    &--in-stock {
+      @apply text-green-600 dark:text-green-400 flex items-center;
+      
+      svg {
+        @apply w-5 h-5 mr-2;
+      }
+    }
+    
+    &--out-of-stock {
+      @apply text-red-600 dark:text-red-400 flex items-center;
+      
+      svg {
+        @apply w-5 h-5 mr-2;
+      }
+    }
+    
+    &--low-stock {
+      @apply text-yellow-600 dark:text-yellow-400 flex items-center;
+      
+      svg {
+        @apply w-5 h-5 mr-2;
+      }
+    }
+  }
+  
+  &__variations {
+    @apply space-y-4 mb-6;
+    
+    &-label {
+      @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1;
+    }
+    
+    select {
+      @apply w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-primary-500 focus:border-primary-500;
+    }
+    
+    .reset_variations {
+      @apply text-sm text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 transition-colors duration-200 mt-2 inline-block;
+    }
+  }
+  
+  &__variation-colors {
+    @apply flex flex-wrap gap-2;
+    
+    &-item {
+      @apply w-8 h-8 rounded-full border-2 border-transparent cursor-pointer;
+      
+      &--active {
+        @apply border-primary-500 dark:border-primary-400;
+      }
+    }
+  }
+  
+  &__variation-sizes {
+    @apply flex flex-wrap gap-2;
+    
+    &-item {
+      @apply w-10 h-10 flex items-center justify-center rounded-md border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 cursor-pointer hover:border-primary-500 dark:hover:border-primary-400 transition-colors duration-200;
+      
+      &--active {
+        @apply bg-primary-500 dark:bg-primary-600 border-primary-500 dark:border-primary-600 text-white;
+      }
+      
+      &--disabled {
+        @apply opacity-50 cursor-not-allowed hover:border-gray-300 dark:hover:border-gray-600 relative;
+        
+        &::after {
+          content: '';
+          @apply absolute inset-0 border border-gray-300 dark:border-gray-600 rounded-md;
+          background: linear-gradient(to top right, transparent calc(50% - 1px), #999, transparent calc(50% + 1px));
+        }
+      }
+    }
+  }
+  
+  &__quantity {
+    @apply mb-6;
+    
+    label {
+      @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1;
+    }
+    
+    &-input {
+      @apply flex;
+      
+      button {
+        @apply bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 w-10 h-10 flex items-center justify-center border border-gray-300 dark:border-gray-600;
+        
+        &:first-child {
+          @apply rounded-l-lg;
+        }
+        
+        &:last-child {
+          @apply rounded-r-lg;
+        }
+      }
+      
+      input {
+        @apply w-16 h-10 border-y border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-center text-gray-900 dark:text-gray-100;
+      }
+    }
+  }
+  
+  &__add-to-cart {
+    @apply mb-6;
+    
+    &-button {
+      @apply w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-lg font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors duration-200;
+      
+      svg {
+        @apply mr-2 w-5 h-5;
+      }
+      
+      &--loading {
+        @apply relative text-transparent;
+        
+        &::after {
+          content: '';
+          @apply absolute inset-0 m-auto w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin;
+        }
+      }
+      
+      &--disabled {
+        @apply opacity-50 cursor-not-allowed hover:bg-primary-600;
+      }
+    }
+  }
+  
+  &__actions {
+    @apply flex space-x-3;
+  }
+  
+  &__action {
+    @apply inline-flex items-center justify-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200;
+    
+    svg {
+      @apply mr-2 w-5 h-5;
+    }
+    
+    &--active {
+      @apply text-primary-600 dark:text-primary-400 border-primary-500 dark:border-primary-400;
+    }
+  }
+  
+  &__meta {
+    @apply pt-6 mt-6 border-t border-gray-200 dark:border-gray-700 text-sm text-gray-500 dark:text-gray-400;
+    
+    p {
+      @apply mb-1;
+    }
+    
+    a {
+      @apply text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200;
+    }
+  }
+  
+  &__view-details {
+    @apply mt-6 text-center;
+    
+    a {
+      @apply text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 transition-colors duration-200 font-medium;
+    }
+  }
+}
+
+// Quick view button
+.woocommerce-quickview-button {
+  @apply inline-flex items-center justify-center w-8 h-8 rounded-full bg-white dark:bg-gray-700 shadow-md text-gray-700 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400 transition-colors duration-200;
+  
+  svg {
+    @apply w-4 h-4;
+  }
+}
+
+// Quick view loading overlay
+.woocommerce-quickview-loading {
+  @apply fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm;
+  
+  &__spinner {
+    @apply w-12 h-12 border-4 border-gray-300 border-t-primary-600 rounded-full animate-spin;
+  }
+}

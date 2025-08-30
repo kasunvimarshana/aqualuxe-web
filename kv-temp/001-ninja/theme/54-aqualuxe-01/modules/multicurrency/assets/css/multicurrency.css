@@ -1,0 +1,265 @@
+/**
+ * AquaLuxe Multicurrency Module Styles
+ */
+
+/* Currency Switcher - Common Styles */
+.aqualuxe-currency-switcher {
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+/* Dropdown Style */
+.aqualuxe-currency-switcher-dropdown select {
+    padding: 0.25rem 1.5rem 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--aqualuxe-border-color, #e2e8f0);
+    background-color: var(--aqualuxe-bg-color, #ffffff);
+    color: var(--aqualuxe-text-color, #1a202c);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="%231a202c" viewBox="0 0 16 16"><path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 0.5rem) center;
+    cursor: pointer;
+}
+
+.aqualuxe-currency-switcher-dropdown select:focus {
+    outline: none;
+    border-color: var(--aqualuxe-primary-color, #3b82f6);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+}
+
+/* Dark mode styles for dropdown */
+.aqualuxe-dark-mode .aqualuxe-currency-switcher-dropdown select {
+    background-color: var(--aqualuxe-bg-dark, #1a202c);
+    color: var(--aqualuxe-text-dark, #f7fafc);
+    border-color: var(--aqualuxe-border-dark, #4a5568);
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="%23f7fafc" viewBox="0 0 16 16"><path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/></svg>');
+}
+
+/* Flags Style */
+.aqualuxe-currency-switcher-flags {
+    display: flex;
+    align-items: center;
+}
+
+.aqualuxe-currency-flags {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.aqualuxe-currency-flag-item {
+    margin-right: 0.5rem;
+}
+
+.aqualuxe-currency-flag-item:last-child {
+    margin-right: 0;
+}
+
+.aqualuxe-currency-flag-item a {
+    display: block;
+    padding: 2px;
+    border: 2px solid transparent;
+    border-radius: 2px;
+    line-height: 0;
+}
+
+.aqualuxe-currency-flag-item a:hover,
+.aqualuxe-currency-flag-item a:focus {
+    border-color: var(--aqualuxe-primary-color, #3b82f6);
+}
+
+.aqualuxe-currency-flag-item.aqualuxe-currency-active a {
+    border-color: var(--aqualuxe-primary-color, #3b82f6);
+}
+
+.aqualuxe-currency-flag-item img {
+    display: block;
+    width: 20px;
+    height: 15px;
+    object-fit: cover;
+}
+
+/* Text Style */
+.aqualuxe-currency-text {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.aqualuxe-currency-text-item {
+    margin-right: 0.5rem;
+    position: relative;
+}
+
+.aqualuxe-currency-text-item:last-child {
+    margin-right: 0;
+}
+
+.aqualuxe-currency-text-item:not(:last-child)::after {
+    content: '|';
+    position: absolute;
+    right: -0.4rem;
+    color: var(--aqualuxe-border-color, #e2e8f0);
+}
+
+.aqualuxe-currency-text-item a {
+    color: var(--aqualuxe-text-color, #1a202c);
+    text-decoration: none;
+    padding: 0.25rem 0;
+    font-weight: normal;
+}
+
+.aqualuxe-currency-text-item a:hover,
+.aqualuxe-currency-text-item a:focus {
+    color: var(--aqualuxe-primary-color, #3b82f6);
+    text-decoration: underline;
+}
+
+.aqualuxe-currency-text-item.aqualuxe-currency-active a {
+    font-weight: bold;
+    color: var(--aqualuxe-primary-color, #3b82f6);
+}
+
+/* Dark mode styles for text */
+.aqualuxe-dark-mode .aqualuxe-currency-text-item a {
+    color: var(--aqualuxe-text-dark, #f7fafc);
+}
+
+.aqualuxe-dark-mode .aqualuxe-currency-text-item:not(:last-child)::after {
+    color: var(--aqualuxe-border-dark, #4a5568);
+}
+
+/* Menu Currency Switcher */
+.aqualuxe-currency-menu-item > a {
+    display: flex !important;
+    align-items: center;
+}
+
+/* Top Bar Currency Switcher */
+.aqualuxe-top-bar .aqualuxe-currency-switcher {
+    margin-left: 1rem;
+}
+
+/* Header Currency Switcher */
+.aqualuxe-header .aqualuxe-currency-switcher {
+    margin-left: 1.5rem;
+}
+
+/* Footer Currency Switcher */
+.aqualuxe-footer .aqualuxe-currency-switcher {
+    margin-top: 1rem;
+}
+
+/* RTL Support */
+.rtl .aqualuxe-currency-switcher-dropdown select {
+    padding: 0.25rem 0.5rem 0.25rem 1.5rem;
+    background-position: 0.5rem center;
+}
+
+.rtl .aqualuxe-currency-flag-item {
+    margin-right: 0;
+    margin-left: 0.5rem;
+}
+
+.rtl .aqualuxe-currency-flag-item:last-child {
+    margin-left: 0;
+}
+
+.rtl .aqualuxe-currency-text-item {
+    margin-right: 0;
+    margin-left: 0.5rem;
+}
+
+.rtl .aqualuxe-currency-text-item:last-child {
+    margin-left: 0;
+}
+
+.rtl .aqualuxe-currency-text-item:not(:last-child)::after {
+    right: auto;
+    left: -0.4rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .aqualuxe-currency-text {
+        flex-direction: column;
+    }
+    
+    .aqualuxe-currency-text-item {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+    
+    .aqualuxe-currency-text-item:not(:last-child)::after {
+        display: none;
+    }
+    
+    .aqualuxe-top-bar .aqualuxe-currency-switcher {
+        margin-left: 0;
+        margin-top: 0.5rem;
+    }
+}
+
+/* Admin Styles */
+.aqualuxe-multicurrency-currencies table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.aqualuxe-multicurrency-currencies th,
+.aqualuxe-multicurrency-currencies td {
+    padding: 8px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.aqualuxe-multicurrency-currencies th {
+    background-color: #f1f1f1;
+}
+
+.aqualuxe-multicurrency-currencies input[type="text"],
+.aqualuxe-multicurrency-currencies input[type="number"],
+.aqualuxe-multicurrency-currencies select {
+    width: 100%;
+}
+
+.aqualuxe-multicurrency-currencies input[type="text"][readonly] {
+    background-color: #f1f1f1;
+}
+
+/* Widget Styles */
+.widget_aqualuxe_multicurrency_widget {
+    text-align: center;
+}
+
+.widget_aqualuxe_multicurrency_widget .aqualuxe-currency-switcher {
+    margin: 0.5rem 0;
+}
+
+/* Price Formatting */
+.woocommerce-Price-amount {
+    white-space: nowrap;
+}
+
+/* Currency Flags */
+.aqualuxe-currency-flag {
+    display: inline-block;
+    width: 20px;
+    height: 15px;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+.rtl .aqualuxe-currency-flag {
+    margin-right: 0;
+    margin-left: 0.5rem;
+}

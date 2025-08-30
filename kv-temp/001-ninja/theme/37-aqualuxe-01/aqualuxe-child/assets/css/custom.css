@@ -1,0 +1,166 @@
+/**
+ * AquaLuxe Child Theme - Custom CSS
+ * 
+ * This file contains additional CSS styles for the AquaLuxe Child theme.
+ * These styles will be loaded after the parent theme's styles.
+ */
+
+/* Header modifications */
+.site-header {
+    transition: all 0.3s ease;
+}
+
+.site-header.scrolled {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+/* Custom button styles */
+.btn-custom {
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: #ffffff;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-custom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    color: #ffffff;
+}
+
+/* Custom card component */
+.card-custom {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.card-custom:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.card-custom .card-header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.card-custom .card-body {
+    padding: 25px;
+}
+
+.card-custom .card-footer {
+    padding: 15px 20px;
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* WooCommerce customizations */
+.woocommerce ul.products li.product {
+    transition: all 0.3s ease;
+}
+
+.woocommerce ul.products li.product:hover {
+    transform: translateY(-5px);
+}
+
+.woocommerce ul.products li.product .featured-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 10;
+}
+
+/* Custom product image zoom effect */
+.woocommerce-product-gallery__image {
+    cursor: zoom-in;
+}
+
+/* Quick view modal */
+#quick-view-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    display: none;
+}
+
+#quick-view-modal.loading:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    margin-top: -25px;
+    margin-left: -25px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #ffffff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+#quick-view-content {
+    position: relative;
+    max-width: 900px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+#quick-view-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+    z-index: 10;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .site-header.scrolled {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    
+    #quick-view-content {
+        margin: 20px;
+        padding: 15px;
+    }
+    
+    .card-custom .card-header,
+    .card-custom .card-body,
+    .card-custom .card-footer {
+        padding: 15px;
+    }
+}
+
+/* Animation keyframes */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

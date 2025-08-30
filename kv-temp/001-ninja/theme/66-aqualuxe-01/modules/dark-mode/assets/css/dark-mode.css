@@ -1,0 +1,593 @@
+/**
+ * Dark Mode Styles
+ */
+
+/* Variables */
+:root {
+    --dark-bg: #121212;
+    --dark-surface: #1e1e1e;
+    --dark-surface-2: #2d2d2d;
+    --dark-text: #e0e0e0;
+    --dark-text-secondary: #a0a0a0;
+    --dark-border: #333333;
+    --dark-link: #90caf9;
+    --dark-accent: #64b5f6;
+    --dark-error: #f44336;
+    --dark-success: #4caf50;
+    --dark-warning: #ff9800;
+    --dark-info: #2196f3;
+    --dark-transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.dark-mode-toggle__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+}
+
+.dark-mode-toggle__icon svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+}
+
+.dark-mode-toggle__text {
+    margin-left: 8px;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+/* Switch Style */
+.dark-mode-toggle--switch {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.dark-mode-toggle--switch .dark-mode-toggle__switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.dark-mode-toggle--switch .dark-mode-toggle__input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.dark-mode-toggle--switch .dark-mode-toggle__slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.3s;
+    border-radius: 20px;
+}
+
+.dark-mode-toggle--switch .dark-mode-toggle__slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+.dark-mode-toggle--switch .dark-mode-toggle__input:checked + .dark-mode-toggle__slider {
+    background-color: var(--dark-accent, #64b5f6);
+}
+
+.dark-mode-toggle--switch .dark-mode-toggle__input:checked + .dark-mode-toggle__slider:before {
+    transform: translateX(20px);
+}
+
+/* Button Style */
+.dark-mode-toggle--button {
+    display: inline-flex;
+    align-items: center;
+}
+
+.dark-mode-toggle--button .dark-mode-toggle__button {
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.dark-mode-toggle--button .dark-mode-toggle__button:hover {
+    background-color: #e0e0e0;
+}
+
+body.dark-mode .dark-mode-toggle--button .dark-mode-toggle__button {
+    background-color: var(--dark-surface, #1e1e1e);
+    border-color: var(--dark-border, #333333);
+    color: var(--dark-text, #e0e0e0);
+}
+
+body.dark-mode .dark-mode-toggle--button .dark-mode-toggle__button:hover {
+    background-color: var(--dark-surface-2, #2d2d2d);
+}
+
+/* Icon Style */
+.dark-mode-toggle--icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dark-mode-toggle--icon .dark-mode-toggle__icon {
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    transition: all 0.3s ease;
+}
+
+.dark-mode-toggle--icon .dark-mode-toggle__icon:hover {
+    background-color: #e0e0e0;
+}
+
+body.dark-mode .dark-mode-toggle--icon .dark-mode-toggle__icon {
+    background-color: var(--dark-surface, #1e1e1e);
+    color: var(--dark-text, #e0e0e0);
+}
+
+body.dark-mode .dark-mode-toggle--icon .dark-mode-toggle__icon:hover {
+    background-color: var(--dark-surface-2, #2d2d2d);
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+    transition: var(--dark-transition);
+}
+
+/* Typography */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+    color: var(--dark-text);
+}
+
+body.dark-mode p,
+body.dark-mode li,
+body.dark-mode span,
+body.dark-mode label {
+    color: var(--dark-text);
+}
+
+body.dark-mode .text-muted,
+body.dark-mode .text-secondary {
+    color: var(--dark-text-secondary) !important;
+}
+
+/* Links */
+body.dark-mode a {
+    color: var(--dark-link);
+}
+
+body.dark-mode a:hover,
+body.dark-mode a:focus {
+    color: var(--dark-accent);
+}
+
+/* Buttons */
+body.dark-mode .button,
+body.dark-mode .btn,
+body.dark-mode button,
+body.dark-mode input[type="button"],
+body.dark-mode input[type="reset"],
+body.dark-mode input[type="submit"] {
+    background-color: var(--dark-surface);
+    color: var(--dark-text);
+    border-color: var(--dark-border);
+}
+
+body.dark-mode .button:hover,
+body.dark-mode .btn:hover,
+body.dark-mode button:hover,
+body.dark-mode input[type="button"]:hover,
+body.dark-mode input[type="reset"]:hover,
+body.dark-mode input[type="submit"]:hover {
+    background-color: var(--dark-surface-2);
+}
+
+body.dark-mode .button.button-primary,
+body.dark-mode .btn-primary {
+    background-color: var(--dark-accent);
+    color: #fff;
+    border-color: var(--dark-accent);
+}
+
+body.dark-mode .button.button-primary:hover,
+body.dark-mode .btn-primary:hover {
+    background-color: var(--dark-link);
+    border-color: var(--dark-link);
+}
+
+/* Forms */
+body.dark-mode input[type="text"],
+body.dark-mode input[type="email"],
+body.dark-mode input[type="url"],
+body.dark-mode input[type="password"],
+body.dark-mode input[type="search"],
+body.dark-mode input[type="number"],
+body.dark-mode input[type="tel"],
+body.dark-mode input[type="range"],
+body.dark-mode input[type="date"],
+body.dark-mode input[type="month"],
+body.dark-mode input[type="week"],
+body.dark-mode input[type="time"],
+body.dark-mode input[type="datetime"],
+body.dark-mode input[type="datetime-local"],
+body.dark-mode input[type="color"],
+body.dark-mode textarea,
+body.dark-mode select {
+    background-color: var(--dark-surface);
+    color: var(--dark-text);
+    border-color: var(--dark-border);
+}
+
+body.dark-mode input[type="text"]:focus,
+body.dark-mode input[type="email"]:focus,
+body.dark-mode input[type="url"]:focus,
+body.dark-mode input[type="password"]:focus,
+body.dark-mode input[type="search"]:focus,
+body.dark-mode input[type="number"]:focus,
+body.dark-mode input[type="tel"]:focus,
+body.dark-mode input[type="range"]:focus,
+body.dark-mode input[type="date"]:focus,
+body.dark-mode input[type="month"]:focus,
+body.dark-mode input[type="week"]:focus,
+body.dark-mode input[type="time"]:focus,
+body.dark-mode input[type="datetime"]:focus,
+body.dark-mode input[type="datetime-local"]:focus,
+body.dark-mode input[type="color"]:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+    border-color: var(--dark-accent);
+    box-shadow: 0 0 0 1px var(--dark-accent);
+}
+
+body.dark-mode ::placeholder {
+    color: var(--dark-text-secondary);
+}
+
+/* Tables */
+body.dark-mode table {
+    border-color: var(--dark-border);
+}
+
+body.dark-mode th,
+body.dark-mode td {
+    border-color: var(--dark-border);
+}
+
+body.dark-mode th {
+    background-color: var(--dark-surface);
+}
+
+body.dark-mode tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Cards */
+body.dark-mode .card {
+    background-color: var(--dark-surface);
+    border-color: var(--dark-border);
+}
+
+body.dark-mode .card-header,
+body.dark-mode .card-footer {
+    background-color: var(--dark-surface-2);
+    border-color: var(--dark-border);
+}
+
+/* Alerts */
+body.dark-mode .alert {
+    background-color: var(--dark-surface);
+    border-color: var(--dark-border);
+}
+
+body.dark-mode .alert-success {
+    background-color: rgba(76, 175, 80, 0.1);
+    border-color: var(--dark-success);
+    color: var(--dark-success);
+}
+
+body.dark-mode .alert-danger {
+    background-color: rgba(244, 67, 54, 0.1);
+    border-color: var(--dark-error);
+    color: var(--dark-error);
+}
+
+body.dark-mode .alert-warning {
+    background-color: rgba(255, 152, 0, 0.1);
+    border-color: var(--dark-warning);
+    color: var(--dark-warning);
+}
+
+body.dark-mode .alert-info {
+    background-color: rgba(33, 150, 243, 0.1);
+    border-color: var(--dark-info);
+    color: var(--dark-info);
+}
+
+/* Borders */
+body.dark-mode .border {
+    border-color: var(--dark-border) !important;
+}
+
+body.dark-mode .border-top {
+    border-top-color: var(--dark-border) !important;
+}
+
+body.dark-mode .border-right {
+    border-right-color: var(--dark-border) !important;
+}
+
+body.dark-mode .border-bottom {
+    border-bottom-color: var(--dark-border) !important;
+}
+
+body.dark-mode .border-left {
+    border-left-color: var(--dark-border) !important;
+}
+
+/* Shadows */
+body.dark-mode .shadow {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3) !important;
+}
+
+body.dark-mode .shadow-sm {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3) !important;
+}
+
+body.dark-mode .shadow-lg {
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Navigation */
+body.dark-mode .site-header {
+    background-color: var(--dark-surface);
+    border-color: var(--dark-border);
+}
+
+body.dark-mode .main-navigation {
+    background-color: var(--dark-surface);
+}
+
+body.dark-mode .main-navigation ul li a {
+    color: var(--dark-text);
+}
+
+body.dark-mode .main-navigation ul li a:hover {
+    color: var(--dark-accent);
+}
+
+body.dark-mode .main-navigation ul ul {
+    background-color: var(--dark-surface-2);
+    border-color: var(--dark-border);
+}
+
+/* Footer */
+body.dark-mode .site-footer {
+    background-color: var(--dark-surface);
+    border-color: var(--dark-border);
+}
+
+/* Widgets */
+body.dark-mode .widget {
+    background-color: var(--dark-surface);
+    border-color: var(--dark-border);
+}
+
+body.dark-mode .widget-title {
+    border-color: var(--dark-border);
+}
+
+/* Comments */
+body.dark-mode .comment-list .comment {
+    border-color: var(--dark-border);
+}
+
+body.dark-mode .comment-metadata a {
+    color: var(--dark-text-secondary);
+}
+
+/* Pagination */
+body.dark-mode .pagination,
+body.dark-mode .woocommerce-pagination {
+    border-color: var(--dark-border);
+}
+
+body.dark-mode .page-numbers {
+    background-color: var(--dark-surface);
+    color: var(--dark-text);
+    border-color: var(--dark-border);
+}
+
+body.dark-mode .page-numbers.current {
+    background-color: var(--dark-accent);
+    color: #fff;
+    border-color: var(--dark-accent);
+}
+
+/* WooCommerce */
+body.dark-mode.woocommerce ul.products li.product,
+body.dark-mode.woocommerce-page ul.products li.product {
+    background-color: var(--dark-surface);
+    border-color: var(--dark-border);
+}
+
+body.dark-mode.woocommerce div.product div.summary,
+body.dark-mode.woocommerce div.product .woocommerce-tabs {
+    background-color: var(--dark-surface);
+    border-color: var(--dark-border);
+}
+
+body.dark-mode.woocommerce div.product .woocommerce-tabs ul.tabs li {
+    background-color: var(--dark-surface-2);
+    border-color: var(--dark-border);
+}
+
+body.dark-mode.woocommerce div.product .woocommerce-tabs ul.tabs li.active {
+    background-color: var(--dark-surface);
+    border-bottom-color: var(--dark-surface);
+}
+
+body.dark-mode.woocommerce #reviews #comments ol.commentlist li .comment-text {
+    border-color: var(--dark-border);
+}
+
+body.dark-mode.woocommerce .star-rating span::before {
+    color: var(--dark-accent);
+}
+
+body.dark-mode.woocommerce p.stars a {
+    color: var(--dark-accent);
+}
+
+body.dark-mode.woocommerce .woocommerce-message,
+body.dark-mode.woocommerce .woocommerce-info,
+body.dark-mode.woocommerce .woocommerce-error {
+    background-color: var(--dark-surface);
+    color: var(--dark-text);
+    border-color: var(--dark-border);
+}
+
+body.dark-mode.woocommerce .woocommerce-message::before,
+body.dark-mode.woocommerce .woocommerce-info::before {
+    color: var(--dark-accent);
+}
+
+body.dark-mode.woocommerce .woocommerce-error::before {
+    color: var(--dark-error);
+}
+
+body.dark-mode.woocommerce-cart .cart-collaterals .cart_totals,
+body.dark-mode.woocommerce-checkout #payment {
+    background-color: var(--dark-surface);
+    border-color: var(--dark-border);
+}
+
+body.dark-mode.woocommerce-checkout #payment div.payment_box {
+    background-color: var(--dark-surface-2);
+    color: var(--dark-text);
+}
+
+body.dark-mode.woocommerce-checkout #payment div.payment_box::before {
+    border-bottom-color: var(--dark-surface-2);
+}
+
+/* Images and Media */
+body.dark-mode img.dark-mode-invert {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+/* Code and Pre */
+body.dark-mode code,
+body.dark-mode pre {
+    background-color: var(--dark-surface-2);
+    color: var(--dark-text);
+    border-color: var(--dark-border);
+}
+
+/* Blockquote */
+body.dark-mode blockquote {
+    border-color: var(--dark-accent);
+    background-color: var(--dark-surface);
+}
+
+/* Horizontal Rule */
+body.dark-mode hr {
+    border-color: var(--dark-border);
+}
+
+/* Selection */
+body.dark-mode ::selection {
+    background-color: var(--dark-accent);
+    color: #fff;
+}
+
+/* Scrollbar */
+body.dark-mode ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+body.dark-mode ::-webkit-scrollbar-track {
+    background: var(--dark-surface);
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+    background-color: var(--dark-border);
+    border-radius: 6px;
+    border: 3px solid var(--dark-surface);
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--dark-text-secondary);
+}
+
+/* Media Queries */
+@media (max-width: 767px) {
+    .dark-mode-toggle__text {
+        font-size: 12px;
+    }
+    
+    .dark-mode-toggle--switch .dark-mode-toggle__switch {
+        width: 36px;
+        height: 18px;
+    }
+    
+    .dark-mode-toggle--switch .dark-mode-toggle__slider:before {
+        height: 14px;
+        width: 14px;
+    }
+    
+    .dark-mode-toggle--switch .dark-mode-toggle__input:checked + .dark-mode-toggle__slider:before {
+        transform: translateX(18px);
+    }
+}
+
+/* Print Styles */
+@media print {
+    body.dark-mode {
+        background-color: #fff !important;
+        color: #000 !important;
+    }
+    
+    body.dark-mode * {
+        background-color: #fff !important;
+        color: #000 !important;
+        border-color: #ddd !important;
+        box-shadow: none !important;
+    }
+}

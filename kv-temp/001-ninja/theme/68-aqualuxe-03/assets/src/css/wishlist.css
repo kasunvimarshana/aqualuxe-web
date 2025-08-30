@@ -1,0 +1,30 @@
+/* Wishlist button styles */
+.aqualuxe-wishlist-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  padding: 0.4em 1em;
+  color: #1e40af;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.aqualuxe-wishlist-btn .icon {
+  font-size: 1.2em;
+  color: #e11d48;
+}
+.aqualuxe-wishlist-btn.in-wishlist {
+  background: #e11d48;
+  color: #fff;
+  border-color: #e11d48;
+}
+.aqualuxe-wishlist-btn.in-wishlist .icon {
+  color: #fff;
+}
+.aqualuxe-wishlist-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

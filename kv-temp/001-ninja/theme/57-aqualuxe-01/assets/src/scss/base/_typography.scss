@@ -1,0 +1,352 @@
+/**
+ * Typography
+ *
+ * Base typography styles
+ */
+
+/* Headings */
+h1, .h1 {
+  @include heading-1;
+}
+
+h2, .h2 {
+  @include heading-2;
+}
+
+h3, .h3 {
+  @include heading-3;
+}
+
+h4, .h4 {
+  @include heading-4;
+}
+
+h5, .h5 {
+  @include heading-5;
+}
+
+h6, .h6 {
+  @include heading-6;
+}
+
+/* Paragraphs */
+p {
+  margin-top: 0;
+  margin-bottom: var(--aqualuxe-spacing-4);
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Lead text */
+.lead {
+  font-size: var(--aqualuxe-font-size-lg);
+  font-weight: var(--aqualuxe-font-weight-normal);
+  line-height: 1.6;
+  margin-bottom: var(--aqualuxe-spacing-6);
+  
+  @include media-breakpoint-up(md) {
+    font-size: var(--aqualuxe-font-size-xl);
+  }
+}
+
+/* Small text */
+small, .small {
+  font-size: var(--aqualuxe-font-size-sm);
+  font-weight: var(--aqualuxe-font-weight-normal);
+}
+
+/* Lists */
+ul, ol {
+  margin-top: 0;
+  margin-bottom: var(--aqualuxe-spacing-4);
+  padding-left: var(--aqualuxe-spacing-6);
+  
+  ul, ol {
+    margin-bottom: 0;
+  }
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+li {
+  margin-bottom: var(--aqualuxe-spacing-2);
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Description lists */
+dl {
+  margin-top: 0;
+  margin-bottom: var(--aqualuxe-spacing-4);
+}
+
+dt {
+  font-weight: var(--aqualuxe-font-weight-bold);
+  margin-bottom: var(--aqualuxe-spacing-1);
+}
+
+dd {
+  margin-bottom: var(--aqualuxe-spacing-3);
+  margin-left: 0;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Blockquotes */
+blockquote {
+  margin: 0 0 var(--aqualuxe-spacing-4);
+  padding: var(--aqualuxe-spacing-4);
+  border-left: 4px solid var(--aqualuxe-primary-color);
+  background-color: rgba(0, 0, 0, 0.05);
+  font-style: italic;
+  
+  p {
+    margin-bottom: var(--aqualuxe-spacing-2);
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  cite {
+    display: block;
+    font-size: var(--aqualuxe-font-size-sm);
+    color: var(--aqualuxe-gray-600);
+    font-style: normal;
+    margin-top: var(--aqualuxe-spacing-2);
+    
+    &:before {
+      content: '— ';
+    }
+  }
+}
+
+/* Links */
+a {
+  color: var(--aqualuxe-link-color);
+  text-decoration: none;
+  transition: color var(--aqualuxe-transition-duration) var(--aqualuxe-transition-timing);
+  
+  &:hover, &:focus {
+    color: var(--aqualuxe-link-hover-color);
+    text-decoration: underline;
+  }
+}
+
+/* Horizontal rule */
+hr {
+  margin-top: var(--aqualuxe-spacing-6);
+  margin-bottom: var(--aqualuxe-spacing-6);
+  border: 0;
+  border-top: 1px solid var(--aqualuxe-border-color);
+}
+
+/* Text alignment */
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+/* Text transform */
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+/* Font weight */
+.font-light {
+  font-weight: var(--aqualuxe-font-weight-light);
+}
+
+.font-normal {
+  font-weight: var(--aqualuxe-font-weight-normal);
+}
+
+.font-medium {
+  font-weight: var(--aqualuxe-font-weight-medium);
+}
+
+.font-semibold {
+  font-weight: var(--aqualuxe-font-weight-semibold);
+}
+
+.font-bold {
+  font-weight: var(--aqualuxe-font-weight-bold);
+}
+
+/* Text colors */
+.text-primary {
+  color: var(--aqualuxe-primary-color);
+}
+
+.text-secondary {
+  color: var(--aqualuxe-secondary-color);
+}
+
+.text-accent {
+  color: var(--aqualuxe-accent-color);
+}
+
+.text-success {
+  color: var(--aqualuxe-success-color);
+}
+
+.text-danger {
+  color: var(--aqualuxe-danger-color);
+}
+
+.text-warning {
+  color: var(--aqualuxe-warning-color);
+}
+
+.text-info {
+  color: var(--aqualuxe-info-color);
+}
+
+.text-dark {
+  color: var(--aqualuxe-dark-color);
+}
+
+.text-light {
+  color: var(--aqualuxe-light-color);
+}
+
+.text-muted {
+  color: var(--aqualuxe-gray-600);
+}
+
+/* Font sizes */
+.text-xs {
+  font-size: var(--aqualuxe-font-size-xs);
+}
+
+.text-sm {
+  font-size: var(--aqualuxe-font-size-sm);
+}
+
+.text-base {
+  font-size: var(--aqualuxe-font-size-base);
+}
+
+.text-lg {
+  font-size: var(--aqualuxe-font-size-lg);
+}
+
+.text-xl {
+  font-size: var(--aqualuxe-font-size-xl);
+}
+
+.text-2xl {
+  font-size: var(--aqualuxe-font-size-2xl);
+}
+
+.text-3xl {
+  font-size: var(--aqualuxe-font-size-3xl);
+}
+
+.text-4xl {
+  font-size: var(--aqualuxe-font-size-4xl);
+}
+
+.text-5xl {
+  font-size: var(--aqualuxe-font-size-5xl);
+}
+
+.text-6xl {
+  font-size: var(--aqualuxe-font-size-6xl);
+}
+
+/* WordPress specific typography */
+.wp-block-quote {
+  border-left: 4px solid var(--aqualuxe-primary-color);
+  padding-left: var(--aqualuxe-spacing-4);
+  margin-left: 0;
+  margin-right: 0;
+  font-style: italic;
+  
+  cite {
+    display: block;
+    font-size: var(--aqualuxe-font-size-sm);
+    color: var(--aqualuxe-gray-600);
+    font-style: normal;
+    margin-top: var(--aqualuxe-spacing-2);
+  }
+}
+
+.wp-block-pullquote {
+  border-top: 4px solid var(--aqualuxe-primary-color);
+  border-bottom: 4px solid var(--aqualuxe-primary-color);
+  padding: var(--aqualuxe-spacing-6) 0;
+  margin: var(--aqualuxe-spacing-6) 0;
+  text-align: center;
+  
+  blockquote {
+    border-left: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    
+    p {
+      font-size: var(--aqualuxe-font-size-xl);
+      line-height: 1.6;
+      
+      @include media-breakpoint-up(md) {
+        font-size: var(--aqualuxe-font-size-2xl);
+      }
+    }
+    
+    cite {
+      display: block;
+      font-size: var(--aqualuxe-font-size-sm);
+      color: var(--aqualuxe-gray-600);
+      font-style: normal;
+      margin-top: var(--aqualuxe-spacing-4);
+    }
+  }
+}
+
+.has-small-font-size {
+  font-size: var(--aqualuxe-font-size-sm);
+}
+
+.has-regular-font-size {
+  font-size: var(--aqualuxe-font-size-base);
+}
+
+.has-large-font-size {
+  font-size: var(--aqualuxe-font-size-lg);
+}
+
+.has-larger-font-size {
+  font-size: var(--aqualuxe-font-size-xl);
+}

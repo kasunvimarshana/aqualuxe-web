@@ -1,0 +1,103 @@
+/**
+ * AquaLuxe Theme - Background Components
+ *
+ * This file contains background-related styles for the theme.
+ */
+
+// Hero section background
+.hero-background {
+  background-image: url('../images/hero/hero-1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  &.hero-2 {
+    background-image: url('../images/hero/hero-2.jpg');
+  }
+  
+  &.hero-3 {
+    background-image: url('../images/hero/hero-3.jpg');
+  }
+  
+  .dark & {
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+  }
+}
+
+// Wave background
+.wave-background {
+  background-image: url('../images/backgrounds/bg-wave.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+// Pattern background
+.pattern-background {
+  background-image: url('../images/backgrounds/bg-pattern.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+// Bubbles background
+.bubbles-background {
+  background-image: url('../images/backgrounds/bg-bubbles.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+// Decorative wave divider
+.wave-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  
+  svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 60px;
+    
+    .shape-fill {
+      fill: $color-primary-100;
+      
+      .dark & {
+        fill: $color-primary-900;
+      }
+    }
+  }
+  
+  &.wave-divider-top {
+    top: 0;
+    bottom: auto;
+    
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+// Bubble pattern background
+.bubble-pattern {
+  background-image: url('../images/decorative/bubble-pattern.svg');
+  background-repeat: repeat;
+  background-size: 100px 100px;
+  
+  .dark & {
+    color: $color-primary-900;
+  }
+}

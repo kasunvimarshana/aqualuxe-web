@@ -1,0 +1,112 @@
+# AquaLuxe Theme - Inline Code Documentation
+
+This document provides an overview of the inline code documentation standards used in the AquaLuxe WordPress child theme.
+
+## Documentation Standards
+
+All PHP files in the AquaLuxe theme follow these documentation standards:
+
+1. **File Headers**: Each PHP file begins with a DocBlock that includes:
+   - File description
+   - Package name
+   - Version information
+
+2. **Class Documentation**: Each class has a DocBlock that includes:
+   - Class description
+   - Package name
+   - Since version
+
+3. **Method Documentation**: Each method has a DocBlock that includes:
+   - Method description
+   - Parameter descriptions with types
+   - Return value description with type
+   - Since version (if different from class)
+
+4. **Property Documentation**: Class properties have DocBlocks that include:
+   - Property description
+   - Type information
+   - Access level (private, protected, public)
+
+5. **Hook Documentation**: Actions and filters have inline documentation that includes:
+   - Hook description
+   - Parameters passed to the hook
+   - Return value (for filters)
+
+## Example Documentation
+
+### File Header Example
+
+```php
+/**
+ * AquaLuxe Fish Custom Post Types and Taxonomies
+ *
+ * Handles all fish-specific custom post types and taxonomies
+ *
+ * @package AquaLuxe
+ * @since 1.0.0
+ */
+```
+
+### Class Documentation Example
+
+```php
+/**
+ * AquaLuxe Fish CPT Class
+ * 
+ * Manages the fish species custom post type and related taxonomies
+ *
+ * @package AquaLuxe
+ * @since 1.0.0
+ */
+class AquaLuxe_Fish_CPT {
+    // Class code here
+}
+```
+
+### Method Documentation Example
+
+```php
+/**
+ * Register Fish Species custom post type
+ *
+ * Creates the fish_species custom post type with appropriate labels and settings
+ *
+ * @since 1.0.0
+ * @return void
+ */
+public function register_fish_post_type() {
+    // Method code here
+}
+```
+
+### Hook Documentation Example
+
+```php
+/**
+ * Filter fish species columns in admin
+ *
+ * @since 1.0.0
+ * @param array $columns Default admin columns
+ * @return array Modified columns
+ */
+public function fish_species_columns($columns) {
+    // Method code here
+}
+```
+
+## Documentation Tools
+
+The AquaLuxe theme uses the following tools to maintain documentation standards:
+
+1. **PHPDoc**: Standard PHP documentation format
+2. **WordPress Coding Standards**: Follows WordPress documentation standards
+3. **Inline Comments**: Descriptive comments for complex code sections
+
+## Best Practices
+
+1. **Keep Documentation Updated**: Always update documentation when changing code
+2. **Be Descriptive**: Provide clear descriptions of what functions and methods do
+3. **Document Parameters**: Always document parameters with types and descriptions
+4. **Document Return Values**: Always document return values with types and descriptions
+5. **Use @since Tags**: Include version information for when features were added
+6. **Document Hooks**: Always document actions and filters with parameters and return values

@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<ruleset name="AquaLuxe WordPress Theme Coding Standards">
+    <description>A custom set of code standard rules for AquaLuxe WordPress Theme.</description>
+
+    <!-- What to scan -->
+    <file>.</file>
+    
+    <!-- Exclude patterns -->
+    <exclude-pattern>/vendor/*</exclude-pattern>
+    <exclude-pattern>/node_modules/*</exclude-pattern>
+    <exclude-pattern>/assets/dist/*</exclude-pattern>
+    <exclude-pattern>/tests/*</exclude-pattern>
+    <exclude-pattern>/.github/*</exclude-pattern>
+    <exclude-pattern>/bin/*</exclude-pattern>
+    
+    <!-- Scan only PHP files -->
+    <arg name="extensions" value="php"/>
+    
+    <!-- Show progress, show sniff codes in all reports -->
+    <arg value="ps"/>
+    
+    <!-- Use colors in output -->
+    <arg name="colors"/>
+    
+    <!-- Scan for PHP cross-version compatibility -->
+    <config name="testVersion" value="7.4-"/>
+    
+    <!-- Include WordPress Coding Standards -->
+    <rule ref="WordPress">
+        <!-- Exclude rules that conflict with modern PHP practices -->
+        <exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+        <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
+    </rule>
+    
+    <!-- Include WordPress-Extra for additional best practices -->
+    <rule ref="WordPress-Extra"/>
+    
+    <!-- Include WordPress-Docs for documentation standards -->
+    <rule ref="WordPress-Docs"/>
+    
+    <!-- Include WooCommerce standards if available -->
+    <rule ref="WooCommerce-Core" />
+    
+    <!-- Include PHPCompatibilityWP -->
+    <rule ref="PHPCompatibilityWP"/>
+    
+    <!-- Text domain -->
+    <rule ref="WordPress.WP.I18n">
+        <properties>
+            <property name="text_domain" type="array">
+                <element value="aqualuxe"/>
+            </property>
+        </properties>
+    </rule>
+    
+    <!-- Prefix all globals -->
+    <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+        <properties>
+            <property name="prefixes" type="array">
+                <element value="aqualuxe"/>
+                <element value="AQUALUXE"/>
+            </property>
+        </properties>
+    </rule>
+    
+    <!-- Allow short array syntax -->
+    <rule ref="Generic.Arrays.DisallowShortArraySyntax.Found">
+        <severity>0</severity>
+    </rule>
+    
+    <!-- Set minimum supported WP version -->
+    <config name="minimum_supported_wp_version" value="5.9"/>
+    
+    <!-- Set tab width -->
+    <arg name="tab-width" value="4"/>
+</ruleset>

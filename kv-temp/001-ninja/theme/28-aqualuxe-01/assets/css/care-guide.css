@@ -1,0 +1,717 @@
+/**
+ * AquaLuxe Care Guide Styles
+ * 
+ * Styles for the fish care guide system
+ */
+
+/* Care Guide Container */
+.care-guide-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    font-family: var(--font-primary, 'Open Sans', sans-serif);
+    color: var(--color-text, #333);
+}
+
+/* Care Guide Header */
+.care-guide-header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    background-color: var(--color-background-light, #f8f9fa);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.care-guide-featured-image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.care-guide-featured-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.care-guide-featured-image img:hover {
+    transform: scale(1.03);
+}
+
+.care-guide-header-content {
+    padding: 1.5rem;
+}
+
+.care-guide-title {
+    font-size: 2.2rem;
+    margin: 0 0 1rem;
+    color: var(--color-primary, #0056b3);
+}
+
+.care-guide-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.9rem;
+}
+
+.care-guide-taxonomy {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    background-color: var(--color-background, #fff);
+    border: 1px solid var(--color-border, #e1e4e8);
+}
+
+.meta-label {
+    font-weight: 600;
+    color: var(--color-text-muted, #6c757d);
+}
+
+/* Care Guide Details */
+.care-guide-details {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .care-guide-details {
+        grid-template-columns: 3fr 2fr;
+    }
+}
+
+.care-guide-specs {
+    background-color: var(--color-background-light, #f8f9fa);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.care-guide-specs h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--color-primary, #0056b3);
+    font-size: 1.4rem;
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 576px) {
+    .specs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.spec-item {
+    display: flex;
+    flex-direction: column;
+    padding: 0.8rem;
+    background-color: var(--color-background, #fff);
+    border-radius: 6px;
+    border-left: 3px solid var(--color-primary, #0056b3);
+}
+
+.spec-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-muted, #6c757d);
+    margin-bottom: 0.3rem;
+}
+
+.spec-value {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.maintenance-low {
+    color: var(--color-success, #28a745);
+}
+
+.maintenance-medium {
+    color: var(--color-warning, #ffc107);
+}
+
+.maintenance-high {
+    color: var(--color-danger, #dc3545);
+}
+
+/* Compatibility Section */
+.care-guide-compatibility {
+    background-color: var(--color-background-light, #f8f9fa);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.care-guide-compatibility h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--color-primary, #0056b3);
+    font-size: 1.4rem;
+}
+
+.compatibility-section {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 6px;
+    background-color: var(--color-background, #fff);
+}
+
+.compatibility-section h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.compatible {
+    border-left: 3px solid var(--color-success, #28a745);
+}
+
+.not-compatible {
+    border-left: 3px solid var(--color-danger, #dc3545);
+}
+
+/* Care Guide Tabs */
+.care-guide-tabs {
+    margin: 2rem 0;
+    background-color: var(--color-background-light, #f8f9fa);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.tabs-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-background, #fff);
+    border-bottom: 1px solid var(--color-border, #e1e4e8);
+}
+
+.tabs-nav li {
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    white-space: nowrap;
+    font-weight: 500;
+    color: var(--color-text-muted, #6c757d);
+    transition: all 0.2s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.tabs-nav li:hover {
+    color: var(--color-primary, #0056b3);
+    background-color: rgba(0, 86, 179, 0.05);
+}
+
+.tabs-nav li.tab-active {
+    color: var(--color-primary, #0056b3);
+    border-bottom-color: var(--color-primary, #0056b3);
+}
+
+.tabs-content {
+    background-color: var(--color-background, #fff);
+}
+
+.tab-content {
+    display: none;
+    padding: 2rem;
+}
+
+.tab-content.tab-active {
+    display: block;
+}
+
+.tab-content-inner {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tab-content-inner h2 {
+    color: var(--color-primary, #0056b3);
+    margin-top: 0;
+}
+
+.tab-content-inner h3 {
+    color: var(--color-secondary, #6c757d);
+}
+
+.tab-content-inner p {
+    line-height: 1.6;
+}
+
+.tab-content-inner ul, 
+.tab-content-inner ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tab-content-inner li {
+    margin-bottom: 0.5rem;
+}
+
+/* Expandable Sections */
+.expandable-section {
+    margin-bottom: 1rem;
+    border: 1px solid var(--color-border, #e1e4e8);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.expandable-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--color-background-light, #f8f9fa);
+    cursor: pointer;
+}
+
+.expandable-section-title {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.expand-icon {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-primary, #0056b3);
+}
+
+.expandable-section-content {
+    display: none;
+    padding: 1rem;
+    background-color: var(--color-background, #fff);
+}
+
+.expandable-section.expanded .expandable-section-content {
+    display: block;
+}
+
+/* Tooltips */
+.care-guide-tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted var(--color-primary, #0056b3);
+    cursor: help;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-dark, #343a40);
+    color: var(--color-light, #fff);
+    text-align: center;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    z-index: 1;
+    width: 200px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--color-dark, #343a40) transparent transparent transparent;
+}
+
+.tooltip-text.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Related Guides */
+.care-guide-related {
+    margin-top: 3rem;
+}
+
+.care-guide-related h3 {
+    margin-bottom: 1.5rem;
+    color: var(--color-primary, #0056b3);
+    font-size: 1.4rem;
+}
+
+.related-guides-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.related-guide-item {
+    background-color: var(--color-background, #fff);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.related-guide-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.related-guide-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.related-guide-image {
+    height: 150px;
+    overflow: hidden;
+}
+
+.related-guide-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.related-guide-title {
+    padding: 1rem;
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--color-text, #333);
+}
+
+/* Archive Page Styles */
+.care-guide-filters {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: var(--color-background-light, #f8f9fa);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.care-guide-filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.filter-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.filter-group select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--color-border, #e1e4e8);
+    border-radius: 4px;
+}
+
+.filter-submit {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.filter-button {
+    background-color: var(--color-primary, #0056b3);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.reset-button {
+    background-color: var(--color-light, #f8f9fa);
+    color: var(--color-text, #333);
+    border: 1px solid var(--color-border, #e1e4e8);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.care-guides-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.care-guide-card {
+    background-color: var(--color-background, #fff);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.care-guide-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.care-guide-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.care-guide-card-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.care-guide-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.care-guide-card:hover .care-guide-card-image img {
+    transform: scale(1.05);
+}
+
+.care-guide-card-content {
+    padding: 1.5rem;
+}
+
+.care-guide-card-title {
+    margin: 0 0 1rem;
+    font-size: 1.3rem;
+    color: var(--color-primary, #0056b3);
+}
+
+.care-guide-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+}
+
+.care-guide-difficulty,
+.care-guide-maintenance {
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    background-color: var(--color-background-light, #f8f9fa);
+}
+
+.care-guide-card-excerpt {
+    margin-bottom: 1rem;
+    color: var(--color-text-muted, #6c757d);
+    font-size: 0.9rem;
+}
+
+.care-guide-card-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.read-more-link {
+    color: var(--color-primary, #0056b3);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* Search Styles */
+.care-guide-search-container {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.care-guide-search-input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--color-border, #e1e4e8);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.care-guide-search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-background, #fff);
+    border: 1px solid var(--color-border, #e1e4e8);
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.search-results-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.search-result-item {
+    border-bottom: 1px solid var(--color-border, #e1e4e8);
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-item a {
+    display: flex;
+    padding: 1rem;
+    text-decoration: none;
+    color: inherit;
+}
+
+.search-result-item a:hover {
+    background-color: var(--color-background-light, #f8f9fa);
+}
+
+.result-thumbnail {
+    width: 60px;
+    height: 60px;
+    margin-right: 1rem;
+}
+
+.result-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.result-content {
+    flex: 1;
+}
+
+.result-title {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+    color: var(--color-primary, #0056b3);
+}
+
+.result-excerpt {
+    font-size: 0.85rem;
+    color: var(--color-text-muted, #6c757d);
+}
+
+.search-loading,
+.no-results,
+.search-error {
+    padding: 1rem;
+    text-align: center;
+    color: var(--color-text-muted, #6c757d);
+}
+
+.more-results {
+    padding: 1rem;
+    text-align: center;
+}
+
+.view-all-results {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: var(--color-primary, #0056b3);
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+/* Print Styles */
+@media print {
+    .care-guide-container {
+        padding: 0;
+    }
+    
+    .care-guide-tabs .tabs-nav {
+        display: none;
+    }
+    
+    .tab-content {
+        display: block !important;
+        page-break-inside: avoid;
+    }
+    
+    .tab-content:not(:first-child) {
+        margin-top: 2rem;
+        border-top: 1px solid #ccc;
+        padding-top: 2rem;
+    }
+    
+    .care-guide-related,
+    .comments-area,
+    .site-footer,
+    .site-header nav,
+    .care-guide-search-container {
+        display: none;
+    }
+    
+    .expandable-section-content {
+        display: block !important;
+    }
+}
+
+/* Responsive Adjustments */
+@media (min-width: 992px) {
+    .care-guide-header {
+        flex-direction: row;
+    }
+    
+    .care-guide-featured-image {
+        width: 40%;
+        height: auto;
+    }
+    
+    .care-guide-header-content {
+        width: 60%;
+    }
+}
+
+@media (max-width: 767px) {
+    .care-guide-title {
+        font-size: 1.8rem;
+    }
+    
+    .tabs-nav li {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .tab-content {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .care-guide-filter-form {
+        flex-direction: column;
+    }
+    
+    .filter-group {
+        width: 100%;
+    }
+}

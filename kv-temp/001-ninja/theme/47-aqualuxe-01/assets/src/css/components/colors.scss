@@ -1,0 +1,703 @@
+/**
+ * Color schemes and variables for AquaLuxe theme
+ * Enhanced with improved contrast ratios and accessibility
+ */
+
+/* CSS Variables for colors */
+:root {
+  /* Primary Colors - Aqua Blue Palette */
+  --color-primary-50: #f0f9ff;  /* Sky 50 */
+  --color-primary-100: #e0f7ff; /* Sky 100 */
+  --color-primary-200: #bae6fd; /* Sky 200 */
+  --color-primary-300: #7dd3fc; /* Sky 300 */
+  --color-primary-400: #38bdf8; /* Sky 400 */
+  --color-primary-500: #0ea5e9; /* Sky 500 */
+  --color-primary-600: #0284c7; /* Sky 600 - Main Primary */
+  --color-primary-700: #0369a1; /* Sky 700 */
+  --color-primary-800: #075985; /* Sky 800 */
+  --color-primary-900: #0c4a6e; /* Sky 900 */
+  --color-primary-950: #082f49; /* Sky 950 */
+
+  /* Secondary Colors - Teal Palette */
+  --color-secondary-50: #f0fdfa;  /* Teal 50 */
+  --color-secondary-100: #ccfbf1; /* Teal 100 */
+  --color-secondary-200: #99f6e4; /* Teal 200 */
+  --color-secondary-300: #5eead4; /* Teal 300 */
+  --color-secondary-400: #2dd4bf; /* Teal 400 */
+  --color-secondary-500: #14b8a6; /* Teal 500 */
+  --color-secondary-600: #0d9488; /* Teal 600 - Main Secondary */
+  --color-secondary-700: #0f766e; /* Teal 700 */
+  --color-secondary-800: #115e59; /* Teal 800 */
+  --color-secondary-900: #134e4a; /* Teal 900 */
+  --color-secondary-950: #042f2e; /* Teal 950 */
+
+  /* Accent Colors - Gold Palette for luxury feel */
+  --color-accent-50: #fffbeb;  /* Amber 50 */
+  --color-accent-100: #fef3c7; /* Amber 100 */
+  --color-accent-200: #fde68a; /* Amber 200 */
+  --color-accent-300: #fcd34d; /* Amber 300 */
+  --color-accent-400: #fbbf24; /* Amber 400 */
+  --color-accent-500: #f59e0b; /* Amber 500 */
+  --color-accent-600: #d97706; /* Amber 600 - Main Accent */
+  --color-accent-700: #b45309; /* Amber 700 */
+  --color-accent-800: #92400e; /* Amber 800 */
+  --color-accent-900: #78350f; /* Amber 900 */
+  --color-accent-950: #451a03; /* Amber 950 */
+
+  /* Neutral Colors - Gray Palette */
+  --color-gray-50: #f9fafb;  /* Gray 50 */
+  --color-gray-100: #f3f4f6; /* Gray 100 */
+  --color-gray-200: #e5e7eb; /* Gray 200 */
+  --color-gray-300: #d1d5db; /* Gray 300 */
+  --color-gray-400: #9ca3af; /* Gray 400 */
+  --color-gray-500: #6b7280; /* Gray 500 */
+  --color-gray-600: #4b5563; /* Gray 600 */
+  --color-gray-700: #374151; /* Gray 700 */
+  --color-gray-800: #1f2937; /* Gray 800 */
+  --color-gray-900: #111827; /* Gray 900 */
+  --color-gray-950: #030712; /* Gray 950 */
+
+  /* Success, Error, Warning, Info Colors */
+  --color-success-50: #ecfdf5;  /* Green 50 */
+  --color-success-500: #10b981; /* Green 500 */
+  --color-success-700: #047857; /* Green 700 */
+  
+  --color-error-50: #fef2f2;    /* Red 50 */
+  --color-error-500: #ef4444;   /* Red 500 */
+  --color-error-700: #b91c1c;   /* Red 700 */
+  
+  --color-warning-50: #fffbeb;  /* Amber 50 */
+  --color-warning-500: #f59e0b; /* Amber 500 */
+  --color-warning-700: #b45309; /* Amber 700 */
+  
+  --color-info-50: #eff6ff;     /* Blue 50 */
+  --color-info-500: #3b82f6;    /* Blue 500 */
+  --color-info-700: #1d4ed8;    /* Blue 700 */
+
+  /* Background Colors */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f9fafb; /* Gray 50 */
+  --color-bg-tertiary: #f3f4f6;  /* Gray 100 */
+  
+  /* Text Colors with improved contrast ratios */
+  --color-text-primary: #1f2937;   /* Gray 800 - WCAG AAA on white */
+  --color-text-secondary: #4b5563; /* Gray 600 - WCAG AA on white */
+  --color-text-tertiary: #6b7280;  /* Gray 500 - WCAG AA on white for large text */
+  --color-text-inverted: #ffffff;  /* White - WCAG AAA on dark backgrounds */
+  
+  /* Border Colors */
+  --color-border-light: #e5e7eb;   /* Gray 200 */
+  --color-border-medium: #d1d5db;  /* Gray 300 */
+  --color-border-dark: #9ca3af;    /* Gray 400 */
+  
+  /* Shadow Colors */
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-shadow-dark: rgba(0, 0, 0, 0.2);
+  
+  /* Overlay Colors */
+  --color-overlay-light: rgba(255, 255, 255, 0.8);
+  --color-overlay-dark: rgba(0, 0, 0, 0.7);
+  --color-overlay-primary: rgba(8, 47, 73, 0.8); /* Sky 950 with opacity */
+  
+  /* Gradient Colors */
+  --gradient-primary: linear-gradient(to right, var(--color-primary-600), var(--color-primary-800));
+  --gradient-secondary: linear-gradient(to right, var(--color-secondary-600), var(--color-secondary-800));
+  --gradient-accent: linear-gradient(to right, var(--color-accent-500), var(--color-accent-700));
+  --gradient-blue-teal: linear-gradient(to right, var(--color-primary-600), var(--color-secondary-600));
+  --gradient-blue-purple: linear-gradient(to right, var(--color-primary-600), #8b5cf6); /* Purple 600 */
+  --gradient-underwater: linear-gradient(to bottom, var(--color-primary-600), var(--color-primary-900));
+}
+
+/* Dark mode color variables */
+.dark {
+  /* Background Colors */
+  --color-bg-primary: #111827;    /* Gray 900 */
+  --color-bg-secondary: #1f2937;  /* Gray 800 */
+  --color-bg-tertiary: #374151;   /* Gray 700 */
+  
+  /* Text Colors with improved contrast ratios */
+  --color-text-primary: #f9fafb;   /* Gray 50 - WCAG AAA on dark backgrounds */
+  --color-text-secondary: #e5e7eb; /* Gray 200 - WCAG AAA on dark backgrounds */
+  --color-text-tertiary: #d1d5db;  /* Gray 300 - WCAG AAA on dark backgrounds */
+  --color-text-inverted: #111827;  /* Gray 900 - WCAG AAA on light backgrounds */
+  
+  /* Border Colors */
+  --color-border-light: #374151;   /* Gray 700 */
+  --color-border-medium: #4b5563;  /* Gray 600 */
+  --color-border-dark: #6b7280;    /* Gray 500 */
+  
+  /* Shadow Colors */
+  --color-shadow: rgba(0, 0, 0, 0.5);
+  --color-shadow-dark: rgba(0, 0, 0, 0.7);
+  
+  /* Overlay Colors */
+  --color-overlay-light: rgba(17, 24, 39, 0.8); /* Gray 900 with opacity */
+  --color-overlay-dark: rgba(0, 0, 0, 0.9);
+  
+  /* Primary Colors - Adjusted for dark mode */
+  --color-primary-300: #0369a1; /* Sky 700 - Adjusted for contrast */
+  --color-primary-400: #0284c7; /* Sky 600 - Adjusted for contrast */
+  --color-primary-500: #0ea5e9; /* Sky 500 */
+  --color-primary-600: #38bdf8; /* Sky 400 - Main Primary in dark mode */
+  --color-primary-700: #7dd3fc; /* Sky 300 */
+  
+  /* Secondary Colors - Adjusted for dark mode */
+  --color-secondary-300: #0f766e; /* Teal 700 - Adjusted for contrast */
+  --color-secondary-400: #0d9488; /* Teal 600 - Adjusted for contrast */
+  --color-secondary-500: #14b8a6; /* Teal 500 */
+  --color-secondary-600: #2dd4bf; /* Teal 400 - Main Secondary in dark mode */
+  --color-secondary-700: #5eead4; /* Teal 300 */
+  
+  /* Accent Colors - Adjusted for dark mode */
+  --color-accent-400: #d97706; /* Amber 600 - Adjusted for contrast */
+  --color-accent-500: #f59e0b; /* Amber 500 */
+  --color-accent-600: #fbbf24; /* Amber 400 - Main Accent in dark mode */
+}
+
+/* Color utility classes */
+.bg-primary {
+  @apply bg-primary-600;
+}
+
+.bg-secondary {
+  @apply bg-secondary-600;
+}
+
+.bg-accent {
+  @apply bg-accent-600;
+}
+
+.bg-success {
+  @apply bg-green-600;
+}
+
+.bg-error {
+  @apply bg-red-600;
+}
+
+.bg-warning {
+  @apply bg-amber-500;
+}
+
+.bg-info {
+  @apply bg-blue-600;
+}
+
+.text-primary {
+  @apply text-primary-600;
+  
+  .dark & {
+    @apply text-primary-400;
+  }
+}
+
+.text-secondary {
+  @apply text-secondary-600;
+  
+  .dark & {
+    @apply text-secondary-400;
+  }
+}
+
+.text-accent {
+  @apply text-accent-600;
+  
+  .dark & {
+    @apply text-accent-500;
+  }
+}
+
+.text-success {
+  @apply text-green-600;
+  
+  .dark & {
+    @apply text-green-500;
+  }
+}
+
+.text-error {
+  @apply text-red-600;
+  
+  .dark & {
+    @apply text-red-500;
+  }
+}
+
+.text-warning {
+  @apply text-amber-600;
+  
+  .dark & {
+    @apply text-amber-500;
+  }
+}
+
+.text-info {
+  @apply text-blue-600;
+  
+  .dark & {
+    @apply text-blue-500;
+  }
+}
+
+/* Border color utilities */
+.border-primary {
+  @apply border-primary-600;
+  
+  .dark & {
+    @apply border-primary-400;
+  }
+}
+
+.border-secondary {
+  @apply border-secondary-600;
+  
+  .dark & {
+    @apply border-secondary-400;
+  }
+}
+
+.border-accent {
+  @apply border-accent-600;
+  
+  .dark & {
+    @apply border-accent-500;
+  }
+}
+
+/* Gradient backgrounds */
+.bg-gradient-primary {
+  background: var(--gradient-primary);
+}
+
+.bg-gradient-secondary {
+  background: var(--gradient-secondary);
+}
+
+.bg-gradient-accent {
+  background: var(--gradient-accent);
+}
+
+.bg-gradient-blue-teal {
+  background: var(--gradient-blue-teal);
+}
+
+.bg-gradient-blue-purple {
+  background: var(--gradient-blue-purple);
+}
+
+.bg-gradient-underwater {
+  background: var(--gradient-underwater);
+}
+
+/* Status colors for notifications, alerts, etc. */
+.status-success {
+  @apply bg-green-100 text-green-800 border border-green-200;
+  
+  .dark & {
+    @apply bg-green-900 bg-opacity-50 text-green-100 border-green-800;
+  }
+}
+
+.status-error {
+  @apply bg-red-100 text-red-800 border border-red-200;
+  
+  .dark & {
+    @apply bg-red-900 bg-opacity-50 text-red-100 border-red-800;
+  }
+}
+
+.status-warning {
+  @apply bg-amber-100 text-amber-800 border border-amber-200;
+  
+  .dark & {
+    @apply bg-amber-900 bg-opacity-50 text-amber-100 border-amber-800;
+  }
+}
+
+.status-info {
+  @apply bg-blue-100 text-blue-800 border border-blue-200;
+  
+  .dark & {
+    @apply bg-blue-900 bg-opacity-50 text-blue-100 border-blue-800;
+  }
+}
+
+/* Color schemes for specific sections */
+
+/* Header color scheme */
+.site-header {
+  @apply bg-white border-b border-gray-200;
+  
+  .dark & {
+    @apply bg-gray-900 border-gray-800;
+  }
+}
+
+/* Top bar color scheme */
+.top-bar {
+  @apply bg-primary-900 text-white;
+  
+  .dark & {
+    @apply bg-gray-950;
+  }
+}
+
+/* Footer color scheme */
+.site-footer {
+  @apply bg-primary-900 text-white;
+  
+  .dark & {
+    @apply bg-gray-950;
+  }
+  
+  .footer-widgets {
+    @apply bg-primary-800;
+    
+    .dark & {
+      @apply bg-gray-900;
+    }
+  }
+  
+  .footer-bottom {
+    @apply bg-primary-900 border-t border-primary-700;
+    
+    .dark & {
+      @apply bg-gray-950 border-gray-800;
+    }
+  }
+}
+
+/* Hero section color scheme */
+.hero-section {
+  @apply bg-gradient-to-r from-primary-700 to-primary-900 text-white;
+  
+  .dark & {
+    @apply from-gray-900 to-primary-900;
+  }
+}
+
+/* Featured section color scheme */
+.featured-section {
+  @apply bg-gray-50;
+  
+  .dark & {
+    @apply bg-gray-900;
+  }
+}
+
+/* Call to action color scheme */
+.cta-section {
+  @apply bg-primary-600 text-white;
+  
+  .dark & {
+    @apply bg-primary-800;
+  }
+}
+
+/* Testimonial section color scheme */
+.testimonial-section {
+  @apply bg-gray-50;
+  
+  .dark & {
+    @apply bg-gray-900;
+  }
+  
+  .testimonial {
+    @apply bg-white shadow-sm;
+    
+    .dark & {
+      @apply bg-gray-800;
+    }
+  }
+}
+
+/* Product card color scheme */
+.product-card {
+  @apply bg-white border border-gray-200 shadow-sm;
+  
+  .dark & {
+    @apply bg-gray-800 border-gray-700;
+  }
+  
+  .product-title {
+    @apply text-gray-900;
+    
+    .dark & {
+      @apply text-white;
+    }
+  }
+  
+  .product-price {
+    @apply text-primary-600;
+    
+    .dark & {
+      @apply text-primary-400;
+    }
+  }
+  
+  .product-category {
+    @apply text-gray-500;
+    
+    .dark & {
+      @apply text-gray-400;
+    }
+  }
+}
+
+/* Blog post card color scheme */
+.post-card {
+  @apply bg-white border border-gray-200 shadow-sm;
+  
+  .dark & {
+    @apply bg-gray-800 border-gray-700;
+  }
+  
+  .post-title {
+    @apply text-gray-900;
+    
+    .dark & {
+      @apply text-white;
+    }
+  }
+  
+  .post-meta {
+    @apply text-gray-500;
+    
+    .dark & {
+      @apply text-gray-400;
+    }
+  }
+}
+
+/* Form elements color scheme */
+.form-input,
+.form-textarea,
+.form-select {
+  @apply bg-white border border-gray-300 text-gray-900;
+  
+  .dark & {
+    @apply bg-gray-800 border-gray-600 text-white;
+  }
+  
+  &:focus {
+    @apply border-primary-500 ring ring-primary-500 ring-opacity-50;
+    
+    .dark & {
+      @apply border-primary-400 ring-primary-400;
+    }
+  }
+}
+
+/* Button color schemes */
+.btn-primary {
+  @apply bg-primary-600 text-white hover:bg-primary-700;
+  
+  .dark & {
+    @apply bg-primary-500 hover:bg-primary-600;
+  }
+}
+
+.btn-secondary {
+  @apply bg-secondary-600 text-white hover:bg-secondary-700;
+  
+  .dark & {
+    @apply bg-secondary-500 hover:bg-secondary-600;
+  }
+}
+
+.btn-accent {
+  @apply bg-accent-600 text-white hover:bg-accent-700;
+  
+  .dark & {
+    @apply bg-accent-500 hover:bg-accent-600;
+  }
+}
+
+.btn-outline-primary {
+  @apply border border-primary-600 text-primary-600 hover:bg-primary-50 hover:text-primary-700;
+  
+  .dark & {
+    @apply border-primary-400 text-primary-400 hover:bg-primary-900 hover:text-primary-300;
+  }
+}
+
+.btn-outline-secondary {
+  @apply border border-secondary-600 text-secondary-600 hover:bg-secondary-50 hover:text-secondary-700;
+  
+  .dark & {
+    @apply border-secondary-400 text-secondary-400 hover:bg-secondary-900 hover:text-secondary-300;
+  }
+}
+
+/* Alert color schemes */
+.alert {
+  @apply p-4 mb-4 rounded-lg;
+  
+  &.alert-success {
+    @apply bg-green-100 text-green-800;
+    
+    .dark & {
+      @apply bg-green-900 bg-opacity-50 text-green-100;
+    }
+  }
+  
+  &.alert-error {
+    @apply bg-red-100 text-red-800;
+    
+    .dark & {
+      @apply bg-red-900 bg-opacity-50 text-red-100;
+    }
+  }
+  
+  &.alert-warning {
+    @apply bg-amber-100 text-amber-800;
+    
+    .dark & {
+      @apply bg-amber-900 bg-opacity-50 text-amber-100;
+    }
+  }
+  
+  &.alert-info {
+    @apply bg-blue-100 text-blue-800;
+    
+    .dark & {
+      @apply bg-blue-900 bg-opacity-50 text-blue-100;
+    }
+  }
+}
+
+/* Badge color schemes */
+.badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  
+  &.badge-primary {
+    @apply bg-primary-100 text-primary-800;
+    
+    .dark & {
+      @apply bg-primary-900 text-primary-100;
+    }
+  }
+  
+  &.badge-secondary {
+    @apply bg-secondary-100 text-secondary-800;
+    
+    .dark & {
+      @apply bg-secondary-900 text-secondary-100;
+    }
+  }
+  
+  &.badge-accent {
+    @apply bg-accent-100 text-accent-800;
+    
+    .dark & {
+      @apply bg-accent-900 text-accent-100;
+    }
+  }
+  
+  &.badge-success {
+    @apply bg-green-100 text-green-800;
+    
+    .dark & {
+      @apply bg-green-900 text-green-100;
+    }
+  }
+  
+  &.badge-error {
+    @apply bg-red-100 text-red-800;
+    
+    .dark & {
+      @apply bg-red-900 text-red-100;
+    }
+  }
+}
+
+/* Tag color schemes */
+.tag {
+  @apply inline-flex items-center px-3 py-1 rounded-md text-sm font-medium;
+  
+  &.tag-primary {
+    @apply bg-primary-100 text-primary-800;
+    
+    .dark & {
+      @apply bg-primary-900 text-primary-100;
+    }
+  }
+  
+  &.tag-secondary {
+    @apply bg-secondary-100 text-secondary-800;
+    
+    .dark & {
+      @apply bg-secondary-900 text-secondary-100;
+    }
+  }
+  
+  &.tag-accent {
+    @apply bg-accent-100 text-accent-800;
+    
+    .dark & {
+      @apply bg-accent-900 text-accent-100;
+    }
+  }
+}
+
+/* Price color schemes */
+.price {
+  @apply text-gray-900 font-bold;
+  
+  .dark & {
+    @apply text-white;
+  }
+  
+  &.sale-price {
+    @apply text-accent-600;
+    
+    .dark & {
+      @apply text-accent-500;
+    }
+  }
+  
+  .original-price {
+    @apply text-gray-500 line-through text-sm;
+    
+    .dark & {
+      @apply text-gray-400;
+    }
+  }
+}
+
+/* Rating color scheme */
+.rating {
+  .star {
+    @apply text-gray-300;
+    
+    &.filled {
+      @apply text-accent-500;
+    }
+  }
+}
+
+/* Aquatic-themed color utilities */
+.water-bg {
+  background: linear-gradient(to bottom, var(--color-primary-400), var(--color-primary-700));
+}
+
+.ocean-bg {
+  background: linear-gradient(to bottom, var(--color-primary-300), var(--color-primary-900));
+}
+
+.coral-bg {
+  background: linear-gradient(to bottom right, var(--color-secondary-400), var(--color-accent-500));
+}
+
+.tropical-bg {
+  background: linear-gradient(to right, var(--color-primary-500), var(--color-secondary-500), var(--color-accent-500));
+}
+
+/* Accessibility focus styles */
+:focus-visible {
+  @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+  
+  .dark & {
+    @apply ring-primary-400 ring-offset-gray-900;
+  }
+}

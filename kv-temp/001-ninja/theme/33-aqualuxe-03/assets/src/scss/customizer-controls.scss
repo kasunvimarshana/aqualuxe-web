@@ -1,0 +1,236 @@
+/**
+ * AquaLuxe Theme - Customizer Controls Styles
+ *
+ * This stylesheet contains styles for the WordPress Customizer controls
+ * when using the AquaLuxe theme.
+ */
+
+// Import abstracts
+@import "abstracts/variables";
+
+// Customizer header
+.aqualuxe-customizer-title {
+  display: inline-block;
+  background-color: $color-primary-500;
+  color: white;
+  padding: $spacing-2 $spacing-4;
+  margin-bottom: $spacing-4;
+  border-radius: $border-radius-default;
+  font-family: $font-family-serif;
+  font-size: $font-size-base;
+  
+  &:before {
+    content: "\f540"; // WordPress dashicon for customizer
+    font-family: dashicons;
+    margin-right: $spacing-2;
+  }
+}
+
+// Section styles
+#customize-theme-controls {
+  .accordion-section-title {
+    border-left: 4px solid transparent;
+    
+    &:hover {
+      border-left-color: $color-primary-300;
+    }
+  }
+  
+  .accordion-section-content {
+    background-color: white;
+  }
+  
+  .control-section.open .accordion-section-title {
+    border-left-color: $color-primary-500;
+  }
+  
+  // Custom section headers
+  .aqualuxe-section-title {
+    margin: $spacing-4 0 $spacing-2;
+    padding-bottom: $spacing-2;
+    border-bottom: 1px solid $color-neutral-200;
+    color: $color-primary-700;
+    font-family: $font-family-serif;
+    font-size: $font-size-lg;
+  }
+}
+
+// Control styles
+.customize-control {
+  margin-bottom: $spacing-4;
+  
+  // Control labels
+  .customize-control-title {
+    font-weight: $font-weight-medium;
+    margin-bottom: $spacing-1;
+  }
+  
+  // Control descriptions
+  .description {
+    font-style: italic;
+    color: $color-neutral-600;
+    margin-top: $spacing-1;
+    font-size: $font-size-sm;
+  }
+  
+  // Custom color controls
+  &.aqualuxe-color-control {
+    .wp-color-result {
+      border-radius: $border-radius-default;
+      
+      &:hover {
+        border-color: $color-primary-300;
+      }
+    }
+  }
+  
+  // Custom image controls
+  &.aqualuxe-image-control {
+    .aqualuxe-image-preview {
+      background-color: $color-neutral-100;
+      border: 1px solid $color-neutral-300;
+      border-radius: $border-radius-default;
+      padding: $spacing-2;
+      margin-bottom: $spacing-2;
+      text-align: center;
+      
+      img {
+        max-width: 100%;
+        max-height: 150px;
+      }
+    }
+    
+    .aqualuxe-image-buttons {
+      display: flex;
+      gap: $spacing-2;
+      
+      .button {
+        flex: 1;
+      }
+    }
+  }
+  
+  // Custom range slider
+  &.aqualuxe-range-control {
+    .aqualuxe-range-slider {
+      display: flex;
+      align-items: center;
+      gap: $spacing-2;
+      
+      input[type="range"] {
+        flex: 1;
+      }
+      
+      input[type="number"] {
+        width: 60px;
+      }
+    }
+  }
+  
+  // Custom toggle control
+  &.aqualuxe-toggle-control {
+    .aqualuxe-toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 24px;
+      
+      input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        
+        &:checked + .aqualuxe-toggle-slider {
+          background-color: $color-primary-500;
+          
+          &:before {
+            transform: translateX(16px);
+          }
+        }
+        
+        &:focus + .aqualuxe-toggle-slider {
+          box-shadow: 0 0 1px $color-primary-500;
+        }
+      }
+      
+      .aqualuxe-toggle-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $color-neutral-400;
+        transition: .4s;
+        border-radius: 34px;
+        
+        &:before {
+          position: absolute;
+          content: "";
+          height: 16px;
+          width: 16px;
+          left: 4px;
+          bottom: 4px;
+          background-color: white;
+          transition: .4s;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+  
+  // Custom radio image control
+  &.aqualuxe-radio-image-control {
+    .aqualuxe-radio-image-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $spacing-2;
+      
+      .aqualuxe-radio-image-option {
+        position: relative;
+        width: calc(33.333% - #{$spacing-2});
+        
+        input {
+          position: absolute;
+          opacity: 0;
+          width: 0;
+          height: 0;
+          
+          &:checked + .aqualuxe-radio-image-label {
+            border-color: $color-primary-500;
+            box-shadow: 0 0 0 2px $color-primary-500;
+          }
+        }
+        
+        .aqualuxe-radio-image-label {
+          display: block;
+          border: 2px solid $color-neutral-300;
+          border-radius: $border-radius-default;
+          padding: 2px;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          
+          &:hover {
+            border-color: $color-primary-300;
+          }
+          
+          img {
+            display: block;
+            width: 100%;
+            border-radius: $border-radius-sm;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Customizer footer
+.aqualuxe-customizer-footer {
+  margin-top: $spacing-4;
+  padding-top: $spacing-4;
+  border-top: 1px solid $color-neutral-200;
+  font-size: $font-size-sm;
+  color: $color-neutral-600;
+  text-align: center;
+}

@@ -1,0 +1,258 @@
+/**
+ * Content Area Styles
+ */
+
+.site-content {
+  @apply py-8 bg-white dark:bg-gray-900 transition-colors duration-300;
+  
+  @screen md {
+    @apply py-12;
+  }
+  
+  @screen lg {
+    @apply py-16;
+  }
+  
+  &__container {
+    @apply container mx-auto px-4;
+  }
+  
+  &__inner {
+    @apply flex flex-wrap;
+  }
+  
+  &__main {
+    @apply w-full;
+    
+    .has-sidebar & {
+      @apply lg:w-2/3 lg:pr-8;
+    }
+    
+    .has-sidebar-left & {
+      @apply lg:w-2/3 lg:pl-8 lg:order-2;
+    }
+  }
+}
+
+// Page header
+.page-header {
+  @apply mb-8 pb-6 border-b border-gray-200 dark:border-gray-700;
+  
+  &__title {
+    @apply text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2;
+    
+    @screen md {
+      @apply text-4xl;
+    }
+  }
+  
+  &__description {
+    @apply text-lg text-gray-600 dark:text-gray-400 max-w-3xl;
+  }
+}
+
+// Hero section
+.hero {
+  @apply relative bg-gray-900 text-white overflow-hidden;
+  
+  &__container {
+    @apply container mx-auto px-4 py-16 relative z-10;
+    
+    @screen md {
+      @apply py-24;
+    }
+    
+    @screen lg {
+      @apply py-32;
+    }
+  }
+  
+  &__content {
+    @apply max-w-3xl;
+  }
+  
+  &__title {
+    @apply text-4xl font-bold mb-4;
+    
+    @screen md {
+      @apply text-5xl;
+    }
+    
+    @screen lg {
+      @apply text-6xl;
+    }
+  }
+  
+  &__subtitle {
+    @apply text-xl text-gray-200 mb-8;
+    
+    @screen md {
+      @apply text-2xl;
+    }
+  }
+  
+  &__buttons {
+    @apply flex flex-wrap gap-4;
+  }
+  
+  &__background {
+    @apply absolute inset-0 w-full h-full object-cover opacity-50;
+  }
+  
+  &__overlay {
+    @apply absolute inset-0 bg-gradient-to-r from-primary-900 to-transparent opacity-90;
+  }
+  
+  // Hero variants
+  &--centered {
+    .hero__content {
+      @apply mx-auto text-center;
+    }
+    
+    .hero__buttons {
+      @apply justify-center;
+    }
+    
+    .hero__overlay {
+      @apply bg-primary-900 bg-opacity-70 from-transparent to-transparent;
+    }
+  }
+  
+  &--split {
+    @apply lg:flex lg:items-center;
+    
+    .hero__container {
+      @apply lg:w-1/2 lg:py-24;
+    }
+    
+    .hero__media {
+      @apply hidden lg:block lg:w-1/2 h-full;
+      
+      img, video {
+        @apply w-full h-full object-cover;
+      }
+    }
+  }
+}
+
+// Section styles
+.section {
+  @apply py-12 md:py-16 lg:py-24;
+  
+  &__container {
+    @apply container mx-auto px-4;
+  }
+  
+  &__header {
+    @apply mb-12 text-center;
+  }
+  
+  &__title {
+    @apply text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4;
+  }
+  
+  &__subtitle {
+    @apply text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto;
+  }
+  
+  &__footer {
+    @apply mt-12 text-center;
+  }
+  
+  // Section variants
+  &--primary {
+    @apply bg-primary-50 dark:bg-primary-900 dark:bg-opacity-20;
+  }
+  
+  &--secondary {
+    @apply bg-secondary-50 dark:bg-secondary-900 dark:bg-opacity-20;
+  }
+  
+  &--dark {
+    @apply bg-gray-900 text-white;
+    
+    .section__title {
+      @apply text-white;
+    }
+    
+    .section__subtitle {
+      @apply text-gray-300;
+    }
+  }
+  
+  &--pattern {
+    @apply relative;
+    
+    &::before {
+      content: '';
+      @apply absolute inset-0 bg-repeat opacity-5 dark:opacity-10;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+  }
+}
+
+// Entry content (for WordPress content)
+.entry-content {
+  @apply prose prose-lg max-w-none dark:prose-dark;
+  
+  > *:first-child {
+    @apply mt-0;
+  }
+  
+  > *:last-child {
+    @apply mb-0;
+  }
+  
+  img {
+    @apply rounded-lg;
+  }
+  
+  figure {
+    @apply my-8;
+    
+    img {
+      @apply w-full;
+    }
+    
+    figcaption {
+      @apply text-center text-sm text-gray-600 dark:text-gray-400 mt-2;
+    }
+  }
+  
+  .alignleft {
+    @apply float-left mr-6 my-2;
+  }
+  
+  .alignright {
+    @apply float-right ml-6 my-2;
+  }
+  
+  .aligncenter {
+    @apply mx-auto block;
+  }
+  
+  .wp-block-image {
+    @apply my-8;
+  }
+  
+  .wp-block-gallery {
+    @apply my-8;
+  }
+  
+  .wp-block-button {
+    @apply my-4;
+  }
+}
+
+// No results
+.no-results {
+  @apply py-12 text-center;
+  
+  &__title {
+    @apply text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4;
+  }
+  
+  &__content {
+    @apply text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto;
+  }
+}

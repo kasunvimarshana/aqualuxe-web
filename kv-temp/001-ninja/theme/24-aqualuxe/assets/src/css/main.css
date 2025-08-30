@@ -1,0 +1,453 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom CSS Variables */
+:root {
+  --primary-color: #0073aa;
+  --primary-color-light: #00a0d2;
+  --primary-color-dark: #005177;
+  --secondary-color: #005177;
+  --secondary-color-light: #0073aa;
+  --secondary-color-dark: #003e5c;
+  --heading-font: 'Playfair Display', serif;
+  --body-font: 'Open Sans', sans-serif;
+}
+
+/* Dark mode variables */
+.dark {
+  --primary-color: #00a0d2;
+  --primary-color-light: #33c6ff;
+  --primary-color-dark: #0073aa;
+  --secondary-color: #0073aa;
+  --secondary-color-light: #33c6ff;
+  --secondary-color-dark: #005177;
+}
+
+/* Base Styles */
+@layer base {
+  body {
+    @apply font-body text-gray-800 bg-white dark:bg-gray-900 dark:text-gray-200;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl mb-6;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl mb-5;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl mb-4;
+  }
+  
+  h4 {
+    @apply text-xl md:text-2xl mb-4;
+  }
+  
+  h5 {
+    @apply text-lg md:text-xl mb-3;
+  }
+  
+  h6 {
+    @apply text-base md:text-lg mb-3;
+  }
+  
+  a {
+    @apply text-primary hover:text-primary-dark transition-colors duration-200;
+  }
+  
+  p {
+    @apply mb-4;
+  }
+  
+  img {
+    @apply max-w-full h-auto;
+  }
+}
+
+/* Component Styles */
+@layer components {
+  /* Button Styles */
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-dark focus:ring-primary;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-secondary-dark focus:ring-secondary;
+  }
+  
+  .btn-outline {
+    @apply border-gray-300 text-gray-700 hover:bg-gray-50 focus:ring-primary dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-800;
+  }
+  
+  /* Form Styles */
+  .form-input {
+    @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 dark:bg-gray-800 dark:border-gray-700 dark:text-white;
+  }
+  
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1;
+  }
+  
+  /* Card Styles */
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-soft overflow-hidden;
+  }
+  
+  .card-header {
+    @apply px-6 py-4 border-b border-gray-200 dark:border-gray-700;
+  }
+  
+  .card-body {
+    @apply p-6;
+  }
+  
+  .card-footer {
+    @apply px-6 py-4 border-t border-gray-200 dark:border-gray-700;
+  }
+  
+  /* Navigation Styles */
+  .nav-link {
+    @apply px-4 py-2 text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-primary-light;
+  }
+  
+  .nav-link-active {
+    @apply text-primary dark:text-primary-light font-medium;
+  }
+  
+  /* Header Styles */
+  .site-header {
+    @apply bg-white dark:bg-gray-900 shadow-sm;
+  }
+  
+  .site-header-transparent {
+    @apply bg-transparent absolute w-full z-10;
+  }
+  
+  /* Footer Styles */
+  .site-footer {
+    @apply bg-gray-900 text-gray-400 pt-16 pb-8;
+  }
+  
+  /* Breadcrumb Styles */
+  .breadcrumb {
+    @apply flex flex-wrap items-center text-sm;
+  }
+  
+  .breadcrumb-item {
+    @apply flex items-center;
+  }
+  
+  .breadcrumb-item:not(:last-child)::after {
+    @apply content-['/'] mx-2 text-gray-400;
+  }
+}
+
+/* WooCommerce Specific Styles */
+@layer components {
+  /* Product Card */
+  .product-card {
+    @apply card transition-all duration-300 hover:shadow-medium;
+  }
+  
+  .product-card-image {
+    @apply relative overflow-hidden aspect-square bg-gray-100 dark:bg-gray-800;
+  }
+  
+  .product-card-image img {
+    @apply object-cover w-full h-full transition-transform duration-500 hover:scale-105;
+  }
+  
+  .product-card-content {
+    @apply p-4;
+  }
+  
+  .product-title {
+    @apply text-lg font-medium mb-2 hover:text-primary transition-colors duration-200;
+  }
+  
+  .product-price {
+    @apply text-lg font-bold text-primary dark:text-primary-light;
+  }
+  
+  .product-price del {
+    @apply text-gray-500 text-sm font-normal mr-2;
+  }
+  
+  .product-price ins {
+    @apply no-underline;
+  }
+  
+  /* Product Badges */
+  .product-badge {
+    @apply absolute top-4 left-4 px-3 py-1 text-xs font-bold uppercase rounded-md z-10;
+  }
+  
+  .badge-sale {
+    @apply bg-red-500 text-white;
+  }
+  
+  .badge-new {
+    @apply bg-green-500 text-white;
+  }
+  
+  .badge-featured {
+    @apply bg-yellow-500 text-white;
+  }
+  
+  /* Quick View Button */
+  .quick-view {
+    @apply absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 transition-opacity duration-300 hover:opacity-100;
+  }
+  
+  .quick-view-btn {
+    @apply btn btn-primary text-sm py-2 transform translate-y-4 transition-transform duration-300 group-hover:translate-y-0;
+  }
+  
+  /* Add to Cart Button */
+  .add-to-cart {
+    @apply btn btn-primary w-full mt-4;
+  }
+  
+  /* Wishlist Button */
+  .add-to-wishlist {
+    @apply absolute top-4 right-4 w-10 h-10 rounded-full bg-white dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors duration-200 z-10;
+  }
+  
+  /* Shop Sidebar */
+  .shop-sidebar {
+    @apply space-y-8;
+  }
+  
+  .shop-sidebar-widget {
+    @apply card;
+  }
+  
+  .shop-sidebar-widget-title {
+    @apply card-header text-lg font-medium;
+  }
+  
+  .shop-sidebar-widget-content {
+    @apply card-body;
+  }
+  
+  /* Filter Widget */
+  .filter-title {
+    @apply flex justify-between items-center cursor-pointer py-2 font-medium;
+  }
+  
+  .filter-content {
+    @apply py-2;
+  }
+  
+  /* Price Range Slider */
+  .price-range-slider {
+    @apply my-4;
+  }
+  
+  .price-range-display {
+    @apply text-sm text-gray-600 dark:text-gray-400 mt-2;
+  }
+}
+
+/* Utility Classes */
+@layer utilities {
+  .animate-on-scroll {
+    @apply opacity-0 transition-all duration-1000;
+  }
+  
+  .animate-on-scroll.animated {
+    @apply opacity-100;
+  }
+  
+  .fade-in-up {
+    @apply translate-y-10 animate-on-scroll;
+  }
+  
+  .fade-in-up.animated {
+    @apply translate-y-0;
+  }
+  
+  .fade-in-left {
+    @apply -translate-x-10 animate-on-scroll;
+  }
+  
+  .fade-in-left.animated {
+    @apply translate-x-0;
+  }
+  
+  .fade-in-right {
+    @apply translate-x-10 animate-on-scroll;
+  }
+  
+  .fade-in-right.animated {
+    @apply translate-x-0;
+  }
+}
+
+/* Responsive Utilities */
+@layer utilities {
+  .container-fluid {
+    @apply w-full px-4 mx-auto;
+  }
+  
+  .container-narrow {
+    @apply max-w-4xl mx-auto px-4;
+  }
+  
+  .container-wide {
+    @apply max-w-7xl mx-auto px-4;
+  }
+}
+
+/* Accessibility */
+.screen-reader-text {
+  @apply sr-only;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.pulse {
+  animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Back to Top Button */
+#back-to-top {
+  @apply fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+}
+
+#back-to-top.show {
+  @apply opacity-100 visible;
+}
+
+/* Tooltips */
+.tooltip {
+  @apply absolute px-3 py-2 text-sm text-white bg-gray-900 rounded-md opacity-0 transition-opacity duration-300 whitespace-nowrap pointer-events-none;
+}
+
+.tooltip::after {
+  content: '';
+  @apply absolute left-1/2 top-full -translate-x-1/2 border-8 border-transparent border-t-gray-900;
+}
+
+.tooltip.show {
+  @apply opacity-100;
+}
+
+/* Custom Select */
+.custom-select-wrapper {
+  @apply relative;
+}
+
+.custom-select-trigger {
+  @apply form-input cursor-pointer flex items-center justify-between;
+}
+
+.custom-select-trigger::after {
+  content: '';
+  @apply border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-500 ml-2;
+}
+
+.custom-select-options {
+  @apply absolute z-20 w-full mt-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md shadow-lg hidden max-h-60 overflow-y-auto;
+}
+
+.custom-select-wrapper.open .custom-select-options {
+  @apply block;
+}
+
+.custom-select-option {
+  @apply px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700;
+}
+
+.custom-select-option.selected {
+  @apply bg-primary bg-opacity-10 text-primary dark:bg-opacity-20;
+}
+
+/* Table Responsive */
+.table-responsive {
+  @apply overflow-x-auto;
+}
+
+/* Responsive Embed */
+.responsive-embed {
+  @apply relative pt-[56.25%];
+}
+
+.responsive-embed iframe {
+  @apply absolute top-0 left-0 w-full h-full;
+}
+
+/* Quick View Modal */
+.quick-view-modal {
+  @apply fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 opacity-0 invisible transition-all duration-300;
+}
+
+.quick-view-modal.open {
+  @apply opacity-100 visible;
+}
+
+.quick-view-container {
+  @apply relative bg-white dark:bg-gray-900 w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-lg shadow-xl;
+}
+
+.quick-view-content {
+  @apply p-6;
+}
+
+.quick-view-close {
+  @apply absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 focus:outline-none;
+}
+
+.quick-view-loading {
+  @apply flex flex-col items-center justify-center p-12;
+}
+
+.quick-view-loading .spinner {
+  @apply w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4;
+}
+
+/* Notification */
+.aqualuxe-notification {
+  @apply fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-6 py-3 rounded-lg shadow-lg z-50 opacity-0 transition-opacity duration-300;
+}
+
+.aqualuxe-notification.show {
+  @apply opacity-100;
+}
+
+/* Loading Overlay */
+.aqualuxe-loading-overlay {
+  @apply absolute inset-0 bg-white dark:bg-gray-900 bg-opacity-75 dark:bg-opacity-75 flex items-center justify-center z-20;
+}
+
+.aqualuxe-loading-overlay .spinner {
+  @apply w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin;
+}
+
+/* Page Loader */
+.page-loader {
+  @apply fixed inset-0 bg-white dark:bg-gray-900 flex items-center justify-center z-50;
+}
+
+.page-loader .spinner {
+  @apply w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin;
+}

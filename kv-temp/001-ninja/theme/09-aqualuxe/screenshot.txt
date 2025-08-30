@@ -1,0 +1,14 @@
+This is a placeholder for the theme screenshot.
+
+In a real theme, this would be a screenshot.png file that shows a preview of the theme.
+The recommended dimensions for a theme screenshot are 1200x900 pixels.
+
+For the AquaLuxe theme, the screenshot would showcase the homepage with elements like:
+- The elegant header with logo and navigation
+- Hero section with a beautiful aquarium image
+- Featured products section
+- Services section
+- About section with aquatic imagery
+- The overall premium and luxurious design aesthetic
+
+The screenshot serves as the theme's thumbnail in the WordPress admin area.

@@ -1,0 +1,169 @@
+/**
+ * Dark Mode Styles
+ *
+ * @package AquaLuxe
+ * @subpackage Modules/Dark_Mode
+ */
+
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.dark-mode-toggle-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dark-mode-toggle-button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode-toggle-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: currentColor;
+}
+
+/* Dark Mode Animation */
+.dark-mode-animated {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.dark-mode-animated * {
+    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, fill 0.5s ease;
+}
+
+/* Dark Mode Colors */
+:root {
+    --color-background: #ffffff;
+    --color-text: #333333;
+    --color-text-light: #666666;
+    --color-border: #e5e5e5;
+    --color-input-bg: #f5f5f5;
+    --color-input-border: #dddddd;
+    --color-card-bg: #ffffff;
+    --color-card-shadow: rgba(0, 0, 0, 0.1);
+    --color-overlay: rgba(0, 0, 0, 0.5);
+}
+
+.dark {
+    --color-background: #1a1a1a;
+    --color-text: #f5f5f5;
+    --color-text-light: #bbbbbb;
+    --color-border: #444444;
+    --color-input-bg: #2a2a2a;
+    --color-input-border: #555555;
+    --color-card-bg: #2a2a2a;
+    --color-card-shadow: rgba(0, 0, 0, 0.3);
+    --color-overlay: rgba(0, 0, 0, 0.7);
+}
+
+/* Apply dark mode colors */
+.dark body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+
+.dark .site-header,
+.dark .site-footer {
+    background-color: var(--color-card-bg);
+    border-color: var(--color-border);
+}
+
+.dark .widget,
+.dark .post-card,
+.dark .comment-body,
+.dark .search-form,
+.dark .pagination,
+.dark .post-navigation {
+    background-color: var(--color-card-bg);
+    border-color: var(--color-border);
+    box-shadow: 0 2px 4px var(--color-card-shadow);
+}
+
+.dark input[type="text"],
+.dark input[type="email"],
+.dark input[type="url"],
+.dark input[type="password"],
+.dark input[type="search"],
+.dark input[type="number"],
+.dark input[type="tel"],
+.dark input[type="range"],
+.dark input[type="date"],
+.dark input[type="month"],
+.dark input[type="week"],
+.dark input[type="time"],
+.dark input[type="datetime"],
+.dark input[type="datetime-local"],
+.dark input[type="color"],
+.dark textarea,
+.dark select {
+    background-color: var(--color-input-bg);
+    border-color: var(--color-input-border);
+    color: var(--color-text);
+}
+
+.dark a {
+    color: var(--color-primary);
+}
+
+.dark a:hover,
+.dark a:focus {
+    color: var(--color-primary-light);
+}
+
+.dark .search-modal,
+.dark .cart-modal {
+    background-color: var(--color-overlay);
+}
+
+.dark .search-modal-container,
+.dark .cart-modal-container {
+    background-color: var(--color-card-bg);
+    border-color: var(--color-border);
+}
+
+.dark .menu-toggle-icon,
+.dark .menu-toggle-icon::before,
+.dark .menu-toggle-icon::after {
+    background-color: var(--color-text);
+}
+
+.dark .dark-mode-toggle-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Dark mode for WooCommerce if active */
+.dark.woocommerce-active .product,
+.dark.woocommerce-active .woocommerce-tabs,
+.dark.woocommerce-active .woocommerce-ordering select,
+.dark.woocommerce-active .woocommerce-result-count,
+.dark.woocommerce-active .woocommerce-breadcrumb,
+.dark.woocommerce-active .woocommerce-info,
+.dark.woocommerce-active .woocommerce-message,
+.dark.woocommerce-active .woocommerce-error {
+    background-color: var(--color-card-bg);
+    border-color: var(--color-border);
+    color: var(--color-text);
+}
+
+.dark.woocommerce-active .price {
+    color: var(--color-text);
+}
+
+.dark.woocommerce-active .star-rating span::before {
+    color: var(--color-accent);
+}

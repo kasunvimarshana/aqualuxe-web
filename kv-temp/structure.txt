@@ -1,0 +1,134 @@
+theme/
+├── style.css                           # Main theme stylesheet with header
+├── functions.php                       # Main theme functions
+├── index.php                          # Main template file
+├── header.php                         # Header template
+├── footer.php                         # Footer template
+├── page.php                           # Page template
+├── single.php                         # Single post template
+├── archive.php                        # Archive template
+├── search.php                         # Search results template
+├── 404.php                            # 404 error template
+├── sidebar.php                        # Sidebar template
+├── comments.php                       # Comments template
+├── screenshot.png                     # Theme screenshot
+├── readme.txt                         # Theme documentation
+├── LICENSE                            # GPL License
+├── assets/                            # All assets directory
+│   ├── css/                          # Stylesheets
+│   │   ├── main.css                  # Main styles
+│   │   ├── responsive.css            # Responsive styles
+│   │   ├── woocommerce.css           # WooCommerce styles
+│   │   └── admin.css                 # Admin styles
+│   ├── js/                           # JavaScript files
+│   │   ├── main.js                   # Main JavaScript
+│   │   ├── woocommerce.js            # WooCommerce JS
+│   │   ├── admin.js                  # Admin JavaScript
+│   │   └── customizer.js             # Customizer JavaScript
+│   ├── images/                       # Theme images
+│   │   ├── logo.png                  # Default logo
+│   │   ├── favicon.ico               # Favicon
+│   │   ├── placeholder.jpg           # Placeholder image
+│   │   └── patterns/                 # Background patterns
+│   └── fonts/                        # Custom fonts
+│       ├── inter/                    # Inter font family
+│       └── playfair/                 # Playfair font family
+├── inc/                              # PHP includes directory
+│   ├── class-theme-setup.php         # Theme setup class
+│   ├── class-customizer.php          # Customizer class
+│   ├── class-enqueue.php             # Enqueue scripts/styles class
+│   ├── class-walker-nav-menu.php     # Custom nav walker
+│   ├── class-woocommerce.php         # WooCommerce integration
+│   ├── class-demo-content.php        # Demo content importer
+│   ├── template-functions.php        # Template helper functions
+│   ├── customizer-functions.php      # Customizer functions
+│   ├── woocommerce-functions.php     # WooCommerce functions
+│   ├── security.php                  # Security functions
+│   ├── performance.php               # Performance optimizations
+│   └── admin/                        # Admin functionality
+│       ├── class-admin-panel.php     # Custom admin panel
+│       ├── class-meta-boxes.php      # Custom meta boxes
+│       └── admin-functions.php       # Admin helper functions
+├── templates/                        # Page templates
+│   ├── template-home.php             # Homepage template
+│   ├── template-about.php            # About page template
+│   ├── template-contact.php          # Contact page template
+│   └── template-fullwidth.php        # Full width template
+├── template-parts/                   # Template partials
+│   ├── header/                       # Header parts
+│   │   ├── site-branding.php         # Site branding
+│   │   ├── site-navigation.php       # Navigation
+│   │   └── mobile-menu.php           # Mobile menu
+│   ├── footer/                       # Footer parts
+│   │   ├── footer-widgets.php        # Footer widgets
+│   │   ├── footer-info.php           # Footer info
+│   │   └── footer-credits.php        # Footer credits
+│   ├── content/                      # Content parts
+│   │   ├── content-single.php        # Single post content
+│   │   ├── content-page.php          # Page content
+│   │   ├── content-archive.php       # Archive content
+│   │   └── content-none.php          # No content found
+│   └── components/                   # Reusable components
+│       ├── hero-section.php          # Hero section
+│       ├── product-showcase.php      # Product showcase
+│       ├── testimonials.php          # Testimonials
+│       └── newsletter.php            # Newsletter signup
+├── woocommerce/                      # WooCommerce templates
+│   ├── archive-product.php           # Shop page
+│   ├── single-product.php            # Single product page
+│   ├── content-product.php           # Product content
+│   ├── content-single-product.php    # Single product content
+│   ├── cart/                         # Cart templates
+│   │   ├── cart.php                  # Cart page
+│   │   ├── cart-empty.php            # Empty cart
+│   │   └── mini-cart.php             # Mini cart
+│   ├── checkout/                     # Checkout templates
+│   │   ├── form-checkout.php         # Checkout form
+│   │   ├── thankyou.php              # Order received
+│   │   └── review-order.php          # Order review
+│   ├── myaccount/                    # Account templates
+│   │   ├── my-account.php            # Account dashboard
+│   │   ├── dashboard.php             # Dashboard
+│   │   ├── orders.php                # Order history
+│   │   └── form-login.php            # Login form
+│   ├── single-product/               # Single product parts
+│   │   ├── product-image.php         # Product images
+│   │   ├── product-thumbnails.php    # Product thumbnails
+│   │   ├── title.php                 # Product title
+│   │   ├── price.php                 # Product price
+│   │   ├── add-to-cart/              # Add to cart forms
+│   │   ├── tabs/                     # Product tabs
+│   │   └── related.php               # Related products
+│   └── loop/                         # Product loop templates
+│       ├── loop-start.php            # Loop start
+│       ├── loop-end.php              # Loop end
+│       ├── add-to-cart.php           # Add to cart button
+│       ├── price.php                 # Product price
+│       └── rating.php                # Product rating
+├── widgets/                          # Custom widgets
+│   ├── class-featured-products.php   # Featured products widget
+│   ├── class-testimonials.php        # Testimonials widget
+│   ├── class-newsletter.php          # Newsletter widget
+│   └── class-social-links.php        # Social links widget
+├── shortcodes/                       # Custom shortcodes
+│   ├── class-product-grid.php        # Product grid shortcode
+│   ├── class-testimonials.php        # Testimonials shortcode
+│   ├── class-hero-banner.php         # Hero banner shortcode
+│   └── class-contact-form.php        # Contact form shortcode
+├── demo-content/                     # Demo content files
+│   ├── demo-products.xml             # Demo products
+│   ├── demo-pages.xml                # Demo pages
+│   ├── demo-settings.json            # Theme settings
+│   ├── customizer-settings.json      # Customizer settings
+│   └── images/                       # Demo images
+│       ├── products/                 # Product images
+│       ├── hero/                     # Hero images
+│       └── gallery/                  # Gallery images
+├── languages/                        # Translation files
+│   ├── aqualuxe.pot                  # Main translation template
+│   ├── en_US.po                      # English translations
+│   └── en_US.mo                      # English compiled translations
+└── tests/                            # Theme tests
+    ├── phpunit.xml                   # PHPUnit configuration
+    ├── bootstrap.php                 # Test bootstrap
+    └── test-theme-functions.php      # Function tests

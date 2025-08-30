@@ -1,0 +1,660 @@
+/**
+ * Product Filter Styles
+ * Enhanced with accessibility improvements
+ */
+
+// Screen reader text utility class
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
+  
+  &:focus {
+    background-color: #f1f1f1;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto !important;
+    clip-path: none;
+    color: #333;
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+  }
+}
+
+// Accessibility status announcer
+#a11y-status-message {
+  @extend .screen-reader-text;
+}
+
+// Filter Container
+.product-filters {
+  @apply mb-8;
+
+  // Filter Layout: Sidebar
+  &.filter-layout-sidebar {
+    @apply grid gap-8;
+
+    @screen md {
+      grid-template-columns: 250px 1fr;
+      grid-template-areas: "sidebar content";
+    }
+
+    @screen lg {
+      grid-template-columns: 280px 1fr;
+    }
+
+    &.filter-position-left {
+      .filter-container {
+        @apply md:order-1;
+      }
+
+      .woocommerce-products-header,
+      .woocommerce-notices-wrapper,
+      .woocommerce-result-count,
+      .woocommerce-ordering,
+      .products,
+      .woocommerce-pagination {
+        @apply md:order-2;
+      }
+    }
+
+    &.filter-position-right {
+      .filter-container {
+        @apply md:order-2;
+      }
+
+      .woocommerce-products-header,
+      .woocommerce-notices-wrapper,
+      .woocommerce-result-count,
+      .woocommerce-ordering,
+      .products,
+      .woocommerce-pagination {
+        @apply md:order-1;
+      }
+    }
+  }
+
+  // Filter Layout: Horizontal
+  &.filter-layout-horizontal {
+    .filter-container {
+      @apply mb-6;
+    }
+
+    .filter-widgets {
+      @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4;
+    }
+
+    .filter-widget {
+      @apply mb-0;
+    }
+  }
+
+  // Filter Layout: Offcanvas
+  &.filter-layout-offcanvas {
+    .filter-container {
+      @apply fixed inset-y-0 left-0 w-full max-w-xs bg-white shadow-xl z-40 transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto;
+      
+      .dark-mode & {
+        @apply bg-gray-900;
+      }
+      
+      &.active {
+        @apply translate-x-0;
+      }
+    }
+
+    .filter-header {
+      @apply sticky top-0 flex items-center justify-between p-4 border-b border-gray-200 bg-white z-10;
+      
+      .dark-mode & {
+        @apply bg-gray-900 border-gray-700;
+      }
+      
+      h3 {
+        @apply text-lg font-bold m-0;
+      }
+      
+      .filter-close {
+        @apply p-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+        
+        .dark-mode & {
+          @apply hover:bg-gray-800 focus:ring-primary-light focus:ring-offset-gray-900;
+        }
+        
+        svg {
+          @apply w-5 h-5;
+        }
+      }
+    }
+
+    .filter-widgets {
+      @apply p-4;
+    }
+
+    .filter-actions {
+      @apply sticky bottom-0 flex items-center justify-between p-4 border-t border-gray-200 bg-white;
+      
+      .dark-mode & {
+        @apply bg-gray-900 border-gray-700;
+      }
+      
+      .filter-clear-all {
+        @apply px-4 py-2 border border-gray-300 rounded text-sm font-medium hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+        
+        .dark-mode & {
+          @apply border-gray-700 hover:bg-gray-800 focus:ring-primary-light focus:ring-offset-gray-900;
+        }
+      }
+      
+      .filter-apply {
+        @apply px-4 py-2 bg-primary text-white rounded text-sm font-medium hover:bg-primary-dark transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+        
+        .dark-mode & {
+          @apply focus:ring-primary-light focus:ring-offset-gray-900;
+        }
+      }
+    }
+
+    .filter-overlay {
+      @apply fixed inset-0 bg-black bg-opacity-50 z-30 hidden;
+      
+      &.active {
+        @apply block;
+      }
+    }
+  }
+
+  // Filter Toggle Button (Mobile)
+  .filter-toggle-button {
+    @apply flex items-center justify-center px-4 py-2 mb-4 border border-gray-300 rounded text-sm font-medium hover:bg-gray-100 transition-colors md:hidden focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+    
+    .dark-mode & {
+      @apply border-gray-700 hover:bg-gray-800 focus:ring-primary-light focus:ring-offset-gray-900;
+    }
+    
+    svg {
+      @apply w-5 h-5 mr-2;
+    }
+  }
+}
+
+// Filter Container
+.filter-container {
+  @apply bg-white rounded-lg border border-gray-200 overflow-hidden;
+  
+  .dark-mode & {
+    @apply bg-gray-900 border-gray-700;
+  }
+  
+  @screen md {
+    @apply sticky top-24;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+  }
+}
+
+// Filter Widget
+.filter-widget {
+  @apply mb-6 last:mb-0;
+  
+  &:not(:last-child) {
+    @apply pb-6 border-b border-gray-200;
+    
+    .dark-mode & {
+      @apply border-gray-700;
+    }
+  }
+  
+  .filter-widget-title {
+    @apply text-base font-bold mb-4;
+    
+    // Make collapsible headers interactive
+    &[data-collapsible] {
+      @apply cursor-pointer flex items-center justify-between;
+      
+      &:hover {
+        @apply text-primary;
+        
+        .dark-mode & {
+          @apply text-primary-light;
+        }
+      }
+      
+      &:focus {
+        @apply outline-none ring-2 ring-primary ring-offset-2 rounded;
+        
+        .dark-mode & {
+          @apply ring-primary-light ring-offset-gray-900;
+        }
+      }
+      
+      &::after {
+        content: '';
+        @apply w-4 h-4 bg-no-repeat bg-center bg-contain transition-transform duration-200;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M12 13.172l4.95-4.95 1.414 1.414L12 16 5.636 9.636 7.05 8.222z'/%3E%3C/svg%3E");
+      }
+      
+      &[aria-expanded="false"]::after {
+        @apply transform -rotate-90;
+      }
+    }
+  }
+  
+  // Filter Lists
+  .filter-list {
+    @apply space-y-2;
+    
+    li {
+      @apply m-0;
+    }
+    
+    .filter-children {
+      @apply ml-6 mt-2 space-y-2;
+    }
+  }
+  
+  // Checkbox Style
+  .filter-checkbox {
+    @apply flex items-center cursor-pointer;
+    
+    input[type="checkbox"] {
+      @apply absolute opacity-0 h-0 w-0;
+      
+      &:focus + .checkmark {
+        @apply ring-2 ring-primary ring-offset-2;
+        
+        .dark-mode & {
+          @apply ring-primary-light ring-offset-gray-900;
+        }
+      }
+      
+      &:focus:not(:focus-visible) + .checkmark {
+        @apply ring-0;
+      }
+      
+      &:focus-visible + .checkmark {
+        @apply ring-2 ring-primary ring-offset-2;
+        
+        .dark-mode & {
+          @apply ring-primary-light ring-offset-gray-900;
+        }
+      }
+    }
+    
+    .checkmark {
+      @apply inline-block w-5 h-5 mr-2 border border-gray-300 rounded flex-shrink-0 relative;
+      
+      .dark-mode & {
+        @apply border-gray-600;
+      }
+      
+      &:after {
+        content: '';
+        @apply absolute left-1/2 top-1/2 w-3 h-3 bg-primary rounded-sm transform -translate-x-1/2 -translate-y-1/2 scale-0 transition-transform duration-200;
+        
+        .dark-mode & {
+          @apply bg-primary-light;
+        }
+      }
+    }
+    
+    input[type="checkbox"]:checked ~ .checkmark {
+      @apply border-primary;
+      
+      .dark-mode & {
+        @apply border-primary-light;
+      }
+      
+      &:after {
+        @apply scale-100;
+      }
+    }
+    
+    .count {
+      @apply ml-1 text-gray-500 text-sm;
+      
+      .dark-mode & {
+        @apply text-gray-400;
+      }
+    }
+  }
+  
+  // Color Filter
+  .filter-color-list {
+    @apply flex flex-wrap gap-2;
+    
+    .filter-color {
+      @apply block cursor-pointer;
+      
+      input[type="checkbox"] {
+        @apply absolute opacity-0 h-0 w-0;
+        
+        &:focus + .color-swatch {
+          @apply ring-2 ring-primary ring-offset-2;
+          
+          .dark-mode & {
+            @apply ring-primary-light ring-offset-gray-900;
+          }
+        }
+        
+        &:focus:not(:focus-visible) + .color-swatch {
+          @apply ring-0;
+        }
+        
+        &:focus-visible + .color-swatch {
+          @apply ring-2 ring-primary ring-offset-2;
+          
+          .dark-mode & {
+            @apply ring-primary-light ring-offset-gray-900;
+          }
+        }
+      }
+      
+      .color-swatch {
+        @apply block w-8 h-8 rounded-full border-2 border-transparent transition-all duration-200;
+      }
+      
+      .color-name {
+        @apply sr-only;
+      }
+      
+      input[type="checkbox"]:checked ~ .color-swatch {
+        @apply border-primary;
+        
+        .dark-mode & {
+          @apply border-primary-light;
+        }
+      }
+    }
+  }
+  
+  // Image Filter
+  .filter-image-list {
+    @apply flex flex-wrap gap-2;
+    
+    .filter-image {
+      @apply block cursor-pointer;
+      
+      input[type="checkbox"] {
+        @apply absolute opacity-0 h-0 w-0;
+        
+        &:focus + img {
+          @apply ring-2 ring-primary ring-offset-2;
+          
+          .dark-mode & {
+            @apply ring-primary-light ring-offset-gray-900;
+          }
+        }
+        
+        &:focus:not(:focus-visible) + img {
+          @apply ring-0;
+        }
+        
+        &:focus-visible + img {
+          @apply ring-2 ring-primary ring-offset-2;
+          
+          .dark-mode & {
+            @apply ring-primary-light ring-offset-gray-900;
+          }
+        }
+      }
+      
+      img {
+        @apply block w-12 h-12 object-cover rounded border-2 border-transparent transition-all duration-200;
+      }
+      
+      .image-name {
+        @apply sr-only;
+      }
+      
+      input[type="checkbox"]:checked ~ img {
+        @apply border-primary;
+        
+        .dark-mode & {
+          @apply border-primary-light;
+        }
+      }
+    }
+  }
+  
+  // Price Filter
+  &.filter-price {
+    .price-slider-container {
+      @apply px-2 py-4;
+    }
+    
+    .price-slider {
+      @apply mb-4;
+    }
+    
+    .price-slider-values {
+      @apply flex justify-between text-sm;
+      
+      .price-slider-min,
+      .price-slider-max {
+        @apply font-medium;
+      }
+    }
+  }
+  
+  // Rating Filter
+  &.filter-rating {
+    .star-rating {
+      @apply flex items-center;
+      
+      .star {
+        @apply text-gray-300 text-lg;
+        
+        &.filled {
+          @apply text-yellow-400;
+        }
+      }
+    }
+    
+    .rating-text {
+      @apply ml-2;
+    }
+  }
+}
+
+// Active Filters
+.active-filters {
+  @apply mb-6 p-4 bg-gray-50 rounded-lg;
+  
+  .dark-mode & {
+    @apply bg-gray-800;
+  }
+  
+  .active-filters-title {
+    @apply text-base font-bold mb-3;
+  }
+  
+  .active-filter-tags {
+    @apply flex flex-wrap gap-2;
+  }
+  
+  .filter-tag {
+    @apply inline-flex items-center py-1 px-3 bg-white rounded-full text-sm border border-gray-200;
+    
+    .dark-mode & {
+      @apply bg-gray-700 border-gray-600;
+    }
+    
+    .remove-filter {
+      @apply ml-2 text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 rounded-full;
+      
+      .dark-mode & {
+        @apply text-gray-400 hover:text-gray-200 focus:ring-primary-light;
+      }
+      
+      svg {
+        @apply w-4 h-4;
+      }
+    }
+  }
+  
+  .clear-all-filters {
+    @apply inline-flex items-center py-1 px-3 bg-primary bg-opacity-10 text-primary rounded-full text-sm font-medium hover:bg-opacity-20 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+    
+    .dark-mode & {
+      @apply bg-primary-light bg-opacity-10 text-primary-light focus:ring-primary-light focus:ring-offset-gray-900;
+    }
+  }
+}
+
+// Products Loader
+.products-loader {
+  @apply fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-50 bg-white bg-opacity-90 p-6 rounded-lg shadow-lg;
+  
+  .dark-mode & {
+    @apply bg-gray-800 bg-opacity-90;
+  }
+  
+  .loader-spinner {
+    @apply w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4;
+  }
+  
+  .loader-text {
+    @apply text-sm font-medium;
+  }
+}
+
+// NoUiSlider Accessibility Enhancements
+.noUi-target {
+  @apply border-gray-200 bg-gray-200 shadow-none;
+  
+  .dark-mode & {
+    @apply border-gray-700 bg-gray-700;
+  }
+}
+
+.noUi-connect {
+  @apply bg-primary;
+  
+  .dark-mode & {
+    @apply bg-primary-light;
+  }
+}
+
+.noUi-horizontal {
+  @apply h-1;
+  
+  .noUi-handle {
+    @apply w-5 h-5 rounded-full bg-white border-2 border-primary shadow-none cursor-pointer right-0 transform -translate-x-1/2 -translate-y-1/2 top-1/2;
+    
+    .dark-mode & {
+      @apply border-primary-light;
+    }
+    
+    &:before,
+    &:after {
+      @apply hidden;
+    }
+    
+    &:focus {
+      @apply outline-none ring-2 ring-primary ring-offset-2;
+      
+      .dark-mode & {
+        @apply ring-primary-light ring-offset-gray-900;
+      }
+    }
+    
+    &:focus:not(:focus-visible) {
+      @apply ring-0;
+    }
+    
+    &:focus-visible {
+      @apply ring-2 ring-primary ring-offset-2;
+      
+      .dark-mode & {
+        @apply ring-primary-light ring-offset-gray-900;
+      }
+    }
+  }
+}
+
+// Prevent body scrolling when filter is open on mobile
+body.filter-active {
+  @apply overflow-hidden md:overflow-auto;
+}
+
+// Skip to content link
+.skip-to-content-link {
+  @extend .screen-reader-text;
+  
+  &:focus {
+    @apply fixed left-4 top-4 z-50;
+  }
+}
+
+// Responsive Adjustments
+@screen md {
+  .product-filters {
+    &.filter-layout-offcanvas {
+      .filter-container {
+        @apply max-w-sm;
+      }
+    }
+  }
+}
+
+@screen lg {
+  .product-filters {
+    &.filter-layout-horizontal {
+      .filter-widgets {
+        @apply grid-cols-4;
+      }
+    }
+  }
+}
+
+// Keyboard focus styles
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  @apply outline-none ring-2 ring-primary ring-offset-2;
+  
+  .dark-mode & {
+    @apply ring-primary-light ring-offset-gray-900;
+  }
+}
+
+// High contrast mode support
+@media (forced-colors: active) {
+  .filter-checkbox .checkmark:after,
+  .noUi-connect {
+    forced-color-adjust: none;
+    background-color: CanvasText !important;
+  }
+  
+  .filter-checkbox input[type="checkbox"]:checked ~ .checkmark,
+  .filter-color input[type="checkbox"]:checked ~ .color-swatch,
+  .filter-image input[type="checkbox"]:checked ~ img,
+  .noUi-handle {
+    forced-color-adjust: none;
+    border-color: Highlight !important;
+  }
+  
+  .filter-tag {
+    forced-color-adjust: none;
+    border: 1px solid CanvasText !important;
+  }
+}

@@ -1,0 +1,534 @@
+/**
+ * AquaLuxe Theme Mixins
+ *
+ * This file contains all the mixins used throughout the theme.
+ */
+
+// Media queries
+@mixin media-breakpoint-up($breakpoint, $breakpoints: $grid-breakpoints) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $min-width: map-get($breakpoints, $breakpoint);
+    @media (min-width: $min-width) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint `#{$breakpoint}` in $breakpoints.";
+  }
+}
+
+@mixin media-breakpoint-down($breakpoint) {
+  @if map-has-key($grid-breakpoints, $breakpoint) {
+    $max-width: map-get($grid-breakpoints, $breakpoint) - 0.02;
+    @media (max-width: $max-width) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint `#{$breakpoint}` in $grid-breakpoints.";
+  }
+}
+
+@mixin media-breakpoint-between($lower, $upper) {
+  @if map-has-key($grid-breakpoints, $lower) and map-has-key($grid-breakpoints, $upper) {
+    $min-width: map-get($grid-breakpoints, $lower);
+    $max-width: map-get($grid-breakpoints, $upper) - 0.02;
+    @media (min-width: $min-width) and (max-width: $max-width) {
+      @content;
+    }
+  } @else {
+    @if not map-has-key($grid-breakpoints, $lower) {
+      @warn "Unknown lower breakpoint `#{$lower}` in $grid-breakpoints.";
+    }
+    @if not map-has-key($grid-breakpoints, $upper) {
+      @warn "Unknown upper breakpoint `#{$upper}` in $grid-breakpoints.";
+    }
+  }
+}
+
+// Helper function for breakpoint infix
+@function breakpoint-infix($breakpoint, $breakpoints) {
+  $infix: "";
+  @if $breakpoint != map-get($breakpoints, "xs") {
+    $infix: "-#{$breakpoint}";
+  }
+  @return $infix;
+}
+
+// Responsive font size
+@mixin responsive-font-size($min-size, $max-size, $min-width: map-get($grid-breakpoints, 'sm'), $max-width: map-get($grid-breakpoints, 'xl')) {
+  font-size: $min-size;
+  
+  @media (min-width: $min-width) {
+    font-size: calc(#{$min-size} + #{strip-unit($max-size - $min-size)} * ((100vw - #{$min-width}) / #{strip-unit($max-width - $min-width)}));
+  }
+  
+  @media (min-width: $max-width) {
+    font-size: $max-size;
+  }
+}
+
+// Strip unit from a value
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+// Flexbox mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Grid mixins
+@mixin grid($columns: 1, $gap: $grid-gutter-width) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+@mixin grid-responsive($min-width: 250px, $gap: $grid-gutter-width) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($min-width, 1fr));
+  gap: $gap;
+}
+
+// Typography mixins
+@mixin heading-style {
+  font-family: $font-family-heading;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-sm;
+  color: var(--heading-color);
+  margin-top: 0;
+  margin-bottom: $spacer;
+}
+
+@mixin body-style {
+  font-family: $font-family-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-base;
+  color: var(--text-color);
+}
+
+@mixin truncate($lines: 1) {
+  @if $lines == 1 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+// Button mixins
+@mixin button-base {
+  display: inline-block;
+  font-weight: $btn-font-weight;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: $btn-padding-y $btn-padding-x;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  border-radius: $btn-border-radius;
+  transition: $btn-transition;
+  cursor: pointer;
+  
+  &:focus,
+  &:hover {
+    text-decoration: none;
+  }
+  
+  &:disabled,
+  &.disabled {
+    opacity: 0.65;
+    pointer-events: none;
+  }
+}
+
+@mixin button-variant($background, $border, $color) {
+  background-color: $background;
+  border-color: $border;
+  color: $color;
+  
+  &:hover,
+  &:focus {
+    background-color: darken($background, 7.5%);
+    border-color: darken($border, 10%);
+    color: $color;
+  }
+  
+  &:active {
+    background-color: darken($background, 10%);
+    border-color: darken($border, 12.5%);
+    color: $color;
+  }
+}
+
+@mixin button-outline-variant($color) {
+  background-color: transparent;
+  border-color: $color;
+  color: $color;
+  
+  &:hover,
+  &:focus {
+    background-color: $color;
+    border-color: $color;
+    color: color-contrast($color);
+  }
+  
+  &:active {
+    background-color: darken($color, 5%);
+    border-color: darken($color, 5%);
+    color: color-contrast($color);
+  }
+}
+
+// Form mixins
+@mixin form-control {
+  display: block;
+  width: 100%;
+  padding: $input-padding-y $input-padding-x;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-base;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  background-clip: padding-box;
+  border: 1px solid var(--border-color);
+  border-radius: $input-border-radius;
+  transition: $transition-base;
+  
+  &:focus {
+    border-color: var(--primary-color);
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(var(--primary-color-rgb), 0.25);
+  }
+  
+  &::placeholder {
+    color: var(--text-muted);
+    opacity: 1;
+  }
+  
+  &:disabled,
+  &[readonly] {
+    background-color: var(--background-disabled);
+    opacity: 1;
+  }
+}
+
+// Card mixins
+@mixin card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: var(--card-bg);
+  background-clip: border-box;
+  border: 1px solid var(--card-border-color);
+  border-radius: $card-border-radius;
+  box-shadow: $card-box-shadow;
+}
+
+// Image mixins
+@mixin img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+@mixin img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  
+  &::before {
+    content: '';
+    display: block;
+    padding-top: ($height / $width) * 100%;
+  }
+  
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// Animation mixins
+@mixin fade-in($duration: 0.3s, $delay: 0s) {
+  animation: fade-in $duration ease-in-out $delay forwards;
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin fade-out($duration: 0.3s, $delay: 0s) {
+  animation: fade-out $duration ease-in-out $delay forwards;
+  
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+}
+
+@mixin slide-up($duration: 0.3s, $delay: 0s, $distance: 20px) {
+  animation: slide-up $duration ease-in-out $delay forwards;
+  
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY($distance);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@mixin slide-down($duration: 0.3s, $delay: 0s, $distance: 20px) {
+  animation: slide-down $duration ease-in-out $delay forwards;
+  
+  @keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-$distance);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+// Shadow mixins
+@mixin shadow-sm {
+  box-shadow: $box-shadow-sm;
+}
+
+@mixin shadow {
+  box-shadow: $box-shadow;
+}
+
+@mixin shadow-lg {
+  box-shadow: $box-shadow-lg;
+}
+
+// Transition mixins
+@mixin transition($property: all, $duration: 0.2s, $timing: ease-in-out, $delay: 0s) {
+  transition: $property $duration $timing $delay;
+}
+
+// Accessibility mixins
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@mixin visually-hidden-focusable {
+  @include visually-hidden;
+  
+  &:active,
+  &:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+}
+
+// Focus styles
+@mixin focus-ring($color: var(--primary-color), $width: 0.25rem, $offset: 0) {
+  outline: 0;
+  box-shadow: 0 0 0 $width rgba($color, 0.25);
+}
+
+// RTL support
+@mixin rtl {
+  [dir="rtl"] & {
+    @content;
+  }
+}
+
+// Dark mode
+@mixin dark-mode {
+  .dark & {
+    @content;
+  }
+}
+
+// Container
+@mixin make-container($padding-x: $grid-gutter-width * 0.5) {
+  width: 100%;
+  padding-right: $padding-x;
+  padding-left: $padding-x;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
+  @each $breakpoint, $container-max-width in $max-widths {
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      max-width: $container-max-width;
+    }
+  }
+}
+
+// WooCommerce mixins
+@mixin product-card {
+  @include card;
+  transition: $transition-base;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $box-shadow;
+  }
+  
+  .product-image {
+    position: relative;
+    overflow: hidden;
+    border-top-left-radius: $card-border-radius;
+    border-top-right-radius: $card-border-radius;
+    
+    img {
+      @include img-cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .product-actions {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: $spacer;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+      opacity: 0;
+      transform: translateY(100%);
+      transition: all 0.3s ease;
+    }
+  }
+  
+  &:hover {
+    .product-image {
+      img {
+        transform: scale(1.05);
+      }
+      
+      .product-actions {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+  
+  .product-content {
+    padding: $spacer;
+  }
+  
+  .product-title {
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacer * 0.5;
+    
+    a {
+      color: var(--heading-color);
+      text-decoration: none;
+      
+      &:hover {
+        color: var(--primary-color);
+      }
+    }
+  }
+  
+  .product-price {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: var(--primary-color);
+    margin-bottom: $spacer * 0.5;
+    
+    del {
+      font-size: $font-size-base;
+      font-weight: $font-weight-normal;
+      color: var(--text-muted);
+      margin-right: $spacer * 0.5;
+    }
+    
+    ins {
+      text-decoration: none;
+    }
+  }
+  
+  .product-rating {
+    margin-bottom: $spacer * 0.5;
+  }
+  
+  .product-categories {
+    font-size: $font-size-sm;
+    color: var(--text-muted);
+    margin-bottom: $spacer * 0.5;
+  }
+  
+  .product-badges {
+    position: absolute;
+    top: $spacer;
+    left: $spacer;
+    z-index: 1;
+    
+    .badge {
+      display: block;
+      margin-bottom: $spacer * 0.25;
+    }
+  }
+}
+
+// Color contrast function
+@function color-contrast($color) {
+  $r: red($color);
+  $g: green($color);
+  $b: blue($color);
+  
+  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+  
+  @return if($yiq >= 150, $black, $white);
+}

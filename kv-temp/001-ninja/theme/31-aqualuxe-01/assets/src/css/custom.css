@@ -1,0 +1,569 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* 
+ * Custom styles for AquaLuxe theme
+ * These styles extend Tailwind CSS with theme-specific customizations
+ */
+
+/* WordPress specific styles */
+.wp-block-image img {
+  @apply max-w-full h-auto;
+}
+
+.wp-block-cover {
+  @apply mb-8;
+}
+
+.wp-block-quote {
+  @apply border-l-4 border-primary-500 pl-4 italic my-8;
+}
+
+.wp-block-pullquote {
+  @apply border-t-4 border-b-4 border-primary-500 py-4 my-8;
+}
+
+/* Navigation styles */
+.dropdown-menu {
+  @apply absolute z-50 mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-dark-700 ring-1 ring-black ring-opacity-5 focus:outline-none transform opacity-0 scale-95 transition ease-out duration-200;
+}
+
+.dropdown-menu.active {
+  @apply transform opacity-100 scale-100;
+}
+
+.dropdown-item {
+  @apply block px-4 py-2 text-sm text-dark-700 dark:text-white hover:bg-primary-50 dark:hover:bg-dark-600;
+}
+
+/* Hero section */
+.hero-section {
+  @apply relative overflow-hidden;
+}
+
+.hero-content {
+  @apply relative z-10 py-24 md:py-32 lg:py-40;
+}
+
+.hero-overlay {
+  @apply absolute inset-0 bg-dark-900 bg-opacity-50;
+}
+
+/* Product styles */
+.product-card {
+  @apply relative bg-white dark:bg-dark-700 rounded-lg shadow-soft overflow-hidden transition-all duration-300 hover:shadow-medium;
+}
+
+.product-badge {
+  @apply absolute top-4 left-4 z-10 px-2 py-1 text-xs font-bold uppercase rounded;
+}
+
+.product-badge.sale {
+  @apply bg-accent-500 text-white;
+}
+
+.product-badge.new {
+  @apply bg-primary-500 text-white;
+}
+
+.product-badge.featured {
+  @apply bg-secondary-500 text-white;
+}
+
+.product-title {
+  @apply text-lg font-medium text-dark-800 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200;
+}
+
+.product-price {
+  @apply text-lg font-bold text-dark-800 dark:text-white;
+}
+
+.product-price del {
+  @apply text-dark-400 dark:text-dark-300 text-sm font-normal mr-2;
+}
+
+.product-price ins {
+  @apply no-underline text-accent-600 dark:text-accent-400;
+}
+
+/* Blog styles */
+.post-card {
+  @apply bg-white dark:bg-dark-700 rounded-lg shadow-soft overflow-hidden transition-all duration-300 hover:shadow-medium;
+}
+
+.post-title {
+  @apply text-xl font-serif font-medium text-dark-800 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200;
+}
+
+.post-meta {
+  @apply flex items-center text-sm text-dark-500 dark:text-dark-300 space-x-4;
+}
+
+.post-excerpt {
+  @apply text-dark-600 dark:text-dark-200;
+}
+
+/* Widget styles */
+.widget {
+  @apply mb-8;
+}
+
+.widget-title {
+  @apply text-lg font-medium mb-4 pb-2 border-b border-dark-200 dark:border-dark-600;
+}
+
+/* Form styles */
+.form-row {
+  @apply mb-4;
+}
+
+.form-label {
+  @apply block text-sm font-medium text-dark-700 dark:text-dark-200 mb-1;
+}
+
+/* Pagination */
+.pagination {
+  @apply flex justify-center mt-8;
+}
+
+.page-numbers {
+  @apply inline-flex items-center px-4 py-2 mx-1 text-sm font-medium rounded-md bg-white dark:bg-dark-700 text-dark-700 dark:text-dark-200 hover:bg-primary-50 dark:hover:bg-dark-600 transition-colors duration-200;
+}
+
+.page-numbers.current {
+  @apply bg-primary-600 text-white hover:bg-primary-700;
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease-in-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Advanced Product Filtering */
+.aqualuxe-filter-button {
+  @apply flex items-center justify-center px-4 py-2 bg-primary-600 text-white rounded-md hover:bg-primary-700 transition-colors duration-200;
+}
+
+.aqualuxe-filter-button svg {
+  @apply w-4 h-4 mr-2;
+}
+
+.aqualuxe-filter-sidebar {
+  @apply fixed top-0 right-0 w-full md:w-96 h-full bg-white dark:bg-dark-800 z-50 transform translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto;
+}
+
+.aqualuxe-filter-sidebar.active {
+  @apply transform translate-x-0;
+}
+
+.aqualuxe-filter-sidebar-header {
+  @apply flex items-center justify-between p-4 border-b border-gray-200 dark:border-dark-600;
+}
+
+.aqualuxe-filter-sidebar-header h3 {
+  @apply text-lg font-medium text-dark-800 dark:text-white;
+}
+
+.aqualuxe-filter-close {
+  @apply p-2 rounded-full hover:bg-gray-100 dark:hover:bg-dark-600 transition-colors duration-200;
+}
+
+.aqualuxe-filter-close svg {
+  @apply w-5 h-5 text-dark-600 dark:text-dark-200;
+}
+
+.aqualuxe-filter-sidebar-content {
+  @apply p-4;
+}
+
+.aqualuxe-filter-sidebar-footer {
+  @apply p-4 border-t border-gray-200 dark:border-dark-600 flex items-center justify-between;
+}
+
+.aqualuxe-filter-apply {
+  @apply px-4 py-2 bg-primary-600 text-white rounded-md hover:bg-primary-700 transition-colors duration-200;
+}
+
+.aqualuxe-filter-reset {
+  @apply px-4 py-2 bg-transparent text-dark-600 dark:text-dark-200 hover:text-dark-800 dark:hover:text-white transition-colors duration-200;
+}
+
+.aqualuxe-filter-overlay {
+  @apply fixed inset-0 bg-black bg-opacity-50 z-40 opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out;
+}
+
+.aqualuxe-filter-overlay.active {
+  @apply opacity-100 pointer-events-auto;
+}
+
+.aqualuxe-filter-group {
+  @apply mb-6;
+}
+
+.aqualuxe-filter-group-title {
+  @apply text-sm font-medium text-dark-800 dark:text-white mb-3;
+}
+
+.aqualuxe-filter-options {
+  @apply space-y-2;
+}
+
+.aqualuxe-filter-checkbox {
+  @apply flex items-center;
+}
+
+.aqualuxe-filter-checkbox input[type="checkbox"] {
+  @apply rounded border-gray-300 dark:border-dark-500 text-primary-600 focus:ring-primary-500 h-4 w-4;
+}
+
+.aqualuxe-filter-checkbox label {
+  @apply ml-2 text-sm text-dark-600 dark:text-dark-200;
+}
+
+.aqualuxe-filter-radio {
+  @apply flex items-center;
+}
+
+.aqualuxe-filter-radio input[type="radio"] {
+  @apply rounded-full border-gray-300 dark:border-dark-500 text-primary-600 focus:ring-primary-500 h-4 w-4;
+}
+
+.aqualuxe-filter-radio label {
+  @apply ml-2 text-sm text-dark-600 dark:text-dark-200;
+}
+
+.aqualuxe-filter-select {
+  @apply block w-full rounded-md border-gray-300 dark:border-dark-500 dark:bg-dark-700 dark:text-white focus:border-primary-500 focus:ring-primary-500 text-sm;
+}
+
+.aqualuxe-price-slider {
+  @apply mt-4 mb-6;
+}
+
+.aqualuxe-price-inputs {
+  @apply flex items-center mt-2;
+}
+
+.aqualuxe-price-input {
+  @apply w-1/2 rounded-md border-gray-300 dark:border-dark-500 dark:bg-dark-700 dark:text-white focus:border-primary-500 focus:ring-primary-500 text-sm;
+}
+
+.aqualuxe-price-separator {
+  @apply mx-2 text-dark-400 dark:text-dark-300;
+}
+
+.aqualuxe-active-filters {
+  @apply flex flex-wrap items-center gap-2 mb-6;
+}
+
+.aqualuxe-active-filter {
+  @apply flex items-center bg-gray-100 dark:bg-dark-600 rounded-full px-3 py-1 text-sm;
+}
+
+.aqualuxe-active-filter-name {
+  @apply font-medium text-dark-700 dark:text-dark-100;
+}
+
+.aqualuxe-active-filter-value {
+  @apply ml-1 text-dark-600 dark:text-dark-200;
+}
+
+.aqualuxe-active-filter-remove {
+  @apply ml-2 text-dark-400 dark:text-dark-300 hover:text-dark-600 dark:hover:text-dark-100;
+}
+
+.aqualuxe-active-filter-clear {
+  @apply text-sm text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium;
+}
+
+.aqualuxe-filter-loading {
+  @apply fixed inset-0 bg-white bg-opacity-80 dark:bg-dark-900 dark:bg-opacity-80 z-40 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out;
+}
+
+.aqualuxe-filter-loading.active {
+  @apply opacity-100 pointer-events-auto;
+}
+
+.aqualuxe-filter-loading-spinner {
+  @apply w-12 h-12 border-4 border-primary-200 dark:border-primary-900 rounded-full border-t-primary-600 dark:border-t-primary-400 animate-spin;
+}
+
+/* jQuery UI Slider customization */
+.ui-slider {
+  @apply h-2 bg-gray-200 dark:bg-dark-600 rounded-full relative;
+}
+
+.ui-slider .ui-slider-range {
+  @apply bg-primary-500 h-full absolute rounded-full;
+}
+
+.ui-slider .ui-slider-handle {
+  @apply w-5 h-5 bg-white dark:bg-dark-200 rounded-full border-2 border-primary-500 absolute top-1/2 transform -translate-y-1/2 -ml-2.5 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+}
+
+/* Star rating filter */
+.aqualuxe-star-rating {
+  @apply flex items-center;
+}
+
+.aqualuxe-star-rating input[type="radio"] {
+  @apply hidden;
+}
+
+.aqualuxe-star-rating label {
+  @apply flex items-center cursor-pointer;
+}
+
+.aqualuxe-star-rating .stars {
+  @apply flex text-yellow-400 mr-1;
+}
+
+.aqualuxe-star-rating .star {
+  @apply w-4 h-4;
+}
+
+/* Wishlist styles */
+.aqualuxe-wishlist-button {
+  @apply inline-flex items-center justify-center p-2 rounded-full bg-white dark:bg-dark-700 text-dark-600 dark:text-dark-200 hover:bg-gray-100 dark:hover:bg-dark-600 transition-colors duration-200;
+}
+
+.aqualuxe-wishlist-button.in-wishlist {
+  @apply text-accent-600 dark:text-accent-400;
+}
+
+.wishlist-button {
+  @apply inline-flex items-center justify-center px-3 py-2 rounded-md bg-white dark:bg-dark-700 text-dark-600 dark:text-dark-200 hover:bg-gray-100 dark:hover:bg-dark-600 transition-colors duration-200 border border-gray-200 dark:border-dark-600;
+}
+
+.wishlist-button.in-wishlist {
+  @apply text-accent-600 dark:text-accent-400 border-accent-600 dark:border-accent-400;
+}
+
+.wishlist-icon {
+  @apply mr-2;
+}
+
+.wishlist-count {
+  @apply absolute -top-1 -right-1 w-5 h-5 flex items-center justify-center bg-accent-600 text-white text-xs font-bold rounded-full;
+}
+
+.wishlist-count.hidden {
+  @apply hidden;
+}
+
+/* Wishlist notification */
+.aqualuxe-notification-container {
+  @apply fixed bottom-4 right-4 z-50 flex flex-col items-end space-y-2;
+}
+
+.aqualuxe-notification {
+  @apply bg-white dark:bg-dark-700 text-dark-800 dark:text-white py-2 px-4 rounded-md shadow-lg transform translate-x-full opacity-0 transition-all duration-300 border-l-4 border-primary-600 dark:border-primary-400;
+}
+
+.aqualuxe-notification.show {
+  @apply transform translate-x-0 opacity-100;
+}
+
+/* Wishlist page */
+.aqualuxe-wishlist {
+  @apply mb-8;
+}
+
+.aqualuxe-wishlist-table {
+  @apply w-full border-collapse mb-6;
+}
+
+.aqualuxe-wishlist-table th,
+.aqualuxe-wishlist-table td {
+  @apply p-4 border-b border-gray-200 dark:border-dark-600 text-left;
+}
+
+.aqualuxe-wishlist-table th {
+  @apply font-medium bg-gray-50 dark:bg-dark-800;
+}
+
+.aqualuxe-wishlist-table .product-remove {
+  @apply w-8 text-center;
+}
+
+.aqualuxe-wishlist-table .product-thumbnail {
+  @apply w-20;
+}
+
+.aqualuxe-wishlist-table .product-thumbnail img {
+  @apply w-16 h-auto block;
+}
+
+.aqualuxe-wishlist-table .product-name {
+  @apply w-2/5;
+}
+
+.aqualuxe-wishlist-table .product-price {
+  @apply w-1/6;
+}
+
+.aqualuxe-wishlist-table .product-stock {
+  @apply w-1/6;
+}
+
+.aqualuxe-wishlist-table .product-actions {
+  @apply w-1/6 text-right;
+}
+
+.aqualuxe-wishlist-table .in-stock {
+  @apply text-green-600 dark:text-green-400;
+}
+
+.aqualuxe-wishlist-table .out-of-stock {
+  @apply text-red-600 dark:text-red-400;
+}
+
+.aqualuxe-wishlist-empty {
+  @apply text-center p-8 bg-gray-50 dark:bg-dark-800 rounded-lg;
+}
+
+.aqualuxe-wishlist-empty p {
+  @apply mb-4;
+}
+
+.remove-from-wishlist {
+  @apply block text-2xl h-4 w-4 text-center leading-none rounded-full text-gray-500 dark:text-gray-400 no-underline font-bold border-0;
+}
+
+.remove-from-wishlist:hover {
+  @apply text-red-600 dark:text-red-400 bg-red-100 dark:bg-red-900;
+}
+
+/* Country selector styles */
+.aqualuxe-country-selector {
+  @apply relative inline-block;
+}
+
+.country-select {
+  @apply block w-full py-1 px-2 text-sm bg-white dark:bg-dark-700 border border-gray-300 dark:border-dark-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500;
+}
+
+/* Currency selector styles */
+.aqualuxe-currency-switcher {
+  @apply relative inline-block ml-4;
+}
+
+.currency-select {
+  @apply block w-full py-1 px-2 text-sm bg-white dark:bg-dark-700 border border-gray-300 dark:border-dark-600 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500;
+}
+
+/* Header actions */
+.aqualuxe-header-actions {
+  @apply flex items-center space-x-4;
+}
+
+/* Checkout steps */
+.aqualuxe-checkout-steps {
+  @apply flex items-center justify-between mb-8 border-b border-gray-200 dark:border-dark-600 pb-4;
+}
+
+.aqualuxe-checkout-step {
+  @apply flex items-center text-gray-500 dark:text-gray-400;
+}
+
+.aqualuxe-checkout-step.active {
+  @apply text-primary-600 dark:text-primary-400 font-medium;
+}
+
+.aqualuxe-checkout-step.completed {
+  @apply text-green-600 dark:text-green-400;
+}
+
+.aqualuxe-checkout-step .step-number {
+  @apply flex items-center justify-center w-6 h-6 rounded-full border border-current mr-2 text-sm;
+}
+
+.aqualuxe-checkout-step.active .step-number {
+  @apply bg-primary-600 dark:bg-primary-400 text-white border-primary-600 dark:border-primary-400;
+}
+
+.aqualuxe-checkout-step.completed .step-number {
+  @apply bg-green-600 dark:bg-green-400 text-white border-green-600 dark:border-green-400;
+}
+
+.aqualuxe-checkout-step-container {
+  @apply mb-8;
+}
+
+.aqualuxe-checkout-step-buttons {
+  @apply flex justify-between mt-6;
+}
+
+.aqualuxe-checkout-prev-step {
+  @apply bg-gray-200 dark:bg-dark-600 text-dark-800 dark:text-white hover:bg-gray-300 dark:hover:bg-dark-500;
+}
+
+.aqualuxe-checkout-next-step {
+  @apply bg-primary-600 dark:bg-primary-500 text-white hover:bg-primary-700 dark:hover:bg-primary-600;
+}
+
+/* Express checkout */
+.aqualuxe-express-checkout {
+  @apply mb-8 p-6 bg-gray-50 dark:bg-dark-800 rounded-lg;
+}
+
+.aqualuxe-express-checkout h3 {
+  @apply text-lg font-medium mb-4;
+}
+
+.aqualuxe-express-checkout-buttons {
+  @apply flex flex-wrap gap-4;
+}
+
+.paypal-button {
+  @apply flex items-center justify-center px-4 py-2 bg-[#0070BA] text-white rounded-md hover:bg-[#005ea6] transition-colors duration-200 w-full sm:w-auto;
+}
+
+.paypal-button-icon {
+  @apply mr-2;
+}
+
+.apple-pay-button {
+  @apply flex items-center justify-center px-4 py-2 bg-black text-white rounded-md hover:bg-gray-900 transition-colors duration-200 w-full sm:w-auto;
+}
+
+.apple-pay-button-icon {
+  @apply mr-2;
+}
+
+.google-pay-button {
+  @apply flex items-center justify-center px-4 py-2 bg-white text-dark-800 border border-gray-300 rounded-md hover:bg-gray-100 transition-colors duration-200 w-full sm:w-auto;
+}
+
+.google-pay-button-icon {
+  @apply mr-2;
+}
+
+.aqualuxe-star-rating .count {
+  @apply text-sm text-dark-500 dark:text-dark-300;
+}

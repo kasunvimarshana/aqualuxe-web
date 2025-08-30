@@ -1,0 +1,23 @@
+/*
+Theme Name: AquaLuxe
+Theme URI: https://aqualuxe.com
+Author: AquaLuxe Development Team
+Author URI: https://aqualuxe.com
+Description: A premium WordPress theme for aquatic businesses. Modular, multitenant, multivendor, multilingual, multicurrency, mobile-first, fully responsive theme with a dual-state architecture that works with or without WooCommerce.
+Version: 1.0.0
+Requires at least: 5.9
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: aqualuxe
+Domain Path: /languages
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, e-commerce, aquatic, luxury
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/* 
+This file is intentionally left empty as we're using compiled CSS from assets/dist/css
+All styles are loaded via the functions.php file
+*/

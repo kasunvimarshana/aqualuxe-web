@@ -1,0 +1,222 @@
+/**
+ * Functions
+ *
+ * This file contains all the functions used in the theme.
+ *
+ * @package AquaLuxe
+ * @since 1.0.0
+ */
+
+/**
+ * Convert px to rem
+ *
+ * @param {number} $px - The pixel value to convert
+ * @param {number} $base-font-size - The base font size in pixels
+ * @return {string} The converted value in rem
+ */
+@function rem($px, $base-font-size: 16) {
+  @return ($px / $base-font-size) * 1rem;
+}
+
+/**
+ * Convert px to em
+ *
+ * @param {number} $px - The pixel value to convert
+ * @param {number} $base-font-size - The base font size in pixels
+ * @return {string} The converted value in em
+ */
+@function em($px, $base-font-size: 16) {
+  @return ($px / $base-font-size) * 1em;
+}
+
+/**
+ * Get a z-index value
+ *
+ * @param {string} $key - The z-index key
+ * @return {number} The z-index value
+ */
+@function z-index($key) {
+  $z-indexes: (
+    'dropdown': var(--aqualuxe-z-index-dropdown),
+    'sticky': var(--aqualuxe-z-index-sticky),
+    'fixed': var(--aqualuxe-z-index-fixed),
+    'modal-backdrop': var(--aqualuxe-z-index-modal-backdrop),
+    'modal': var(--aqualuxe-z-index-modal),
+    'popover': var(--aqualuxe-z-index-popover),
+    'tooltip': var(--aqualuxe-z-index-tooltip)
+  );
+
+  @if map-has-key($z-indexes, $key) {
+    @return map-get($z-indexes, $key);
+  }
+
+  @warn "Unknown z-index key: #{$key}";
+  @return 0;
+}
+
+/**
+ * Get a color with opacity
+ *
+ * @param {string} $color - The color
+ * @param {number} $opacity - The opacity
+ * @return {string} The color with opacity
+ */
+@function color-opacity($color, $opacity) {
+  @return rgba($color, $opacity);
+}
+
+/**
+ * Get a color from the theme colors
+ *
+ * @param {string} $key - The color key
+ * @return {string} The color value
+ */
+@function theme-color($key) {
+  $theme-colors: (
+    'primary': var(--aqualuxe-primary-color),
+    'primary-light': var(--aqualuxe-primary-color-light),
+    'primary-dark': var(--aqualuxe-primary-color-dark),
+    'secondary': var(--aqualuxe-secondary-color),
+    'secondary-light': var(--aqualuxe-secondary-color-light),
+    'secondary-dark': var(--aqualuxe-secondary-color-dark),
+    'accent': var(--aqualuxe-accent-color),
+    'accent-light': var(--aqualuxe-accent-color-light),
+    'accent-dark': var(--aqualuxe-accent-color-dark),
+    'text': var(--aqualuxe-text-color),
+    'heading': var(--aqualuxe-heading-color),
+    'background': var(--aqualuxe-background-color),
+    'background-alt': var(--aqualuxe-background-alt-color),
+    'border': var(--aqualuxe-border-color),
+    'success': var(--aqualuxe-success-color),
+    'info': var(--aqualuxe-info-color),
+    'warning': var(--aqualuxe-warning-color),
+    'danger': var(--aqualuxe-danger-color)
+  );
+
+  @if map-has-key($theme-colors, $key) {
+    @return map-get($theme-colors, $key);
+  }
+
+  @warn "Unknown theme color: #{$key}";
+  @return null;
+}
+
+/**
+ * Get a spacing value
+ *
+ * @param {string} $key - The spacing key
+ * @return {string} The spacing value
+ */
+@function spacing($key) {
+  $spacings: (
+    'xs': var(--aqualuxe-spacing-xs),
+    'sm': var(--aqualuxe-spacing-sm),
+    'md': var(--aqualuxe-spacing-md),
+    'lg': var(--aqualuxe-spacing-lg),
+    'xl': var(--aqualuxe-spacing-xl),
+    'xxl': var(--aqualuxe-spacing-xxl)
+  );
+
+  @if map-has-key($spacings, $key) {
+    @return map-get($spacings, $key);
+  }
+
+  @warn "Unknown spacing key: #{$key}";
+  @return 0;
+}
+
+/**
+ * Get a breakpoint value
+ *
+ * @param {string} $key - The breakpoint key
+ * @return {number} The breakpoint value
+ */
+@function breakpoint($key) {
+  @if map-has-key($breakpoints, $key) {
+    @return map-get($breakpoints, $key);
+  }
+
+  @warn "Unknown breakpoint: #{$key}";
+  @return 0;
+}
+
+/**
+ * Strip unit from a number
+ *
+ * @param {number} $number - The number with unit
+ * @return {number} The number without unit
+ */
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+/**
+ * Calculate fluid typography size
+ *
+ * @param {number} $min-size - The minimum font size
+ * @param {number} $max-size - The maximum font size
+ * @param {number} $min-width - The minimum viewport width
+ * @param {number} $max-width - The maximum viewport width
+ * @return {string} The fluid typography size
+ */
+@function fluid-type($min-size, $max-size, $min-width, $max-width) {
+  $min-size: strip-unit($min-size);
+  $max-size: strip-unit($max-size);
+  $min-width: strip-unit($min-width);
+  $max-width: strip-unit($max-width);
+
+  $slope: ($max-size - $min-size) / ($max-width - $min-width);
+  $y-intercept: $min-size - $slope * $min-width;
+
+  @return clamp(#{$min-size}rem, #{$y-intercept}rem + #{$slope * 100}vw, #{$max-size}rem);
+}
+
+/**
+ * Get a font weight
+ *
+ * @param {string} $weight - The font weight name
+ * @return {number|string} The font weight value
+ */
+@function font-weight($weight) {
+  $weights: (
+    'light': var(--aqualuxe-font-weight-light),
+    'normal': var(--aqualuxe-font-weight-normal),
+    'medium': var(--aqualuxe-font-weight-medium),
+    'semibold': var(--aqualuxe-font-weight-semibold),
+    'bold': var(--aqualuxe-font-weight-bold)
+  );
+
+  @if map-has-key($weights, $weight) {
+    @return map-get($weights, $weight);
+  }
+
+  @warn "Unknown font weight: #{$weight}";
+  @return var(--aqualuxe-font-weight-normal);
+}
+
+/**
+ * Get a border radius
+ *
+ * @param {string} $size - The border radius size
+ * @return {string} The border radius value
+ */
+@function border-radius($size) {
+  $radii: (
+    'sm': var(--aqualuxe-border-radius-sm),
+    'default': var(--aqualuxe-border-radius),
+    'lg': var(--aqualuxe-border-radius-lg),
+    'xl': var(--aqualuxe-border-radius-xl),
+    'circle': var(--aqualuxe-border-radius-circle)
+  );
+
+  @if map-has-key($radii, $size) {
+    @return map-get($radii, $size);
+  }
+
+  @warn "Unknown border radius size: #{$size}";
+  @return var(--aqualuxe-border-radius);
+}

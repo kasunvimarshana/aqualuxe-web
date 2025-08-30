@@ -1,0 +1,6 @@
+{
+  "name": "B2B Wholesale",
+  "slug": "b2b",
+  "class": "AquaLuxe\\Modules\\B2B\\Module",
+  "enabled": true
+}

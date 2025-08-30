@@ -1,0 +1,222 @@
+/**
+ * Comments Component
+ */
+
+.comments-area {
+  @apply mt-12 pt-12 border-t border-gray-200 dark:border-gray-700;
+  
+  &__title {
+    @apply text-2xl font-bold text-gray-900 dark:text-gray-100 mb-8;
+  }
+}
+
+.comment-list {
+  @apply space-y-8 mb-8;
+  
+  .children {
+    @apply mt-8 ml-0 md:ml-12 space-y-8;
+  }
+}
+
+.comment {
+  @apply relative;
+  
+  &__inner {
+    @apply flex;
+  }
+  
+  &__avatar {
+    @apply hidden md:block flex-shrink-0 mr-4;
+    
+    img {
+      @apply w-12 h-12 rounded-full;
+    }
+  }
+  
+  &__content {
+    @apply flex-grow;
+  }
+  
+  &__header {
+    @apply flex flex-wrap items-center mb-2;
+  }
+  
+  &__author {
+    @apply font-bold text-gray-900 dark:text-gray-100 mr-2;
+  }
+  
+  &__metadata {
+    @apply text-sm text-gray-500 dark:text-gray-400;
+    
+    a {
+      @apply text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200;
+    }
+    
+    time {
+      @apply mr-2;
+    }
+  }
+  
+  &__text {
+    @apply text-gray-700 dark:text-gray-300 mb-3;
+    
+    p {
+      @apply mb-4 last:mb-0;
+    }
+  }
+  
+  &__actions {
+    @apply flex items-center text-sm;
+  }
+  
+  &__reply {
+    @apply text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200 mr-4;
+  }
+  
+  &__edit {
+    @apply text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200;
+  }
+  
+  &--bypostauthor {
+    > .comment__inner {
+      @apply bg-primary-50 dark:bg-primary-900 dark:bg-opacity-20 p-4 rounded-lg;
+      
+      .comment__author::after {
+        content: '(Author)';
+        @apply ml-2 text-xs text-primary-600 dark:text-primary-400 font-normal;
+      }
+    }
+  }
+  
+  &--awaiting-moderation {
+    > .comment__inner {
+      @apply bg-yellow-50 dark:bg-yellow-900 dark:bg-opacity-20 p-4 rounded-lg;
+      
+      &::after {
+        content: 'Your comment is awaiting moderation.';
+        @apply block mt-2 text-sm text-yellow-600 dark:text-yellow-400 italic;
+      }
+    }
+  }
+}
+
+.comment-respond {
+  @apply mb-8;
+  
+  .comment & {
+    @apply mt-8 ml-0 md:ml-12;
+  }
+  
+  &__title {
+    @apply text-xl font-bold text-gray-900 dark:text-gray-100 mb-4;
+    
+    small {
+      @apply text-sm font-normal text-gray-600 dark:text-gray-400 ml-2;
+      
+      a {
+        @apply text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200;
+      }
+    }
+  }
+}
+
+.comment-form {
+  @apply space-y-4;
+  
+  &__notes {
+    @apply text-sm text-gray-600 dark:text-gray-400 mb-4;
+    
+    .required {
+      @apply text-red-600 dark:text-red-400;
+    }
+  }
+  
+  &__cookies-consent {
+    @apply flex items-start mt-4;
+    
+    input[type="checkbox"] {
+      @apply mt-1 mr-2;
+    }
+    
+    label {
+      @apply text-sm text-gray-600 dark:text-gray-400;
+    }
+  }
+  
+  &__row {
+    @apply flex flex-wrap -mx-2;
+  }
+  
+  &__col {
+    @apply px-2 w-full;
+    
+    &--half {
+      @screen md {
+        @apply w-1/2;
+      }
+    }
+  }
+  
+  label {
+    @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1;
+    
+    .required {
+      @apply text-red-600 dark:text-red-400;
+    }
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="url"],
+  textarea {
+    @apply w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-primary-500 focus:border-primary-500;
+  }
+  
+  textarea {
+    @apply h-32;
+  }
+  
+  .form-submit {
+    @apply mt-6;
+  }
+  
+  input[type="submit"] {
+    @apply inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-lg font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors duration-200;
+  }
+}
+
+// Comment navigation
+.comment-navigation {
+  @apply flex justify-between mb-8 pb-4 border-b border-gray-200 dark:border-gray-700;
+  
+  .nav-previous,
+  .nav-next {
+    @apply text-sm;
+    
+    a {
+      @apply text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200;
+    }
+  }
+}
+
+// Comments closed
+.comments-closed {
+  @apply py-4 px-6 bg-gray-50 dark:bg-gray-800 rounded-lg text-gray-600 dark:text-gray-400 text-center;
+}
+
+// Comment ratings (for WooCommerce)
+.comment-rating {
+  @apply flex items-center mb-2;
+  
+  &__stars {
+    @apply flex text-yellow-400 mr-2;
+    
+    svg {
+      @apply w-4 h-4;
+    }
+  }
+  
+  &__text {
+    @apply text-sm text-gray-600 dark:text-gray-400;
+  }
+}

@@ -1,0 +1,630 @@
+/**
+ * AquaLuxe Theme Footer Styles
+ *
+ * This file contains styles for the site footer.
+ */
+
+// Footer
+.site-footer {
+  background-color: $color-dark;
+  color: $color-gray-300;
+  padding-top: $footer-padding-top;
+  position: relative;
+  
+  // Footer wave decoration
+  &.has-wave-decoration {
+    &:before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background-image: url("../images/wave-footer.svg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: top center;
+    }
+  }
+  
+  a {
+    color: $color-gray-300;
+    transition: $transition-base;
+    
+    &:hover {
+      color: $color-white;
+      text-decoration: none;
+    }
+  }
+  
+  // Footer Widgets
+  .footer-widgets {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $spacing-8;
+    margin-bottom: $spacing-12;
+    
+    @include lg {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    
+    @include md {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include xs {
+      grid-template-columns: 1fr;
+    }
+    
+    .footer-widget {
+      .widget-title {
+        color: $color-white;
+        font-size: $font-size-lg;
+        margin-bottom: $spacing-6;
+        position: relative;
+        padding-bottom: $spacing-3;
+        
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 50px;
+          height: 2px;
+          background-color: $color-primary;
+        }
+      }
+      
+      // About Widget
+      &.widget-about {
+        .footer-logo {
+          margin-bottom: $spacing-4;
+          max-width: 180px;
+          
+          img {
+            display: block;
+            width: 100%;
+            height: auto;
+          }
+        }
+        
+        .about-text {
+          margin-bottom: $spacing-4;
+          line-height: $line-height-relaxed;
+        }
+        
+        .footer-social {
+          @include flex;
+          gap: $spacing-3;
+          
+          a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba($color-white, 0.1);
+            color: $color-white;
+            font-size: $font-size-base;
+            transition: $transition-base;
+            
+            &:hover {
+              background-color: $color-primary;
+              color: $color-white;
+              transform: translateY(-3px);
+            }
+          }
+        }
+      }
+      
+      // Contact Widget
+      &.widget-contact {
+        .contact-info {
+          .contact-item {
+            @include flex;
+            align-items: flex-start;
+            margin-bottom: $spacing-4;
+            
+            &:last-child {
+              margin-bottom: 0;
+            }
+            
+            .icon {
+              margin-right: $spacing-3;
+              color: $color-primary;
+              font-size: $font-size-lg;
+              margin-top: 3px;
+            }
+            
+            .text {
+              flex: 1;
+              
+              a {
+                display: block;
+                
+                &:hover {
+                  color: $color-primary;
+                }
+              }
+            }
+          }
+        }
+      }
+      
+      // Links Widget
+      &.widget-links {
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          
+          li {
+            margin-bottom: $spacing-3;
+            
+            &:last-child {
+              margin-bottom: 0;
+            }
+            
+            a {
+              position: relative;
+              padding-left: $spacing-4;
+              display: block;
+              
+              &:before {
+                content: "→";
+                position: absolute;
+                left: 0;
+                top: 0;
+                color: $color-primary;
+                transition: $transition-base;
+              }
+              
+              &:hover {
+                color: $color-primary;
+                padding-left: $spacing-5;
+                
+                &:before {
+                  left: $spacing-1;
+                }
+              }
+            }
+          }
+        }
+      }
+      
+      // Newsletter Widget
+      &.widget-newsletter {
+        .newsletter-text {
+          margin-bottom: $spacing-4;
+          line-height: $line-height-relaxed;
+        }
+        
+        .newsletter-form {
+          position: relative;
+          
+          .form-control {
+            background-color: rgba($color-white, 0.1);
+            border: 1px solid rgba($color-white, 0.2);
+            color: $color-white;
+            padding: $spacing-3 $spacing-4;
+            border-radius: $border-radius;
+            width: 100%;
+            
+            &:focus {
+              outline: none;
+              border-color: $color-primary;
+              background-color: rgba($color-white, 0.15);
+            }
+            
+            &::placeholder {
+              color: rgba($color-white, 0.5);
+            }
+          }
+          
+          .submit-button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            background-color: $color-primary;
+            color: $color-white;
+            border: none;
+            padding: 0 $spacing-4;
+            border-top-right-radius: $border-radius;
+            border-bottom-right-radius: $border-radius;
+            cursor: pointer;
+            transition: $transition-base;
+            
+            &:hover {
+              background-color: darken($color-primary, 10%);
+            }
+            
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+        
+        .newsletter-privacy {
+          margin-top: $spacing-3;
+          font-size: $font-size-sm;
+          color: $color-gray-400;
+          
+          a {
+            color: $color-primary;
+            
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+      
+      // Recent Posts Widget
+      &.widget-recent-posts {
+        .recent-post {
+          @include flex;
+          margin-bottom: $spacing-4;
+          
+          &:last-child {
+            margin-bottom: 0;
+          }
+          
+          .post-image {
+            width: 70px;
+            height: 70px;
+            margin-right: $spacing-3;
+            border-radius: $border-radius;
+            overflow: hidden;
+            
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+          
+          .post-content {
+            flex: 1;
+            
+            .post-title {
+              margin: 0 0 $spacing-1;
+              font-size: $font-size-sm;
+              font-weight: $font-weight-medium;
+              
+              a {
+                color: $color-white;
+                
+                &:hover {
+                  color: $color-primary;
+                }
+              }
+            }
+            
+            .post-date {
+              font-size: $font-size-xs;
+              color: $color-gray-400;
+            }
+          }
+        }
+      }
+      
+      // Instagram Widget
+      &.widget-instagram {
+        .instagram-feed {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: $spacing-2;
+          
+          .instagram-item {
+            position: relative;
+            border-radius: $border-radius;
+            overflow: hidden;
+            
+            &:before {
+              content: "";
+              display: block;
+              padding-top: 100%;
+            }
+            
+            img {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              transition: $transition-base;
+            }
+            
+            .overlay {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background-color: rgba($color-primary, 0.7);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              opacity: 0;
+              transition: $transition-base;
+              
+              i {
+                color: $color-white;
+                font-size: $font-size-lg;
+              }
+            }
+            
+            &:hover {
+              img {
+                transform: scale(1.1);
+              }
+              
+              .overlay {
+                opacity: 1;
+              }
+            }
+          }
+        }
+        
+        .instagram-follow {
+          margin-top: $spacing-3;
+          text-align: center;
+          
+          a {
+            color: $color-primary;
+            font-weight: $font-weight-medium;
+            
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+      
+      // Opening Hours Widget
+      &.widget-opening-hours {
+        .hours-list {
+          .hours-item {
+            @include flex-between;
+            margin-bottom: $spacing-3;
+            padding-bottom: $spacing-3;
+            border-bottom: 1px dashed rgba($color-white, 0.1);
+            
+            &:last-child {
+              margin-bottom: 0;
+              padding-bottom: 0;
+              border-bottom: none;
+            }
+            
+            .day {
+              font-weight: $font-weight-medium;
+            }
+            
+            .time {
+              color: $color-white;
+            }
+            
+            &.closed {
+              .time {
+                color: $color-danger;
+              }
+            }
+            
+            &.current {
+              color: $color-primary;
+              
+              .time {
+                color: $color-primary;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  // Footer Bottom
+  .footer-bottom {
+    padding: $spacing-6 0;
+    border-top: 1px solid rgba($color-white, 0.1);
+    
+    .footer-bottom-content {
+      @include flex-between;
+      
+      @include xs {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+    
+    .copyright {
+      font-size: $font-size-sm;
+      
+      @include xs {
+        margin-bottom: $spacing-3;
+      }
+      
+      a {
+        color: $color-primary;
+        
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    
+    .footer-links {
+      @include flex;
+      gap: $spacing-4;
+      font-size: $font-size-sm;
+      
+      @include xs {
+        justify-content: center;
+      }
+      
+      a {
+        &:hover {
+          color: $color-primary;
+        }
+      }
+    }
+  }
+  
+  // Footer CTA
+  .footer-cta {
+    margin-bottom: $spacing-12;
+    
+    .cta-box {
+      background-color: $color-primary;
+      border-radius: $border-radius-lg;
+      padding: $spacing-8;
+      color: $color-white;
+      text-align: center;
+      
+      .cta-title {
+        font-size: $font-size-3xl;
+        margin-bottom: $spacing-4;
+        color: $color-white;
+      }
+      
+      .cta-text {
+        font-size: $font-size-lg;
+        margin-bottom: $spacing-6;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .cta-buttons {
+        @include flex-center;
+        gap: $spacing-4;
+        
+        @include xs {
+          flex-direction: column;
+          gap: $spacing-3;
+        }
+      }
+    }
+  }
+  
+  // Footer Styles
+  &.footer-dark {
+    background-color: $color-dark;
+    color: $color-gray-300;
+    
+    .widget-title {
+      color: $color-white;
+    }
+  }
+  
+  &.footer-light {
+    background-color: $color-light;
+    color: $color-gray-700;
+    
+    a {
+      color: $color-gray-700;
+      
+      &:hover {
+        color: $color-primary;
+      }
+    }
+    
+    .widget-title {
+      color: $color-dark;
+    }
+    
+    .footer-bottom {
+      border-top-color: rgba($color-dark, 0.1);
+    }
+    
+    .widget-links ul li a:before {
+      color: $color-primary;
+    }
+    
+    .widget-contact .contact-info .contact-item .icon {
+      color: $color-primary;
+    }
+    
+    .widget-about .footer-social a {
+      background-color: rgba($color-dark, 0.1);
+      color: $color-dark;
+      
+      &:hover {
+        background-color: $color-primary;
+        color: $color-white;
+      }
+    }
+    
+    .widget-newsletter .newsletter-form .form-control {
+      background-color: $color-white;
+      border-color: $color-gray-300;
+      color: $color-dark;
+      
+      &::placeholder {
+        color: $color-gray-500;
+      }
+      
+      &:focus {
+        border-color: $color-primary;
+      }
+    }
+  }
+  
+  &.footer-minimal {
+    padding-top: $spacing-8;
+    
+    .footer-widgets {
+      margin-bottom: $spacing-8;
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      
+      .footer-bottom-content {
+        flex-direction: column;
+      }
+      
+      .copyright {
+        margin-bottom: $spacing-3;
+      }
+      
+      .footer-links {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+// Back to top button
+.back-to-top {
+  position: fixed;
+  bottom: $spacing-6;
+  right: $spacing-6;
+  width: 40px;
+  height: 40px;
+  background-color: $color-primary;
+  color: $color-white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-base;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: $transition-base;
+  z-index: $z-index-fixed;
+  
+  &:hover {
+    background-color: darken($color-primary, 10%);
+    transform: translateY(-3px);
+  }
+  
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}

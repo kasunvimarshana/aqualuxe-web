@@ -1,0 +1,69 @@
+/**
+ * AquaLuxe Theme Main Stylesheet
+ *
+ * This is the main stylesheet for the AquaLuxe theme.
+ * It imports all other stylesheets and defines global styles.
+ */
+
+/* Import Tailwind CSS */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Import base styles */
+@import 'base/variables';
+@import 'base/mixins';
+@import 'base/typography';
+@import 'base/animations';
+@import 'base/utilities';
+
+/* Import layout styles */
+@import 'layout/grid';
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/sidebar';
+@import 'layout/forms';
+@import 'layout/navigation';
+
+/* Import component styles */
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/hero';
+@import 'components/sliders';
+@import 'components/modals';
+@import 'components/tabs';
+@import 'components/accordions';
+@import 'components/pagination';
+@import 'components/breadcrumbs';
+@import 'components/alerts';
+@import 'components/badges';
+@import 'components/testimonials';
+@import 'components/team';
+@import 'components/projects';
+@import 'components/services';
+@import 'components/cta';
+@import 'components/social';
+
+/* Import page-specific styles */
+@import 'pages/home';
+@import 'pages/about';
+@import 'pages/contact';
+@import 'pages/blog';
+@import 'pages/single';
+@import 'pages/archive';
+@import 'pages/404';
+@import 'pages/search';
+
+/* Import WooCommerce styles */
+@import 'woocommerce/shop';
+@import 'woocommerce/product';
+@import 'woocommerce/cart';
+@import 'woocommerce/checkout';
+@import 'woocommerce/account';
+@import 'woocommerce/widgets';
+
+/* Import dark mode styles */
+@import 'dark-mode';
+
+/* Import responsive styles */
+@import 'responsive';
