@@ -1,0 +1,21 @@
+{
+    "name": "aqualuxe/aqualuxe-pro-theme",
+    "description": "AquaLuxe Pro Theme",
+    "type": "wordpress-theme",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Your Name",
+            "email": "email@example.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "yoast/wp-test-utils": "^1.1"
+    },
+    "scripts": {
+        "install-wp-tests": [
+            "wp-test-utils install"
+        ]
+    }
+}
