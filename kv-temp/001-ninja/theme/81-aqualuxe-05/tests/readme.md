@@ -1,0 +1,1 @@
+- Placeholder for PHPUnit/WP-CLI unit tests and Cypress e2e. Configure as needed.

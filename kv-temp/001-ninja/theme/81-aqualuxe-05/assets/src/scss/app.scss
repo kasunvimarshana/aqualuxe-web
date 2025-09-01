@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Brand customizations */
+:root { --ax-primary: theme('colors.cyan.600'); }
+
+/***** Components *****/
+.skip-link { position:absolute; left:-9999px; }
+.skip-link:focus { left:0; background:#000; color:#fff; padding:.5rem; }
+
+.ax-card { @apply border rounded shadow-sm bg-white dark:bg-slate-800 dark:border-slate-700; }
+.ax-btn { @apply inline-flex items-center justify-center rounded px-4 py-2 bg-cyan-600 text-white hover:bg-cyan-700; }
+
+/* Woo defaults */
+.woocommerce .products {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1.5rem;
+}
+@media (min-width: 768px) {
+	.woocommerce .products { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
