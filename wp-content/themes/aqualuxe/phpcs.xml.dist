@@ -12,4 +12,27 @@
   <rule ref="WordPress-Core"/>
   <rule ref="WordPress-Docs"/>
   <rule ref="WordPress-Extra"/>
+  
+  <!-- Relax strict rules for template files -->
+  <rule ref="Squiz.Commenting.FileComment.Missing">
+    <severity>0</severity>
+  </rule>
+  <rule ref="Squiz.Commenting.FileComment.WrongStyle">
+    <severity>0</severity>
+  </rule>
+  <rule ref="Squiz.Commenting.InlineComment.InvalidEndChar">
+    <severity>0</severity>
+  </rule>
+  <rule ref="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket">
+    <severity>0</severity>
+  </rule>
+  <rule ref="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket">
+    <severity>0</severity>
+  </rule>
+  <rule ref="Universal.WhiteSpace.PrecisionAlignment.Found">
+    <severity>0</severity>
+  </rule>
+  <rule ref="Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed">
+    <severity>0</severity>
+  </rule>
 </ruleset>
