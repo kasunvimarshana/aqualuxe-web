@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <ruleset name="AquaLuxe">
   <description>WordPress Coding Standards</description>
+  <!-- Only scan PHP files -->
+  <arg name="extensions" value="php,inc" />
   <file>./</file>
   <exclude-pattern>node_modules/*</exclude-pattern>
   <exclude-pattern>assets/dist/*</exclude-pattern>
