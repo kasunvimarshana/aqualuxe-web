@@ -46,4 +46,15 @@
   <rule ref="WordPress.Files.FileName.NotHyphenatedLowercase">
     <severity>0</severity>
   </rule>
+  
+  <!-- Theme template specific relaxations -->
+  <rule ref="WordPress.PHP.YodaConditions.NotYoda">
+    <severity>0</severity>
+  </rule>
+  <rule ref="WordPress.NamingConventions.ValidVariableName.PropertyNotSnakeCase">
+    <severity>0</severity>
+  </rule>
+  <rule ref="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned">
+    <severity>0</severity>
+  </rule>
 </ruleset>
