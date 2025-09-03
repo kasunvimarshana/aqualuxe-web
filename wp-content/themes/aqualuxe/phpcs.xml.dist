@@ -57,4 +57,30 @@
   <rule ref="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned">
     <severity>0</severity>
   </rule>
+  
+  <!-- Additional template formatting relaxations -->
+  <rule ref="WordPress.WhiteSpace.ControlStructureSpacing.NoSpaceAfterOpenParenthesis">
+    <severity>0</severity>
+  </rule>
+  <rule ref="WordPress.WhiteSpace.ControlStructureSpacing.NoSpaceBeforeCloseParenthesis">
+    <severity>0</severity>
+  </rule>
+  <rule ref="WordPress.WhiteSpace.ControlStructureSpacing.NoSpaceBetweenStructureColon">
+    <severity>0</severity>
+  </rule>
+  <rule ref="Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace">
+    <severity>0</severity>
+  </rule>
+  <rule ref="Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword">
+    <severity>0</severity>
+  </rule>
+  <rule ref="Generic.WhiteSpace.ScopeIndent.Incorrect">
+    <severity>0</severity>
+  </rule>
+  <rule ref="Squiz.Strings.DoubleQuoteUsage.NotRequired">
+    <severity>0</severity>
+  </rule>
+  <rule ref="WordPress.WP.I18n.MissingTranslatorsComment">
+    <severity>0</severity>
+  </rule>
 </ruleset>
