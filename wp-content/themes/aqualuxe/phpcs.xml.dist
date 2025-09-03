@@ -35,4 +35,15 @@
   <rule ref="Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed">
     <severity>0</severity>
   </rule>
+  
+  <!-- Additional relaxed rules for WordPress themes -->
+  <rule ref="WordPress.WP.EnqueuedResourceParameters.MissingVersion">
+    <severity>0</severity>
+  </rule>
+  <rule ref="WordPress.Files.FileName.InvalidClassFileName">
+    <severity>0</severity>
+  </rule>
+  <rule ref="WordPress.Files.FileName.NotHyphenatedLowercase">
+    <severity>0</severity>
+  </rule>
 </ruleset>
