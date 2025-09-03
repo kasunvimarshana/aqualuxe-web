@@ -49,11 +49,15 @@ class Importer
                                 <legend><strong><?php esc_html_e('Entities to import', 'aqualuxe'); ?></strong></legend>
                                 <label><input type="checkbox" class="aqlx-entity" value="pages" checked> <?php esc_html_e('Pages & Menus', 'aqualuxe'); ?></label><br>
                                 <label><input type="checkbox" class="aqlx-entity" value="cpts" checked> <?php esc_html_e('CPTs (Services, Events)', 'aqualuxe'); ?></label><br>
+                                <label><input type="checkbox" class="aqlx-entity" value="users"> <?php esc_html_e('Users (customers, shop manager)', 'aqualuxe'); ?></label><br>
+                                <label><input type="checkbox" class="aqlx-entity" value="roles"> <?php esc_html_e('Roles & Capabilities (partner role)', 'aqualuxe'); ?></label><br>
                                 <?php if (class_exists('WooCommerce')): ?>
                                 <label><input type="checkbox" class="aqlx-entity" value="products" checked> <?php esc_html_e('Products (simple + variable)', 'aqualuxe'); ?></label><br>
                                 <label><input type="checkbox" class="aqlx-entity" value="wc_config" checked> <?php esc_html_e('WooCommerce Settings (payments, shipping)', 'aqualuxe'); ?></label><br>
                                 <label><input type="checkbox" class="aqlx-entity" value="media" checked> <?php esc_html_e('Media (placeholders)', 'aqualuxe'); ?></label><br>
                                 <?php endif; ?>
+                                <label><input type="checkbox" class="aqlx-entity" value="widgets"> <?php esc_html_e('Widgets (sidebar/footer)', 'aqualuxe'); ?></label><br>
+                                <label><input type="checkbox" class="aqlx-entity" value="options"> <?php esc_html_e('Options (tagline, locale hints)', 'aqualuxe'); ?></label><br>
                             </fieldset>
                             <fieldset>
                                 <legend><strong><?php esc_html_e('Options', 'aqualuxe'); ?></strong></legend>
@@ -496,6 +500,10 @@ class Importer
             'paused' => false,
             'created_posts' => [],
             'created_terms' => [],
+            'created_users' => [],
+            'created_roles' => [],
+            'created_widgets' => [],
+            'options_backup' => [],
             'policy' => in_array($policy, ['skip','overwrite','merge'], true) ? $policy : 'skip',
             'locale' => $locale ?: 'en_US',
             'range' => [ 'from' => (string) ($range['from'] ?? ''), 'to' => (string) ($range['to'] ?? '') ],
@@ -548,6 +556,16 @@ class Importer
                     $log = array_merge($log, $logStep);
                     if ($done) { $state['index'] = $i + 1; }
                     break; }
+                case 'users': {
+                    [$logStep, $done, $partial] = self::process_users_step($state);
+                    $log = array_merge($log, $logStep);
+                    if ($done) { $state['index'] = $i + 1; }
+                    break; }
+                case 'roles': {
+                    [$logStep, $done, $partial] = self::process_roles_step($state);
+                    $log = array_merge($log, $logStep);
+                    if ($done) { $state['index'] = $i + 1; }
+                    break; }
                 case 'products': {
                     if (class_exists('WooCommerce')) {
                         [$logStep, $done, $partial] = self::process_products_step($state);
@@ -569,6 +587,16 @@ class Importer
                     $state['index'] = $i + 1;
                     $partial = 1.0;
                     break;
+                case 'widgets': {
+                    [$logStep, $done, $partial] = self::process_widgets_step($state);
+                    $log = array_merge($log, $logStep);
+                    if ($done) { $state['index'] = $i + 1; }
+                    break; }
+                case 'options': {
+                    [$logStep, $done, $partial] = self::process_options_step($state);
+                    $log = array_merge($log, $logStep);
+                    if ($done) { $state['index'] = $i + 1; }
+                    break; }
                 default:
                     $log[] = 'Skipped: ' . (string) $step;
                     $state['index'] = $i + 1;
@@ -712,7 +740,7 @@ class Importer
     {
         $steps = [];
         foreach ($entities as $e) {
-            if (in_array($e, ['pages','cpts','products','wc_config','media'], true)) { $steps[] = $e; }
+            if (in_array($e, ['pages','cpts','users','roles','products','wc_config','media','widgets','options'], true)) { $steps[] = $e; }
         }
         return $steps;
     }
@@ -722,7 +750,11 @@ class Importer
         $map = [
             'pages' => ['page','nav_menu_item'],
             'cpts' => ['service','event'],
+            'users' => [],
+            'roles' => [],
             'products' => ['product','product_variation'],
+            'widgets' => [],
+            'options' => [],
         ];
         $types = [];
         foreach ($entities as $e) { $types = array_merge($types, $map[$e] ?? []); }
@@ -813,6 +845,37 @@ class Importer
         if (!in_array($id, $list, true)) { $list[] = $id; $state['created_terms'] = $list; \update_option('aqlx_import_state', $state, false); }
     }
 
+    private static function track_created_user(int $id): void
+    {
+        $state = (array) \get_option('aqlx_import_state', []);
+        if (!$id) return;
+        $list = (array) ($state['created_users'] ?? []);
+        if (!in_array($id, $list, true)) { $list[] = $id; $state['created_users'] = $list; \update_option('aqlx_import_state', $state, false); }
+    }
+
+    private static function track_created_role(string $role): void
+    {
+        $state = (array) \get_option('aqlx_import_state', []);
+        if (!$role) return;
+        $list = (array) ($state['created_roles'] ?? []);
+        if (!in_array($role, $list, true)) { $list[] = $role; $state['created_roles'] = $list; \update_option('aqlx_import_state', $state, false); }
+    }
+
+    private static function track_created_widget(string $id): void
+    {
+        $state = (array) \get_option('aqlx_import_state', []);
+        if (!$id) return;
+        $list = (array) ($state['created_widgets'] ?? []);
+        if (!in_array($id, $list, true)) { $list[] = $id; $state['created_widgets'] = $list; \update_option('aqlx_import_state', $state, false); }
+    }
+
+    private static function backup_option(string $key): void
+    {
+        $state = (array) \get_option('aqlx_import_state', []);
+        $bk = (array) ($state['options_backup'] ?? []);
+        if (!array_key_exists($key, $bk)) { $bk[$key] = get_option($key, null); $state['options_backup'] = $bk; \update_option('aqlx_import_state', $state, false); }
+    }
+
     private static function rollback(array &$state): void
     {
         // Delete posts we created in this run
@@ -827,6 +890,29 @@ class Importer
         // Clear trackers after rollback
         $state['created_posts'] = [];
         $state['created_terms'] = [];
+        // Delete created users (best-effort)
+        $users = array_reverse((array) ($state['created_users'] ?? []));
+        foreach ($users as $uid) { if ($uid && get_user_by('id', $uid)) { require_once ABSPATH . 'wp-admin/includes/user.php'; \wp_delete_user((int) $uid); } }
+        $state['created_users'] = [];
+        // Remove created roles
+        $roles = array_reverse((array) ($state['created_roles'] ?? []));
+        foreach ($roles as $r) { if (get_role($r)) { remove_role($r); } }
+        $state['created_roles'] = [];
+        // Remove created widgets from sidebars
+        $widgets = array_reverse((array) ($state['created_widgets'] ?? []));
+        if ($widgets) {
+            $sidebars = get_option('sidebars_widgets', []);
+            foreach ($sidebars as $sb => $items) {
+                if (!is_array($items)) continue;
+                $sidebars[$sb] = array_values(array_filter($items, function($wid) use ($widgets){ return !in_array($wid, $widgets, true); }));
+            }
+            update_option('sidebars_widgets', $sidebars);
+        }
+        $state['created_widgets'] = [];
+        // Restore options backup
+        $bk = (array) ($state['options_backup'] ?? []);
+        foreach ($bk as $k => $v) { update_option($k, $v); }
+        $state['options_backup'] = [];
     \update_option('aqlx_import_state', $state, false);
     try { self::audit($state, 'rollback', [ 'postsRolledBack' => count($posts), 'termsRolledBack' => count($terms) ]); } catch (\Throwable $ie) {}
     }
@@ -915,7 +1001,14 @@ class Importer
         // After creating pages, set home/blog and menu once
         if (!$ps['homeSet']) {
             $home = \get_page_by_path('home'); $blog = \get_page_by_path('blog');
-            if ($home && $blog) { \update_option('show_on_front', 'page'); \update_option('page_on_front', $home->ID); \update_option('page_for_posts', $blog->ID); $ps['homeSet'] = true; $log[] = 'Configured front and posts pages.'; try { self::audit($state, 'set-option', [ 'show_on_front' => 'page', 'page_on_front' => (int) $home->ID, 'page_for_posts' => (int) $blog->ID ]); } catch (\Throwable $ie) {} }
+            if ($home && $blog) {
+                // Backup options so rollback can restore
+                self::backup_option('show_on_front');
+                self::backup_option('page_on_front');
+                self::backup_option('page_for_posts');
+                \update_option('show_on_front', 'page'); \update_option('page_on_front', $home->ID); \update_option('page_for_posts', $blog->ID);
+                $ps['homeSet'] = true; $log[] = 'Configured front and posts pages.'; try { self::audit($state, 'set-option', [ 'show_on_front' => 'page', 'page_on_front' => (int) $home->ID, 'page_for_posts' => (int) $blog->ID ]); } catch (\Throwable $ie) {}
+            }
         }
         if (!$ps['menuSet']) {
             $primary_menu = \wp_get_nav_menu_object('Primary');
@@ -1097,5 +1190,81 @@ class Importer
             default:
                 return 0.0;
         }
+    }
+
+    private static function process_users_step(array &$state): array
+    {
+        $volume = (int) ($state['volume'] ?? 10);
+        $defaults = [ 'total' => 5, 'index' => 0 ];
+        $us = &self::ensure_step_state($state, 'users', $defaults);
+        $log = []; $processed = 0;
+        while ($us['index'] < $us['total'] && $processed < $volume) {
+            $i = $us['index'] + 1;
+            $email = 'customer' . $i . '@example.com'; $username = 'customer' . $i;
+            if (!email_exists($email) && !username_exists($username)) {
+                $uid = wp_insert_user([
+                    'user_login' => $username,
+                    'user_email' => $email,
+                    'user_pass' => wp_generate_password(12, true),
+                    'display_name' => 'Customer ' . $i,
+                    'role' => class_exists('WooCommerce') ? 'customer' : 'subscriber',
+                ]);
+                if (!is_wp_error($uid)) { self::track_created_user((int) $uid); $log[] = 'Created user: ' . $username; try { self::audit($state, 'create', [ 'type' => 'user', 'id' => (int) $uid, 'username' => $username ]); } catch (\Throwable $ie) {} }
+            } else {
+                $log[] = 'Skipped existing user: ' . $username;
+            }
+            $us['index']++; $processed++;
+        }
+        $state['step_state']['users'] = $us; \update_option('aqlx_import_state', $state, false);
+        $done = $us['index'] >= $us['total'];
+        $partial = min(1.0, max(0.0, ($us['total'] ? $us['index'] / $us['total'] : 1.0)));
+        return [$log, $done, $partial];
+    }
+
+    private static function process_roles_step(array &$state): array
+    {
+        $log = [];
+        // Ensure a lightweight 'partner' role exists
+        if (!get_role('partner')) {
+            add_role('partner', 'Partner', [ 'read' => true ]);
+            self::track_created_role('partner');
+            $log[] = 'Created role: partner'; try { self::audit($state, 'create', [ 'type' => 'role', 'slug' => 'partner' ]); } catch (\Throwable $ie) {}
+        } else { $log[] = 'Role already exists: partner'; }
+        return [$log, true, 1.0];
+    }
+
+    private static function process_widgets_step(array &$state): array
+    {
+        // Minimal footer widgets seeding using sidebars_widgets and widget_text
+        $log = [];
+    // Backup options before mutation for rollback
+    self::backup_option('sidebars_widgets');
+    self::backup_option('widget_text');
+    $sidebars = get_option('sidebars_widgets', []);
+    $widgets = get_option('widget_text', []);
+        if (!is_array($widgets)) { $widgets = []; }
+        $newIdx = 1; while (isset($widgets[$newIdx])) { $newIdx++; }
+        $widgets[$newIdx] = [ 'title' => 'AquaLuxe', 'text' => '<p>Bringing elegance to aquatic life – globally.</p>' ];
+        update_option('widget_text', $widgets);
+        if (!isset($sidebars['footer-1'])) { $sidebars['footer-1'] = []; }
+    $sidebars['footer-1'][] = 'text-' . $newIdx;
+        update_option('sidebars_widgets', $sidebars);
+    self::track_created_widget('text-' . $newIdx);
+    $log[] = 'Added footer widget'; try { self::audit($state, 'create', [ 'type' => 'widget', 'id' => 'text-' . $newIdx, 'sidebar' => 'footer-1' ]); } catch (\Throwable $ie) {}
+        return [$log, true, 1.0];
+    }
+
+    private static function process_options_step(array &$state): array
+    {
+        $log = [];
+    // Backup before mutation
+    self::backup_option('blogdescription');
+    self::backup_option('aqlx_locale_hint');
+    if (!get_option('blogdescription')) { update_option('blogdescription', 'Bringing elegance to aquatic life – globally.'); $log[] = 'Set tagline.'; }
+        // Example locale hint stored under theme option
+        $locale = (string) ($state['locale'] ?? 'en_US');
+        update_option('aqlx_locale_hint', $locale);
+        try { self::audit($state, 'set-option', [ 'blogdescription' => get_option('blogdescription'), 'aqlx_locale_hint' => $locale ]); } catch (\Throwable $ie) {}
+        return [$log, true, 1.0];
     }
 }
