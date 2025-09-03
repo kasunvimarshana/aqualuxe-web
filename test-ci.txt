@@ -1,1 +1,0 @@
-CI test trigger - testing PHPCS configuration fixes
