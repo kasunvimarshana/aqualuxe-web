@@ -1,0 +1,17 @@
+/*
+Theme Name: AquaLuxe
+Theme URI: https://example.com/aqualuxe
+Author: AquaLuxe Team
+Author URI: https://example.com
+Description: Modular, dual-state (with/without WooCommerce) luxury aquatic WordPress theme. Mobile-first, multilingual-ready, performance-focused, and marketplace-ready.
+Version: 1.0.21
+Requires at least: 6.3
+Tested up to: 6.6
+Requires PHP: 7.4
+License: GPL-2.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: aqualuxe
+Tags: e-commerce, woocommerce, accessibility-ready, custom-colors, custom-logo, custom-menu, featured-images, translation-ready
+*/
+
+/* All styles are compiled to assets/dist via webpack.mix.js and enqueued using mix-manifest for cache-busting. */

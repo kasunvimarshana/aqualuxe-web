@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "settings": {
+    "color": {
+      "palette": [
+        { "slug": "primary", "color": "#0ea5e9", "name": "Primary" },
+        { "slug": "dark", "color": "#021d2e", "name": "Dark" },
+        { "slug": "light", "color": "#e6f7ff", "name": "Light" }
+      ]
+    },
+    "layout": { "contentSize": "720px", "wideSize": "1200px" },
+    "typography": { "fontSizes": [
+      { "slug": "sm", "size": "0.875rem", "name": "Small" },
+      { "slug": "base", "size": "1rem", "name": "Base" },
+      { "slug": "lg", "size": "1.125rem", "name": "Large" },
+      { "slug": "xl", "size": "1.25rem", "name": "XL" }
+    ] }
+  },
+  "styles": {
+    "color": { "background": "#021d2e", "text": "#e6f7ff" }
+  }
+}

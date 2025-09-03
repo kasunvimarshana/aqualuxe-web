@@ -1,0 +1,18 @@
+{
+  "name": "build-and-deploy",
+  "version": "1.0.0",
+  "description": "Build and deployment scripts for AquaLuxe theme",
+  "scripts": {
+    "package": "node package-theme.js",
+    "deploy:staging": "node deploy.js deploy staging",
+    "deploy:production": "node deploy.js deploy production",
+    "deploy:init": "node deploy.js init",
+    "rollback": "node deploy.js rollback",
+    "docs": "node generate-docs.js",
+    "validate": "node validate-theme.js"
+  },
+  "devDependencies": {
+    "archiver": "^5.3.2",
+    "rimraf": "^3.0.2"
+  }
+}
