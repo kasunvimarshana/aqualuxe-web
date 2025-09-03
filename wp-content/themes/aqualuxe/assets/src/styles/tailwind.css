@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/***** Theme tokens *****/
+:root {
+  --color-primary: #0a84ff;
+}

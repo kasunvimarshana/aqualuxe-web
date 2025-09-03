@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root.dark {
+  --color-primary: #0a84ff;
+  --color-text: #e5e7eb;
+}
+
+body {
+  background: #0b1220;
+  color: var(--color-text);
+}

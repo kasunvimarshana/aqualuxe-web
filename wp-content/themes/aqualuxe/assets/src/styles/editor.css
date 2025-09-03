@@ -1,0 +1,18 @@
+/* Editor styles use Tailwind tokens; keep it lean for the block editor */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Match front-end variables for color/typography harmony */
+:root {
+  --color-primary: #0a84ff;
+}
+
+/* Block editor tweaks */
+.editor-styles-wrapper {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial;
+}
+
+.editor-styles-wrapper .wp-block-button__link {
+  border-radius: 6px;
+}
