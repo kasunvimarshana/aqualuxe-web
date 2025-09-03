@@ -3,8 +3,12 @@
         <div>
           <h2 class="text-lg font-semibold mb-3"><?php esc_html_e('About AquaLuxe', 'aqualuxe'); ?></h2>
           <p class="text-sm opacity-80"><?php esc_html_e('Bringing elegance to aquatic life – globally.', 'aqualuxe'); ?></p>
-        </div>
-        <?php if (is_active_sidebar('footer-1')) dynamic_sidebar('footer-1'); ?>
+		</div>
+		<?php
+		if ( is_active_sidebar( 'footer-1' ) ) {
+			dynamic_sidebar( 'footer-1' );
+		}
+		?>
       </div>
       <div class="container mx-auto px-4 py-4 text-sm opacity-70 flex items-center justify-between">
         <span>&copy; <?php echo esc_html(gmdate('Y')); ?> <?php bloginfo('name'); ?></span>

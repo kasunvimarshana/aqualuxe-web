@@ -1,9 +1,18 @@
 <?php
-/** @var array $context */
-if (!isset($context)) { $context = []; }
+/**
+ * Quick view template part
+ *
+ * @package AquaLuxe
+ * @var array $context
+ */
+
+if ( ! isset( $context ) ) {
+	$context = array();
+}
 ?>
 <div class="qv p-6">
-  <?php if (($context['type'] ?? '') === 'product' && !empty($context['product'])): $p = $context['product']; ?>
+	<?php if ( ( $context['type'] ?? '' ) === 'product' && ! empty( $context['product'] ) ) : ?>
+		<?php $p = $context['product']; ?>
     <div class="text-xl font-semibold mb-2"><?php echo esc_html($p->get_name()); ?></div>
     <div class="mb-4"><?php echo wp_kses_post($p->get_price_html()); ?></div>
     <div class="mb-4"><?php echo wp_kses_post($p->get_short_description()); ?></div>
