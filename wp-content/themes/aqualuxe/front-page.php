@@ -18,26 +18,27 @@ get_header();
   <section class="featured container mx-auto px-4 py-16" aria-labelledby="featured-heading">
     <h2 id="featured-heading" class="text-2xl font-semibold mb-6"><?php esc_html_e('Featured', 'aqualuxe'); ?></h2>
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      <?php
-      if (function_exists('wc_get_products')) {
-          $products = wc_get_products(['status' => 'publish', 'limit' => 6]);
-          foreach ($products as $product) {
-              $link = get_permalink($product->get_id());
-              echo '<a class="card block border border-slate-200 dark:border-slate-800 rounded-lg overflow-hidden" href="' . esc_url($link) . '">';
-              echo wp_kses_post($product->get_image('medium'));
-              echo '<div class="p-4"><div class="font-semibold">' . esc_html($product->get_name()) . '</div>';
-              echo '<div class="opacity-80">' . wp_kses_post($product->get_price_html()) . '</div></div></a>';
-          }
-      } else {
-          $q = new WP_Query(['posts_per_page' => 6]);
-          if ($q->have_posts()) {
-              while ($q->have_posts()) { $q->the_post();
-                  echo '<a class="card block border border-slate-200 dark:border-slate-800 rounded-lg p-4" href="' . esc_url(get_permalink()) . '"><div class="font-semibold">' . esc_html(get_the_title()) . '</div></a>';
-              }
-              wp_reset_postdata();
-          }
-      }
-      ?>
+	<?php
+	if ( function_exists( 'wc_get_products' ) ) {
+		$products = wc_get_products( array( 'status' => 'publish', 'limit' => 6 ) );
+		foreach ( $products as $product ) {
+			$product_link = get_permalink( $product->get_id() );
+			echo '<a class="card block border border-slate-200 dark:border-slate-800 rounded-lg overflow-hidden" href="' . esc_url( $product_link ) . '">';
+			echo wp_kses_post( $product->get_image( 'medium' ) );
+			echo '<div class="p-4"><div class="font-semibold">' . esc_html( $product->get_name() ) . '</div>';
+			echo '<div class="opacity-80">' . wp_kses_post( $product->get_price_html() ) . '</div></div></a>';
+		}
+	} else {
+		$q = new WP_Query( array( 'posts_per_page' => 6 ) );
+		if ( $q->have_posts() ) {
+			while ( $q->have_posts() ) {
+				$q->the_post();
+				echo '<a class="card block border border-slate-200 dark:border-slate-800 rounded-lg p-4" href="' . esc_url( get_permalink() ) . '"><div class="font-semibold">' . esc_html( get_the_title() ) . '</div></a>';
+			}
+			wp_reset_postdata();
+		}
+	}
+	?>
     </div>
   </section>
 
@@ -51,6 +52,7 @@ get_header();
         <button class="btn btn-primary"><?php esc_html_e('Subscribe', 'aqualuxe'); ?></button>
       </form>
     </div>
-  </section>
+	</section>
 </main>
-<?php get_footer();
+<?php
+get_footer();

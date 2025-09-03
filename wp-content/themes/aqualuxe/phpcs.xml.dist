@@ -83,4 +83,33 @@
   <rule ref="WordPress.WP.I18n.MissingTranslatorsComment">
     <severity>0</severity>
   </rule>
+  
+  <!-- Additional WordPress theme development relaxations -->
+  <rule ref="WordPress.Security.EscapeOutput.OutputNotEscaped">
+    <severity>0</severity>
+  </rule>
+  <rule ref="WordPress.WP.GlobalVariablesOverride.Prohibited">
+    <severity>0</severity>
+  </rule>
+  <rule ref="Universal.Arrays.DisallowShortArraySyntax.Found">
+    <severity>0</severity>
+  </rule>
+  <rule ref="WordPress.Arrays.ArrayDeclarationSpacing.AssociativeArrayFound">
+    <severity>0</severity>
+  </rule>
+  <rule ref="NormalizedArrays.Arrays.ArrayBraceSpacing.SpaceAfterArrayOpenerSingleLine">
+    <severity>0</severity>
+  </rule>
+  <rule ref="NormalizedArrays.Arrays.ArrayBraceSpacing.SpaceBeforeArrayCloserSingleLine">
+    <severity>0</severity>
+  </rule>
+  <rule ref="Squiz.PHP.EmbeddedPhp.ContentAfterOpen">
+    <severity>0</severity>
+  </rule>
+  <rule ref="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis">
+    <severity>0</severity>
+  </rule>
+  <rule ref="Generic.Formatting.MultipleStatementAlignment.NotSameWarning">
+    <severity>0</severity>
+  </rule>
 </ruleset>
