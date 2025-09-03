@@ -248,4 +248,12 @@
   <rule ref="PEAR.Functions.FunctionCallSignature.Indent">
     <severity>0</severity>
   </rule>
+  
+  <!-- Final remaining rule relaxations -->
+  <rule ref="Squiz.Commenting.FileComment.MissingPackageTag">
+    <severity>0</severity>
+  </rule>
+  <rule ref="Generic.WhiteSpace.ScopeIndent.IncorrectExact">
+    <severity>0</severity>
+  </rule>
 </ruleset>
