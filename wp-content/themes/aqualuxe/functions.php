@@ -28,6 +28,7 @@ require_once AQUALUXE_INC . '/security.php';
 require_once AQUALUXE_INC . '/template-tags.php';
 require_once AQUALUXE_INC . '/shortcodes.php';
 require_once AQUALUXE_INC . '/admin/importer.php';
+require_once AQUALUXE_INC . '/admin/module-manager.php';
 require_once AQUALUXE_INC . '/integrations/woocommerce.php';
 
 // Initialize theme core
@@ -38,6 +39,7 @@ require_once AQUALUXE_INC . '/integrations/woocommerce.php';
 
 // Admin tools (demo importer)
 \AquaLuxe\Admin\Importer::init();
+\AquaLuxe\Admin\ModuleManager::init();
 
 // WooCommerce integration (dual-state)
 \AquaLuxe\Integrations\WooCommerce::init();
