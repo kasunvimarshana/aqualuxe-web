@@ -44,6 +44,21 @@ add_filter('aqualuxe/modules/config', function ($mods) {
 });
 ```
 
+Admin UI: Appearance > AquaLuxe Modules toggles modules and validates requirements.
+
+Included modules:
+- dark-mode: adds dark theme support and toggle
+- multilingual: integrates with Polylang/WPML if present
+- multicurrency: price conversion and formatting (optional)
+- wishlist: simple cookie-based wishlist + shortcode
+- sitemap: basic /sitemap.xml
+- seo: meta + JSON-LD organization schema
+- roles: wholesale customer role (optional)
+- vendors: adapter for multivendor plugins (optional)
+- classifieds: listings CPT + grid shortcode (optional)
+- tenancy: hostname-based option overrides (optional)
+- wc-filters: small WooCommerce UX/perf tweaks
+
 ## Security & Performance
 - Nonces and sanitization helpers: inc/security.php
 - No raw assets enqueued; cache-busted dist only.
