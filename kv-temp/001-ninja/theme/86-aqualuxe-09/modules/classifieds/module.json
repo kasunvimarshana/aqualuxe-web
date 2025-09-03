@@ -1,0 +1,5 @@
+{
+  "name": "Classifieds",
+  "enabled": false,
+  "description": "Provides a basic Listings custom post type and shortcode grid."
+}
