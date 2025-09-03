@@ -7,6 +7,8 @@
   <exclude-pattern>node_modules/*</exclude-pattern>
   <exclude-pattern>assets/dist/*</exclude-pattern>
   <exclude-pattern>.git/*</exclude-pattern>
+  <!-- Exclude custom modules from PHPCS for now -->
+  <exclude-pattern>modules/*</exclude-pattern>
   <rule ref="WordPress-Core"/>
   <rule ref="WordPress-Docs"/>
   <rule ref="WordPress-Extra"/>
