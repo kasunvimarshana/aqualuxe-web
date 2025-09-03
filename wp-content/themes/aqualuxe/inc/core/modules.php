@@ -64,7 +64,11 @@ class Modules
         if (!$dir || !is_dir($dir)) {
             return [];
         }
-        $entries = @scandir($dir) ?: [];
+        // Avoid silencing errors; handle failures explicitly
+        $entries = scandir($dir);
+        if ($entries === false) {
+            $entries = [];
+        }
         $modules = [];
         foreach ($entries as $entry) {
             if ($entry === '.' || $entry === '..') {
@@ -109,6 +113,9 @@ class Modules
      *  - function:some_function
      *  - class:Some\\Class
      *  - defined:SOME_CONSTANT
+     *
+     * @param array $meta Module metadata array.
+     * @return bool Whether all declared requirements are met.
      */
     private static function meets_requirements(array $meta): bool
     {
@@ -136,6 +143,12 @@ class Modules
         return $allOk && $anyOk;
     }
 
+    /**
+     * Check a single requirement condition string.
+     *
+     * @param string $cond Condition string in the form type:name (function:foo, class:Bar\\Baz, defined:CONST).
+     * @return bool True if the condition is satisfied.
+     */
     private static function check_condition(string $cond): bool
     {
         if (strpos($cond, ':') === false) {

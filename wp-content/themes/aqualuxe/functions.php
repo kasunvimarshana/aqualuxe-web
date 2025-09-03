@@ -101,18 +101,18 @@ function aqualuxe_comment_callback( $comment, $args, $depth ) {
 				</div>
 
 				<div class="reply mt-3">
-					<?php 
-					comment_reply_link( 
-						array_merge( 
-							$args, 
-							array( 
-								'add_below' => $add_below, 
-								'depth'     => $depth, 
+					<?php
+					comment_reply_link(
+						array_merge(
+							$args,
+							array(
+								'add_below' => $add_below,
+								'depth'     => $depth,
 								'max_depth' => $args['max_depth'],
 								'class'     => 'text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 text-sm font-medium',
-							) 
-						) 
-					); 
+							)
+						)
+					);
 					?>
 				</div>
 			</div>
