@@ -63,7 +63,10 @@ class REST
                 $entities = (array) ($request->get_param('entities') ?: []);
                 $reset = (bool) $request->get_param('reset');
                 $volume = (int) ($request->get_param('volume') ?: 10);
-                return \AquaLuxe\Admin\Importer::start($entities, $reset, $volume);
+                $policy = (string) ($request->get_param('policy') ?: 'skip');
+                $locale = (string) ($request->get_param('locale') ?: 'en_US');
+                $range = (array) ($request->get_param('range') ?: []);
+                return \AquaLuxe\Admin\Importer::start($entities, $reset, $volume, $policy, $locale, $range);
             }
         ]);
         \call_user_func('register_rest_route', 'aqualuxe/v1', '/import/step', [
@@ -79,6 +82,17 @@ class REST
             'callback' => function ($request) {
                 $entities = (array) ($request->get_param('entities') ?: []);
                 return \AquaLuxe\Admin\Importer::export($entities);
+            }
+        ]);
+
+        // Preview endpoint (admin only)
+        \call_user_func('register_rest_route', 'aqualuxe/v1', '/import/preview', [
+            'methods' => 'POST',
+            'permission_callback' => function(){ return \call_user_func('current_user_can','manage_options'); },
+            'callback' => function ($request) {
+                $entities = (array) ($request->get_param('entities') ?: []);
+                $volume = (int) ($request->get_param('volume') ?: 10);
+                return \AquaLuxe\Admin\Importer::preview($entities, $volume);
             }
         ]);
 
@@ -102,6 +116,41 @@ class REST
                 \delete_option('aqlx_import_schedule');
                 return ['ok' => true];
             }
+        ]);
+
+        // Flush all demo content and reset importer state
+        \call_user_func('register_rest_route', 'aqualuxe/v1', '/import/flush', [
+            'methods' => 'POST',
+            'permission_callback' => function(){ return \call_user_func('current_user_can','manage_options'); },
+            'callback' => function () {
+                return \AquaLuxe\Admin\Importer::flush();
+            }
+        ]);
+
+        // Importer state
+        \call_user_func('register_rest_route', 'aqualuxe/v1', '/import/state', [
+            'methods' => 'GET',
+            'permission_callback' => function(){ return \call_user_func('current_user_can','manage_options'); },
+            'callback' => function () {
+                return \AquaLuxe\Admin\Importer::state();
+            }
+        ]);
+
+        // Pause/resume/cancel importer
+        \call_user_func('register_rest_route', 'aqualuxe/v1', '/import/pause', [
+            'methods' => 'POST',
+            'permission_callback' => function(){ return \call_user_func('current_user_can','manage_options'); },
+            'callback' => function () { return \AquaLuxe\Admin\Importer::pause(); }
+        ]);
+        \call_user_func('register_rest_route', 'aqualuxe/v1', '/import/resume', [
+            'methods' => 'POST',
+            'permission_callback' => function(){ return \call_user_func('current_user_can','manage_options'); },
+            'callback' => function () { return \AquaLuxe\Admin\Importer::resume(); }
+        ]);
+        \call_user_func('register_rest_route', 'aqualuxe/v1', '/import/cancel', [
+            'methods' => 'POST',
+            'permission_callback' => function(){ return \call_user_func('current_user_can','manage_options'); },
+            'callback' => function () { return \AquaLuxe\Admin\Importer::cancel(); }
         ]);
     }
 }
