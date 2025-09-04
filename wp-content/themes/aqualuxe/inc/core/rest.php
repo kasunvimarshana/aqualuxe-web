@@ -5,16 +5,16 @@ class REST
 {
     public static function register_routes(): void
     {
-    \call_user_func('register_rest_route', 'aqualuxe/v1', '/status', [
+        \call_user_func('register_rest_route', 'aqualuxe/v1', '/status', [
             'methods' => 'GET',
             'permission_callback' => '__return_true',
             'callback' => function () {
-        return [
+                return [
                     'ok' => true,
                     'version' => AQUALUXE_VERSION,
-        ];
+                ];
             },
-    ]);
+        ]);
 
         // Quick View endpoint (dual-state). If WooCommerce, return product snippet; else post snippet.
         \call_user_func('register_rest_route', 'aqualuxe/v1', '/quickview/(?P<id>\\d+)', [
@@ -160,19 +160,19 @@ class REST
                 }
                 $paths = glob($dir . '*.jsonl');
                 if (!$paths) { return ['ok' => true, 'items' => []]; }
-                usort($paths, function($a,$b){ return (int) @filemtime($b) <=> (int) @filemtime($a); });
+                usort($paths, function ($a, $b) { return (int) filemtime($b) <=> (int) filemtime($a); });
                 $items = [];
                 $paths = array_slice($paths, 0, 25);
                 foreach ($paths as $p) {
                     $base = basename($p);
-                    $mtime = @filemtime($p) ?: 0;
+                    $mtime = file_exists($p) ? (int) filemtime($p) : 0;
                     $url = trailingslashit($upload['baseurl']) . 'aqualuxe-import-logs/' . $base;
                     $items[] = [
                         'name' => $base,
                         'url' => $url,
                         'mtime' => $mtime,
                         'mtime_iso' => $mtime ? gmdate('c', (int) $mtime) : null,
-                        'size' => @filesize($p) ?: null,
+                        'size' => file_exists($p) ? (int) filesize($p) : null,
                     ];
                 }
                 return ['ok' => true, 'items' => $items];

@@ -461,7 +461,9 @@ class Importer
             if (!is_wp_error($term)) { $tag_ids[] = (int) ($term['term_id'] ?? $term); }
         }
         // Simple products
-        for ($i=1;$i<=6;$i++) {
+    $cat_count = count($cat_ids);
+    $tag_count = count($tag_ids);
+    for ($i=1;$i<=6;$i++) {
             $p = new \WC_Product_Simple();
             $p->set_name('AquaLuxe Specimen ' . $i);
             $p->set_status('publish');
@@ -470,8 +472,8 @@ class Importer
             $p->set_stock_quantity(5 + $i);
             $p->set_catalog_visibility('visible');
             $pid = $p->save();
-            if (!empty($cat_ids)) { \wp_set_object_terms($pid, [$cat_ids[$i % count($cat_ids)]], 'product_cat'); }
-            if (!empty($tag_ids)) { \wp_set_object_terms($pid, [$tag_ids[$i % count($tag_ids)]], 'product_tag', true); }
+            if (!empty($cat_ids)) { \wp_set_object_terms($pid, [$cat_ids[$i % max(1, $cat_count)]], 'product_cat'); }
+            if (!empty($tag_ids)) { \wp_set_object_terms($pid, [$tag_ids[$i % max(1, $tag_count)]], 'product_tag', true); }
             $att_id = self::ensure_demo_image('specimen-' . $i);
             if ($att_id) { set_post_thumbnail($pid, $att_id); }
         }
@@ -664,27 +666,32 @@ class Importer
         $partial = 0.0; // partial completion within current step [0..1]
         try {
             switch ($step) {
-                case 'pages': {
+                case 'pages':
+                {
                     [$logStep, $done, $partial] = self::process_pages_step($state);
                     $log = array_merge($log, $logStep);
                     if ($done) { $state['index'] = $i + 1; }
                     break; }
-                case 'cpts': {
+                case 'cpts':
+                {
                     [$logStep, $done, $partial] = self::process_cpts_step($state);
                     $log = array_merge($log, $logStep);
                     if ($done) { $state['index'] = $i + 1; }
                     break; }
-                case 'users': {
+                case 'users':
+                {
                     [$logStep, $done, $partial] = self::process_users_step($state);
                     $log = array_merge($log, $logStep);
                     if ($done) { $state['index'] = $i + 1; }
                     break; }
-                case 'roles': {
+                case 'roles':
+                {
                     [$logStep, $done, $partial] = self::process_roles_step($state);
                     $log = array_merge($log, $logStep);
                     if ($done) { $state['index'] = $i + 1; }
                     break; }
-                case 'products': {
+                case 'products':
+                {
                     if (class_exists('WooCommerce')) {
                         [$logStep, $done, $partial] = self::process_products_step($state);
                         $log = array_merge($log, $logStep);
@@ -699,27 +706,32 @@ class Importer
                         // Set currency if provided
                         $cur = (string) ($state['currency'] ?? ''); if ($cur) { try { \update_option('woocommerce_currency', $cur); } catch (\Throwable $e) {} }
                         $log[] = self::configure_wc();
+                    } elseif (!class_exists('WooCommerce')) {
+                        $log[] = 'WooCommerce not active; skipping wc_config.';
                     }
-                    else { $log[] = 'WooCommerce not active; skipping wc_config.'; }
                     $state['index'] = $i + 1;
                     $partial = 1.0;
                     break;
-                case 'media': {
+                case 'media':
+                {
                     [$logStep, $done, $partial] = self::process_media_step($state);
                     $log = array_merge($log, $logStep);
                     if ($done) { $state['index'] = $i + 1; }
                     break; }
-                case 'widgets': {
+                case 'widgets':
+                {
                     [$logStep, $done, $partial] = self::process_widgets_step($state);
                     $log = array_merge($log, $logStep);
                     if ($done) { $state['index'] = $i + 1; }
                     break; }
-                case 'options': {
+                case 'options':
+                {
                     [$logStep, $done, $partial] = self::process_options_step($state);
                     $log = array_merge($log, $logStep);
                     if ($done) { $state['index'] = $i + 1; }
                     break; }
-                case 'i18n': {
+                case 'i18n':
+                {
                     [$logStep, $done, $partial] = self::process_i18n_step($state);
                     $log = array_merge($log, $logStep);
                     if ($done) { $state['index'] = $i + 1; }
@@ -740,7 +752,7 @@ class Importer
                     self::audit($state, 'done', [
                         'steps' => $steps,
                         'created_posts' => count((array) ($state['created_posts'] ?? [])),
-                        'created_terms' => count((array) ($state['created_terms'] ?? []))
+                        'created_terms' => count((array) ($state['created_terms'] ?? [])),
                     ]);
                 } catch (\Throwable $ie) {}
             }
@@ -1009,7 +1021,14 @@ class Importer
         if (!in_array($id, $list, true)) { $list[] = $id; $state['created_widgets'] = $list; \update_option('aqlx_import_state', $state, false); }
     }
 
-    /** Find a post by slug (derived from title) for a given post type; returns ID or 0. */
+    // Find a post by slug (derived from title) for a given post type; returns ID or 0.
+    /**
+     * Find an existing post by slug derived from a title for a given post type.
+     *
+     * @param string $post_type Post type to search.
+     * @param string $title     Title to derive slug from.
+     * @return int Post ID or 0 when not found.
+     */
     private static function find_post_by_title_slug(string $post_type, string $title): int
     {
         $slug = sanitize_title($title);
@@ -1074,7 +1093,14 @@ class Importer
         try { self::audit($state, 'rollback', [ 'postsRolledBack' => count($posts), 'termsRolledBack' => count($terms) ]); } catch (\Throwable $ie) {}
     }
 
-    /** Append a JSONL audit event for the current run. */
+    // Append a JSONL audit event for the current run.
+    /**
+     * Append a JSONL audit line.
+     *
+     * @param array  $state   Importer state (must include audit_file).
+     * @param string $event   Event name (start, tick, done, error, etc.).
+     * @param array  $payload Arbitrary payload to include.
+     */
     private static function audit(array $state, string $event, array $payload = []): void
     {
         $file = (string) ($state['audit_file'] ?? '');
@@ -1122,7 +1148,8 @@ class Importer
         $total = max(1, (int) ($ps['total'] ?? count($items)));
         $log = [];
         $processed = 0;
-        while ($idx < count($items) && $processed < $volume) {
+    $itemsCount = count($items);
+    while ($idx < $itemsCount && $processed < $volume) {
             $it = $items[$idx];
             $slug = $it['slug'];
             $title = $it['title'];
@@ -1152,9 +1179,9 @@ class Importer
                     $log[] = 'Skipped existing page: ' . $title; try { self::audit($state, 'skip', [ 'type' => 'page', 'id' => (int) $existing->ID, 'slug' => $slug ]); } catch (\Throwable $ie) {}
                 }
             }
-            $idx++; $processed++;
+            ++$idx; ++$processed;
         }
-        $ps['index'] = $idx; $ps['total'] = count($items);
+    $ps['index'] = $idx; $ps['total'] = count($items);
         // After creating pages, set home/blog and menu once
         if (!$ps['homeSet']) {
             $home = \get_page_by_path('home'); $blog = \get_page_by_path('blog');
@@ -1192,8 +1219,8 @@ class Importer
         }
         // Persist step state
         $state['step_state']['pages'] = $ps; \update_option('aqlx_import_state', $state, false);
-        $done = $ps['index'] >= count($items);
-        $partial = min(1.0, max(0.0, (count($items) ? $ps['index'] / count($items) : 1.0)));
+    $done = $ps['index'] >= $itemsCount;
+    $partial = min(1.0, max(0.0, ($itemsCount ? $ps['index'] / $itemsCount : 1.0)));
         return [$log, $done, $partial];
     }
 
@@ -1215,7 +1242,7 @@ class Importer
                 if ($policy === 'overwrite') { \wp_update_post([ 'ID' => $existing, 'post_status' => 'publish' ]); $log[] = 'Updated service #' . $i; }
                 else { $log[] = 'Skipped service #' . $i; }
             }
-            $cs['service_index']++; $processed++;
+            ++$cs['service_index']; ++$processed;
         }
     // Then events
         while ($cs['event_index'] < $cs['event_total'] && $processed < $volume) {
@@ -1227,7 +1254,7 @@ class Importer
                 if ($policy === 'overwrite') { \wp_update_post([ 'ID' => $existing, 'post_status' => 'publish' ]); $log[] = 'Updated event #' . $i; }
                 else { $log[] = 'Skipped event #' . $i; }
             }
-            $cs['event_index']++; $processed++;
+            ++$cs['event_index']; ++$processed;
         }
         // Finally testimonials
         while ($cs['testimonial_index'] < $cs['testimonial_total'] && $processed < $volume) {
@@ -1246,7 +1273,7 @@ class Importer
                 if ($policy === 'overwrite') { \wp_update_post([ 'ID' => $existing, 'post_status' => 'publish' ]); $log[] = 'Updated testimonial #' . $i; }
                 else { $log[] = 'Skipped testimonial #' . $i; }
             }
-            $cs['testimonial_index']++; $processed++;
+            ++$cs['testimonial_index']; ++$processed;
         }
         $state['step_state']['cpts'] = $cs; \update_option('aqlx_import_state', $state, false);
         $total = max(1, (int) $cs['service_total'] + (int) $cs['event_total'] + (int) $cs['testimonial_total']);
@@ -1303,7 +1330,7 @@ class Importer
                     if (!has_post_thumbnail($existing_id)) { $att_id = self::ensure_demo_image('specimen-' . $i); if ($att_id) { set_post_thumbnail($existing_id, $att_id); $log[] = 'Added image to product: ' . $name; } }
                 } else { $log[] = 'Skipped product: ' . $name; }
             }
-            $ps['simple_index']++; $processed++;
+            ++$ps['simple_index']; ++$processed;
         }
         // Variable product (counts as one unit)
         if (!$ps['variable_done'] && $processed < $volume) {
@@ -1336,7 +1363,7 @@ class Importer
                 if ($policy === 'overwrite') { $p = wc_get_product($existing_id); if ($p) { $p->save(); $log[] = 'Verified variable product: ' . $name; } }
                 else { $log[] = 'Skipped variable product: already exists.'; }
             }
-            $ps['variable_done'] = true; $processed++;
+            $ps['variable_done'] = true; ++$processed;
         }
         // Minimal WC settings (once)
         if (!get_option('woocommerce_currency')) { \update_option('woocommerce_currency', 'USD'); }
@@ -1396,7 +1423,7 @@ class Importer
             } else {
                 $log[] = 'Skipped existing user: ' . $username;
             }
-            $us['index']++; $processed++;
+            ++$us['index']; ++$processed;
         }
         $state['step_state']['users'] = $us; \update_option('aqlx_import_state', $state, false);
         $done = $us['index'] >= $us['total'];
@@ -1426,7 +1453,7 @@ class Importer
     $sidebars = get_option('sidebars_widgets', []);
     $widgets = get_option('widget_text', []);
         if (!is_array($widgets)) { $widgets = []; }
-        $newIdx = 1; while (isset($widgets[$newIdx])) { $newIdx++; }
+    $newIdx = 1; while (isset($widgets[$newIdx])) { ++$newIdx; }
         $widgets[$newIdx] = [ 'title' => 'AquaLuxe', 'text' => '<p>Bringing elegance to aquatic life – globally.</p>' ];
         update_option('widget_text', $widgets);
         if (!isset($sidebars['footer-1'])) { $sidebars['footer-1'] = []; }
@@ -1563,7 +1590,7 @@ class Importer
                 if (!$attId) { $log[] = 'Failed to import media: ' . $url; }
             }
             if ($attId) { self::track_created_post((int) $attId); $log[] = 'Imported media #' . ($ms['index'] + 1); }
-            $ms['index']++; $processed++;
+            ++$ms['index']; ++$processed;
         }
         $state['step_state']['media'] = $ms; \update_option('aqlx_import_state', $state, false);
         $done = $ms['index'] >= $ms['total'];

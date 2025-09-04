@@ -259,7 +259,7 @@ function handle_contact(): void
     echo '<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">';
     while ($q->have_posts()) { $q->the_post();
         $name = \esc_html(get_the_title());
-        $excerpt = \wp_kses_post(get_the_excerpt() ?: wp_trim_words(strip_tags(get_the_content('')), 24));
+    $excerpt = \wp_kses_post(get_the_excerpt() ?: wp_trim_words(wp_strip_all_tags(get_the_content('')), 24));
         $avatar = get_the_post_thumbnail(get_the_ID(), 'thumbnail', ['class' => 'w-12 h-12 rounded-full object-cover']);
         echo '<figure class="rounded-lg border border-slate-200 dark:border-slate-800 p-5 bg-white/60 dark:bg-slate-900/60">';
         echo '<div class="flex items-center gap-3 mb-3">' . ($avatar ? $avatar : '') . '<figcaption class="font-semibold">' . $name . '</figcaption></div>';
