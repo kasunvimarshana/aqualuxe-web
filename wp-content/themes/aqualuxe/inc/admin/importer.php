@@ -284,9 +284,9 @@ class Importer
         /** Schedule helper: allow clearing failed schedules. */
         public static function maybe_schedule(): void
         {
-                if (isset($_GET['aqlx_clear_schedule']) && current_user_can('manage_options')) {
-                        \wp_clear_scheduled_hook('aqlx_scheduled_reinit');
-                }
+            if (isset($_GET['aqlx_clear_schedule']) && current_user_can('manage_options')) {
+                \wp_clear_scheduled_hook('aqlx_scheduled_reinit');
+            }
         }
 
         public static function schedule(array $entities, bool $reset, int $volume, string $recurrence = 'daily'): array
@@ -308,7 +308,7 @@ class Importer
         }
     private static function reset_content(): string
     {
-    $types = ['post','page','attachment','service','event','testimonial','nav_menu_item'];
+        $types = ['post','page','attachment','service','event','testimonial','nav_menu_item'];
         if (class_exists('WooCommerce')) {
             $types[] = 'product';
             $types[] = 'product_variation';
@@ -328,7 +328,7 @@ class Importer
             }
         }
         return 'Reset content for: ' . implode(', ', $types);
-        }
+    }
     private static function create_core_pages(): string
     {
         $pages = [
@@ -582,7 +582,6 @@ class Importer
         } catch (\Throwable $e) {}
         return 'Configured WooCommerce pages, payments, and shipping.';
     }
-
     // --- Below: Step-wise engine helpers (used by REST endpoints) ---
     public static function start(array $entities, bool $reset, int $volume = 10, string $policy = 'skip', string $locale = 'en_US', array $range = [], array $assets = [], string $currency = 'USD', array $localesExtra = []): array
     {
@@ -843,7 +842,6 @@ class Importer
         \delete_option('aqlx_import_state');
         return ['ok' => true, 'canceled' => true];
     }
-
     private static function reset_selected(array $types, array $range = []): string
     {
         $from = !empty($range['from']) ? strtotime($range['from'] . ' 00:00:00') : 0;
@@ -851,11 +849,13 @@ class Importer
         foreach ($types as $type) {
             $args = ['post_type' => $type, 'posts_per_page' => -1, 'post_status' => 'any'];
             if ($from || $to) {
-                $args['date_query'] = [[
-                    'after' => $from ? gmdate('Y-m-d H:i:s', $from) : null,
-                    'before' => $to ? gmdate('Y-m-d H:i:s', $to) : null,
-                    'inclusive' => true,
-                ]];
+                $args['date_query'] = [
+                    [
+                        'after' => $from ? gmdate('Y-m-d H:i:s', $from) : null,
+                        'before' => $to ? gmdate('Y-m-d H:i:s', $to) : null,
+                        'inclusive' => true,
+                    ],
+                ];
             }
             $q = new \WP_Query($args);
             while ($q->have_posts()) { $q->the_post(); \wp_delete_post(\get_the_ID(), true); }
@@ -863,7 +863,6 @@ class Importer
         }
         return 'Reset: ' . implode(', ', $types);
     }
-
     private static function build_steps(array $entities): array
     {
         $steps = [];
@@ -1150,8 +1149,8 @@ class Importer
         $items = (array) ($ps['items'] ?? []);
         $idx = (int) ($ps['index'] ?? 0);
         $total = max(1, (int) ($ps['total'] ?? count($items)));
-        $log = [];
-        $processed = 0;
+    $log = [];
+    $processed = 0;
     $itemsCount = count($items);
     while ($idx < $itemsCount && $processed < $volume) {
             $it = $items[$idx];
@@ -1168,20 +1167,18 @@ class Importer
                 ]);
                 if ($pid) { self::track_created_post((int) $pid); $log[] = 'Created page: ' . $title; try { self::audit($state, 'create', [ 'type' => 'page', 'id' => (int) $pid, 'slug' => $slug ]); } catch (\Throwable $ie) {} }
                 if (!empty($it['template']) && $pid) { \update_post_meta($pid, '_wp_page_template', $it['template']); }
+            } elseif ($policy === 'overwrite') {
+                \wp_update_post([
+                    'ID' => $existing->ID,
+                    'post_content' => isset($it['content']) ? \wp_kses_post($it['content']) : $existing->post_content,
+                ]);
+                if (!empty($it['template'])) { \update_post_meta($existing->ID, '_wp_page_template', $it['template']); }
+                $log[] = 'Updated page: ' . $title; try { self::audit($state, 'update', [ 'type' => 'page', 'id' => (int) $existing->ID, 'slug' => $slug ]); } catch (\Throwable $ie) {}
+            } elseif ($policy === 'merge') {
+                if (!empty($it['template'])) { \update_post_meta($existing->ID, '_wp_page_template', $it['template']); $log[] = 'Ensured template for page: ' . $title; try { self::audit($state, 'merge', [ 'type' => 'page', 'id' => (int) $existing->ID, 'slug' => $slug, 'fields' => ['template'] ]); } catch (\Throwable $ie) {} }
+                // keep content
             } else {
-                if ($policy === 'overwrite') {
-                    \wp_update_post([
-                        'ID' => $existing->ID,
-                        'post_content' => isset($it['content']) ? \wp_kses_post($it['content']) : $existing->post_content,
-                    ]);
-                    if (!empty($it['template'])) { \update_post_meta($existing->ID, '_wp_page_template', $it['template']); }
-                    $log[] = 'Updated page: ' . $title; try { self::audit($state, 'update', [ 'type' => 'page', 'id' => (int) $existing->ID, 'slug' => $slug ]); } catch (\Throwable $ie) {}
-                } elseif ($policy === 'merge') {
-                    if (!empty($it['template'])) { \update_post_meta($existing->ID, '_wp_page_template', $it['template']); $log[] = 'Ensured template for page: ' . $title; try { self::audit($state, 'merge', [ 'type' => 'page', 'id' => (int) $existing->ID, 'slug' => $slug, 'fields' => ['template'] ]); } catch (\Throwable $ie) {} }
-                    // keep content
-                } else {
-                    $log[] = 'Skipped existing page: ' . $title; try { self::audit($state, 'skip', [ 'type' => 'page', 'id' => (int) $existing->ID, 'slug' => $slug ]); } catch (\Throwable $ie) {}
-                }
+                $log[] = 'Skipped existing page: ' . $title; try { self::audit($state, 'skip', [ 'type' => 'page', 'id' => (int) $existing->ID, 'slug' => $slug ]); } catch (\Throwable $ie) {}
             }
             ++$idx; ++$processed;
         }
@@ -1242,10 +1239,7 @@ class Importer
             if (!$existing) {
                 $pid = \wp_insert_post([ 'post_title' => $title, 'post_type' => 'service', 'post_status' => 'publish', 'post_content' => 'Professional aquarium service #' . $i ]);
                 if ($pid) { self::track_created_post((int) $pid); $log[] = 'Created service #' . $i; }
-            } else {
-                if ($policy === 'overwrite') { \wp_update_post([ 'ID' => $existing, 'post_status' => 'publish' ]); $log[] = 'Updated service #' . $i; }
-                else { $log[] = 'Skipped service #' . $i; }
-            }
+            } elseif ($policy === 'overwrite') { \wp_update_post([ 'ID' => $existing, 'post_status' => 'publish' ]); $log[] = 'Updated service #' . $i; } else { $log[] = 'Skipped service #' . $i; }
             ++$cs['service_index']; ++$processed;
         }
     // Then events
@@ -1254,10 +1248,7 @@ class Importer
             if (!$existing) {
                 $pid = \wp_insert_post([ 'post_title' => $title, 'post_type' => 'event', 'post_status' => 'publish', 'post_content' => 'AquaLuxe event #' . $i ]);
                 if ($pid) { self::track_created_post((int) $pid); $log[] = 'Created event #' . $i; }
-            } else {
-                if ($policy === 'overwrite') { \wp_update_post([ 'ID' => $existing, 'post_status' => 'publish' ]); $log[] = 'Updated event #' . $i; }
-                else { $log[] = 'Skipped event #' . $i; }
-            }
+            } elseif ($policy === 'overwrite') { \wp_update_post([ 'ID' => $existing, 'post_status' => 'publish' ]); $log[] = 'Updated event #' . $i; } else { $log[] = 'Skipped event #' . $i; }
             ++$cs['event_index']; ++$processed;
         }
         // Finally testimonials
@@ -1273,10 +1264,7 @@ class Importer
             if (!$existing) {
                 $pid = \wp_insert_post([ 'post_title' => $title, 'post_type' => 'testimonial', 'post_status' => 'publish', 'post_content' => $text, 'post_excerpt' => $text ]);
                 if ($pid) { self::track_created_post((int) $pid); $log[] = 'Created testimonial #' . $i; }
-            } else {
-                if ($policy === 'overwrite') { \wp_update_post([ 'ID' => $existing, 'post_status' => 'publish' ]); $log[] = 'Updated testimonial #' . $i; }
-                else { $log[] = 'Skipped testimonial #' . $i; }
-            }
+            } elseif ($policy === 'overwrite') { \wp_update_post([ 'ID' => $existing, 'post_status' => 'publish' ]); $log[] = 'Updated testimonial #' . $i; } else { $log[] = 'Skipped testimonial #' . $i; }
             ++$cs['testimonial_index']; ++$processed;
         }
         $state['step_state']['cpts'] = $cs; \update_option('aqlx_import_state', $state, false);
@@ -1328,14 +1316,12 @@ class Importer
                 if (!empty($cat_ids)) { \wp_set_object_terms($pid, [$cat_ids[$i % max(1,$cat_count)]], 'product_cat'); }
                 if (!empty($tag_ids)) { \wp_set_object_terms($pid, [$tag_ids[$i % max(1,$tag_count)]], 'product_tag', true); }
                 $att_id = self::ensure_demo_image('specimen-' . $i); if ($att_id) { set_post_thumbnail($pid, $att_id); }
-            } else {
-                if ($policy === 'overwrite') {
-                    $p = wc_get_product($existing_id); if ($p) { $p->set_regular_price((string) (50 + 10 * $i)); $p->save(); $log[] = 'Updated product: ' . $name; }
-                } elseif ($policy === 'merge') {
+            } elseif ($policy === 'overwrite') {
+                $p = wc_get_product($existing_id); if ($p) { $p->set_regular_price((string) (50 + 10 * $i)); $p->save(); $log[] = 'Updated product: ' . $name; }
+            } elseif ($policy === 'merge') {
                     // Ensure thumbnail only
                     if (!has_post_thumbnail($existing_id)) { $att_id = self::ensure_demo_image('specimen-' . $i); if ($att_id) { set_post_thumbnail($existing_id, $att_id); $log[] = 'Added image to product: ' . $name; } }
-                } else { $log[] = 'Skipped product: ' . $name; }
-            }
+            } else { $log[] = 'Skipped product: ' . $name; }
             ++$ps['simple_index']; ++$processed;
         }
         // Variable product (counts as one unit)
@@ -1365,10 +1351,7 @@ class Importer
                     $vars = [ ['size'=>'small','color'=>'blue','material'=>'glass','price'=>199,'stock'=>7], ['size'=>'medium','color'=>'blue','material'=>'glass','price'=>299,'stock'=>5], ['size'=>'large','color'=>'gold','material'=>'acrylic','price'=>499,'stock'=>3] ];
                     foreach ($vars as $v) { $var = new \WC_Product_Variation(); $var->set_parent_id($vid); $var->set_attributes([ 'pa_size' => $v['size'], 'pa_color' => $v['color'], 'pa_material' => $v['material'] ]); $var->set_status('publish'); $var->set_regular_price((string) $v['price']); $var->set_manage_stock(true); $var->set_stock_quantity((int) $v['stock']); $var->save(); }
                 }
-            } else {
-                if ($policy === 'overwrite') { $p = wc_get_product($existing_id); if ($p) { $p->save(); $log[] = 'Verified variable product: ' . $name; } }
-                else { $log[] = 'Skipped variable product: already exists.'; }
-            }
+            } elseif ($policy === 'overwrite') { $p = wc_get_product($existing_id); if ($p) { $p->save(); $log[] = 'Verified variable product: ' . $name; } } else { $log[] = 'Skipped variable product: already exists.'; }
             $ps['variable_done'] = true; ++$processed;
         }
         // Minimal WC settings (once)
@@ -1489,7 +1472,12 @@ class Importer
         return [$log, true, 1.0];
     }
 
-    /** i18n step: duplicate created posts into extra locales; optionally link via Polylang if present. */
+    /**
+     * i18n step: duplicate created posts into extra locales; optionally link via Polylang if present.
+     *
+     * @param array $state Importer state array (passed by reference).
+     * @return array {array log, bool done, float partial}
+     */
     private static function process_i18n_step(array &$state): array
     {
         $logs = [];
@@ -1566,6 +1554,9 @@ class Importer
     /**
      * Media step: fetch and import media assets based on chosen provider.
      * Supports providers: local_svg (placeholders), picsum (random photos), wikimedia (Commons API).
+     *
+     * @param array $state Importer state array (passed by reference).
+     * @return array {array log, bool done, float partial}
      */
     private static function process_media_step(array &$state): array
     {
