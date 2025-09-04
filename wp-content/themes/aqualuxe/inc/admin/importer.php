@@ -297,7 +297,7 @@ class Importer
             if (!$hasNext && \function_exists('wp_schedule_event')) {
                 \call_user_func('wp_schedule_event', time() + 60, $recurrence, 'aqlx_scheduled_reinit');
             }
-            if (\function_exists('add_action')) { \call_user_func('add_action', 'aqlx_scheduled_reinit', function(){
+            if (\function_exists('add_action')) { \call_user_func('add_action', 'aqlx_scheduled_reinit', function () {
                 $cfg = (array) (\function_exists('get_option') ? \call_user_func('get_option', 'aqlx_import_schedule', []) : []);
                 if (!$cfg) return;
                 // Run a fresh cycle each schedule
@@ -698,7 +698,7 @@ class Importer
                         // Set currency if provided
                         $cur = (string) ($state['currency'] ?? ''); if ($cur) { try { \update_option('woocommerce_currency', $cur); } catch (\Throwable $e) {} }
                         $log[] = self::configure_wc();
-                    } elseif (!class_exists('WooCommerce')) {
+                    } else {
                         $log[] = 'WooCommerce not active; skipping wc_config.';
                     }
                     $state['index'] = $i + 1;
@@ -1473,7 +1473,7 @@ class Importer
     }
 
     /**
-     * i18n step: duplicate created posts into extra locales; optionally link via Polylang if present.
+     * I18n step: duplicate created posts into extra locales; optionally link via Polylang if present.
      *
      * @param array $state Importer state array (passed by reference).
      * @return array {array log, bool done, float partial}

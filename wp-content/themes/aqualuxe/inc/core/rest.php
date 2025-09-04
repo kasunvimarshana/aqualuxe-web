@@ -56,32 +56,37 @@ class REST
         ]);
 
         // Importer endpoints (admin only)
-    \call_user_func('register_rest_route', 'aqualuxe/v1', '/import/start', [
-            'methods' => 'POST',
-            'permission_callback' => function(){ return \call_user_func('current_user_can','manage_options'); },
-            'callback' => function ($request) {
-                $entities = (array) ($request->get_param('entities') ?: []);
-                $reset = (bool) $request->get_param('reset');
-                $volume = (int) ($request->get_param('volume') ?: 10);
-                $policy = (string) ($request->get_param('policy') ?: 'skip');
-                $locale = (string) ($request->get_param('locale') ?: 'en_US');
-                $range = (array) ($request->get_param('range') ?: []);
-                $assets = (array) ($request->get_param('assets') ?: []);
-                $currency = (string) ($request->get_param('currency') ?: 'USD');
-                $localesExtra = (array) ($request->get_param('localesExtra') ?: []);
-                return \AquaLuxe\Admin\Importer::start($entities, $reset, $volume, $policy, $locale, $range, $assets, $currency, $localesExtra);
-            }
-        ]);
+    \call_user_func(
+            'register_rest_route',
+            'aqualuxe/v1',
+            '/import/start',
+            [
+                'methods' => 'POST',
+                'permission_callback' => function () { return \call_user_func('current_user_can', 'manage_options'); },
+                'callback' => function ($request) {
+                    $entities = (array) ($request->get_param('entities') ?: []);
+                    $reset = (bool) $request->get_param('reset');
+                    $volume = (int) ($request->get_param('volume') ?: 10);
+                    $policy = (string) ($request->get_param('policy') ?: 'skip');
+                    $locale = (string) ($request->get_param('locale') ?: 'en_US');
+                    $range = (array) ($request->get_param('range') ?: []);
+                    $assets = (array) ($request->get_param('assets') ?: []);
+                    $currency = (string) ($request->get_param('currency') ?: 'USD');
+                    $localesExtra = (array) ($request->get_param('localesExtra') ?: []);
+                    return \AquaLuxe\Admin\Importer::start($entities, $reset, $volume, $policy, $locale, $range, $assets, $currency, $localesExtra);
+                },
+            ]
+        );
         \call_user_func('register_rest_route', 'aqualuxe/v1', '/import/step', [
             'methods' => 'POST',
-            'permission_callback' => function(){ return \call_user_func('current_user_can','manage_options'); },
+            'permission_callback' => function () { return \call_user_func('current_user_can','manage_options'); },
             'callback' => function () {
                 return \AquaLuxe\Admin\Importer::step();
             }
         ]);
         \call_user_func('register_rest_route', 'aqualuxe/v1', '/import/export', [
             'methods' => 'POST',
-            'permission_callback' => function(){ return \call_user_func('current_user_can','manage_options'); },
+            'permission_callback' => function () { return \call_user_func('current_user_can','manage_options'); },
             'callback' => function ($request) {
                 $entities = (array) ($request->get_param('entities') ?: []);
                 return \AquaLuxe\Admin\Importer::export($entities);
@@ -91,7 +96,7 @@ class REST
         // Preview endpoint (admin only)
         \call_user_func('register_rest_route', 'aqualuxe/v1', '/import/preview', [
             'methods' => 'POST',
-            'permission_callback' => function(){ return \call_user_func('current_user_can','manage_options'); },
+            'permission_callback' => function () { return \call_user_func('current_user_can','manage_options'); },
             'callback' => function ($request) {
                 $entities = (array) ($request->get_param('entities') ?: []);
                 $volume = (int) ($request->get_param('volume') ?: 10);
@@ -102,7 +107,7 @@ class REST
         // Scheduling endpoints
         \call_user_func('register_rest_route', 'aqualuxe/v1', '/import/schedule', [
             'methods' => 'POST',
-            'permission_callback' => function(){ return \call_user_func('current_user_can','manage_options'); },
+            'permission_callback' => function () { return \call_user_func('current_user_can','manage_options'); },
             'callback' => function ($request) {
                 $entities = (array) ($request->get_param('entities') ?: []);
                 $reset = (bool) $request->get_param('reset');
@@ -113,7 +118,7 @@ class REST
         ]);
         \call_user_func('register_rest_route', 'aqualuxe/v1', '/import/schedule/state', [
             'methods' => 'GET',
-            'permission_callback' => function(){ return \call_user_func('current_user_can','manage_options'); },
+            'permission_callback' => function () { return \call_user_func('current_user_can','manage_options'); },
             'callback' => function () {
                 $cfg = (array) (\function_exists('get_option') ? \call_user_func('get_option', 'aqlx_import_schedule', []) : []);
                 $nextTs = \function_exists('wp_next_scheduled') ? \call_user_func('wp_next_scheduled', 'aqlx_scheduled_reinit') : 0;
@@ -122,7 +127,7 @@ class REST
         ]);
         \call_user_func('register_rest_route', 'aqualuxe/v1', '/import/schedule/clear', [
             'methods' => 'POST',
-            'permission_callback' => function(){ return \call_user_func('current_user_can','manage_options'); },
+            'permission_callback' => function () { return \call_user_func('current_user_can','manage_options'); },
             'callback' => function () {
                 \wp_clear_scheduled_hook('aqlx_scheduled_reinit');
                 \delete_option('aqlx_import_schedule');
@@ -133,7 +138,7 @@ class REST
         // Flush all demo content and reset importer state
         \call_user_func('register_rest_route', 'aqualuxe/v1', '/import/flush', [
             'methods' => 'POST',
-            'permission_callback' => function(){ return \call_user_func('current_user_can','manage_options'); },
+            'permission_callback' => function () { return \call_user_func('current_user_can','manage_options'); },
             'callback' => function () {
                 return \AquaLuxe\Admin\Importer::flush();
             }
@@ -142,7 +147,7 @@ class REST
         // Importer state
         \call_user_func('register_rest_route', 'aqualuxe/v1', '/import/state', [
             'methods' => 'GET',
-            'permission_callback' => function(){ return \call_user_func('current_user_can','manage_options'); },
+            'permission_callback' => function () { return \call_user_func('current_user_can','manage_options'); },
             'callback' => function () {
                 return \AquaLuxe\Admin\Importer::state();
             }
@@ -151,7 +156,7 @@ class REST
         // List recent audit logs
         \call_user_func('register_rest_route', 'aqualuxe/v1', '/import/audits', [
             'methods' => 'GET',
-            'permission_callback' => function(){ return \call_user_func('current_user_can','manage_options'); },
+            'permission_callback' => function () { return \call_user_func('current_user_can','manage_options'); },
             'callback' => function () {
                 $upload = \wp_upload_dir();
                 $dir = trailingslashit($upload['basedir']) . 'aqualuxe-import-logs/';
@@ -182,17 +187,17 @@ class REST
         // Pause/resume/cancel importer
         \call_user_func('register_rest_route', 'aqualuxe/v1', '/import/pause', [
             'methods' => 'POST',
-            'permission_callback' => function(){ return \call_user_func('current_user_can','manage_options'); },
+            'permission_callback' => function () { return \call_user_func('current_user_can','manage_options'); },
             'callback' => function () { return \AquaLuxe\Admin\Importer::pause(); }
         ]);
         \call_user_func('register_rest_route', 'aqualuxe/v1', '/import/resume', [
             'methods' => 'POST',
-            'permission_callback' => function(){ return \call_user_func('current_user_can','manage_options'); },
+            'permission_callback' => function () { return \call_user_func('current_user_can','manage_options'); },
             'callback' => function () { return \AquaLuxe\Admin\Importer::resume(); }
         ]);
         \call_user_func('register_rest_route', 'aqualuxe/v1', '/import/cancel', [
             'methods' => 'POST',
-            'permission_callback' => function(){ return \call_user_func('current_user_can','manage_options'); },
+            'permission_callback' => function () { return \call_user_func('current_user_can','manage_options'); },
             'callback' => function () { return \AquaLuxe\Admin\Importer::cancel(); }
         ]);
     }
