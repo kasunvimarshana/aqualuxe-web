@@ -277,7 +277,6 @@ class Importer
             ]);
         }
     }
-
         /** Schedule helper: allow clearing failed schedules. */
         public static function maybe_schedule(): void
         {
@@ -523,7 +522,6 @@ class Importer
         try { \update_option('woocommerce_currency', 'USD'); } catch (\Throwable $e) {}
         return 'Created WooCommerce categories, simple and variable products, basic settings.';
     }
-
     /** Configure WooCommerce core pages, payments, and shipping */
     private static function configure_wc(): string
     {
@@ -770,7 +768,6 @@ class Importer
         $url = trailingslashit($upload['baseurl']) . basename($file);
         return ['url' => $url];
     }
-
     /** Flush all importer state and demo content. */
     public static function flush(): array
     {
@@ -779,7 +776,6 @@ class Importer
         \delete_option('aqlx_import_schedule');
         return ['ok' => true, 'message' => $msg];
     }
-
     /** Return current importer state for debugging */
     public static function state(): array
     {
@@ -801,7 +797,6 @@ class Importer
             'created_terms' => count((array) ($state['created_terms'] ?? [])),
         ];
     }
-
     /** Pause the importer */
     public static function pause(): array
     {
@@ -812,7 +807,6 @@ class Importer
         try { self::audit($state, 'pause', []); } catch (\Throwable $ie) {}
         return ['ok' => true, 'paused' => true];
     }
-
     /** Resume the importer */
     public static function resume(): array
     {
@@ -823,7 +817,6 @@ class Importer
         try { self::audit($state, 'resume', []); } catch (\Throwable $ie) {}
         return ['ok' => true, 'paused' => false];
     }
-
     /** Cancel the importer: rollback created and clear state */
     public static function cancel(): array
     {
@@ -879,7 +872,6 @@ class Importer
         foreach ($entities as $e) { $types = array_merge($types, $map[$e] ?? []); }
         return array_values(array_unique($types));
     }
-
     /**
      * Create or reuse a simple SVG placeholder and attach to Media Library.
      *
@@ -927,7 +919,6 @@ class Importer
         }
         return (int) $attach_id;
     }
-
     // Lightweight preview report for UI
     public static function preview(array $entities, int $volume = 10): array
     {
@@ -954,7 +945,6 @@ class Importer
         $report['sample'] = [ 'product' => 'AquaLuxe Specimen 1', 'page' => 'Home' ];
         return $report;
     }
-
     // --- Helpers for batching, conflict policy, and rollback ---
     private static function compute_progress(array $state, float $partial): int
     {
@@ -1008,7 +998,6 @@ class Importer
         $list = (array) ($state['created_widgets'] ?? []);
         if (!in_array($id, $list, true)) { $list[] = $id; $state['created_widgets'] = $list; \update_option('aqlx_import_state', $state, false); }
     }
-
     // Find a post by slug (derived from title) for a given post type; returns ID or 0.
     /**
      * Find an existing post by slug derived from a title for a given post type.
@@ -1078,7 +1067,6 @@ class Importer
         \update_option('aqlx_import_state', $state, false);
         try { self::audit($state, 'rollback', [ 'postsRolledBack' => count($posts), 'termsRolledBack' => count($terms) ]); } catch (\Throwable $ie) {}
     }
-
     // Append a JSONL audit event for the current run.
     /**
      * Append a JSONL audit line.
@@ -1342,7 +1330,6 @@ class Importer
         $done = $doneUnits >= $totalUnits;
         return [$log, $done, $partial];
     }
-
     /**
      * Estimate partial completion for current step using step_state.
      *
@@ -1447,7 +1434,6 @@ class Importer
         try { self::audit($state, 'set-option', [ 'blogdescription' => get_option('blogdescription'), 'aqlx_locale_hint' => $locale ]); } catch (\Throwable $ie) {}
         return [$log, true, 1.0];
     }
-
     /**
      * I18n step: duplicate created posts into extra locales; optionally link via Polylang if present.
      *
@@ -1513,7 +1499,6 @@ class Importer
                     if ($default_lang) { $lang_map[$default_lang] = $orig_id; }
                     try { \call_user_func('pll_save_post_translations', $lang_map); } catch (\Throwable $e) {}
                 }
-
                 // Track as created
                 $state['created_posts'][] = (int) $new_id;
                 $logs[] = 'i18n: duplicated post ' . $orig_id . ' -> ' . $new_id . ' (' . $loc . ')';
@@ -1524,7 +1509,6 @@ class Importer
         $partial = min(1.0, $state['i18n_offset'] / $total);
         return [$logs, $done, $partial];
     }
-
     /**
      * Media step: fetch and import media assets based on chosen provider.
      * Supports providers: local_svg (placeholders), picsum (random photos), wikimedia (Commons API).
@@ -1573,7 +1557,6 @@ class Importer
         $partial = min(1.0, max(0.0, ($ms['total'] ? $ms['index'] / $ms['total'] : 1.0)));
         return [$log, $done, $partial];
     }
-
     /**
      * Build candidate media items based on provider config.
      *
@@ -1633,7 +1616,6 @@ class Importer
         }
         return $items;
     }
-
     /**
      * Download a remote media file and create an attachment.
      *
@@ -1663,4 +1645,3 @@ class Importer
         return $id;
     }
 }
-
