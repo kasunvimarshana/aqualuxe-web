@@ -45,5 +45,18 @@ class CPTs
             'hierarchical' => true,
             'show_in_rest' => true,
         ]);
+
+        // Testimonials
+        \register_post_type('testimonial', [
+            'labels' => [
+                'name' => \__('Testimonials', 'aqualuxe'),
+                'singular_name' => \__('Testimonial', 'aqualuxe'),
+            ],
+            'public' => true,
+            'has_archive' => false,
+            'menu_icon' => 'dashicons-format-quote',
+            'supports' => ['title', 'editor', 'thumbnail', 'excerpt', 'revisions'],
+            'show_in_rest' => true,
+        ]);
     }
 }

@@ -48,7 +48,7 @@ class Importer
                             <fieldset>
                                 <legend><strong><?php esc_html_e('Entities to import', 'aqualuxe'); ?></strong></legend>
                                 <label><input type="checkbox" class="aqlx-entity" value="pages" checked> <?php esc_html_e('Pages & Menus', 'aqualuxe'); ?></label><br>
-                                <label><input type="checkbox" class="aqlx-entity" value="cpts" checked> <?php esc_html_e('CPTs (Services, Events)', 'aqualuxe'); ?></label><br>
+                                <label><input type="checkbox" class="aqlx-entity" value="cpts" checked> <?php esc_html_e('CPTs (Services, Events, Testimonials)', 'aqualuxe'); ?></label><br>
                                 <label><input type="checkbox" class="aqlx-entity" value="users"> <?php esc_html_e('Users (customers, shop manager)', 'aqualuxe'); ?></label><br>
                                 <label><input type="checkbox" class="aqlx-entity" value="roles"> <?php esc_html_e('Roles & Capabilities (partner role)', 'aqualuxe'); ?></label><br>
                                 <?php if (class_exists('WooCommerce')): ?>
@@ -78,22 +78,53 @@ class Importer
                                                         </fieldset>
                                                         <fieldset>
                                                                 <legend><strong><?php esc_html_e('Reset Filters (optional)', 'aqualuxe'); ?></strong></legend>
-                                                                <label><?php esc_html_e('From date', 'aqualuxe'); ?> <input type="date" id="aqlx-from"></label>
-                                                                <label><?php esc_html_e('To date', 'aqualuxe'); ?> <input type="date" id="aqlx-to"></label>
+                                                                    <label><?php esc_html_e('From date', 'aqualuxe'); ?> <input type="date" id="aqlx-from"></label>
+                                                                    <label><?php esc_html_e('To date', 'aqualuxe'); ?> <input type="date" id="aqlx-to"></label>
+                                                                    <button type="button" id="aqlx-last30" class="button" style="margin-left:8px;" title="<?php esc_attr_e('Fill last 30 days', 'aqualuxe'); ?>"><?php esc_html_e('Last 30 days', 'aqualuxe'); ?></button>
                             </fieldset>
                         </div>
                         <div style="margin-top:12px; display:flex; gap:8px; align-items:center;">
                             <button id="aqlx-start" class="button button-primary"><?php esc_html_e('Start Import', 'aqualuxe'); ?></button>
+                            <span id="aqlx-scheduled-badge" style="display:none; padding:2px 6px; border-radius:3px; background:#f6f7f7; border:1px solid #ccd0d4; font-size:11px;">
+                                <?php esc_html_e('Scheduled', 'aqualuxe'); ?>
+                            </span>
                             <button id="aqlx-preview" class="button"><?php esc_html_e('Preview', 'aqualuxe'); ?></button>
                             <button id="aqlx-export" class="button"><?php esc_html_e('Export Demo Content', 'aqualuxe'); ?></button>
-                            <button id="aqlx-pause" class="button" title="Pause" style="margin-left:8px;">Pause</button>
-                            <button id="aqlx-resume" class="button" title="Resume">Resume</button>
-                            <button id="aqlx-cancel" class="button" title="Cancel" style="color:#b32d2e; border-color:#b32d2e;">Cancel</button>
+                            <button id="aqlx-state" class="button" title="<?php esc_attr_e('View importer state', 'aqualuxe'); ?>"><?php esc_html_e('View State', 'aqualuxe'); ?></button>
+                            <button id="aqlx-open-audit" class="button" title="<?php esc_attr_e('Open latest audit log', 'aqualuxe'); ?>"><?php esc_html_e('Open Audit', 'aqualuxe'); ?></button>
+                            <button id="aqlx-download-audit" class="button" title="<?php esc_attr_e('Download latest audit log', 'aqualuxe'); ?>"><?php esc_html_e('Download Audit', 'aqualuxe'); ?></button>
+                            <button id="aqlx-pause" class="button" title="<?php esc_attr_e('Pause', 'aqualuxe'); ?>" style="margin-left:8px;"><?php esc_html_e('Pause', 'aqualuxe'); ?></button>
+                            <button id="aqlx-resume" class="button" title="<?php esc_attr_e('Resume', 'aqualuxe'); ?>"><?php esc_html_e('Resume', 'aqualuxe'); ?></button>
+                            <button id="aqlx-cancel" class="button" title="<?php esc_attr_e('Cancel', 'aqualuxe'); ?>" style="color:#b32d2e; border-color:#b32d2e;"><?php esc_html_e('Cancel', 'aqualuxe'); ?></button>
+                            <select id="aqlx-recurrence" class="" style="margin-left:8px;">
+                                <option value="hourly"><?php esc_html_e('Hourly', 'aqualuxe'); ?></option>
+                                <option value="twicedaily"><?php esc_html_e('Twice Daily', 'aqualuxe'); ?></option>
+                                <option value="daily" selected><?php esc_html_e('Daily', 'aqualuxe'); ?></option>
+                            </select>
+                            <button id="aqlx-schedule" class="button" title="<?php esc_attr_e('Schedule', 'aqualuxe'); ?>"><?php esc_html_e('Schedule', 'aqualuxe'); ?></button>
+                            <button id="aqlx-clear-schedule" class="button" title="<?php esc_attr_e('Clear Schedule', 'aqualuxe'); ?>"><?php esc_html_e('Clear', 'aqualuxe'); ?></button>
+                            <button id="aqlx-copy-log" class="button" title="<?php esc_attr_e('Copy the session log', 'aqualuxe'); ?>"><?php esc_html_e('Copy Log', 'aqualuxe'); ?></button>
+                            <button id="aqlx-clear-log" class="button" title="<?php esc_attr_e('Clear the session log', 'aqualuxe'); ?>"><?php esc_html_e('Clear Log', 'aqualuxe'); ?></button>
                             <button id="aqlx-flush" class="button button-secondary" style="margin-left:auto; color:#b32d2e; border-color:#b32d2e;">
                                 <?php esc_html_e('Flush All (Danger)', 'aqualuxe'); ?>
                             </button>
-                            <a id="aqlx-audit" href="#" target="_blank" style="display:none; margin-left:8px;">View audit log</a>
-                            <span id="aqlx-status" style="margin-left:8px;"></span>
+                                <a id="aqlx-audit" href="#" target="_blank" style="display:none; margin-left:8px;">&nbsp;<?php esc_html_e('View audit log', 'aqualuxe'); ?></a>
+                                <a id="aqlx-export-link" href="#" target="_blank" style="display:none; margin-left:8px;">&nbsp;<?php esc_html_e('Open export', 'aqualuxe'); ?></a>
+                                <button id="aqlx-download-export" type="button" class="button" style="display:none; margin-left:4px; padding:1px 6px; line-height:20px;">
+                                    <?php esc_html_e('Download Export', 'aqualuxe'); ?>
+                                </button>
+                            <label style="margin-left:8px; font-size:12px; opacity:0.9; display:flex; align-items:center; gap:4px;">
+                                <?php esc_html_e('Recent audits', 'aqualuxe'); ?>
+                                <select id="aqlx-audits" style="max-width:260px;">
+                                    <option value="">--</option>
+                                </select>
+                                <button id="aqlx-open-selected-audit" type="button" class="button" style="padding:1px 6px; line-height:20px;"><?php esc_html_e('Open', 'aqualuxe'); ?></button>
+                                <button id="aqlx-download-selected-audit" type="button" class="button" style="padding:1px 6px; line-height:20px;"><?php esc_html_e('Download', 'aqualuxe'); ?></button>
+                            </label>
+                            <span id="aqlx-status" role="status" aria-live="polite" style="margin-left:8px;"></span>
+                            <span id="aqlx-next" data-label="<?php echo esc_attr(__('Next run:', 'aqualuxe')); ?>" style="margin-left:8px; opacity:0.8;"></span>
+                            <span id="aqlx-sched" data-label="<?php echo esc_attr(__('Schedule:', 'aqualuxe')); ?>" style="margin-left:8px; opacity:0.8;"></span>
+                                <span id="aqlx-last" data-label="<?php echo esc_attr(__('Last run:', 'aqualuxe')); ?>" style="margin-left:8px; opacity:0.8;"></span>
                         </div>
                         <div id="aqlx-progress" style="margin-top:12px; background:#eee; height:10px; border-radius:4px; overflow:hidden;">
                             <div id="aqlx-progress-bar" style="height:100%; width:0%; background:#2271b1;"></div>
@@ -113,6 +144,40 @@ class Importer
                     const logEl = el('aqlx-log');
                     const bar = el('aqlx-progress-bar');
                     const auditEl = el('aqlx-audit');
+                    const nextEl = el('aqlx-next');
+                    const schedEl = el('aqlx-sched');
+                    const lastEl = el('aqlx-last');
+                    const startBtn = el('aqlx-start');
+                    const previewBtn = el('aqlx-preview');
+                    const exportBtn = el('aqlx-export');
+                    const exportLinkEl = el('aqlx-export-link');
+                    const downloadExportBtn = el('aqlx-download-export');
+                    const pauseBtn = el('aqlx-pause');
+                    const resumeBtn = el('aqlx-resume');
+                    const cancelBtn = el('aqlx-cancel');
+                    const scheduleBtn = el('aqlx-schedule');
+                    const clearScheduleBtn = el('aqlx-clear-schedule');
+                    const scheduledBadge = el('aqlx-scheduled-badge');
+                    const stateBtn = el('aqlx-state');
+                    const downloadAuditBtn = el('aqlx-download-audit');
+                    const labels = {
+                        recurrence: {
+                            hourly: <?php echo wp_json_encode(__('Hourly', 'aqualuxe')); ?>,
+                            twicedaily: <?php echo wp_json_encode(__('Twice Daily', 'aqualuxe')); ?>,
+                            daily: <?php echo wp_json_encode(__('Daily', 'aqualuxe')); ?>
+                        },
+                        entities: {
+                            pages: <?php echo wp_json_encode(__('Pages & Menus', 'aqualuxe')); ?>,
+                            cpts: <?php echo wp_json_encode(__('CPTs (Services, Events, Testimonials)', 'aqualuxe')); ?>,
+                            users: <?php echo wp_json_encode(__('Users', 'aqualuxe')); ?>,
+                            roles: <?php echo wp_json_encode(__('Roles & Capabilities', 'aqualuxe')); ?>,
+                            products: <?php echo wp_json_encode(__('Products', 'aqualuxe')); ?>,
+                            wc_config: <?php echo wp_json_encode(__('WooCommerce Settings', 'aqualuxe')); ?>,
+                            media: <?php echo wp_json_encode(__('Media', 'aqualuxe')); ?>,
+                            widgets: <?php echo wp_json_encode(__('Widgets', 'aqualuxe')); ?>,
+                            options: <?php echo wp_json_encode(__('Options', 'aqualuxe')); ?>
+                        }
+                    };
                     const api = (p, method, body) => fetch((window.wpApiSettings?.root || '<?php echo esc_js( rest_url() ); ?>') + 'aqualuxe/v1' + p, {
                         method: method || 'GET',
                         headers: { 'X-WP-Nonce': window.wpApiSettings?.nonce || '<?php echo esc_js( wp_create_nonce('wp_rest') ); ?>', 'Content-Type': 'application/json' },
@@ -121,17 +186,24 @@ class Importer
                     const collectEntities = () => Array.from(document.querySelectorAll('.aqlx-entity:checked')).map(i => i.value);
                     function appendLog(msg){ if (!msg) return; logEl.textContent += (msg + '\n'); logEl.scrollTop = logEl.scrollHeight; }
                     function setProgress(p){ bar.style.width = Math.max(0, Math.min(100, p)) + '%'; }
+                    function setRunning(on){
+                        [startBtn, previewBtn, exportBtn, scheduleBtn, clearScheduleBtn].forEach(b=>{ if (b) b.disabled = !!on; });
+                        if (pauseBtn) pauseBtn.disabled = !on;
+                        if (resumeBtn) resumeBtn.disabled = !on; // enable while running so pause/resume available
+                        if (cancelBtn) cancelBtn.disabled = !on;
+                    }
                     async function run(){
                         const entities = collectEntities();
+                        if (!entities.length) { appendLog('<?php echo esc_js(__('Select at least one entity to import.', 'aqualuxe')); ?>'); return; }
                         const reset = document.getElementById('aqlx-reset').checked;
                         const volume = parseInt(document.getElementById('aqlx-volume').value || '10', 10);
                         const policy = document.getElementById('aqlx-policy')?.value || 'skip';
                         const locale = document.getElementById('aqlx-locale')?.value || 'en_US';
                         const from = document.getElementById('aqlx-from')?.value || '';
                         const to = document.getElementById('aqlx-to')?.value || '';
-                        status.textContent = 'Starting…'; setProgress(0); logEl.textContent='';
-                        const start = await api('/import/start', 'POST', { entities, reset, volume, policy, locale, range:{from, to} }).catch(()=>({error:'start_failed'}));
-                        if (start?.error) { status.textContent = 'Failed to start'; appendLog(start.error); return; }
+                        status.textContent = 'Starting…'; setProgress(0); logEl.textContent=''; setRunning(true);
+                            const start = await api('/import/start', 'POST', { entities, reset, volume, policy, locale, range:{from, to} }).catch(()=>({error:'start_failed'}));
+                            if (start?.error) { status.textContent = 'Failed to start'; appendLog(start.error); setRunning(false); return; }
                         if (start?.audit_url) { auditEl.href = start.audit_url; auditEl.style.display = 'inline'; }
                         let done = false; let progress = 0;
                         while(!done){
@@ -140,10 +212,17 @@ class Importer
                             if (typeof step.progress === 'number') { progress = step.progress; setProgress(progress); }
                             if (Array.isArray(step.log)) { step.log.forEach(appendLog); }
                             if (step?.audit_url) { auditEl.href = step.audit_url; auditEl.style.display = 'inline'; }
+                            const paused = !!step.paused;
                             done = !!step.done;
-                            status.textContent = done ? 'Completed' : 'Working…';
-                            if (!done) { await new Promise(r => setTimeout(r, 250)); }
+                            status.textContent = done ? 'Completed' : (paused ? 'Paused' : 'Working…');
+                            if (!done) { await new Promise(r => setTimeout(r, paused ? 1000 : 250)); }
                         }
+                        setRunning(false);
+                        // Append end-of-run summary
+                        try { await finalizeRunSummary(); } catch(e) {}
+                        // Refresh audits list after completion
+                        try { await loadRecentAudits(); } catch(e) {}
+                        refreshStateSummary();
                     }
                     async function preview(){
                         const entities = collectEntities();
@@ -156,11 +235,207 @@ class Importer
                     async function exportDemo(){
                         const entities = collectEntities();
                         const res = await api('/import/export', 'POST', { entities }).catch(()=>({error:'export_failed'}));
-                        if (res?.url) { appendLog('Export ready: ' + res.url); window.open(res.url, '_blank'); }
+                            if (res?.url) {
+                                appendLog('Export ready: ' + res.url);
+                                if (exportLinkEl) { exportLinkEl.href = res.url; exportLinkEl.style.display = 'inline'; }
+                                if (downloadExportBtn) { downloadExportBtn.style.display = 'inline-block'; }
+                                window.open(res.url, '_blank');
+                            }
                         else { appendLog(res?.error || 'Export failed'); }
                     }
+
+                    async function downloadExport(){
+                        const url = exportLinkEl?.href;
+                        if (!url) { appendLog('<?php echo esc_js(__('No export available. Use "Export Demo Content" first.', 'aqualuxe')); ?>'); return; }
+                        try {
+                            const r = await fetch(url, { credentials: 'same-origin' });
+                            const blob = await r.blob();
+                            const a = document.createElement('a');
+                            a.href = URL.createObjectURL(blob);
+                            a.download = (url.split('/').pop() || 'aqualuxe-export.json');
+                            document.body.appendChild(a);
+                            a.click();
+                            setTimeout(()=>{ URL.revokeObjectURL(a.href); document.body.removeChild(a); }, 2000);
+                        } catch(e) { window.open(url, '_blank'); }
+                    }
+                    async function copyLog(){
+                        const txt = logEl.textContent || '';
+                        try {
+                            if (navigator?.clipboard?.writeText) { await navigator.clipboard.writeText(txt); appendLog('<?php echo esc_js(__('Log copied to clipboard.', 'aqualuxe')); ?>'); }
+                            else {
+                                const ta = document.createElement('textarea'); ta.value = txt; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.focus(); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); appendLog('<?php echo esc_js(__('Log copied to clipboard.', 'aqualuxe')); ?>');
+                            }
+                        } catch(e) { appendLog('<?php echo esc_js(__('Copy failed.', 'aqualuxe')); ?>'); }
+                    }
+                    function clearLog(){ logEl.textContent=''; }
+                    function getSelectedAudit(){
+                        const sel = document.getElementById('aqlx-audits');
+                        if (!sel) return null;
+                        const opt = sel.options[sel.selectedIndex];
+                        if (!opt || !opt.value) return null;
+                        return { url: opt.value, name: opt.text, mtime: opt.getAttribute('data-mtime') };
+                    }
+                    async function viewState(){
+                        const res = await api('/import/state', 'GET').catch(()=>({error:'state_failed'}));
+                        if (!res || res.error) { appendLog(res?.error || 'State fetch failed'); return; }
+                        if (res.ok) {
+                            const s = res;
+                            const info = {
+                                progress: s.progress,
+                                paused: !!s.paused,
+                                done: !!s.done,
+                                created_posts: s.created_posts,
+                                created_terms: s.created_terms,
+                            };
+                            appendLog('State: ' + JSON.stringify(info));
+                        }
+                    }
+                    async function openAudit(){
+                        const res = await api('/import/state', 'GET').catch(()=>({error:'state_failed'}));
+                        if (!res || res.error) { appendLog(res?.error || 'State fetch failed'); return; }
+                        const url = res.audit_url || (res.state?.audit_url);
+                        if (url) {
+                            auditEl.href = url;
+                            auditEl.style.display = 'inline';
+                            window.open(url, '_blank');
+                        } else {
+                            appendLog('<?php echo esc_js(__('No audit log available yet.', 'aqualuxe')); ?>');
+                        }
+                    }
+
+                    async function downloadAudit(){
+                        // Prefer current audit link; else fetch state.
+                        let url = auditEl?.href;
+                        if (!url) {
+                            const res = await api('/import/state', 'GET').catch(()=>({error:'state_failed'}));
+                            if (res && !res.error) { url = res.audit_url || (res.state?.audit_url); }
+                        }
+                        if (!url) { appendLog('<?php echo esc_js(__('No audit log available yet.', 'aqualuxe')); ?>'); return; }
+                        try {
+                            const r = await fetch(url, { credentials: 'same-origin' });
+                            const blob = await r.blob();
+                            const a = document.createElement('a');
+                            a.href = URL.createObjectURL(blob);
+                            a.download = (url.split('/').pop() || 'aqualuxe-audit.jsonl');
+                            document.body.appendChild(a);
+                            a.click();
+                            setTimeout(()=>{ URL.revokeObjectURL(a.href); document.body.removeChild(a); }, 2000);
+                            appendLog('<?php echo esc_js(__('Audit downloaded.', 'aqualuxe')); ?>');
+                        } catch(e) {
+                            appendLog('<?php echo esc_js(__('Download failed. Opening instead…', 'aqualuxe')); ?>');
+                            window.open(url, '_blank');
+                        }
+                    }
+                    async function refreshSchedule(){
+                        const res = await api('/import/schedule/state', 'GET').catch(()=>({error:'schedule_state_failed'}));
+                        if (res?.ok) {
+                            if (res.next) {
+                                const dt = new Date(res.next * 1000);
+                                const label = nextEl?.dataset?.label || 'Next run:';
+                                nextEl.textContent = label + ' ' + dt.toLocaleString();
+                            } else {
+                                nextEl.textContent = '';
+                            }
+                            // Render schedule summary
+                            const cfg = res.schedule || {};
+                            const rec = cfg.recurrence ? (labels.recurrence[cfg.recurrence] || cfg.recurrence) : '';
+                            const ents = Array.isArray(cfg.entities) ? cfg.entities.map(e => labels.entities[e] || e) : [];
+                            const reset = cfg.reset ? <?php echo wp_json_encode(__('Yes', 'aqualuxe')); ?> : <?php echo wp_json_encode(__('No', 'aqualuxe')); ?>;
+                            if (rec || ents.length) {
+                                const sLabel = schedEl?.dataset?.label || 'Schedule:';
+                                schedEl.textContent = sLabel + ' ' + [rec, (ents.length ? ' • ' + ents.join(', ') : ''), ' • ' + <?php echo wp_json_encode(__('Reset:', 'aqualuxe')); ?> + ' ' + reset].join('');
+                                if (scheduledBadge) scheduledBadge.style.display = 'inline-block';
+                                if (startBtn) { startBtn.disabled = true; startBtn.title = '<?php echo esc_js(__('A schedule is active; clear it to run manually.', 'aqualuxe')); ?>'; }
+                            } else {
+                                schedEl.textContent = '';
+                                if (scheduledBadge) scheduledBadge.style.display = 'none';
+                                if (startBtn) { startBtn.disabled = false; startBtn.title = ''; }
+                            }
+                        }
+                    }
+
+                    async function refreshStateSummary(){
+                        const res = await api('/import/state', 'GET').catch(()=>({error:'state_failed'}));
+                        if (res?.ok && res?.state?.started) {
+                            const dt = new Date((res.state.started || 0) * 1000);
+                            const label = lastEl?.dataset?.label || 'Last run:';
+                            lastEl.textContent = label + ' ' + dt.toLocaleString();
+                        }
+                    }
+
+                    async function finalizeRunSummary(){
+                        const res = await api('/import/state', 'GET').catch(()=>({error:'state_failed'}));
+                        if (!res || !res.ok) return;
+                        const st = res.state || {};
+                        const counts = {
+                            posts: Array.isArray(st.created_posts) ? st.created_posts.length : (res.created_posts || 0),
+                            terms: Array.isArray(st.created_terms) ? st.created_terms.length : (res.created_terms || 0),
+                            users: Array.isArray(st.created_users) ? st.created_users.length : 0,
+                            roles: Array.isArray(st.created_roles) ? st.created_roles.length : 0,
+                            widgets: Array.isArray(st.created_widgets) ? st.created_widgets.length : 0,
+                        };
+                        const parts = [];
+                        parts.push('Summary:');
+                        parts.push(' - Created posts: ' + counts.posts);
+                        parts.push(' - Created terms: ' + counts.terms);
+                        if (counts.users) parts.push(' - Created users: ' + counts.users);
+                        if (counts.roles) parts.push(' - Created roles: ' + counts.roles);
+                        if (counts.widgets) parts.push(' - Created widgets: ' + counts.widgets);
+                        appendLog(parts.join('\n'));
+                    }
+
+                    async function loadRecentAudits(){
+                        const res = await api('/import/audits', 'GET').catch(()=>({error:'audits_failed'}));
+                        const sel = document.getElementById('aqlx-audits');
+                        if (!sel) return;
+                        while (sel.options.length > 1) { sel.remove(1); }
+                        if (res && res.ok && Array.isArray(res.items)) {
+                            res.items.forEach(it => {
+                                const o = document.createElement('option');
+                                const when = it.mtime ? (new Date(it.mtime * 1000)).toLocaleString() : '';
+                                o.value = it.url; o.text = (it.name || 'audit') + (when ? (' — ' + when) : '');
+                                if (it.mtime) o.setAttribute('data-mtime', String(it.mtime));
+                                sel.appendChild(o);
+                            });
+                        }
+                    }
+
+                    function openSelectedAudit(){ const it = getSelectedAudit(); if (!it) { appendLog('<?php echo esc_js(__('Select an audit first.', 'aqualuxe')); ?>'); return; } window.open(it.url, '_blank'); }
+                    async function downloadSelectedAudit(){
+                        const it = getSelectedAudit(); if (!it) { appendLog('<?php echo esc_js(__('Select an audit first.', 'aqualuxe')); ?>'); return; }
+                        try {
+                            const r = await fetch(it.url, { credentials: 'same-origin' });
+                            const blob = await r.blob();
+                            const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = it.name || 'aqualuxe-audit.jsonl'; document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); document.body.removeChild(a); }, 2000);
+                        } catch(e) { window.open(it.url, '_blank'); }
+                    }
+
+                    function fillLast30(){
+                        const to = new Date();
+                        const from = new Date(Date.now() - 29*24*60*60*1000);
+                        const fmt = (d)=> d.toISOString().slice(0,10);
+                        const fe = document.getElementById('aqlx-from'); if (fe) fe.value = fmt(from);
+                        const te = document.getElementById('aqlx-to'); if (te) te.value = fmt(to);
+                    }
+                    async function scheduleRun(){
+                        const entities = collectEntities();
+                        const reset = document.getElementById('aqlx-reset').checked;
+                        const volume = parseInt(document.getElementById('aqlx-volume').value || '10', 10);
+                        const recurrence = document.getElementById('aqlx-recurrence')?.value || 'daily';
+                        const res = await api('/import/schedule', 'POST', { entities, reset, volume, recurrence }).catch(()=>({error:'schedule_failed'}));
+                        if (res?.ok) { appendLog('Scheduled: ' + (res.recurrence || recurrence)); status.textContent = 'Scheduled'; }
+                        else if (res?.scheduled) { appendLog('Scheduled: ' + (res.recurrence || recurrence)); status.textContent = 'Scheduled'; }
+                        else { appendLog(res?.error || 'Schedule failed'); }
+                        refreshSchedule();
+                    }
+                    async function clearSchedule(){
+                        const res = await api('/import/schedule/clear', 'POST', {}).catch(()=>({error:'clear_failed'}));
+                        if (res?.ok) { appendLog('Cleared schedule.'); }
+                        else { appendLog(res?.error || 'Clear schedule failed'); }
+                        refreshSchedule();
+                    }
                     async function flushAll(){
-                        if (!confirm('This will delete demo content and reset state. Continue?')) return;
+                        if (!confirm('<?php echo esc_js(__('This will delete demo content and reset state. Continue?', 'aqualuxe')); ?>')) return;
                         const res = await api('/import/flush', 'POST', {}).catch(()=>({error:'flush_failed'}));
                         if (res?.ok) { appendLog('Flushed.'); setProgress(0); status.textContent = 'Flushed'; }
                         else { appendLog(res?.error || 'Flush failed'); }
@@ -176,7 +451,7 @@ class Importer
                         else { appendLog(res?.error || 'Resume failed'); }
                     }
                     async function cancelRun(){
-                        if (!confirm('Cancel will rollback created items from this run and clear state. Continue?')) return;
+                        if (!confirm('<?php echo esc_js(__('Cancel will rollback created items from this run and clear state. Continue?', 'aqualuxe')); ?>')) return;
                         const res = await api('/import/cancel', 'POST', {}).catch(()=>({error:'cancel_failed'}));
                         if (res?.ok) { status.textContent = 'Canceled'; appendLog('Canceled and rolled back.'); setProgress(0); }
                         else { appendLog(res?.error || 'Cancel failed'); }
@@ -184,10 +459,25 @@ class Importer
                     document.getElementById('aqlx-start').addEventListener('click', run);
                     document.getElementById('aqlx-preview').addEventListener('click', preview);
                     document.getElementById('aqlx-export').addEventListener('click', exportDemo);
+                    if (downloadExportBtn) downloadExportBtn.addEventListener('click', downloadExport);
+                    document.getElementById('aqlx-state').addEventListener('click', viewState);
+                    document.getElementById('aqlx-copy-log').addEventListener('click', copyLog);
+                    document.getElementById('aqlx-clear-log').addEventListener('click', clearLog);
                     document.getElementById('aqlx-flush').addEventListener('click', flushAll);
+                    document.getElementById('aqlx-open-audit').addEventListener('click', openAudit);
+                    document.getElementById('aqlx-download-audit').addEventListener('click', downloadAudit);
                     document.getElementById('aqlx-pause').addEventListener('click', pauseRun);
                     document.getElementById('aqlx-resume').addEventListener('click', resumeRun);
                     document.getElementById('aqlx-cancel').addEventListener('click', cancelRun);
+                    document.getElementById('aqlx-schedule').addEventListener('click', scheduleRun);
+                    document.getElementById('aqlx-clear-schedule').addEventListener('click', clearSchedule);
+                    document.getElementById('aqlx-last30').addEventListener('click', fillLast30);
+                    const openSelBtn = document.getElementById('aqlx-open-selected-audit'); if (openSelBtn) openSelBtn.addEventListener('click', openSelectedAudit);
+                    const dlSelBtn = document.getElementById('aqlx-download-selected-audit'); if (dlSelBtn) dlSelBtn.addEventListener('click', downloadSelectedAudit);
+                    // Initial load
+                    refreshSchedule();
+                    refreshStateSummary();
+                    loadRecentAudits();
                 })();
                 </script>
         <?php
@@ -221,7 +511,7 @@ class Importer
 
     private static function reset_content(): string
     {
-        $types = ['post','page','attachment','service','event','nav_menu_item'];
+    $types = ['post','page','attachment','service','event','testimonial','nav_menu_item'];
         if (class_exists('WooCommerce')) {
             $types[] = 'product';
             $types[] = 'product_variation';
@@ -250,7 +540,7 @@ class Importer
             'About' => ['slug' => 'about'],
             'Services' => ['slug' => 'services'],
             'Blog' => ['slug' => 'blog'],
-            'Contact' => ['slug' => 'contact'],
+            'Contact' => ['slug' => 'contact', 'content' => '[aqualuxe_contact address="AquaLuxe HQ, Colombo" ]'],
             'FAQ' => ['slug' => 'faq'],
             'Privacy Policy' => ['slug' => 'privacy-policy'],
             'Terms & Conditions' => ['slug' => 'terms'],
@@ -335,7 +625,22 @@ class Importer
                 'post_content' => 'AquaLuxe event #' . $i,
             ]);
         }
-        return 'Created sample Services and Events.';
+        // Testimonials
+        $testimonials = [
+            ['name' => 'Liam', 'text' => 'AquaLuxe transformed our hotel lobby with a stunning reef display. Guests love it!'],
+            ['name' => 'Maya', 'text' => 'The maintenance plan keeps our tank pristine. Friendly, knowledgeable team.'],
+            ['name' => 'Kenji', 'text' => 'Rare fish arrived healthy and vibrant. Professional export handling.'],
+        ];
+        foreach ($testimonials as $t) {
+            \wp_insert_post([
+                'post_title' => $t['name'],
+                'post_type' => 'testimonial',
+                'post_status' => 'publish',
+                'post_content' => $t['text'],
+                'post_excerpt' => $t['text'],
+            ]);
+        }
+    return 'Created sample Services, Events, and Testimonials.';
     }
 
     private static function create_wc_sample(): string
@@ -749,7 +1054,7 @@ class Importer
     {
         $map = [
             'pages' => ['page','nav_menu_item'],
-            'cpts' => ['service','event'],
+            'cpts' => ['service','event','testimonial'],
             'users' => [],
             'roles' => [],
             'products' => ['product','product_variation'],
@@ -799,7 +1104,7 @@ class Importer
         foreach ($entities as $e) {
             switch ($e) {
                 case 'pages': $report['counts']['pages'] = 10; break;
-                case 'cpts': $report['counts']['cpts'] = 7; break;
+                case 'cpts': $report['counts']['cpts'] = 10; break;
                 case 'products': $report['counts']['products'] = 7; break; // 6 simple + 1 variable
                 case 'wc_config': $report['counts']['wc_config'] = 1; break;
                 case 'media': $report['counts']['media'] = 10; break;
@@ -1044,7 +1349,7 @@ class Importer
     {
         $volume = (int) ($state['volume'] ?? 10);
         $policy = (string) ($state['policy'] ?? 'skip');
-        $defaults = [ 'service_total' => 4, 'service_index' => 0, 'event_total' => 3, 'event_index' => 0 ];
+        $defaults = [ 'service_total' => 4, 'service_index' => 0, 'event_total' => 3, 'event_index' => 0, 'testimonial_total' => 3, 'testimonial_index' => 0 ];
         $cs = &self::ensure_step_state($state, 'cpts', $defaults);
         $log = [];
         $processed = 0;
@@ -1060,7 +1365,7 @@ class Importer
             }
             $cs['service_index']++; $processed++;
         }
-        // Then events
+    // Then events
         while ($cs['event_index'] < $cs['event_total'] && $processed < $volume) {
             $i = $cs['event_index'] + 1; $title = 'Event ' . $i; $existing = \post_exists($title, '', '', 'event');
             if (!$existing) {
@@ -1072,9 +1377,28 @@ class Importer
             }
             $cs['event_index']++; $processed++;
         }
+        // Finally testimonials
+        while ($cs['testimonial_index'] < $cs['testimonial_total'] && $processed < $volume) {
+            $i = $cs['testimonial_index'] + 1;
+            $title = ['Liam','Maya','Kenji'][$cs['testimonial_index']] ?? ('Client ' . $i);
+            $text = [
+                'AquaLuxe transformed our hotel lobby with a stunning reef display. Guests love it!',
+                'The maintenance plan keeps our tank pristine. Friendly, knowledgeable team.',
+                'Rare fish arrived healthy and vibrant. Professional export handling.',
+            ][$cs['testimonial_index']] ?? 'Great experience with AquaLuxe.';
+            $existing = \post_exists($title, '', '', 'testimonial');
+            if (!$existing) {
+                $pid = \wp_insert_post([ 'post_title' => $title, 'post_type' => 'testimonial', 'post_status' => 'publish', 'post_content' => $text, 'post_excerpt' => $text ]);
+                if ($pid) { self::track_created_post((int) $pid); $log[] = 'Created testimonial #' . $i; }
+            } else {
+                if ($policy === 'overwrite') { \wp_update_post([ 'ID' => $existing, 'post_status' => 'publish' ]); $log[] = 'Updated testimonial #' . $i; }
+                else { $log[] = 'Skipped testimonial #' . $i; }
+            }
+            $cs['testimonial_index']++; $processed++;
+        }
         $state['step_state']['cpts'] = $cs; \update_option('aqlx_import_state', $state, false);
-        $total = max(1, (int) $cs['service_total'] + (int) $cs['event_total']);
-        $doneCount = (int) $cs['service_index'] + (int) $cs['event_index'];
+        $total = max(1, (int) $cs['service_total'] + (int) $cs['event_total'] + (int) $cs['testimonial_total']);
+        $doneCount = (int) $cs['service_index'] + (int) $cs['event_index'] + (int) $cs['testimonial_index'];
         $partial = min(1.0, max(0.0, $doneCount / $total));
         $done = $doneCount >= $total;
         return [$log, $done, $partial];
@@ -1184,7 +1508,11 @@ class Importer
             case 'pages':
                 $ps = (array) ($ss['pages'] ?? []); $items = (array) ($ps['items'] ?? []); $idx = (int) ($ps['index'] ?? 0); $total = max(1, count($items)); return max(0.0, min(1.0, $idx / $total));
             case 'cpts':
-                $cs = (array) ($ss['cpts'] ?? []); $tot = (int) (($cs['service_total'] ?? 0) + ($cs['event_total'] ?? 0)); $done = (int) (($cs['service_index'] ?? 0) + ($cs['event_index'] ?? 0)); $tot = max(1, $tot); return max(0.0, min(1.0, $done / $tot));
+                $cs = (array) ($ss['cpts'] ?? []);
+                $tot = (int) (($cs['service_total'] ?? 0) + ($cs['event_total'] ?? 0) + ($cs['testimonial_total'] ?? 0));
+                $done = (int) (($cs['service_index'] ?? 0) + ($cs['event_index'] ?? 0) + ($cs['testimonial_index'] ?? 0));
+                $tot = max(1, $tot);
+                return max(0.0, min(1.0, $done / $tot));
             case 'products':
                 $ps2 = (array) ($ss['products'] ?? []); $tot2 = (int) (($ps2['simple_total'] ?? 0) + 1); $done2 = (int) (($ps2['simple_index'] ?? 0) + (!empty($ps2['variable_done']) ? 1 : 0)); $tot2 = max(1, $tot2); return max(0.0, min(1.0, $done2 / $tot2));
             default:

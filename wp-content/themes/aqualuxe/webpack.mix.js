@@ -13,6 +13,10 @@ mix.js('assets/src/js/app.js', 'js')
   .options({ processCssUrls: false })
   .version();
 
+// Copy static assets (images/fonts) from src to dist
+mix.copyDirectory('assets/src/img', 'assets/dist/img');
+mix.copyDirectory('assets/src/fonts', 'assets/dist/fonts');
+
 if (!mix.inProduction()) {
   mix.sourceMaps();
 }

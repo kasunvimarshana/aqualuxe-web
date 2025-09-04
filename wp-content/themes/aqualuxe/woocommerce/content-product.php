@@ -11,6 +11,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
   <div class="p-4">
     <?php if (function_exists('do_action')) { call_user_func('do_action', 'woocommerce_shop_loop_item_title'); } ?>
     <?php if (function_exists('do_action')) { call_user_func('do_action', 'woocommerce_after_shop_loop_item_title'); } ?>
+  <?php if (function_exists('do_shortcode')) { echo do_shortcode('[aqualuxe_wishlist_button]'); } ?>
   </div>
   <?php if (function_exists('do_action')) { call_user_func('do_action', 'woocommerce_after_shop_loop_item'); } ?>
 </li>

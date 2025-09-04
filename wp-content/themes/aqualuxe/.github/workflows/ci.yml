@@ -1,9 +1,9 @@
 name: CI
 on:
   push:
-    branches: [ dev, main ]
+    branches: [ dev, main, dev-* ]
   pull_request:
-    branches: [ dev, main ]
+    branches: [ dev, main, dev-* ]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,11 +15,13 @@ jobs:
           php-version: '8.2'
       - name: PHP Lint
         run: |
-          find . -type f -name "*.php" -print0 | xargs -0 -I{} php -l {}
+          find wp-content/themes/aqualuxe -type f -name "*.php" -print0 | xargs -0 -n1 -P 4 php -l
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: 'wp-content/themes/aqualuxe/package-lock.json'
       - name: Install deps
         working-directory: wp-content/themes/aqualuxe
         run: npm ci || npm install

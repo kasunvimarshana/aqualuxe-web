@@ -29,7 +29,9 @@ class WooCommerce
     public static function quick_view_button(): void
     {
         global $product; if (!$product) { return; }
-        $id = \method_exists($product, 'get_id') ? (int) $product->get_id() : 0;
-        echo '<a href="#" class="btn btn-secondary qv-btn mt-2" data-qv-id="' . \esc_attr($id) . '">' . \esc_html__('Quick view', 'aqualuxe') . '</a>';
+    $id = \method_exists($product, 'get_id') ? (int) $product->get_id() : 0;
+    $permalink = \function_exists('get_permalink') ? \get_permalink($id) : '#';
+    // Progressive enhancement: functional link fallback when JS is off
+    echo '<a href="' . esc_url($permalink) . '" class="btn btn-secondary qv-btn mt-2" data-qv-id="' . esc_attr($id) . '" aria-haspopup="dialog">' . esc_html__('Quick view', 'aqualuxe') . '</a>';
     }
 }

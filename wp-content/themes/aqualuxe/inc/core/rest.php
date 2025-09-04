@@ -108,6 +108,15 @@ class REST
                 return \AquaLuxe\Admin\Importer::schedule($entities, $reset, $volume, $recurrence);
             }
         ]);
+        \call_user_func('register_rest_route', 'aqualuxe/v1', '/import/schedule/state', [
+            'methods' => 'GET',
+            'permission_callback' => function(){ return \call_user_func('current_user_can','manage_options'); },
+            'callback' => function () {
+                $cfg = (array) (\function_exists('get_option') ? \call_user_func('get_option', 'aqlx_import_schedule', []) : []);
+                $nextTs = \function_exists('wp_next_scheduled') ? \call_user_func('wp_next_scheduled', 'aqlx_scheduled_reinit') : 0;
+                return [ 'ok' => true, 'schedule' => $cfg, 'next' => $nextTs, 'next_iso' => $nextTs ? gmdate('c', (int) $nextTs) : null ];
+            }
+        ]);
         \call_user_func('register_rest_route', 'aqualuxe/v1', '/import/schedule/clear', [
             'methods' => 'POST',
             'permission_callback' => function(){ return \call_user_func('current_user_can','manage_options'); },
@@ -133,6 +142,37 @@ class REST
             'permission_callback' => function(){ return \call_user_func('current_user_can','manage_options'); },
             'callback' => function () {
                 return \AquaLuxe\Admin\Importer::state();
+            }
+        ]);
+
+        // List recent audit logs
+        \call_user_func('register_rest_route', 'aqualuxe/v1', '/import/audits', [
+            'methods' => 'GET',
+            'permission_callback' => function(){ return \call_user_func('current_user_can','manage_options'); },
+            'callback' => function () {
+                $upload = \wp_upload_dir();
+                $dir = trailingslashit($upload['basedir']) . 'aqualuxe-import-logs/';
+                if (!file_exists($dir) || !is_dir($dir)) {
+                    return ['ok' => true, 'items' => []];
+                }
+                $paths = glob($dir . '*.jsonl');
+                if (!$paths) { return ['ok' => true, 'items' => []]; }
+                usort($paths, function($a,$b){ return (int) @filemtime($b) <=> (int) @filemtime($a); });
+                $items = [];
+                $paths = array_slice($paths, 0, 25);
+                foreach ($paths as $p) {
+                    $base = basename($p);
+                    $mtime = @filemtime($p) ?: 0;
+                    $url = trailingslashit($upload['baseurl']) . 'aqualuxe-import-logs/' . $base;
+                    $items[] = [
+                        'name' => $base,
+                        'url' => $url,
+                        'mtime' => $mtime,
+                        'mtime_iso' => $mtime ? gmdate('c', (int) $mtime) : null,
+                        'size' => @filesize($p) ?: null,
+                    ];
+                }
+                return ['ok' => true, 'items' => $items];
             }
         ]);
 

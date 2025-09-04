@@ -23,9 +23,13 @@
     <header class="site-header sticky top-0 z-40 bg-white/80 backdrop-blur dark:bg-slate-950/80 border-b border-slate-200 dark:border-slate-800" role="banner">
       <div class="container mx-auto px-4 h-16 flex items-center justify-between">
         <div class="brand"><?php if (function_exists('AquaLuxe\\TemplateTags\\the_site_logo')) { AquaLuxe\TemplateTags\the_site_logo(); } ?></div>
-        <nav class="primary-nav" aria-label="Primary">
+  <nav class="primary-nav flex items-center gap-4" aria-label="Primary">
           <?php wp_nav_menu(['theme_location' => 'primary', 'container' => false, 'menu_class' => 'flex gap-6']); ?>
         </nav>
+        <div class="flex items-center gap-4">
+          <?php echo function_exists('do_shortcode') ? do_shortcode('[aqualuxe_language_switcher]') : ''; ?>
+          <?php echo function_exists('do_shortcode') ? do_shortcode('[aqualuxe_currency_switcher]') : ''; ?>
+        </div>
         <button id="darkModeToggle" class="rounded p-2 text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white" aria-pressed="false" aria-label="Toggle dark mode">🌙</button>
       </div>
     </header>

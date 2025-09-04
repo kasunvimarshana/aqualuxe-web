@@ -32,6 +32,12 @@ npm run watch
 - WP Admin > Appearance > AquaLuxe Setup
 - Optionally tick Reset to delete existing demo data.
 
+### Advanced Importer (Step-wise)
+- Choose entities (Pages, CPTs, Users, Roles, Products, WC Config, Media, Widgets, Options).
+- Start runs step-by-step with a progress bar and logs; pause/resume/cancel supported.
+- Preview shows a light estimate; Export creates a JSON snapshot of demo content.
+- Schedule daily/twice-daily/hourly runs and view the next run time; audit logs are saved as JSONL in uploads/aqualuxe-import-logs/.
+
 ## Customizer
 - Colors, Typography, Layout under Appearance > Customize.
 
