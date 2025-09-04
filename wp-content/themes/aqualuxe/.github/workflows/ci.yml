@@ -28,3 +28,11 @@ jobs:
       - name: Build assets
         working-directory: wp-content/themes/aqualuxe
         run: npm run build
+      - name: Install Composer (tests)
+        uses: php-actions/composer@v6
+        with:
+          php_version: '8.2'
+          args: --working-dir=wp-content/themes/aqualuxe install --no-interaction --no-progress
+      - name: Run PHPUnit
+        working-directory: wp-content/themes/aqualuxe
+        run: vendor/bin/phpunit

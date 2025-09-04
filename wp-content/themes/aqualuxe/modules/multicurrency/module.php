@@ -81,3 +81,27 @@ if (\function_exists('add_filter')) {
         return $cur ?: ($symbol ?: 'USD');
     });
 }
+
+// Accessible currency switcher shortcode (non-JS fallback form)
+add_shortcode('aqualuxe_currency_switcher', function(){
+    $allowed = apply_filters('aqualuxe/currency/allowed', ['USD','EUR','GBP']);
+    $current = apply_filters('aqualuxe/currency/current', 'USD');
+    $action = esc_url(add_query_arg([]));
+    $out = '<form method="get" action="' . $action . '" class="aqlx-currency" aria-label="' . esc_attr__('Currency selector','aqualuxe') . '">';
+    $out .= '<label class="sr-only" for="aqlx-currency-select">' . esc_html__('Select currency','aqualuxe') . '</label>';
+    $out .= '<select id="aqlx-currency-select" name="currency" onchange="this.form.submit()">';
+    foreach ($allowed as $c) {
+        $sel = selected($current, $c, false);
+        $out .= '<option value="' . esc_attr($c) . '" ' . $sel . '>' . esc_html($c) . '</option>';
+    }
+    $out .= '</select>';
+    // Preserve other query args
+    foreach ($_GET as $k=>$v) {
+        if ($k === 'currency') continue;
+        if (is_array($v)) continue; // keep simple
+        $out .= '<input type="hidden" name="' . esc_attr($k) . '" value="' . esc_attr(wp_unslash((string)$v)) . '" />';
+    }
+    $out .= '<noscript><button type="submit" class="button">' . esc_html__('Update','aqualuxe') . '</button></noscript>';
+    $out .= '</form>';
+    return $out;
+});
