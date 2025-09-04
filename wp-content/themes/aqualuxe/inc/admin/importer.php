@@ -318,7 +318,11 @@ class Importer
             foreach (['product_cat','product_tag'] as $tax) {
                 $terms = get_terms(['taxonomy'=>$tax,'hide_empty'=>false]);
                 if (!is_wp_error($terms)) {
-                    foreach ($terms as $t) { if ($t->term_id && $t->slug !== 'uncategorized') { wp_delete_term($t->term_id, $tax); } }
+                    foreach ($terms as $t) {
+                        if ($t->term_id && $t->slug !== 'uncategorized') {
+                            wp_delete_term($t->term_id, $tax);
+                        }
+                    }
                 }
             }
         }
@@ -565,10 +569,23 @@ class Importer
             if (class_exists('WC_Shipping_Zones') && class_exists('WC_Shipping_Zone')) {
                 $zone = new \WC_Shipping_Zone(0); // Locations not covered by your other zones
                 $methods = $zone->get_shipping_methods();
-                $hasFlat = false; foreach ($methods as $m) { if ($m->id === 'flat_rate') { $hasFlat = true; break; } }
+                $hasFlat = false;
+                foreach ($methods as $m) {
+                    if ($m->id === 'flat_rate') {
+                        $hasFlat = true;
+                        break;
+                    }
+                }
                 if (!$hasFlat) {
                     $zone->add_shipping_method('flat_rate');
-                    foreach ($zone->get_shipping_methods() as $m) { if ($m->id === 'flat_rate') { $m->title = 'Flat Rate'; $m->cost = '10'; $m->enabled = 'yes'; $m->save(); } }
+                    foreach ($zone->get_shipping_methods() as $m) {
+                        if ($m->id === 'flat_rate') {
+                            $m->title = 'Flat Rate';
+                            $m->cost = '10';
+                            $m->enabled = 'yes';
+                            $m->save();
+                        }
+                    }
                 }
             }
         } catch (\Throwable $e) {}
@@ -687,7 +704,12 @@ class Importer
                 case 'wc_config':
                     if (class_exists('WooCommerce')) {
                         // Set currency if provided
-                        $cur = (string) ($state['currency'] ?? ''); if ($cur) { try { \update_option('woocommerce_currency', $cur); } catch (\Throwable $e) {} }
+                        $cur = (string) ($state['currency'] ?? '');
+                        if ($cur) {
+                            try {
+                                \update_option('woocommerce_currency', $cur);
+                            } catch (\Throwable $e) {}
+                        }
                         $log[] = self::configure_wc();
                     } else {
                         $log[] = 'WooCommerce not active; skipping wc_config.';
@@ -1031,7 +1053,11 @@ class Importer
     {
         // Delete posts we created in this run
         $posts = array_reverse((array) ($state['created_posts'] ?? []));
-        foreach ($posts as $pid) { if ($pid && get_post($pid)) { \wp_delete_post((int) $pid, true); } }
+        foreach ($posts as $pid) {
+            if ($pid && get_post($pid)) {
+                \wp_delete_post((int) $pid, true);
+            }
+        }
         // Delete any terms created (best-effort)
         $terms = array_reverse((array) ($state['created_terms'] ?? []));
         foreach ($terms as $tid) {
@@ -1043,11 +1069,20 @@ class Importer
         $state['created_terms'] = [];
         // Delete created users (best-effort)
         $users = array_reverse((array) ($state['created_users'] ?? []));
-        foreach ($users as $uid) { if ($uid && get_user_by('id', $uid)) { require_once ABSPATH . 'wp-admin/includes/user.php'; \wp_delete_user((int) $uid); } }
+        foreach ($users as $uid) {
+            if ($uid && get_user_by('id', $uid)) {
+                require_once ABSPATH . 'wp-admin/includes/user.php';
+                \wp_delete_user((int) $uid);
+            }
+        }
         $state['created_users'] = [];
         // Remove created roles
         $roles = array_reverse((array) ($state['created_roles'] ?? []));
-        foreach ($roles as $r) { if (get_role($r)) { remove_role($r); } }
+        foreach ($roles as $r) {
+            if (get_role($r)) {
+                remove_role($r);
+            }
+        }
         $state['created_roles'] = [];
         // Remove created widgets from sidebars
         $widgets = array_reverse((array) ($state['created_widgets'] ?? []));
@@ -1135,7 +1170,13 @@ class Importer
                     'post_status'=> 'publish',
                     'post_content' => isset($it['content']) ? \wp_kses_post($it['content']) : \wp_kses_post('<p>Demo content for ' . $title . '.</p>')
                 ]);
-                if ($pid) { self::track_created_post((int) $pid); $log[] = 'Created page: ' . $title; try { self::audit($state, 'create', [ 'type' => 'page', 'id' => (int) $pid, 'slug' => $slug ]); } catch (\Throwable $ie) {} }
+                if ($pid) {
+                    self::track_created_post((int) $pid);
+                    $log[] = 'Created page: ' . $title;
+                    try {
+                        self::audit($state, 'create', [ 'type' => 'page', 'id' => (int) $pid, 'slug' => $slug ]);
+                    } catch (\Throwable $ie) {}
+                }
                 if (!empty($it['template']) && $pid) { \update_post_meta($pid, '_wp_page_template', $it['template']); }
             } elseif ($policy === 'overwrite') {
                 \wp_update_post([
@@ -1145,7 +1186,13 @@ class Importer
                 if (!empty($it['template'])) { \update_post_meta($existing->ID, '_wp_page_template', $it['template']); }
                 $log[] = 'Updated page: ' . $title; try { self::audit($state, 'update', [ 'type' => 'page', 'id' => (int) $existing->ID, 'slug' => $slug ]); } catch (\Throwable $ie) {}
             } elseif ($policy === 'merge') {
-                if (!empty($it['template'])) { \update_post_meta($existing->ID, '_wp_page_template', $it['template']); $log[] = 'Ensured template for page: ' . $title; try { self::audit($state, 'merge', [ 'type' => 'page', 'id' => (int) $existing->ID, 'slug' => $slug, 'fields' => ['template'] ]); } catch (\Throwable $ie) {} }
+                if (!empty($it['template'])) {
+                    \update_post_meta($existing->ID, '_wp_page_template', $it['template']);
+                    $log[] = 'Ensured template for page: ' . $title;
+                    try {
+                        self::audit($state, 'merge', [ 'type' => 'page', 'id' => (int) $existing->ID, 'slug' => $slug, 'fields' => ['template'] ]);
+                    } catch (\Throwable $ie) {}
+                }
                 // keep content
             } else {
                 $log[] = 'Skipped existing page: ' . $title; try { self::audit($state, 'skip', [ 'type' => 'page', 'id' => (int) $existing->ID, 'slug' => $slug ]); } catch (\Throwable $ie) {}
@@ -1253,16 +1300,42 @@ class Importer
         // Seed categories/tags once
         if (!$ps['terms_seeded']) {
             $cats = ['Rare Fish','Aquatic Plants','Premium Equipment','Care Supplies'];
-            foreach ($cats as $c) { $term = \term_exists($c, 'product_cat'); if (!$term) { $term = \wp_insert_term($c, 'product_cat'); if (!is_wp_error($term)) { self::track_created_term((int) ($term['term_id'] ?? $term)); $log[] = 'Created category: ' . $c; } } }
+            foreach ($cats as $c) {
+                $term = \term_exists($c, 'product_cat');
+                if (!$term) {
+                    $term = \wp_insert_term($c, 'product_cat');
+                    if (!is_wp_error($term)) {
+                        self::track_created_term((int) ($term['term_id'] ?? $term));
+                        $log[] = 'Created category: ' . $c;
+                    }
+                }
+            }
             $tags = ['Exotic','Quarantined','Aquascape','Rare'];
-            foreach ($tags as $t) { $term = \term_exists($t, 'product_tag'); if (!$term) { $term = \wp_insert_term($t, 'product_tag'); if (!is_wp_error($term)) { self::track_created_term((int) ($term['term_id'] ?? $term)); $log[] = 'Created tag: ' . $t; } } }
+            foreach ($tags as $t) {
+                $term = \term_exists($t, 'product_tag');
+                if (!$term) {
+                    $term = \wp_insert_term($t, 'product_tag');
+                    if (!is_wp_error($term)) {
+                        self::track_created_term((int) ($term['term_id'] ?? $term));
+                        $log[] = 'Created tag: ' . $t;
+                    }
+                }
+            }
             $ps['terms_seeded'] = true;
         }
         // Collect term ids for assignment
     $cat_terms = get_terms(['taxonomy'=>'product_cat','hide_empty'=>false]); $cat_ids = [];
-    if (!is_wp_error($cat_terms)) { foreach ($cat_terms as $t) { $cat_ids[] = (int) $t->term_id; } }
+    if (!is_wp_error($cat_terms)) {
+        foreach ($cat_terms as $t) {
+            $cat_ids[] = (int) $t->term_id;
+        }
+    }
     $tag_terms = get_terms(['taxonomy'=>'product_tag','hide_empty'=>false]); $tag_ids = [];
-    if (!is_wp_error($tag_terms)) { foreach ($tag_terms as $t) { $tag_ids[] = (int) $t->term_id; } }
+    if (!is_wp_error($tag_terms)) {
+        foreach ($tag_terms as $t) {
+            $tag_ids[] = (int) $t->term_id;
+        }
+    }
     $cat_count = count($cat_ids);
     $tag_count = count($tag_ids);
         $processed = 0;
@@ -1283,12 +1356,26 @@ class Importer
                 if ($pid) { self::track_created_post((int) $pid); $log[] = 'Created product: ' . $name; }
                 if (!empty($cat_ids)) { \wp_set_object_terms($pid, [$cat_ids[$i % max(1,$cat_count)]], 'product_cat'); }
                 if (!empty($tag_ids)) { \wp_set_object_terms($pid, [$tag_ids[$i % max(1,$tag_count)]], 'product_tag', true); }
-                $att_id = self::ensure_demo_image('specimen-' . $i); if ($att_id) { set_post_thumbnail($pid, $att_id); }
+                $att_id = self::ensure_demo_image('specimen-' . $i);
+                if ($att_id) {
+                    set_post_thumbnail($pid, $att_id);
+                }
             } elseif ($policy === 'overwrite') {
-                $p = wc_get_product($existing_id); if ($p) { $p->set_regular_price((string) (50 + 10 * $i)); $p->save(); $log[] = 'Updated product: ' . $name; }
+                $p = wc_get_product($existing_id);
+                if ($p) {
+                    $p->set_regular_price((string) (50 + 10 * $i));
+                    $p->save();
+                    $log[] = 'Updated product: ' . $name;
+                }
             } elseif ($policy === 'merge') {
                     // Ensure thumbnail only
-                    if (!has_post_thumbnail($existing_id)) { $att_id = self::ensure_demo_image('specimen-' . $i); if ($att_id) { set_post_thumbnail($existing_id, $att_id); $log[] = 'Added image to product: ' . $name; } }
+                    if (!has_post_thumbnail($existing_id)) {
+                        $att_id = self::ensure_demo_image('specimen-' . $i);
+                        if ($att_id) {
+                            set_post_thumbnail($existing_id, $att_id);
+                            $log[] = 'Added image to product: ' . $name;
+                        }
+                    }
             } else { $log[] = 'Skipped product: ' . $name; }
             ++$ps['simple_index']; ++$processed;
         }
@@ -1304,7 +1391,11 @@ class Importer
                 if (!\taxonomy_exists($attr_material)) { \register_taxonomy($attr_material, 'product', ['label' => 'Material', 'hierarchical' => false, 'public' => false, 'show_ui' => false]); }
                 $vp = new \WC_Product_Variable();
                 $vp->set_name($name); $vp->set_status('publish'); $vp->set_catalog_visibility('visible');
-                $vid = $vp->save(); if ($vid) { self::track_created_post((int) $vid); $log[] = 'Created variable product: ' . $name; }
+                $vid = $vp->save();
+                if ($vid) {
+                    self::track_created_post((int) $vid);
+                    $log[] = 'Created variable product: ' . $name;
+                }
                 if ($vid) {
                     \wp_set_object_terms($vid, ['small','medium','large'], $attr_size);
                     \wp_set_object_terms($vid, ['blue','gold'], $attr_color);
@@ -1314,12 +1405,23 @@ class Importer
                         $tax = new \WC_Product_Attribute(); $tax->set_id(0); $tax->set_name($tname); $tax->set_options($opts); $tax->set_visible(true); $tax->set_variation(true); $attributes[] = $tax;
                     }
                     $vp->set_attributes($attributes);
-                    $thumb = self::ensure_demo_image('exhibit-tank'); if ($thumb) { set_post_thumbnail($vid, $thumb); }
+                    $thumb = self::ensure_demo_image('exhibit-tank');
+                    if ($thumb) {
+                        set_post_thumbnail($vid, $thumb);
+                    }
                     $vp->save();
                     $vars = [ ['size'=>'small','color'=>'blue','material'=>'glass','price'=>199,'stock'=>7], ['size'=>'medium','color'=>'blue','material'=>'glass','price'=>299,'stock'=>5], ['size'=>'large','color'=>'gold','material'=>'acrylic','price'=>499,'stock'=>3] ];
                     foreach ($vars as $v) { $var = new \WC_Product_Variation(); $var->set_parent_id($vid); $var->set_attributes([ 'pa_size' => $v['size'], 'pa_color' => $v['color'], 'pa_material' => $v['material'] ]); $var->set_status('publish'); $var->set_regular_price((string) $v['price']); $var->set_manage_stock(true); $var->set_stock_quantity((int) $v['stock']); $var->save(); }
                 }
-            } elseif ($policy === 'overwrite') { $p = wc_get_product($existing_id); if ($p) { $p->save(); $log[] = 'Verified variable product: ' . $name; } } else { $log[] = 'Skipped variable product: already exists.'; }
+            } elseif ($policy === 'overwrite') {
+                $p = wc_get_product($existing_id);
+                if ($p) {
+                    $p->save();
+                    $log[] = 'Verified variable product: ' . $name;
+                }
+            } else {
+                $log[] = 'Skipped variable product: already exists.';
+            }
             $ps['variable_done'] = true; ++$processed;
         }
         // Minimal WC settings (once)
@@ -1379,7 +1481,13 @@ class Importer
                     'display_name' => 'Customer ' . $i,
                     'role' => class_exists('WooCommerce') ? 'customer' : 'subscriber',
                 ]);
-                if (!is_wp_error($uid)) { self::track_created_user((int) $uid); $log[] = 'Created user: ' . $username; try { self::audit($state, 'create', [ 'type' => 'user', 'id' => (int) $uid, 'username' => $username ]); } catch (\Throwable $ie) {} }
+                if (!is_wp_error($uid)) {
+                    self::track_created_user((int) $uid);
+                    $log[] = 'Created user: ' . $username;
+                    try {
+                        self::audit($state, 'create', [ 'type' => 'user', 'id' => (int) $uid, 'username' => $username ]);
+                    } catch (\Throwable $ie) {}
+                }
             } else {
                 $log[] = 'Skipped existing user: ' . $username;
             }
