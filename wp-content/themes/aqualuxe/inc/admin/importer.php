@@ -306,7 +306,6 @@ class Importer
             }); }
             return ['ok' => true, 'scheduled' => true, 'recurrence' => $recurrence];
         }
-
     private static function reset_content(): string
     {
     $types = ['post','page','attachment','service','event','testimonial','nav_menu_item'];
@@ -329,8 +328,7 @@ class Importer
             }
         }
         return 'Reset content for: ' . implode(', ', $types);
-    }
-
+        }
     private static function create_core_pages(): string
     {
         $pages = [
@@ -656,7 +654,7 @@ class Importer
         if (!$state) { return ['error' => 'no_state']; }
         if (!empty($state['paused'])) {
             $progress = self::compute_progress($state, 0.0);
-            return ['done' => false, 'progress' => $progress, 'paused' => true, 'log' => ['Paused'] , 'audit_url' => (string) ($state['audit_url'] ?? '')];
+            return ['done' => false, 'progress' => $progress, 'paused' => true, 'log' => ['Paused'], 'audit_url' => (string) ($state['audit_url'] ?? '')];
         }
         $steps = $state['steps'] ?? [];
         $i = (int) ($state['index'] ?? 0);
@@ -667,31 +665,26 @@ class Importer
         try {
             switch ($step) {
                 case 'pages':
-                {
                     [$logStep, $done, $partial] = self::process_pages_step($state);
                     $log = array_merge($log, $logStep);
                     if ($done) { $state['index'] = $i + 1; }
-                    break; }
+                    break;
                 case 'cpts':
-                {
                     [$logStep, $done, $partial] = self::process_cpts_step($state);
                     $log = array_merge($log, $logStep);
                     if ($done) { $state['index'] = $i + 1; }
-                    break; }
+                    break;
                 case 'users':
-                {
                     [$logStep, $done, $partial] = self::process_users_step($state);
                     $log = array_merge($log, $logStep);
                     if ($done) { $state['index'] = $i + 1; }
-                    break; }
+                    break;
                 case 'roles':
-                {
                     [$logStep, $done, $partial] = self::process_roles_step($state);
                     $log = array_merge($log, $logStep);
                     if ($done) { $state['index'] = $i + 1; }
-                    break; }
+                    break;
                 case 'products':
-                {
                     if (class_exists('WooCommerce')) {
                         [$logStep, $done, $partial] = self::process_products_step($state);
                         $log = array_merge($log, $logStep);
@@ -700,7 +693,7 @@ class Importer
                         $log[] = 'WooCommerce not active; skipping products.';
                         $state['index'] = $i + 1;
                     }
-                    break; }
+                    break;
                 case 'wc_config':
                     if (class_exists('WooCommerce')) {
                         // Set currency if provided
@@ -713,29 +706,25 @@ class Importer
                     $partial = 1.0;
                     break;
                 case 'media':
-                {
                     [$logStep, $done, $partial] = self::process_media_step($state);
                     $log = array_merge($log, $logStep);
                     if ($done) { $state['index'] = $i + 1; }
-                    break; }
+                    break;
                 case 'widgets':
-                {
                     [$logStep, $done, $partial] = self::process_widgets_step($state);
                     $log = array_merge($log, $logStep);
                     if ($done) { $state['index'] = $i + 1; }
-                    break; }
+                    break;
                 case 'options':
-                {
                     [$logStep, $done, $partial] = self::process_options_step($state);
                     $log = array_merge($log, $logStep);
                     if ($done) { $state['index'] = $i + 1; }
-                    break; }
+                    break;
                 case 'i18n':
-                {
                     [$logStep, $done, $partial] = self::process_i18n_step($state);
                     $log = array_merge($log, $logStep);
                     if ($done) { $state['index'] = $i + 1; }
-                    break; }
+                    break;
                 default:
                     $log[] = 'Skipped: ' . (string) $step;
                     $state['index'] = $i + 1;
@@ -901,7 +890,12 @@ class Importer
         return array_values(array_unique($types));
     }
 
-    /** Create or reuse a simple SVG placeholder and attach to Media Library. */
+    /**
+     * Create or reuse a simple SVG placeholder and attach to Media Library.
+     *
+     * @param string $slug Attachment slug/base name.
+     * @return int Attachment ID or 0.
+     */
     private static function ensure_demo_image(string $slug): int
     {
         $upload = \wp_upload_dir();
@@ -950,11 +944,21 @@ class Importer
         $report = [ 'entities' => $entities, 'volume' => max(1, min(100, $volume)), 'counts' => [] ];
         foreach ($entities as $e) {
             switch ($e) {
-                case 'pages': $report['counts']['pages'] = 10; break;
-                case 'cpts': $report['counts']['cpts'] = 10; break;
-                case 'products': $report['counts']['products'] = 7; break; // 6 simple + 1 variable
-                case 'wc_config': $report['counts']['wc_config'] = 1; break;
-                case 'media': $report['counts']['media'] = 10; break;
+                case 'pages':
+                    $report['counts']['pages'] = 10;
+                    break;
+                case 'cpts':
+                    $report['counts']['cpts'] = 10;
+                    break;
+                case 'products':
+                    $report['counts']['products'] = 7;
+                    break;
+                case 'wc_config':
+                    $report['counts']['wc_config'] = 1;
+                    break;
+                case 'media':
+                    $report['counts']['media'] = 10;
+                    break;
             }
         }
         $report['sample'] = [ 'product' => 'AquaLuxe Specimen 1', 'page' => 'Home' ];
@@ -1299,10 +1303,12 @@ class Importer
             $ps['terms_seeded'] = true;
         }
         // Collect term ids for assignment
-        $cat_terms = get_terms(['taxonomy'=>'product_cat','hide_empty'=>false]); $cat_ids = [];
-        if (!is_wp_error($cat_terms)) { foreach ($cat_terms as $t) { $cat_ids[] = (int) $t->term_id; } }
-        $tag_terms = get_terms(['taxonomy'=>'product_tag','hide_empty'=>false]); $tag_ids = [];
-        if (!is_wp_error($tag_terms)) { foreach ($tag_terms as $t) { $tag_ids[] = (int) $t->term_id; } }
+    $cat_terms = get_terms(['taxonomy'=>'product_cat','hide_empty'=>false]); $cat_ids = [];
+    if (!is_wp_error($cat_terms)) { foreach ($cat_terms as $t) { $cat_ids[] = (int) $t->term_id; } }
+    $tag_terms = get_terms(['taxonomy'=>'product_tag','hide_empty'=>false]); $tag_ids = [];
+    if (!is_wp_error($tag_terms)) { foreach ($tag_terms as $t) { $tag_ids[] = (int) $t->term_id; } }
+    $cat_count = count($cat_ids);
+    $tag_count = count($tag_ids);
         $processed = 0;
         // Simple products batch
         while ($ps['simple_index'] < $ps['simple_total'] && $processed < $volume) {
@@ -1319,8 +1325,8 @@ class Importer
                 $p->set_catalog_visibility('visible');
                 $pid = $p->save();
                 if ($pid) { self::track_created_post((int) $pid); $log[] = 'Created product: ' . $name; }
-                if (!empty($cat_ids)) { \wp_set_object_terms($pid, [$cat_ids[$i % max(1,count($cat_ids))]], 'product_cat'); }
-                if (!empty($tag_ids)) { \wp_set_object_terms($pid, [$tag_ids[$i % max(1,count($tag_ids))]], 'product_tag', true); }
+                if (!empty($cat_ids)) { \wp_set_object_terms($pid, [$cat_ids[$i % max(1,$cat_count)]], 'product_cat'); }
+                if (!empty($tag_ids)) { \wp_set_object_terms($pid, [$tag_ids[$i % max(1,$tag_count)]], 'product_tag', true); }
                 $att_id = self::ensure_demo_image('specimen-' . $i); if ($att_id) { set_post_thumbnail($pid, $att_id); }
             } else {
                 if ($policy === 'overwrite') {
@@ -1356,7 +1362,7 @@ class Importer
                     $vp->set_attributes($attributes);
                     $thumb = self::ensure_demo_image('exhibit-tank'); if ($thumb) { set_post_thumbnail($vid, $thumb); }
                     $vp->save();
-                    $vars = [ ['size'=>'small','color'=>'blue','material'=>'glass','price'=>199,'stock'=>7], ['size'=>'medium','color'=>'blue','material'=>'glass','price'=>299,'stock'=>5], ['size'=>'large','color'=>'gold','material'=>'acrylic','price'=>499,'stock'=>3], ];
+                    $vars = [ ['size'=>'small','color'=>'blue','material'=>'glass','price'=>199,'stock'=>7], ['size'=>'medium','color'=>'blue','material'=>'glass','price'=>299,'stock'=>5], ['size'=>'large','color'=>'gold','material'=>'acrylic','price'=>499,'stock'=>3] ];
                     foreach ($vars as $v) { $var = new \WC_Product_Variation(); $var->set_parent_id($vid); $var->set_attributes([ 'pa_size' => $v['size'], 'pa_color' => $v['color'], 'pa_material' => $v['material'] ]); $var->set_status('publish'); $var->set_regular_price((string) $v['price']); $var->set_manage_stock(true); $var->set_stock_quantity((int) $v['stock']); $var->save(); }
                 }
             } else {
@@ -1374,7 +1380,12 @@ class Importer
         return [$log, $done, $partial];
     }
 
-    /** Estimate partial completion for current step using step_state. */
+    /**
+     * Estimate partial completion for current step using step_state.
+     *
+     * @param array $state Importer state array.
+     * @return float Fraction [0..1].
+     */
     private static function compute_partial_from_state(array $state): float
     {
         $steps = (array) ($state['steps'] ?? []);
@@ -1598,7 +1609,12 @@ class Importer
         return [$log, $done, $partial];
     }
 
-    /** Build candidate media items based on provider config. */
+    /**
+     * Build candidate media items based on provider config.
+     *
+     * @param array $assets Provider configuration (provider, count, query, urls).
+     * @return array List of associative arrays with url/title/provider/source/author/license.
+     */
     private static function fetch_media_candidates(array $assets): array
     {
         $provider = sanitize_key($assets['provider'] ?? 'local_svg');
@@ -1653,7 +1669,14 @@ class Importer
         return $items;
     }
 
-    /** Download a remote media file and create an attachment; returns attachment ID or 0. */
+    /**
+     * Download a remote media file and create an attachment.
+     *
+     * @param string $url   Absolute image URL.
+     * @param string $title Attachment title.
+     * @param array  $meta  Post meta to set on the attachment.
+     * @return int Attachment ID or 0.
+     */
     private static function sideload_media(string $url, string $title, array $meta = []): int
     {
         if (!$url) return 0;

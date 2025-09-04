@@ -10,7 +10,7 @@ class REST
             'permission_callback' => '__return_true',
             'callback' => function () {
                 return [
-                    'ok' => true,
+                    'ok'      => true,
                     'version' => AQUALUXE_VERSION,
                 ];
             },
