@@ -9,7 +9,6 @@ class Importer
     \add_action('admin_init', [__CLASS__, 'maybe_schedule']);
     \add_action('admin_enqueue_scripts', [__CLASS__, 'enqueue_admin']);
     }
-
     public static function menu(): void
     {
         \add_theme_page(
@@ -20,7 +19,6 @@ class Importer
             [__CLASS__, 'render']
         );
     }
-
     public static function render(): void
     {
                 if (isset($_POST['aqualuxe_import'])) {
@@ -191,7 +189,6 @@ class Importer
                 </div>
         <?php
     }
-
     public static function enqueue_admin($hook): void
     {
         if (!\current_user_can('manage_options')) return;
@@ -288,7 +285,6 @@ class Importer
                 \wp_clear_scheduled_hook('aqlx_scheduled_reinit');
             }
         }
-
         public static function schedule(array $entities, bool $reset, int $volume, string $recurrence = 'daily'): array
         {
             $recurrence = in_array($recurrence, ['hourly','twicedaily','daily'], true) ? $recurrence : 'daily';
@@ -400,7 +396,6 @@ class Importer
         }
         return 'Created/verified core pages and menus.';
     }
-
     private static function create_cpts(): string
     {
         // Services
@@ -438,7 +433,6 @@ class Importer
         }
     return 'Created sample Services, Events, and Testimonials.';
     }
-
     private static function create_wc_sample(): string
     {
         if (!class_exists('WC_Product_Simple')) { return 'WooCommerce not fully available'; }
@@ -646,7 +640,6 @@ class Importer
         ]);
     return ['ok' => true, 'progress' => 0, 'log' => $state['log'], 'audit_url' => $state['audit_url']];
     }
-
     public static function step(): array
     {
         $state = (array) \get_option('aqlx_import_state', []);
@@ -755,7 +748,6 @@ class Importer
             return ['error' => 'step_failed', 'log' => $log];
         }
     }
-
     public static function export(array $entities): array
     {
         $types = self::map_entities_to_types($entities);
@@ -872,7 +864,6 @@ class Importer
     // Allow plugins/themes to add or reorder steps
     return apply_filters('aqlx_importer_build_steps', $steps, $entities);
     }
-
     private static function map_entities_to_types(array $entities): array
     {
         $map = [
@@ -976,14 +967,12 @@ class Importer
         $pct = (int) floor((($base + $fraction) / $count) * 100);
         return max(0, min(100, $pct));
     }
-
     private static function &ensure_step_state(array &$state, string $key, array $defaults = []): array
     {
         if (!isset($state['step_state']) || !is_array($state['step_state'])) { $state['step_state'] = []; }
         if (!isset($state['step_state'][$key]) || !is_array($state['step_state'][$key])) { $state['step_state'][$key] = $defaults; }
         return $state['step_state'][$key];
     }
-
     private static function track_created_post(int $id): void
     {
         $state = (array) \get_option('aqlx_import_state', []);
@@ -991,7 +980,6 @@ class Importer
         $list = (array) ($state['created_posts'] ?? []);
         if (!in_array($id, $list, true)) { $list[] = $id; $state['created_posts'] = $list; \update_option('aqlx_import_state', $state, false); }
     }
-
     private static function track_created_term(int $id): void
     {
         $state = (array) \get_option('aqlx_import_state', []);
@@ -999,7 +987,6 @@ class Importer
         $list = (array) ($state['created_terms'] ?? []);
         if (!in_array($id, $list, true)) { $list[] = $id; $state['created_terms'] = $list; \update_option('aqlx_import_state', $state, false); }
     }
-
     private static function track_created_user(int $id): void
     {
         $state = (array) \get_option('aqlx_import_state', []);
@@ -1007,7 +994,6 @@ class Importer
         $list = (array) ($state['created_users'] ?? []);
         if (!in_array($id, $list, true)) { $list[] = $id; $state['created_users'] = $list; \update_option('aqlx_import_state', $state, false); }
     }
-
     private static function track_created_role(string $role): void
     {
         $state = (array) \get_option('aqlx_import_state', []);
@@ -1015,7 +1001,6 @@ class Importer
         $list = (array) ($state['created_roles'] ?? []);
         if (!in_array($role, $list, true)) { $list[] = $role; $state['created_roles'] = $list; \update_option('aqlx_import_state', $state, false); }
     }
-
     private static function track_created_widget(string $id): void
     {
         $state = (array) \get_option('aqlx_import_state', []);
@@ -1047,14 +1032,12 @@ class Importer
         ]);
         return $q->have_posts() ? (int) $q->posts[0] : 0;
     }
-
     private static function backup_option(string $key): void
     {
         $state = (array) \get_option('aqlx_import_state', []);
         $bk = (array) ($state['options_backup'] ?? []);
         if (!array_key_exists($key, $bk)) { $bk[$key] = get_option($key, null); $state['options_backup'] = $bk; \update_option('aqlx_import_state', $state, false); }
     }
-
     private static function rollback(array &$state): void
     {
         // Delete posts we created in this run
@@ -1120,7 +1103,6 @@ class Importer
             file_put_contents($file, $line, FILE_APPEND | LOCK_EX);
         } catch (\Throwable $e) {}
     }
-
     private static function process_pages_step(array &$state): array
     {
         $volume = (int) ($state['volume'] ?? 10);
@@ -1224,7 +1206,6 @@ class Importer
     $partial = min(1.0, max(0.0, ($itemsCount ? $ps['index'] / $itemsCount : 1.0)));
         return [$log, $done, $partial];
     }
-
     private static function process_cpts_step(array &$state): array
     {
         $volume = (int) ($state['volume'] ?? 10);
@@ -1274,7 +1255,6 @@ class Importer
         $done = $doneCount >= $total;
         return [$log, $done, $partial];
     }
-
     private static function process_products_step(array &$state): array
     {
         $volume = (int) ($state['volume'] ?? 10);
@@ -1395,7 +1375,6 @@ class Importer
                 return 0.0;
         }
     }
-
     private static function process_users_step(array &$state): array
     {
         $volume = (int) ($state['volume'] ?? 10);
@@ -1424,7 +1403,6 @@ class Importer
         $partial = min(1.0, max(0.0, ($us['total'] ? $us['index'] / $us['total'] : 1.0)));
         return [$log, $done, $partial];
     }
-
     private static function process_roles_step(array &$state): array
     {
         $log = [];
@@ -1436,7 +1414,6 @@ class Importer
         } else { $log[] = 'Role already exists: partner'; }
         return [$log, true, 1.0];
     }
-
     private static function process_widgets_step(array &$state): array
     {
         // Minimal footer widgets seeding using sidebars_widgets and widget_text
@@ -1457,7 +1434,6 @@ class Importer
     $log[] = 'Added footer widget'; try { self::audit($state, 'create', [ 'type' => 'widget', 'id' => 'text-' . $newIdx, 'sidebar' => 'footer-1' ]); } catch (\Throwable $ie) {}
         return [$log, true, 1.0];
     }
-
     private static function process_options_step(array &$state): array
     {
         $log = [];
@@ -1485,7 +1461,6 @@ class Importer
         if (!$locales) { return [['i18n: no extra locales provided'], true, 1.0]; }
         $created = array_values(array_unique(array_map('intval', (array) ($state['created_posts'] ?? []))));
         if (!$created) { return [['i18n: nothing to translate'], true, 1.0]; }
-
         $batch = max(1, (int) ($state['volume'] ?? 10));
         $offset = (int) ($state['i18n_offset'] ?? 0);
         $slice = array_slice($created, $offset, $batch);
@@ -1498,7 +1473,6 @@ class Importer
                 $key = 'aqlx_i18n_' . $loc;
                 $existing = (int) get_post_meta($orig_id, $key, true);
                 if ($existing && get_post($existing)) { continue; }
-
                 $orig = get_post($orig_id);
                 $new_post = [
                     'post_type' => $orig->post_type,
@@ -1689,3 +1663,4 @@ class Importer
         return $id;
     }
 }
+
