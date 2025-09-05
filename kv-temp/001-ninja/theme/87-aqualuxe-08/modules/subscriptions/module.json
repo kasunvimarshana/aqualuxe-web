@@ -1,0 +1,5 @@
+{
+  "name": "Subscriptions",
+  "enabled": false,
+  "description": "Simple membership leads form; integrate with payment gateways via adapters later."
+}
