@@ -1,0 +1,5 @@
+{
+  "name": "Multilingual",
+  "enabled": true,
+  "description": "Adds a language switcher with Polylang/WPML support and a locale badge fallback."
+}
