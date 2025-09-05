@@ -1,0 +1,175 @@
+/* AquaLuxe WooCommerce Styles */
+
+/* General Product Grid */
+.woocommerce ul.products {
+    @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6;
+}
+
+.woocommerce ul.products li.product {
+    @apply m-0; /* Reset default margins */
+}
+
+/* Product Item in Grid */
+.woocommerce ul.products li.product .woocommerce-loop-product__link {
+    @apply block;
+}
+
+.woocommerce ul.products li.product img {
+    @apply w-full h-auto object-cover rounded-t-lg;
+    aspect-ratio: 1 / 1;
+}
+
+.woocommerce ul.products li.product .woocommerce-loop-product__title {
+    @apply text-lg font-semibold text-gray-800 dark:text-white mt-2;
+}
+
+.woocommerce ul.products li.product .price {
+    @apply text-xl font-bold text-blue-600 dark:text-blue-400 my-2;
+}
+
+.woocommerce ul.products li.product .button {
+    @apply aqualuxe-btn-primary w-full;
+}
+
+/* Sale Badge */
+.woocommerce span.onsale {
+    @apply absolute top-4 left-4 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full z-10;
+    min-height: 0;
+    min-width: 0;
+    padding: 0.5em;
+    line-height: 1;
+}
+
+/* Pagination */
+.woocommerce nav.woocommerce-pagination ul {
+    @apply flex justify-center items-center space-x-2 mt-12 border-none;
+}
+
+.woocommerce nav.woocommerce-pagination ul li a,
+.woocommerce nav.woocommerce-pagination ul li span {
+    @apply inline-flex items-center justify-center w-10 h-10 rounded-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-blue-500 hover:text-white dark:hover:bg-blue-500 transition-colors;
+}
+
+.woocommerce nav.woocommerce-pagination ul li span.current {
+    @apply bg-blue-600 text-white border-blue-600;
+}
+
+/* Single Product Page */
+.woocommerce div.product div.images .woocommerce-product-gallery__trigger {
+    @apply absolute top-4 right-4 bg-white/70 text-blue-600 rounded-full w-10 h-10 flex items-center justify-center z-20 hover:bg-white;
+}
+
+.woocommerce div.product div.summary {
+    @apply p-4;
+}
+
+.woocommerce div.product p.price, .woocommerce div.product span.price {
+    @apply text-3xl font-bold text-blue-600 dark:text-blue-400 mb-4;
+}
+
+.woocommerce div.product .woocommerce-product-rating {
+    @apply mb-4;
+}
+
+.woocommerce div.product form.cart {
+    @apply mt-6;
+}
+
+.woocommerce div.product form.cart .quantity .qty {
+    @apply w-20 text-center border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:text-white;
+}
+
+.woocommerce div.product form.cart .button {
+    @apply aqualuxe-btn-primary;
+}
+
+.woocommerce div.product .product_meta {
+    @apply mt-6 pt-6 border-t border-gray-200 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-400;
+}
+
+.woocommerce div.product .product_meta > span {
+    @apply block mb-2;
+}
+
+/* Product Tabs */
+.woocommerce-tabs ul.tabs li a.active {
+    @apply border-blue-600 text-blue-600 dark:border-blue-400 dark:text-blue-400;
+}
+
+/* Cart Page */
+.woocommerce table.shop_table {
+    @apply border border-gray-200 dark:border-gray-700;
+}
+.woocommerce table.shop_table th {
+    @apply p-4 bg-gray-50 dark:bg-gray-800 font-semibold text-left;
+}
+.woocommerce table.shop_table td {
+    @apply p-4 border-t border-gray-200 dark:border-gray-700;
+}
+.woocommerce .cart-collaterals .cart_totals {
+    @apply bg-gray-50 dark:bg-gray-800 p-8 rounded-lg;
+}
+.woocommerce .cart-collaterals .cart_totals h2 {
+    @apply text-2xl font-semibold mb-6;
+}
+.woocommerce .cart-collaterals .cart_totals table {
+    @apply w-full;
+}
+.woocommerce .cart-collaterals .cart_totals .wc-proceed-to-checkout a.checkout-button {
+    @apply aqualuxe-btn-primary w-full text-center;
+}
+
+/* Checkout Page */
+.woocommerce-checkout #customer_details .col-1, .woocommerce-checkout #customer_details .col-2 {
+    @apply space-y-6;
+}
+.woocommerce-checkout .woocommerce-billing-fields h3, .woocommerce-checkout .woocommerce-shipping-fields h3 {
+    @apply text-2xl font-semibold mb-6;
+}
+.woocommerce-checkout form .form-row {
+    @apply mb-4;
+}
+.woocommerce-checkout form .form-row label {
+    @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1;
+}
+.woocommerce-checkout form .form-row .input-text {
+    @apply mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white;
+}
+.woocommerce-checkout #order_review {
+    @apply bg-gray-50 dark:bg-gray-800 p-8 rounded-lg;
+}
+.woocommerce-checkout #payment ul.payment_methods {
+    @apply list-none p-0 m-0;
+}
+.woocommerce-checkout #payment ul.payment_methods li {
+    @apply mb-4;
+}
+.woocommerce-checkout #payment #place_order {
+    @apply aqualuxe-btn-primary w-full;
+}
+
+/* My Account */
+.woocommerce-account .woocommerce-MyAccount-navigation {
+    @apply bg-gray-100 dark:bg-gray-800 p-6 rounded-lg mb-8 md:mb-0 md:mr-8 md:w-1/4 float-left;
+}
+.woocommerce-account .woocommerce-MyAccount-navigation ul {
+    @apply space-y-2 list-none p-0 m-0;
+}
+.woocommerce-account .woocommerce-MyAccount-navigation ul li a {
+    @apply block py-2 px-4 rounded-md text-gray-700 dark:text-gray-300 hover:bg-blue-500 hover:text-white dark:hover:bg-blue-600;
+}
+.woocommerce-account .woocommerce-MyAccount-navigation ul li.is-active a {
+    @apply bg-blue-600 text-white font-semibold;
+}
+.woocommerce-account .woocommerce-MyAccount-content {
+    @apply overflow-hidden;
+}
+.woocommerce-account .woocommerce-MyAccount-content p {
+    @apply mb-4;
+}
+.woocommerce-account .woocommerce-MyAccount-content a {
+    @apply text-blue-600 hover:underline dark:text-blue-400;
+}
+
+
+

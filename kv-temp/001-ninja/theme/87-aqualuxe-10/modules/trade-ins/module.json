@@ -1,0 +1,9 @@
+{
+    "name": "Trade-Ins / Buy-Back",
+    "description": "Provides a form and system for customers to request a trade-in or buy-back of their old products.",
+    "version": "1.0.0",
+    "enabled": true,
+    "requires": [
+        "class:AquaLuxe\\Core\\Contracts\\ModuleInterface"
+    ]
+}

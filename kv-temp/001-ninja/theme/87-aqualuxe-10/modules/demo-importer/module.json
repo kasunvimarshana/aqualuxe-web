@@ -1,0 +1,10 @@
+{
+  "name": "Demo Importer",
+  "version": "1.0.0",
+  "description": "Provides a one-click demo content import for AquaLuxe theme.",
+  "author": "Your Name",
+  "author_uri": "https://your-website.com",
+  "text_domain": "aqualuxe",
+  "dependencies": [],
+  "enabled": true
+}

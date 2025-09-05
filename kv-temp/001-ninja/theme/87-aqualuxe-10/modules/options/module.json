@@ -1,0 +1,10 @@
+{
+  "name": "Options",
+  "version": "1.0.0",
+  "description": "Adds a comprehensive theme options panel via the WordPress Customizer.",
+  "author": "Your Name",
+  "author_uri": "https://your-website.com",
+  "text_domain": "aqualuxe",
+  "dependencies": [],
+  "enabled": true
+}

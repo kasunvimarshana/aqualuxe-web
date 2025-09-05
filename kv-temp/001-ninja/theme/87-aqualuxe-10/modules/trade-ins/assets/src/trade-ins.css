@@ -1,0 +1,18 @@
+/* Styles for the Trade-Ins Module */
+/* The template uses Tailwind utility classes, so minimal CSS is needed here. */
+
+#aqualuxe-trade-in-form-wrapper .form-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    padding: 1rem;
+    border-radius: 0.25rem;
+}
+
+#aqualuxe-trade-in-form-wrapper .form-error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    padding: 1rem;
+    border-radius: 0.25rem;
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Multi-vendor Marketplace",
+    "description": "Integrates with multi-vendor plugins like Dokan and WCFM to add marketplace features.",
+    "version": "1.0.0",
+    "enabled": true,
+    "requires": [
+        "class:AquaLuxe\\Core\\Contracts\\ModuleInterface",
+        "class:WooCommerce"
+    ],
+    "requiresAny": [
+        "function:dokan",
+        "class:WCFMmp"
+    ]
+}
