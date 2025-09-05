@@ -1,0 +1,5 @@
+{
+  "name": "API Client",
+  "description": "Thin, secure wrapper for external REST calls with caching and nonce utilities.",
+  "enabled": true
+}
