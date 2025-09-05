@@ -1,0 +1,10 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Base adjustments */
+.container { width: 100%; }
+
+.aqlx-admin-card { background: #fff; border: 1px solid #e5e7eb; border-radius: .5rem; padding: 1rem; }
+
+.dark body { color: #e5e7eb; background: #0b1220; }
