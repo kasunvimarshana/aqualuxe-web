@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Accessible focus styles */
+:focus { outline: 2px solid theme('colors.blue.500'); outline-offset: 2px; }
+
+/******** Theme tokens ********/
+:root {
+  --alx-radius: 8px;
+}
+
+/* Dark mode utility (class-based) */
+.theme-dark body { color: #e5e7eb; background-color: #0b1220; }
