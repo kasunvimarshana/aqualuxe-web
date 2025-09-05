@@ -1,0 +1,5 @@
+{
+  "name": "Affiliates",
+  "enabled": false,
+  "description": "Simple referral capture via ?ref= code and cookie." 
+}

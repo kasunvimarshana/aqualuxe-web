@@ -53,12 +53,7 @@
       provider,
       query: q('#aqlx-asset-query')?.value || '',
       count: parseInt(q('#aqlx-asset-count')?.value || '8', 10),
-      urls: provider==='custom'? customUrls : [],
-      keys: {
-        unsplash: q('#aqlx-unsplash-key')?.value || '',
-        pexels: q('#aqlx-pexels-key')?.value || '',
-        pixabay: q('#aqlx-pixabay-key')?.value || ''
-      }
+      urls: provider==='custom'? customUrls : []
     };
     const from = q('#aqlx-from')?.value || '';
     const to = q('#aqlx-to')?.value || '';
@@ -119,8 +114,7 @@
     }
   }
   async function refreshStateSummary(){ const res = await api('/import/state','GET').catch(()=>({error:'state_failed'})); if(res?.ok && res?.state?.started){ const dt = new Date((res.state.started||0)*1000); const label = lastEl?.dataset?.label || 'Last run:'; lastEl.textContent = label + ' ' + dt.toLocaleString(); } }
-  async function finalizeRunSummary(){ const res = await api('/import/state','GET').catch(()=>({error:'state_failed'})); if(!res||!res.ok) return; const st = res.state||{}; const counts={ posts: Array.isArray(st.created_posts)? st.created_posts.length : (res.created_posts||0), terms: Array.isArray(st.created_terms)? st.created_terms.length : (res.created_terms||0), users: Array.isArray(st.created_users)? st.created_users.length : 0, roles: Array.isArray(st.created_roles)? st.created_roles.length : 0, widgets: Array.isArray(st.created_widgets)? st.created_widgets.length : 0,}; const parts=['Summary:',' - Created posts: '+counts.posts,' - Created terms: '+counts.terms]; if(counts.users) parts.push(' - Created users: '+counts.users); if(counts.roles) parts.push(' - Created roles: '+counts.roles); if(counts.widgets) parts.push(' - Created widgets: '+counts.widgets); appendLog(parts.join('\n'));
-  }
+  async function finalizeRunSummary(){ const res = await api('/import/state','GET').catch(()=>({error:'state_failed'})); if(!res||!res.ok) return; const st = res.state||{}; const counts={ posts: Array.isArray(st.created_posts)? st.created_posts.length : (res.created_posts||0), terms: Array.isArray(st.created_terms)? st.created_terms.length : (res.created_terms||0), users: Array.isArray(st.created_users)? st.created_users.length : 0, roles: Array.isArray(st.created_roles)? st.created_roles.length : 0, widgets: Array.isArray(st.created_widgets)? st.created_widgets.length : 0,}; const parts=['Summary:',' - Created posts: '+counts.posts,' - Created terms: '+counts.terms]; if(counts.users) parts.push(' - Created users: '+counts.users); if(counts.roles) parts.push(' - Created roles: '+counts.roles); if(counts.widgets) parts.push(' - Created widgets: '+counts.widgets); appendLog(parts.join('\n')); }
   async function loadRecentAudits(){ const res = await api('/import/audits','GET').catch(()=>({error:'audits_failed'})); const sel = $('aqlx-audits'); if(!sel) return; while(sel.options.length>1){ sel.remove(1);} if(res && res.ok && Array.isArray(res.items)){ res.items.forEach(it=>{ const o=document.createElement('option'); const when = it.mtime ? (new Date(it.mtime*1000)).toLocaleString() : ''; o.value=it.url; o.text=(it.name||'audit') + (when?(' — '+when):''); if(it.mtime) o.setAttribute('data-mtime', String(it.mtime)); sel.appendChild(o); }); } }
   // getSelectedAudit already defined above; keep a single definition
   function openSelectedAudit(){ const it = getSelectedAudit(); if(!it){ appendLog('Select an audit first.'); return; } window.open(it.url,'_blank'); }

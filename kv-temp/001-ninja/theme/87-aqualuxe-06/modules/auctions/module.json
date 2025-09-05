@@ -1,0 +1,5 @@
+{
+  "name": "Auctions",
+  "enabled": false,
+  "description": "Auction listings CPT and basic public listing shortcode."
+}
