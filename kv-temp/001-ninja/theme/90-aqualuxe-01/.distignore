@@ -1,0 +1,10 @@
+/node_modules
+/vendor
+.DS_Store
+Thumbs.db
+.idea
+.vscode
+npm-debug.log
+yarn-error.log
+aqualuxe.zip
+/aqualuxe

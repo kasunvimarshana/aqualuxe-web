@@ -1,0 +1,9 @@
+{
+    "name": "Services / Consultations",
+    "description": "Adds a 'Service' custom post type for listing professional services or consultations.",
+    "version": "1.0.0",
+    "enabled": true,
+    "requires": [
+        "class:AquaLuxe\\Core\\Contracts\\ModuleInterface"
+    ]
+}
