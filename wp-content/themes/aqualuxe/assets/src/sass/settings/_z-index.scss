@@ -1,0 +1,52 @@
+// =============================================================================
+// Z-INDEX SETTINGS
+// =============================================================================
+
+// Z-index scale for consistent layering
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
+$z-index-toast: 1080;
+
+// Application specific z-index values
+$z-index-header: 100;
+$z-index-navigation: 110;
+$z-index-mobile-menu: 120;
+$z-index-search-overlay: 130;
+$z-index-cart-dropdown: 140;
+$z-index-notification: 150;
+$z-index-fab: 160;
+
+// Higher level overlays
+$z-index-overlay: 1000;
+$z-index-dialog: 2000;
+$z-index-fullscreen: 3000;
+
+// Debug layer (highest)
+$z-index-debug: 9999;
+
+// Z-index map for utility generation
+$z-indexes: (
+  'auto': auto,
+  '0': 0,
+  '10': 10,
+  '20': 20,
+  '30': 30,
+  '40': 40,
+  '50': 50,
+  'header': $z-index-header,
+  'navigation': $z-index-navigation,
+  'dropdown': $z-index-dropdown,
+  'sticky': $z-index-sticky,
+  'fixed': $z-index-fixed,
+  'modal': $z-index-modal,
+  'popover': $z-index-popover,
+  'tooltip': $z-index-tooltip,
+  'overlay': $z-index-overlay,
+  'dialog': $z-index-dialog,
+  'fullscreen': $z-index-fullscreen
+);
