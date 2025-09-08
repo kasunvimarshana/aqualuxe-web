@@ -1,0 +1,66 @@
+// AquaLuxe Main Styles
+// Import Tailwind CSS base, components, and utilities
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+// Import custom variables
+@import 'variables';
+
+// Import base styles
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/forms';
+@import 'base/accessibility';
+
+// Import layout components
+@import 'layout/header';
+@import 'layout/navigation';
+@import 'layout/footer';
+@import 'layout/sidebar';
+@import 'layout/grid';
+
+// Import UI components
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/modals';
+@import 'components/forms';
+@import 'components/tables';
+@import 'components/pagination';
+@import 'components/breadcrumbs';
+@import 'components/alerts';
+@import 'components/badges';
+@import 'components/tooltips';
+@import 'components/dropdowns';
+@import 'components/tabs';
+@import 'components/accordions';
+
+// Import page-specific styles
+@import 'pages/home';
+@import 'pages/blog';
+@import 'pages/single';
+@import 'pages/archive';
+@import 'pages/search';
+@import 'pages/404';
+
+// Import theme-specific styles
+@import 'theme/animations';
+@import 'theme/utilities';
+@import 'theme/aquatic-effects';
+
+// WordPress specific styles
+@import 'wordpress/blocks';
+@import 'wordpress/widgets';
+@import 'wordpress/comments';
+@import 'wordpress/gallery';
+@import 'wordpress/embeds';
+
+// Import vendor overrides
+@import 'vendor/woocommerce';
+@import 'vendor/contact-form-7';
+
+// Import responsive styles
+@import 'responsive/mobile';
+@import 'responsive/tablet';
+@import 'responsive/desktop';

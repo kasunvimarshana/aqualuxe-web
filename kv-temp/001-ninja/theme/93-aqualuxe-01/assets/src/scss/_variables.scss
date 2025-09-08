@@ -1,0 +1,407 @@
+// AquaLuxe Theme Variables
+// Define all theme variables for consistency across the codebase
+
+// =============================================================================
+// COLORS
+// =============================================================================
+
+// Brand Colors
+:root {
+  // Primary Colors (Blue)
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #1e40af; // Main primary
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e3a8a;
+  --color-primary-900: #1e3a8a;
+
+  // Secondary Colors (Cyan/Aqua)
+  --color-secondary-50: #ecfeff;
+  --color-secondary-100: #cffafe;
+  --color-secondary-200: #a5f3fc;
+  --color-secondary-300: #67e8f9;
+  --color-secondary-400: #22d3ee;
+  --color-secondary-500: #06b6d4; // Main secondary
+  --color-secondary-600: #0891b2;
+  --color-secondary-700: #0e7490;
+  --color-secondary-800: #155e75;
+  --color-secondary-900: #164e63;
+
+  // Accent Colors (Amber)
+  --color-accent-50: #fffbeb;
+  --color-accent-100: #fef3c7;
+  --color-accent-200: #fde68a;
+  --color-accent-300: #fcd34d;
+  --color-accent-400: #fbbf24;
+  --color-accent-500: #f59e0b; // Main accent
+  --color-accent-600: #d97706;
+  --color-accent-700: #b45309;
+  --color-accent-800: #92400e;
+  --color-accent-900: #78350f;
+
+  // Neutral Colors
+  --color-neutral-50: #f9fafb;
+  --color-neutral-100: #f3f4f6;
+  --color-neutral-200: #e5e7eb;
+  --color-neutral-300: #d1d5db;
+  --color-neutral-400: #9ca3af;
+  --color-neutral-500: #6b7280;
+  --color-neutral-600: #4b5563;
+  --color-neutral-700: #374151;
+  --color-neutral-800: #1f2937;
+  --color-neutral-900: #111827;
+
+  // State Colors
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+
+  // Text Colors
+  --color-text-primary: var(--color-neutral-900);
+  --color-text-secondary: var(--color-neutral-600);
+  --color-text-muted: var(--color-neutral-500);
+  --color-text-inverse: #ffffff;
+
+  // Background Colors
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: var(--color-neutral-50);
+  --color-bg-tertiary: var(--color-neutral-100);
+  --color-bg-inverse: var(--color-neutral-900);
+
+  // Border Colors
+  --color-border-light: var(--color-neutral-200);
+  --color-border-medium: var(--color-neutral-300);
+  --color-border-dark: var(--color-neutral-400);
+}
+
+// Dark mode color overrides
+[data-theme="dark"],
+.dark {
+  --color-text-primary: var(--color-neutral-100);
+  --color-text-secondary: var(--color-neutral-300);
+  --color-text-muted: var(--color-neutral-400);
+  --color-text-inverse: var(--color-neutral-900);
+
+  --color-bg-primary: var(--color-neutral-900);
+  --color-bg-secondary: var(--color-neutral-800);
+  --color-bg-tertiary: var(--color-neutral-700);
+  --color-bg-inverse: #ffffff;
+
+  --color-border-light: var(--color-neutral-700);
+  --color-border-medium: var(--color-neutral-600);
+  --color-border-dark: var(--color-neutral-500);
+}
+
+// =============================================================================
+// TYPOGRAPHY
+// =============================================================================
+
+:root {
+  // Font Families
+  --font-family-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-family-serif: 'Merriweather', Georgia, 'Times New Roman', serif;
+  --font-family-mono: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', monospace;
+
+  // Font Sizes
+  --font-size-xs: 0.75rem;      // 12px
+  --font-size-sm: 0.875rem;     // 14px
+  --font-size-base: 1rem;       // 16px
+  --font-size-lg: 1.125rem;     // 18px
+  --font-size-xl: 1.25rem;      // 20px
+  --font-size-2xl: 1.5rem;      // 24px
+  --font-size-3xl: 1.875rem;    // 30px
+  --font-size-4xl: 2.25rem;     // 36px
+  --font-size-5xl: 3rem;        // 48px
+  --font-size-6xl: 3.75rem;     // 60px
+  --font-size-7xl: 4.5rem;      // 72px
+  --font-size-8xl: 6rem;        // 96px
+  --font-size-9xl: 8rem;        // 128px
+
+  // Line Heights
+  --line-height-none: 1;
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
+
+  // Font Weights
+  --font-weight-thin: 100;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  // Letter Spacing
+  --letter-spacing-tighter: -0.05em;
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+  --letter-spacing-wider: 0.05em;
+  --letter-spacing-widest: 0.1em;
+}
+
+// =============================================================================
+// SPACING
+// =============================================================================
+
+:root {
+  // Base spacing unit
+  --spacing-unit: 0.25rem; // 4px
+
+  // Spacing scale
+  --spacing-0: 0;
+  --spacing-1: calc(var(--spacing-unit) * 1);  // 4px
+  --spacing-2: calc(var(--spacing-unit) * 2);  // 8px
+  --spacing-3: calc(var(--spacing-unit) * 3);  // 12px
+  --spacing-4: calc(var(--spacing-unit) * 4);  // 16px
+  --spacing-5: calc(var(--spacing-unit) * 5);  // 20px
+  --spacing-6: calc(var(--spacing-unit) * 6);  // 24px
+  --spacing-8: calc(var(--spacing-unit) * 8);  // 32px
+  --spacing-10: calc(var(--spacing-unit) * 10); // 40px
+  --spacing-12: calc(var(--spacing-unit) * 12); // 48px
+  --spacing-16: calc(var(--spacing-unit) * 16); // 64px
+  --spacing-20: calc(var(--spacing-unit) * 20); // 80px
+  --spacing-24: calc(var(--spacing-unit) * 24); // 96px
+  --spacing-32: calc(var(--spacing-unit) * 32); // 128px
+  --spacing-40: calc(var(--spacing-unit) * 40); // 160px
+  --spacing-48: calc(var(--spacing-unit) * 48); // 192px
+  --spacing-56: calc(var(--spacing-unit) * 56); // 224px
+  --spacing-64: calc(var(--spacing-unit) * 64); // 256px
+
+  // Container padding
+  --container-padding-mobile: var(--spacing-4);
+  --container-padding-tablet: var(--spacing-6);
+  --container-padding-desktop: var(--spacing-8);
+}
+
+// =============================================================================
+// LAYOUT
+// =============================================================================
+
+:root {
+  // Container max widths
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+
+  // Grid columns
+  --grid-columns: 12;
+  --grid-gap: var(--spacing-6);
+
+  // Header heights
+  --header-height-mobile: 60px;
+  --header-height-desktop: 80px;
+
+  // Footer min height
+  --footer-min-height: 200px;
+
+  // Sidebar width
+  --sidebar-width: 300px;
+
+  // Content widths
+  --content-width-narrow: 768px;
+  --content-width-normal: 1024px;
+  --content-width-wide: 1280px;
+  --content-width-full: 100%;
+}
+
+// =============================================================================
+// ANIMATIONS & TRANSITIONS
+// =============================================================================
+
+:root {
+  // Transition durations
+  --transition-fast: 150ms;
+  --transition-normal: 250ms;
+  --transition-slow: 350ms;
+  --transition-slower: 500ms;
+
+  // Transition timing functions
+  --ease-linear: linear;
+  --ease-in: ease-in;
+  --ease-out: ease-out;
+  --ease-in-out: ease-in-out;
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+  // Animation durations
+  --animation-fast: 0.3s;
+  --animation-normal: 0.5s;
+  --animation-slow: 0.8s;
+
+  // Common transitions
+  --transition-colors: color var(--transition-normal) var(--ease-smooth),
+                      background-color var(--transition-normal) var(--ease-smooth),
+                      border-color var(--transition-normal) var(--ease-smooth);
+  --transition-transform: transform var(--transition-normal) var(--ease-smooth);
+  --transition-opacity: opacity var(--transition-normal) var(--ease-smooth);
+  --transition-all: all var(--transition-normal) var(--ease-smooth);
+}
+
+// =============================================================================
+// BORDERS & RADIUS
+// =============================================================================
+
+:root {
+  // Border widths
+  --border-width-none: 0;
+  --border-width-thin: 1px;
+  --border-width-medium: 2px;
+  --border-width-thick: 4px;
+
+  // Border radius
+  --border-radius-none: 0;
+  --border-radius-sm: 0.125rem;  // 2px
+  --border-radius-md: 0.375rem;  // 6px
+  --border-radius-lg: 0.5rem;    // 8px
+  --border-radius-xl: 0.75rem;   // 12px
+  --border-radius-2xl: 1rem;     // 16px
+  --border-radius-3xl: 1.5rem;   // 24px
+  --border-radius-full: 9999px;
+}
+
+// =============================================================================
+// SHADOWS
+// =============================================================================
+
+:root {
+  // Box shadows
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+
+  // Brand-specific shadows
+  --shadow-aqua: 0 4px 14px 0 rgba(30, 64, 175, 0.15);
+  --shadow-aqua-lg: 0 10px 28px 0 rgba(30, 64, 175, 0.15);
+
+  // Text shadows
+  --text-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --text-shadow-md: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --text-shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+// =============================================================================
+// Z-INDEX SCALE
+// =============================================================================
+
+:root {
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1020;
+  --z-index-fixed: 1030;
+  --z-index-modal-backdrop: 1040;
+  --z-index-modal: 1050;
+  --z-index-popover: 1060;
+  --z-index-tooltip: 1070;
+  --z-index-toast: 1080;
+}
+
+// =============================================================================
+// BREAKPOINTS
+// =============================================================================
+
+// Media query breakpoints
+$breakpoints: (
+  xs: 475px,
+  sm: 640px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  2xl: 1536px
+);
+
+// Breakpoint mixins
+@mixin mobile-only {
+  @media (max-width: #{map-get($breakpoints, sm) - 1}) {
+    @content;
+  }
+}
+
+@mixin tablet-up {
+  @media (min-width: #{map-get($breakpoints, md)}) {
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @media (min-width: #{map-get($breakpoints, lg)}) {
+    @content;
+  }
+}
+
+@mixin large-desktop-up {
+  @media (min-width: #{map-get($breakpoints, xl)}) {
+    @content;
+  }
+}
+
+// Custom breakpoint mixin
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint '#{$breakpoint}' not found in $breakpoints map.";
+  }
+}
+
+// =============================================================================
+// COMPONENT VARIABLES
+// =============================================================================
+
+:root {
+  // Button variables
+  --button-padding-sm: var(--spacing-2) var(--spacing-3);
+  --button-padding-md: var(--spacing-3) var(--spacing-4);
+  --button-padding-lg: var(--spacing-4) var(--spacing-6);
+  --button-font-size-sm: var(--font-size-sm);
+  --button-font-size-md: var(--font-size-base);
+  --button-font-size-lg: var(--font-size-lg);
+
+  // Form variables
+  --form-field-padding: var(--spacing-3) var(--spacing-4);
+  --form-field-border-radius: var(--border-radius-md);
+  --form-field-border-color: var(--color-border-medium);
+  --form-field-focus-border-color: var(--color-primary-600);
+  --form-field-error-border-color: var(--color-error);
+
+  // Card variables
+  --card-padding: var(--spacing-6);
+  --card-border-radius: var(--border-radius-lg);
+  --card-shadow: var(--shadow-md);
+  --card-border-color: var(--color-border-light);
+
+  // Modal variables
+  --modal-backdrop-color: rgba(0, 0, 0, 0.5);
+  --modal-border-radius: var(--border-radius-lg);
+  --modal-padding: var(--spacing-6);
+  --modal-max-width: 500px;
+}
+
+// =============================================================================
+// PRINT VARIABLES
+// =============================================================================
+
+@media print {
+  :root {
+    --color-text-primary: #000000;
+    --color-text-secondary: #333333;
+    --color-bg-primary: #ffffff;
+    --color-bg-secondary: #ffffff;
+    --color-border-light: #cccccc;
+  }
+}
