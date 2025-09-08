@@ -1,0 +1,183 @@
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Be+Vietnam+Pro%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>AquaLuxe - Luxury Aquatic Life</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+      :root {
+        --primary-color: #0B7A75;--secondary-color: #D4AF37;--dark-blue: #002244;
+        --light-bg: #F0F7F7;
+      }
+      .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 34, 68, 0.5);
+        z-index: 1;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+      .product-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      }
+      .testimonial-carousel {
+        -ms-overflow-style: none;scrollbar-width: none;}
+      .testimonial-carousel::-webkit-scrollbar {
+        display: none;}
+    </style>
+</head>
+<body class="bg-[var(--light-bg)] text-[var(--dark-blue)]" style='font-family: "Be Vietnam Pro", "Noto Sans", sans-serif;'>
+<div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md">
+<div class="container mx-auto flex items-center justify-between whitespace-nowrap px-10 py-4">
+<div class="flex items-center gap-3 text-[var(--dark-blue)]">
+<svg class="h-8 w-8 text-[var(--primary-color)]" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+<h1 class="text-2xl font-bold tracking-tight">AquaLuxe</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[var(--dark-blue)] hover:text-[var(--primary-color)] transition-colors duration-300 text-base font-medium" href="#">Shop</a>
+<a class="text-[var(--dark-blue)] hover:text-[var(--primary-color)] transition-colors duration-300 text-base font-medium" href="#">Services</a>
+<a class="text-[var(--dark-blue)] hover:text-[var(--primary-color)] transition-colors duration-300 text-base font-medium" href="#">Learn</a>
+<a class="text-[var(--dark-blue)] hover:text-[var(--primary-color)] transition-colors duration-300 text-base font-medium" href="#">Community</a>
+</nav>
+<div class="flex items-center gap-3">
+<button class="hidden sm:flex min-w-[90px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-5 bg-transparent border-2 border-[var(--primary-color)] text-[var(--primary-color)] hover:bg-[var(--primary-color)] hover:text-white transition-colors duration-300 text-sm font-bold">
+<span>Sign In</span>
+</button>
+<button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-transparent hover:bg-gray-200 text-[var(--dark-blue)] transition-colors duration-300">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-transparent hover:bg-gray-200 text-[var(--dark-blue)] transition-colors duration-300">
+<span class="material-symbols-outlined">shopping_bag</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-1">
+<section class="relative hero-section flex min-h-[calc(100vh-80px)] flex-col items-center justify-center bg-cover bg-center bg-no-repeat p-4" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB_8R832JzZOrIkFu2Yupce-5VI5bRcPLn1wVyFN0ILgf8huQV6v5UJUj4CR174ZkBFPmtI3zYveJLznSq5CpJkOuZCWXj21bDNK36TvOp3nwOeRIEY7_7ikl0sl2qijq3eRpTDvGzxaAtwVYekvcrOQ8vD8Ld4rlL1sDfSd3MXjTqkPGkYc8ggR_kHhIR4nkLk0kElKvJkQUcELK5zBMb2rZqfeIX2ROMXeqz9cg7SzSzbsqMOTgGyOkgjO-RwquDOx9y3fPLwE_M");'>
+<div class="hero-content flex flex-col gap-6 text-center text-white max-w-3xl">
+<h1 class="text-4xl font-black leading-tight tracking-tighter md:text-6xl">Dive into the World of Aquatic Elegance</h1>
+<p class="text-lg font-light leading-relaxed md:text-xl">Explore our curated collection of rare fish, aquatic plants, and premium equipment. Elevate your aquatic experience with AquaLuxe.</p>
+<div class="flex justify-center">
+<button class="flex min-w-[120px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-[var(--primary-color)] text-white text-base font-bold transition-transform duration-300 hover:scale-105 shadow-lg">
+<span>Shop Now</span>
+</button>
+</div>
+</div>
+</section>
+<section class="py-20 px-4 sm:px-6 lg:px-8">
+<div class="container mx-auto">
+<h2 class="text-4xl font-bold text-center text-[var(--dark-blue)] mb-12">Featured Products</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+<div class="product-card flex flex-col gap-4 rounded-lg bg-white shadow-md overflow-hidden">
+<div class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAfPcE18mBnvSsxHCtsljCss_aVBcLGMMLp8LaQIUv-fkiCrb5N1FFKXVNeIYA4YryobUE1DP_vgAWFodz4HKHldiXByigdClwNyeqw6Ndt8mAiyEcxUHbK3JbH7xf8_dUkdIWTdSVHQkeuff6ueJhEjBT2XNJYw82HkQt9cZ0lZTOMEJabhKiHdi_PTOS67sM5BlUQ5C7pg7DoPSPo1RlJplmRFst0BYcehlUKD-ptY566c2Zxnh779cU4ISxBnkrQnoMr71hDj0E");'></div>
+<div class="p-6">
+<h3 class="text-[var(--dark-blue)] text-xl font-bold leading-normal">Exotic Fish</h3>
+<p class="text-gray-600 text-base font-normal leading-normal mt-2">Discover our selection of rare and vibrant fish.</p>
+</div>
+</div>
+<div class="product-card flex flex-col gap-4 rounded-lg bg-white shadow-md overflow-hidden">
+<div class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDZPx_r3sdwAl2CN-xh21SxRkayNWeGlaq2aESdWfacHXTMbdlkQUrIA1jF-g9dyK_Jp56J1Z88IxVyc1Ua3sJu_U40U3FXOrGQeDgJ2_cvm7woz8PQYHbqb3MLe_gUQ9BMvR98OY3c7rU-EG5vmu1pt5GHRVNYhvNOS_Hliv83jQDD7qVpuLFUXXjg-SPEZ_6A2BTh_OwJ9yjyooHFBSdSNfQg9lxBWSzBMEYIUG1sSs8EEPrUyG7BIqkCThRuf2UReq451R63lLg");'></div>
+<div class="p-6">
+<h3 class="text-[var(--dark-blue)] text-xl font-bold leading-normal">Aquatic Plants</h3>
+<p class="text-gray-600 text-base font-normal leading-normal mt-2">Enhance your aquarium with our diverse range of aquatic plants.</p>
+</div>
+</div>
+<div class="product-card flex flex-col gap-4 rounded-lg bg-white shadow-md overflow-hidden">
+<div class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCDUUkfwzymeOzMo0xAvwOE3ean4mugCCqpXMIwkDr04LiwMGJTeRtTxcp-1QuG8hx2wjHAiaL8w8x9Ii-3Y7_ct58BYkdQc7dxhqmCFqGpjp97Xm-3mNpRGXptQ2yD6exHSKqTsgnHKdvPYEvY3lQNyzQGQWgSIsTP6fN5u0VFClgi8GLHRL0R0TS0KZ9tncRHP9GOxvSCLpcM1BnkjLbru_Sp35ncv6lgn-GrhgZDGGYuPtgjx1bXnvup6hWFvXMHnf4hd4ATPjg");'></div>
+<div class="p-6">
+<h3 class="text-[var(--dark-blue)] text-xl font-bold leading-normal">Premium Equipment</h3>
+<p class="text-gray-600 text-base font-normal leading-normal mt-2">Upgrade your setup with our top-of-the-line equipment.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+<div class="container mx-auto">
+<h2 class="text-4xl font-bold text-center text-[var(--dark-blue)] mb-12">Customer Stories</h2>
+<div class="testimonial-carousel flex overflow-x-auto gap-8 pb-4">
+<div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 p-4">
+<div class="bg-[var(--light-bg)] rounded-xl p-8 text-center">
+<img alt="Sarah L." class="w-24 h-24 rounded-full mx-auto -mt-20 border-4 border-white shadow-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrrxbbxX1QTrq11t5SFfV8umBhOKO4c-0sa2UF2LfDZZ4Tpd5xJce5Xd_8IlJg38N5g_-iFwesvqE_7e3EVcY-sgDosCdW8rk9q1oYb_JahPOf2rabSEOk6d3KsH6ST7cos9TX3zG_3ZvoHPj1V-x-fNLH0xCN7Au2Xo5gdi1pAZ1V2kpqKDTdb5J-nt8u7NcWkAhZ41E_8kI6aKDfAcXS2XXS8ttaUeMBCMqQJYUG4SObR-_h1Hom18BTDaN2MmSckD6xK4xSGic"/>
+<h3 class="text-[var(--dark-blue)] text-xl font-bold mt-4">Sarah's Aquatic Haven</h3>
+<p class="text-gray-600 mt-2">“AquaLuxe helped me create a stunning and thriving aquarium. Their expertise and quality products are unmatched.”</p>
+</div>
+</div>
+<div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 p-4">
+<div class="bg-[var(--light-bg)] rounded-xl p-8 text-center">
+<img alt="Mark R." class="w-24 h-24 rounded-full mx-auto -mt-20 border-4 border-white shadow-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7jkuzJ336Fm3rIbeLpkRZYp-D7TNd_wBxxYyCfXym_gnaddQ4bzRh3lqSiItGVWGgrO5Js6Rdjlio6pmwiJJWEzg023jUwho7cAb8j6CgBNYTTQCfWIfxN7N5oQMJdkRlN69-hTW7fFM_tGZu334CGZ7KrLjWvUve0ehzzwlQVDOIWKggMpMJRc4Z45S3Ha5pc3-xbiOC3OJ1gGi95Am81UX7XRJEmXQOk6hzwy0c4s5EqqRSiyTY3N_G4fYlrC5lsDYYdoVJh22w"/>
+<h3 class="text-[var(--dark-blue)] text-xl font-bold mt-4">Mark's Reef Sanctuary</h3>
+<p class="text-gray-600 mt-2">“I'm amazed by the beauty and health of the fish I received from AquaLuxe. Their service is exceptional.”</p>
+</div>
+</div>
+<div class="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 p-4">
+<div class="bg-[var(--light-bg)] rounded-xl p-8 text-center">
+<img alt="Emily P." class="w-24 h-24 rounded-full mx-auto -mt-20 border-4 border-white shadow-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfhVWi7X8YHoYFZgBjBYZZIz4t4p6UxU2On4zg8QZxdAJrXi5jyuEEDpQQh1ml0k6geA_78xBsSLY52LMRhC4JdK-YZFOVUxznLFKnYeY9PurcWDJO_81vy7uB-z8TvB5UX0y3WxlY6aWOStjvFYCpy28J1PHQyWfCkrWpPaWReHxDxm6QL0KigIzHzE8QB3yNbQuvD6-mW1P8E551OMa_AOWDE-Yo_apqDHld470vYY5jjoXruQmF83rGF6UuSrmq1vSWGPN7Dzc"/>
+<h3 class="text-[var(--dark-blue)] text-xl font-bold mt-4">Emily's Planted Paradise</h3>
+<p class="text-gray-600 mt-2">“My aquarium has never looked better thanks to AquaLuxe's premium plants and equipment. Highly recommend!”</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 px-4 sm:px-6 lg:px-8">
+<div class="container mx-auto max-w-3xl text-center">
+<h2 class="text-4xl font-bold text-[var(--dark-blue)]">Stay Updated with AquaLuxe</h2>
+<p class="text-gray-600 mt-4 text-lg">Sign up for our newsletter to receive exclusive offers, new product announcements, and expert tips on aquatic life care.</p>
+<form class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+<label class="sr-only" for="email-input">Email address</label>
+<input class="form-input w-full max-w-sm flex-1 resize-none rounded-full border-2 border-gray-300 bg-white px-5 py-3 text-[var(--dark-blue)] placeholder:text-gray-400 focus:border-[var(--primary-color)] focus:ring-0 transition-colors" id="email-input" placeholder="Enter your email" type="email"/>
+<button class="flex w-full sm:w-auto min-w-[120px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-[var(--primary-color)] text-white text-base font-bold transition-transform duration-300 hover:scale-105 shadow-lg" type="submit">
+<span>Subscribe</span>
+</button>
+</form>
+</div>
+</section>
+</main>
+<footer class="bg-[var(--dark-blue)] text-white">
+<div class="container mx-auto px-10 py-12">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8">
+<nav class="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-2">
+<a class="text-gray-400 hover:text-white transition-colors" href="#">About Us</a>
+<a class="text-gray-400 hover:text-white transition-colors" href="#">Contact</a>
+<a class="text-gray-400 hover:text-white transition-colors" href="#">FAQ</a>
+<a class="text-gray-400 hover:text-white transition-colors" href="#">Terms of Service</a>
+<a class="text-gray-400 hover:text-white transition-colors" href="#">Privacy Policy</a>
+</nav>
+<div class="flex justify-center gap-6">
+<a class="text-gray-400 hover:text-white transition-colors" href="#">
+<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46,6.52a.75.75,0,0,0-.92-.62,10.74,10.74,0,0,1-3.66,1.06,5.32,5.32,0,0,0,2.8-3.53.75.75,0,0,0-1.39-.59,5.33,5.33,0,0,1-3.88,1.61,5.32,5.32,0,0,0-9.07,4.84,15.1,15.1,0,0,1-11-5.58.75.75,0,0,0-1.09.8,5.32,5.32,0,0,0,2.36,4.43,5.29,5.29,0,0,1-2.41-.66v.07a5.32,5.32,0,0,0,4.27,5.21,5.3,5.3,0,0,1-2.4.09,5.32,5.32,0,0,0,5,3.69,10.69,10.69,0,0,1-6.6,2.28,10.82,10.82,0,0,1-1.28-.08,15.06,15.06,0,0,0,8.15,2.38c9.77,0,15.12-8.1,15.12-15.12V7.75A10.79,10.79,0,0,0,22.46,6.52Z"></path></svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors" href="#">
+<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12,2.163A11.751,11.751,0,0,0,10.8,21.823V14.15H7.989V10.868H10.8V8.455c0-2.783,1.65-4.32,4.192-4.32a23.14,23.14,0,0,1,2.5.132v2.9H15.86c-1.35,0-1.613.642-1.613,1.583v2.059h3.219l-.419,3.282H14.247v7.675A11.751,11.751,0,0,0,12,2.163Z"></path></svg>
+</a>
+<a class="text-gray-400 hover:text-white transition-colors" href="#">
+<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12,2.163A11.751,11.751,0,0,0,10.8,21.823V14.15H7.989V10.868H10.8V8.455c0-2.783,1.65-4.32,4.192-4.32a23.14,23.14,0,0,1,2.5.132v2.9H15.86c-1.35,0-1.613.642-1.613,1.583v2.059h3.219l-.419,3.282H14.247v7.675A11.751,11.751,0,0,0,12,2.163Z"></path></svg>
+</a>
+</div>
+</div>
+<div class="mt-8 border-t border-gray-700 pt-8 text-center text-gray-400">
+<p>© 2023 AquaLuxe. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</div>
+</div>
+
+</body></html>

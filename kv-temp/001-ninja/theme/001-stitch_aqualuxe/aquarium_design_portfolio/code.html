@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Manrope%3Awght%40400%3B500%3B700%3B800&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>AquaLuxe - Success Stories</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+      :root {
+        --primary-color: #197fe6;
+      }
+      .filter-btn {
+        @apply cursor-pointer text-sm font-medium leading-normal rounded-full px-4 py-2 transition-colors duration-300;
+      }
+      .filter-btn.active {
+        @apply bg-[var(--primary-color)] text-white;
+      }
+      .filter-btn:not(.active) {
+        @apply bg-gray-100 text-gray-700 hover:bg-gray-200;
+      }
+      .project-card {
+        @apply flex flex-col gap-4 group overflow-hidden rounded-lg;
+      }
+      .project-image {
+        @apply w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg transition-transform duration-500 ease-in-out group-hover:scale-105;
+      }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800" style='font-family: Manrope, "Noto Sans", sans-serif;'>
+<div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 px-10 py-4 bg-white/80 backdrop-blur-sm sticky top-0 z-50">
+<div class="flex items-center gap-4 text-gray-900">
+<svg class="h-8 w-8 text-[var(--primary-color)]" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+<h1 class="text-gray-900 text-2xl font-bold leading-tight tracking-tighter">AquaLuxe</h1>
+</div>
+<nav class="flex-1 flex justify-center">
+<div class="flex items-center gap-10 text-sm font-medium text-gray-600">
+<a class="hover:text-[var(--primary-color)] transition-colors" href="#">Shop</a>
+<a class="hover:text-[var(--primary-color)] transition-colors" href="#">Learn</a>
+<a class="hover:text-[var(--primary-color)] transition-colors" href="#">Community</a>
+<a class="text-[var(--primary-color)] font-semibold" href="#">Portfolio</a>
+<a class="hover:text-[var(--primary-color)] transition-colors" href="#">Services</a>
+</div>
+</nav>
+<div class="flex items-center gap-4">
+<button class="flex min-w-[90px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-gray-100 text-gray-800 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-gray-200 transition-colors">
+<span class="truncate">Log in</span>
+</button>
+<button class="flex min-w-[90px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[var(--primary-color)] text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-blue-700 transition-colors">
+<span class="truncate">Sign Up</span>
+</button>
+<button class="p-2 rounded-full hover:bg-gray-100 transition-colors">
+<span class="material-symbols-outlined text-gray-600"> search </span>
+</button>
+</div>
+</header>
+<main class="flex-1 px-4 sm:px-6 lg:px-8 py-12">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-12">
+<h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">Our Success Stories</h2>
+<p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">Explore our portfolio of breathtaking custom aquarium designs and installations.</p>
+</div>
+<div class="flex justify-center gap-3 p-3 flex-wrap mb-10">
+<button class="filter-btn active">All</button>
+<button class="filter-btn">Residential</button>
+<button class="filter-btn">Commercial</button>
+<button class="filter-btn">Hotel</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="project-card">
+<div class="project-image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCRSyZtg_hDmeElUzuK8A391JanlBpBY_OfoU8VtTeJwA4Tt-HnfDZev-Fe8W3uYqBwmkjv1QPwMo9CuJ2WSIM1vxX8hG3Acineo9MFggfFjUUPtpVJ4KNq9UwdqhH8WDm5yeTssrCx0_-oufbkXFKyLLfUZgNFz7-hyOKIUGY6t9rigkaJAr85EAQ1SrO_bo-DypS43aKoNywROErvixLAKATOdnSERw3XPzTlWOmoZnpfb3KSXrTp45G7YLij14aPxPVyct9QcYE");'></div>
+<div class="p-2">
+<h3 class="text-xl font-bold text-gray-900">Urban Oasis</h3>
+<p class="text-gray-600 text-sm mt-1">A custom-built aquarium for a modern apartment in downtown Manhattan.</p>
+</div>
+</div>
+<div class="project-card">
+<div class="project-image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB1pf-iTBQj_XxynRUQ5kQpIsw_Gp5IFCe4TzaXg7ijBQARwgXdYeOlydXNkhV1ttNkAsLE5ASqnaOSWUzdR6FEdt_5-vmHC0v-yMAh0TJNwvF2NJMUPPonxKxgoooBRl7SfhnENb38URKt6iXbxrk7YsyqhoAzahA2lqLxzc1z78vwbYh29M2VMgCQgBL8SvtZc1_OXWSJ7SQN-SrjRQJP6nWjxJ0Bsp4gfTisdRaJx_Hz86i3-pqqQwF68Fga-qdTyD7WpILQIOY");'></div>
+<div class="p-2">
+<h3 class="text-xl font-bold text-gray-900">Oceanic Elegance</h3>
+<p class="text-gray-600 text-sm mt-1">An elegant aquarium designed for a luxury hotel lobby in Dubai.</p>
+</div>
+</div>
+<div class="project-card">
+<div class="project-image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB4ib4wTmhdwDMtH_k2nCJ6pn6ooJDChOXCYsMiiCzk1KCj5cQ_Oa2xlpiS7UVFog9_FyDuLkEBLOwCsAXzZjey9XPvZVVNNXpEMyA95zWycHBQuU7-O-AAcMt5svHlyMhme3wXzVeLqDvVf_Ja6gNoiSbfpsF8blrm1yZ-Vna_yySIvJ0j0vDpAukcuEke9wND_jeTPWGv00kPYcFywmwVilSOCOOWbp_0ZTqFJiC7qh3J7_rW0CaNkDuRERP5lYi7mz_BULZhh94");'></div>
+<div class="p-2">
+<h3 class="text-xl font-bold text-gray-900">Tranquil Retreat</h3>
+<p class="text-gray-600 text-sm mt-1">A serene aquarium installation for a private residence in the Hamptons.</p>
+</div>
+</div>
+<div class="project-card">
+<div class="project-image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAeT61rHZd3s15fnr1K5EpIbOfYlhCtpdhDlpF9-NoOyF4p_2dCcmOEF9AqXgL47Qa-4oAymaxiwhj0MlUGN9Ukx5bycraQPVtJTafdPx8VVPCwayUUWHKrmj2ZgTRTbMN6QV3cgBzEqBgLjPW-7k_fRfYA4cNTWTkkscuV2rVH9koD_h8-fM4UAosnjIswOIDwEPTamFFs5CDc2c5gKvaLZeuqr8TW7y6epmcImtfQ2dscWDg-Im8IpTfOJGsngTuNmk3OBxtlv4o");'></div>
+<div class="p-2">
+<h3 class="text-xl font-bold text-gray-900">Coral Symphony</h3>
+<p class="text-gray-600 text-sm mt-1">A vibrant coral reef aquarium for a commercial space in Singapore.</p>
+</div>
+</div>
+<div class="project-card">
+<div class="project-image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDxNJftFZPXFCMUfUfRZnc4L2sqYTRHOJPOP98RaXSCBb-V_Ne68hUOqWsDq2oIkFPMFBzQdSRo63Y5RAZDK1aH2VineSvcy6bxdYtCf0PihHuoSnyg-BZB1ZSIq8xo8iGqLEleHoWfTuzzlSLiuyJBgA9bvKkfbX1LDy7LyGa94njooHbsIHKgxP-KkNdxEJB2RRCrTOI3-9lLgZ-TvWZMEQf4uUGQtu0gnPhxj75lCcGq8g6WEwVkcQZiCsnHGEsRUjb3ONNv8cs");'></div>
+<div class="p-2">
+<h3 class="text-xl font-bold text-gray-900">Aquatic Harmony</h3>
+<p class="text-gray-600 text-sm mt-1">A harmonious blend of aquatic life and design for a home in Beverly Hills.</p>
+</div>
+</div>
+<div class="project-card">
+<div class="project-image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDL0S7Uv1I49UaH3YtkyXfpx6U3Xv6Wvk5gC9sjf6YoWcjtKCVz_yceRsHFCpU3gy0CQ4gKGb5a7TSe4Oc2gMdKCrPSXjUhPIVX8c8VywUW0i6GpDzVMgNe--NKEnXlHM8_PML3xVJpzin2kzMqhqZhkwhB-U5xCbsBAwnHJ5URSRPOmSmnHyn5_kglbWiwfe9MQXhZdOYKdPbtfhLGpoN00y7i37_m9tqi0pkfHa95R-KDV5t96dE5sWH2iae8gbtvfAlttogHAi0");'></div>
+<div class="p-2">
+<h3 class="text-xl font-bold text-gray-900">Mystic Depths</h3>
+<p class="text-gray-600 text-sm mt-1">An enchanting aquarium featuring unique aquatic species in a London penthouse.</p>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-center p-4 mt-10">
+<a class="flex size-10 items-center justify-center rounded-full hover:bg-gray-100 transition-colors" href="#">
+<span class="material-symbols-outlined text-gray-600"> chevron_left </span>
+</a>
+<a class="text-sm font-bold leading-normal tracking-[0.015em] flex size-10 items-center justify-center text-white rounded-full bg-[var(--primary-color)]" href="#">1</a>
+<a class="text-sm font-normal leading-normal flex size-10 items-center justify-center text-gray-700 rounded-full hover:bg-gray-100 transition-colors" href="#">2</a>
+<a class="text-sm font-normal leading-normal flex size-10 items-center justify-center text-gray-700 rounded-full hover:bg-gray-100 transition-colors" href="#">3</a>
+<a class="flex size-10 items-center justify-center rounded-full hover:bg-gray-100 transition-colors" href="#">
+<span class="material-symbols-outlined text-gray-600"> chevron_right </span>
+</a>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>
