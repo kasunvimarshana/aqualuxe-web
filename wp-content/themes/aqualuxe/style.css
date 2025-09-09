@@ -1,0 +1,55 @@
+/*
+Theme Name: AquaLuxe
+Theme URI: https://github.com/kasunvimarshana/aqualuxe-web
+Description: Premium modular WordPress theme for luxury aquatic solutions. Multitenant, multivendor, multilingual, multicurrency, mobile-first, fully responsive theme with dual-state architecture. Bringing elegance to aquatic life – globally.
+Version: 2.0.0
+Author: AquaLuxe Development Team
+Author URI: https://aqualuxe.com
+Text Domain: aqualuxe
+Domain Path: /languages
+License: GPL v3 or later
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Tags: e-commerce, woocommerce, responsive, mobile-first, accessibility-ready, custom-header, custom-logo, custom-menu, featured-images, footer-widgets, full-site-editing, rtl-language-support, threaded-comments, translation-ready
+Requires at least: 6.0
+Tested up to: 6.7
+Requires PHP: 8.1
+
+AquaLuxe WordPress Theme, Copyright 2024 AquaLuxe Development Team
+AquaLuxe is distributed under the terms of the GNU GPL v3 or later.
+
+This theme is built with modern development practices:
+- SOLID principles (Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, Dependency Inversion)
+- DRY (Don't Repeat Yourself)
+- KISS (Keep It Simple, Stupid)
+- YAGNI (You Aren't Gonna Need It)
+- Modular architecture with clear separation of concerns
+- Performance optimization and security hardening
+- Accessibility standards (WCAG 2.1 AA compliance)
+- SEO optimization and cross-browser compatibility
+
+Features:
+- Dual-state architecture (works with/without WooCommerce)
+- Modular system for easy feature extension
+- Multi-tenant, multi-vendor, multi-currency support
+- Multilingual ready with RTL support
+- Dark mode with persistent preference
+- Custom post types for aquatic business (Services, Events, Auctions)
+- Demo content importer with flush mechanism
+- Theme Customizer integration
+- Asset pipeline with webpack and Tailwind CSS
+- Comprehensive documentation
+
+Business Focus:
+Designed specifically for luxury aquatic solutions including:
+- Ornamental fish farming and retail
+- Aquarium design and installation
+- Aquatic plant cultivation
+- Equipment sales and services
+- Wholesale and export operations
+- Professional consulting and training
+- Franchise and licensing opportunities
+
+Brand Identity: "Bringing elegance to aquatic life – globally"
+*/
+
+/* Theme styles are compiled from assets/src/scss/ via webpack */
