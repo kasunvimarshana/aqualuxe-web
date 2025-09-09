@@ -9,6 +9,7 @@
 /**
  * WordPress importer class.
  */
+require_once dirname( __FILE__ ) . '/parsers.php';
 class WP_Import extends WP_Importer {
 	public $max_wxr_version = 1.2; // max. supported WXR version
 
