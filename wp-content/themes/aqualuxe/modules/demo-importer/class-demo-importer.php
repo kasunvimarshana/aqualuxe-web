@@ -81,12 +81,36 @@ class AquaLuxe_Demo_Importer {
 		}
 
 		self::import_content();
-		self::set_theme_options();
-		self::setup_menus();
 
 		// Redirect after import.
 		wp_redirect( admin_url( 'themes.php?page=aqualuxe-demo-import&imported=true' ) );
 		exit;
+	}
+
+	/**
+	 * Import content from XML file.
+	 */
+	private static function import_content() {
+		// Load Importer API
+		if ( ! class_exists( 'WP_Importer' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/class-wp-importer.php';
+		}
+
+		if ( ! class_exists( 'WP_Import' ) ) {
+			require_once dirname( __FILE__ ) . '/class-wp-import.php';
+		}
+
+		$importer = new WP_Import();
+		$file     = dirname( __FILE__ ) . '/demo-files/demo-content.xml';
+
+		$importer->fetch_attachments = true;
+		ob_start();
+		$importer->import( $file );
+		ob_end_clean();
+
+		// After import, set theme options and menus
+		self::set_theme_options();
+		self::setup_menus();
 	}
 
 	/**
@@ -101,80 +125,36 @@ class AquaLuxe_Demo_Importer {
 		$wpdb->query( "TRUNCATE TABLE {$wpdb->prefix}terms" );
 		$wpdb->query( "TRUNCATE TABLE {$wpdb->prefix}term_taxonomy" );
 		$wpdb->query( "TRUNCATE TABLE {$wpdb->prefix}term_relationships" );
+		$wpdb->query( "TRUNCATE TABLE {$wpdb->prefix}term_taxonomy" );
 	}
 
 	/**
-	 * Import content from WXR file.
-	 */
-	private static function import_content() {
-		if ( ! defined( 'WP_LOAD_IMPORTERS' ) ) {
-			define( 'WP_LOAD_IMPORTERS', true );
-		}
-
-		// Load the importer file.
-		require_once __DIR__ . '/wordpress-importer.php';
-
-		// Need to call the init function to register the importer.
-		wordpress_importer_init();
-
-		$importer = new WP_Import();
-		$file     = __DIR__ . '/demo-content.xml';
-
-		// Set fetch attachments to true
-		$importer->fetch_attachments = true;
-
-		ob_start();
-		$importer->import( $file );
-		ob_end_clean();
-	}
-
-	/**
-	 * Set theme options.
+	 * Set theme options and widgets.
 	 */
 	private static function set_theme_options() {
-		$homepage = get_page_by_title( 'Home' );
-		$blogpage = get_page_by_title( 'Blog' );
-
-		if ( $homepage ) {
+		$home_page = get_page_by_title( 'Home' );
+		if ( $home_page ) {
 			update_option( 'show_on_front', 'page' );
-			update_option( 'page_on_front', $homepage->ID );
+			update_option( 'page_on_front', $home_page->ID );
 		}
 
-		if ( $blogpage ) {
-			update_option( 'page_for_posts', $blogpage->ID );
+		$blog_page = get_page_by_title( 'Blog' );
+		if ( $blog_page ) {
+			update_option( 'page_for_posts', $blog_page->ID );
 		}
 	}
 
 	/**
-	 * Setup menus.
+	 * Set up menus.
 	 */
 	private static function setup_menus() {
-		$primary_menu_name = 'Primary Menu';
-		$primary_menu = wp_get_nav_menu_object( $primary_menu_name );
-
-		if ( ! $primary_menu ) {
-			$primary_menu_id = wp_create_nav_menu( $primary_menu_name );
-
-			// Add items to the menu.
-			wp_update_nav_menu_item( $primary_menu_id, 0, array(
-				'menu-item-title'  =>  __( 'Home', 'aqualuxe' ),
-				'menu-item-object' => 'page',
-				'menu-item-object-id' => get_page_by_title( 'Home' )->ID,
-				'menu-item-type'   => 'post_type',
-				'menu-item-status' => 'publish'
-			) );
-
-            wp_update_nav_menu_item( $primary_menu_id, 0, array(
-				'menu-item-title'  =>  __( 'Blog', 'aqualuxe' ),
-				'menu-item-object' => 'page',
-				'menu-item-object-id' => get_page_by_title( 'Blog' )->ID,
-				'menu-item-type'   => 'post_type',
-				'menu-item-status' => 'publish'
-			) );
-
+		$main_menu = get_term_by( 'name', 'Main Menu', 'nav_menu' );
+		if ( $main_menu ) {
 			$locations = get_theme_mod( 'nav_menu_locations' );
-			$locations['primary'] = $primary_menu_id;
+			$locations['primary'] = $main_menu->term_id;
 			set_theme_mod( 'nav_menu_locations', $locations );
 		}
 	}
 }
+
+AquaLuxe_Demo_Importer::init();

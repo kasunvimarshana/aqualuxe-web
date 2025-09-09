@@ -70,6 +70,7 @@ final class AquaLuxe_Theme {
 		require_once AQUALUXE_THEME_DIR . '/inc/core/class-asset-loader.php';
 		require_once AQUALUXE_THEME_DIR . '/inc/core/class-custom-post-types.php';
 		require_once AQUALUXE_THEME_DIR . '/inc/core/class-customizer.php';
+		require_once AQUALUXE_THEME_DIR . '/inc/core/class-theme-tools.php';
 
         // Load modules.
         $this->load_modules();
@@ -84,6 +85,7 @@ final class AquaLuxe_Theme {
 		add_action( 'wp_enqueue_scripts', array( 'AquaLuxe_Asset_Loader', 'enqueue_assets' ) );
 		add_action( 'init', array( 'AquaLuxe_Custom_Post_Types', 'register' ) );
 		add_action( 'customize_register', array( 'AquaLuxe_Customizer', 'register' ) );
+		add_action( 'init', array( 'AquaLuxe_Theme_Tools', 'init' ) );
 	}
 
     /**
