@@ -1,0 +1,27 @@
+.site-header {
+    @apply bg-light border-b border-gray-200;
+}
+
+.site-branding {
+    @apply p-4;
+}
+
+.site-title a {
+    @apply text-2xl font-bold text-dark;
+}
+
+.site-description {
+    @apply text-sm text-gray-600;
+}
+
+.main-navigation {
+    @apply p-4;
+}
+
+.main-navigation ul {
+    @apply flex space-x-4;
+}
+
+.main-navigation a {
+    @apply text-dark hover:text-primary;
+}
