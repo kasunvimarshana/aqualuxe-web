@@ -1,0 +1,715 @@
+/**
+ * AquaLuxe Theme - Print Styles
+ *
+ * Optimized print styles for the AquaLuxe theme ensuring
+ * readable, ink-efficient, and well-formatted printed pages.
+ * Includes accessibility considerations and content prioritization.
+ *
+ * @package AquaLuxe
+ * @subpackage Assets/SCSS
+ * @since 2.0.0
+ */
+
+/* Print Reset and Base Styles */
+@media print {
+  
+  /* Page Setup */
+  @page {
+    margin: 2cm;
+    size: A4;
+  }
+  
+  @page :first {
+    margin-top: 3cm;
+  }
+  
+  @page :left {
+    margin-left: 3cm;
+    margin-right: 2cm;
+  }
+  
+  @page :right {
+    margin-left: 2cm;
+    margin-right: 3cm;
+  }
+  
+  /* Root Reset */
+  * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  /* Base Typography */
+  html {
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+  
+  body {
+    font-family: "Times New Roman", Times, serif;
+    color: black;
+    background: white;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: black;
+    page-break-after: avoid;
+    break-after: avoid;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+  }
+  
+  h1 { font-size: 18pt; }
+  h2 { font-size: 16pt; }
+  h3 { font-size: 14pt; }
+  h4 { font-size: 13pt; }
+  h5 { font-size: 12pt; }
+  h6 { font-size: 11pt; }
+  
+  /* Paragraph Styles */
+  p {
+    margin-bottom: 1em;
+    orphans: 3;
+    widows: 3;
+    text-align: justify;
+    hyphens: auto;
+  }
+  
+  /* Links */
+  a {
+    color: black;
+    text-decoration: underline;
+    word-wrap: break-word;
+    
+    &[href]:after {
+      content: " (" attr(href) ")";
+      font-size: 0.8em;
+      font-style: italic;
+    }
+    
+    &[href^="#"]:after,
+    &[href^="javascript:"]:after,
+    &[href^="mailto:"]:after {
+      content: "";
+    }
+  }
+  
+  /* Lists */
+  ul, ol {
+    margin: 1em 0;
+    padding-left: 2em;
+    
+    li {
+      margin-bottom: 0.5em;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+  }
+  
+  /* Tables */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+    font-size: 10pt;
+    
+    th, td {
+      border: 1pt solid black;
+      padding: 0.3em;
+      text-align: left;
+    }
+    
+    th {
+      background: #f0f0f0 !important;
+      font-weight: bold;
+    }
+    
+    thead {
+      display: table-header-group;
+    }
+    
+    tbody {
+      display: table-row-group;
+    }
+    
+    tfoot {
+      display: table-footer-group;
+    }
+    
+    tr {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+  }
+  
+  /* Images */
+  img {
+    max-width: 100%;
+    height: auto;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    
+    &[src$=".svg"] {
+      display: none;
+    }
+  }
+  
+  figure {
+    margin: 1em 0;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+    
+    figcaption {
+      font-size: 0.9em;
+      font-style: italic;
+      text-align: center;
+      margin-top: 0.5em;
+      color: #666 !important;
+    }
+  }
+  
+  /* Blockquotes */
+  blockquote {
+    margin: 1em 2em;
+    padding: 0.5em 1em;
+    border-left: 3pt solid black;
+    font-style: italic;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    
+    p {
+      margin: 0.5em 0;
+    }
+    
+    cite {
+      display: block;
+      text-align: right;
+      margin-top: 0.5em;
+      font-style: normal;
+      font-weight: bold;
+      
+      &:before {
+        content: "— ";
+      }
+    }
+  }
+  
+  /* Code */
+  code, pre {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.9em;
+    background: #f5f5f5 !important;
+    border: 1pt solid #ccc !important;
+  }
+  
+  code {
+    padding: 0.1em 0.3em;
+    border-radius: 2pt;
+  }
+  
+  pre {
+    padding: 0.5em;
+    margin: 1em 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    
+    code {
+      background: none !important;
+      border: none !important;
+      padding: 0;
+    }
+  }
+  
+  /* Theme-Specific Elements */
+  
+  /* Header */
+  .site-header {
+    border-bottom: 2pt solid black;
+    margin-bottom: 2em;
+    padding-bottom: 1em;
+    
+    .site-title {
+      font-size: 20pt;
+      font-weight: bold;
+      margin: 0;
+      text-align: center;
+      
+      a {
+        text-decoration: none;
+        
+        &:after {
+          content: none;
+        }
+      }
+    }
+    
+    .site-description {
+      font-size: 12pt;
+      font-style: italic;
+      text-align: center;
+      margin: 0.5em 0 0;
+    }
+  }
+  
+  /* Navigation */
+  .main-navigation,
+  .secondary-navigation {
+    display: none;
+  }
+  
+  /* Content Area */
+  .content-area {
+    width: 100%;
+    float: none;
+    margin: 0;
+  }
+  
+  /* Sidebar */
+  .sidebar,
+  .widget-area {
+    display: none;
+  }
+  
+  /* Articles */
+  article {
+    margin-bottom: 2em;
+    page-break-after: always;
+    break-after: page;
+    
+    &:last-child {
+      page-break-after: auto;
+      break-after: auto;
+    }
+  }
+  
+  .entry-header {
+    margin-bottom: 1.5em;
+    text-align: center;
+    
+    .entry-title {
+      font-size: 18pt;
+      font-weight: bold;
+      margin: 0 0 0.5em;
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+    
+    .entry-meta {
+      font-size: 10pt;
+      color: #666 !important;
+      margin-bottom: 1em;
+      
+      .posted-on,
+      .byline {
+        display: inline-block;
+        margin-right: 1em;
+        
+        &:before {
+          content: "📅 ";
+        }
+      }
+      
+      .byline:before {
+        content: "✍️ ";
+      }
+      
+      a {
+        color: #666 !important;
+        
+        &:after {
+          content: none;
+        }
+      }
+    }
+  }
+  
+  .entry-content {
+    margin-bottom: 1.5em;
+    
+    /* Content-specific elements */
+    .wp-caption {
+      max-width: 100%;
+      margin: 1em 0;
+      page-break-inside: avoid;
+      break-inside: avoid;
+      
+      .wp-caption-text {
+        font-size: 0.9em;
+        font-style: italic;
+        text-align: center;
+        margin-top: 0.5em;
+      }
+    }
+    
+    .gallery {
+      margin: 1em 0;
+      
+      .gallery-item {
+        display: inline-block;
+        margin: 0.5em;
+        vertical-align: top;
+        
+        img {
+          border: 1pt solid #ccc;
+        }
+        
+        .gallery-caption {
+          font-size: 0.8em;
+          text-align: center;
+          margin-top: 0.25em;
+        }
+      }
+    }
+  }
+  
+  .entry-footer {
+    border-top: 1pt solid #ccc;
+    padding-top: 0.5em;
+    font-size: 10pt;
+    color: #666 !important;
+    
+    .cat-tags-links {
+      .cat-links,
+      .tags-links {
+        display: block;
+        margin-bottom: 0.5em;
+        
+        &:before {
+          font-weight: bold;
+        }
+      }
+      
+      .cat-links:before {
+        content: "Categories: ";
+      }
+      
+      .tags-links:before {
+        content: "Tags: ";
+      }
+      
+      a {
+        color: #666 !important;
+        
+        &:after {
+          content: none;
+        }
+      }
+    }
+  }
+  
+  /* Comments */
+  .comments-area {
+    display: none;
+  }
+  
+  /* Footer */
+  .site-footer {
+    margin-top: 2em;
+    border-top: 2pt solid black;
+    padding-top: 1em;
+    font-size: 10pt;
+    
+    .site-info {
+      text-align: center;
+      color: #666 !important;
+      
+      a {
+        color: #666 !important;
+        
+        &:after {
+          content: none;
+        }
+      }
+    }
+  }
+  
+  /* WooCommerce Print Styles */
+  .woocommerce {
+    
+    .woocommerce-breadcrumb {
+      display: none;
+    }
+    
+    .woocommerce-result-count,
+    .woocommerce-ordering {
+      display: none;
+    }
+    
+    .product {
+      margin-bottom: 2em;
+      page-break-inside: avoid;
+      break-inside: avoid;
+      
+      .woocommerce-product-gallery {
+        float: none;
+        width: 100%;
+        margin-bottom: 1em;
+        
+        img {
+          max-width: 50%;
+          margin: 0 auto;
+          display: block;
+        }
+      }
+      
+      .summary {
+        float: none;
+        width: 100%;
+        
+        .price {
+          font-size: 14pt;
+          font-weight: bold;
+        }
+        
+        .woocommerce-product-rating {
+          display: none;
+        }
+        
+        .single_add_to_cart_form {
+          display: none;
+        }
+      }
+      
+      .woocommerce-tabs {
+        .wc-tabs {
+          display: none;
+        }
+        
+        .wc-tab {
+          display: block !important;
+          margin-top: 1em;
+          
+          h2 {
+            font-size: 14pt;
+            border-bottom: 1pt solid black;
+            padding-bottom: 0.5em;
+          }
+        }
+      }
+    }
+    
+    .cart,
+    .checkout {
+      .shop_table {
+        font-size: 9pt;
+        
+        .product-remove {
+          display: none;
+        }
+        
+        .product-thumbnail {
+          display: none;
+        }
+        
+        .actions {
+          display: none;
+        }
+      }
+      
+      .cart_totals {
+        margin-top: 1em;
+        
+        .shop_table {
+          width: 50%;
+          margin-left: auto;
+        }
+      }
+    }
+  }
+  
+  /* Hidden Elements */
+  .print-hidden,
+  .screen-reader-text,
+  .skip-link,
+  .search-form,
+  .social-navigation,
+  .widget,
+  .advertisement,
+  .related-posts,
+  .share-buttons,
+  .pagination,
+  .infinite-scroll,
+  .jetpack,
+  .sharedaddy,
+  .jp-relatedposts,
+  .wpadminbar,
+  #wpadminbar,
+  .admin-bar,
+  .cookie-notice,
+  .gdpr-notice,
+  .back-to-top,
+  .floating-elements,
+  .modal,
+  .popup,
+  .overlay,
+  .sticky-elements,
+  .mobile-menu,
+  .hamburger,
+  .search-toggle,
+  .dark-mode-toggle,
+  .language-switcher,
+  .currency-switcher,
+  button,
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"],
+  .btn,
+  .button,
+  .wp-block-button,
+  .video,
+  .audio,
+  iframe,
+  object,
+  embed,
+  .youtube,
+  .vimeo {
+    display: none !important;
+  }
+  
+  /* Visible Print Elements */
+  .print-visible {
+    display: block !important;
+  }
+  
+  .print-inline {
+    display: inline !important;
+  }
+  
+  /* Print-Specific Content */
+  .print-only {
+    display: block !important;
+  }
+  
+  /* Page Breaks */
+  .page-break-before {
+    page-break-before: always;
+    break-before: page;
+  }
+  
+  .page-break-after {
+    page-break-after: always;
+    break-after: page;
+  }
+  
+  .page-break-inside-avoid {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
+  /* Print Quality Improvements */
+  .high-contrast {
+    filter: contrast(120%);
+  }
+  
+  .print-large-text {
+    font-size: 14pt !important;
+    line-height: 1.6;
+  }
+  
+  /* QR Code for URLs */
+  .print-qr {
+    &:after {
+      content: "";
+      display: block;
+      width: 100px;
+      height: 100px;
+      background: white;
+      border: 1pt solid black;
+      margin: 1em 0;
+    }
+  }
+  
+  /* Print Header/Footer Content */
+  @page {
+    @top-left {
+      content: "AquaLuxe - Premium Aquatic Solutions";
+      font-size: 8pt;
+      color: #666;
+    }
+    
+    @top-right {
+      content: counter(page);
+      font-size: 8pt;
+      color: #666;
+    }
+    
+    @bottom-center {
+      content: "www.aqualuxe.com";
+      font-size: 8pt;
+      color: #666;
+    }
+  }
+  
+  /* Print Optimization */
+  .optimize-print {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  /* Accessibility for Print */
+  .print-alt-text:after {
+    content: " [Image: " attr(alt) "]";
+    font-style: italic;
+    font-size: 0.9em;
+  }
+  
+  .print-link-title:after {
+    content: " [" attr(title) "]";
+    font-style: italic;
+    font-size: 0.9em;
+  }
+  
+  /* Abbreviations */
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+    font-size: 0.9em;
+  }
+  
+  /* Print-Friendly Tables */
+  .table-print-friendly {
+    font-size: 8pt;
+    
+    th, td {
+      padding: 0.2em;
+      word-wrap: break-word;
+    }
+    
+    /* Rotate headers for narrow tables */
+    &.rotate-headers {
+      th {
+        writing-mode: vertical-lr;
+        text-orientation: mixed;
+        height: 4em;
+        width: 2em;
+      }
+    }
+  }
+  
+  /* Multi-column Layout for Print */
+  .print-columns-2 {
+    column-count: 2;
+    column-gap: 1.5em;
+    column-rule: 1pt solid #ccc;
+  }
+  
+  .print-columns-3 {
+    column-count: 3;
+    column-gap: 1em;
+    column-rule: 1pt solid #ccc;
+  }
+}
