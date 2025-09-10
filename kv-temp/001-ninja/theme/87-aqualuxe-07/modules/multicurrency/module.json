@@ -1,5 +1,0 @@
-{
-  "name": "Multicurrency",
-  "enabled": false,
-  "description": "Converts and formats prices using cached exchange rates with WooCommerce support."
-}

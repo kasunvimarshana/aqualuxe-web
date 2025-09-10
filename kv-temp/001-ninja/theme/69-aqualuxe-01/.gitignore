@@ -1,7 +1,0 @@
-# Ignore compiled assets
-/assets/dist/
-/node_modules/
-/mix-manifest.json
-/.env
-.DS_Store
-*.log

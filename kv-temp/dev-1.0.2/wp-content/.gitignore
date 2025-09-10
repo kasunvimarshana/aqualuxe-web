@@ -1,9 +1,0 @@
-# 1. Ignore everything inside wp-content
-*
-# 2. Re-include the .gitignore file itself
-!.gitignore
-# 3. Re-include only the AquaLuxe child theme
-!themes/
-themes/*
-!themes/aqualuxe
-!themes/aqualuxe/**

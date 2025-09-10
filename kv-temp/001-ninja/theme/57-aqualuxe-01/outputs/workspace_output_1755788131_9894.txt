@@ -1,4 +1,0 @@
-./assets/src/scss/abstracts/_functions.scss
-./assets/src/scss/abstracts/_mixins.scss
-./assets/src/scss/abstracts/_variables.scss
-./assets/src/scss/main.scss

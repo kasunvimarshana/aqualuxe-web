@@ -1,1 +1,0 @@
-No woocommerce.php in root directory
