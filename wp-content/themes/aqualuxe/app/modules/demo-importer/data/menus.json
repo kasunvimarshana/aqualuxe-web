@@ -1,0 +1,83 @@
+[
+  {
+    "name": "Main Menu",
+    "location": "primary_navigation",
+    "items": [
+      {
+        "title": "Home",
+        "type": "custom",
+        "url": "/"
+      },
+      {
+        "title": "About Us",
+        "type": "post_type",
+        "object": "page",
+        "object_id": "about-us"
+      },
+      {
+        "title": "Services",
+        "type": "post_type",
+        "object": "page",
+        "object_id": "services",
+        "children": [
+          {
+            "title": "Custom Aquarium Design",
+            "type": "post_type",
+            "object": "service",
+            "object_id": "custom-aquarium-design"
+          },
+          {
+            "title": "Maintenance & Servicing",
+            "type": "post_type",
+            "object": "service",
+            "object_id": "maintenance-servicing"
+          },
+          {
+            "title": "Global Fish Export",
+            "type": "post_type",
+            "object": "service",
+            "object_id": "global-fish-export"
+          }
+        ]
+      },
+      {
+        "title": "Our Work",
+        "type": "post_type_archive",
+        "object": "project"
+      },
+      {
+        "title": "Shop",
+        "type": "post_type_archive",
+        "object": "product"
+      },
+      {
+        "title": "Contact",
+        "type": "post_type",
+        "object": "page",
+        "object_id": "contact-us"
+      }
+    ]
+  },
+  {
+    "name": "Footer Menu",
+    "location": "footer_navigation",
+    "items": [
+      {
+        "title": "Privacy Policy",
+        "type": "post_type",
+        "object": "page",
+        "object_id": "privacy-policy"
+      },
+      {
+        "title": "Terms of Service",
+        "type": "custom",
+        "url": "/terms-of-service"
+      },
+      {
+        "title": "FAQ",
+        "type": "post_type_archive",
+        "object": "faq"
+      }
+    ]
+  }
+]

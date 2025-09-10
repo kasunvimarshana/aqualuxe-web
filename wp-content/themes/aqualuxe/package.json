@@ -13,6 +13,10 @@
     "prod": "mix --production"
   },
   "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.16",
     "browser-sync": "^3.0.4",
     "browser-sync-webpack-plugin": "^2.4.0",
     "laravel-mix": "^6.0.49",

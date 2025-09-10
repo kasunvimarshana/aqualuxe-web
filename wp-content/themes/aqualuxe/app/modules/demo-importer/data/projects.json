@@ -1,0 +1,20 @@
+[
+  {
+    "post_title": "Corporate Headquarters Atrium",
+    "post_content": "<!-- wp:paragraph --><p>A 500-gallon reef aquarium designed and installed in the main atrium of a corporate headquarters, featuring a diverse range of corals and marine fish.</p><!-- /wp:paragraph -->",
+    "post_type": "project",
+    "post_status": "publish",
+    "terms": {
+      "project_category": ["Corporate", "Reef Aquarium"]
+    }
+  },
+  {
+    "post_title": "Luxury Hotel Lobby",
+    "post_content": "<!-- wp:paragraph --><p>A series of interconnected freshwater planted tanks creating a serene and captivating experience for hotel guests.</p><!-- /wp:paragraph -->",
+    "post_type": "project",
+    "post_status": "publish",
+    "terms": {
+      "project_category": ["Hospitality", "Planted Tank"]
+    }
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Competition",
+    "taxonomy": "event_category"
+  },
+  {
+    "name": "Workshop",
+    "taxonomy": "event_category"
+  },
+  {
+    "name": "Expo",
+    "taxonomy": "event_category"
+  }
+]

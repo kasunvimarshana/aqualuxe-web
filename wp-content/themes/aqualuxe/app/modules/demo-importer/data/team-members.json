@@ -1,0 +1,20 @@
+[
+  {
+    "post_title": "Dr. Evelyn Reed",
+    "post_content": "",
+    "post_type": "team_member",
+    "post_status": "publish",
+    "meta": {
+      "position": "Chief Marine Biologist"
+    }
+  },
+  {
+    "post_title": "Kenji Tanaka",
+    "post_content": "",
+    "post_type": "team_member",
+    "post_status": "publish",
+    "meta": {
+      "position": "Master Aquascaper"
+    }
+  }
+]

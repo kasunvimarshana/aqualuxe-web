@@ -12,9 +12,11 @@ get_header();
 
 	<main id="primary" class="site-main">
 
-		<?php
-		get_template_part( 'templates/pages/home' );
-		?>
+		<?php get_template_part('templates/parts/home/hero'); ?>
+		<?php get_template_part('templates/parts/home/services'); ?>
+		<?php get_template_part('templates/parts/home/projects'); ?>
+		<?php get_template_part('templates/parts/home/testimonials'); ?>
+		<?php get_template_part('templates/parts/home/cta'); ?>
 
 	</main><!-- #main -->
 

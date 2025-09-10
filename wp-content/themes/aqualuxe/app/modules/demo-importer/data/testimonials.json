@@ -1,0 +1,20 @@
+[
+  {
+    "post_title": "A truly stunning centerpiece.",
+    "post_content": "<!-- wp:paragraph --><p>The custom aquarium AquaLuxe designed for our lobby is nothing short of breathtaking. It has become the focal point of our space and a conversation starter for all our clients. The team's professionalism and attention to detail were exceptional.</p><!-- /wp:paragraph -->",
+    "post_type": "testimonial",
+    "post_status": "publish",
+    "meta": {
+      "author_name": "John D., CEO of Innovate Corp"
+    }
+  },
+  {
+    "post_title": "The healthiest fish I've ever purchased.",
+    "post_content": "<!-- wp:paragraph --><p>I've been a hobbyist for over 20 years, and the quality of the livestock from AquaLuxe is unparalleled. Every fish arrived healthy, vibrant, and perfectly quarantined. Their export process is seamless.</p><!-- /wp:paragraph -->",
+    "post_type": "testimonial",
+    "post_status": "publish",
+    "meta": {
+      "author_name": "Maria S., International Collector"
+    }
+  }
+]

@@ -1,0 +1,37 @@
+{
+  "sidebar-1": [
+    {
+      "id": "search-2",
+      "settings": {
+        "title": "Search"
+      }
+    },
+    {
+      "id": "recent-posts-2",
+      "settings": {
+        "title": "Recent Posts",
+        "number": 5
+      }
+    }
+  ],
+  "footer-1": [
+    {
+      "id": "text-2",
+      "settings": {
+        "title": "About Aqualuxe",
+        "text": "Aqualuxe is a world leader in custom aquarium design and installation. We bring your aquatic vision to life.",
+        "filter": true,
+        "visual": true
+      }
+    }
+  ],
+  "footer-2": [
+    {
+      "id": "nav_menu-2",
+      "settings": {
+        "title": "Quick Links",
+        "nav_menu": "footer-menu"
+      }
+    }
+  ]
+}

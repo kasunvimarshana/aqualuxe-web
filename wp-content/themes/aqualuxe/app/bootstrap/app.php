@@ -16,7 +16,7 @@ $app = new Application();
 $app->registerProviders( [
 	\App\Providers\ThemeServiceProvider::class,
 	\App\Providers\AssetServiceProvider::class,
-	\App\Providers\CptServiceProvider::class,
+	\App\Providers\CustomPostTypeServiceProvider::class,
 	\App\Providers\CustomizerServiceProvider::class,
 	\App\Providers\WooCommerceServiceProvider::class,
 	\App\Providers\DarkModeServiceProvider::class,

@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Aquarium Systems",
+    "slug": "aquarium-systems",
+    "taxonomy": "product_cat",
+    "description": "Complete, ready-to-run aquarium packages."
+  },
+  {
+    "name": "Marine Fish",
+    "slug": "marine-fish",
+    "taxonomy": "product_cat",
+    "description": "Sustainably sourced saltwater fish for your aquarium."
+  },
+  {
+    "name": "Angelfish",
+    "slug": "angelfish",
+    "taxonomy": "product_cat",
+    "parent": "marine-fish",
+    "description": "A variety of beautiful angelfish species."
+  },
+  {
+    "name": "Services",
+    "slug": "services",
+    "taxonomy": "product_cat",
+    "description": "Professional services offered by Aqualuxe."
+  },
+  {
+    "name": "Reef Ready",
+    "slug": "reef-ready",
+    "taxonomy": "product_tag"
+  },
+  {
+    "name": "Complete System",
+    "slug": "complete-system",
+    "taxonomy": "product_tag"
+  },
+  {
+    "name": "Beginner Friendly",
+    "slug": "beginner-friendly",
+    "taxonomy": "product_tag"
+  },
+  {
+    "name": "Community Fish",
+    "slug": "community-fish",
+    "taxonomy": "product_tag"
+  }
+]
