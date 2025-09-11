@@ -108,19 +108,120 @@ add_action('wp_enqueue_scripts', function () {
         return add_query_arg('ver', $ver, AQUALUXE_THEME_URI . '/assets/dist' . $rev);
     };
 
-    // Styles.
-    wp_enqueue_style('aqualuxe-app', $get('css/app.css'), [], null, 'all');
-    // Scripts (deferred).
-    wp_enqueue_script('aqualuxe-app', $get('js/app.js'), [], null, true);
+    // Main styles and scripts
+    wp_enqueue_style('aqualuxe-main', $get('css/main.css'), [], null, 'all');
+    wp_enqueue_script('aqualuxe-main', $get('js/main.js'), [], null, true);
+    
+    // Module scripts (conditional loading)
+    if (apply_filters('aqualuxe/modules', ['dark_mode' => true])['dark_mode']) {
+        wp_enqueue_script('aqualuxe-dark-mode', $get('js/dark-mode.js'), ['aqualuxe-main'], null, true);
+    }
+    
+    if (apply_filters('aqualuxe/modules', ['multilingual' => true])['multilingual']) {
+        wp_enqueue_script('aqualuxe-multilingual', $get('js/multilingual.js'), ['aqualuxe-main'], null, true);
+    }
+    
+    // Load multicurrency module
+    wp_enqueue_script('aqualuxe-multicurrency', $get('js/multicurrency.js'), ['aqualuxe-main'], null, true);
+
+    // WooCommerce specific assets
+    if (class_exists('WooCommerce')) {
+        wp_enqueue_style('aqualuxe-woocommerce', $get('css/woocommerce.css'), ['aqualuxe-main'], null, 'all');
+        wp_enqueue_script('aqualuxe-woocommerce', $get('js/woocommerce.js'), ['aqualuxe-main'], null, true);
+        
+        if (is_shop() || is_product_category() || is_product_tag()) {
+            wp_enqueue_script('aqualuxe-shop', $get('js/shop.js'), ['aqualuxe-woocommerce'], null, true);
+        }
+    }
 
     // Localize data & nonce for AJAX.
-    wp_localize_script('aqualuxe-app', 'AQUALUXE', [
+    wp_localize_script('aqualuxe-main', 'AQUALUXE', [
         'ajaxUrl' => admin_url('admin-ajax.php'),
         'nonce'   => wp_create_nonce('aqualuxe_nonce'),
+        'baseUrl' => home_url('/'),
+        'themeUrl' => AQUALUXE_THEME_URI,
+        'currencies' => apply_filters('aqualuxe/currencies', [
+            'USD' => ['symbol' => '$', 'name' => 'US Dollar'],
+            'EUR' => ['symbol' => '€', 'name' => 'Euro'],
+            'GBP' => ['symbol' => '£', 'name' => 'British Pound'],
+            'JPY' => ['symbol' => '¥', 'name' => 'Japanese Yen'],
+        ]),
+        'languages' => apply_filters('aqualuxe/languages', [
+            'en' => ['name' => 'English', 'flag' => '🇺🇸'],
+            'es' => ['name' => 'Español', 'flag' => '🇪🇸'],
+            'fr' => ['name' => 'Français', 'flag' => '🇫🇷'],
+        ]),
         'i18n'    => [
             'close' => esc_html__('Close', 'aqualuxe'),
+            'loading' => esc_html__('Loading...', 'aqualuxe'),
+            'error' => esc_html__('An error occurred', 'aqualuxe'),
         ],
     ]);
+});
+
+// Admin styles and scripts
+add_action('admin_enqueue_scripts', function ($hook) {
+    $manifest = AQUALUXE_THEME_DIR . '/assets/dist/mix-manifest.json';
+    $map = [];
+    if (file_exists($manifest)) {
+        $json = file_get_contents($manifest);
+        $map = json_decode($json, true) ?: [];
+    }
+    $ver = AQUALUXE_VERSION;
+    $get = function ($file) use ($map, $ver) {
+        $key = '/' . ltrim($file, '/');
+        $rev = isset($map[$key]) ? $map[$key] : $key;
+        return add_query_arg('ver', $ver, AQUALUXE_THEME_URI . '/assets/dist' . $rev);
+    };
+
+    // Load admin assets on theme pages
+    if (strpos($hook, 'aqualuxe') !== false || $hook === 'themes.php') {
+        wp_enqueue_style('aqualuxe-admin', $get('css/admin.css'), [], null, 'all');
+        wp_enqueue_script('aqualuxe-admin', $get('js/admin.js'), ['jquery'], null, true);
+        
+        // Enqueue media uploader
+        wp_enqueue_media();
+        
+        // Color picker
+        wp_enqueue_style('wp-color-picker');
+        wp_enqueue_script('wp-color-picker');
+    }
+});
+
+// Customizer scripts
+add_action('customize_preview_init', function () {
+    $manifest = AQUALUXE_THEME_DIR . '/assets/dist/mix-manifest.json';
+    $map = [];
+    if (file_exists($manifest)) {
+        $json = file_get_contents($manifest);
+        $map = json_decode($json, true) ?: [];
+    }
+    $ver = AQUALUXE_VERSION;
+    $get = function ($file) use ($map, $ver) {
+        $key = '/' . ltrim($file, '/');
+        $rev = isset($map[$key]) ? $map[$key] : $key;
+        return add_query_arg('ver', $ver, AQUALUXE_THEME_URI . '/assets/dist' . $rev);
+    };
+
+    wp_enqueue_script('aqualuxe-customizer', $get('js/customizer.js'), ['jquery', 'customize-preview'], null, true);
+});
+
+// Editor styles
+add_action('enqueue_block_editor_assets', function () {
+    $manifest = AQUALUXE_THEME_DIR . '/assets/dist/mix-manifest.json';
+    $map = [];
+    if (file_exists($manifest)) {
+        $json = file_get_contents($manifest);
+        $map = json_decode($json, true) ?: [];
+    }
+    $ver = AQUALUXE_VERSION;
+    $get = function ($file) use ($map, $ver) {
+        $key = '/' . ltrim($file, '/');
+        $rev = isset($map[$key]) ? $map[$key] : $key;
+        return add_query_arg('ver', $ver, AQUALUXE_THEME_URI . '/assets/dist' . $rev);
+    };
+
+    wp_enqueue_style('aqualuxe-editor', $get('css/editor.css'), [], null, 'all');
 });
 
 // Register navigation menus and theme supports.

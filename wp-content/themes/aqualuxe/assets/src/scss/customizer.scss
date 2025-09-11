@@ -1,0 +1,24 @@
+/**
+ * Customizer Styles
+ * @package AquaLuxe
+ */
+
+.customize-control {
+  .color-palette {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+
+    .color-swatch {
+      width: 24px;
+      height: 24px;
+      border: 2px solid #ddd;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        border-color: #0ea5e9;
+      }
+    }
+  }
+}

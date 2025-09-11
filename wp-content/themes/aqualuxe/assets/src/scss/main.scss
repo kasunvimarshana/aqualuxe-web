@@ -1,0 +1,20 @@
+/**
+ * AquaLuxe Theme - Main Styles
+ * 
+ * @package AquaLuxe
+ * @since 1.0.0
+ */
+
+// Tailwind CSS imports
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+// Theme configuration
+@import 'config/variables';
+
+// Base styles
+@import 'base/typography';
+
+// Layout components
+@import 'layout/header';
