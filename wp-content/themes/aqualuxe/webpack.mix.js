@@ -167,19 +167,6 @@ if (isProduction) {
             { cleanupIDs: false }
           ]
         }
-      }),
-      
-      // Generate assets manifest for cache busting
-      new WebpackAssetsManifest({
-        output: `${distPath}/mix-manifest.json`,
-        writeToDisk: true,
-        customize: (key, value) => {
-          // Only include CSS and JS files in the manifest
-          if (key.endsWith('.map') || !(/\.(css|js)$/.test(key))) {
-            return false;
-          }
-          return { key, value };
-        }
       })
     ]
   });
