@@ -1,5 +1,0 @@
-{
-  "name": "Accessibility",
-  "description": "WCAG 2.1 AA helpers: aria-current, skiplinks support, focus-visible polyfill class, landmark roles.",
-  "enabled": true
-}

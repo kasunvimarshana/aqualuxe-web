@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<phpunit bootstrap="tests/bootstrap.php" colors="true">
-  <testsuites>
-    <testsuite name="AquaLuxe Tests">
-      <directory>tests/Unit</directory>
-    </testsuite>
-  </testsuites>
-</phpunit>

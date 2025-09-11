@@ -1,9 +1,0 @@
-./assets/js/dark-mode.js
-./assets/js/homepage.js
-./assets/js/lazy-loading.js
-./assets/js/main.js
-./assets/js/navigation.js
-./assets/js/woocommerce.js
-./postcss.config.js
-./tailwind.config.js
-./webpack.config.js

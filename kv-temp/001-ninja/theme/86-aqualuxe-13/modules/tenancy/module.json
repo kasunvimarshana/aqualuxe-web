@@ -1,5 +1,0 @@
-{
-  "name": "Tenancy",
-  "enabled": false,
-  "description": "Lightweight multi-tenant helpers: map hostnames to tenant slugs and override options per tenant via filters."
-}

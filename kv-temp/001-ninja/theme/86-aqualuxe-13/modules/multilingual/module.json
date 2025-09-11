@@ -1,9 +1,0 @@
-{
-  "name": "Multilingual",
-  "enabled": true,
-  "description": "Adds a language switcher and compatibility with Polylang or WPML if active.",
-  "requiresAny": [
-    "function:pll_the_languages",
-    "function:icl_get_languages"
-  ]
-}
