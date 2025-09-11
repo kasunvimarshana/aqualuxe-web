@@ -1,0 +1,271 @@
+// Editor styles for AquaLuxe theme
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+// Editor-specific styles
+.editor-styles-wrapper {
+  
+  // Typography
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  color: #374151;
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #111827;
+  }
+  
+  h1 { @apply text-4xl; }
+  h2 { @apply text-3xl; }
+  h3 { @apply text-2xl; }
+  h4 { @apply text-xl; }
+  h5 { @apply text-lg; }
+  h6 { @apply text-base; }
+  
+  p {
+    @apply mb-4;
+  }
+  
+  // Links
+  a {
+    @apply text-blue-600 hover:text-blue-800 underline;
+  }
+  
+  // Lists
+  ul, ol {
+    @apply mb-4 pl-6;
+  }
+  
+  ul {
+    @apply list-disc;
+  }
+  
+  ol {
+    @apply list-decimal;
+  }
+  
+  li {
+    @apply mb-1;
+  }
+  
+  // Blockquotes
+  blockquote {
+    @apply border-l-4 border-blue-500 pl-6 italic text-gray-700 my-6;
+  }
+  
+  // Code
+  code {
+    @apply bg-gray-100 px-2 py-1 rounded text-sm font-mono;
+  }
+  
+  pre {
+    @apply bg-gray-100 p-4 rounded overflow-x-auto my-4;
+    
+    code {
+      @apply bg-transparent p-0;
+    }
+  }
+  
+  // Tables
+  table {
+    @apply w-full border-collapse border border-gray-300 my-4;
+    
+    th, td {
+      @apply border border-gray-300 px-4 py-2;
+    }
+    
+    th {
+      @apply bg-gray-100 font-semibold text-left;
+    }
+  }
+  
+  // Images
+  img {
+    @apply max-w-full h-auto rounded;
+  }
+  
+  .wp-block-image {
+    @apply my-6;
+    
+    figcaption {
+      @apply text-sm text-gray-600 text-center mt-2;
+    }
+  }
+  
+  // Buttons
+  .wp-block-button {
+    @apply my-4;
+    
+    .wp-block-button__link {
+      @apply inline-block px-6 py-3 bg-blue-600 text-white rounded hover:bg-blue-700 no-underline transition-colors;
+    }
+    
+    &.is-style-outline .wp-block-button__link {
+      @apply bg-transparent border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white;
+    }
+  }
+  
+  // Columns
+  .wp-block-columns {
+    @apply flex flex-wrap -mx-4 my-6;
+    
+    .wp-block-column {
+      @apply px-4 flex-1;
+    }
+  }
+  
+  // Group block
+  .wp-block-group {
+    @apply my-6;
+    
+    &.has-background {
+      @apply p-6 rounded;
+    }
+  }
+  
+  // Cover block
+  .wp-block-cover {
+    @apply relative min-h-96 flex items-center justify-center text-white my-6 rounded overflow-hidden;
+    
+    .wp-block-cover__inner-container {
+      @apply text-center z-10 relative;
+    }
+    
+    &::before {
+      @apply absolute inset-0 bg-black opacity-50;
+      content: '';
+    }
+  }
+  
+  // Media & text
+  .wp-block-media-text {
+    @apply flex items-center my-6 gap-6;
+    
+    .wp-block-media-text__media {
+      @apply flex-shrink-0;
+    }
+    
+    .wp-block-media-text__content {
+      @apply flex-1;
+    }
+    
+    &.has-media-on-the-right {
+      @apply flex-row-reverse;
+    }
+  }
+  
+  // Gallery
+  .wp-block-gallery {
+    @apply grid gap-4 my-6;
+    
+    &.columns-2 { @apply grid-cols-2; }
+    &.columns-3 { @apply grid-cols-3; }
+    &.columns-4 { @apply grid-cols-4; }
+    
+    .wp-block-image {
+      @apply m-0;
+    }
+  }
+  
+  // Separator
+  .wp-block-separator {
+    @apply border-0 border-t border-gray-300 my-8;
+    
+    &.is-style-wide {
+      @apply border-t-2;
+    }
+    
+    &.is-style-dots {
+      @apply border-0 text-center;
+      
+      &::before {
+        content: '···';
+        @apply text-2xl text-gray-400;
+      }
+    }
+  }
+  
+  // Spacer
+  .wp-block-spacer {
+    @apply my-4;
+  }
+  
+  // Verse
+  .wp-block-verse {
+    @apply font-mono text-sm bg-gray-100 p-4 rounded my-4 whitespace-pre-wrap;
+  }
+  
+  // Pullquote
+  .wp-block-pullquote {
+    @apply text-xl italic text-center border-t border-b border-gray-300 py-8 my-8;
+    
+    cite {
+      @apply text-base not-italic text-gray-600 mt-4 block;
+    }
+  }
+  
+  // Responsive adjustments
+  @media (max-width: 768px) {
+    .wp-block-columns {
+      @apply flex-col;
+    }
+    
+    .wp-block-media-text {
+      @apply flex-col;
+      
+      &.has-media-on-the-right {
+        @apply flex-col;
+      }
+    }
+    
+    .wp-block-gallery {
+      &.columns-3,
+      &.columns-4 {
+        @apply grid-cols-2;
+      }
+    }
+  }
+}
+
+// Dark mode styles for editor
+@media (prefers-color-scheme: dark) {
+  .editor-styles-wrapper {
+    @apply bg-gray-900 text-gray-100;
+    
+    h1, h2, h3, h4, h5, h6 {
+      @apply text-gray-100;
+    }
+    
+    blockquote {
+      @apply text-gray-300;
+    }
+    
+    code {
+      @apply bg-gray-800 text-gray-100;
+    }
+    
+    pre {
+      @apply bg-gray-800;
+    }
+    
+    table {
+      @apply border-gray-600;
+      
+      th, td {
+        @apply border-gray-600;
+      }
+      
+      th {
+        @apply bg-gray-800;
+      }
+    }
+  }
+}
