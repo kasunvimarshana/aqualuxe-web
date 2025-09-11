@@ -1,0 +1,16 @@
+// Gutenberg block styles
+.wp-block-group {
+  @apply mb-6;
+}
+
+.wp-block-cover {
+  @apply relative min-h-64 flex items-center justify-center;
+  
+  .wp-block-cover__inner-container {
+    @apply text-center text-white z-10;
+  }
+}
+
+.wp-block-quote {
+  @apply border-l-4 border-primary-600 pl-6 py-2 italic;
+}

@@ -1,0 +1,86 @@
+// Admin styles for AquaLuxe theme
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+// Admin-specific styles
+.aqualuxe-admin {
+  
+  // Demo importer styles are included in the PHP file
+  
+  // Customizer styles
+  .customize-control {
+    .aqualuxe-color-control {
+      @apply flex items-center space-x-2;
+      
+      input[type="color"] {
+        @apply w-12 h-8 border border-gray-300 rounded cursor-pointer;
+      }
+      
+      input[type="text"] {
+        @apply flex-1 px-3 py-2 border border-gray-300 rounded;
+      }
+    }
+    
+    .aqualuxe-range-control {
+      @apply space-y-2;
+      
+      input[type="range"] {
+        @apply w-full;
+      }
+      
+      .range-value {
+        @apply text-sm text-gray-600;
+      }
+    }
+  }
+  
+  // Admin notices
+  .notice {
+    &.notice-aqualuxe {
+      @apply border-l-4 border-blue-400 bg-blue-50 p-4;
+      
+      p {
+        @apply m-0 text-blue-800;
+      }
+    }
+  }
+  
+  // Settings pages
+  .aqualuxe-settings {
+    .form-table {
+      th {
+        @apply font-medium text-gray-700;
+      }
+      
+      td {
+        @apply text-gray-600;
+      }
+      
+      input[type="text"],
+      input[type="email"],
+      input[type="url"],
+      textarea,
+      select {
+        @apply w-full max-w-sm px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500;
+      }
+      
+      .description {
+        @apply mt-1 text-sm text-gray-500;
+      }
+    }
+    
+    .submit {
+      .button-primary {
+        @apply bg-blue-600 hover:bg-blue-700 border-blue-600 hover:border-blue-700;
+      }
+    }
+  }
+}
+
+// Dark mode admin styles
+@media (prefers-color-scheme: dark) {
+  .aqualuxe-admin {
+    // Add dark mode styles for admin if needed
+  }
+}

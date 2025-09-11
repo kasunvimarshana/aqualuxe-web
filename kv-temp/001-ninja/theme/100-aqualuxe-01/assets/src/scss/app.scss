@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// SCSS goes here
+
+@import "tailwindcss/utilities";
+
+// Import modules
+@import "../../../modules/dark-mode/assets/css/dark-mode.css";

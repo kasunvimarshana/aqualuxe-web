@@ -1,0 +1,413 @@
+// Main Sass file for AquaLuxe theme
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+// Variables
+:root {
+  --header-height: 80px;
+  --footer-height: auto;
+  --container-max-width: 1200px;
+  --container-padding: 1rem;
+  --border-radius: 8px;
+  --transition: all 0.3s ease;
+  --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.15);
+  --shadow-heavy: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+// Dark mode variables
+.dark {
+  --bg-color: #0f172a;
+  --text-color: #f8fafc;
+  --border-color: #334155;
+  --card-bg: #1e293b;
+}
+
+// Base styles
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply font-sans text-gray-900 bg-white dark:bg-gray-900 dark:text-gray-100;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Container
+.container {
+  @apply mx-auto px-4 sm:px-6 lg:px-8;
+  max-width: var(--container-max-width);
+}
+
+// Site structure
+.site {
+  @apply min-h-screen flex flex-col;
+}
+
+.site-content {
+  @apply flex-1;
+}
+
+// Header styles
+.site-header {
+  @apply bg-white dark:bg-gray-900 shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50;
+  
+  .container {
+    @apply flex items-center justify-between py-4;
+  }
+  
+  .site-branding {
+    @apply flex items-center;
+    
+    .custom-logo {
+      @apply h-10 w-auto;
+    }
+    
+    .site-title {
+      @apply text-2xl font-bold text-primary-600 dark:text-primary-400 m-0;
+      
+      a {
+        @apply text-inherit no-underline hover:text-primary-700 dark:hover:text-primary-300 transition-colors;
+      }
+    }
+    
+    .site-description {
+      @apply text-sm text-gray-600 dark:text-gray-400 mt-1;
+    }
+  }
+  
+  .main-navigation {
+    @apply hidden lg:block;
+    
+    .primary-menu {
+      @apply flex space-x-8 list-none m-0 p-0;
+      
+      li {
+        @apply relative;
+        
+        a {
+          @apply text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 no-underline py-2 transition-colors;
+        }
+        
+        &.current-menu-item a,
+        &.current_page_item a {
+          @apply text-primary-600 dark:text-primary-400;
+        }
+        
+        // Dropdown styles
+        ul {
+          @apply absolute top-full left-0 bg-white dark:bg-gray-800 shadow-lg rounded-lg p-2 min-w-48 opacity-0 invisible transform translate-y-2 transition-all duration-200 list-none;
+          
+          li {
+            @apply w-full;
+            
+            a {
+              @apply block px-4 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700;
+            }
+          }
+        }
+        
+        &:hover ul {
+          @apply opacity-100 visible transform translate-y-0;
+        }
+      }
+    }
+  }
+  
+  .menu-toggle {
+    @apply lg:hidden bg-transparent border-0 p-2 cursor-pointer;
+    
+    .hamburger {
+      @apply block w-6 h-0.5 bg-gray-700 dark:bg-gray-300 relative;
+      
+      &::before,
+      &::after {
+        @apply content-[''] absolute w-full h-full bg-current transition-transform;
+      }
+      
+      &::before {
+        @apply -translate-y-2;
+      }
+      
+      &::after {
+        @apply translate-y-2;
+      }
+    }
+    
+    &.active .hamburger {
+      @apply bg-transparent;
+      
+      &::before {
+        @apply rotate-45 translate-y-0;
+      }
+      
+      &::after {
+        @apply -rotate-45 translate-y-0;
+      }
+    }
+  }
+  
+  .header-woocommerce {
+    @apply flex items-center space-x-4;
+    
+    .account-link,
+    .cart-link {
+      @apply relative p-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 no-underline transition-colors;
+      
+      .icon-user,
+      .icon-cart {
+        @apply w-6 h-6;
+      }
+    }
+    
+    .cart-count {
+      @apply absolute -top-1 -right-1 bg-primary-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center;
+    }
+  }
+}
+
+// Mobile menu
+.mobile-menu-overlay {
+  @apply fixed inset-0 bg-black bg-opacity-50 z-50 opacity-0 invisible transition-all duration-300;
+  
+  &.active {
+    @apply opacity-100 visible;
+  }
+  
+  .mobile-menu-content {
+    @apply fixed top-0 right-0 w-80 max-w-full h-full bg-white dark:bg-gray-900 shadow-xl transform translate-x-full transition-transform duration-300 overflow-y-auto;
+    
+    .active & {
+      @apply transform translate-x-0;
+    }
+    
+    .mobile-menu-close {
+      @apply absolute top-4 right-4 bg-transparent border-0 text-2xl cursor-pointer text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100;
+    }
+    
+    .mobile-menu {
+      @apply list-none p-0 m-0 pt-16;
+      
+      li {
+        a {
+          @apply block px-6 py-4 text-gray-700 dark:text-gray-300 no-underline border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800;
+        }
+      }
+    }
+  }
+}
+
+// Main content
+.site-main {
+  @apply py-8;
+}
+
+.content-area {
+  @apply flex-1 lg:pr-8;
+}
+
+// Entry styles
+.entry-header {
+  @apply mb-6;
+  
+  .entry-title {
+    @apply text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4;
+  }
+  
+  .entry-meta {
+    @apply text-sm text-gray-600 dark:text-gray-400 space-x-4;
+    
+    a {
+      @apply text-inherit hover:text-primary-600 dark:hover:text-primary-400 no-underline;
+    }
+  }
+}
+
+.entry-content {
+  @apply prose prose-lg dark:prose-invert max-w-none;
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+  
+  img {
+    @apply rounded-lg;
+  }
+  
+  blockquote {
+    @apply border-l-4 border-primary-500 pl-6 italic;
+  }
+}
+
+.entry-footer {
+  @apply mt-8 pt-6 border-t border-gray-200 dark:border-gray-700;
+  
+  .cat-links,
+  .tags-links,
+  .comments-link,
+  .edit-link {
+    @apply inline-block mr-6 text-sm text-gray-600 dark:text-gray-400;
+    
+    a {
+      @apply text-inherit hover:text-primary-600 dark:hover:text-primary-400 no-underline;
+    }
+  }
+}
+
+// Post thumbnails
+.post-thumbnail {
+  @apply mb-6 overflow-hidden rounded-lg;
+  
+  img {
+    @apply w-full h-auto object-cover transition-transform duration-300 hover:scale-105;
+  }
+}
+
+// Sidebar
+.sidebar {
+  @apply lg:w-80 lg:flex-shrink-0;
+  
+  .widget {
+    @apply mb-8 last:mb-0;
+    
+    .widget-title {
+      @apply text-xl font-bold text-gray-900 dark:text-gray-100 mb-4;
+    }
+  }
+}
+
+// Footer
+.site-footer {
+  @apply bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-16;
+  
+  .footer-widgets {
+    @apply py-12;
+    
+    .footer-widget-areas {
+      @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8;
+    }
+    
+    .widget-title {
+      @apply text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4;
+    }
+    
+    .widget {
+      ul {
+        @apply list-none p-0;
+        
+        li {
+          @apply mb-2;
+          
+          a {
+            @apply text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 no-underline;
+          }
+        }
+      }
+    }
+  }
+  
+  .site-info {
+    @apply py-6 border-t border-gray-200 dark:border-gray-700;
+    
+    .footer-content {
+      @apply flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0;
+    }
+    
+    .footer-menu {
+      @apply flex space-x-6 list-none p-0 m-0;
+      
+      a {
+        @apply text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 no-underline text-sm;
+      }
+    }
+    
+    .copyright {
+      @apply text-sm text-gray-600 dark:text-gray-400 text-center md:text-left;
+      
+      a {
+        @apply text-inherit hover:text-primary-600 dark:hover:text-primary-400 no-underline;
+      }
+    }
+  }
+}
+
+// Utilities
+.screen-reader-text {
+  @apply sr-only;
+}
+
+.skip-link {
+  @apply absolute -top-10 left-6 bg-primary-600 text-white px-4 py-2 rounded no-underline focus:top-2 transition-all;
+}
+
+// Buttons
+.btn {
+  @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-lg transition-all duration-200 cursor-pointer border-0 no-underline;
+  
+  &.btn-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+  
+  &.btn-secondary {
+    @apply bg-secondary-600 text-white hover:bg-secondary-700 focus:ring-2 focus:ring-secondary-500 focus:ring-offset-2;
+  }
+  
+  &.btn-outline {
+    @apply bg-transparent border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white;
+  }
+  
+  &:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+}
+
+// Cards
+.card {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-soft p-6 transition-shadow duration-200 hover:shadow-medium;
+}
+
+// Loading states
+.loading {
+  @apply animate-pulse;
+}
+
+.spinner {
+  @apply animate-spin rounded-full border-2 border-gray-300 border-t-primary-600;
+}
+
+// Responsive utilities
+@screen sm {
+  .container {
+    --container-padding: 1.5rem;
+  }
+}
+
+@screen lg {
+  .container {
+    --container-padding: 2rem;
+  }
+}
+
+// Print styles
+@media print {
+  .site-header,
+  .site-footer,
+  .sidebar,
+  .mobile-menu-overlay {
+    @apply hidden;
+  }
+  
+  .site-content {
+    @apply max-w-none;
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "name": "aqualuxe-theme",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AquaLuxe WordPress Theme - Modular, Multitenant, Multivendor E-commerce Solution",
+  "keywords": [
+    "wordpress",
+    "theme",
+    "woocommerce",
+    "multitenant",
+    "multivendor",
+    "multilingual",
+    "multicurrency"
+  ],
+  "scripts": {
+    "dev": "mix",
+    "watch": "mix watch",
+    "hot": "mix watch --hot",
+    "build": "NODE_ENV=production mix --production",
+    "build:dev": "mix",
+    "clean": "rm -rf assets/dist/* node_modules/.cache",
+    "lint:js": "eslint assets/src/js --ext .js --fix",
+    "lint:css": "stylelint assets/src/scss/**/*.scss --fix",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.9",
+    "@tailwindcss/typography": "^0.5.15",
+    "autoprefixer": "^10.4.20",
+    "browser-sync": "^3.0.2",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "cssnano": "^6.0.1",
+    "eslint": "^8.57.0",
+    "laravel-mix": "^6.0.49",
+    "postcss": "^8.4.45",
+    "postcss-import": "^16.1.0",
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.77.6",
+    "sass-loader": "^13.3.3",
+    "stylelint": "^16.9.0",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "tailwindcss": "^3.4.10"
+  },
+  "dependencies": {
+    "alpinejs": "^3.14.1",
+    "gsap": "^3.12.5",
+    "swiper": "^11.1.12"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

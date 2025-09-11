@@ -1,0 +1,51 @@
+// Checkout page styles
+.woocommerce-checkout {
+  .col2-set {
+    @apply grid grid-cols-1 lg:grid-cols-2 gap-8;
+
+    .col-1,
+    .col-2 {
+      @apply bg-white dark:bg-gray-800 rounded-lg p-6;
+      @apply border border-gray-200 dark:border-gray-700;
+    }
+  }
+
+  .woocommerce-checkout-review-order {
+    @apply bg-gray-50 dark:bg-gray-900 rounded-lg p-6;
+    @apply border border-gray-200 dark:border-gray-700;
+
+    .shop_table {
+      @apply w-full mb-6;
+
+      th,
+      td {
+        @apply px-0 py-3 border-b border-gray-200 dark:border-gray-700;
+      }
+    }
+
+    .place-order {
+      .button {
+        @apply btn btn-primary btn-lg btn-block;
+      }
+    }
+  }
+
+  .form-row {
+    @apply mb-4;
+
+    &.form-row-wide {
+      @apply col-span-2;
+    }
+
+    &.form-row-first,
+    &.form-row-last {
+      @apply col-span-1;
+    }
+  }
+
+  .woocommerce-form-login,
+  .woocommerce-form-coupon {
+    @apply bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800;
+    @apply rounded-lg p-4 mb-6;
+  }
+}
