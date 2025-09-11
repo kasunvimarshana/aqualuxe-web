@@ -1,0 +1,52 @@
+/**
+ * Customizer Styles
+ *
+ * @package AquaLuxe
+ * @since 1.0.0
+ */
+
+// Customizer panel styles
+.customize-control {
+  .range-value {
+    display: inline-block;
+    margin-left: 10px;
+    font-weight: 600;
+    min-width: 30px;
+  }
+  
+  .image-preview {
+    margin-bottom: 10px;
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+  }
+  
+  .color-picker-alpha {
+    .wp-picker-container {
+      .wp-color-result {
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+// Live preview styles
+.customize-partial-edit-shortcut {
+  .customize-partial-edit-shortcut-button {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+    cursor: pointer;
+    
+    &:hover {
+      background: rgba(0, 0, 0, 0.9);
+    }
+  }
+}

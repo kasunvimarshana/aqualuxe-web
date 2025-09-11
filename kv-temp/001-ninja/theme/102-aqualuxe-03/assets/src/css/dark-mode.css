@@ -1,0 +1,132 @@
+/* Dark Mode Styles */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Dark mode specific styles */
+@layer components {
+  /* Dark mode transitions */
+  .dark-mode-transition {
+    @apply transition-colors duration-300 ease-in-out;
+  }
+  
+  /* Dark mode toggle button */
+  .dark-mode-toggle {
+    @apply relative inline-flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-200;
+  }
+  
+  .dark-mode-toggle:hover {
+    @apply bg-secondary-100 dark:bg-secondary-800;
+  }
+  
+  .dark-mode-toggle:focus {
+    @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+  }
+  
+  .dark-mode-toggle svg {
+    @apply transition-transform duration-200;
+  }
+  
+  .dark-mode-toggle:hover svg {
+    @apply transform scale-110;
+  }
+  
+  /* Dark mode specific component overrides */
+  .dark .btn-primary {
+    @apply bg-primary-500 hover:bg-primary-600;
+  }
+  
+  .dark .btn-secondary {
+    @apply bg-secondary-600 hover:bg-secondary-700;
+  }
+  
+  .dark .btn-outline {
+    @apply border-primary-400 text-primary-400 hover:bg-primary-400 hover:text-white;
+  }
+  
+  .dark .card {
+    @apply bg-secondary-800 border-secondary-700;
+  }
+  
+  .dark .form-input,
+  .dark .form-textarea,
+  .dark .form-select {
+    @apply bg-secondary-800 border-secondary-600 text-secondary-100;
+  }
+  
+  .dark .form-input:focus,
+  .dark .form-textarea:focus,
+  .dark .form-select:focus {
+    @apply border-primary-400 ring-primary-400;
+  }
+}
+
+/* Dark mode utilities */
+@layer utilities {
+  /* Text colors for dark mode */
+  .dark-text-primary {
+    @apply text-secondary-900 dark:text-secondary-100;
+  }
+  
+  .dark-text-secondary {
+    @apply text-secondary-600 dark:text-secondary-400;
+  }
+  
+  .dark-text-muted {
+    @apply text-secondary-500 dark:text-secondary-500;
+  }
+  
+  /* Background colors for dark mode */
+  .dark-bg-primary {
+    @apply bg-white dark:bg-secondary-900;
+  }
+  
+  .dark-bg-secondary {
+    @apply bg-secondary-50 dark:bg-secondary-800;
+  }
+  
+  .dark-bg-card {
+    @apply bg-white dark:bg-secondary-800;
+  }
+  
+  /* Border colors for dark mode */
+  .dark-border {
+    @apply border-secondary-200 dark:border-secondary-700;
+  }
+  
+  .dark-border-light {
+    @apply border-secondary-100 dark:border-secondary-800;
+  }
+}
+
+/* Media queries for system preferences */
+@media (prefers-color-scheme: dark) {
+  /* Additional styles that only apply when system prefers dark mode */
+  :root:not(.light) {
+    color-scheme: dark;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .dark-mode-toggle {
+    @apply border-2 border-current;
+  }
+  
+  .dark .btn-primary {
+    @apply border-2 border-white;
+  }
+  
+  .dark .btn-outline {
+    @apply border-2;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .dark-mode-transition,
+  .dark-mode-toggle,
+  .dark-mode-toggle svg {
+    @apply transition-none;
+  }
+}

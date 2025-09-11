@@ -1,0 +1,66 @@
+/**
+ * Modal Components
+ * 
+ * @package AquaLuxe
+ */
+
+.modal {
+    @apply fixed inset-0 z-50 overflow-y-auto opacity-0 invisible;
+    transition: all 0.3s ease;
+    
+    &.active {
+        @apply opacity-100 visible;
+    }
+}
+
+.modal-backdrop {
+    @apply absolute inset-0 bg-black bg-opacity-50;
+}
+
+.modal-container {
+    @apply relative min-h-screen flex items-center justify-center p-4;
+}
+
+.modal-content {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-lg w-full max-h-screen overflow-y-auto transform scale-95;
+    transition: transform 0.3s ease;
+    
+    .modal.active & {
+        @apply transform scale-100;
+    }
+}
+
+.modal-header {
+    @apply flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700;
+}
+
+.modal-title {
+    @apply text-lg font-semibold text-gray-900 dark:text-white;
+}
+
+.modal-close {
+    @apply text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors;
+}
+
+.modal-body {
+    @apply p-6;
+}
+
+.modal-footer {
+    @apply flex justify-end space-x-3 p-6 border-t border-gray-200 dark:border-gray-700;
+}
+
+// Quick view modal
+.quick-view-modal {
+    .modal-content {
+        @apply max-w-4xl;
+    }
+    
+    .product-gallery {
+        @apply flex-1;
+    }
+    
+    .product-summary {
+        @apply flex-1 pl-6;
+    }
+}

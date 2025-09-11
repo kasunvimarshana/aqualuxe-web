@@ -1,0 +1,102 @@
+/**
+ * Editor Styles
+ * 
+ * @package AquaLuxe
+ */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.editor-styles-wrapper {
+    @apply font-sans text-gray-900;
+    
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-bold text-gray-900 mb-4;
+    }
+    
+    h1 { @apply text-4xl; }
+    h2 { @apply text-3xl; }
+    h3 { @apply text-2xl; }
+    h4 { @apply text-xl; }
+    h5 { @apply text-lg; }
+    h6 { @apply text-base; }
+    
+    p {
+        @apply mb-4 leading-relaxed;
+    }
+    
+    a {
+        @apply text-aqua-600 hover:text-aqua-700 underline;
+    }
+    
+    blockquote {
+        @apply border-l-4 border-aqua-500 bg-aqua-50 px-6 py-4 my-6 italic;
+    }
+    
+    ul, ol {
+        @apply mb-4 pl-6;
+    }
+    
+    ul {
+        @apply list-disc;
+    }
+    
+    ol {
+        @apply list-decimal;
+    }
+    
+    li {
+        @apply mb-1;
+    }
+    
+    code {
+        @apply bg-gray-100 px-2 py-1 rounded text-sm font-mono;
+    }
+    
+    pre {
+        @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto mb-4;
+        
+        code {
+            @apply bg-transparent p-0;
+        }
+    }
+    
+    table {
+        @apply w-full border-collapse border border-gray-300 mb-4;
+        
+        th, td {
+            @apply border border-gray-300 px-4 py-2 text-left;
+        }
+        
+        th {
+            @apply bg-gray-100 font-semibold;
+        }
+    }
+    
+    img {
+        @apply max-w-full h-auto rounded;
+    }
+    
+    .alignleft {
+        @apply float-left mr-4 mb-4;
+    }
+    
+    .alignright {
+        @apply float-right ml-4 mb-4;
+    }
+    
+    .aligncenter {
+        @apply block mx-auto mb-4;
+    }
+    
+    .wp-block-quote {
+        @apply border-l-4 border-aqua-500 bg-aqua-50 px-6 py-4 my-6;
+    }
+    
+    .wp-block-button {
+        .wp-block-button__link {
+            @apply inline-flex items-center justify-center px-4 py-2 bg-aqua-600 text-white rounded-md hover:bg-aqua-700 transition-colors;
+        }
+    }
+}

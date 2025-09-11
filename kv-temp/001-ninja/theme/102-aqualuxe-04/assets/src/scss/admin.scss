@@ -1,0 +1,54 @@
+/**
+ * Admin Styles
+ * 
+ * @package AquaLuxe
+ */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.aqualuxe-admin {
+    .form-table {
+        th {
+            @apply text-left font-medium;
+        }
+        
+        td {
+            @apply py-3;
+        }
+    }
+    
+    .color-picker-wrapper {
+        @apply flex items-center space-x-2;
+    }
+    
+    .media-upload-wrapper {
+        @apply space-y-2;
+        
+        .media-preview {
+            @apply border border-gray-300 rounded p-2;
+            min-height: 100px;
+        }
+    }
+    
+    .nav-tab-wrapper {
+        @apply border-b border-gray-300 mb-6;
+        
+        .nav-tab {
+            @apply px-4 py-2 border-t border-l border-r border-gray-300 bg-gray-100 text-gray-700 hover:bg-white;
+            
+            &.nav-tab-active {
+                @apply bg-white border-b-white text-gray-900;
+            }
+        }
+    }
+    
+    .tab-content {
+        @apply hidden;
+        
+        &.active {
+            @apply block;
+        }
+    }
+}

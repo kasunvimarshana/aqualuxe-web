@@ -1,0 +1,305 @@
+/* WooCommerce Styles */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Import button styles from main CSS */
+@import './main.css';
+
+/* WooCommerce specific styles */
+@layer components {
+  /* Shop page styles */
+  .woocommerce {
+    /* Product grid */
+    .products {
+      @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
+    }
+    
+    .product {
+      @apply bg-white dark:bg-secondary-800 rounded-lg shadow-md overflow-hidden transition-all duration-200 hover:shadow-lg;
+    }
+    
+    .product-image {
+      @apply relative overflow-hidden;
+    }
+    
+    .product-image img {
+      @apply w-full h-64 object-cover transition-transform duration-300 hover:scale-105;
+    }
+    
+    .product-info {
+      @apply p-4;
+    }
+    
+    .product-title {
+      @apply text-lg font-semibold text-secondary-900 dark:text-secondary-100 mb-2 hover:text-primary-600 dark:hover:text-primary-400;
+    }
+    
+    .product-price {
+      @apply text-xl font-bold text-primary-600 dark:text-primary-400;
+    }
+    
+    .product-price del {
+      @apply text-sm font-normal text-secondary-500 dark:text-secondary-400 mr-2;
+    }
+    
+    /* Add to cart button */
+    .add_to_cart_button {
+      @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500 w-full mt-4;
+    }
+    
+    .added_to_cart {
+      @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-secondary-600 text-white hover:bg-secondary-700 focus:ring-secondary-500 w-full mt-2;
+    }
+    
+    /* Product single page */
+    .single-product {
+      .product-gallery {
+        @apply mb-6;
+      }
+      
+      .product-summary {
+        @apply space-y-4;
+      }
+      
+      .product-title {
+        @apply text-2xl lg:text-3xl font-bold text-secondary-900 dark:text-secondary-100;
+      }
+      
+      .product-rating {
+        @apply flex items-center space-x-2;
+      }
+      
+      .star-rating {
+        @apply flex items-center;
+      }
+      
+      .product-price {
+        @apply text-3xl font-bold text-primary-600 dark:text-primary-400;
+      }
+      
+      .product-description {
+        @apply prose dark:prose-invert max-w-none;
+      }
+    }
+    
+    /* Quantity input */
+    .quantity {
+      @apply flex items-center border border-secondary-300 dark:border-secondary-600 rounded-md overflow-hidden;
+    }
+    
+    .quantity input {
+      @apply w-16 px-3 py-2 text-center border-0 bg-white dark:bg-secondary-800 text-secondary-900 dark:text-secondary-100 focus:outline-none focus:ring-0;
+    }
+    
+    .quantity .qty-btn {
+      @apply w-10 h-10 flex items-center justify-center bg-secondary-100 dark:bg-secondary-700 text-secondary-600 dark:text-secondary-400 hover:bg-secondary-200 dark:hover:bg-secondary-600 transition-colors duration-200;
+    }
+    
+    /* Cart page */
+    .cart-table {
+      @apply w-full border-collapse;
+    }
+    
+    .cart-table th,
+    .cart-table td {
+      @apply px-4 py-4 text-left border-b border-secondary-200 dark:border-secondary-700;
+    }
+    
+    .cart-table th {
+      @apply font-semibold text-secondary-900 dark:text-secondary-100 bg-secondary-50 dark:bg-secondary-800;
+    }
+    
+    .cart-item {
+      @apply text-secondary-700 dark:text-secondary-300;
+    }
+    
+    .cart-item-image {
+      @apply w-16 h-16 rounded-md overflow-hidden;
+    }
+    
+    .cart-item-image img {
+      @apply w-full h-full object-cover;
+    }
+    
+    .cart-item-remove {
+      @apply text-red-600 hover:text-red-700 transition-colors duration-200;
+    }
+    
+    /* Cart totals */
+    .cart-totals {
+      @apply bg-secondary-50 dark:bg-secondary-800 rounded-lg p-6;
+    }
+    
+    .cart-totals table {
+      @apply w-full;
+    }
+    
+    .cart-totals th,
+    .cart-totals td {
+      @apply px-0 py-2 text-left border-b border-secondary-200 dark:border-secondary-700;
+    }
+    
+    .cart-totals .order-total {
+      @apply text-lg font-bold text-secondary-900 dark:text-secondary-100;
+    }
+    
+    /* Checkout page */
+    .checkout-form {
+      @apply grid grid-cols-1 lg:grid-cols-2 gap-8;
+    }
+    
+    .checkout-billing,
+    .checkout-shipping {
+      @apply space-y-4;
+    }
+    
+    .checkout-review {
+      @apply bg-secondary-50 dark:bg-secondary-800 rounded-lg p-6;
+    }
+    
+    .checkout-payment {
+      @apply space-y-4;
+    }
+    
+    .payment-method {
+      @apply border border-secondary-200 dark:border-secondary-700 rounded-md p-4;
+    }
+    
+    .payment-method input[type="radio"] {
+      @apply sr-only;
+    }
+    
+    .payment-method label {
+      @apply cursor-pointer font-medium text-secondary-900 dark:text-secondary-100;
+    }
+    
+    .payment-method input[type="radio"]:checked + label {
+      @apply text-primary-600 dark:text-primary-400;
+    }
+    
+    /* Account page */
+    .account-navigation {
+      @apply space-y-2;
+    }
+    
+    .account-navigation a {
+      @apply block px-4 py-2 text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-800 rounded-md transition-colors duration-200;
+    }
+    
+    .account-navigation a.current {
+      @apply bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300;
+    }
+    
+    /* Order tracking */
+    .order-status {
+      @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+    }
+    
+    .order-status.processing {
+      @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200;
+    }
+    
+    .order-status.completed {
+      @apply bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200;
+    }
+    
+    .order-status.cancelled {
+      @apply bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200;
+    }
+    
+    /* Product filters */
+    .product-filters {
+      @apply mb-6 p-4 bg-secondary-50 dark:bg-secondary-800 rounded-lg;
+    }
+    
+    .filter-group {
+      @apply mb-4 last:mb-0;
+    }
+    
+    .filter-title {
+      @apply font-medium text-secondary-900 dark:text-secondary-100 mb-2;
+    }
+    
+    .filter-options {
+      @apply space-y-2;
+    }
+    
+    /* Product categories */
+    .product-categories {
+      @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4;
+    }
+    
+    .product-category {
+      @apply text-center p-6 bg-white dark:bg-secondary-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200;
+    }
+    
+    .product-category-image {
+      @apply w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden;
+    }
+    
+    .product-category-name {
+      @apply font-medium text-secondary-900 dark:text-secondary-100;
+    }
+    
+    .product-category-count {
+      @apply text-sm text-secondary-600 dark:text-secondary-400;
+    }
+  }
+  
+  /* Loading states */
+  .loading {
+    @apply opacity-50 pointer-events-none;
+  }
+  
+  .loading::after {
+    content: '';
+    @apply absolute inset-0 bg-white bg-opacity-50 flex items-center justify-center;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+    .woocommerce .products {
+      @apply grid-cols-1;
+    }
+    
+    .checkout-form {
+      @apply grid-cols-1;
+    }
+  }
+}
+
+/* WooCommerce specific animations */
+@layer utilities {
+  .product-hover-effect {
+    @apply transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl;
+  }
+  
+  .cart-item-animate {
+    @apply transition-all duration-200;
+  }
+  
+  .price-highlight {
+    @apply relative;
+  }
+  
+  .price-highlight::before {
+    content: '';
+    @apply absolute inset-0 bg-primary-100 dark:bg-primary-900 opacity-0 rounded-md transition-opacity duration-200;
+  }
+  
+  .price-highlight:hover::before {
+    @apply opacity-50;
+  }
+}
+
+/* Print styles for invoices */
+@media print {
+  .woocommerce-order-details {
+    @apply text-black bg-white;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}
