@@ -1,0 +1,170 @@
+// Main content layout styles
+@layer components {
+  .site-main {
+    @apply min-h-screen;
+    
+    .content-area {
+      @apply flex-1;
+    }
+    
+    .content-wrapper {
+      @apply grid grid-cols-1 lg:grid-cols-3 gap-8;
+      
+      &.no-sidebar {
+        @apply lg:grid-cols-1;
+      }
+      
+      &.sidebar-left {
+        .primary-sidebar {
+          @apply lg:order-first;
+        }
+        
+        .content-area {
+          @apply lg:order-last lg:col-span-2;
+        }
+      }
+      
+      &.sidebar-right {
+        .content-area {
+          @apply lg:col-span-2;
+        }
+      }
+    }
+    
+    .page-header {
+      @apply text-center py-16 bg-gray-50 dark:bg-gray-900 mb-12;
+      
+      .page-title {
+        @apply text-4xl font-bold text-gray-900 dark:text-white mb-4;
+      }
+      
+      .page-description {
+        @apply text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto;
+      }
+      
+      .breadcrumbs {
+        @apply mt-6;
+      }
+    }
+    
+    .entry-header {
+      @apply mb-8;
+      
+      .entry-title {
+        @apply text-3xl font-bold text-gray-900 dark:text-white mb-4;
+      }
+      
+      .entry-meta {
+        @apply flex flex-wrap items-center text-sm text-gray-600 dark:text-gray-400 space-x-4;
+        
+        .meta-item {
+          @apply flex items-center;
+          
+          .meta-icon {
+            @apply w-4 h-4 mr-1;
+          }
+        }
+      }
+    }
+    
+    .entry-content {
+      @apply prose prose-lg dark:prose-invert max-w-none;
+      
+      h1, h2, h3, h4, h5, h6 {
+        @apply text-gray-900 dark:text-white;
+      }
+      
+      a {
+        @apply text-primary-600 hover:text-primary-700;
+      }
+      
+      blockquote {
+        @apply border-l-4 border-primary-500 bg-primary-50 dark:bg-primary-900 dark:bg-opacity-20;
+      }
+      
+      code {
+        @apply bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm;
+      }
+      
+      pre {
+        @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto;
+        
+        code {
+          @apply bg-transparent p-0;
+        }
+      }
+    }
+    
+    .entry-footer {
+      @apply mt-8 pt-8 border-t border-gray-200 dark:border-gray-700;
+      
+      .entry-tags {
+        @apply flex flex-wrap gap-2 mb-4;
+        
+        .tag {
+          @apply px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm hover:bg-primary-100 hover:text-primary-700 transition-colors;
+        }
+      }
+      
+      .entry-share {
+        @apply flex items-center space-x-4;
+        
+        .share-label {
+          @apply font-medium text-gray-900 dark:text-white;
+        }
+        
+        .share-buttons {
+          @apply flex space-x-2;
+          
+          .share-button {
+            @apply w-10 h-10 rounded-full flex items-center justify-center text-white transition-colors;
+            
+            &.facebook {
+              @apply bg-blue-600 hover:bg-blue-700;
+            }
+            
+            &.twitter {
+              @apply bg-blue-400 hover:bg-blue-500;
+            }
+            
+            &.linkedin {
+              @apply bg-blue-700 hover:bg-blue-800;
+            }
+            
+            &.pinterest {
+              @apply bg-red-600 hover:bg-red-700;
+            }
+          }
+        }
+      }
+    }
+    
+    .author-bio {
+      @apply bg-gray-50 dark:bg-gray-800 rounded-lg p-6 mt-8;
+      
+      .author-avatar {
+        @apply w-16 h-16 rounded-full mr-4 float-left;
+      }
+      
+      .author-name {
+        @apply text-lg font-semibold text-gray-900 dark:text-white mb-2;
+      }
+      
+      .author-description {
+        @apply text-gray-600 dark:text-gray-400;
+      }
+    }
+    
+    .related-posts {
+      @apply mt-12;
+      
+      .section-title {
+        @apply text-2xl font-bold text-gray-900 dark:text-white mb-8;
+      }
+      
+      .posts-grid {
+        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+    "/js/app.js": "/js/app.js?id=389751255573d5d70f2585bca2d2f127",
+    "/js/admin.js": "/js/admin.js?id=49dfa1af8956ce67c619a84153b16d4f",
+    "/js/customizer.js": "/js/customizer.js?id=fd9c8f434faf4ca722400ffa31edace9",
+    "/js/modules/dark-mode.js": "/js/modules/dark-mode.js?id=517f254a5bb305b1b5db7bf083dee911",
+    "/js/modules/woocommerce.js": "/js/modules/woocommerce.js?id=34a9ed65cdf8e916d0501d72b3527274",
+    "/js/modules/demo-importer.js": "/js/modules/demo-importer.js?id=e1c672742af2f56a2ef1f66db440e186",
+    "/js/modules/manifest.js": "/js/modules/manifest.js?id=a44d38e05f80d0cfea2fc159756466f2",
+    "/css/fontawesome.css": "/css/fontawesome.css?id=35406787f160f6d8c7639ba8ad575af3",
+    "/css/woocommerce.css": "/css/woocommerce.css?id=1bf25ce7c5c8ca52b428b65a0a53ed3f",
+    "/css/customizer.css": "/css/customizer.css?id=9ecc602ea91e31a381c67f0146d2ad06",
+    "/css/admin.css": "/css/admin.css?id=337861aa3f26e09884582daf1b7a1fe5",
+    "/css/app.css": "/css/app.css?id=ddec76750591a354ee4e37ae57331f54",
+    "/js/modules/vendor.js": "/js/modules/vendor.js?id=0d69ade26cd68a4a2264ad99439fb23a",
+    "/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.woff2": "/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.woff2?id=108e6c47e52d2ed99c0ce21de4e7251a",
+    "/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.woff2": "/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.woff2?id=13538e5a55c3baa0e177afa717c0b6c0",
+    "/fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.woff2": "/fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.woff2?id=1020236eaa6b36545f70cbd66ae9a1c7",
+    "/webfonts/fa-brands-400.woff2": "/webfonts/fa-brands-400.woff2?id=108e6c47e52d2ed99c0ce21de4e7251a",
+    "/webfonts/fa-regular-400.woff2": "/webfonts/fa-regular-400.woff2?id=13538e5a55c3baa0e177afa717c0b6c0",
+    "/webfonts/fa-solid-900.woff2": "/webfonts/fa-solid-900.woff2?id=1020236eaa6b36545f70cbd66ae9a1c7",
+    "/webfonts/fa-v4compatibility.woff2": "/webfonts/fa-v4compatibility.woff2?id=6bc54dbea13da68f0e2b017cb3ce401b"
+}

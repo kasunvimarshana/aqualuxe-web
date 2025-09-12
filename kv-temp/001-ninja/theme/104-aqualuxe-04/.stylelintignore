@@ -1,0 +1,4 @@
+# Ignore Tailwind and vendor CSS
+node_modules/
+assets/dist/
+*.min.css

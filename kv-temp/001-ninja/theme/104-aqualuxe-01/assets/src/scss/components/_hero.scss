@@ -1,0 +1,205 @@
+// Hero component styles
+@layer components {
+  .hero {
+    @apply relative overflow-hidden;
+    
+    &.hero-fullscreen {
+      @apply min-h-screen flex items-center;
+    }
+    
+    &.hero-large {
+      @apply min-h-[600px] flex items-center;
+    }
+    
+    &.hero-medium {
+      @apply min-h-[400px] flex items-center;
+    }
+    
+    &.hero-small {
+      @apply min-h-[300px] flex items-center;
+    }
+    
+    .hero-background {
+      @apply absolute inset-0 z-0;
+      
+      img {
+        @apply w-full h-full object-cover;
+      }
+      
+      video {
+        @apply w-full h-full object-cover;
+      }
+      
+      .hero-overlay {
+        @apply absolute inset-0 bg-black opacity-40;
+      }
+      
+      &.hero-gradient {
+        @apply bg-gradient-to-r from-primary-600 to-secondary-600;
+      }
+      
+      &.hero-pattern {
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      }
+    }
+    
+    .hero-content {
+      @apply relative z-10 w-full;
+      
+      .hero-title {
+        @apply text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight;
+        
+        .hero-highlight {
+          @apply text-primary-400;
+        }
+      }
+      
+      .hero-subtitle {
+        @apply text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl;
+      }
+      
+      .hero-description {
+        @apply text-lg text-gray-300 mb-8 max-w-3xl;
+      }
+      
+      .hero-actions {
+        @apply flex flex-col sm:flex-row gap-4;
+      }
+      
+      .hero-stats {
+        @apply grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-12 border-t border-white border-opacity-20;
+        
+        .hero-stat {
+          @apply text-center;
+          
+          .stat-number {
+            @apply text-3xl md:text-4xl font-bold text-white mb-2;
+          }
+          
+          .stat-label {
+            @apply text-sm text-gray-300 uppercase tracking-wide;
+          }
+        }
+      }
+    }
+    
+    // Hero variants
+    &.hero-centered {
+      .hero-content {
+        @apply text-center mx-auto max-w-4xl;
+      }
+    }
+    
+    &.hero-left {
+      .hero-content {
+        @apply text-left;
+      }
+    }
+    
+    &.hero-right {
+      .hero-content {
+        @apply text-right ml-auto;
+      }
+    }
+    
+    // Hero with image
+    &.hero-split {
+      .hero-content {
+        @apply grid grid-cols-1 lg:grid-cols-2 gap-12 items-center;
+        
+        .hero-text {
+          @apply lg:pr-8;
+        }
+        
+        .hero-image {
+          @apply relative;
+          
+          img {
+            @apply w-full h-auto rounded-lg shadow-2xl;
+          }
+        }
+      }
+    }
+    
+    // Animated elements
+    .hero-floating {
+      @apply animate-float;
+    }
+    
+    .hero-waves {
+      @apply absolute bottom-0 left-0 w-full;
+      
+      svg {
+        @apply w-full h-auto text-white;
+      }
+    }
+    
+    // Scroll indicator
+    .hero-scroll {
+      @apply absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white opacity-70 hover:opacity-100 transition-opacity;
+      
+      .scroll-text {
+        @apply text-sm uppercase tracking-wide mb-2;
+      }
+      
+      .scroll-arrow {
+        @apply w-6 h-6 mx-auto animate-bounce;
+      }
+    }
+  }
+  
+  // Hero slider
+  .hero-slider {
+    @apply relative;
+    
+    .swiper-slide {
+      @apply relative;
+    }
+    
+    .swiper-pagination {
+      @apply bottom-8;
+      
+      .swiper-pagination-bullet {
+        @apply w-3 h-3 bg-white opacity-50;
+        
+        &.swiper-pagination-bullet-active {
+          @apply opacity-100 bg-primary-500;
+        }
+      }
+    }
+    
+    .swiper-button-next,
+    .swiper-button-prev {
+      @apply text-white;
+      
+      &::after {
+        @apply text-xl;
+      }
+      
+      &:hover {
+        @apply text-primary-400;
+      }
+    }
+  }
+  
+  // Feature boxes in hero
+  .hero-features {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-6 mt-12;
+    
+    .hero-feature {
+      @apply bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 text-center border border-white border-opacity-20;
+      
+      .feature-icon {
+        @apply w-12 h-12 mx-auto mb-4 text-primary-400;
+      }
+      
+      .feature-title {
+        @apply text-lg font-semibold text-white mb-2;
+      }
+      
+      .feature-description {
+        @apply text-gray-300 text-sm;
+      }
+    }
+  }
+}
