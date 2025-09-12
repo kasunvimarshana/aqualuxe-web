@@ -359,14 +359,14 @@ class Module_Manager {
      */
     public function register_default_modules(): void {
         $default_modules = array(
-            'dark-mode'        => '\\AquaLuxe\\Modules\\Dark_Mode',
-            'multilingual'     => '\\AquaLuxe\\Modules\\Multilingual',
-            'performance'      => '\\AquaLuxe\\Modules\\Performance',
-            'security'         => '\\AquaLuxe\\Modules\\Security',
-            'seo'              => '\\AquaLuxe\\Modules\\SEO',
-            'custom-post-types'=> '\\AquaLuxe\\Modules\\Custom_Post_Types',
-            'woocommerce'      => '\\AquaLuxe\\Modules\\WooCommerce_Integration',
-            'demo-importer'    => '\\AquaLuxe\\Modules\\Demo_Importer',
+            'dark-mode'           => '\\AquaLuxe\\Modules\\Dark_Mode',
+            'multilingual'        => '\\AquaLuxe\\Modules\\Multilingual',
+            'performance'         => '\\AquaLuxe\\Modules\\Performance',
+            'security'            => '\\AquaLuxe\\Modules\\Security',
+            'seo'                 => '\\AquaLuxe\\Modules\\SEO',
+            'custom-post-types'   => '\\AquaLuxe\\Modules\\Custom_Post_Types',
+            'woocommerce'         => '\\AquaLuxe\\Modules\\WooCommerce_Integration',
+            'demo-importer'       => '\\AquaLuxe\\Modules\\Demo_Content_Importer',
         );
 
         foreach ( $default_modules as $name => $class ) {

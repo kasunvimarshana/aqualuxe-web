@@ -114,6 +114,7 @@ class AquaLuxe_Theme {
             'security' => '\\AquaLuxe\\Services\\Security',
             'performance' => '\\AquaLuxe\\Services\\Performance',
             'customizer' => '\\AquaLuxe\\Services\\Customizer',
+            'woocommerce_integration' => '\\AquaLuxe\\Services\\WooCommerce_Integration',
         ];
         
         foreach ($services as $name => $class) {
