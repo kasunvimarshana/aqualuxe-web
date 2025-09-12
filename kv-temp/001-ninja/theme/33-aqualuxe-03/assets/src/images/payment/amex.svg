@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="80" height="50" viewBox="0 0 80 50">
-  <rect width="80" height="50" rx="4" fill="#ffffff"/>
-  <g transform="translate(10, 10)">
-    <rect width="60" height="30" rx="3" fill="#2E77BC"/>
-    <path d="M17 15L13 8H9V22H13V15L17 22H21V8H17V15ZM27 12H33V8H23V22H33V18H27V16H32V13H27V12ZM39 8L35 15L39 22H43L47 15L43 8H39ZM40 12H42L43.5 15L42 18H40L38.5 15L40 12Z" fill="white"/>
-  </g>
-</svg>

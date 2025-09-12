@@ -1,8 +1,0 @@
-/* Slide-in Panel Styles */
-#aqualuxe-slide-in-panel.is-open {
-    transform: translateX(0);
-}
-
-#aqualuxe-panel-overlay.is-visible {
-    display: block;
-}

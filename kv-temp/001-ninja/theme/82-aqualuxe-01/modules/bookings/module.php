@@ -1,2 +1,0 @@
-<?php
-// Bookings integration placeholders

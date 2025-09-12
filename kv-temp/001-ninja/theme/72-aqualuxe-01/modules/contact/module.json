@@ -1,6 +1,0 @@
-{
-  "name": "Contact Forms",
-  "slug": "contact",
-  "class": "AquaLuxe\\Modules\\Contact\\Module",
-  "enabled": true
-}

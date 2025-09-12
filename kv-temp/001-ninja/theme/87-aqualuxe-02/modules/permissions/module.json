@@ -1,5 +1,0 @@
-{
-  "name": "Permissions",
-  "description": "Granular capability policy and role mapping for AquaLuxe features (modules UI, importer, wholesale).",
-  "enabled": true
-}

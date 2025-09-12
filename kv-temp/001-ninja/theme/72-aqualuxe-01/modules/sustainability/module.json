@@ -1,6 +1,0 @@
-{
-  "name": "R&D and Sustainability",
-  "slug": "sustainability",
-  "class": "AquaLuxe\\Modules\\Sustainability\\Module",
-  "enabled": true
-}

@@ -1,6 +1,0 @@
-# This is a placeholder for the screenshot.png file
-# In a real child theme, you would include a 1200x900 pixel PNG image
-# that represents your child theme's appearance.
-#
-# The screenshot should be named 'screenshot.png' and placed in the
-# root directory of your child theme.

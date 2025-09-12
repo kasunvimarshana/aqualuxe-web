@@ -1,5 +1,0 @@
-{
-  "name": "Sitemap",
-  "enabled": true,
-  "description": "Outputs a simple XML sitemap at /sitemap.xml for posts and pages."
-}

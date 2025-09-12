@@ -1,2 +1,0 @@
-<?php
-// Tickets/events placeholders
