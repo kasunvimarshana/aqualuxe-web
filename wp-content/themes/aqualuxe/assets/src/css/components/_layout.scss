@@ -1,0 +1,251 @@
+/**
+ * Layout Components
+ * Grid system and layout utilities for AquaLuxe theme
+ */
+
+// Container
+.container {
+  @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.container-fluid {
+  @apply w-full px-4 sm:px-6 lg:px-8;
+}
+
+// Grid system
+.grid-auto {
+  @apply grid gap-6;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-2 {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+}
+
+.grid-3 {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+.grid-4 {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6;
+}
+
+// Flexbox utilities
+.flex-center {
+  @apply flex items-center justify-center;
+}
+
+.flex-between {
+  @apply flex items-center justify-between;
+}
+
+.flex-start {
+  @apply flex items-center justify-start;
+}
+
+.flex-end {
+  @apply flex items-center justify-end;
+}
+
+// Sections
+.section {
+  @apply py-16 lg:py-24;
+}
+
+.section-sm {
+  @apply py-8 lg:py-12;
+}
+
+.section-lg {
+  @apply py-24 lg:py-32;
+}
+
+// Content areas
+.content-area {
+  @apply max-w-none prose prose-lg;
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-secondary font-bold;
+    color: var(--color-text-primary);
+  }
+  
+  p {
+    @apply mb-6 leading-relaxed;
+    color: var(--color-text-secondary);
+  }
+  
+  a {
+    @apply text-primary-600 hover:text-primary-700;
+    @apply transition-colors duration-200;
+  }
+  
+  ul, ol {
+    @apply mb-6 ml-6;
+  }
+  
+  li {
+    @apply mb-2;
+  }
+  
+  ul li {
+    @apply list-disc;
+  }
+  
+  ol li {
+    @apply list-decimal;
+  }
+  
+  blockquote {
+    @apply border-l-4 border-primary-500 pl-6 py-4 mb-6;
+    @apply bg-primary-50 dark:bg-primary-900/20;
+    @apply italic text-lg;
+  }
+  
+  code {
+    @apply bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm;
+  }
+  
+  pre {
+    @apply bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto mb-6;
+    
+    code {
+      @apply bg-transparent p-0;
+    }
+  }
+  
+  img {
+    @apply rounded-lg shadow-md;
+  }
+  
+  table {
+    @apply w-full border-collapse mb-6;
+    
+    th, td {
+      @apply border border-gray-200 dark:border-gray-700 p-3 text-left;
+    }
+    
+    th {
+      @apply bg-gray-50 dark:bg-gray-800 font-semibold;
+    }
+  }
+}
+
+// Sidebar layout
+.sidebar-layout {
+  @apply grid grid-cols-1 lg:grid-cols-4 gap-8;
+  
+  .main-content {
+    @apply lg:col-span-3;
+  }
+  
+  .sidebar {
+    @apply lg:col-span-1;
+  }
+}
+
+// Full-width sections
+.full-width {
+  @apply w-screen relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+// Aspect ratios
+.aspect-video {
+  @apply relative;
+  aspect-ratio: 16/9;
+  
+  > * {
+    @apply absolute inset-0 w-full h-full object-cover;
+  }
+}
+
+.aspect-square {
+  @apply relative;
+  aspect-ratio: 1/1;
+  
+  > * {
+    @apply absolute inset-0 w-full h-full object-cover;
+  }
+}
+
+.aspect-portrait {
+  @apply relative;
+  aspect-ratio: 3/4;
+  
+  > * {
+    @apply absolute inset-0 w-full h-full object-cover;
+  }
+}
+
+// Sticky elements
+.sticky-header {
+  @apply sticky top-0 z-50;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.9);
+  
+  [data-theme="dark"] & {
+    background-color: rgba(15, 23, 42, 0.9);
+  }
+}
+
+// Overlays
+.overlay {
+  @apply absolute inset-0 bg-black/50;
+}
+
+.overlay-gradient {
+  @apply absolute inset-0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+}
+
+// Card layouts
+.card-grid {
+  @apply grid gap-6;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+// Masonry layout
+.masonry {
+  columns: 1;
+  column-gap: 1.5rem;
+  
+  @screen sm {
+    columns: 2;
+  }
+  
+  @screen lg {
+    columns: 3;
+  }
+  
+  .masonry-item {
+    @apply break-inside-avoid mb-6;
+  }
+}
+
+// Print layout
+@media print {
+  .section {
+    @apply py-4;
+  }
+  
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    @apply block;
+  }
+  
+  .sidebar-layout {
+    @apply block;
+    
+    .sidebar {
+      @apply hidden;
+    }
+  }
+}

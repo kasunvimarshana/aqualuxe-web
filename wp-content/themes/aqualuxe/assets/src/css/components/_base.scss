@@ -1,0 +1,174 @@
+/**
+ * Base Styles
+ * Foundation styles for the AquaLuxe theme
+ */
+
+// Reset and normalize
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Remove default margins
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+dl, dd, ol, ul, figure {
+  margin: 0;
+  padding: 0;
+}
+
+// Improved heading styles
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+h1 { @apply text-4xl lg:text-6xl; }
+h2 { @apply text-3xl lg:text-5xl; }
+h3 { @apply text-2xl lg:text-4xl; }
+h4 { @apply text-xl lg:text-3xl; }
+h5 { @apply text-lg lg:text-2xl; }
+h6 { @apply text-base lg:text-xl; }
+
+// Improved link styles
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-base);
+  
+  &:hover, &:focus {
+    text-decoration: underline;
+    text-decoration-color: var(--color-primary-500);
+    text-underline-offset: 0.25rem;
+  }
+  
+  &:focus-visible {
+    @extend .focus-visible;
+  }
+}
+
+// List styles
+ol, ul {
+  list-style: none;
+}
+
+li {
+  line-height: 1.6;
+}
+
+// Image styles
+img, picture {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Form element styles
+input, button, textarea, select {
+  font: inherit;
+  border: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+// Table styles
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+th {
+  font-weight: 600;
+  background-color: var(--color-background-secondary);
+}
+
+// Code styles
+code, pre {
+  font-family: var(--font-family-mono);
+  font-size: 0.875em;
+}
+
+pre {
+  background-color: var(--color-background-secondary);
+  padding: 1rem;
+  border-radius: var(--element-border-radius);
+  overflow-x: auto;
+}
+
+code {
+  background-color: var(--color-background-secondary);
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+// Blockquote styles
+blockquote {
+  border-left: 4px solid var(--color-primary-500);
+  padding-left: 1rem;
+  font-style: italic;
+  color: var(--color-text-secondary);
+}
+
+// Selection styles
+::selection {
+  background-color: var(--color-primary-200);
+  color: var(--color-primary-900);
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  :root {
+    --color-border: #000;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.2);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+  }
+}

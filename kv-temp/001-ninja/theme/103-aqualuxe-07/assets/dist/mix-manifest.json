@@ -1,0 +1,12 @@
+{
+    "/js/main.js": "/js/main.js",
+    "/js/admin.js": "/js/admin.js",
+    "/js/customizer.js": "/js/customizer.js",
+    "/js/woocommerce.js": "/js/woocommerce.js",
+    "/js/manifest.js": "/js/manifest.js",
+    "/css/woocommerce.css": "/css/woocommerce.css",
+    "/css/main.css": "/css/main.css",
+    "/css/editor.css": "/css/editor.css",
+    "/css/admin.css": "/css/admin.css",
+    "/js/vendor.js": "/js/vendor.js"
+}
