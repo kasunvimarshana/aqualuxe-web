@@ -1,0 +1,18 @@
+// Responsive utilities
+@media (max-width: 640px) {
+  .mobile-hidden {
+    @apply hidden;
+  }
+}
+
+@media (min-width: 768px) {
+  .tablet-visible {
+    @apply block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .desktop-visible {
+    @apply block;
+  }
+}

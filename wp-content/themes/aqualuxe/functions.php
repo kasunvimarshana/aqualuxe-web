@@ -29,27 +29,22 @@ define('AQUALUXE_INC_DIR', AQUALUXE_THEME_DIR . '/inc');
 define('AQUALUXE_MODULES_DIR', AQUALUXE_THEME_DIR . '/modules');
 
 /**
- * Autoloader for theme classes
+ * Load core files and initialize autoloader
  */
-spl_autoload_register(function ($class_name) {
-    // Convert class name to file path
-    $class_file = str_replace(['AquaLuxe\\', '\\'], ['', '/'], $class_name);
-    $class_file = strtolower(str_replace('_', '-', $class_file));
-    
-    // Check in inc/classes directory
-    $file_path = AQUALUXE_INC_DIR . '/classes/' . $class_file . '.php';
-    if (file_exists($file_path)) {
-        require_once $file_path;
-        return;
-    }
-    
-    // Check in modules directory
-    $module_path = AQUALUXE_MODULES_DIR . '/' . $class_file . '.php';
-    if (file_exists($module_path)) {
-        require_once $module_path;
-        return;
-    }
-});
+require_once AQUALUXE_INC_DIR . '/interfaces/autoloader-interface.php';
+require_once AQUALUXE_INC_DIR . '/interfaces/module-interface.php';
+require_once AQUALUXE_INC_DIR . '/interfaces/service-interface.php';
+require_once AQUALUXE_INC_DIR . '/core/autoloader.php';
+require_once AQUALUXE_INC_DIR . '/core/service-container.php';
+require_once AQUALUXE_INC_DIR . '/core/base-module.php';
+require_once AQUALUXE_INC_DIR . '/core/base-service.php';
+require_once AQUALUXE_INC_DIR . '/core/module-manager.php';
+
+// Initialize autoloader
+$autoloader = new \AquaLuxe\Core\Autoloader();
+$autoloader->add_namespace('AquaLuxe\\', AQUALUXE_INC_DIR . '/');
+$autoloader->add_namespace('AquaLuxe\\Modules\\', AQUALUXE_MODULES_DIR . '/');
+$autoloader->register();
 
 /**
  * Main AquaLuxe Theme Class
@@ -60,6 +55,16 @@ class AquaLuxe_Theme {
      * Theme instance
      */
     private static $instance = null;
+    
+    /**
+     * Service container
+     */
+    private $container;
+    
+    /**
+     * Module manager
+     */
+    private $module_manager;
     
     /**
      * Get theme instance
@@ -75,6 +80,13 @@ class AquaLuxe_Theme {
      * Constructor
      */
     private function __construct() {
+        // Initialize service container
+        $this->container = \AquaLuxe\Core\Service_Container::get_instance();
+        
+        // Initialize module manager
+        $this->module_manager = \AquaLuxe\Core\Module_Manager::get_instance();
+        
+        // Hook into WordPress
         add_action('after_setup_theme', [$this, 'setup_theme']);
         add_action('wp_enqueue_scripts', [$this, 'enqueue_assets']);
         add_action('wp_enqueue_scripts', [$this, 'enqueue_conditional_assets']);
@@ -82,12 +94,32 @@ class AquaLuxe_Theme {
         add_action('init', [$this, 'init_modules']);
         add_action('customize_register', [$this, 'load_customizer']);
         
-        // Load core functionality
-        $this->load_core_files();
+        // Load core services
+        $this->register_core_services();
         
         // Initialize WooCommerce integration if available
         if (class_exists('WooCommerce')) {
             add_action('after_setup_theme', [$this, 'woocommerce_setup']);
+        }
+    }
+    
+    /**
+     * Register core services
+     */
+    private function register_core_services() {
+        // Register essential services
+        $services = [
+            'asset_manager' => '\\AquaLuxe\\Services\\Asset_Manager',
+            'template_loader' => '\\AquaLuxe\\Services\\Template_Loader',
+            'security' => '\\AquaLuxe\\Services\\Security',
+            'performance' => '\\AquaLuxe\\Services\\Performance',
+            'customizer' => '\\AquaLuxe\\Services\\Customizer',
+        ];
+        
+        foreach ($services as $name => $class) {
+            if (class_exists($class)) {
+                $this->container->singleton($name, $class);
+            }
         }
     }
     
@@ -199,6 +231,7 @@ class AquaLuxe_Theme {
         wp_localize_script('aqualuxe-main', 'aqualuxe_ajax', [
             'ajax_url' => admin_url('admin-ajax.php'),
             'nonce'    => wp_create_nonce('aqualuxe_nonce'),
+            'debug'    => defined('WP_DEBUG') && WP_DEBUG,
             'strings'  => [
                 'loading' => esc_html__('Loading...', 'aqualuxe'),
                 'error'   => esc_html__('An error occurred. Please try again.', 'aqualuxe'),
@@ -266,61 +299,44 @@ class AquaLuxe_Theme {
     }
     
     /**
-     * Load core files
-     */
-    private function load_core_files() {
-        $core_files = [
-            'inc/core/class-theme-setup.php',
-            'inc/core/class-asset-manager.php',
-            'inc/core/class-template-loader.php',
-            'inc/core/class-customizer.php',
-            'inc/core/class-security.php',
-            'inc/core/class-performance.php',
-            'inc/helpers/template-functions.php',
-            'inc/helpers/utility-functions.php',
-            'inc/helpers/woocommerce-functions.php',
-        ];
-        
-        foreach ($core_files as $file) {
-            $file_path = AQUALUXE_THEME_DIR . '/' . $file;
-            if (file_exists($file_path)) {
-                require_once $file_path;
-            }
-        }
-    }
-    
-    /**
      * Initialize modules
      */
     public function init_modules() {
-        $modules = [
-            'multilingual',
-            'dark-mode',
-            'woocommerce-integration',
-            'demo-importer',
-            'booking-system',
-            'events-ticketing',
-            'subscriptions',
-            'marketplace',
-            'seo-optimization',
-            'performance-optimizer',
-        ];
+        // Register default modules
+        $this->module_manager->register_default_modules();
         
-        foreach ($modules as $module) {
-            $module_file = AQUALUXE_MODULES_DIR . '/' . $module . '/' . $module . '.php';
-            if (file_exists($module_file)) {
-                require_once $module_file;
-            }
-        }
+        // Allow themes/plugins to register additional modules
+        do_action('aqualuxe_register_modules', $this->module_manager);
         
-        do_action('aqualuxe_modules_loaded');
+        // Load all modules
+        $this->module_manager->load_modules();
+        
+        // Emit modules loaded event
+        do_action('aqualuxe_modules_loaded', $this->module_manager);
     }
     
     /**
      * Load customizer
      */
     public function load_customizer($wp_customize) {
-        require_once AQUALUXE_INC_DIR . '/customizer/customizer.php';
+        if ($this->container->has('customizer')) {
+            $customizer = $this->container->get('customizer');
+            $customizer->register($wp_customize);
+        }
+    }
+    
+    /**
+     * Get service container
+     */
+    public function get_container() {
+        return $this->container;
+    }
+    
+    /**
+     * Get module manager
+     */
+    public function get_module_manager() {
+        return $this->module_manager;
     }
 }
 
@@ -383,3 +399,34 @@ function aqualuxe_excerpt_more($more) {
     return '&hellip;';
 }
 add_filter('excerpt_more', 'aqualuxe_excerpt_more');
+
+/**
+ * Global helper function to access theme instance
+ */
+function aqualuxe() {
+    return AquaLuxe_Theme::getInstance();
+}
+
+/**
+ * Helper function to get a service from the container
+ */
+function aqualuxe_service($service_name) {
+    $theme = aqualuxe();
+    $container = $theme->get_container();
+    
+    if ($container->has($service_name)) {
+        return $container->get($service_name);
+    }
+    
+    return null;
+}
+
+/**
+ * Helper function to get a module
+ */
+function aqualuxe_module($module_name) {
+    $theme = aqualuxe();
+    $module_manager = $theme->get_module_manager();
+    
+    return $module_manager->get_module($module_name);
+}
