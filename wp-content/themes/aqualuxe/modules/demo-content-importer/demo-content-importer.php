@@ -11,6 +11,9 @@
 
 namespace AquaLuxe\Modules;
 
+use AquaLuxe\Core\Base_Module;
+use AquaLuxe\Core\Service_Container;
+
 if (!defined('ABSPATH')) {
     exit;
 }
@@ -18,7 +21,7 @@ if (!defined('ABSPATH')) {
 /**
  * Demo Content Importer
  */
-class Demo_Content_Importer {
+class Demo_Content_Importer extends Base_Module {
     
     /**
      * Import status options
@@ -31,8 +34,101 @@ class Demo_Content_Importer {
     /**
      * Constructor
      */
-    public function __construct() {
+    public function __construct(Service_Container $container = null) {
+        parent::__construct($container);
+    }
+    
+    /**
+     * Setup the module (called by base class)
+     */
+    protected function setup(): void {
+        // Module-specific setup
+    }
+    
+    /**
+     * Initialize on WordPress init
+     */
+    public function on_init(): void {
+        // WordPress init hook
+    }
+    
+    /**
+     * Initialize when WordPress is fully loaded
+     */
+    public function on_wp_loaded(): void {
         $this->init_hooks();
+    }
+    
+    /**
+     * Enqueue frontend assets
+     */
+    public function enqueue_assets(): void {
+        // No frontend assets needed for this module
+    }
+    
+    /**
+     * Enqueue admin assets
+     */
+    public function enqueue_admin_assets(): void {
+        // Admin assets are enqueued in the specific admin hook
+    }
+    
+    /**
+     * Get module name
+     */
+    public function get_name(): string {
+        return 'Demo Content Importer';
+    }
+    
+    /**
+     * Get module description
+     */
+    public function get_description(): string {
+        return 'Comprehensive demo content importer with ACID transactions, batch processing, and rollback capabilities';
+    }
+    
+    /**
+     * Get module version
+     */
+    public function get_version(): string {
+        return '1.0.0';
+    }
+    
+    /**
+     * Get module dependencies
+     */
+    public function get_dependencies(): array {
+        return []; // No dependencies
+    }
+    
+    /**
+     * Check if module can be loaded
+     */
+    public function can_load(): bool {
+        return current_user_can('manage_options');
+    }
+    
+    /**
+     * Enable the module
+     */
+    public function enable(): bool {
+        $this->enabled = true;
+        return true;
+    }
+    
+    /**
+     * Disable the module
+     */
+    public function disable(): bool {
+        $this->enabled = false;
+        return true;
+    }
+    
+    /**
+     * Check if module is enabled
+     */
+    public function is_enabled(): bool {
+        return $this->enabled && current_user_can('manage_options');
     }
     
     /**
