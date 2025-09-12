@@ -39,6 +39,18 @@ require_once AQUALUXE_INC_DIR . '/core/service-container.php';
 require_once AQUALUXE_INC_DIR . '/core/base-module.php';
 require_once AQUALUXE_INC_DIR . '/core/base-service.php';
 require_once AQUALUXE_INC_DIR . '/core/module-manager.php';
+require_once AQUALUXE_INC_DIR . '/core/security-legacy.php';
+
+// Load services
+require_once AQUALUXE_INC_DIR . '/services/asset-manager.php';
+require_once AQUALUXE_INC_DIR . '/services/template-loader.php';
+require_once AQUALUXE_INC_DIR . '/services/security.php';
+require_once AQUALUXE_INC_DIR . '/services/performance.php';
+require_once AQUALUXE_INC_DIR . '/services/customizer.php';
+require_once AQUALUXE_INC_DIR . '/services/woocommerce-integration.php';
+
+// Load helper functions
+require_once AQUALUXE_INC_DIR . '/helpers/template-functions.php';
 
 // Initialize autoloader
 $autoloader = new \AquaLuxe\Core\Autoloader();
