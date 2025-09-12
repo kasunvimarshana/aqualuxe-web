@@ -8,5 +8,6 @@
     "/css/main.css": "/css/main.css",
     "/css/editor.css": "/css/editor.css",
     "/css/admin.css": "/css/admin.css",
-    "/js/vendor.js": "/js/vendor.js"
+    "/js/vendor.js": "/js/vendor.js",
+    "/images/placeholder.jpg": "/images/placeholder.jpg"
 }
