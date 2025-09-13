@@ -1,0 +1,230 @@
+/**
+ * Login Page Styles
+ *
+ * Custom styling for WordPress login page
+ *
+ * @package AquaLuxe
+ * @since 1.0.0
+ */
+
+// Import Tailwind base for consistent styling
+@import 'tailwindcss/base';
+
+// Import theme variables
+@import 'base/variables';
+
+// Login page body
+body.login {
+  background: linear-gradient(135deg, #0891b2 0%, #0c7489 100%);
+  font-family: var(--font-primary, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  
+  // Background pattern overlay
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    z-index: -1;
+  }
+}
+
+// Login form container
+#login {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  padding: 2rem;
+  margin-top: 8vh;
+  
+  // Logo/heading area
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    
+    a {
+      background-image: none !important;
+      width: auto !important;
+      height: auto !important;
+      text-decoration: none;
+      color: #1a202c;
+      font-size: 2rem;
+      font-weight: 700;
+      text-shadow: none;
+      
+      &:hover,
+      &:focus {
+        color: var(--color-primary, #0891b2);
+      }
+    }
+  }
+}
+
+// Login form styling
+#loginform {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  
+  p {
+    margin-bottom: 1.5rem;
+    
+    label {
+      color: #4a5568;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    background: white;
+    
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary, #0891b2);
+      box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.1);
+    }
+  }
+  
+  #wp-submit {
+    width: 100%;
+    background: var(--color-primary, #0891b2);
+    border: none;
+    color: white;
+    padding: 0.875rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    
+    &:hover,
+    &:focus {
+      background: var(--color-primary-dark, #0c7489);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+  }
+  
+  .forgetmenot {
+    margin-bottom: 1rem;
+    
+    input[type="checkbox"] {
+      margin-right: 0.5rem;
+    }
+    
+    label {
+      color: #718096;
+      font-size: 0.875rem;
+      cursor: pointer;
+      
+      &:hover {
+        color: #4a5568;
+      }
+    }
+  }
+}
+
+// Navigation links below form
+#nav,
+#backtoblog {
+  text-align: center;
+  margin-top: 1.5rem;
+  
+  a {
+    color: #718096;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s ease;
+    
+    &:hover,
+    &:focus {
+      color: var(--color-primary, #0891b2);
+    }
+  }
+}
+
+// Error messages
+.login .message,
+#login_error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  color: #dc2626;
+  
+  a {
+    color: #dc2626;
+    
+    &:hover {
+      color: #b91c1c;
+    }
+  }
+}
+
+.login .message {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.2);
+  color: #047857;
+  
+  a {
+    color: #047857;
+    
+    &:hover {
+      color: #065f46;
+    }
+  }
+}
+
+// Responsive design
+@media screen and (max-width: 768px) {
+  #login {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+  }
+  
+  body.login h1 a {
+    font-size: 1.5rem;
+  }
+}
+
+// Loading state
+.login form .loading {
+  position: relative;
+  pointer-events: none;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid white;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

@@ -1,0 +1,128 @@
+/**
+ * AquaLuxe Theme Main Styles
+ *
+ * This is the main stylesheet that imports all components
+ * and builds the complete theme styles.
+ *
+ * @package AquaLuxe
+ * @since 1.0.0
+ */
+
+// Import Tailwind CSS
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+// Import base styles
+@import 'base/variables';
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/forms';
+
+// Import layout styles
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/sidebar';
+@import 'layout/grid';
+
+// Import component styles
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/modal';
+@import 'components/navigation';
+@import 'components/hero';
+@import 'components/gallery';
+@import 'components/loader';
+
+// Import theme-specific styles
+@import 'theme/aquatic';
+@import 'theme/luxury';
+
+// Import utility styles
+@import 'utilities/helpers';
+@import 'utilities/animations';
+@import 'utilities/dark-mode';
+
+// Import WordPress-specific styles
+@import 'wordpress/blocks';
+@import 'wordpress/comments';
+@import 'wordpress/widgets';
+
+// Import WooCommerce styles
+@import 'woocommerce';
+
+// Custom theme styles
+.aqualuxe-theme {
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+// Loading states
+.aqualuxe-loading {
+  opacity: 0.6;
+  pointer-events: none;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 32px;
+    height: 32px;
+    margin: -16px 0 0 -16px;
+    border: 3px solid var(--color-primary);
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: aqualuxe-spin 1s linear infinite;
+  }
+}
+
+// Fade animations
+.aqualuxe-fade-in {
+  animation: aqualuxe-fade-in 0.5s ease-in-out;
+}
+
+.aqualuxe-fade-out {
+  animation: aqualuxe-fade-out 0.5s ease-in-out;
+}
+
+@keyframes aqualuxe-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes aqualuxe-fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes aqualuxe-fade-out {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-20px); }
+}
+
+// Responsive utilities
+@media (max-width: 768px) {
+  .aqualuxe-hide-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .aqualuxe-hide-desktop {
+    display: none !important;
+  }
+}
+
+// Print styles
+@media print {
+  .aqualuxe-no-print {
+    display: none !important;
+  }
+  
+  .aqualuxe-theme {
+    background: white !important;
+    color: black !important;
+  }
+}

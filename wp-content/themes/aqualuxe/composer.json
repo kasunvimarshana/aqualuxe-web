@@ -1,0 +1,74 @@
+{
+  "name": "aqualuxe/aqualuxe-theme",
+  "description": "A modular, multitenant WordPress theme for luxury aquatic retail",
+  "type": "wordpress-theme",
+  "keywords": [
+    "wordpress",
+    "theme",
+    "woocommerce",
+    "aquatic",
+    "luxury",
+    "modular",
+    "responsive",
+    "multitenant"
+  ],
+  "homepage": "https://github.com/kasunvimarshana/aqualuxe",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "AquaLuxe Team",
+      "email": "dev@aqualuxe.com",
+      "homepage": "https://aqualuxe.com"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/kasunvimarshana/aqualuxe/issues",
+    "source": "https://github.com/kasunvimarshana/aqualuxe"
+  },
+  "require": {
+    "php": ">=7.4"
+  },
+  "require-dev": {
+    "brain/monkey": "^2.6",
+    "dealerdirect/phpcodesniffer-composer-installer": "*",
+    "mockery/mockery": "^1.5",
+    "phpcompatibility/phpcompatibility-wp": "^2.1",
+    "phpunit/phpunit": "^9.5",
+    "squizlabs/php_codesniffer": "^3.13",
+    "wp-coding-standards/wpcs": "^3.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "AquaLuxe\\": "core/classes/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "AquaLuxe\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "phpcs": "phpcs --standard=phpcs.xml .",
+    "phpcbf": "phpcbf --standard=phpcs.xml .",
+    "test": "phpunit",
+    "test-coverage": "phpunit --coverage-html coverage",
+    "lint": "composer run phpcs",
+    "fix": "composer run phpcbf",
+    "post-install-cmd": [
+      "PhpCsFixer\\Composer\\ConfigCommand::configure"
+    ],
+    "post-update-cmd": [
+      "PhpCsFixer\\Composer\\ConfigCommand::configure"
+    ]
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    },
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "preferred-install": "dist"
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}

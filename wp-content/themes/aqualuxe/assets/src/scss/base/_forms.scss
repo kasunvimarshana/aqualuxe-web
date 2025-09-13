@@ -1,0 +1,35 @@
+// Form styling
+.form-group {
+  @apply mb-4;
+}
+
+.form-label {
+  @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2;
+}
+
+.form-input {
+  @apply w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm 
+         bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100
+         focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent
+         placeholder-gray-400 dark:placeholder-gray-500;
+}
+
+.form-textarea {
+  @apply form-input min-h-[120px] resize-y;
+}
+
+.form-select {
+  @apply form-input bg-white dark:bg-gray-700;
+}
+
+.form-checkbox {
+  @apply h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 dark:border-gray-600 rounded;
+}
+
+.form-radio {
+  @apply h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 dark:border-gray-600;
+}
+
+.form-error {
+  @apply text-red-600 dark:text-red-400 text-sm mt-1;
+}
