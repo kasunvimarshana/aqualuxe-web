@@ -1,12 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './**/*.php',
-    './assets/src/**/*.{js,ts,jsx,tsx}',
+    './*.php',
     './templates/**/*.php',
     './modules/**/*.php',
     './inc/**/*.php',
     './woocommerce/**/*.php',
+    './assets/src/**/*.{js,ts,jsx,tsx}',
   ],
   darkMode: 'class',
   theme: {
