@@ -269,6 +269,39 @@ class Theme_Setup {
             \AquaLuxe\Modules\Services\Module::get_instance();
         }
         
+        // Additional feature modules
+        if (get_theme_mod('aqualuxe_enable_subscriptions', true) && class_exists('\\AquaLuxe\\Modules\\Subscriptions\\Module')) {
+            \AquaLuxe\Modules\Subscriptions\Module::get_instance();
+        }
+        
+        if (get_theme_mod('aqualuxe_enable_bookings', true) && class_exists('\\AquaLuxe\\Modules\\Bookings\\Module')) {
+            \AquaLuxe\Modules\Bookings\Module::get_instance();
+        }
+        
+        if (get_theme_mod('aqualuxe_enable_events', true) && class_exists('\\AquaLuxe\\Modules\\Events\\Module')) {
+            \AquaLuxe\Modules\Events\Module::get_instance();
+        }
+        
+        if (get_theme_mod('aqualuxe_enable_auctions', true) && class_exists('\\AquaLuxe\\Modules\\Auctions\\Module')) {
+            \AquaLuxe\Modules\Auctions\Module::get_instance();
+        }
+        
+        if (get_theme_mod('aqualuxe_enable_wholesale', true) && class_exists('\\AquaLuxe\\Modules\\Wholesale\\Module')) {
+            \AquaLuxe\Modules\Wholesale\Module::get_instance();
+        }
+        
+        if (get_theme_mod('aqualuxe_enable_franchise', true) && class_exists('\\AquaLuxe\\Modules\\Franchise\\Module')) {
+            \AquaLuxe\Modules\Franchise\Module::get_instance();
+        }
+        
+        if (get_theme_mod('aqualuxe_enable_rd', true) && class_exists('\\AquaLuxe\\Modules\\RD\\Module')) {
+            \AquaLuxe\Modules\RD\Module::get_instance();
+        }
+        
+        if (get_theme_mod('aqualuxe_enable_affiliates', true) && class_exists('\\AquaLuxe\\Modules\\Affiliates\\Module')) {
+            \AquaLuxe\Modules\Affiliates\Module::get_instance();
+        }
+        
         if (get_theme_mod('aqualuxe_enable_multivendor', true) && class_exists('\\AquaLuxe\\Modules\\Multivendor\\Module')) {
             \AquaLuxe\Modules\Multivendor\Module::get_instance();
         }
