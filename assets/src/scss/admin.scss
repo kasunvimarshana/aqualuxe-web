@@ -1,7 +1,7 @@
 // Admin styles for AquaLuxe theme
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@use 'tailwindcss/base';
+@use 'tailwindcss/components';
+@use 'tailwindcss/utilities';
 
 // Admin-specific styling
 @layer base {

@@ -6,6 +6,7 @@ WORKDIR /var/www/html
 
 # Install system dependencies
 RUN apk add --no-cache \
+    autoconf \
     bash \
     curl \
     freetype-dev \
