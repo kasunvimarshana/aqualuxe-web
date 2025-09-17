@@ -203,8 +203,58 @@ class Theme_Setup {
         // Load text domain
         load_theme_textdomain('aqualuxe', get_template_directory() . '/languages');
         
+        // Load admin tools in admin area
+        if (is_admin()) {
+            require_once AQUALUXE_THEME_DIR . '/inc/class-file-organizer.php';
+            require_once AQUALUXE_THEME_DIR . '/inc/class-code-review.php';
+            \AquaLuxe\Core\File_Organizer::get_instance()->init();
+            \AquaLuxe\Core\Code_Review::get_instance()->init();
+        }
+
+        // Load accessibility manager
+        require_once AQUALUXE_THEME_DIR . '/inc/class-accessibility-manager.php';
+        \AquaLuxe\Core\Accessibility_Manager::get_instance()->init();
+
+        // Load SEO manager
+        require_once AQUALUXE_THEME_DIR . '/inc/class-seo-manager.php';
+        \AquaLuxe\Core\SEO_Manager::get_instance()->init();
+        
+        // Initialize Clean Architecture layers
+        $this->init_clean_architecture();
+        
         // Initialize modules
         $this->init_modules();
+    }
+
+    /**
+     * Initialize Clean Architecture layers
+     */
+    private function init_clean_architecture() {
+        // Define architecture layers
+        do_action('aqualuxe_init_domain_layer');
+        do_action('aqualuxe_init_application_layer');  
+        do_action('aqualuxe_init_infrastructure_layer');
+        do_action('aqualuxe_init_presentation_layer');
+        
+        // Initialize dependency injection container
+        $this->init_dependency_injection();
+    }
+
+    /**
+     * Initialize dependency injection
+     */
+    private function init_dependency_injection() {
+        // Simple service container implementation
+        if (!class_exists('AquaLuxe_Service_Container')) {
+            require_once AQUALUXE_THEME_DIR . '/core/class-service-container.php';
+        }
+        
+        // Register core services
+        $container = AquaLuxe_Service_Container::get_instance();
+        $container->register('cache', 'WP_Object_Cache');
+        $container->register('database', 'wpdb');
+        
+        do_action('aqualuxe_register_services', $container);
     }
 
     /**
