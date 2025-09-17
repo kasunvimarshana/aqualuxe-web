@@ -1,4 +1,4 @@
-version: '3.8'
+
 
 services:
   # Nginx Web Server
@@ -84,6 +84,7 @@ services:
       - .:/var/www/html
     depends_on:
       - mysql
+      - php
     networks:
       - aqualuxe
     environment:
@@ -91,6 +92,8 @@ services:
       - WORDPRESS_DB_NAME=aqualuxe_db
       - WORDPRESS_DB_USER=aqualuxe_user
       - WORDPRESS_DB_PASSWORD=aqualuxe_pass
+    user: "33:33"  # www-data user
+    command: tail -f /dev/null  # Keep container running
 
   # Node.js for asset compilation
   node:
