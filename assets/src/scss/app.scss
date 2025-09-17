@@ -1,0 +1,224 @@
+// Import Tailwind CSS
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+// Import fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+// Custom base styles
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-gray-900 antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-semibold leading-tight;
+  }
+
+  h1 { @apply text-4xl lg:text-5xl; }
+  h2 { @apply text-3xl lg:text-4xl; }
+  h3 { @apply text-2xl lg:text-3xl; }
+  h4 { @apply text-xl lg:text-2xl; }
+  h5 { @apply text-lg lg:text-xl; }
+  h6 { @apply text-base lg:text-lg; }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  img {
+    @apply max-w-full h-auto;
+  }
+
+  // WordPress alignment classes
+  .alignleft {
+    @apply float-left mr-4 mb-4;
+  }
+
+  .alignright {
+    @apply float-right ml-4 mb-4;
+  }
+
+  .aligncenter {
+    @apply block mx-auto mb-4;
+  }
+
+  .alignwide {
+    @apply w-full;
+  }
+
+  .alignfull {
+    @apply w-screen relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+  // Screen reader text
+  .screen-reader-text,
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .screen-reader-text:focus,
+  .sr-only:focus:not(.focus\:not-sr-only) {
+    @apply static w-auto h-auto p-1 m-0 overflow-visible bg-gray-600 text-white;
+    clip: auto;
+    white-space: normal;
+  }
+}
+
+// Custom components
+@layer components {
+  // Buttons
+  .btn {
+    @apply inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary-600 text-white hover:bg-secondary-700 focus:ring-secondary-500;
+  }
+
+  .btn-outline {
+    @apply border-primary-300 text-primary-700 hover:bg-primary-50 focus:ring-primary-500;
+  }
+
+  .btn-ghost {
+    @apply text-primary-600 hover:text-primary-700 hover:bg-primary-50 focus:ring-primary-500;
+  }
+
+  // Cards
+  .card {
+    @apply bg-white rounded-lg shadow-md overflow-hidden;
+  }
+
+  .card-body {
+    @apply p-6;
+  }
+
+  .card-header {
+    @apply px-6 py-4 border-b border-gray-200 bg-gray-50;
+  }
+
+  .card-footer {
+    @apply px-6 py-4 border-t border-gray-200 bg-gray-50;
+  }
+
+  // Forms
+  .form-group {
+    @apply mb-6;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 mb-2;
+  }
+
+  .form-input {
+    @apply block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500;
+  }
+
+  .form-textarea {
+    @apply block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 resize-vertical;
+  }
+
+  .form-select {
+    @apply block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500;
+  }
+
+  .form-checkbox,
+  .form-radio {
+    @apply h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded;
+  }
+
+  // Navigation
+  .nav-link {
+    @apply px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-600 transition-colors;
+  }
+
+  .nav-link.active {
+    @apply text-primary-600;
+  }
+
+  // Hero section
+  .hero {
+    @apply relative bg-gradient-to-br from-primary-50 to-aqua-50 overflow-hidden;
+  }
+
+  .hero-content {
+    @apply relative z-10 py-16 lg:py-24;
+  }
+
+  // Animations
+  .fade-in {
+    @apply opacity-0 animate-fade-in;
+  }
+
+  .slide-up {
+    @apply transform translate-y-4 opacity-0 animate-slide-up;
+  }
+
+  // Dark mode styles
+  .dark {
+    .card {
+      @apply bg-gray-800 text-white;
+    }
+
+    .card-header,
+    .card-footer {
+      @apply bg-gray-700 border-gray-600;
+    }
+
+    .form-input,
+    .form-textarea,
+    .form-select {
+      @apply bg-gray-800 border-gray-600 text-white placeholder-gray-400;
+    }
+
+    .nav-link {
+      @apply text-gray-300 hover:text-white;
+    }
+  }
+}
+
+// Custom utilities
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .bg-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
