@@ -72,6 +72,7 @@ class AquaLuxe_Demo_Importer
                 <p><?php esc_html_e('This will import demo content including posts, pages, services, products, and media. This process may take several minutes.', 'aqualuxe'); ?></p>
                 
                 <div class="import-options">
+                    <h4><?php esc_html_e('Core Content', 'aqualuxe'); ?></h4>
                     <label>
                         <input type="checkbox" id="import-posts" checked> 
                         <?php esc_html_e('Import Blog Posts', 'aqualuxe'); ?>
@@ -81,32 +82,60 @@ class AquaLuxe_Demo_Importer
                         <?php esc_html_e('Import Pages', 'aqualuxe'); ?>
                     </label>
                     <label>
-                        <input type="checkbox" id="import-services" checked> 
-                        <?php esc_html_e('Import Services', 'aqualuxe'); ?>
-                    </label>
-                    <label>
-                        <input type="checkbox" id="import-projects" checked> 
-                        <?php esc_html_e('Import Projects', 'aqualuxe'); ?>
-                    </label>
-                    <label>
-                        <input type="checkbox" id="import-testimonials" checked> 
-                        <?php esc_html_e('Import Testimonials', 'aqualuxe'); ?>
-                    </label>
-                    <label>
-                        <input type="checkbox" id="import-events" checked> 
-                        <?php esc_html_e('Import Events', 'aqualuxe'); ?>
-                    </label>
-                    <label>
-                        <input type="checkbox" id="import-team" checked> 
-                        <?php esc_html_e('Import Team Members', 'aqualuxe'); ?>
-                    </label>
-                    <label>
                         <input type="checkbox" id="import-media" checked> 
                         <?php esc_html_e('Import Media Files', 'aqualuxe'); ?>
                     </label>
                     <label>
                         <input type="checkbox" id="import-customizer" checked> 
                         <?php esc_html_e('Import Customizer Settings', 'aqualuxe'); ?>
+                    </label>
+                    
+                    <h4><?php esc_html_e('WooCommerce', 'aqualuxe'); ?></h4>
+                    <label>
+                        <input type="checkbox" id="import-products" checked> 
+                        <?php esc_html_e('Import Products', 'aqualuxe'); ?>
+                    </label>
+                    <label>
+                        <input type="checkbox" id="import-product-categories" checked> 
+                        <?php esc_html_e('Import Product Categories', 'aqualuxe'); ?>
+                    </label>
+                    
+                    <h4><?php esc_html_e('Modules', 'aqualuxe'); ?></h4>
+                    <label>
+                        <input type="checkbox" id="import-services" checked> 
+                        <?php esc_html_e('Import Services', 'aqualuxe'); ?>
+                    </label>
+                    <label>
+                        <input type="checkbox" id="import-events" checked> 
+                        <?php esc_html_e('Import Events', 'aqualuxe'); ?>
+                    </label>
+                    <label>
+                        <input type="checkbox" id="import-subscriptions" checked> 
+                        <?php esc_html_e('Import Subscriptions', 'aqualuxe'); ?>
+                    </label>
+                    <label>
+                        <input type="checkbox" id="import-auctions" checked> 
+                        <?php esc_html_e('Import Auctions', 'aqualuxe'); ?>
+                    </label>
+                    <label>
+                        <input type="checkbox" id="import-vendors" checked> 
+                        <?php esc_html_e('Import Vendors', 'aqualuxe'); ?>
+                    </label>
+                    <label>
+                        <input type="checkbox" id="import-franchise" checked> 
+                        <?php esc_html_e('Import Franchise Locations', 'aqualuxe'); ?>
+                    </label>
+                    <label>
+                        <input type="checkbox" id="import-research" checked> 
+                        <?php esc_html_e('Import R&D Projects', 'aqualuxe'); ?>
+                    </label>
+                    <label>
+                        <input type="checkbox" id="import-team" checked> 
+                        <?php esc_html_e('Import Team Members', 'aqualuxe'); ?>
+                    </label>
+                    <label>
+                        <input type="checkbox" id="import-testimonials" checked> 
+                        <?php esc_html_e('Import Testimonials', 'aqualuxe'); ?>
                     </label>
                 </div>
                 
@@ -223,17 +252,32 @@ class AquaLuxe_Demo_Importer
             case 'services':
                 $result = self::import_services();
                 break;
-            case 'projects':
-                $result = self::import_projects();
-                break;
-            case 'testimonials':
-                $result = self::import_testimonials();
-                break;
             case 'events':
                 $result = self::import_events();
                 break;
-            case 'faq':
-                $result = self::import_faq();
+            case 'subscriptions':
+                $result = self::import_subscriptions();
+                break;
+            case 'auctions':
+                $result = self::import_auctions();
+                break;
+            case 'vendors':
+                $result = self::import_vendors();
+                break;
+            case 'franchise':
+                $result = self::import_franchise();
+                break;
+            case 'research':
+                $result = self::import_research();
+                break;
+            case 'products':
+                $result = self::import_products();
+                break;
+            case 'product-categories':
+                $result = self::import_product_categories();
+                break;
+            case 'testimonials':
+                $result = self::import_testimonials();
                 break;
             case 'team':
                 $result = self::import_team();
@@ -270,7 +314,11 @@ class AquaLuxe_Demo_Importer
         }
 
         // Delete all demo posts
-        $post_types = ['post', 'page', 'aqualuxe_service', 'aqualuxe_project', 'aqualuxe_testimonial', 'aqualuxe_event', 'aqualuxe_faq', 'aqualuxe_team'];
+        $post_types = [
+            'post', 'page', 'aqualuxe_service', 'aqualuxe_event', 'aqualuxe_subscription', 
+            'aqualuxe_auction', 'aqualuxe_vendor', 'aqualuxe_franchise', 'aqualuxe_research',
+            'aqualuxe_testimonial', 'aqualuxe_team', 'product'
+        ];
         
         foreach ($post_types as $post_type) {
             $posts = get_posts([
@@ -780,6 +828,330 @@ class AquaLuxe_Demo_Importer
     }
 
     /**
+     * Import subscriptions
+     */
+    private static function import_subscriptions()
+    {
+        $subscriptions_data = [
+            [
+                'title' => 'AquaLuxe Premium',
+                'content' => 'Premium subscription with exclusive access to rare species and priority service.',
+                'price' => 29.99,
+                'duration' => 'monthly',
+                'features' => "Priority customer support\nExclusive rare species access\nMonthly aquascaping tips\n10% discount on all products"
+            ],
+            [
+                'title' => 'Professional Aquarist',
+                'content' => 'Professional-grade subscription for serious aquarium enthusiasts.',
+                'price' => 99.99,
+                'duration' => 'quarterly',
+                'features' => "All Premium features\nQuarterly expert consultation\nAdvanced breeding guides\n20% discount on equipment"
+            ],
+            [
+                'title' => 'Master Breeder',
+                'content' => 'Ultimate subscription for professional breeders and aquarium facilities.',
+                'price' => 299.99,
+                'duration' => 'yearly',
+                'features' => "All Professional features\nDirect breeder access\nCustom breeding programs\nWholesale pricing access"
+            ]
+        ];
+
+        foreach ($subscriptions_data as $subscription_data) {
+            $post_id = wp_insert_post([
+                'post_title' => $subscription_data['title'],
+                'post_content' => $subscription_data['content'],
+                'post_status' => 'publish',
+                'post_type' => 'aqualuxe_subscription',
+                'meta_input' => [
+                    '_aqualuxe_demo_content' => '1',
+                    '_subscription_price' => $subscription_data['price'],
+                    '_subscription_duration' => $subscription_data['duration'],
+                    '_subscription_features' => $subscription_data['features'],
+                    '_subscription_currency' => 'USD'
+                ]
+            ]);
+        }
+
+        return true;
+    }
+
+    /**
+     * Import auctions
+     */
+    private static function import_auctions()
+    {
+        $auctions_data = [
+            [
+                'title' => 'Rare Platinum Arowana',
+                'content' => 'Exceptional platinum arowana specimen, 12 inches, with perfect fins and coloration.',
+                'starting_bid' => 5000.00,
+                'current_bid' => 7500.00,
+                'reserve_price' => 8000.00
+            ],
+            [
+                'title' => 'Vintage Aquarium Collection',
+                'content' => 'Complete vintage aquarium setup from the 1960s, fully restored and functional.',
+                'starting_bid' => 2000.00,
+                'current_bid' => 2850.00,
+                'reserve_price' => 3000.00
+            ]
+        ];
+
+        foreach ($auctions_data as $auction_data) {
+            $post_id = wp_insert_post([
+                'post_title' => $auction_data['title'],
+                'post_content' => $auction_data['content'],
+                'post_status' => 'publish',
+                'post_type' => 'aqualuxe_auction',
+                'meta_input' => [
+                    '_aqualuxe_demo_content' => '1',
+                    '_auction_starting_bid' => $auction_data['starting_bid'],
+                    '_auction_current_bid' => $auction_data['current_bid'],
+                    '_auction_reserve_price' => $auction_data['reserve_price'],
+                    '_auction_start_date' => date('Y-m-d H:i:s'),
+                    '_auction_end_date' => date('Y-m-d H:i:s', strtotime('+7 days')),
+                    '_auction_bid_increment' => 50.00
+                ]
+            ]);
+        }
+
+        return true;
+    }
+
+    /**
+     * Import vendors
+     */
+    private static function import_vendors()
+    {
+        $vendors_data = [
+            [
+                'title' => 'Coral Kingdom Specialists',
+                'content' => 'Premium coral supplier specializing in rare and exotic marine species.',
+                'contact_email' => 'info@coralkingdom.com',
+                'phone' => '555-0123',
+                'address' => '123 Ocean Drive, Miami, FL 33139',
+                'specialties' => 'Rare corals, Marine fish, Invertebrates'
+            ],
+            [
+                'title' => 'Freshwater Paradise',
+                'content' => 'Leading freshwater fish breeder with over 20 years of experience.',
+                'contact_email' => 'contact@freshwaterparadise.com',
+                'phone' => '555-0456',
+                'address' => '456 Lake Street, Chicago, IL 60611',
+                'specialties' => 'Cichlids, Discus, Planted tank specialists'
+            ]
+        ];
+
+        foreach ($vendors_data as $vendor_data) {
+            $post_id = wp_insert_post([
+                'post_title' => $vendor_data['title'],
+                'post_content' => $vendor_data['content'],
+                'post_status' => 'publish',
+                'post_type' => 'aqualuxe_vendor',
+                'meta_input' => [
+                    '_aqualuxe_demo_content' => '1',
+                    '_vendor_contact_email' => $vendor_data['contact_email'],
+                    '_vendor_phone' => $vendor_data['phone'],
+                    '_vendor_address' => $vendor_data['address'],
+                    '_vendor_specialties' => $vendor_data['specialties'],
+                    '_vendor_status' => 'active',
+                    '_vendor_commission_rate' => 15.00
+                ]
+            ]);
+        }
+
+        return true;
+    }
+
+    /**
+     * Import franchise locations
+     */
+    private static function import_franchise()
+    {
+        $franchise_data = [
+            [
+                'title' => 'AquaLuxe Tokyo',
+                'content' => 'Our flagship Asian location bringing luxury aquatics to Japan.',
+                'partner_name' => 'Hiroshi Tanaka',
+                'contact_email' => 'tokyo@aqualuxe.com',
+                'phone' => '+81-3-1234-5678',
+                'address' => '1-1-1 Ginza, Chuo City, Tokyo 104-0061, Japan',
+                'territory' => 'Japan & Southeast Asia'
+            ],
+            [
+                'title' => 'AquaLuxe London',
+                'content' => 'European headquarters providing premium aquatic services across the UK.',
+                'partner_name' => 'James Mitchell',
+                'contact_email' => 'london@aqualuxe.com',
+                'phone' => '+44-20-7123-4567',
+                'address' => '123 Regent Street, London W1B 4TB, UK',
+                'territory' => 'United Kingdom & Europe'
+            ]
+        ];
+
+        foreach ($franchise_data as $location_data) {
+            $post_id = wp_insert_post([
+                'post_title' => $location_data['title'],
+                'post_content' => $location_data['content'],
+                'post_status' => 'publish',
+                'post_type' => 'aqualuxe_franchise',
+                'meta_input' => [
+                    '_aqualuxe_demo_content' => '1',
+                    '_franchise_partner_name' => $location_data['partner_name'],
+                    '_franchise_contact_email' => $location_data['contact_email'],
+                    '_franchise_phone' => $location_data['phone'],
+                    '_franchise_address' => $location_data['address'],
+                    '_franchise_territory' => $location_data['territory'],
+                    '_franchise_opening_date' => date('Y-m-d', strtotime('-2 years'))
+                ]
+            ]);
+        }
+
+        return true;
+    }
+
+    /**
+     * Import research projects
+     */
+    private static function import_research()
+    {
+        $research_data = [
+            [
+                'title' => 'Sustainable Coral Breeding Program',
+                'content' => 'Innovative research into sustainable coral breeding techniques to support reef conservation.',
+                'team_lead' => 'Dr. Sarah Chen',
+                'budget' => 150000.00,
+                'sustainability_impact' => 'Reducing pressure on wild coral reefs while supporting captive breeding programs.'
+            ],
+            [
+                'title' => 'Fish Nutrition Optimization Study',
+                'content' => 'Comprehensive study on optimal nutrition for rare freshwater species in captivity.',
+                'team_lead' => 'Dr. Michael Rodriguez',
+                'budget' => 75000.00,
+                'sustainability_impact' => 'Improving fish health and reducing mortality rates in captive breeding.'
+            ]
+        ];
+
+        foreach ($research_data as $research) {
+            $post_id = wp_insert_post([
+                'post_title' => $research['title'],
+                'post_content' => $research['content'],
+                'post_status' => 'publish',
+                'post_type' => 'aqualuxe_research',
+                'meta_input' => [
+                    '_aqualuxe_demo_content' => '1',
+                    '_research_team_lead' => $research['team_lead'],
+                    '_research_budget' => $research['budget'],
+                    '_research_sustainability_impact' => $research['sustainability_impact'],
+                    '_research_start_date' => date('Y-m-d', strtotime('-6 months')),
+                    '_research_end_date' => date('Y-m-d', strtotime('+18 months')),
+                    '_research_funding_source' => 'AquaLuxe Foundation'
+                ]
+            ]);
+        }
+
+        return true;
+    }
+
+    /**
+     * Import WooCommerce products
+     */
+    private static function import_products()
+    {
+        if (!class_exists('WooCommerce')) {
+            return false;
+        }
+
+        $products_data = [
+            [
+                'title' => 'Platinum Discus Pair',
+                'content' => 'Exceptional breeding pair of platinum discus fish, hand-selected for superior genetics and coloration.',
+                'price' => 899.99,
+                'category' => 'Rare Fish',
+                'type' => 'simple',
+                'featured_image' => 'https://images.unsplash.com/photo-1535591273668-578e31182c4f'
+            ],
+            [
+                'title' => 'Premium LED Aquarium Light',
+                'content' => 'Professional-grade LED lighting system with full spectrum control for optimal plant and coral growth.',
+                'price' => 459.99,
+                'category' => 'Equipment',
+                'type' => 'simple',
+                'featured_image' => 'https://images.unsplash.com/photo-1544551763-46a013bb70d5'
+            ],
+            [
+                'title' => 'Rare Aquatic Plant Collection',
+                'content' => 'Curated collection of rare aquatic plants from around the world, perfect for advanced aquascaping.',
+                'price' => 199.99,
+                'category' => 'Plants',
+                'type' => 'simple',
+                'featured_image' => 'https://images.unsplash.com/photo-1520637836862-4d197d17c69a'
+            ]
+        ];
+
+        foreach ($products_data as $product_data) {
+            $product = new WC_Product_Simple();
+            $product->set_name($product_data['title']);
+            $product->set_description($product_data['content']);
+            $product->set_regular_price($product_data['price']);
+            $product->set_status('publish');
+            $product->set_catalog_visibility('visible');
+            $product->set_manage_stock(true);
+            $product->set_stock_quantity(rand(5, 50));
+            
+            $product_id = $product->save();
+            
+            if ($product_id) {
+                update_post_meta($product_id, '_aqualuxe_demo_content', '1');
+                
+                // Set category
+                $term = term_exists($product_data['category'], 'product_cat');
+                if (!$term) {
+                    $term = wp_insert_term($product_data['category'], 'product_cat');
+                }
+                if (!is_wp_error($term)) {
+                    wp_set_post_terms($product_id, [$term['term_id']], 'product_cat');
+                }
+                
+                // Set featured image
+                if (isset($product_data['featured_image'])) {
+                    self::set_featured_image_from_url($product_id, $product_data['featured_image']);
+                }
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * Import product categories
+     */
+    private static function import_product_categories()
+    {
+        if (!class_exists('WooCommerce')) {
+            return false;
+        }
+
+        $categories = [
+            'Rare Fish',
+            'Equipment',
+            'Plants',
+            'Aquascaping',
+            'Food & Supplements',
+            'Maintenance'
+        ];
+
+        foreach ($categories as $category) {
+            $term = term_exists($category, 'product_cat');
+            if (!$term) {
+                wp_insert_term($category, 'product_cat');
+            }
+        }
+
+        return true;
+    }
+
+    /**
      * Import customizer settings
      */
     private static function import_customizer_settings()
@@ -788,6 +1160,18 @@ class AquaLuxe_Demo_Importer
         set_theme_mod('aqualuxe_hero_subtitle', 'Globally sourced rare fish species, premium aquascaping, and professional aquarium services');
         set_theme_mod('aqualuxe_primary_color', '#0ea5e9');
         set_theme_mod('aqualuxe_secondary_color', '#10b981');
+        
+        // Enable modules
+        set_theme_mod('aqualuxe_enable_dark_mode', true);
+        set_theme_mod('aqualuxe_enable_subscriptions', true);
+        set_theme_mod('aqualuxe_enable_bookings', true);
+        set_theme_mod('aqualuxe_enable_events', true);
+        set_theme_mod('aqualuxe_enable_auctions', true);
+        set_theme_mod('aqualuxe_enable_wholesale', true);
+        set_theme_mod('aqualuxe_enable_franchise', true);
+        set_theme_mod('aqualuxe_enable_rd', true);
+        set_theme_mod('aqualuxe_enable_affiliates', true);
+        set_theme_mod('aqualuxe_enable_multivendor', true);
 
         return true;
     }
