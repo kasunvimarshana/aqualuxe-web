@@ -24,12 +24,14 @@ mix.options({
 
 // JavaScript
 mix.js('assets/src/js/app.js', 'assets/dist/js')
-   .js('assets/src/js/admin.js', 'assets/dist/js');
+   .js('assets/src/js/admin.js', 'assets/dist/js')
+   .js('assets/src/js/accessibility.js', 'assets/dist/js');
 
 // CSS/SCSS
 mix.sass('assets/src/scss/app.scss', 'assets/dist/css')
    .sass('assets/src/scss/admin.scss', 'assets/dist/css')
-   .sass('assets/src/scss/woocommerce.scss', 'assets/dist/css');
+   .sass('assets/src/scss/woocommerce.scss', 'assets/dist/css')
+   .sass('assets/src/scss/accessibility.scss', 'assets/dist/css');
 
 // Copy assets
 mix.copyDirectory('assets/src/images', 'assets/dist/images')

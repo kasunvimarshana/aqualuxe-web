@@ -503,7 +503,336 @@ class AquaLuxe_WooCommerce_Integration
             return;
         }
         
-        ?>
+        // Register fallback shop content action
+        add_action('aqualuxe_shop_fallback', array(__CLASS__, 'render_fallback_shop'));
+        
+        // Hook into theme templates
+        add_filter('template_include', array(__CLASS__, 'handle_shop_template_fallback'));
+        
+        // Add fallback product showcase
+        add_shortcode('aqualuxe_products', array(__CLASS__, 'fallback_products_shortcode'));
+        
+        // Create virtual shop pages
+        add_action('init', array(__CLASS__, 'create_virtual_shop_pages'));
+    }
+
+    /**
+     * Handle shop template fallback
+     */
+    public static function handle_shop_template_fallback($template)
+    {
+        if (is_page('shop') || isset($_GET['shop_fallback'])) {
+            $fallback_template = locate_template('woocommerce/fallback-shop.php');
+            if ($fallback_template) {
+                return $fallback_template;
+            }
+            
+            // Create dynamic template
+            return self::create_dynamic_shop_template();
+        }
+        
+        return $template;
+    }
+
+    /**
+     * Create dynamic shop template
+     */
+    private static function create_dynamic_shop_template()
+    {
+        $template_content = '<?php
+        get_header();
+        
+        // Fallback shop content
+        echo "<div class=\"container mx-auto py-12\">";
+        echo "<h1 class=\"text-4xl font-bold mb-8\">" . esc_html__("Our Products", "aqualuxe") . "</h1>";
+        echo "<div class=\"bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8\">";
+        echo "<p class=\"text-lg mb-4\">" . esc_html__("Experience the full AquaLuxe shopping experience with our premium e-commerce features.", "aqualuxe") . "</p>";
+        echo "<p class=\"mb-4\">" . esc_html__("Enable WooCommerce to unlock:", "aqualuxe") . "</p>";
+        echo "<ul class=\"list-disc list-inside mb-4 space-y-1\">";
+        echo "<li>" . esc_html__("Complete product catalog with detailed specifications", "aqualuxe") . "</li>";
+        echo "<li>" . esc_html__("Secure checkout and payment processing", "aqualuxe") . "</li>";
+        echo "<li>" . esc_html__("Customer accounts and order history", "aqualuxe") . "</li>";
+        echo "<li>" . esc_html__("Inventory management and live stock updates", "aqualuxe") . "</li>";
+        echo "<li>" . esc_html__("Advanced product filtering and search", "aqualuxe") . "</li>";
+        echo "<li>" . esc_html__("Wishlist and comparison features", "aqualuxe") . "</li>";
+        echo "</ul>";
+        echo "</div>";
+        
+        // Show fallback product grid
+        do_action("aqualuxe_shop_fallback");
+        
+        echo "</div>";
+        
+        get_footer();
+        ?>';
+        
+        // Write temporary template file
+        $temp_file = get_temp_dir() . 'aqualuxe-shop-fallback.php';
+        file_put_contents($temp_file, $template_content);
+        
+        return $temp_file;
+    }
+
+    /**
+     * Render fallback shop content
+     */
+    public static function render_fallback_shop()
+    {
+        $fallback_products = self::get_fallback_products();
+        
+        if (empty($fallback_products)) {
+            return;
+        }
+        
+        echo '<div class="fallback-shop-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">';
+        
+        foreach ($fallback_products as $product) {
+            echo '<div class="fallback-product-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">';
+            
+            // Product image
+            if (!empty($product['image'])) {
+                echo '<div class="product-image aspect-square bg-gray-100">';
+                echo '<img src="' . esc_url($product['image']) . '" alt="' . esc_attr($product['name']) . '" class="w-full h-full object-cover" loading="lazy">';
+                echo '</div>';
+            }
+            
+            // Product content
+            echo '<div class="p-4">';
+            echo '<h3 class="text-lg font-semibold text-gray-900 mb-2">' . esc_html($product['name']) . '</h3>';
+            echo '<p class="text-gray-600 text-sm mb-3">' . esc_html($product['description']) . '</p>';
+            echo '<div class="flex items-center justify-between">';
+            echo '<span class="text-xl font-bold text-primary-600">' . esc_html($product['price']) . '</span>';
+            echo '<button type="button" class="bg-primary-600 text-white px-4 py-2 rounded-md hover:bg-primary-700 transition-colors" onclick="aqualuxe_show_woocommerce_notice()">';
+            echo esc_html__('View Details', 'aqualuxe');
+            echo '</button>';
+            echo '</div>';
+            echo '</div>';
+            
+            echo '</div>';
+        }
+        
+        echo '</div>';
+        
+        // Add JavaScript for WooCommerce notice
+        echo '<script>
+        function aqualuxe_show_woocommerce_notice() {
+            alert("' . esc_js(__('Enable WooCommerce for full shopping functionality including secure checkout, inventory management, and customer accounts.', 'aqualuxe')) . '");
+        }
+        </script>';
+    }
+
+    /**
+     * Get fallback products data
+     */
+    private static function get_fallback_products()
+    {
+        return array(
+            array(
+                'name' => 'Mandarin Fish (Premium Grade)',
+                'description' => 'Stunning psychedelic coloration, reef-safe, expert care required',
+                'price' => '$299.99',
+                'image' => 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+            ),
+            array(
+                'name' => 'Anubias Barteri var. Nana',
+                'description' => 'Hardy aquatic plant, low light requirements, beginner friendly',
+                'price' => '$24.99',
+                'image' => 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+            ),
+            array(
+                'name' => 'Pro Series LED System 48"',
+                'description' => 'Professional aquarium lighting with smartphone control',
+                'price' => '$699.99',
+                'image' => 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+            ),
+            array(
+                'name' => 'Coral Beauty Angelfish',
+                'description' => 'Vibrant marine fish, suitable for reef aquariums',
+                'price' => '$89.99',
+                'image' => 'https://images.unsplash.com/photo-1520637736862-4d197d17c787?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+            ),
+            array(
+                'name' => 'Premium Aquascape Kit',
+                'description' => 'Complete hardscape materials for 60-gallon aquarium',
+                'price' => '$189.99',
+                'image' => 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+            ),
+            array(
+                'name' => 'Protein Skimmer Pro 200',
+                'description' => 'High-performance protein skimmer for marine aquariums',
+                'price' => '$449.99',
+                'image' => 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+            )
+        );
+    }
+
+    /**
+     * Fallback products shortcode
+     */
+    public static function fallback_products_shortcode($atts)
+    {
+        if (self::is_woocommerce_active()) {
+            return '[products limit="6"]'; // Use WooCommerce shortcode if available
+        }
+        
+        $atts = shortcode_atts(array(
+            'limit' => 6,
+            'columns' => 3
+        ), $atts);
+        
+        ob_start();
+        
+        echo '<div class="aqualuxe-fallback-products">';
+        
+        // Notice about WooCommerce
+        echo '<div class="woocommerce-notice bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">';
+        echo '<p class="text-yellow-800">';
+        echo '<strong>' . esc_html__('Enhanced Shopping Experience Available:', 'aqualuxe') . '</strong> ';
+        echo esc_html__('Install WooCommerce to enable secure checkout, inventory management, and full e-commerce functionality.', 'aqualuxe');
+        echo '</p>';
+        echo '</div>';
+        
+        // Product grid
+        $products = array_slice(self::get_fallback_products(), 0, intval($atts['limit']));
+        $columns_class = 'grid-cols-' . intval($atts['columns']);
+        
+        echo '<div class="products-grid grid ' . esc_attr($columns_class) . ' gap-6">';
+        
+        foreach ($products as $product) {
+            echo '<div class="product-item bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">';
+            
+            if (!empty($product['image'])) {
+                echo '<div class="product-image aspect-square bg-gray-100">';
+                echo '<img src="' . esc_url($product['image']) . '" alt="' . esc_attr($product['name']) . '" class="w-full h-full object-cover" loading="lazy">';
+                echo '</div>';
+            }
+            
+            echo '<div class="product-info p-4">';
+            echo '<h3 class="text-lg font-semibold text-gray-900 mb-2">' . esc_html($product['name']) . '</h3>';
+            echo '<p class="text-gray-600 text-sm mb-3">' . esc_html($product['description']) . '</p>';
+            echo '<div class="flex items-center justify-between">';
+            echo '<span class="text-xl font-bold text-primary-600">' . esc_html($product['price']) . '</span>';
+            echo '<button type="button" class="btn btn-primary" onclick="aqualuxe_show_woocommerce_notice()">';
+            echo esc_html__('Learn More', 'aqualuxe');
+            echo '</button>';
+            echo '</div>';
+            echo '</div>';
+            
+            echo '</div>';
+        }
+        
+        echo '</div>';
+        echo '</div>';
+        
+        return ob_get_clean();
+    }
+
+    /**
+     * Create virtual shop pages
+     */
+    public static function create_virtual_shop_pages()
+    {
+        // Add rewrite rules for virtual shop pages
+        add_rewrite_rule('^shop/?$', 'index.php?shop_fallback=1', 'top');
+        add_rewrite_rule('^cart/?$', 'index.php?cart_fallback=1', 'top');
+        add_rewrite_rule('^checkout/?$', 'index.php?checkout_fallback=1', 'top');
+        add_rewrite_rule('^my-account/?$', 'index.php?account_fallback=1', 'top');
+        
+        // Add query vars
+        add_filter('query_vars', function($vars) {
+            $vars[] = 'shop_fallback';
+            $vars[] = 'cart_fallback';
+            $vars[] = 'checkout_fallback';
+            $vars[] = 'account_fallback';
+            return $vars;
+        });
+        
+        // Handle virtual pages
+        add_action('template_redirect', function() {
+            if (get_query_var('shop_fallback') || get_query_var('cart_fallback') || 
+                get_query_var('checkout_fallback') || get_query_var('account_fallback')) {
+                
+                self::render_virtual_shop_page();
+            }
+        });
+    }
+
+    /**
+     * Render virtual shop page
+     */
+    private static function render_virtual_shop_page()
+    {
+        $page_type = '';
+        if (get_query_var('shop_fallback')) $page_type = 'shop';
+        if (get_query_var('cart_fallback')) $page_type = 'cart';
+        if (get_query_var('checkout_fallback')) $page_type = 'checkout';
+        if (get_query_var('account_fallback')) $page_type = 'account';
+        
+        get_header();
+        
+        echo '<div class="container mx-auto py-12">';
+        
+        switch ($page_type) {
+            case 'shop':
+                self::render_fallback_shop_page();
+                break;
+            case 'cart':
+                self::render_fallback_cart_page();
+                break;
+            case 'checkout':
+                self::render_fallback_checkout_page();
+                break;
+            case 'account':
+                self::render_fallback_account_page();
+                break;
+        }
+        
+        echo '</div>';
+        
+        get_footer();
+        exit;
+    }
+
+    /**
+     * Render fallback cart page
+     */
+    private static function render_fallback_cart_page()
+    {
+        echo '<h1 class="text-4xl font-bold mb-8">' . esc_html__('Shopping Cart', 'aqualuxe') . '</h1>';
+        echo '<div class="bg-blue-50 border border-blue-200 rounded-lg p-8 text-center">';
+        echo '<div class="w-24 h-24 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">';
+        echo '<svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">';
+        echo '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.1 5H19M9 19a2 2 0 11-4 0 2 2 0 014 0zM20 19a2 2 0 11-4 0 2 2 0 014 0z"></path>';
+        echo '</svg>';
+        echo '</div>';
+        echo '<h2 class="text-2xl font-semibold mb-4">' . esc_html__('Cart Functionality Coming Soon', 'aqualuxe') . '</h2>';
+        echo '<p class="text-gray-600 mb-6">' . esc_html__('Enable WooCommerce to unlock full shopping cart functionality with secure checkout and payment processing.', 'aqualuxe') . '</p>';
+        echo '<a href="' . esc_url(home_url('/shop')) . '" class="btn btn-primary">' . esc_html__('Continue Shopping', 'aqualuxe') . '</a>';
+        echo '</div>';
+    }
+
+    /**
+     * Enhanced graceful degradation CSS and JS
+     */
+    public static function enqueue_fallback_assets()
+    {
+        if (!self::is_woocommerce_active()) {
+            wp_enqueue_style('aqualuxe-woocommerce-fallback', get_template_directory_uri() . '/assets/dist/css/woocommerce-fallback.css', array(), AQUALUXE_VERSION);
+            wp_enqueue_script('aqualuxe-woocommerce-fallback', get_template_directory_uri() . '/assets/dist/js/woocommerce-fallback.js', array('jquery'), AQUALUXE_VERSION, true);
+            
+            wp_localize_script('aqualuxe-woocommerce-fallback', 'aqualuxe_wc_fallback', array(
+                'enable_message' => esc_html__('Install WooCommerce plugin to enable full e-commerce functionality', 'aqualuxe'),
+                'features' => array(
+                    esc_html__('Secure payment processing', 'aqualuxe'),
+                    esc_html__('Inventory management', 'aqualuxe'),
+                    esc_html__('Customer accounts', 'aqualuxe'),
+                    esc_html__('Order tracking', 'aqualuxe'),
+                    esc_html__('Product reviews', 'aqualuxe'),
+                    esc_html__('Wishlist functionality', 'aqualuxe')
+                )
+            ));
+        }
+    }
         <div class="fallback-shop-content bg-gradient-to-br from-primary-50 to-aqua-50 py-16">
             <div class="container mx-auto px-4 text-center">
                 <h1 class="text-4xl font-bold text-gray-900 mb-6">

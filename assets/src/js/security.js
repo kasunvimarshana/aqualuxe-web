@@ -88,7 +88,7 @@
             });
 
             if (!isValid) {
-                this.showSecurityWarning('Suspicious input detected. Please check your form data.');
+                AquaLuxeSecurity.showSecurityWarning('Suspicious input detected. Please check your form data.');
             }
 
             return isValid;
@@ -150,9 +150,9 @@
             // Sanitize URLs
             $('input[type="url"]').on('blur', function() {
                 const url = $(this).val();
-                if (url && !this.isValidURL(url)) {
+                if (url && !AquaLuxeSecurity.isValidURL(url)) {
                     $(this).addClass('security-error');
-                    this.showSecurityWarning('Invalid URL format detected.');
+                    AquaLuxeSecurity.showSecurityWarning('Invalid URL format detected.');
                 }
             });
         },
@@ -249,7 +249,7 @@
 
             // Block if too much suspicious activity
             if (suspiciousActivityCount >= MAX_SUSPICIOUS_ACTIVITY) {
-                this.blockSuspiciousUser();
+                AquaLuxeSecurity.blockSuspiciousUser();
             }
         },
 
@@ -266,7 +266,7 @@
             // Disable all buttons
             $('button, input[type="submit"]').prop('disabled', true);
 
-            this.showSecurityWarning('Suspicious activity detected. Page functionality has been disabled.');
+            AquaLuxeSecurity.showSecurityWarning('Suspicious activity detected. Page functionality has been disabled.');
             
             // Report to server
             $.post(aqualuxe_security.rate_limit_endpoint, {
