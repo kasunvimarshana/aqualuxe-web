@@ -8,25 +8,39 @@
    cd aqualuxe-web
    ```
 
-2. **Start the development environment:**
+2. **Run the setup script (Recommended):**
    ```bash
+   chmod +x setup.sh
+   ./setup.sh
+   ```
+
+   This script will:
+   - Install npm dependencies and build assets
+   - Start Docker containers
+   - Download and install WordPress core
+   - Set up the AquaLuxe theme
+   - Install WooCommerce and Redis Cache
+   - Configure proper permissions
+
+3. **Manual setup (Alternative):**
+   ```bash
+   # Install dependencies
+   npm install
+   
+   # Build assets
+   npm run development
+   
+   # Start Docker environment
    docker-compose up -d
+   
+   # Initialize WordPress (after containers are ready)
+   docker-compose exec wp-cli bash /scripts/init-wordpress.sh
    ```
 
-3. **Install WordPress:**
-   ```bash
-   docker-compose exec wp-cli wp core install \
-     --url=http://localhost \
-     --title="AquaLuxe" \
-     --admin_user=admin \
-     --admin_password=admin \
-     --admin_email=admin@aqualuxe.local
-   ```
-
-4. **Activate the theme:**
-   ```bash
-   docker-compose exec wp-cli wp theme activate aqualuxe
-   ```
+4. **Access your site:**
+   - Website: http://localhost
+   - Admin: http://localhost/wp-admin
+   - User: admin / admin
 
 ## Development Commands
 
