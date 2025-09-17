@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme Setup Class
+ * Theme Setup Class - Clean Architecture Implementation
  *
  * @package AquaLuxe
  * @since 1.0.0
@@ -12,6 +12,8 @@ defined('ABSPATH') || exit;
 
 /**
  * Theme Setup Class
+ * 
+ * Implements SOLID principles and Clean Architecture patterns
  */
 class Theme_Setup {
 
@@ -21,6 +23,13 @@ class Theme_Setup {
      * @var Theme_Setup
      */
     private static $instance = null;
+
+    /**
+     * Service container
+     *
+     * @var \AquaLuxe_Service_Container
+     */
+    private $container;
 
     /**
      * Get instance
@@ -39,6 +48,7 @@ class Theme_Setup {
      */
     private function __construct() {
         $this->init_hooks();
+        $this->init_clean_architecture();
     }
 
     /**
@@ -49,6 +59,43 @@ class Theme_Setup {
         add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
         add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_scripts'));
         add_action('init', array($this, 'init'));
+    }
+
+    /**
+     * Initialize Clean Architecture layers
+     */
+    private function init_clean_architecture() {
+        // Initialize dependency injection container
+        $this->init_dependency_injection();
+        
+        // Load core includes following Clean Architecture
+        $this->load_core_includes();
+        
+        // Initialize modules
+        $this->init_modules();
+        
+        // Apply Clean Architecture hooks
+        do_action('aqualuxe_init_domain_layer');
+        do_action('aqualuxe_init_application_layer');  
+        do_action('aqualuxe_init_infrastructure_layer');
+        do_action('aqualuxe_init_presentation_layer');
+    }
+
+    /**
+     * Initialize dependency injection
+     */
+    private function init_dependency_injection() {
+        if (!class_exists('AquaLuxe_Service_Container')) {
+            require_once AQUALUXE_THEME_DIR . '/core/class-service-container.php';
+        }
+        
+        $this->container = \AquaLuxe_Service_Container::get_instance();
+        
+        // Register core services
+        $this->container->register('cache', 'WP_Object_Cache');
+        $this->container->register('database', 'wpdb');
+        
+        do_action('aqualuxe_register_services', $this->container);
     }
 
     /**
@@ -96,9 +143,69 @@ class Theme_Setup {
         
         // Add support for editor styles
         add_theme_support('editor-styles');
-        
-        // Enqueue editor styles
         add_editor_style('assets/dist/css/app.css');
+        
+        // Add support for responsive embeds
+        add_theme_support('responsive-embeds');
+        
+        // Add support for block styles
+        add_theme_support('wp-block-styles');
+        
+        // Custom editor color palette
+        add_theme_support('editor-color-palette', array(
+            array(
+                'name'  => esc_html__('Primary Blue', 'aqualuxe'),
+                'slug'  => 'primary',
+                'color' => '#0ea5e9',
+            ),
+            array(
+                'name'  => esc_html__('Secondary Green', 'aqualuxe'),
+                'slug'  => 'secondary',
+                'color' => '#10b981',
+            ),
+            array(
+                'name'  => esc_html__('Dark Gray', 'aqualuxe'),
+                'slug'  => 'dark',
+                'color' => '#1f2937',
+            ),
+            array(
+                'name'  => esc_html__('Light Gray', 'aqualuxe'),
+                'slug'  => 'light',
+                'color' => '#f9fafb',
+            ),
+        ));
+        
+        // Custom font sizes
+        add_theme_support('editor-font-sizes', array(
+            array(
+                'name' => esc_html__('Small', 'aqualuxe'),
+                'size' => 14,
+                'slug' => 'small'
+            ),
+            array(
+                'name' => esc_html__('Normal', 'aqualuxe'),
+                'size' => 16,
+                'slug' => 'normal'
+            ),
+            array(
+                'name' => esc_html__('Large', 'aqualuxe'),
+                'size' => 24,
+                'slug' => 'large'
+            ),
+            array(
+                'name' => esc_html__('Extra Large', 'aqualuxe'),
+                'size' => 32,
+                'slug' => 'extra-large'
+            ),
+        ));
+        
+        // WooCommerce support
+        if (aqualuxe_is_woocommerce_activated()) {
+            add_theme_support('woocommerce');
+            add_theme_support('wc-product-gallery-zoom');
+            add_theme_support('wc-product-gallery-lightbox');
+            add_theme_support('wc-product-gallery-slider');
+        }
         
         // Register navigation menus
         register_nav_menus(array(
@@ -108,157 +215,200 @@ class Theme_Setup {
         ));
         
         // Set content width
-        $GLOBALS['content_width'] = 1200;
+        global $content_width;
+        if (!isset($content_width)) {
+            $content_width = 1200;
+        }
+        
+        // Load text domain
+        load_theme_textdomain('aqualuxe', AQUALUXE_THEME_DIR . '/languages');
     }
 
     /**
-     * Enqueue scripts and styles
+     * Initialize WordPress
+     */
+    public function init() {
+        // Additional initialization can be added here
+        do_action('aqualuxe_init');
+    }
+
+    /**
+     * Enqueue front-end scripts and styles
      */
     public function enqueue_scripts() {
-        $manifest = $this->get_manifest();
-        $version = AQUALUXE_VERSION;
+        $manifest = $this->get_webpack_manifest();
         
-        // Theme styles
+        // Main stylesheet
         if (isset($manifest['/css/app.css'])) {
             wp_enqueue_style(
-                'aqualuxe-style',
-                get_theme_file_uri('assets/dist' . $manifest['/css/app.css']),
+                'aqualuxe-main',
+                AQUALUXE_ASSETS_URL . $manifest['/css/app.css'],
                 array(),
-                $version
+                null // Version handled by manifest
             );
         }
         
         // WooCommerce styles
-        if (class_exists('WooCommerce') && isset($manifest['/css/woocommerce.css'])) {
+        if (aqualuxe_is_woocommerce_activated() && isset($manifest['/css/woocommerce.css'])) {
             wp_enqueue_style(
                 'aqualuxe-woocommerce',
-                get_theme_file_uri('assets/dist' . $manifest['/css/woocommerce.css']),
-                array('aqualuxe-style'),
-                $version
+                AQUALUXE_ASSETS_URL . $manifest['/css/woocommerce.css'],
+                array('aqualuxe-main'),
+                null
             );
         }
         
-        // Theme scripts
+        // Accessibility styles
+        if (isset($manifest['/css/accessibility.css'])) {
+            wp_enqueue_style(
+                'aqualuxe-accessibility',
+                AQUALUXE_ASSETS_URL . $manifest['/css/accessibility.css'],
+                array('aqualuxe-main'),
+                null
+            );
+        }
+        
+        // Main JavaScript
         if (isset($manifest['/js/app.js'])) {
             wp_enqueue_script(
-                'aqualuxe-script',
-                get_theme_file_uri('assets/dist' . $manifest['/js/app.js']),
-                array(),
-                $version,
+                'aqualuxe-main',
+                AQUALUXE_ASSETS_URL . $manifest['/js/app.js'],
+                array('jquery'),
+                null,
                 true
             );
         }
         
-        // Localize script
-        wp_localize_script('aqualuxe-script', 'aqualuxe_ajax', array(
+        // Accessibility JavaScript
+        if (isset($manifest['/js/accessibility.js'])) {
+            wp_enqueue_script(
+                'aqualuxe-accessibility',
+                AQUALUXE_ASSETS_URL . $manifest['/js/accessibility.js'],
+                array('aqualuxe-main'),
+                null,
+                true
+            );
+        }
+        
+        // Localize scripts
+        wp_localize_script('aqualuxe-main', 'aqualuxe_ajax', array(
             'ajax_url' => admin_url('admin-ajax.php'),
-            'nonce'    => wp_create_nonce('aqualuxe_ajax_nonce'),
+            'nonce'    => wp_create_nonce('aqualuxe_nonce'),
+            'strings'  => array(
+                'loading' => esc_html__('Loading...', 'aqualuxe'),
+                'error'   => esc_html__('An error occurred. Please try again.', 'aqualuxe'),
+            ),
         ));
         
         // Comments script
         if (is_singular() && comments_open() && get_option('thread_comments')) {
             wp_enqueue_script('comment-reply');
         }
+        
+        // Add inline styles for custom colors
+        $this->add_inline_styles();
     }
-
+    
     /**
-     * Enqueue admin scripts
+     * Enqueue admin scripts and styles
      */
     public function enqueue_admin_scripts($hook) {
-        $manifest = $this->get_manifest();
-        $version = AQUALUXE_VERSION;
+        $manifest = $this->get_webpack_manifest();
         
         // Admin styles
         if (isset($manifest['/css/admin.css'])) {
             wp_enqueue_style(
-                'aqualuxe-admin-style',
-                get_theme_file_uri('assets/dist' . $manifest['/css/admin.css']),
+                'aqualuxe-admin',
+                AQUALUXE_ASSETS_URL . $manifest['/css/admin.css'],
                 array(),
-                $version
+                null
             );
         }
         
-        // Admin scripts
+        // Admin JavaScript
         if (isset($manifest['/js/admin.js'])) {
             wp_enqueue_script(
-                'aqualuxe-admin-script',
-                get_theme_file_uri('assets/dist' . $manifest['/js/admin.js']),
+                'aqualuxe-admin',
+                AQUALUXE_ASSETS_URL . $manifest['/js/admin.js'],
                 array('jquery'),
-                $version,
+                null,
                 true
             );
+            
+            // Localize admin script
+            wp_localize_script('aqualuxe-admin', 'aqualuxe_admin', array(
+                'ajax_url' => admin_url('admin-ajax.php'),
+                'nonce'    => wp_create_nonce('aqualuxe_admin_nonce'),
+            ));
+        }
+    }
+
+    /**
+     * Add inline styles for customization
+     */
+    private function add_inline_styles() {
+        $primary_color = get_theme_mod('aqualuxe_primary_color', '#0ea5e9');
+        $secondary_color = get_theme_mod('aqualuxe_secondary_color', '#10b981');
+        
+        $custom_css = "
+            :root {
+                --aqualuxe-primary: {$primary_color};
+                --aqualuxe-secondary: {$secondary_color};
+            }
+        ";
+        
+        wp_add_inline_style('aqualuxe-main', $custom_css);
+    }
+
+    /**
+     * Get webpack manifest for cache busting
+     *
+     * @return array
+     */
+    private function get_webpack_manifest() {
+        static $manifest = null;
+        
+        if ($manifest === null) {
+            $manifest_path = AQUALUXE_THEME_DIR . '/assets/dist/mix-manifest.json';
+            if (file_exists($manifest_path)) {
+                $manifest = json_decode(file_get_contents($manifest_path), true);
+            } else {
+                $manifest = array();
+            }
         }
         
-        // Localize admin script
-        wp_localize_script('aqualuxe-admin-script', 'aqualuxe_admin', array(
-            'ajax_url' => admin_url('admin-ajax.php'),
-            'nonce'    => wp_create_nonce('aqualuxe_admin_nonce'),
-        ));
+        return $manifest;
     }
 
     /**
-     * Initialize theme
+     * Load core includes following Clean Architecture
      */
-    public function init() {
-        // Load text domain
-        load_theme_textdomain('aqualuxe', get_template_directory() . '/languages');
-        
-        // Load admin tools in admin area
-        if (is_admin()) {
-            require_once AQUALUXE_THEME_DIR . '/inc/class-file-organizer.php';
-            require_once AQUALUXE_THEME_DIR . '/inc/class-code-review.php';
-            \AquaLuxe\Core\File_Organizer::get_instance()->init();
-            \AquaLuxe\Core\Code_Review::get_instance()->init();
+    private function load_core_includes() {
+        $includes = array(
+            'customizer.php',
+            'template-functions.php',
+            'template-hooks.php',
+            'custom-post-types.php',
+            'custom-taxonomies.php',
+            'meta-fields.php',
+            'admin/admin-init.php',
+        );
+
+        // Load WooCommerce integration only if WooCommerce is active
+        if (aqualuxe_is_woocommerce_activated()) {
+            $includes[] = 'woocommerce/wc-integration.php';
         }
 
-        // Load accessibility manager
-        require_once AQUALUXE_THEME_DIR . '/inc/class-accessibility-manager.php';
-        \AquaLuxe\Core\Accessibility_Manager::get_instance()->init();
-
-        // Load SEO manager
-        require_once AQUALUXE_THEME_DIR . '/inc/class-seo-manager.php';
-        \AquaLuxe\Core\SEO_Manager::get_instance()->init();
-        
-        // Initialize Clean Architecture layers
-        $this->init_clean_architecture();
-        
-        // Initialize modules
-        $this->init_modules();
-    }
-
-    /**
-     * Initialize Clean Architecture layers
-     */
-    private function init_clean_architecture() {
-        // Define architecture layers
-        do_action('aqualuxe_init_domain_layer');
-        do_action('aqualuxe_init_application_layer');  
-        do_action('aqualuxe_init_infrastructure_layer');
-        do_action('aqualuxe_init_presentation_layer');
-        
-        // Initialize dependency injection container
-        $this->init_dependency_injection();
-    }
-
-    /**
-     * Initialize dependency injection
-     */
-    private function init_dependency_injection() {
-        // Simple service container implementation
-        if (!class_exists('AquaLuxe_Service_Container')) {
-            require_once AQUALUXE_THEME_DIR . '/core/class-service-container.php';
+        foreach ($includes as $file) {
+            $path = AQUALUXE_INCLUDES_DIR . '/' . $file;
+            if (file_exists($path)) {
+                require_once $path;
+            }
         }
-        
-        // Register core services
-        $container = AquaLuxe_Service_Container::get_instance();
-        $container->register('cache', 'WP_Object_Cache');
-        $container->register('database', 'wpdb');
-        
-        do_action('aqualuxe_register_services', $container);
     }
 
     /**
-     * Initialize modules
+     * Initialize modules following modular architecture
      */
     private function init_modules() {
         // Core modules - always enabled
@@ -282,99 +432,35 @@ class Theme_Setup {
             \AquaLuxe\Modules\SEO\Module::get_instance();
         }
         
-        // Feature modules (if enabled in customizer)
-        if (get_theme_mod('aqualuxe_enable_subscriptions', true) && class_exists('\\AquaLuxe\\Modules\\Subscriptions\\Module')) {
-            \AquaLuxe\Modules\Subscriptions\Module::get_instance();
-        }
+        // Feature modules (configurable via customizer)
+        $feature_modules = array(
+            'subscriptions' => '\\AquaLuxe\\Modules\\Subscriptions\\Module',
+            'bookings' => '\\AquaLuxe\\Modules\\Bookings\\Module',
+            'events' => '\\AquaLuxe\\Modules\\Events\\Module',
+            'auctions' => '\\AquaLuxe\\Modules\\Auctions\\Module',
+            'wholesale' => '\\AquaLuxe\\Modules\\Wholesale\\Module',
+            'franchise' => '\\AquaLuxe\\Modules\\Franchise\\Module',
+            'rd' => '\\AquaLuxe\\Modules\\RD\\Module',
+            'affiliates' => '\\AquaLuxe\\Modules\\Affiliates\\Module',
+            'services' => '\\AquaLuxe\\Modules\\Services\\Module',
+            'multivendor' => '\\AquaLuxe\\Modules\\Multivendor\\Module',
+        );
         
-        if (get_theme_mod('aqualuxe_enable_bookings', true) && class_exists('\\AquaLuxe\\Modules\\Bookings\\Module')) {
-            \AquaLuxe\Modules\Bookings\Module::get_instance();
-        }
-        
-        if (get_theme_mod('aqualuxe_enable_events', true) && class_exists('\\AquaLuxe\\Modules\\Events\\Module')) {
-            \AquaLuxe\Modules\Events\Module::get_instance();
-        }
-        
-        if (get_theme_mod('aqualuxe_enable_auctions', true) && class_exists('\\AquaLuxe\\Modules\\Auctions\\Module')) {
-            \AquaLuxe\Modules\Auctions\Module::get_instance();
-        }
-        
-        if (get_theme_mod('aqualuxe_enable_wholesale', true) && class_exists('\\AquaLuxe\\Modules\\Wholesale\\Module')) {
-            \AquaLuxe\Modules\Wholesale\Module::get_instance();
-        }
-        
-        if (get_theme_mod('aqualuxe_enable_franchise', true) && class_exists('\\AquaLuxe\\Modules\\Franchise\\Module')) {
-            \AquaLuxe\Modules\Franchise\Module::get_instance();
-        }
-        
-        if (get_theme_mod('aqualuxe_enable_rd', true) && class_exists('\\AquaLuxe\\Modules\\RD\\Module')) {
-            \AquaLuxe\Modules\RD\Module::get_instance();
-        }
-        
-        if (get_theme_mod('aqualuxe_enable_affiliates', true) && class_exists('\\AquaLuxe\\Modules\\Affiliates\\Module')) {
-            \AquaLuxe\Modules\Affiliates\Module::get_instance();
-        }
-        
-        if (get_theme_mod('aqualuxe_enable_services', true) && class_exists('\\AquaLuxe\\Modules\\Services\\Module')) {
-            \AquaLuxe\Modules\Services\Module::get_instance();
-        }
-        
-        // Additional feature modules
-        if (get_theme_mod('aqualuxe_enable_subscriptions', true) && class_exists('\\AquaLuxe\\Modules\\Subscriptions\\Module')) {
-            \AquaLuxe\Modules\Subscriptions\Module::get_instance();
-        }
-        
-        if (get_theme_mod('aqualuxe_enable_bookings', true) && class_exists('\\AquaLuxe\\Modules\\Bookings\\Module')) {
-            \AquaLuxe\Modules\Bookings\Module::get_instance();
-        }
-        
-        if (get_theme_mod('aqualuxe_enable_events', true) && class_exists('\\AquaLuxe\\Modules\\Events\\Module')) {
-            \AquaLuxe\Modules\Events\Module::get_instance();
-        }
-        
-        if (get_theme_mod('aqualuxe_enable_auctions', true) && class_exists('\\AquaLuxe\\Modules\\Auctions\\Module')) {
-            \AquaLuxe\Modules\Auctions\Module::get_instance();
-        }
-        
-        if (get_theme_mod('aqualuxe_enable_wholesale', true) && class_exists('\\AquaLuxe\\Modules\\Wholesale\\Module')) {
-            \AquaLuxe\Modules\Wholesale\Module::get_instance();
-        }
-        
-        if (get_theme_mod('aqualuxe_enable_franchise', true) && class_exists('\\AquaLuxe\\Modules\\Franchise\\Module')) {
-            \AquaLuxe\Modules\Franchise\Module::get_instance();
-        }
-        
-        if (get_theme_mod('aqualuxe_enable_rd', true) && class_exists('\\AquaLuxe\\Modules\\RD\\Module')) {
-            \AquaLuxe\Modules\RD\Module::get_instance();
-        }
-        
-        if (get_theme_mod('aqualuxe_enable_affiliates', true) && class_exists('\\AquaLuxe\\Modules\\Affiliates\\Module')) {
-            \AquaLuxe\Modules\Affiliates\Module::get_instance();
-        }
-        
-        if (get_theme_mod('aqualuxe_enable_multivendor', true) && class_exists('\\AquaLuxe\\Modules\\Multivendor\\Module')) {
-            \AquaLuxe\Modules\Multivendor\Module::get_instance();
-        }
-    }
-
-    /**
-     * Get webpack manifest
-     *
-     * @return array
-     */
-    private function get_manifest() {
-        static $manifest = null;
-        
-        if (null === $manifest) {
-            $manifest_path = get_template_directory() . '/assets/dist/mix-manifest.json';
-            
-            if (file_exists($manifest_path)) {
-                $manifest = json_decode(file_get_contents($manifest_path), true);
-            } else {
-                $manifest = array();
+        foreach ($feature_modules as $module_key => $module_class) {
+            if (get_theme_mod('aqualuxe_enable_' . $module_key, true) && class_exists($module_class)) {
+                $module_class::get_instance();
             }
         }
         
-        return $manifest;
+        do_action('aqualuxe_modules_loaded');
+    }
+
+    /**
+     * Get service container
+     *
+     * @return \AquaLuxe_Service_Container
+     */
+    public function get_container() {
+        return $this->container;
     }
 }
