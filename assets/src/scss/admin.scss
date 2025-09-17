@@ -38,7 +38,7 @@
         }
         
         textarea {
-          @apply resize-vertical;
+          resize: vertical;
         }
         
         input[type="checkbox"] {

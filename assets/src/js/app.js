@@ -9,13 +9,7 @@
 import Alpine from 'alpinejs';
 
 // Import Swiper for carousels
-import { Swiper, Navigation, Pagination, Autoplay } from 'swiper';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
-// Configure Swiper modules
-Swiper.use([Navigation, Pagination, Autoplay]);
+import { Swiper } from 'swiper';
 
 // Start Alpine
 window.Alpine = Alpine;
@@ -140,32 +134,23 @@ const AquaLuxe = {
    */
   initCarousels() {
     // Hero carousel
-    const heroSwiper = new Swiper('.hero-swiper', {
-      loop: true,
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    });
+    const heroSwiperEl = document.querySelector('.hero-swiper');
+    if (heroSwiperEl) {
+      const heroSwiper = new Swiper(heroSwiperEl, {
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+      });
+    }
 
     // Product carousels
     const productSwipers = document.querySelectorAll('.product-swiper');
-    productSwipers.forEach(swiper => {
-      new Swiper(swiper, {
+    productSwipers.forEach(swiperEl => {
+      new Swiper(swiperEl, {
         slidesPerView: 1,
         spaceBetween: 20,
-        navigation: {
-          nextEl: swiper.querySelector('.swiper-button-next'),
-          prevEl: swiper.querySelector('.swiper-button-prev'),
-        },
         breakpoints: {
           640: {
             slidesPerView: 2,
