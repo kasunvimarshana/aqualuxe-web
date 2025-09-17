@@ -2,9 +2,10 @@
 node_modules/
 vendor/
 
-# Build artifacts
-assets/dist/
+# Build artifacts - keep compiled assets but ignore source maps
 *.map
+*.css.map
+*.js.map
 
 # Logs
 npm-debug.log*
@@ -49,10 +50,6 @@ wp-config.php
 uploads/
 blogs.dir/
 
-# Theme specific
-*.css.map
-*.js.map
-
 # Cache files
 *.cache
 .cache/
@@ -72,6 +69,5 @@ blogs.dir/
 # Language files (generated)
 *.mo
 
-# Package lock files (choose one)
-package-lock.json
+# Package lock files (keep package-lock.json for consistency)
 yarn.lock
