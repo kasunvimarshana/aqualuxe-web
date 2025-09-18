@@ -4,30 +4,20 @@ FROM php:8.2-fpm-alpine
 # Set working directory
 WORKDIR /var/www/html
 
-# Install system dependencies
+# Install essential system dependencies
 RUN apk add --no-cache \
-    autoconf \
     bash \
     curl \
     freetype-dev \
-    g++ \
-    gcc \
     git \
     icu-dev \
-    imagemagick-dev \
     libc-dev \
     libpng-dev \
     libjpeg-turbo-dev \
     libwebp-dev \
     libzip-dev \
-    make \
-    mariadb-client \
-    nodejs \
-    npm \
-    oniguruma-dev \
-    openssh-client \
-    rsync \
-    zip
+    zip \
+    unzip
 
 # Configure and install PHP extensions
 RUN docker-php-ext-configure gd \
@@ -45,22 +35,11 @@ RUN docker-php-ext-configure gd \
     pdo_mysql \
     zip
 
-# Install ImageMagick extension
-RUN pecl install imagick \
-    && docker-php-ext-enable imagick
-
-# Install Redis extension
-RUN pecl install redis \
-    && docker-php-ext-enable redis
-
-# Configure PHP for production
-COPY docker/php/php.ini /usr/local/etc/php/conf.d/aqualuxe.ini
-
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Copy WordPress core (will be mounted in development)
-# In production, WordPress should be included in the image
+# Configure PHP for production
+COPY docker/php/php.ini /usr/local/etc/php/conf.d/aqualuxe.ini
 
 # Set proper permissions
 RUN chown -R www-data:www-data /var/www/html \

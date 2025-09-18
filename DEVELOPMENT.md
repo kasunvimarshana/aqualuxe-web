@@ -15,17 +15,24 @@
 
 3. **Install WordPress:**
    ```bash
-   docker-compose exec wp-cli wp core install \
+   docker compose exec wp-cli wp core download --allow-root
+   docker compose exec wp-cli wp core install \
      --url=http://localhost \
      --title="AquaLuxe" \
      --admin_user=admin \
      --admin_password=admin \
-     --admin_email=admin@aqualuxe.local
+     --admin_email=admin@aqualuxe.local \
+     --allow-root
    ```
 
-4. **Activate the theme:**
+4. **Link the theme:**
    ```bash
-   docker-compose exec wp-cli wp theme activate aqualuxe
+   docker compose exec wp-cli wp theme activate aqualuxe --allow-root
+   ```
+
+5. **Copy theme to WordPress:**
+   ```bash
+   docker compose exec php cp -r /var/www/theme /var/www/html/wp-content/themes/aqualuxe
    ```
 
 ## Development Commands
