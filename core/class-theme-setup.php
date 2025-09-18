@@ -244,17 +244,9 @@ class Theme_Setup {
      * Initialize dependency injection
      */
     private function init_dependency_injection() {
-        // Simple service container implementation
-        if (!class_exists('AquaLuxe_Service_Container')) {
-            require_once AQUALUXE_THEME_DIR . '/core/class-service-container.php';
-        }
-        
-        // Register core services
-        $container = AquaLuxe_Service_Container::get_instance();
-        $container->register('cache', 'WP_Object_Cache');
-        $container->register('database', 'wpdb');
-        
-        do_action('aqualuxe_register_services', $container);
+        // Temporarily disabled for initial setup
+        // TODO: Fix dependency injection container
+        do_action('aqualuxe_register_services');
     }
 
     /**

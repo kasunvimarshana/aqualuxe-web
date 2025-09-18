@@ -833,59 +833,6 @@ class AquaLuxe_WooCommerce_Integration
             ));
         }
     }
-        <div class="fallback-shop-content bg-gradient-to-br from-primary-50 to-aqua-50 py-16">
-            <div class="container mx-auto px-4 text-center">
-                <h1 class="text-4xl font-bold text-gray-900 mb-6">
-                    <?php esc_html_e('Premium Aquatic Products', 'aqualuxe'); ?>
-                </h1>
-                <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                    <?php esc_html_e('Discover our curated collection of rare fish species, aquatic plants, premium equipment, and care supplies. Contact us for availability and custom orders.', 'aqualuxe'); ?>
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-                    <?php
-                    $categories = [
-                        [
-                            'title' => esc_html__('Rare Fish Species', 'aqualuxe'),
-                            'description' => esc_html__('Exotic and rare aquatic species', 'aqualuxe'),
-                            'icon' => '🐠'
-                        ],
-                        [
-                            'title' => esc_html__('Aquatic Plants', 'aqualuxe'),
-                            'description' => esc_html__('Premium aquascaping plants', 'aqualuxe'),
-                            'icon' => '🌱'
-                        ],
-                        [
-                            'title' => esc_html__('Equipment', 'aqualuxe'),
-                            'description' => esc_html__('Professional-grade aquarium equipment', 'aqualuxe'),
-                            'icon' => '⚙️'
-                        ],
-                        [
-                            'title' => esc_html__('Care Supplies', 'aqualuxe'),
-                            'description' => esc_html__('Premium maintenance products', 'aqualuxe'),
-                            'icon' => '🧪'
-                        ],
-                    ];
-                    
-                    foreach ($categories as $category) :
-                        ?>
-                        <div class="category-card bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
-                            <div class="text-4xl mb-4"><?php echo $category['icon']; ?></div>
-                            <h3 class="text-xl font-semibold mb-2"><?php echo $category['title']; ?></h3>
-                            <p class="text-gray-600"><?php echo $category['description']; ?></p>
-                        </div>
-                        <?php
-                    endforeach;
-                    ?>
-                </div>
-                <div class="mt-12">
-                    <a href="<?php echo esc_url(get_permalink(get_page_by_path('contact'))); ?>" class="btn btn-primary btn-lg">
-                        <?php esc_html_e('Contact Us for Pricing', 'aqualuxe'); ?>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <?php
-    }
 }
 
 // Initialize WooCommerce integration

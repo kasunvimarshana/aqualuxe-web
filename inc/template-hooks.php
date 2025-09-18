@@ -239,9 +239,9 @@ function aqualuxe_dark_mode_toggle()
 }
 
 /**
- * Breadcrumbs
+ * Display breadcrumbs wrapper
  */
-function aqualuxe_breadcrumbs()
+function aqualuxe_display_breadcrumbs()
 {
     if (is_front_page()) {
         return;
