@@ -1,0 +1,508 @@
+/**
+ * AquaLuxe Theme Placeholders
+ *
+ * This file contains all the placeholders used throughout the theme.
+ */
+
+// Clearfix
+%clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+// Visually hidden
+%visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Visually hidden focusable
+%visually-hidden-focusable {
+  @extend %visually-hidden;
+  
+  &:active,
+  &:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+}
+
+// Container
+%container {
+  width: 100%;
+  padding-right: $grid-gutter-width * 0.5;
+  padding-left: $grid-gutter-width * 0.5;
+  margin-right: auto;
+  margin-left: auto;
+  
+  @each $breakpoint, $container-max-width in $container-max-widths {
+    @include media-breakpoint-up($breakpoint) {
+      max-width: $container-max-width;
+    }
+  }
+}
+
+// Container fluid
+%container-fluid {
+  width: 100%;
+  padding-right: $grid-gutter-width * 0.5;
+  padding-left: $grid-gutter-width * 0.5;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+// Row
+%row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -$grid-gutter-width * 0.5;
+  margin-left: -$grid-gutter-width * 0.5;
+}
+
+// Column
+%col {
+  position: relative;
+  width: 100%;
+  padding-right: $grid-gutter-width * 0.5;
+  padding-left: $grid-gutter-width * 0.5;
+}
+
+// Flex center
+%flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Flex between
+%flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// Flex column
+%flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Absolute center
+%absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Absolute fill
+%absolute-fill {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+// Button reset
+%button-reset {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+// List reset
+%list-reset {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+// Link reset
+%link-reset {
+  color: inherit;
+  text-decoration: none;
+  
+  &:hover,
+  &:focus {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+// Input reset
+%input-reset {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+// Heading
+%heading {
+  font-family: $font-family-heading;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-sm;
+  color: var(--heading-color);
+  margin-top: 0;
+  margin-bottom: $spacer;
+}
+
+// Body text
+%body-text {
+  font-family: $font-family-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-base;
+  color: var(--text-color);
+}
+
+// Truncate text
+%truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Multi-line truncate
+%truncate-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+%truncate-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Card
+%card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: var(--card-bg);
+  background-clip: border-box;
+  border: 1px solid var(--card-border-color);
+  border-radius: $card-border-radius;
+  box-shadow: $card-box-shadow;
+}
+
+// Button
+%button {
+  display: inline-block;
+  font-weight: $btn-font-weight;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: $btn-padding-y $btn-padding-x;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  border-radius: $btn-border-radius;
+  transition: $btn-transition;
+  cursor: pointer;
+  
+  &:focus,
+  &:hover {
+    text-decoration: none;
+  }
+  
+  &:disabled,
+  &.disabled {
+    opacity: 0.65;
+    pointer-events: none;
+  }
+}
+
+// Form control
+%form-control {
+  display: block;
+  width: 100%;
+  padding: $input-padding-y $input-padding-x;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-base;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  background-clip: padding-box;
+  border: 1px solid var(--border-color);
+  border-radius: $input-border-radius;
+  transition: $transition-base;
+  
+  &:focus {
+    border-color: var(--primary-color);
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(var(--primary-color-rgb), 0.25);
+  }
+  
+  &::placeholder {
+    color: var(--text-muted);
+    opacity: 1;
+  }
+  
+  &:disabled,
+  &[readonly] {
+    background-color: var(--background-disabled);
+    opacity: 1;
+  }
+}
+
+// Image fluid
+%img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+// Image cover
+%img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+// Image contain
+%img-contain {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+// Transition
+%transition {
+  transition: $transition-base;
+}
+
+// Box shadow
+%shadow-sm {
+  box-shadow: $box-shadow-sm;
+}
+
+%shadow {
+  box-shadow: $box-shadow;
+}
+
+%shadow-lg {
+  box-shadow: $box-shadow-lg;
+}
+
+// Focus ring
+%focus-ring {
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(var(--primary-color-rgb), 0.25);
+}
+
+// Responsive embed
+%responsive-embed {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    display: block;
+    padding-top: 56.25%; // 16:9 aspect ratio
+  }
+  
+  iframe,
+  embed,
+  object,
+  video {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}
+
+// Badge
+%badge {
+  display: inline-block;
+  padding: $badge-padding-y $badge-padding-x;
+  font-size: $badge-font-size;
+  font-weight: $badge-font-weight;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: $badge-border-radius;
+}
+
+// Alert
+%alert {
+  position: relative;
+  padding: $alert-padding-y $alert-padding-x;
+  margin-bottom: $alert-margin-bottom;
+  border: $alert-border-width solid transparent;
+  border-radius: $alert-border-radius;
+}
+
+// Table
+%table {
+  width: 100%;
+  margin-bottom: $spacer;
+  color: var(--text-color);
+  vertical-align: top;
+  border-color: var(--table-border-color);
+  
+  th,
+  td {
+    padding: $table-padding-y $table-padding-x;
+    vertical-align: top;
+    border-bottom: 1px solid var(--table-border-color);
+  }
+  
+  thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid var(--table-border-color);
+  }
+  
+  tbody + tbody {
+    border-top: 2px solid var(--table-border-color);
+  }
+}
+
+// WooCommerce product card
+%product-card {
+  @extend %card;
+  transition: $transition-base;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $box-shadow;
+  }
+  
+  .product-image {
+    position: relative;
+    overflow: hidden;
+    border-top-left-radius: $card-border-radius;
+    border-top-right-radius: $card-border-radius;
+    
+    img {
+      @extend %img-cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .product-actions {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: $spacer;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+      opacity: 0;
+      transform: translateY(100%);
+      transition: all 0.3s ease;
+    }
+  }
+  
+  &:hover {
+    .product-image {
+      img {
+        transform: scale(1.05);
+      }
+      
+      .product-actions {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+  
+  .product-content {
+    padding: $spacer;
+  }
+  
+  .product-title {
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacer * 0.5;
+    
+    a {
+      color: var(--heading-color);
+      text-decoration: none;
+      
+      &:hover {
+        color: var(--primary-color);
+      }
+    }
+  }
+  
+  .product-price {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: var(--primary-color);
+    margin-bottom: $spacer * 0.5;
+    
+    del {
+      font-size: $font-size-base;
+      font-weight: $font-weight-normal;
+      color: var(--text-muted);
+      margin-right: $spacer * 0.5;
+    }
+    
+    ins {
+      text-decoration: none;
+    }
+  }
+  
+  .product-rating {
+    margin-bottom: $spacer * 0.5;
+  }
+  
+  .product-categories {
+    font-size: $font-size-sm;
+    color: var(--text-muted);
+    margin-bottom: $spacer * 0.5;
+  }
+  
+  .product-badges {
+    position: absolute;
+    top: $spacer;
+    left: $spacer;
+    z-index: 1;
+    
+    .badge {
+      display: block;
+      margin-bottom: $spacer * 0.25;
+    }
+  }
+}

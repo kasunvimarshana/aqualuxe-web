@@ -1,0 +1,17 @@
+/**
+ * WooCommerce Subscriptions specific styles for AquaLuxe Pro Theme.
+ */
+
+.aqualuxe-subscription-wrapper {
+    .subscription-details {
+        @apply p-4 bg-gray-100 border border-gray-200 rounded-lg;
+    }
+
+    .subscription-price {
+        @apply text-lg font-semibold text-primary;
+    }
+
+    .sign-up-fee {
+        @apply text-sm text-gray-600;
+    }
+}

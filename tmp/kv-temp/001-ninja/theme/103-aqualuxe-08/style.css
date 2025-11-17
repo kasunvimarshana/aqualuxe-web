@@ -1,0 +1,59 @@
+/*
+Theme Name: AquaLuxe
+Description: A modular, multitenant, multivendor WordPress theme for luxury aquatic retail. Bringing elegance to aquatic life – globally. Features dual-state architecture (works with/without WooCommerce), multilingual support, dark mode, and comprehensive e-commerce functionality.
+Version: 1.0.0
+Author: AquaLuxe Development Team
+Author URI: https://aqualuxe.com
+Text Domain: aqualuxe
+Domain Path: /languages
+License: GPL v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Tags: e-commerce, responsive, accessibility-ready, custom-background, custom-colors, custom-header, custom-logo, custom-menu, featured-images, footer-widgets, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, two-columns, woocommerce
+
+Requires at least: 6.0
+Tested up to: 6.4
+Requires PHP: 8.0
+WC requires at least: 7.0
+WC tested up to: 8.5
+
+AquaLuxe WordPress Theme
+Copyright (C) 2024, AquaLuxe Development Team
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <http://www.gnu.org/licenses/>.
+*/
+
+/* ==========================================================================
+   Theme compiled styles will be loaded via wp_enqueue_style()
+   This file serves as the theme identifier for WordPress
+   ========================================================================== */
+
+/* Fallback styles for critical above-the-fold content */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}

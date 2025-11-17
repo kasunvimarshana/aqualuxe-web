@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --aqlx-primary: #0ea5e9;
+}
+
+.prose a { @apply text-sky-600 underline; }

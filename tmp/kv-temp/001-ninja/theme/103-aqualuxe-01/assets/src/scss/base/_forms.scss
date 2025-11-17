@@ -1,0 +1,193 @@
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+// Form styles
+.form-group {
+  margin-bottom: $space-4;
+}
+
+label {
+  display: block;
+  font-weight: $font-weight-medium;
+  color: $gray-700;
+  margin-bottom: $space-2;
+  
+  .dark & {
+    color: $gray-300;
+  }
+  
+  .required {
+    color: $coral-600;
+  }
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: $space-3;
+  border: 2px solid $gray-300;
+  border-radius: $rounded-md;
+  font-size: $text-base;
+  transition: border-color $transition-fast, box-shadow $transition-fast;
+  
+  &:focus {
+    outline: none;
+    border-color: $aqua-500;
+    box-shadow: 0 0 0 3px rgba($aqua-500, 0.1);
+  }
+  
+  &:disabled {
+    background-color: $gray-100;
+    cursor: not-allowed;
+  }
+  
+  .dark & {
+    background-color: $gray-800;
+    border-color: $gray-600;
+    color: $gray-100;
+    
+    &:focus {
+      border-color: $aqua-400;
+      box-shadow: 0 0 0 3px rgba($aqua-400, 0.1);
+    }
+    
+    &:disabled {
+      background-color: $gray-700;
+    }
+  }
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+// Checkboxes and radios
+input[type="checkbox"],
+input[type="radio"] {
+  width: 1.125rem;
+  height: 1.125rem;
+  margin-right: $space-2;
+  border: 2px solid $gray-300;
+  border-radius: $rounded;
+  
+  &:checked {
+    background-color: $aqua-500;
+    border-color: $aqua-500;
+  }
+  
+  &:focus {
+    box-shadow: 0 0 0 3px rgba($aqua-500, 0.1);
+  }
+}
+
+input[type="radio"] {
+  border-radius: $rounded-full;
+}
+
+// Search form
+.search-form {
+  position: relative;
+  
+  .search-field {
+    padding-right: 3rem;
+  }
+  
+  .search-submit {
+    position: absolute;
+    top: 50%;
+    right: 0.75rem;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: $gray-500;
+    cursor: pointer;
+    
+    &:hover {
+      color: $aqua-600;
+    }
+    
+    svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+}
+
+// Form validation
+.form-field {
+  &.error {
+    input,
+    select,
+    textarea {
+      border-color: $coral-600;
+      
+      &:focus {
+        border-color: $coral-600;
+        box-shadow: 0 0 0 3px rgba($coral-600, 0.1);
+      }
+    }
+  }
+  
+  .error-message {
+    color: $coral-600;
+    font-size: $text-sm;
+    margin-top: $space-1;
+  }
+}
+
+// File upload
+.file-upload {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  
+  input[type="file"] {
+    position: absolute;
+    left: -9999px;
+  }
+  
+  .file-upload-button {
+    display: inline-flex;
+    align-items: center;
+    padding: $space-3 $space-4;
+    background-color: $gray-100;
+    border: 2px solid $gray-300;
+    border-radius: $rounded-md;
+    cursor: pointer;
+    transition: all $transition-fast;
+    
+    &:hover {
+      background-color: $gray-200;
+    }
+    
+    svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-right: $space-2;
+    }
+  }
+  
+  .file-upload-text {
+    font-size: $text-sm;
+    color: $gray-600;
+    margin-top: $space-1;
+  }
+}

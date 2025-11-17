@@ -1,0 +1,226 @@
+/**
+ * AquaLuxe Dark Mode Styles
+ * Contains styles for dark mode functionality
+ */
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+.dark-mode-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.dark-mode .dark-mode-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode-toggle-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dark-mode-toggle-icon.active {
+  opacity: 1;
+}
+
+.dark-mode-toggle-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Mobile Dark Mode Toggle */
+.mobile-dark-mode-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+  background-color: var(--dark-bg-color);
+  color: var(--dark-text-color);
+}
+
+.dark-mode a {
+  color: var(--dark-primary-color);
+}
+
+.dark-mode h1, .dark-mode h2, .dark-mode h3, 
+.dark-mode h4, .dark-mode h5, .dark-mode h6 {
+  color: var(--dark-text-color);
+}
+
+.dark-mode input, .dark-mode textarea, .dark-mode select {
+  background-color: var(--dark-bg-color-light);
+  border-color: var(--dark-border-color);
+  color: var(--dark-text-color);
+}
+
+.dark-mode button:not(.dark-mode-toggle) {
+  background-color: var(--dark-primary-color);
+  color: var(--dark-text-color);
+}
+
+.dark-mode .site-header {
+  background-color: var(--dark-bg-color);
+  border-bottom-color: var(--dark-border-color);
+}
+
+.dark-mode .site-footer {
+  background-color: var(--dark-bg-color-light);
+  border-top-color: var(--dark-border-color);
+}
+
+.dark-mode .main-navigation ul li a {
+  color: var(--dark-text-color);
+}
+
+.dark-mode .main-navigation ul li a:hover {
+  color: var(--dark-accent-color);
+}
+
+.dark-mode .widget {
+  background-color: var(--dark-bg-color-light);
+  border-color: var(--dark-border-color);
+}
+
+.dark-mode .card, 
+.dark-mode .product, 
+.dark-mode article.post,
+.dark-mode .woocommerce-product-gallery,
+.dark-mode .woocommerce-tabs {
+  background-color: var(--dark-bg-color-light);
+  border-color: var(--dark-border-color);
+}
+
+.dark-mode .woocommerce-tabs .tabs li.active {
+  background-color: var(--dark-bg-color-light);
+  border-color: var(--dark-border-color);
+}
+
+.dark-mode .woocommerce-tabs .tabs li:not(.active) {
+  background-color: var(--dark-bg-color);
+}
+
+.dark-mode .woocommerce-message,
+.dark-mode .woocommerce-info {
+  background-color: var(--dark-bg-color-lighter);
+  color: var(--dark-text-color);
+  border-color: var(--dark-accent-color);
+}
+
+.dark-mode .woocommerce-error {
+  background-color: var(--dark-bg-color-lighter);
+  color: var(--dark-text-color);
+  border-color: #e53e3e;
+}
+
+/* Dark mode table styles */
+.dark-mode table {
+  background-color: var(--dark-bg-color-light);
+  color: var(--dark-text-color);
+  border-color: var(--dark-border-color);
+}
+
+.dark-mode table th {
+  background-color: var(--dark-bg-color-lighter);
+  border-color: var(--dark-border-color);
+}
+
+.dark-mode table td {
+  border-color: var(--dark-border-color);
+}
+
+/* Dark mode form styles */
+.dark-mode input[type="text"],
+.dark-mode input[type="email"],
+.dark-mode input[type="url"],
+.dark-mode input[type="password"],
+.dark-mode input[type="search"],
+.dark-mode input[type="number"],
+.dark-mode input[type="tel"],
+.dark-mode input[type="range"],
+.dark-mode input[type="date"],
+.dark-mode input[type="month"],
+.dark-mode input[type="week"],
+.dark-mode input[type="time"],
+.dark-mode input[type="datetime"],
+.dark-mode input[type="datetime-local"],
+.dark-mode input[type="color"],
+.dark-mode textarea,
+.dark-mode select {
+  background-color: var(--dark-bg-color);
+  color: var(--dark-text-color);
+  border-color: var(--dark-border-color);
+}
+
+.dark-mode input[type="text"]:focus,
+.dark-mode input[type="email"]:focus,
+.dark-mode input[type="url"]:focus,
+.dark-mode input[type="password"]:focus,
+.dark-mode input[type="search"]:focus,
+.dark-mode input[type="number"]:focus,
+.dark-mode input[type="tel"]:focus,
+.dark-mode input[type="range"]:focus,
+.dark-mode input[type="date"]:focus,
+.dark-mode input[type="month"]:focus,
+.dark-mode input[type="week"]:focus,
+.dark-mode input[type="time"]:focus,
+.dark-mode input[type="datetime"]:focus,
+.dark-mode input[type="datetime-local"]:focus,
+.dark-mode input[type="color"]:focus,
+.dark-mode textarea:focus,
+.dark-mode select:focus {
+  border-color: var(--dark-accent-color);
+}
+
+/* Dark mode button styles */
+.dark-mode button,
+.dark-mode input[type="button"],
+.dark-mode input[type="reset"],
+.dark-mode input[type="submit"],
+.dark-mode .button,
+.dark-mode .wp-block-button__link {
+  background-color: var(--dark-primary-color);
+  color: #ffffff;
+}
+
+.dark-mode button:hover,
+.dark-mode input[type="button"]:hover,
+.dark-mode input[type="reset"]:hover,
+.dark-mode input[type="submit"]:hover,
+.dark-mode .button:hover,
+.dark-mode .wp-block-button__link:hover {
+  background-color: var(--dark-secondary-color);
+}
+
+/* Invisible/visible classes for dark mode toggle */
+.invisible {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}

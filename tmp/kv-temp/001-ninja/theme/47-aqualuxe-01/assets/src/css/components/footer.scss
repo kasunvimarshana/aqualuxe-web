@@ -1,0 +1,167 @@
+/**
+ * Footer styles for AquaLuxe theme
+ */
+
+/* Site footer */
+.site-footer {
+  @apply text-white;
+
+  a {
+    @apply text-white opacity-80 hover:opacity-100 transition-opacity duration-200;
+  }
+
+  .footer-widgets {
+    .widget-title {
+      @apply text-white border-primary-700 font-medium;
+    }
+
+    ul li {
+      @apply text-white opacity-80;
+    }
+
+    a {
+      @apply text-white opacity-80 hover:opacity-100;
+    }
+  }
+
+  /* Footer navigation */
+  .footer-nav {
+    ul {
+      @apply flex flex-wrap justify-center;
+    }
+
+    li {
+      @apply mx-3 my-1;
+    }
+
+    a {
+      @apply text-sm opacity-80 hover:opacity-100;
+    }
+  }
+
+  /* Payment methods */
+  .payment-methods {
+    @apply flex flex-wrap justify-center gap-2;
+
+    .payment-icon {
+      @apply w-10 h-6 bg-white rounded opacity-80 hover:opacity-100 transition-opacity duration-200 flex items-center justify-center;
+    }
+  }
+
+  /* Social icons */
+  .social-icons {
+    @apply flex flex-wrap justify-center gap-3;
+
+    .social-icon {
+      @apply w-10 h-10 rounded-full bg-primary-700 hover:bg-primary-600 flex items-center justify-center transition-colors duration-200;
+    }
+  }
+
+  /* Site info */
+  .site-info {
+    a {
+      @apply underline hover:text-primary-300;
+    }
+  }
+
+  /* Back to top button */
+  .back-to-top {
+    .back-to-top-btn {
+      @apply opacity-80 hover:opacity-100;
+    }
+  }
+
+  /* Footer newsletter */
+  .footer-newsletter {
+    @apply mb-8 pb-8 border-b border-primary-700;
+
+    .newsletter-title {
+      @apply text-xl font-bold mb-2;
+    }
+
+    .newsletter-description {
+      @apply text-sm opacity-80 mb-4;
+    }
+
+    .newsletter-form {
+      @apply flex flex-col sm:flex-row gap-2 max-w-md mx-auto;
+
+      input[type="email"] {
+        @apply bg-primary-800 border-primary-700 text-white placeholder-gray-400 flex-grow;
+      }
+
+      button {
+        @apply bg-secondary-600 hover:bg-secondary-500 text-white px-6 py-2 rounded-md transition-colors duration-200;
+      }
+    }
+  }
+
+  /* Footer contact info */
+  .footer-contact-info {
+    .contact-item {
+      @apply flex items-start mb-3 last:mb-0;
+
+      .icon {
+        @apply w-5 h-5 mr-3 mt-0.5 text-primary-300;
+      }
+
+      .text {
+        @apply flex-grow;
+      }
+    }
+  }
+
+  /* Footer menu columns */
+  .footer-menu-column {
+    h3 {
+      @apply text-lg font-bold mb-4;
+    }
+
+    ul {
+      @apply space-y-2;
+    }
+
+    li {
+      @apply text-white opacity-80;
+    }
+
+    a {
+      @apply hover:opacity-100;
+
+      &:hover {
+        @apply pl-1;
+      }
+    }
+  }
+}
+
+/* Dark mode footer styles */
+.dark {
+  .site-footer {
+    @apply bg-gray-900;
+
+    .footer-widgets {
+      .widget-title {
+        @apply border-gray-700;
+      }
+    }
+
+    /* Footer newsletter */
+    .footer-newsletter {
+      @apply border-gray-800;
+
+      .newsletter-form {
+        input[type="email"] {
+          @apply bg-gray-800 border-gray-700;
+        }
+      }
+    }
+
+    /* Social icons */
+    .social-icons {
+      .social-icon {
+        @apply bg-gray-800 hover:bg-gray-700;
+      }
+    }
+  }
+}

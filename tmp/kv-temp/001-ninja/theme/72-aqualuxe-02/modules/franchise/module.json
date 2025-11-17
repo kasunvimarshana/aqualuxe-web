@@ -1,0 +1,6 @@
+{
+  "name": "Franchise & Licensing",
+  "slug": "franchise",
+  "class": "AquaLuxe\\Modules\\Franchise\\Module",
+  "enabled": true
+}

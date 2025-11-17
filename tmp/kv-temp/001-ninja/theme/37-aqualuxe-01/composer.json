@@ -1,0 +1,33 @@
+{
+  "name": "ninjatech/aqualuxe",
+  "description": "Premium WordPress theme for luxury businesses with WooCommerce integration",
+  "type": "wordpress-theme",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "NinjaTech AI",
+      "email": "info@example.com",
+      "homepage": "https://example.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.4"
+  },
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.2",
+    "wp-coding-standards/wpcs": "^2.3",
+    "phpcompatibility/phpcompatibility-wp": "^2.1",
+    "squizlabs/php_codesniffer": "^3.7",
+    "phpunit/phpunit": "^9.5"
+  },
+  "scripts": {
+    "lint": "phpcs --standard=phpcs.xml .",
+    "fix": "phpcbf --standard=phpcs.xml .",
+    "test": "phpunit"
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  }
+}

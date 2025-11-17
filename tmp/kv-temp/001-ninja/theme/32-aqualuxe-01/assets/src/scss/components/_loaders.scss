@@ -1,0 +1,580 @@
+/**
+ * Loader Component Styles
+ *
+ * Styles for loading indicators and spinners used throughout the theme.
+ */
+
+// Base Spinner
+.spinner {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(var(--color-primary-rgb), 0.3);
+  border-radius: 50%;
+  border-top-color: var(--color-primary);
+  animation: spin 0.8s linear infinite;
+  
+  // Spinner Sizes
+  &.spinner-sm {
+    width: 20px;
+    height: 20px;
+    border-width: 2px;
+  }
+  
+  &.spinner-lg {
+    width: 60px;
+    height: 60px;
+    border-width: 4px;
+  }
+  
+  // Spinner Colors
+  &.spinner-primary {
+    border-color: rgba(var(--color-primary-rgb), 0.3);
+    border-top-color: var(--color-primary);
+  }
+  
+  &.spinner-secondary {
+    border-color: rgba(var(--color-text-light-rgb), 0.3);
+    border-top-color: var(--color-text-light);
+  }
+  
+  &.spinner-success {
+    border-color: rgba(var(--color-success-rgb), 0.3);
+    border-top-color: var(--color-success);
+  }
+  
+  &.spinner-danger {
+    border-color: rgba(var(--color-danger-rgb), 0.3);
+    border-top-color: var(--color-danger);
+  }
+  
+  &.spinner-warning {
+    border-color: rgba(var(--color-warning-rgb), 0.3);
+    border-top-color: var(--color-warning);
+  }
+  
+  &.spinner-info {
+    border-color: rgba(var(--color-info-rgb), 0.3);
+    border-top-color: var(--color-info);
+  }
+  
+  &.spinner-light {
+    border-color: rgba(255, 255, 255, 0.3);
+    border-top-color: var(--color-white);
+  }
+  
+  &.spinner-dark {
+    border-color: rgba(0, 0, 0, 0.3);
+    border-top-color: var(--color-text);
+  }
+}
+
+// Spinner Animation
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Dot Loader
+.dot-loader {
+  display: inline-flex;
+  align-items: center;
+  
+  .dot {
+    width: 8px;
+    height: 8px;
+    margin: 0 3px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    animation: dot-bounce 1.4s infinite ease-in-out both;
+    
+    &:nth-child(1) {
+      animation-delay: -0.32s;
+    }
+    
+    &:nth-child(2) {
+      animation-delay: -0.16s;
+    }
+  }
+  
+  // Dot Loader Sizes
+  &.dot-loader-sm {
+    .dot {
+      width: 6px;
+      height: 6px;
+      margin: 0 2px;
+    }
+  }
+  
+  &.dot-loader-lg {
+    .dot {
+      width: 12px;
+      height: 12px;
+      margin: 0 4px;
+    }
+  }
+  
+  // Dot Loader Colors
+  &.dot-loader-primary .dot { background-color: var(--color-primary); }
+  &.dot-loader-secondary .dot { background-color: var(--color-text-light); }
+  &.dot-loader-success .dot { background-color: var(--color-success); }
+  &.dot-loader-danger .dot { background-color: var(--color-danger); }
+  &.dot-loader-warning .dot { background-color: var(--color-warning); }
+  &.dot-loader-info .dot { background-color: var(--color-info); }
+  &.dot-loader-light .dot { background-color: var(--color-white); }
+  &.dot-loader-dark .dot { background-color: var(--color-text); }
+}
+
+// Dot Loader Animation
+@keyframes dot-bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+// Pulse Loader
+.pulse-loader {
+  display: inline-block;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  
+  .pulse {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    opacity: 0.6;
+    animation: pulse 1.5s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+    
+    &:nth-child(2) {
+      animation-delay: -0.5s;
+    }
+  }
+  
+  // Pulse Loader Sizes
+  &.pulse-loader-sm {
+    width: 20px;
+    height: 20px;
+  }
+  
+  &.pulse-loader-lg {
+    width: 60px;
+    height: 60px;
+  }
+  
+  // Pulse Loader Colors
+  &.pulse-loader-primary .pulse { background-color: var(--color-primary); }
+  &.pulse-loader-secondary .pulse { background-color: var(--color-text-light); }
+  &.pulse-loader-success .pulse { background-color: var(--color-success); }
+  &.pulse-loader-danger .pulse { background-color: var(--color-danger); }
+  &.pulse-loader-warning .pulse { background-color: var(--color-warning); }
+  &.pulse-loader-info .pulse { background-color: var(--color-info); }
+  &.pulse-loader-light .pulse { background-color: var(--color-white); }
+  &.pulse-loader-dark .pulse { background-color: var(--color-text); }
+}
+
+// Pulse Loader Animation
+@keyframes pulse {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+// Bar Loader
+.bar-loader {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 20px;
+  
+  .bar {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    width: 16px;
+    background-color: var(--color-primary);
+    animation: bar 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+    
+    &:nth-child(1) {
+      left: 0;
+      animation-delay: -0.24s;
+    }
+    
+    &:nth-child(2) {
+      left: 24px;
+      animation-delay: -0.12s;
+    }
+    
+    &:nth-child(3) {
+      left: 48px;
+      animation-delay: 0;
+    }
+  }
+  
+  // Bar Loader Sizes
+  &.bar-loader-sm {
+    width: 60px;
+    height: 15px;
+    
+    .bar {
+      width: 12px;
+      
+      &:nth-child(2) {
+        left: 18px;
+      }
+      
+      &:nth-child(3) {
+        left: 36px;
+      }
+    }
+  }
+  
+  &.bar-loader-lg {
+    width: 100px;
+    height: 25px;
+    
+    .bar {
+      width: 20px;
+      
+      &:nth-child(2) {
+        left: 30px;
+      }
+      
+      &:nth-child(3) {
+        left: 60px;
+      }
+    }
+  }
+  
+  // Bar Loader Colors
+  &.bar-loader-primary .bar { background-color: var(--color-primary); }
+  &.bar-loader-secondary .bar { background-color: var(--color-text-light); }
+  &.bar-loader-success .bar { background-color: var(--color-success); }
+  &.bar-loader-danger .bar { background-color: var(--color-danger); }
+  &.bar-loader-warning .bar { background-color: var(--color-warning); }
+  &.bar-loader-info .bar { background-color: var(--color-info); }
+  &.bar-loader-light .bar { background-color: var(--color-white); }
+  &.bar-loader-dark .bar { background-color: var(--color-text); }
+}
+
+// Bar Loader Animation
+@keyframes bar {
+  0% {
+    top: 0;
+    height: 20px;
+  }
+  50%, 100% {
+    top: 6px;
+    height: 8px;
+  }
+}
+
+// Circle Loader
+.circle-loader {
+  display: inline-block;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  
+  .circle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    animation: circle 1.2s linear infinite;
+    
+    &:nth-child(1) {
+      top: 0;
+      left: 0;
+      animation-delay: 0s;
+    }
+    
+    &:nth-child(2) {
+      top: 0;
+      right: 0;
+      animation-delay: 0.3s;
+    }
+    
+    &:nth-child(3) {
+      bottom: 0;
+      right: 0;
+      animation-delay: 0.6s;
+    }
+    
+    &:nth-child(4) {
+      bottom: 0;
+      left: 0;
+      animation-delay: 0.9s;
+    }
+  }
+  
+  // Circle Loader Sizes
+  &.circle-loader-sm {
+    width: 30px;
+    height: 30px;
+    
+    .circle {
+      width: 6px;
+      height: 6px;
+    }
+  }
+  
+  &.circle-loader-lg {
+    width: 60px;
+    height: 60px;
+    
+    .circle {
+      width: 12px;
+      height: 12px;
+    }
+  }
+  
+  // Circle Loader Colors
+  &.circle-loader-primary .circle { background-color: var(--color-primary); }
+  &.circle-loader-secondary .circle { background-color: var(--color-text-light); }
+  &.circle-loader-success .circle { background-color: var(--color-success); }
+  &.circle-loader-danger .circle { background-color: var(--color-danger); }
+  &.circle-loader-warning .circle { background-color: var(--color-warning); }
+  &.circle-loader-info .circle { background-color: var(--color-info); }
+  &.circle-loader-light .circle { background-color: var(--color-white); }
+  &.circle-loader-dark .circle { background-color: var(--color-text); }
+}
+
+// Circle Loader Animation
+@keyframes circle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+// Progress Bar
+.progress {
+  height: 8px;
+  background-color: var(--color-background-light);
+  border-radius: var(--border-radius-sm);
+  overflow: hidden;
+  margin-bottom: 1rem;
+  
+  .progress-bar {
+    height: 100%;
+    background-color: var(--color-primary);
+    border-radius: var(--border-radius-sm);
+    transition: width 0.3s ease;
+  }
+  
+  // Progress Bar Sizes
+  &.progress-sm {
+    height: 4px;
+  }
+  
+  &.progress-lg {
+    height: 12px;
+  }
+  
+  // Progress Bar Colors
+  &.progress-primary .progress-bar { background-color: var(--color-primary); }
+  &.progress-secondary .progress-bar { background-color: var(--color-text-light); }
+  &.progress-success .progress-bar { background-color: var(--color-success); }
+  &.progress-danger .progress-bar { background-color: var(--color-danger); }
+  &.progress-warning .progress-bar { background-color: var(--color-warning); }
+  &.progress-info .progress-bar { background-color: var(--color-info); }
+  &.progress-dark .progress-bar { background-color: var(--color-text); }
+}
+
+// Progress Bar with Label
+.progress-with-label {
+  margin-bottom: 1.5rem;
+  
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    
+    .progress-title {
+      font-weight: 600;
+    }
+    
+    .progress-percentage {
+      color: var(--color-text-light);
+    }
+  }
+}
+
+// Animated Progress Bar
+.progress-animated {
+  .progress-bar {
+    position: relative;
+    overflow: hidden;
+    
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: linear-gradient(
+        -45deg,
+        rgba(255, 255, 255, 0.2) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0.2) 75%,
+        transparent 75%,
+        transparent
+      );
+      background-size: 50px 50px;
+      animation: progress-stripes 2s linear infinite;
+    }
+  }
+}
+
+@keyframes progress-stripes {
+  0% { background-position: 0 0; }
+  100% { background-position: 50px 0; }
+}
+
+// Fullscreen Loader
+.fullscreen-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 9999;
+  
+  .loader-content {
+    text-align: center;
+    
+    .loader-text {
+      margin-top: 1rem;
+      font-weight: 600;
+      color: var(--color-text);
+    }
+    
+    .loader-subtext {
+      margin-top: 0.5rem;
+      color: var(--color-text-light);
+      font-size: 0.875rem;
+    }
+  }
+  
+  &.fullscreen-loader-dark {
+    background-color: rgba(0, 0, 0, 0.8);
+    
+    .loader-text {
+      color: var(--color-white);
+    }
+    
+    .loader-subtext {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+}
+
+// Button Loader
+.button {
+  &.loading {
+    position: relative;
+    color: transparent !important;
+    pointer-events: none;
+    
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      margin: -10px 0 0 -10px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-top-color: var(--color-white);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    
+    &.button-outline::after,
+    &.button-text::after {
+      border: 2px solid rgba(var(--color-primary-rgb), 0.3);
+      border-top-color: var(--color-primary);
+    }
+  }
+}
+
+// Skeleton Loader
+.skeleton {
+  background-color: var(--color-background-light);
+  border-radius: var(--border-radius-sm);
+  position: relative;
+  overflow: hidden;
+  
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0)
+    );
+    animation: skeleton-wave 1.5s infinite;
+  }
+  
+  &.skeleton-text {
+    height: 1rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    
+    &:last-child {
+      width: 80%;
+    }
+  }
+  
+  &.skeleton-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  
+  &.skeleton-image {
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; // 16:9 aspect ratio
+  }
+  
+  &.skeleton-button {
+    height: 40px;
+    width: 120px;
+  }
+  
+  &.skeleton-card {
+    height: 200px;
+  }
+}
+
+@keyframes skeleton-wave {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}

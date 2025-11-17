@@ -1,0 +1,489 @@
+/**
+ * Default Theme Styles
+ *
+ * This file contains the default theme styles for the AquaLuxe theme.
+ */
+
+// Body
+body {
+  @apply bg-white text-neutral-800;
+  
+  .dark & {
+    @apply bg-neutral-900 text-neutral-200;
+  }
+}
+
+// Links
+a {
+  @apply text-primary-600 transition-colors duration-300;
+  
+  &:hover, &:focus {
+    @apply text-primary-700;
+  }
+  
+  .dark & {
+    @apply text-primary-400;
+    
+    &:hover, &:focus {
+      @apply text-primary-300;
+    }
+  }
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  @apply text-neutral-900 font-display;
+  
+  .dark & {
+    @apply text-white;
+  }
+}
+
+// Buttons
+.btn {
+  @apply inline-block px-4 py-2 rounded-md font-medium transition-colors duration-300;
+  
+  // Primary button
+  &-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700;
+    
+    .dark & {
+      @apply bg-primary-700 hover:bg-primary-800;
+    }
+  }
+  
+  // Secondary button
+  &-secondary {
+    @apply bg-secondary-600 text-white hover:bg-secondary-700;
+    
+    .dark & {
+      @apply bg-secondary-700 hover:bg-secondary-800;
+    }
+  }
+  
+  // Accent button
+  &-accent {
+    @apply bg-accent-500 text-white hover:bg-accent-600;
+    
+    .dark & {
+      @apply bg-accent-600 hover:bg-accent-700;
+    }
+  }
+  
+  // Outline button
+  &-outline {
+    @apply bg-transparent border border-current text-primary-600 hover:bg-primary-50 hover:text-primary-700;
+    
+    .dark & {
+      @apply text-primary-400 hover:bg-primary-900 hover:bg-opacity-30 hover:text-primary-300;
+    }
+  }
+  
+  // Ghost button
+  &-ghost {
+    @apply bg-transparent text-neutral-700 hover:bg-neutral-100;
+    
+    .dark & {
+      @apply text-neutral-300 hover:bg-neutral-800;
+    }
+  }
+  
+  // Sizes
+  &-sm {
+    @apply px-3 py-1 text-sm;
+  }
+  
+  &-lg {
+    @apply px-6 py-3 text-lg;
+  }
+  
+  // Rounded
+  &-rounded {
+    @apply rounded-full;
+  }
+  
+  // Block
+  &-block {
+    @apply w-full flex justify-center;
+  }
+  
+  // Icon
+  &-icon {
+    @apply inline-flex items-center;
+    
+    svg {
+      @apply mr-2 w-5 h-5;
+    }
+    
+    &-right {
+      svg {
+        @apply ml-2 mr-0;
+      }
+    }
+  }
+}
+
+// Forms
+.form-control {
+  @apply block w-full px-4 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+  
+  .dark & {
+    @apply bg-neutral-800 border-neutral-700 text-white;
+  }
+  
+  &::placeholder {
+    @apply text-neutral-400;
+    
+    .dark & {
+      @apply text-neutral-500;
+    }
+  }
+}
+
+// Header
+.site-header {
+  @apply bg-white border-b border-neutral-200;
+  
+  .dark & {
+    @apply bg-neutral-900 border-neutral-800;
+  }
+}
+
+// Footer
+.site-footer {
+  @apply bg-neutral-800 text-white;
+  
+  .dark & {
+    @apply bg-neutral-900;
+  }
+  
+  a {
+    @apply text-neutral-300 hover:text-white;
+    
+    .dark & {
+      @apply text-neutral-400 hover:text-white;
+    }
+  }
+}
+
+// Navigation
+.main-navigation {
+  .menu-item {
+    a {
+      @apply text-neutral-700 hover:text-primary-600;
+      
+      .dark & {
+        @apply text-neutral-300 hover:text-primary-400;
+      }
+    }
+    
+    &.current-menu-item > a {
+      @apply text-primary-600 font-medium;
+      
+      .dark & {
+        @apply text-primary-400;
+      }
+    }
+  }
+}
+
+// Mobile menu
+.mobile-menu {
+  @apply bg-white;
+  
+  .dark & {
+    @apply bg-neutral-900;
+  }
+  
+  .menu-item {
+    @apply border-b border-neutral-200;
+    
+    .dark & {
+      @apply border-neutral-800;
+    }
+    
+    a {
+      @apply block py-3 px-4 text-neutral-700 hover:text-primary-600;
+      
+      .dark & {
+        @apply text-neutral-300 hover:text-primary-400;
+      }
+    }
+  }
+}
+
+// Cards
+.card {
+  @apply bg-white rounded-lg shadow-sm overflow-hidden;
+  
+  .dark & {
+    @apply bg-neutral-800;
+  }
+  
+  &__header {
+    @apply p-4 border-b border-neutral-200;
+    
+    .dark & {
+      @apply border-neutral-700;
+    }
+  }
+  
+  &__body {
+    @apply p-4;
+  }
+  
+  &__footer {
+    @apply p-4 border-t border-neutral-200;
+    
+    .dark & {
+      @apply border-neutral-700;
+    }
+  }
+}
+
+// Sidebar
+.sidebar {
+  .widget {
+    @apply bg-white rounded-lg shadow-sm p-6 mb-6;
+    
+    .dark & {
+      @apply bg-neutral-800;
+    }
+    
+    &-title {
+      @apply text-lg font-bold mb-4 pb-2 border-b border-neutral-200;
+      
+      .dark & {
+        @apply border-neutral-700 text-white;
+      }
+    }
+  }
+}
+
+// Pagination
+.pagination {
+  @apply flex justify-center items-center space-x-1;
+  
+  .page-numbers {
+    @apply inline-flex items-center justify-center w-10 h-10 rounded-md border border-neutral-200 text-neutral-700;
+    
+    .dark & {
+      @apply border-neutral-700 text-neutral-300;
+    }
+    
+    &:hover {
+      @apply bg-neutral-100 text-neutral-900;
+      
+      .dark & {
+        @apply bg-neutral-800 text-white;
+      }
+    }
+    
+    &.current {
+      @apply bg-primary-600 border-primary-600 text-white;
+      
+      .dark & {
+        @apply bg-primary-700 border-primary-700;
+      }
+    }
+  }
+}
+
+// Breadcrumbs
+.breadcrumbs {
+  @apply flex flex-wrap items-center text-sm text-neutral-500;
+  
+  .dark & {
+    @apply text-neutral-400;
+  }
+  
+  .separator {
+    @apply mx-2;
+  }
+  
+  a {
+    @apply text-neutral-700 hover:text-primary-600;
+    
+    .dark & {
+      @apply text-neutral-300 hover:text-primary-400;
+    }
+  }
+  
+  .current {
+    @apply text-primary-600;
+    
+    .dark & {
+      @apply text-primary-400;
+    }
+  }
+}
+
+// Dark mode toggle
+.dark-mode-toggle {
+  @apply relative inline-flex items-center cursor-pointer;
+  
+  .toggle-track {
+    @apply w-12 h-6 bg-neutral-300 rounded-full transition-colors duration-300;
+    
+    .dark & {
+      @apply bg-primary-600;
+    }
+  }
+  
+  .toggle-thumb {
+    @apply absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-transform duration-300;
+    
+    .dark & {
+      @apply transform translate-x-6;
+    }
+  }
+  
+  .sun-icon, .moon-icon {
+    @apply absolute text-neutral-500;
+    
+    .dark & {
+      @apply text-white;
+    }
+  }
+  
+  .sun-icon {
+    @apply left-1 top-1;
+    
+    .dark & {
+      @apply opacity-0;
+    }
+  }
+  
+  .moon-icon {
+    @apply right-1 top-1 opacity-0;
+    
+    .dark & {
+      @apply opacity-100;
+    }
+  }
+}
+
+// Aquatic theme elements
+.wave-divider {
+  @apply text-white w-full h-16;
+  
+  .dark & {
+    @apply text-neutral-900;
+  }
+  
+  &--primary {
+    @apply text-primary-50;
+    
+    .dark & {
+      @apply text-primary-900;
+    }
+  }
+  
+  &--secondary {
+    @apply text-secondary-50;
+    
+    .dark & {
+      @apply text-secondary-900;
+    }
+  }
+}
+
+.bubble-pattern {
+  @apply absolute inset-0 z-0 opacity-10;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='10' fill='%2300AFCC' /%3E%3Ccircle cx='60' cy='30' r='5' fill='%2300AFCC' /%3E%3Ccircle cx='80' cy='70' r='8' fill='%2300AFCC' /%3E%3Ccircle cx='30' cy='70' r='6' fill='%2300AFCC' /%3E%3C/svg%3E");
+}
+
+.fish-animation {
+  @apply absolute z-0 opacity-20;
+  
+  svg {
+    @apply text-primary-500;
+    
+    .dark & {
+      @apply text-primary-700;
+    }
+  }
+}
+
+@keyframes swim-slow {
+  0% {
+    transform: translateX(-100%) scaleX(1);
+  }
+  49% {
+    transform: translateX(100%) scaleX(1);
+  }
+  50% {
+    transform: translateX(100%) scaleX(-1);
+  }
+  99% {
+    transform: translateX(-100%) scaleX(-1);
+  }
+  100% {
+    transform: translateX(-100%) scaleX(1);
+  }
+}
+
+@keyframes swim-medium {
+  0% {
+    transform: translateX(-100%) scaleX(1);
+  }
+  49% {
+    transform: translateX(100%) scaleX(1);
+  }
+  50% {
+    transform: translateX(100%) scaleX(-1);
+  }
+  99% {
+    transform: translateX(-100%) scaleX(-1);
+  }
+  100% {
+    transform: translateX(-100%) scaleX(1);
+  }
+}
+
+@keyframes swim-fast {
+  0% {
+    transform: translateX(-100%) scaleX(1);
+  }
+  49% {
+    transform: translateX(100%) scaleX(1);
+  }
+  50% {
+    transform: translateX(100%) scaleX(-1);
+  }
+  99% {
+    transform: translateX(-100%) scaleX(-1);
+  }
+  100% {
+    transform: translateX(-100%) scaleX(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-swim-slow {
+  animation: swim-slow 30s linear infinite;
+}
+
+.animate-swim-medium {
+  animation: swim-medium 20s linear infinite;
+}
+
+.animate-swim-fast {
+  animation: swim-fast 15s linear infinite;
+}
+
+.animate-swim-reverse {
+  animation-direction: reverse;
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}

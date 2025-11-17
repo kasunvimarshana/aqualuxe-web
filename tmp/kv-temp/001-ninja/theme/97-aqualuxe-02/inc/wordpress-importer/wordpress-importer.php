@@ -1,0 +1,1 @@
+This file is intentionally left blank. It is a placeholder for the WordPress Importer plugin, which is required for the demo content import functionality. The importer code is included in the theme for convenience, but this file is needed for it to function correctly.

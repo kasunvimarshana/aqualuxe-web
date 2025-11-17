@@ -1,0 +1,429 @@
+/**
+ * Editor styles for AquaLuxe theme
+ *
+ * This file contains styles for the WordPress block editor
+ */
+
+/* Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Editor specific styles */
+@layer base {
+  /* Typography */
+  body {
+    @apply font-sans text-gray-800 leading-normal;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-medium leading-tight mb-4 text-gray-900;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+
+  h5 {
+    @apply text-lg md:text-xl;
+  }
+
+  h6 {
+    @apply text-base md:text-lg;
+  }
+
+  p {
+    @apply mb-4;
+  }
+
+  a {
+    @apply text-primary-600 transition-colors duration-200;
+
+    &:hover {
+      @apply text-primary-800;
+    }
+  }
+
+  /* Lists */
+  ul, ol {
+    @apply pl-5 mb-4;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  li {
+    @apply mb-1;
+  }
+
+  /* Blockquote */
+  blockquote {
+    @apply pl-4 border-l-4 border-primary-500 italic my-6 text-gray-700;
+
+    cite {
+      @apply block mt-2 text-sm not-italic text-gray-600;
+    }
+  }
+
+  /* Code */
+  code, pre {
+    @apply font-mono text-sm;
+  }
+
+  code {
+    @apply bg-gray-100 px-1 py-0.5 rounded text-gray-800;
+  }
+
+  pre {
+    @apply bg-gray-100 p-4 rounded-lg overflow-x-auto mb-4;
+
+    code {
+      @apply bg-transparent p-0;
+    }
+  }
+
+  /* Tables */
+  table {
+    @apply w-full border-collapse mb-4;
+
+    th, td {
+      @apply border border-gray-300 px-4 py-2;
+    }
+
+    th {
+      @apply bg-gray-100 font-medium text-left;
+    }
+
+    tr:nth-child(even) {
+      @apply bg-gray-50;
+    }
+  }
+
+  /* Definition lists */
+  dl {
+    @apply mb-4;
+  }
+
+  dt {
+    @apply font-bold;
+  }
+
+  dd {
+    @apply pl-4 mb-2;
+  }
+
+  /* Horizontal rule */
+  hr {
+    @apply my-8 border-t border-gray-200;
+  }
+
+  /* Small text */
+  small {
+    @apply text-sm;
+  }
+
+  /* Address */
+  address {
+    @apply not-italic mb-4;
+  }
+}
+
+/* Block editor specific styles */
+@layer components {
+  /* Main column width */
+  .wp-block {
+    max-width: 840px;
+  }
+
+  /* Width of "wide" blocks */
+  .wp-block[data-align="wide"] {
+    max-width: 1100px;
+  }
+
+  /* Width of "full-wide" blocks */
+  .wp-block[data-align="full"] {
+    max-width: none;
+  }
+
+  /* Block: Paragraph */
+  .wp-block-paragraph {
+    @apply mb-4;
+  }
+
+  /* Block: Image */
+  .wp-block-image {
+    @apply mb-6;
+
+    figcaption {
+      @apply text-sm text-gray-600 mt-1 italic text-center;
+    }
+  }
+
+  /* Block: Gallery */
+  .wp-block-gallery {
+    @apply mb-6;
+  }
+
+  /* Block: Quote */
+  .wp-block-quote {
+    @apply pl-4 border-l-4 border-primary-500 italic my-6 text-gray-700;
+
+    cite {
+      @apply block mt-2 text-sm not-italic text-gray-600;
+    }
+
+    &.is-style-large {
+      @apply pl-6 border-l-8;
+
+      p {
+        @apply text-xl;
+      }
+    }
+  }
+
+  /* Block: Pullquote */
+  .wp-block-pullquote {
+    @apply border-t-4 border-b-4 border-primary-500 py-6 my-6;
+
+    blockquote {
+      @apply border-0 p-0 m-0 text-center;
+    }
+
+    &.is-style-solid-color {
+      @apply bg-primary-100 border-0 p-6;
+
+      blockquote {
+        @apply max-w-3xl mx-auto;
+      }
+    }
+  }
+
+  /* Block: Code */
+  .wp-block-code {
+    @apply bg-gray-100 p-4 rounded-lg overflow-x-auto mb-6;
+  }
+
+  /* Block: Preformatted */
+  .wp-block-preformatted {
+    @apply bg-gray-100 p-4 rounded-lg overflow-x-auto mb-6 font-mono text-sm;
+  }
+
+  /* Block: Verse */
+  .wp-block-verse {
+    @apply font-serif italic p-4 bg-gray-50 mb-6;
+  }
+
+  /* Block: Table */
+  .wp-block-table {
+    @apply mb-6;
+
+    table {
+      @apply mb-0;
+    }
+
+    figcaption {
+      @apply text-sm text-gray-600 mt-1 italic text-center;
+    }
+  }
+
+  /* Block: Separator */
+  .wp-block-separator {
+    @apply my-8 border-t border-gray-200;
+
+    &.is-style-wide {
+      @apply border-t-2;
+    }
+
+    &.is-style-dots {
+      @apply border-none text-gray-400 text-center;
+
+      &::before {
+        content: "···";
+        @apply text-3xl tracking-widest;
+      }
+    }
+  }
+
+  /* Block: Button */
+  .wp-block-button {
+    @apply mb-6;
+
+    .wp-block-button__link {
+      @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md transition-colors duration-200;
+    }
+
+    &:not(.is-style-outline) .wp-block-button__link {
+      @apply bg-primary-600 text-white hover:bg-primary-700;
+    }
+
+    &.is-style-outline .wp-block-button__link {
+      @apply border-primary-600 text-primary-600 hover:bg-primary-50;
+    }
+  }
+
+  /* Block: Columns */
+  .wp-block-columns {
+    @apply mb-6;
+  }
+
+  /* Block: Media & Text */
+  .wp-block-media-text {
+    @apply mb-6;
+  }
+
+  /* Block: Cover */
+  .wp-block-cover {
+    @apply mb-6;
+
+    .wp-block-cover__inner-container {
+      @apply max-w-3xl mx-auto;
+    }
+  }
+
+  /* Block: Group */
+  .wp-block-group {
+    @apply mb-6;
+
+    .wp-block-group__inner-container {
+      @apply max-w-3xl mx-auto;
+    }
+  }
+
+  /* Block: File */
+  .wp-block-file {
+    @apply mb-6 bg-gray-50 p-4 rounded-lg flex items-center justify-between;
+
+    a:not(.wp-block-file__button) {
+      @apply text-primary-600 hover:text-primary-800;
+    }
+
+    .wp-block-file__button {
+      @apply inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md bg-primary-600 text-white hover:bg-primary-700 transition-colors duration-200;
+    }
+  }
+
+  /* Block: Latest Posts */
+  .wp-block-latest-posts {
+    @apply mb-6 pl-0;
+
+    li {
+      @apply mb-4;
+    }
+
+    &.is-grid {
+      @apply grid grid-cols-2 gap-4;
+    }
+
+    &__post-date {
+      @apply text-sm text-gray-600;
+    }
+
+    &__post-excerpt {
+      @apply text-sm text-gray-700 mt-1;
+    }
+  }
+
+  /* Block: Latest Comments */
+  .wp-block-latest-comments {
+    @apply mb-6 pl-0;
+
+    .wp-block-latest-comments__comment {
+      @apply mb-4;
+    }
+
+    .wp-block-latest-comments__comment-meta {
+      @apply font-medium;
+    }
+
+    .wp-block-latest-comments__comment-date {
+      @apply text-sm text-gray-600 mt-1;
+    }
+
+    .wp-block-latest-comments__comment-excerpt {
+      @apply text-sm text-gray-700 mt-1;
+    }
+  }
+
+  /* Block: Social Links */
+  .wp-block-social-links {
+    @apply mb-6;
+  }
+
+  /* Block: Search */
+  .wp-block-search {
+    @apply mb-6;
+
+    .wp-block-search__input {
+      @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500;
+    }
+
+    .wp-block-search__button {
+      @apply inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md bg-primary-600 text-white hover:bg-primary-700 transition-colors duration-200;
+    }
+  }
+
+  /* Block: Categories */
+  .wp-block-categories {
+    @apply mb-6;
+  }
+
+  /* Block: Archives */
+  .wp-block-archives {
+    @apply mb-6;
+  }
+
+  /* Block: Tag Cloud */
+  .wp-block-tag-cloud {
+    @apply mb-6;
+
+    a {
+      @apply inline-block px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-md mr-2 mb-2 hover:bg-primary-100 hover:text-primary-700 transition-colors duration-200;
+    }
+  }
+
+  /* Block: Calendar */
+  .wp-block-calendar {
+    @apply mb-6;
+
+    table {
+      th {
+        @apply bg-gray-100 text-center;
+      }
+    }
+
+    .wp-calendar-nav {
+      @apply flex justify-between text-sm mt-2;
+    }
+  }
+
+  /* Block: Embed */
+  .wp-block-embed {
+    @apply mb-6;
+
+    figcaption {
+      @apply text-sm text-gray-600 mt-1 italic text-center;
+    }
+  }
+
+  /* Block: Spacer */
+  .wp-block-spacer {
+    @apply mb-0;
+  }
+}

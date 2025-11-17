@@ -1,0 +1,296 @@
+/**
+ * Breadcrumbs Component Styles
+ *
+ * Styles for breadcrumb navigation components used throughout the theme.
+ */
+
+// Base Breadcrumbs
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 2rem;
+  font-size: 0.875rem;
+  
+  // Breadcrumb List
+  .breadcrumbs-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+    // Breadcrumb Item
+    .breadcrumb-item {
+      display: flex;
+      align-items: center;
+      
+      // Breadcrumb Link
+      a {
+        color: var(--color-text-light);
+        transition: color 0.2s ease;
+        
+        &:hover {
+          color: var(--color-primary);
+        }
+      }
+      
+      // Current Page
+      &.active {
+        color: var(--color-text);
+        font-weight: 600;
+      }
+      
+      // Separator
+      &:not(:last-child) {
+        &::after {
+          content: "/";
+          margin: 0 0.5rem;
+          color: var(--color-text-light);
+        }
+      }
+    }
+  }
+}
+
+// Breadcrumb Variations
+.breadcrumbs-arrow {
+  .breadcrumbs-list {
+    .breadcrumb-item {
+      &:not(:last-child) {
+        &::after {
+          content: "›";
+          margin: 0 0.5rem;
+          color: var(--color-text-light);
+        }
+      }
+    }
+  }
+}
+
+.breadcrumbs-chevron {
+  .breadcrumbs-list {
+    .breadcrumb-item {
+      &:not(:last-child) {
+        &::after {
+          content: ">";
+          margin: 0 0.5rem;
+          color: var(--color-text-light);
+        }
+      }
+    }
+  }
+}
+
+.breadcrumbs-bullet {
+  .breadcrumbs-list {
+    .breadcrumb-item {
+      &:not(:last-child) {
+        &::after {
+          content: "•";
+          margin: 0 0.5rem;
+          color: var(--color-text-light);
+        }
+      }
+    }
+  }
+}
+
+.breadcrumbs-pipe {
+  .breadcrumbs-list {
+    .breadcrumb-item {
+      &:not(:last-child) {
+        &::after {
+          content: "|";
+          margin: 0 0.5rem;
+          color: var(--color-text-light);
+        }
+      }
+    }
+  }
+}
+
+// Breadcrumb Styles
+.breadcrumbs-bordered {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+}
+
+.breadcrumbs-background {
+  padding: 0.75rem 1rem;
+  background-color: var(--color-background-light);
+  border-radius: var(--border-radius-sm);
+}
+
+.breadcrumbs-shadow {
+  padding: 0.75rem 1rem;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-sm);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+// Breadcrumb with Home Icon
+.breadcrumbs-with-icons {
+  .breadcrumbs-list {
+    .breadcrumb-item {
+      &:first-child {
+        a {
+          display: flex;
+          align-items: center;
+          
+          svg {
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Breadcrumb with Dropdown
+.breadcrumbs-with-dropdown {
+  .breadcrumbs-list {
+    .breadcrumb-item {
+      &.has-dropdown {
+        position: relative;
+        
+        .dropdown-toggle {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          
+          &::after {
+            content: "▼";
+            font-size: 0.75em;
+            margin-left: 0.5rem;
+          }
+        }
+        
+        .dropdown-menu {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          z-index: 10;
+          min-width: 180px;
+          background-color: var(--color-white);
+          border-radius: var(--border-radius-sm);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          padding: 0.5rem 0;
+          margin-top: 0.5rem;
+          display: none;
+          
+          .dropdown-item {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: var(--color-text);
+            
+            &:hover {
+              background-color: var(--color-background-light);
+              color: var(--color-primary);
+            }
+          }
+        }
+        
+        &:hover {
+          .dropdown-menu {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Breadcrumb with Background Image
+.breadcrumbs-hero {
+  position: relative;
+  padding: 3rem 0;
+  margin-bottom: 3rem;
+  background-color: var(--color-background-light);
+  background-size: cover;
+  background-position: center;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .page-title {
+    color: var(--color-white);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    
+    @media (max-width: 767px) {
+      font-size: 1.75rem;
+    }
+  }
+  
+  .breadcrumbs {
+    margin-bottom: 0;
+    
+    .breadcrumbs-list {
+      .breadcrumb-item {
+        a {
+          color: rgba(255, 255, 255, 0.7);
+          
+          &:hover {
+            color: var(--color-white);
+          }
+        }
+        
+        &.active {
+          color: var(--color-white);
+        }
+        
+        &:not(:last-child) {
+          &::after {
+            color: rgba(255, 255, 255, 0.5);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive Breadcrumbs
+@media (max-width: 575px) {
+  .breadcrumbs {
+    .breadcrumbs-list {
+      .breadcrumb-item {
+        &:not(:last-child):not(:first-child) {
+          display: none;
+        }
+        
+        &:first-child {
+          &::after {
+            content: "...";
+            margin: 0 0.5rem;
+          }
+        }
+      }
+    }
+  }
+  
+  .breadcrumbs-responsive {
+    .breadcrumbs-list {
+      .breadcrumb-item {
+        &:not(:last-child):not(:first-child) {
+          display: flex;
+        }
+      }
+    }
+  }
+}

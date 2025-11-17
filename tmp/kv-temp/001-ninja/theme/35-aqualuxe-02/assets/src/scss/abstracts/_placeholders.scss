@@ -1,0 +1,138 @@
+/**
+ * AquaLuxe WordPress Theme
+ * Placeholders
+ */
+
+// Container
+%container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+// Clearfix
+%clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// Visually Hidden
+%visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+// Focus Outline
+%focus-outline {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+// Button Base
+%button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2) var(--spacing-4);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition-property: var(--transition-property);
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--transition-timing-function);
+}
+
+// Card Base
+%card-base {
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+// List Reset
+%list-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// Link Reset
+%link-reset {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover, &:focus {
+    color: inherit;
+  }
+}
+
+// Truncate Text
+%truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Flex Center
+%flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Absolute Center
+%absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Full Cover
+%full-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+// WooCommerce Button
+%woo-button {
+  @extend %button-base;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+
+  &:hover, &:focus {
+    background-color: var(--color-primary-700);
+    color: var(--color-white);
+  }
+}
+
+// WooCommerce Alt Button
+%woo-alt-button {
+  @extend %button-base;
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+
+  &:hover, &:focus {
+    background-color: var(--color-secondary-700);
+    color: var(--color-white);
+  }
+}

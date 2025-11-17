@@ -1,0 +1,17 @@
+aqualuxe-site/
+├── docker-compose.yml
+├── .env
+├── wordpress/
+│   └── wp-content/
+│       ├── themes/
+│       │   └── aqualuxe/
+│       │       ├── style.css
+│       │       ├── functions.php
+│       │       ├── screenshot.png
+│       │       └── woocommerce/
+│       │           └── ... (WooCommerce overrides)
+│       ├── plugins/
+│       └── uploads/
+├── mysql/
+├── redis/
+└── README.md

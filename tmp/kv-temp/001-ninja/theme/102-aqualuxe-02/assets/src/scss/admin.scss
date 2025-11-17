@@ -1,0 +1,53 @@
+/**
+ * Admin Styles
+ *
+ * @package AquaLuxe
+ * @since 1.0.0
+ */
+
+@import 'base/normalize';
+
+// Admin specific styles
+.aqualuxe-admin {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  .demo-importer {
+    .import-progress {
+      display: none;
+      margin: 20px 0;
+      
+      .progress-bar {
+        background: #f1f1f1;
+        border-radius: 10px;
+        overflow: hidden;
+        
+        .progress-fill {
+          height: 10px;
+          background: #0073aa;
+          width: 0%;
+          transition: width 0.3s ease;
+        }
+      }
+    }
+    
+    .import-status {
+      margin-top: 20px;
+    }
+  }
+  
+  .customizer-section {
+    .form-table {
+      th {
+        width: 200px;
+        font-weight: 600;
+      }
+      
+      td {
+        .description {
+          font-style: italic;
+          color: #666;
+        }
+      }
+    }
+  }
+}

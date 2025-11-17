@@ -1,0 +1,12 @@
+{
+  "multilingual": true,
+  "events": true,
+  "services": true,
+  "wishlist": true,
+  "currency": true,
+  "filters": true,
+  "wholesale": true,
+  "franchise": true,
+  "sustainability": true,
+  "subscriptions": true
+}

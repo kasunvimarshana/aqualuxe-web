@@ -1,0 +1,24 @@
+/* Responsive Design */
+
+@media (max-width: 1024px) {
+  .primary-menu {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .primary-menu {
+    display: none;
+  }
+  .mobile-menu-toggle {
+    display: block;
+    cursor: pointer;
+    color: #fff;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 95%;
+  }
+}

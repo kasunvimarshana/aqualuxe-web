@@ -1,0 +1,1263 @@
+# Copyright (C) 2025 NinjaTech AI
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: AquaLuxe 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/aqualuxe\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-08-08T06:23:47+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.7.1\n"
+"X-Domain: aqualuxe\n"
+
+#. Theme Name of the theme
+msgid "AquaLuxe"
+msgstr ""
+
+#. Theme URI of the theme
+msgid "https://aqualuxe.com"
+msgstr ""
+
+#. Description of the theme
+msgid "A premium WordPress theme for AquaLuxe - Premium Ornamental Aquatic Solutions. Built for local and international markets with full WooCommerce integration."
+msgstr ""
+
+#. Author of the theme
+msgid "NinjaTech AI"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://ninjatech.ai"
+msgstr ""
+
+#: functions.php:63
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:64
+msgid "Secondary Menu"
+msgstr ""
+
+#: functions.php:65
+msgid "Footer Menu"
+msgstr ""
+
+#: functions.php:82
+msgid "Sidebar"
+msgstr ""
+
+#: functions.php:84
+msgid "Add widgets here."
+msgstr ""
+
+#: functions.php:94
+msgid "Footer 1"
+msgstr ""
+
+#: functions.php:96
+msgid "Add footer widgets here."
+msgstr ""
+
+#: functions.php:106
+msgid "Footer 2"
+msgstr ""
+
+#: functions.php:108
+msgid "Add footer widgets here."
+msgstr ""
+
+#: functions.php:118
+msgid "Footer 3"
+msgstr ""
+
+#: functions.php:120
+msgid "Add footer widgets here."
+msgstr ""
+
+#: functions.php:130
+msgid "Footer 4"
+msgstr ""
+
+#: functions.php:132
+msgid "Add footer widgets here."
+msgstr ""
+
+#: inc/template-tags.php:30
+#, php-format
+msgid "Posted on %s"
+msgstr ""
+
+#: inc/template-tags.php:46
+#, php-format
+msgid "by %s"
+msgstr ""
+
+#: inc/template-tags.php:65
+#, php-format
+msgid "Posted in %1$s"
+msgstr ""
+
+#: inc/template-tags.php:72
+#, php-format
+msgid "Tagged %1$s"
+msgstr ""
+
+#: inc/template-tags.php:82
+#, php-format
+msgid "Leave a Comment<span class=&quot;screen-reader-text&quot;> on %s</span>"
+msgstr ""
+
+#: inc/template-tags.php:99 template-parts/content-page.php:39
+#, php-format
+msgid "Edit <span class=&quot;screen-reader-text&quot;>%s</span>"
+msgstr ""
+
+#: inc/template-functions.php:141
+msgid "Featured Image"
+msgstr ""
+
+#: inc/template-functions.php:142
+msgid "Product Thumbnail"
+msgstr ""
+
+#: inc/template-functions.php:143
+msgid "Blog Thumbnail"
+msgstr ""
+
+#: inc/customizer/customizer.php:38
+msgid "AquaLuxe Theme Options"
+msgstr ""
+
+#: inc/customizer/customizer.php:39
+msgid "Customize your AquaLuxe theme settings"
+msgstr ""
+
+#: inc/customizer/customizer.php:45
+msgid "Colors"
+msgstr ""
+
+#: inc/customizer/customizer.php:57
+msgid "Primary Color"
+msgstr ""
+
+#: inc/customizer/customizer.php:69
+msgid "Secondary Color"
+msgstr ""
+
+#: inc/customizer/customizer.php:81
+msgid "Accent Color"
+msgstr ""
+
+#: inc/customizer/customizer.php:93
+msgid "Enable Dark Mode by Default"
+msgstr ""
+
+#: inc/customizer/customizer.php:99
+msgid "Layout"
+msgstr ""
+
+#: inc/customizer/customizer.php:111
+msgid "Container Width (px)"
+msgstr ""
+
+#: inc/customizer/customizer.php:127
+msgid "Sidebar Position"
+msgstr ""
+
+#: inc/customizer/customizer.php:132
+msgid "Right"
+msgstr ""
+
+#: inc/customizer/customizer.php:133
+msgid "Left"
+msgstr ""
+
+#: inc/customizer/customizer.php:134
+msgid "No Sidebar"
+msgstr ""
+
+#: inc/customizer/customizer.php:140
+msgid "Typography"
+msgstr ""
+
+#: inc/customizer/customizer.php:152
+msgid "Heading Font"
+msgstr ""
+
+#: inc/customizer/customizer.php:164
+msgid "Body Font"
+msgstr ""
+
+#: inc/customizer/customizer.php:176
+msgid "Base Font Size (px)"
+msgstr ""
+
+#: inc/customizer/customizer.php:192
+msgid "Header"
+msgstr ""
+
+#: inc/customizer/customizer.php:204
+msgid "Enable Sticky Header"
+msgstr ""
+
+#: inc/customizer/customizer.php:216
+msgid "Header Style"
+msgstr ""
+
+#: inc/customizer/customizer.php:221
+msgid "Standard"
+msgstr ""
+
+#: inc/customizer/customizer.php:222
+msgid "Centered"
+msgstr ""
+
+#: inc/customizer/customizer.php:223
+msgid "Split Menu"
+msgstr ""
+
+#: inc/customizer/customizer.php:224
+msgid "Minimal"
+msgstr ""
+
+#: inc/customizer/customizer.php:230
+msgid "Footer"
+msgstr ""
+
+#: inc/customizer/customizer.php:242
+msgid "Footer Widget Columns"
+msgstr ""
+
+#: inc/customizer/customizer.php:258
+#, php-format
+msgid "© %s AquaLuxe. All rights reserved."
+msgstr ""
+
+#: inc/customizer/customizer.php:262
+msgid "Footer Copyright Text"
+msgstr ""
+
+#: inc/customizer/customizer.php:271
+msgid "WooCommerce"
+msgstr ""
+
+#: inc/customizer/customizer.php:283
+msgid "Products per row"
+msgstr ""
+
+#: inc/customizer/customizer.php:301
+msgid "Show Related Products"
+msgstr ""
+
+#: inc/customizer/customizer.php:313
+msgid "Enable Quick View"
+msgstr ""
+
+#: inc/customizer/customizer.php:325
+msgid "Enable Wishlist"
+msgstr ""
+
+#: inc/customizer/customizer.php:337
+msgid "Shipping Tab Content"
+msgstr ""
+
+#: inc/customizer/customizer.php:346
+msgid "Social Media"
+msgstr ""
+
+#: inc/customizer/customizer.php:358
+msgid "Facebook URL"
+msgstr ""
+
+#: inc/customizer/customizer.php:370
+msgid "Instagram URL"
+msgstr ""
+
+#: inc/customizer/customizer.php:382
+msgid "Twitter URL"
+msgstr ""
+
+#: inc/customizer/customizer.php:394
+msgid "YouTube URL"
+msgstr ""
+
+#: inc/customizer/customizer.php:406
+msgid "Pinterest URL"
+msgstr ""
+
+#: inc/admin/admin.php:26
+msgid "AquaLuxe Theme"
+msgstr ""
+
+#: inc/admin/admin.php:39
+msgid "Welcome to AquaLuxe Theme"
+msgstr ""
+
+#: inc/admin/admin.php:43
+msgid "About AquaLuxe"
+msgstr ""
+
+#: inc/admin/admin.php:44
+msgid "AquaLuxe is a premium WordPress theme designed specifically for ornamental fish farming businesses targeting local and international markets. The theme features full WooCommerce integration, custom post types for services and events, and a modern, elegant design."
+msgstr ""
+
+#: inc/admin/admin.php:49
+msgid "Theme Version"
+msgstr ""
+
+#: inc/admin/admin.php:56
+msgid "Getting Started"
+msgstr ""
+
+#: inc/admin/admin.php:57
+msgid "Theme Options"
+msgstr ""
+
+#: inc/admin/admin.php:58
+msgid "Support"
+msgstr ""
+
+#: inc/admin/admin.php:62
+msgid "Getting Started with AquaLuxe"
+msgstr ""
+
+#: inc/admin/admin.php:66
+msgid "1. Install Required Plugins"
+msgstr ""
+
+#: inc/admin/admin.php:67
+msgid "AquaLuxe works best with the following plugins:"
+msgstr ""
+
+#: inc/admin/admin.php:69
+msgid "WooCommerce - For e-commerce functionality"
+msgstr ""
+
+#: inc/admin/admin.php:70
+msgid "Contact Form 7 - For contact forms"
+msgstr ""
+
+#: inc/admin/admin.php:71
+msgid "Yoast SEO - For search engine optimization"
+msgstr ""
+
+#: inc/admin/admin.php:77
+msgid "2. Customize Your Theme"
+msgstr ""
+
+#: inc/admin/admin.php:78
+msgid "Use the WordPress Customizer to configure your theme settings:"
+msgstr ""
+
+#: inc/admin/admin.php:79
+msgid "Open Customizer"
+msgstr ""
+
+#: inc/admin/admin.php:84
+msgid "3. Set Up Your Homepage"
+msgstr ""
+
+#: inc/admin/admin.php:85
+msgid "Create a new page and assign it as your homepage in Settings > Reading."
+msgstr ""
+
+#: inc/admin/admin.php:86
+msgid "Reading Settings"
+msgstr ""
+
+#: inc/admin/admin.php:91
+msgid "4. Add Your Products"
+msgstr ""
+
+#: inc/admin/admin.php:92
+msgid "If you have WooCommerce installed, start adding your products."
+msgstr ""
+
+#: inc/admin/admin.php:93
+msgid "Add New Product"
+msgstr ""
+
+#: inc/admin/admin.php:98
+msgid "5. Create Services and Events"
+msgstr ""
+
+#: inc/admin/admin.php:99
+msgid "AquaLuxe includes custom post types for Services and Events."
+msgstr ""
+
+#: inc/admin/admin.php:100
+msgid "Add New Service"
+msgstr ""
+
+#: inc/admin/admin.php:101
+msgid "Add New Event"
+msgstr ""
+
+#: inc/admin/admin.php:107
+msgid "Theme Options"
+msgstr ""
+
+#: inc/admin/admin.php:111
+msgid "Customizer Options"
+msgstr ""
+
+#: inc/admin/admin.php:112
+msgid "AquaLuxe provides many customization options through the WordPress Customizer:"
+msgstr ""
+
+#: inc/admin/admin.php:114
+msgid "Colors - Customize primary, secondary, and accent colors"
+msgstr ""
+
+#: inc/admin/admin.php:115
+msgid "Typography - Choose from a selection of Google Fonts"
+msgstr ""
+
+#: inc/admin/admin.php:116
+msgid "Layout - Adjust container width and sidebar position"
+msgstr ""
+
+#: inc/admin/admin.php:117
+msgid "Header - Configure header style and options"
+msgstr ""
+
+#: inc/admin/admin.php:118
+msgid "Footer - Set footer columns and copyright text"
+msgstr ""
+
+#: inc/admin/admin.php:119
+msgid "WooCommerce - Customize shop settings"
+msgstr ""
+
+#: inc/admin/admin.php:120
+msgid "Social Media - Add your social media links"
+msgstr ""
+
+#: inc/admin/admin.php:122
+msgid "Open Customizer"
+msgstr ""
+
+#: inc/admin/admin.php:127
+msgid "Widgets"
+msgstr ""
+
+#: inc/admin/admin.php:128
+msgid "AquaLuxe includes several widget areas and custom widgets:"
+msgstr ""
+
+#: inc/admin/admin.php:130
+msgid "Sidebar - Main sidebar for blog and pages"
+msgstr ""
+
+#: inc/admin/admin.php:131
+msgid "Footer Widgets - Up to 4 footer widget areas"
+msgstr ""
+
+#: inc/admin/admin.php:132
+msgid "Shop Sidebar - Sidebar for WooCommerce pages"
+msgstr ""
+
+#: inc/admin/admin.php:133
+msgid "Custom Widgets - Recent Posts with Thumbnails, Upcoming Events"
+msgstr ""
+
+#: inc/admin/admin.php:135
+msgid "Manage Widgets"
+msgstr ""
+
+#: inc/admin/admin.php:140
+msgid "Menus"
+msgstr ""
+
+#: inc/admin/admin.php:141
+msgid "AquaLuxe supports multiple menu locations:"
+msgstr ""
+
+#: inc/admin/admin.php:143
+msgid "Primary Menu - Main navigation menu"
+msgstr ""
+
+#: inc/admin/admin.php:144
+msgid "Secondary Menu - Additional top navigation"
+msgstr ""
+
+#: inc/admin/admin.php:145
+msgid "Footer Menu - Links in the footer area"
+msgstr ""
+
+#: inc/admin/admin.php:147
+msgid "Manage Menus"
+msgstr ""
+
+#: inc/admin/admin.php:153
+msgid "Support"
+msgstr ""
+
+#: inc/admin/admin.php:157
+msgid "Documentation"
+msgstr ""
+
+#: inc/admin/admin.php:158
+msgid "For detailed information on how to use AquaLuxe, please refer to our documentation."
+msgstr ""
+
+#: inc/admin/admin.php:159
+msgid "View Documentation"
+msgstr ""
+
+#: inc/admin/admin.php:164
+msgid "Support"
+msgstr ""
+
+#: inc/admin/admin.php:165
+msgid "If you need help with AquaLuxe, please contact our support team."
+msgstr ""
+
+#: inc/admin/admin.php:166
+msgid "Contact Support"
+msgstr ""
+
+#: inc/admin/admin.php:171
+msgid "Updates"
+msgstr ""
+
+#: inc/admin/admin.php:172
+msgid "AquaLuxe is regularly updated with new features and improvements. Make sure to keep your theme updated for the best experience."
+msgstr ""
+
+#: inc/admin/admin.php:238
+msgid "Page Options"
+msgstr ""
+
+#: inc/admin/admin.php:258
+msgid "Hide Page Title"
+msgstr ""
+
+#: inc/admin/admin.php:264
+msgid "Hide Featured Image"
+msgstr ""
+
+#: inc/admin/admin.php:269
+msgid "Page Layout:"
+msgstr ""
+
+#: inc/admin/admin.php:271
+msgid "Default"
+msgstr ""
+
+#: inc/admin/admin.php:272
+msgid "Full Width"
+msgstr ""
+
+#: inc/admin/admin.php:273
+msgid "Left Sidebar"
+msgstr ""
+
+#: inc/admin/admin.php:274
+msgid "Right Sidebar"
+msgstr ""
+
+#: inc/admin/admin.php:343
+msgid "AquaLuxe Options"
+msgstr ""
+
+#: inc/admin/admin.php:350
+msgid "Colors"
+msgstr ""
+
+#: inc/admin/admin.php:358
+msgid "Typography"
+msgstr ""
+
+#: inc/admin/admin.php:366
+msgid "Layout"
+msgstr ""
+
+#: inc/admin/admin.php:374
+msgid "Header"
+msgstr ""
+
+#: inc/admin/admin.php:382
+msgid "Footer"
+msgstr ""
+
+#: inc/admin/admin.php:391
+msgid "WooCommerce"
+msgstr ""
+
+#: inc/admin/admin.php:399
+msgid "Social Media"
+msgstr ""
+
+#: inc/admin/admin.php:416
+msgid "AquaLuxe Theme"
+msgstr ""
+
+#: inc/admin/admin.php:429
+msgid "Welcome to AquaLuxe Theme"
+msgstr ""
+
+#: inc/admin/admin.php:430
+msgid "Thank you for choosing AquaLuxe for your website. Here are some quick links to get you started:"
+msgstr ""
+
+#: inc/admin/admin.php:433
+msgid "Customize Your Theme"
+msgstr ""
+
+#: inc/admin/admin.php:434
+msgid "Theme Documentation"
+msgstr ""
+
+#: inc/admin/admin.php:436
+msgid "Add New Product"
+msgstr ""
+
+#: inc/admin/admin.php:439
+msgid "Add New Service"
+msgstr ""
+
+#: inc/admin/admin.php:440
+msgid "Add New Event"
+msgstr ""
+
+#: inc/admin/admin.php:443
+msgid "Need help? Visit our support page for assistance."
+msgstr ""
+
+#: inc/post-types/services.php:13
+msgctxt "Post type general name"
+msgid "Services"
+msgstr ""
+
+#: inc/post-types/services.php:14
+msgctxt "Post type singular name"
+msgid "Service"
+msgstr ""
+
+#: inc/post-types/services.php:15
+msgctxt "Admin Menu text"
+msgid "Services"
+msgstr ""
+
+#: inc/post-types/services.php:16
+msgctxt "Add New on Toolbar"
+msgid "Service"
+msgstr ""
+
+#: inc/post-types/services.php:17
+msgid "Add New"
+msgstr ""
+
+#: inc/post-types/services.php:18
+msgid "Add New Service"
+msgstr ""
+
+#: inc/post-types/services.php:19
+msgid "New Service"
+msgstr ""
+
+#: inc/post-types/services.php:20
+msgid "Edit Service"
+msgstr ""
+
+#: inc/post-types/services.php:21
+msgid "View Service"
+msgstr ""
+
+#: inc/post-types/services.php:22
+msgid "All Services"
+msgstr ""
+
+#: inc/post-types/services.php:23
+msgid "Search Services"
+msgstr ""
+
+#: inc/post-types/services.php:24
+msgid "Parent Services:"
+msgstr ""
+
+#: inc/post-types/services.php:25
+msgid "No services found."
+msgstr ""
+
+#: inc/post-types/services.php:26
+msgid "No services found in Trash."
+msgstr ""
+
+#: inc/post-types/services.php:27
+msgctxt "Overrides the &quot;Featured Image&quot; phrase"
+msgid "Service Cover Image"
+msgstr ""
+
+#: inc/post-types/services.php:28
+msgctxt "Overrides the &quot;Set featured image&quot; phrase"
+msgid "Set cover image"
+msgstr ""
+
+#: inc/post-types/services.php:29
+msgctxt "Overrides the &quot;Remove featured image&quot; phrase"
+msgid "Remove cover image"
+msgstr ""
+
+#: inc/post-types/services.php:30
+msgctxt "Overrides the &quot;Use as featured image&quot; phrase"
+msgid "Use as cover image"
+msgstr ""
+
+#: inc/post-types/services.php:31
+msgctxt "The post type archive label used in nav menus"
+msgid "Service archives"
+msgstr ""
+
+#: inc/post-types/services.php:32
+msgctxt "Overrides the &quot;Insert into post&quot; phrase"
+msgid "Insert into service"
+msgstr ""
+
+#: inc/post-types/services.php:33
+msgctxt "Overrides the &quot;Uploaded to this post&quot; phrase"
+msgid "Uploaded to this service"
+msgstr ""
+
+#: inc/post-types/services.php:34
+msgctxt "Screen reader text for the filter links"
+msgid "Filter services list"
+msgstr ""
+
+#: inc/post-types/services.php:35
+msgctxt "Screen reader text for the pagination"
+msgid "Services list navigation"
+msgstr ""
+
+#: inc/post-types/services.php:36
+msgctxt "Screen reader text for the items list"
+msgid "Services list"
+msgstr ""
+
+#: inc/post-types/services.php:66
+msgctxt "taxonomy general name"
+msgid "Service Categories"
+msgstr ""
+
+#: inc/post-types/services.php:67
+msgctxt "taxonomy singular name"
+msgid "Service Category"
+msgstr ""
+
+#: inc/post-types/services.php:68
+msgid "Search Service Categories"
+msgstr ""
+
+#: inc/post-types/services.php:69
+msgid "All Service Categories"
+msgstr ""
+
+#: inc/post-types/services.php:70
+msgid "Parent Service Category"
+msgstr ""
+
+#: inc/post-types/services.php:71
+msgid "Parent Service Category:"
+msgstr ""
+
+#: inc/post-types/services.php:72
+msgid "Edit Service Category"
+msgstr ""
+
+#: inc/post-types/services.php:73
+msgid "Update Service Category"
+msgstr ""
+
+#: inc/post-types/services.php:74
+msgid "Add New Service Category"
+msgstr ""
+
+#: inc/post-types/services.php:75
+msgid "New Service Category Name"
+msgstr ""
+
+#: inc/post-types/services.php:76
+msgid "Categories"
+msgstr ""
+
+#: inc/post-types/services.php:102
+msgid "Service Details"
+msgstr ""
+
+#: inc/post-types/services.php:125
+msgid "Price"
+msgstr ""
+
+#: inc/post-types/services.php:127
+msgid "Enter the price for this service (e.g. $99, $50-$100, or &quot;Contact for pricing&quot;)"
+msgstr ""
+
+#: inc/post-types/services.php:130
+msgid "Duration"
+msgstr ""
+
+#: inc/post-types/services.php:132
+msgid "Enter the duration for this service (e.g. 1 hour, 30 minutes, 2-3 days)"
+msgstr ""
+
+#: inc/post-types/services.php:135
+msgid "Icon"
+msgstr ""
+
+#: inc/post-types/services.php:137
+msgid "Enter a FontAwesome icon class (e.g. fa-fish)"
+msgstr ""
+
+#: inc/post-types/services.php:140
+msgid "Booking URL"
+msgstr ""
+
+#: inc/post-types/services.php:142
+msgid "Enter a URL for booking this service (optional)"
+msgstr ""
+
+#: inc/post-types/services.php:219
+msgid "Price:"
+msgstr ""
+
+#: inc/post-types/services.php:227
+msgid "Duration:"
+msgstr ""
+
+#: inc/post-types/services.php:235
+msgid "Book Now"
+msgstr ""
+
+#: inc/post-types/services.php:289
+msgid "Learn More"
+msgstr ""
+
+#: inc/post-types/events.php:13
+msgctxt "Post type general name"
+msgid "Events"
+msgstr ""
+
+#: inc/post-types/events.php:14
+msgctxt "Post type singular name"
+msgid "Event"
+msgstr ""
+
+#: inc/post-types/events.php:15
+msgctxt "Admin Menu text"
+msgid "Events"
+msgstr ""
+
+#: inc/post-types/events.php:16
+msgctxt "Add New on Toolbar"
+msgid "Event"
+msgstr ""
+
+#: inc/post-types/events.php:17
+msgid "Add New"
+msgstr ""
+
+#: inc/post-types/events.php:18
+msgid "Add New Event"
+msgstr ""
+
+#: inc/post-types/events.php:19
+msgid "New Event"
+msgstr ""
+
+#: inc/post-types/events.php:20
+msgid "Edit Event"
+msgstr ""
+
+#: inc/post-types/events.php:21
+msgid "View Event"
+msgstr ""
+
+#: inc/post-types/events.php:22
+msgid "All Events"
+msgstr ""
+
+#: inc/post-types/events.php:23
+msgid "Search Events"
+msgstr ""
+
+#: inc/post-types/events.php:24
+msgid "Parent Events:"
+msgstr ""
+
+#: inc/post-types/events.php:25
+msgid "No events found."
+msgstr ""
+
+#: inc/post-types/events.php:26
+msgid "No events found in Trash."
+msgstr ""
+
+#: inc/post-types/events.php:27
+msgctxt "Overrides the &quot;Featured Image&quot; phrase"
+msgid "Event Cover Image"
+msgstr ""
+
+#: inc/post-types/events.php:28
+msgctxt "Overrides the &quot;Set featured image&quot; phrase"
+msgid "Set cover image"
+msgstr ""
+
+#: inc/post-types/events.php:29
+msgctxt "Overrides the &quot;Remove featured image&quot; phrase"
+msgid "Remove cover image"
+msgstr ""
+
+#: inc/post-types/events.php:30
+msgctxt "Overrides the &quot;Use as featured image&quot; phrase"
+msgid "Use as cover image"
+msgstr ""
+
+#: inc/post-types/events.php:31
+msgctxt "The post type archive label used in nav menus"
+msgid "Event archives"
+msgstr ""
+
+#: inc/post-types/events.php:32
+msgctxt "Overrides the &quot;Insert into post&quot; phrase"
+msgid "Insert into event"
+msgstr ""
+
+#: inc/post-types/events.php:33
+msgctxt "Overrides the &quot;Uploaded to this post&quot; phrase"
+msgid "Uploaded to this event"
+msgstr ""
+
+#: inc/post-types/events.php:34
+msgctxt "Screen reader text for the filter links"
+msgid "Filter events list"
+msgstr ""
+
+#: inc/post-types/events.php:35
+msgctxt "Screen reader text for the pagination"
+msgid "Events list navigation"
+msgstr ""
+
+#: inc/post-types/events.php:36
+msgctxt "Screen reader text for the items list"
+msgid "Events list"
+msgstr ""
+
+#: inc/post-types/events.php:66
+msgctxt "taxonomy general name"
+msgid "Event Categories"
+msgstr ""
+
+#: inc/post-types/events.php:67
+msgctxt "taxonomy singular name"
+msgid "Event Category"
+msgstr ""
+
+#: inc/post-types/events.php:68
+msgid "Search Event Categories"
+msgstr ""
+
+#: inc/post-types/events.php:69
+msgid "All Event Categories"
+msgstr ""
+
+#: inc/post-types/events.php:70
+msgid "Parent Event Category"
+msgstr ""
+
+#: inc/post-types/events.php:71
+msgid "Parent Event Category:"
+msgstr ""
+
+#: inc/post-types/events.php:72
+msgid "Edit Event Category"
+msgstr ""
+
+#: inc/post-types/events.php:73
+msgid "Update Event Category"
+msgstr ""
+
+#: inc/post-types/events.php:74
+msgid "Add New Event Category"
+msgstr ""
+
+#: inc/post-types/events.php:75
+msgid "New Event Category Name"
+msgstr ""
+
+#: inc/post-types/events.php:76
+msgid "Categories"
+msgstr ""
+
+#: inc/post-types/events.php:102
+msgid "Event Details"
+msgstr ""
+
+#: inc/post-types/events.php:125
+msgid "Start Date"
+msgstr ""
+
+#: inc/post-types/events.php:129
+msgid "End Date"
+msgstr ""
+
+#: inc/post-types/events.php:131
+msgid "Leave blank for single-day events"
+msgstr ""
+
+#: inc/post-types/events.php:134
+msgid "Time"
+msgstr ""
+
+#: inc/post-types/events.php:136
+msgid "e.g. 10:00 AM - 4:00 PM"
+msgstr ""
+
+#: inc/post-types/events.php:139
+msgid "Location Name"
+msgstr ""
+
+#: inc/post-types/events.php:141
+msgid "e.g. AquaLuxe Showroom"
+msgstr ""
+
+#: inc/post-types/events.php:144
+msgid "Address"
+msgstr ""
+
+#: inc/post-types/events.php:148
+msgid "Cost"
+msgstr ""
+
+#: inc/post-types/events.php:150
+msgid "e.g. $10, Free, or Varies"
+msgstr ""
+
+#: inc/post-types/events.php:153
+msgid "Registration URL"
+msgstr ""
+
+#: inc/post-types/events.php:248
+msgid "Date:"
+msgstr ""
+
+#: inc/post-types/events.php:262
+msgid "Time:"
+msgstr ""
+
+#: inc/post-types/events.php:270
+msgid "Location:"
+msgstr ""
+
+#: inc/post-types/events.php:278
+msgid "Address:"
+msgstr ""
+
+#: inc/post-types/events.php:286
+msgid "Cost:"
+msgstr ""
+
+#: inc/post-types/events.php:294
+msgid "Register Now"
+msgstr ""
+
+#: inc/post-types/events.php:361
+msgid "Upcoming Events"
+msgstr ""
+
+#: inc/post-types/events.php:362
+msgid "View All Events"
+msgstr ""
+
+#: inc/post-types/events.php:365
+msgid "No upcoming events."
+msgstr ""
+
+#: inc/widgets/class-aqualuxe-recent-posts-widget.php:19
+msgid "AquaLuxe Recent Posts"
+msgstr ""
+
+#: inc/widgets/class-aqualuxe-recent-posts-widget.php:21
+msgid "Display recent posts with thumbnails"
+msgstr ""
+
+#: inc/widgets/class-aqualuxe-recent-posts-widget.php:92
+msgid "No posts found."
+msgstr ""
+
+#: inc/widgets/class-aqualuxe-recent-posts-widget.php:108
+msgid "Recent Posts"
+msgstr ""
+
+#: inc/widgets/class-aqualuxe-recent-posts-widget.php:118
+msgid "Title:"
+msgstr ""
+
+#: inc/widgets/class-aqualuxe-recent-posts-widget.php:122
+msgid "Number of posts to show:"
+msgstr ""
+
+#: inc/widgets/class-aqualuxe-recent-posts-widget.php:127
+msgid "Category:"
+msgstr ""
+
+#: inc/widgets/class-aqualuxe-recent-posts-widget.php:130
+msgid "All Categories"
+msgstr ""
+
+#: inc/widgets/class-aqualuxe-recent-posts-widget.php:141
+msgid "Display post thumbnail?"
+msgstr ""
+
+#: inc/widgets/class-aqualuxe-recent-posts-widget.php:146
+msgid "Display post date?"
+msgstr ""
+
+#: inc/widgets/class-aqualuxe-recent-posts-widget.php:151
+msgid "Display post excerpt?"
+msgstr ""
+
+#: inc/widgets/class-aqualuxe-recent-posts-widget.php:156
+msgid "Excerpt length (words):"
+msgstr ""
+
+#: templates/parts/content.php:31
+#, php-format
+msgid "Continue reading<span class=&quot;screen-reader-text&quot;> &quot;%s&quot;</span>"
+msgstr ""
+
+#: templates/parts/content.php:42
+msgid "Pages:"
+msgstr ""
+
+#: templates/parts/content.php:53
+msgid "Read More"
+msgstr ""
+
+#: templates/parts/content-none.php:14
+msgid "Nothing Found"
+msgstr ""
+
+#: templates/parts/content-none.php:24
+#, php-format
+msgid "Ready to publish your first post? <a href=&quot;%1$s&quot;>Get started here</a>."
+msgstr ""
+
+#: templates/parts/content-none.php:37
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr ""
+
+#: templates/parts/content-none.php:44
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#: templates/template-homepage.php:5
+msgid "Homepage"
+msgstr ""
+
+#: templates/template-services.php:5
+msgid "Services"
+msgstr ""
+
+#: templates/template-events.php:5
+msgid "Events"
+msgstr ""
+
+#: templates/template-about.php:5
+msgid "About"
+msgstr ""
+
+#: templates/template-contact.php:5
+msgid "Contact"
+msgstr ""
+
+#: templates/template-faq.php:5
+msgid "FAQ"
+msgstr ""
+
+#: woocommerce.php:15
+msgid "Shop"
+msgstr ""
+
+#: woocommerce/single-product/tabs/shipping.php:25
+msgid "Shipping Information"
+msgstr ""
+
+#: woocommerce/single-product/tabs/shipping.php:26
+msgid "We ship our products worldwide with special care for live aquatic species. Shipping times and methods vary depending on your location and the products ordered."
+msgstr ""
+
+#: woocommerce/single-product/tabs/shipping.php:27
+msgid "Returns Policy"
+msgstr ""
+
+#: woocommerce/single-product/tabs/shipping.php:28
+msgid "Please contact us within 24 hours of receiving your order if there are any issues. Due to the nature of live aquatic products, special return policies apply."
+msgstr ""
+
+#: woocommerce/single-product/tabs/care.php:25
+msgid "Fish Care Guidelines"
+msgstr ""
+
+#: woocommerce/single-product/tabs/care.php:26
+msgid "Proper care is essential for the health and longevity of your aquatic pets. Please research the specific needs of your fish species regarding water parameters, tank size, diet, and compatibility with other species."
+msgstr ""
+
+#: woocommerce/single-product/tabs/care.php:29
+msgid "Plant Care Guidelines"
+msgstr ""
+
+#: woocommerce/single-product/tabs/care.php:30
+msgid "For optimal growth, consider the lighting, substrate, and nutrient requirements specific to this plant species. Regular pruning and maintenance will help ensure a healthy aquascape."
+msgstr ""
+
+#: 404.php:17
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:21
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+
+#: comments.php:35
+#, php-format
+msgid "One thought on &ldquo;%1$s&rdquo;"
+msgstr ""
+
+#: comments.php:41
+#, php-format
+msgctxt "comments title"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:68
+msgid "Comments are closed."
+msgstr ""
+
+#: footer.php:42
+msgid "All rights reserved."
+msgstr ""
+
+#: footer.php:46
+#, php-format
+msgid "Theme: %s"
+msgstr ""
+
+#: header.php:26
+msgid "Skip to content"
+msgstr ""
+
+#: header.php:57
+msgid "Primary Menu"
+msgstr ""
+
+#: search.php:21
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""

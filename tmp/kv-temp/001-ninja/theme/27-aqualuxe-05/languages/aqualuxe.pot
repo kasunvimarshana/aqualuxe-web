@@ -1,0 +1,766 @@
+# Copyright (C) 2025 NinjaTech AI
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: AquaLuxe 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/aqualuxe\n"
+"POT-Creation-Date: 2025-08-10T00:24:30+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: aqualuxe\n"
+
+#. Theme Name of the theme
+msgid "AquaLuxe"
+msgstr ""
+
+#. Theme URI of the theme
+msgid "https://aqualuxe.com"
+msgstr ""
+
+#. Description of the theme
+msgid "A premium WordPress theme for AquaLuxe - a high-end ornamental fish farming business targeting local and international markets. The theme combines elegant aquatic visuals with refined typography and smooth micro-interactions, emphasizing product rarity, quality, and exclusivity."
+msgstr ""
+
+#. Author of the theme
+msgid "NinjaTech AI"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://ninjatech.ai"
+msgstr ""
+
+#: 404.php:17
+msgid "Oops! That page can't be found."
+msgstr ""
+
+#: 404.php:21
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+
+#: archive-events.php:32
+#: archive-faqs.php:32
+#: archive-projects.php:32
+#: archive-services.php:32
+#: archive-team.php:32
+#: archive-testimonials.php:32
+msgid "Filter by Category"
+msgstr ""
+
+#: archive-events.php:34
+#: archive-faqs.php:34
+#: archive-projects.php:34
+#: archive-services.php:34
+#: archive-team.php:34
+#: archive-testimonials.php:34
+msgid "All Categories"
+msgstr ""
+
+#: archive-events.php:47
+msgid "Filter by Time"
+msgstr ""
+
+#: archive-events.php:49
+msgid "All Events"
+msgstr ""
+
+#: archive-events.php:51
+msgid "Upcoming Events"
+msgstr ""
+
+#: archive-events.php:54
+msgid "Past Events"
+msgstr ""
+
+#: archive-events.php:59
+#: archive-faqs.php:59
+#: archive-projects.php:59
+#: archive-services.php:59
+#: archive-team.php:59
+#: archive-testimonials.php:59
+msgid "Filter"
+msgstr ""
+
+#: archive-events.php:101
+msgid "at"
+msgstr ""
+
+#: archive-events.php:154
+msgid "Past Event"
+msgstr ""
+
+#: archive-events.php:157
+msgid "Upcoming"
+msgstr ""
+
+#: archive-events.php:204
+msgid "Register Now"
+msgstr ""
+
+#: archive-events.php:206
+#: single-projects.php:392
+msgid "View Details"
+msgstr ""
+
+#: archive-events.php:217
+#: archive-faqs.php:217
+#: archive-projects.php:217
+#: archive-services.php:217
+#: archive-team.php:217
+#: archive-testimonials.php:217
+msgid "Previous page"
+msgstr ""
+
+#: archive-events.php:218
+#: archive-faqs.php:218
+#: archive-projects.php:218
+#: archive-services.php:218
+#: archive-team.php:218
+#: archive-testimonials.php:218
+msgid "Next page"
+msgstr ""
+
+#: archive-faqs.php:19
+msgid "Search FAQs..."
+msgstr ""
+
+#: archive-faqs.php:47
+msgid "Filter by Rating"
+msgstr ""
+
+#: archive-faqs.php:49
+msgid "All Ratings"
+msgstr ""
+
+#: archive-faqs.php:51
+msgid "5 Stars"
+msgstr ""
+
+#: archive-faqs.php:54
+msgid "4 Stars & Up"
+msgstr ""
+
+#: archive-faqs.php:57
+msgid "3 Stars & Up"
+msgstr ""
+
+#: archive-faqs.php:141
+msgid "General FAQs"
+msgstr ""
+
+#: archive-faqs.php:247
+#: archive-faqs.php:257
+#: single-faqs.php:275
+msgid "No FAQs Found"
+msgstr ""
+
+#: archive-faqs.php:248
+msgid "No FAQs were found matching your selection."
+msgstr ""
+
+#: archive-faqs.php:249
+msgid "View All FAQs"
+msgstr ""
+
+#: archive-faqs.php:254
+#: single-events.php:393
+#: single-faqs.php:238
+msgid "Still Have Questions?"
+msgstr ""
+
+#: archive-faqs.php:255
+#: single-events.php:394
+#: single-faqs.php:239
+msgid "If you couldn't find the answer to your question, please contact our support team."
+msgstr ""
+
+#: archive-faqs.php:256
+#: archive-faqs.php:258
+#: single-events.php:395
+#: single-faqs.php:240
+msgid "Contact Us"
+msgstr ""
+
+#: archive-faqs.php:258
+msgid "No FAQs have been created yet."
+msgstr ""
+
+#: archive-projects.php:47
+msgid "Filter by Type"
+msgstr ""
+
+#: archive-projects.php:49
+msgid "All Types"
+msgstr ""
+
+#: archive-projects.php:392
+msgid "View Project"
+msgstr ""
+
+#: archive-services.php:101
+#: single-services.php:392
+msgid "Learn More"
+msgstr ""
+
+#: archive-team.php:47
+msgid "Filter by Department"
+msgstr ""
+
+#: archive-team.php:49
+msgid "All Departments"
+msgstr ""
+
+#: archive-testimonials.php:47
+msgid "Filter by Rating"
+msgstr ""
+
+#: archive-testimonials.php:49
+msgid "All Ratings"
+msgstr ""
+
+#: archive-testimonials.php:51
+msgid "5 Stars"
+msgstr ""
+
+#: archive-testimonials.php:54
+msgid "4 Stars & Up"
+msgstr ""
+
+#: archive-testimonials.php:57
+msgid "3 Stars & Up"
+msgstr ""
+
+#: archive-testimonials.php:154
+#: single-testimonials.php:81
+msgid "Verified"
+msgstr ""
+
+#: archive-testimonials.php:204
+msgid "Read full testimonial"
+msgstr ""
+
+#: comments.php:35
+#. translators: 1: title.
+msgid "One thought on &ldquo;%1$s&rdquo;"
+msgstr ""
+
+#: comments.php:68
+msgid "Comments are closed."
+msgstr ""
+
+#: functions.php:57
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:58
+msgid "Footer Menu"
+msgstr ""
+
+#: functions.php:59
+msgid "Social Menu"
+msgstr ""
+
+#: functions.php:128
+msgid "Sidebar"
+msgstr ""
+
+#: functions.php:130
+msgid "Add widgets here."
+msgstr ""
+
+#: functions.php:140
+msgid "Footer 1"
+msgstr ""
+
+#: functions.php:142
+#: functions.php:154
+#: functions.php:166
+#: functions.php:178
+msgid "Add footer widgets here."
+msgstr ""
+
+#: functions.php:152
+msgid "Footer 2"
+msgstr ""
+
+#: functions.php:164
+msgid "Footer 3"
+msgstr ""
+
+#: functions.php:176
+msgid "Footer 4"
+msgstr ""
+
+#: search.php:21
+msgid "Search Results for: %s"
+msgstr ""
+
+#: single-events.php:101
+msgid "Timeline"
+msgstr ""
+
+#: single-events.php:103
+msgid "Start Date"
+msgstr ""
+
+#: single-events.php:106
+msgid "Completion Date"
+msgstr ""
+
+#: single-events.php:146
+msgid "Challenges"
+msgstr ""
+
+#: single-events.php:170
+msgid "Solutions"
+msgstr ""
+
+#: single-events.php:194
+msgid "Results"
+msgstr ""
+
+#: single-events.php:218
+msgid "Project Gallery"
+msgstr ""
+
+#: single-events.php:243
+msgid "Project Video"
+msgstr ""
+
+#: single-events.php:252
+msgid "Client Testimonial"
+msgstr ""
+
+#: single-events.php:297
+msgid "Previous Project"
+msgstr ""
+
+#: single-events.php:298
+msgid "Previous"
+msgstr ""
+
+#: single-events.php:304
+msgid "All Projects"
+msgstr ""
+
+#: single-events.php:312
+msgid "Next Project"
+msgstr ""
+
+#: single-events.php:313
+msgid "Next"
+msgstr ""
+
+#: single-events.php:326
+msgid "Project Details"
+msgstr ""
+
+#: single-events.php:337
+msgid "Client"
+msgstr ""
+
+#: single-events.php:349
+msgid "Location"
+msgstr ""
+
+#: single-events.php:373
+msgid "Status"
+msgstr ""
+
+#: single-events.php:385
+msgid "Budget"
+msgstr ""
+
+#: single-events.php:397
+msgid "Size"
+msgstr ""
+
+#: single-events.php:409
+msgid "Share This Project"
+msgstr ""
+
+#: single-events.php:412
+msgid "Share on Facebook"
+msgstr ""
+
+#: single-events.php:418
+msgid "Share on Twitter"
+msgstr ""
+
+#: single-events.php:424
+msgid "Share on LinkedIn"
+msgstr ""
+
+#: single-events.php:430
+msgid "Share via Email"
+msgstr ""
+
+#: single-events.php:440
+msgid "Related Projects"
+msgstr ""
+
+#: single-faqs.php:182
+msgid "Was this helpful?"
+msgstr ""
+
+#: single-faqs.php:187
+msgid "Yes"
+msgstr ""
+
+#: single-faqs.php:194
+msgid "No"
+msgstr ""
+
+#: single-faqs.php:201
+msgid "Thank you for your feedback!"
+msgstr ""
+
+#: single-faqs.php:220
+msgid "Share This FAQ"
+msgstr ""
+
+#: single-faqs.php:223
+msgid "Share on Facebook"
+msgstr ""
+
+#: single-faqs.php:229
+msgid "Share on Twitter"
+msgstr ""
+
+#: single-faqs.php:235
+msgid "Share on LinkedIn"
+msgstr ""
+
+#: single-faqs.php:241
+msgid "Share via Email"
+msgstr ""
+
+#: single-faqs.php:251
+msgid "Related FAQs"
+msgstr ""
+
+#: single-faqs.php:276
+msgid "Back to FAQs"
+msgstr ""
+
+#: single-faqs.php:284
+#. translators: %s: category name
+msgid "More in %s"
+msgstr ""
+
+#: single-projects.php:146
+msgid "Challenges"
+msgstr ""
+
+#: single-projects.php:170
+msgid "Solutions"
+msgstr ""
+
+#: single-projects.php:194
+msgid "Results"
+msgstr ""
+
+#: single-projects.php:218
+msgid "Project Gallery"
+msgstr ""
+
+#: single-projects.php:243
+msgid "Project Video"
+msgstr ""
+
+#: single-projects.php:252
+msgid "Client Testimonial"
+msgstr ""
+
+#: single-projects.php:297
+msgid "Previous Project"
+msgstr ""
+
+#: single-projects.php:298
+msgid "Previous"
+msgstr ""
+
+#: single-projects.php:304
+msgid "All Projects"
+msgstr ""
+
+#: single-projects.php:312
+msgid "Next Project"
+msgstr ""
+
+#: single-projects.php:313
+msgid "Next"
+msgstr ""
+
+#: single-projects.php:326
+msgid "Project Details"
+msgstr ""
+
+#: single-projects.php:337
+msgid "Client"
+msgstr ""
+
+#: single-projects.php:349
+msgid "Location"
+msgstr ""
+
+#: single-projects.php:373
+msgid "Status"
+msgstr ""
+
+#: single-projects.php:385
+msgid "Budget"
+msgstr ""
+
+#: single-projects.php:397
+msgid "Size"
+msgstr ""
+
+#: single-projects.php:409
+msgid "Share This Project"
+msgstr ""
+
+#: single-projects.php:412
+msgid "Share on Facebook"
+msgstr ""
+
+#: single-projects.php:418
+msgid "Share on Twitter"
+msgstr ""
+
+#: single-projects.php:424
+msgid "Share on LinkedIn"
+msgstr ""
+
+#: single-projects.php:430
+msgid "Share via Email"
+msgstr ""
+
+#: single-projects.php:440
+msgid "Related Projects"
+msgstr ""
+
+#: single-services.php:101
+msgid "Book Now"
+msgstr ""
+
+#: single-services.php:146
+msgid "Service Features"
+msgstr ""
+
+#: single-services.php:182
+msgid "Book This Service"
+msgstr ""
+
+#: single-services.php:231
+msgid "Related Services"
+msgstr ""
+
+#: single-team.php:146
+msgid "Areas of Expertise"
+msgstr ""
+
+#: single-team.php:163
+msgid "Education"
+msgstr ""
+
+#: single-team.php:186
+msgid "Experience"
+msgstr ""
+
+#: single-team.php:209
+msgid "Certifications"
+msgstr ""
+
+#: single-team.php:227
+msgid "Languages"
+msgstr ""
+
+#: single-team.php:252
+msgid "Articles by"
+msgstr ""
+
+#: single-team.php:282
+msgid "Read more"
+msgstr ""
+
+#: single-team.php:294
+msgid "Back to Team"
+msgstr ""
+
+#: single-testimonials.php:146
+msgid "About this testimonial"
+msgstr ""
+
+#: single-testimonials.php:152
+msgid "Product:"
+msgstr ""
+
+#: single-testimonials.php:164
+msgid "Service:"
+msgstr ""
+
+#: single-testimonials.php:207
+msgid "Share:"
+msgstr ""
+
+#: single-testimonials.php:210
+msgid "Share on Facebook"
+msgstr ""
+
+#: single-testimonials.php:216
+msgid "Share on Twitter"
+msgstr ""
+
+#: single-testimonials.php:222
+msgid "Share on LinkedIn"
+msgstr ""
+
+#: single-testimonials.php:228
+msgid "Share via Email"
+msgstr ""
+
+#: single-testimonials.php:238
+msgid "Back to all testimonials"
+msgstr ""
+
+#: single-testimonials.php:252
+msgid "More Testimonials"
+msgstr ""
+
+#: single-testimonials.php:282
+msgid "Read more"
+msgstr ""
+
+#: template-parts/content/content-none.php:14
+msgid "Nothing Found"
+msgstr ""
+
+#: template-parts/content/content-none.php:24
+msgid "Ready to publish your first post? <a href=&quot;%1$s&quot;>Get started here</a>."
+msgstr ""
+
+#: template-parts/content/content-none.php:37
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr ""
+
+#: template-parts/content/content-none.php:44
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#: template-parts/content/content-page.php:25
+#: template-parts/content/content.php:53
+msgid "Pages:"
+msgstr ""
+
+#: template-parts/content/content-page.php:39
+msgid "Edit <span class=&quot;screen-reader-text&quot;>%s</span>"
+msgstr ""
+
+#: template-parts/content/content.php:40
+msgid "Continue reading<span class=&quot;screen-reader-text&quot;> &quot;%s&quot;</span>"
+msgstr ""
+
+#: woocommerce/cart/cart.php:30
+#: woocommerce/cart/cart.php:74
+msgid "Product"
+msgstr ""
+
+#: woocommerce/cart/cart.php:31
+msgid "Price"
+msgstr ""
+
+#: woocommerce/cart/cart.php:32
+msgid "Quantity"
+msgstr ""
+
+#: woocommerce/cart/cart.php:33
+msgid "Subtotal"
+msgstr ""
+
+#: woocommerce/cart/cart.php:56
+msgid "Remove this item"
+msgstr ""
+
+#: woocommerce/cart/cart.php:87
+msgid "Price:"
+msgstr ""
+
+#: woocommerce/cart/cart.php:98
+msgid "Quantity:"
+msgstr ""
+
+#: woocommerce/cart/cart.php:121
+msgid "Subtotal:"
+msgstr ""
+
+#: woocommerce/cart/cart.php:133
+msgid "Coupon:"
+msgstr ""
+
+#: woocommerce/cart/cart.php:134
+msgid "Coupon code"
+msgstr ""
+
+#: woocommerce/cart/cart.php:135
+msgid "Apply coupon"
+msgstr ""
+
+#: woocommerce/cart/cart.php:140
+msgid "Update cart"
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:26
+msgid "You must be logged in to checkout."
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:37
+msgid "Billing Details"
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:42
+msgid "Shipping Details"
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:54
+msgid "Your order"
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:73
+msgid "Secure Checkout"
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:80
+msgid "SSL Encrypted Payment"
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:87
+msgid "Privacy Protected"
+msgstr ""
+
+#: woocommerce/global/quantity-input.php:28
+#. translators: %s: Quantity.
+msgid "%s quantity"
+msgstr ""
+
+#: woocommerce/global/quantity-input.php:28
+msgid "Quantity"
+msgstr ""
+
+#: woocommerce/global/quantity-input.php:31
+msgid "Decrease quantity"
+msgstr ""
+
+#: woocommerce/global/quantity-input.php:41
+msgid "Product quantity"
+msgstr ""
+
+#: woocommerce/global/quantity-input.php:58
+msgid "Increase quantity"
+msgstr ""

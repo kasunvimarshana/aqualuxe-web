@@ -1,0 +1,154 @@
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Work+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+      :root {
+        --primary-color: #11b4d4;
+        --secondary-color: #f8fbfc;
+        --text-primary: #0d191b;
+        --text-secondary: #4c8d9a;
+      }
+      .active-tab {
+        border-bottom-width: 3px;
+        border-color: var(--primary-color);
+        color: var(--text-primary);
+        font-weight: 700;
+      }
+      .inactive-tab {
+        border-bottom-width: 3px;
+        border-color: transparent;
+        color: var(--text-secondary);
+        font-weight: 500;
+      }
+    </style>
+</head>
+<body class="bg-[var(--secondary-color)]" style='font-family: "Work Sans", "Noto Sans", sans-serif;'>
+<div class="relative flex size-full min-h-screen flex-col overflow-x-hidden group/design-root">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7f1f3] px-10 py-3 bg-white/80 backdrop-blur-sm sticky top-0 z-20">
+<div class="flex items-center gap-4 text-[var(--text-primary)]">
+<div class="w-8 h-8">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-[var(--text-primary)] text-2xl font-bold leading-tight tracking-[-0.015em]">AquaLuxe</h2>
+</div>
+<div class="flex flex-1 justify-end items-center gap-4">
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-[var(--text-primary)] text-base font-medium leading-normal hover:text-[var(--primary-color)] transition-colors" href="#">Shop</a>
+<a class="text-[var(--text-primary)] text-base font-medium leading-normal hover:text-[var(--primary-color)] transition-colors" href="#">Solutions</a>
+<a class="text-[var(--text-primary)] text-base font-medium leading-normal hover:text-[var(--primary-color)] transition-colors" href="#">Gallery</a>
+<a class="text-[var(--text-primary)] text-base font-medium leading-normal hover:text-[var(--primary-color)] transition-colors" href="#">About Us</a>
+<a class="text-[var(--text-primary)] text-base font-medium leading-normal hover:text-[var(--primary-color)] transition-colors" href="#">Contact</a>
+</nav>
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-full h-10 w-10 bg-gray-100 text-[var(--text-primary)] hover:bg-gray-200 transition-colors">
+<span class="material-symbols-outlined text-2xl">search</span>
+</button>
+<button class="flex items-center justify-center rounded-full h-10 w-10 bg-gray-100 text-[var(--text-primary)] hover:bg-gray-200 transition-colors">
+<span class="material-symbols-outlined text-2xl">person</span>
+</button>
+<button class="flex items-center justify-center rounded-full h-10 w-10 bg-gray-100 text-[var(--text-primary)] hover:bg-gray-200 transition-colors">
+<span class="material-symbols-outlined text-2xl">shopping_cart</span>
+</button>
+</div>
+<button class="md:hidden flex items-center justify-center rounded-full h-10 w-10 bg-gray-100 text-[var(--text-primary)] hover:bg-gray-200 transition-colors">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+</div>
+</header>
+<main class="flex flex-1 justify-center py-10 px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col w-full max-w-5xl">
+<div class="mb-8">
+<h1 class="text-[var(--text-primary)] text-4xl md:text-5xl font-bold leading-tight tracking-tighter">Legal Policies</h1>
+</div>
+<div class="flex flex-col lg:flex-row gap-8">
+<aside class="lg:w-1/4">
+<nav class="sticky top-28">
+<ul class="space-y-2">
+<li><a class="block px-4 py-2 rounded-md text-base transition-colors active-tab" href="#privacy-policy">Privacy Policy</a></li>
+<li><a class="block px-4 py-2 rounded-md text-base transition-colors inactive-tab" href="#terms-conditions">Terms &amp; Conditions</a></li>
+<li><a class="block px-4 py-2 rounded-md text-base transition-colors inactive-tab" href="#shipping-return">Shipping &amp; Return Policy</a></li>
+<li><a class="block px-4 py-2 rounded-md text-base transition-colors inactive-tab" href="#export-import">Export &amp; Import Terms</a></li>
+<li><a class="block px-4 py-2 rounded-md text-base transition-colors inactive-tab" href="#cookie-policy">Cookie Policy</a></li>
+</ul>
+</nav>
+</aside>
+<div class="lg:w-3/4 space-y-12">
+<section class="scroll-mt-24" id="privacy-policy">
+<h2 class="text-[var(--text-primary)] text-2xl font-bold leading-tight tracking-[-0.015em] mb-4">Privacy Policy</h2>
+<div class="prose max-w-none text-[var(--text-primary)] text-base font-normal leading-relaxed space-y-4">
+<p>At AquaLuxe, we value your privacy and are committed to protecting your personal information. This Privacy Policy outlines how we collect, use, and safeguard your data when you interact with our website and services. We collect information such as your name, contact details, and browsing behavior to enhance your experience and provide personalized services.</p>
+<p>Your data is used for order processing, customer support, and marketing communications, with your consent. We implement robust security measures to protect your information from unauthorized access and disclosure. You have the right to access, correct, or delete your personal data. For any questions or concerns regarding your privacy, please contact our support team.</p>
+<p>We may update this policy periodically, and any changes will be posted on our website. By using our services, you agree to the terms of this Privacy Policy.</p>
+</div>
+</section>
+<section class="scroll-mt-24" id="terms-conditions">
+<h2 class="text-[var(--text-primary)] text-2xl font-bold leading-tight tracking-[-0.015em] mb-4">Terms &amp; Conditions</h2>
+<div class="prose max-w-none text-[var(--text-primary)] text-base font-normal leading-relaxed space-y-4">
+<p>These Terms &amp; Conditions govern your use of AquaLuxe's website and services. By accessing or using our platform, you agree to comply with these terms. Our services include the sale of premium ornamental aquatic solutions, and all transactions are subject to our policies.</p>
+<p>You are responsible for maintaining the confidentiality of your account information and for all activities under your account. We reserve the right to modify or terminate services at any time without notice. Our liability is limited to the extent permitted by law, and we are not responsible for any indirect or consequential damages. Any disputes arising from these terms will be resolved through arbitration.</p>
+<p>We may update these terms periodically, and your continued use of our services constitutes acceptance of the updated terms. For any questions or concerns, please contact our support team.</p>
+</div>
+</section>
+<section class="scroll-mt-24" id="shipping-return">
+<h2 class="text-[var(--text-primary)] text-2xl font-bold leading-tight tracking-[-0.015em] mb-4">Shipping &amp; Return Policy</h2>
+<div class="prose max-w-none text-[var(--text-primary)] text-base font-normal leading-relaxed space-y-4">
+<p>AquaLuxe offers reliable shipping and hassle-free returns. We aim to deliver your orders promptly and in excellent condition. Our shipping policy covers delivery times, costs, and tracking information. We ship to most locations, and any restrictions will be clearly stated during checkout.</p>
+<p>If you are not satisfied with your purchase, our return policy allows for returns within a specified period, subject to certain conditions. Items must be returned in their original condition with all packaging. Refunds will be processed upon receipt and inspection of the returned items.</p>
+<p>For detailed information on shipping rates, delivery times, and return procedures, please refer to our Shipping &amp; Return Policy page. Our support team is available to assist with any questions or concerns regarding shipping and returns.</p>
+</div>
+</section>
+<section class="scroll-mt-24" id="export-import">
+<h2 class="text-[var(--text-primary)] text-2xl font-bold leading-tight tracking-[-0.015em] mb-4">Export &amp; Import Terms</h2>
+<div class="prose max-w-none text-[var(--text-primary)] text-base font-normal leading-relaxed space-y-4">
+<p>For international customers, AquaLuxe adheres to all applicable export and import regulations. Our Export &amp; Import Terms outline the responsibilities of both parties regarding customs, duties, and taxes. Customers are responsible for complying with their local import laws and regulations.</p>
+<p>We provide necessary documentation to facilitate customs clearance, but any additional requirements or fees imposed by the importing country are the customer's responsibility. We are not liable for delays or issues arising from customs procedures.</p>
+<p>For specific information on export restrictions, import duties, and required documentation, please refer to our Export &amp; Import Terms page. Our support team can provide guidance on international orders and compliance with relevant regulations.</p>
+</div>
+</section>
+<section class="scroll-mt-24" id="cookie-policy">
+<h2 class="text-[var(--text-primary)] text-2xl font-bold leading-tight tracking-[-0.015em] mb-4">Cookie Policy</h2>
+<div class="prose max-w-none text-[var(--text-primary)] text-base font-normal leading-relaxed space-y-4">
+<p>AquaLuxe uses cookies to enhance your browsing experience and improve our services. Our Cookie Policy explains the types of cookies we use, their purpose, and how you can manage your cookie preferences. Cookies are small text files stored on your device that help us remember your preferences, analyze website traffic, and personalize content.</p>
+<p>We use both session cookies (temporary) and persistent cookies (long-term). You can control cookies through your browser settings, allowing you to accept, reject, or delete cookies. Please note that disabling cookies may affect the functionality of our website.</p>
+<p>By continuing to use our website, you consent to our use of cookies as described in this policy.</p>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-white">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+<div class="flex flex-col items-center gap-8">
+<div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+<a class="text-[var(--text-secondary)] text-base font-medium leading-normal hover:text-[var(--primary-color)] transition-colors" href="#">Privacy Policy</a>
+<a class="text-[var(--text-secondary)] text-base font-medium leading-normal hover:text-[var(--primary-color)] transition-colors" href="#">Terms of Service</a>
+<a class="text-[var(--text-secondary)] text-base font-medium leading-normal hover:text-[var(--primary-color)] transition-colors" href="#">Contact Us</a>
+</div>
+<div class="flex justify-center gap-6">
+<a class="text-[var(--text-secondary)] hover:text-[var(--primary-color)] transition-colors" href="#">
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path></svg>
+</a>
+<a class="text-[var(--text-secondary)] hover:text-[var(--primary-color)] transition-colors" href="#">
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg>
+</a>
+<a class="text-[var(--text-secondary)] hover:text-[var(--primary-color)] transition-colors" href="#">
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.013-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.08 2.525c.636-.247 1.363-.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6zm5.25-8.25a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z" fill-rule="evenodd"></path></svg>
+</a>
+</div>
+<p class="text-[var(--text-secondary)] text-base font-normal leading-normal">© 2024 AquaLuxe. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</div>
+</div>
+
+</body></html>

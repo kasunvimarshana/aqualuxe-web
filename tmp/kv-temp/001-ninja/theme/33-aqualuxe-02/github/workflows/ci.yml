@@ -1,0 +1,100 @@
+name: AquaLuxe CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        php-versions: [7.4, 8.0]
+        node-version: [16.x]
+        
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Setup PHP ${{ matrix.php-versions }}
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php-versions }}
+        extensions: mbstring, intl, zip, xml
+        coverage: xdebug
+        tools: composer, phpcs, phpunit
+    
+    - name: Validate composer.json and composer.lock
+      run: composer validate
+    
+    - name: Install PHP dependencies
+      run: composer install --prefer-dist --no-progress
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    
+    - name: Install Node.js dependencies
+      run: npm ci
+    
+    - name: Run PHP Code Sniffer
+      run: composer run-script phpcs
+    
+    - name: Run PHP Unit Tests
+      run: composer run-script phpunit
+    
+    - name: Run ESLint
+      run: npm run lint:js
+    
+    - name: Run Stylelint
+      run: npm run lint:css
+    
+    - name: Build assets
+      run: npm run prod
+    
+    - name: Run Jest Tests
+      run: npm test
+    
+    - name: Run Accessibility Tests
+      run: npm run test:a11y
+    
+    - name: Package Theme
+      run: ./scripts/package-theme.sh
+    
+    - name: Upload Theme Package
+      uses: actions/upload-artifact@v2
+      with:
+        name: aqualuxe-theme
+        path: dist/*.zip
+        
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Download Theme Package
+      uses: actions/download-artifact@v2
+      with:
+        name: aqualuxe-theme
+        path: dist
+    
+    - name: Deploy to Staging
+      run: |
+        echo "Deploying to staging environment..."
+        # Add deployment script here
+    
+    - name: Run Visual Regression Tests
+      run: |
+        echo "Running visual regression tests..."
+        # Add visual regression testing script here
+    
+    - name: Deploy to Production
+      if: success()
+      run: |
+        echo "Deploying to production environment..."
+        # Add production deployment script here

@@ -1,0 +1,6 @@
+{
+  "name": "Services",
+  "slug": "services",
+  "class": "AquaLuxe\\Modules\\Services\\Module",
+  "enabled": true
+}

@@ -1,0 +1,14 @@
+/*
+Theme Name: AquaLuxe
+Theme URI: https://aqualuxe.example.com
+Author: AquaLuxe Team
+Author URI: https://aqualuxe.example.com
+Description: Modular, scalable, marketplace-ready WooCommerce theme for aquatics and luxury e-commerce.
+Version: 1.0.0
+License: GPL-3.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Text Domain: aqualuxe
+Tags: e-commerce, woocommerce, modular, accessibility-ready, responsive, rtl-language-support
+*/
+
+@import url('assets/dist/main.css');

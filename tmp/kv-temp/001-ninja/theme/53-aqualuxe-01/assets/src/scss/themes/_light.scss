@@ -1,0 +1,241 @@
+/**
+ * Light Theme
+ *
+ * Default light theme color scheme for the AquaLuxe WordPress theme.
+ */
+
+:root {
+  // Base colors
+  --body-bg: #{$light-color};
+  --body-color: #{$gray-900};
+  --border-color: #{$border-color};
+  
+  // Link colors
+  --link-color: #{$link-color};
+  --link-hover-color: #{$link-hover-color};
+  
+  // Header colors
+  --header-bg: #{$header-bg};
+  --header-border-color: #{$header-border-color};
+  --header-box-shadow: #{$header-box-shadow};
+  
+  // Footer colors
+  --footer-bg: #{$footer-bg};
+  --footer-color: #{$footer-color};
+  --footer-border-color: #{$footer-border-color};
+  --footer-link-color: #{$footer-link-color};
+  --footer-link-hover-color: #{$footer-link-hover-color};
+  
+  // Sidebar colors
+  --sidebar-bg: #{$sidebar-bg};
+  --sidebar-border-color: #{$sidebar-border-color};
+  
+  // Navigation colors
+  --nav-link-color: #{$nav-link-color};
+  --nav-link-hover-color: #{$nav-link-hover-color};
+  --nav-link-active-color: #{$nav-link-active-color};
+  
+  // Form colors
+  --input-bg: #{$input-bg};
+  --input-color: #{$input-color};
+  --input-border-color: #{$input-border-color};
+  --input-placeholder-color: #{$input-placeholder-color};
+  --input-focus-border-color: #{$input-focus-border-color};
+  --input-focus-box-shadow: #{$input-focus-box-shadow};
+  
+  // Card colors
+  --card-bg: #{$card-bg};
+  --card-border-color: #{$card-border-color};
+  --card-box-shadow: #{$card-box-shadow};
+  
+  // Post colors
+  --post-border-color: #{$post-border-color};
+  --post-box-shadow: #{$post-box-shadow};
+  
+  // Comment colors
+  --comment-border-color: #{$comment-border-color};
+  --comment-box-shadow: #{$comment-box-shadow};
+  
+  // Widget colors
+  --widget-border-color: #{$widget-border-color};
+  --widget-box-shadow: #{$widget-box-shadow};
+  
+  // Pagination colors
+  --pagination-color: #{$pagination-color};
+  --pagination-bg: #{$pagination-bg};
+  --pagination-border-color: #{$pagination-border-color};
+  --pagination-hover-color: #{$pagination-hover-color};
+  --pagination-hover-bg: #{$pagination-hover-bg};
+  --pagination-hover-border-color: #{$pagination-hover-border-color};
+  --pagination-active-color: #{$pagination-active-color};
+  --pagination-active-bg: #{$pagination-active-bg};
+  --pagination-active-border-color: #{$pagination-active-border-color};
+  
+  // Breadcrumb colors
+  --breadcrumb-bg: #{$breadcrumb-bg};
+  --breadcrumb-divider-color: #{$breadcrumb-divider-color};
+  --breadcrumb-active-color: #{$breadcrumb-active-color};
+  
+  // Alert colors
+  --alert-bg-level: #{$alert-bg-level};
+  --alert-border-level: #{$alert-border-level};
+  --alert-color-level: #{$alert-color-level};
+  
+  // Modal colors
+  --modal-content-bg: #{$modal-content-bg};
+  --modal-content-border-color: #{$modal-content-border-color};
+  --modal-backdrop-bg: #{$modal-backdrop-bg};
+  --modal-header-border-color: #{$modal-header-border-color};
+  --modal-footer-border-color: #{$modal-footer-border-color};
+  
+  // Theme colors with RGB values for opacity utilities
+  --primary-rgb: #{red($primary-color)}, #{green($primary-color)}, #{blue($primary-color)};
+  --secondary-rgb: #{red($secondary-color)}, #{green($secondary-color)}, #{blue($secondary-color)};
+  --accent-rgb: #{red($accent-color)}, #{green($accent-color)}, #{blue($accent-color)};
+  --success-rgb: #{red($success-color)}, #{green($success-color)}, #{blue($success-color)};
+  --info-rgb: #{red($info-color)}, #{green($info-color)}, #{blue($info-color)};
+  --warning-rgb: #{red($warning-color)}, #{green($warning-color)}, #{blue($warning-color)};
+  --danger-rgb: #{red($danger-color)}, #{green($danger-color)}, #{blue($danger-color)};
+  --light-rgb: #{red($light-color)}, #{green($light-color)}, #{blue($light-color)};
+  --dark-rgb: #{red($dark-color)}, #{green($dark-color)}, #{blue($dark-color)};
+}
+
+// Light theme specific styles
+body {
+  background-color: var(--body-bg);
+  color: var(--body-color);
+}
+
+a {
+  color: var(--link-color);
+  
+  &:hover {
+    color: var(--link-hover-color);
+  }
+}
+
+.site-header {
+  background-color: var(--header-bg);
+  border-color: var(--header-border-color);
+  box-shadow: var(--header-box-shadow);
+}
+
+.site-footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-color);
+  border-color: var(--footer-border-color);
+  
+  a {
+    color: var(--footer-link-color);
+    
+    &:hover {
+      color: var(--footer-link-hover-color);
+    }
+  }
+}
+
+.sidebar {
+  background-color: var(--sidebar-bg);
+  border-color: var(--sidebar-border-color);
+}
+
+.nav-link {
+  color: var(--nav-link-color);
+  
+  &:hover {
+    color: var(--nav-link-hover-color);
+  }
+  
+  &.active {
+    color: var(--nav-link-active-color);
+  }
+}
+
+.form-control {
+  background-color: var(--input-bg);
+  color: var(--input-color);
+  border-color: var(--input-border-color);
+  
+  &::placeholder {
+    color: var(--input-placeholder-color);
+  }
+  
+  &:focus {
+    border-color: var(--input-focus-border-color);
+    box-shadow: var(--input-focus-box-shadow);
+  }
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-color: var(--card-border-color);
+  box-shadow: var(--card-box-shadow);
+}
+
+.post {
+  border-color: var(--post-border-color);
+  box-shadow: var(--post-box-shadow);
+}
+
+.comment {
+  border-color: var(--comment-border-color);
+  box-shadow: var(--comment-box-shadow);
+}
+
+.widget {
+  border-color: var(--widget-border-color);
+  box-shadow: var(--widget-box-shadow);
+}
+
+.pagination {
+  .page-link {
+    color: var(--pagination-color);
+    background-color: var(--pagination-bg);
+    border-color: var(--pagination-border-color);
+    
+    &:hover {
+      color: var(--pagination-hover-color);
+      background-color: var(--pagination-hover-bg);
+      border-color: var(--pagination-hover-border-color);
+    }
+    
+    &.active {
+      color: var(--pagination-active-color);
+      background-color: var(--pagination-active-bg);
+      border-color: var(--pagination-active-border-color);
+    }
+  }
+}
+
+.breadcrumb {
+  background-color: var(--breadcrumb-bg);
+  
+  .breadcrumb-item {
+    + .breadcrumb-item::before {
+      color: var(--breadcrumb-divider-color);
+    }
+    
+    &.active {
+      color: var(--breadcrumb-active-color);
+    }
+  }
+}
+
+.modal {
+  .modal-content {
+    background-color: var(--modal-content-bg);
+    border-color: var(--modal-content-border-color);
+  }
+  
+  .modal-header {
+    border-color: var(--modal-header-border-color);
+  }
+  
+  .modal-footer {
+    border-color: var(--modal-footer-border-color);
+  }
+}
+
+.modal-backdrop {
+  background-color: var(--modal-backdrop-bg);
+}

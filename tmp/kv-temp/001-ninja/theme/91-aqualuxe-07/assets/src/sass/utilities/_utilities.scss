@@ -1,0 +1,525 @@
+/**
+ * Utility Classes
+ * 
+ * Helper classes for common styling patterns
+ * 
+ * @package AquaLuxe
+ * @since 1.2.0
+ */
+
+/* ==========================================================================
+   Display Utilities
+   ========================================================================== */
+
+.d-none { display: none !important; }
+.d-inline { display: inline !important; }
+.d-inline-block { display: inline-block !important; }
+.d-block { display: block !important; }
+.d-flex { display: flex !important; }
+.d-inline-flex { display: inline-flex !important; }
+.d-grid { display: grid !important; }
+.d-inline-grid { display: inline-grid !important; }
+
+// Responsive display utilities
+@each $breakpoint, $value in $breakpoints {
+  @media (min-width: $value) {
+    .d-#{$breakpoint}-none { display: none !important; }
+    .d-#{$breakpoint}-inline { display: inline !important; }
+    .d-#{$breakpoint}-inline-block { display: inline-block !important; }
+    .d-#{$breakpoint}-block { display: block !important; }
+    .d-#{$breakpoint}-flex { display: flex !important; }
+    .d-#{$breakpoint}-inline-flex { display: inline-flex !important; }
+    .d-#{$breakpoint}-grid { display: grid !important; }
+    .d-#{$breakpoint}-inline-grid { display: inline-grid !important; }
+  }
+}
+
+/* ==========================================================================
+   Flexbox Utilities
+   ========================================================================== */
+
+// Flex direction
+.flex-row { flex-direction: row !important; }
+.flex-column { flex-direction: column !important; }
+.flex-row-reverse { flex-direction: row-reverse !important; }
+.flex-column-reverse { flex-direction: column-reverse !important; }
+
+// Flex wrap
+.flex-wrap { flex-wrap: wrap !important; }
+.flex-nowrap { flex-wrap: nowrap !important; }
+.flex-wrap-reverse { flex-wrap: wrap-reverse !important; }
+
+// Justify content
+.justify-content-start { justify-content: flex-start !important; }
+.justify-content-end { justify-content: flex-end !important; }
+.justify-content-center { justify-content: center !important; }
+.justify-content-between { justify-content: space-between !important; }
+.justify-content-around { justify-content: space-around !important; }
+.justify-content-evenly { justify-content: space-evenly !important; }
+
+// Align items
+.align-items-start { align-items: flex-start !important; }
+.align-items-end { align-items: flex-end !important; }
+.align-items-center { align-items: center !important; }
+.align-items-baseline { align-items: baseline !important; }
+.align-items-stretch { align-items: stretch !important; }
+
+// Align content
+.align-content-start { align-content: flex-start !important; }
+.align-content-end { align-content: flex-end !important; }
+.align-content-center { align-content: center !important; }
+.align-content-between { align-content: space-between !important; }
+.align-content-around { align-content: space-around !important; }
+.align-content-stretch { align-content: stretch !important; }
+
+// Align self
+.align-self-auto { align-self: auto !important; }
+.align-self-start { align-self: flex-start !important; }
+.align-self-end { align-self: flex-end !important; }
+.align-self-center { align-self: center !important; }
+.align-self-baseline { align-self: baseline !important; }
+.align-self-stretch { align-self: stretch !important; }
+
+// Flex grow and shrink
+.flex-fill { flex: 1 1 auto !important; }
+.flex-grow-0 { flex-grow: 0 !important; }
+.flex-grow-1 { flex-grow: 1 !important; }
+.flex-shrink-0 { flex-shrink: 0 !important; }
+.flex-shrink-1 { flex-shrink: 1 !important; }
+
+// Gap utilities
+.gap-0 { gap: 0 !important; }
+.gap-1 { gap: $spacing-1 !important; }
+.gap-2 { gap: $spacing-2 !important; }
+.gap-3 { gap: $spacing-3 !important; }
+.gap-4 { gap: $spacing-4 !important; }
+.gap-5 { gap: $spacing-5 !important; }
+.gap-6 { gap: $spacing-6 !important; }
+.gap-8 { gap: $spacing-8 !important; }
+.gap-10 { gap: $spacing-10 !important; }
+.gap-12 { gap: $spacing-12 !important; }
+
+/* ==========================================================================
+   Spacing Utilities
+   ========================================================================== */
+
+// Margin utilities
+@each $prop, $abbrev in (margin: m, padding: p) {
+  @each $size, $length in (
+    0: 0,
+    1: $spacing-1,
+    2: $spacing-2,
+    3: $spacing-3,
+    4: $spacing-4,
+    5: $spacing-5,
+    6: $spacing-6,
+    8: $spacing-8,
+    10: $spacing-10,
+    12: $spacing-12,
+    16: $spacing-16,
+    20: $spacing-20,
+    24: $spacing-24,
+    auto: auto
+  ) {
+    .#{$abbrev}-#{$size} { #{$prop}: $length !important; }
+    .#{$abbrev}t-#{$size} { #{$prop}-top: $length !important; }
+    .#{$abbrev}r-#{$size} { #{$prop}-right: $length !important; }
+    .#{$abbrev}b-#{$size} { #{$prop}-bottom: $length !important; }
+    .#{$abbrev}l-#{$size} { #{$prop}-left: $length !important; }
+    .#{$abbrev}x-#{$size} {
+      #{$prop}-right: $length !important;
+      #{$prop}-left: $length !important;
+    }
+    .#{$abbrev}y-#{$size} {
+      #{$prop}-top: $length !important;
+      #{$prop}-bottom: $length !important;
+    }
+  }
+}
+
+/* ==========================================================================
+   Positioning Utilities
+   ========================================================================== */
+
+.position-static { position: static !important; }
+.position-relative { position: relative !important; }
+.position-absolute { position: absolute !important; }
+.position-fixed { position: fixed !important; }
+.position-sticky { position: sticky !important; }
+
+// Top, right, bottom, left
+@each $prop in (top, right, bottom, left) {
+  .#{$prop}-0 { #{$prop}: 0 !important; }
+  .#{$prop}-auto { #{$prop}: auto !important; }
+  .#{$prop}-50 { #{$prop}: 50% !important; }
+  .#{$prop}-100 { #{$prop}: 100% !important; }
+}
+
+/* ==========================================================================
+   Sizing Utilities
+   ========================================================================== */
+
+// Width utilities
+.w-25 { width: 25% !important; }
+.w-50 { width: 50% !important; }
+.w-75 { width: 75% !important; }
+.w-100 { width: 100% !important; }
+.w-auto { width: auto !important; }
+
+// Height utilities
+.h-25 { height: 25% !important; }
+.h-50 { height: 50% !important; }
+.h-75 { height: 75% !important; }
+.h-100 { height: 100% !important; }
+.h-auto { height: auto !important; }
+
+// Max width utilities
+.mw-100 { max-width: 100% !important; }
+.mh-100 { max-height: 100% !important; }
+
+// Viewport utilities
+.min-vw-100 { min-width: 100vw !important; }
+.min-vh-100 { min-height: 100vh !important; }
+.vw-100 { width: 100vw !important; }
+.vh-100 { height: 100vh !important; }
+
+/* ==========================================================================
+   Text Utilities
+   ========================================================================== */
+
+// Text alignment
+.text-left { text-align: left !important; }
+.text-right { text-align: right !important; }
+.text-center { text-align: center !important; }
+.text-justify { text-align: justify !important; }
+
+// Text transform
+.text-lowercase { text-transform: lowercase !important; }
+.text-uppercase { text-transform: uppercase !important; }
+.text-capitalize { text-transform: capitalize !important; }
+
+// Font weight
+.fw-light { font-weight: $font-weight-light !important; }
+.fw-normal { font-weight: $font-weight-normal !important; }
+.fw-medium { font-weight: $font-weight-medium !important; }
+.fw-semibold { font-weight: $font-weight-semibold !important; }
+.fw-bold { font-weight: $font-weight-bold !important; }
+.fw-bolder { font-weight: bolder !important; }
+
+// Font style
+.fst-italic { font-style: italic !important; }
+.fst-normal { font-style: normal !important; }
+
+// Font size utilities
+.fs-1 { font-size: $font-size-xs !important; }
+.fs-2 { font-size: $font-size-sm !important; }
+.fs-3 { font-size: $font-size-base !important; }
+.fs-4 { font-size: $font-size-lg !important; }
+.fs-5 { font-size: $font-size-xl !important; }
+.fs-6 { font-size: $font-size-2xl !important; }
+
+// Line height
+.lh-1 { line-height: 1 !important; }
+.lh-sm { line-height: $line-height-tight !important; }
+.lh-base { line-height: $line-height-normal !important; }
+.lh-lg { line-height: $line-height-relaxed !important; }
+
+// Text decoration
+.text-decoration-none { text-decoration: none !important; }
+.text-decoration-underline { text-decoration: underline !important; }
+.text-decoration-line-through { text-decoration: line-through !important; }
+
+// Text wrapping
+.text-wrap { white-space: normal !important; }
+.text-nowrap { white-space: nowrap !important; }
+.text-break { word-wrap: break-word !important; word-break: break-word !important; }
+
+// Text overflow
+.text-truncate {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+/* ==========================================================================
+   Color Utilities
+   ========================================================================== */
+
+// Text colors
+.text-primary { color: var(--color-primary-600) !important; }
+.text-secondary { color: var(--color-secondary-600) !important; }
+.text-success { color: var(--color-success-600) !important; }
+.text-info { color: var(--color-info-600) !important; }
+.text-warning { color: var(--color-warning-600) !important; }
+.text-danger { color: var(--color-danger-600) !important; }
+.text-light { color: var(--color-gray-100) !important; }
+.text-dark { color: var(--color-gray-900) !important; }
+.text-muted { color: var(--color-gray-500) !important; }
+.text-white { color: var(--color-white) !important; }
+
+// Background colors
+.bg-primary { background-color: var(--color-primary-500) !important; }
+.bg-secondary { background-color: var(--color-secondary-500) !important; }
+.bg-success { background-color: var(--color-success-500) !important; }
+.bg-info { background-color: var(--color-info-500) !important; }
+.bg-warning { background-color: var(--color-warning-500) !important; }
+.bg-danger { background-color: var(--color-danger-500) !important; }
+.bg-light { background-color: var(--color-gray-100) !important; }
+.bg-dark { background-color: var(--color-gray-900) !important; }
+.bg-white { background-color: var(--color-white) !important; }
+.bg-transparent { background-color: transparent !important; }
+
+// Gradient backgrounds
+.bg-gradient {
+  background-image: var(--gradient-primary) !important;
+}
+
+/* ==========================================================================
+   Border Utilities
+   ========================================================================== */
+
+// Border
+.border { border: 1px solid var(--color-gray-200) !important; }
+.border-0 { border: 0 !important; }
+.border-top { border-top: 1px solid var(--color-gray-200) !important; }
+.border-top-0 { border-top: 0 !important; }
+.border-right { border-right: 1px solid var(--color-gray-200) !important; }
+.border-right-0 { border-right: 0 !important; }
+.border-bottom { border-bottom: 1px solid var(--color-gray-200) !important; }
+.border-bottom-0 { border-bottom: 0 !important; }
+.border-left { border-left: 1px solid var(--color-gray-200) !important; }
+.border-left-0 { border-left: 0 !important; }
+
+// Border colors
+.border-primary { border-color: var(--color-primary-500) !important; }
+.border-secondary { border-color: var(--color-secondary-500) !important; }
+.border-success { border-color: var(--color-success-500) !important; }
+.border-info { border-color: var(--color-info-500) !important; }
+.border-warning { border-color: var(--color-warning-500) !important; }
+.border-danger { border-color: var(--color-danger-500) !important; }
+.border-light { border-color: var(--color-gray-100) !important; }
+.border-dark { border-color: var(--color-gray-900) !important; }
+.border-white { border-color: var(--color-white) !important; }
+
+// Border radius
+.rounded { border-radius: $border-radius-base !important; }
+.rounded-0 { border-radius: 0 !important; }
+.rounded-1 { border-radius: $border-radius-sm !important; }
+.rounded-2 { border-radius: $border-radius-md !important; }
+.rounded-3 { border-radius: $border-radius-lg !important; }
+.rounded-4 { border-radius: $border-radius-xl !important; }
+.rounded-5 { border-radius: $border-radius-2xl !important; }
+.rounded-circle { border-radius: 50% !important; }
+.rounded-pill { border-radius: $border-radius-full !important; }
+
+// Border radius sides
+.rounded-top { border-top-left-radius: $border-radius-base !important; border-top-right-radius: $border-radius-base !important; }
+.rounded-right { border-top-right-radius: $border-radius-base !important; border-bottom-right-radius: $border-radius-base !important; }
+.rounded-bottom { border-bottom-right-radius: $border-radius-base !important; border-bottom-left-radius: $border-radius-base !important; }
+.rounded-left { border-top-left-radius: $border-radius-base !important; border-bottom-left-radius: $border-radius-base !important; }
+
+/* ==========================================================================
+   Shadow Utilities
+   ========================================================================== */
+
+.shadow-none { box-shadow: none !important; }
+.shadow-sm { box-shadow: $shadow-sm !important; }
+.shadow { box-shadow: $shadow-md !important; }
+.shadow-lg { box-shadow: $shadow-lg !important; }
+.shadow-xl { box-shadow: $shadow-xl !important; }
+
+/* ==========================================================================
+   Overflow Utilities
+   ========================================================================== */
+
+.overflow-auto { overflow: auto !important; }
+.overflow-hidden { overflow: hidden !important; }
+.overflow-visible { overflow: visible !important; }
+.overflow-scroll { overflow: scroll !important; }
+.overflow-x-auto { overflow-x: auto !important; }
+.overflow-x-hidden { overflow-x: hidden !important; }
+.overflow-x-scroll { overflow-x: scroll !important; }
+.overflow-y-auto { overflow-y: auto !important; }
+.overflow-y-hidden { overflow-y: hidden !important; }
+.overflow-y-scroll { overflow-y: scroll !important; }
+
+/* ==========================================================================
+   Visibility Utilities
+   ========================================================================== */
+
+.visible { visibility: visible !important; }
+.invisible { visibility: hidden !important; }
+
+/* ==========================================================================
+   Z-index Utilities
+   ========================================================================== */
+
+.z-n1 { z-index: -1 !important; }
+.z-0 { z-index: 0 !important; }
+.z-1 { z-index: 1 !important; }
+.z-2 { z-index: 2 !important; }
+.z-3 { z-index: 3 !important; }
+
+/* ==========================================================================
+   Interaction Utilities
+   ========================================================================== */
+
+.user-select-all { user-select: all !important; }
+.user-select-auto { user-select: auto !important; }
+.user-select-none { user-select: none !important; }
+
+.pe-none { pointer-events: none !important; }
+.pe-auto { pointer-events: auto !important; }
+
+/* ==========================================================================
+   Accessibility Utilities
+   ========================================================================== */
+
+// Screen reader only
+.sr-only,
+.screen-reader-text {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.sr-only-focusable,
+.screen-reader-text:focus {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  padding: inherit !important;
+  margin: inherit !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: normal !important;
+}
+
+/* ==========================================================================
+   Ocean Theme Utilities
+   ========================================================================== */
+
+// Glass morphism
+.glass-morphism {
+  background: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  
+  [data-theme="dark"] & {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.125) !important;
+  }
+}
+
+// Gradient text
+.text-gradient {
+  background: var(--gradient-primary) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+// Ocean wave decoration
+.wave-decoration {
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z' fill='%23006BA6'%3E%3C/path%3E%3C/svg%3E") repeat-x;
+    background-size: 1200px 20px;
+  }
+}
+
+// Floating animation
+.float {
+  animation: float 3s ease-in-out infinite;
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
+// Pulse glow
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite alternate;
+  
+  @keyframes pulse-glow {
+    from {
+      box-shadow: 0 0 20px rgba(var(--color-primary-500-rgb), 0.3);
+    }
+    to {
+      box-shadow: 0 0 30px rgba(var(--color-primary-500-rgb), 0.6);
+    }
+  }
+}
+
+/* ==========================================================================
+   Responsive Utilities
+   ========================================================================== */
+
+// Hide on specific breakpoints
+@each $breakpoint, $value in $breakpoints {
+  @media (max-width: #{$value - 1px}) {
+    .d-#{$breakpoint}-none { display: none !important; }
+  }
+}
+
+// Show only on specific breakpoints
+@each $breakpoint, $value in $breakpoints {
+  .d-#{$breakpoint}-only {
+    display: none !important;
+    
+    @media (min-width: $value) {
+      display: block !important;
+    }
+    
+    @if $breakpoint != 'xxl' {
+      $next-breakpoint: map-get($breakpoints, nth(map-keys($breakpoints), index(map-keys($breakpoints), $breakpoint) + 1));
+      @media (min-width: $next-breakpoint) {
+        display: none !important;
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+   Motion & Accessibility
+   ========================================================================== */
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .float {
+    animation: none !important;
+  }
+  
+  .pulse-glow {
+    animation: none !important;
+  }
+  
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+// Print utilities
+@media print {
+  .d-print-none { display: none !important; }
+  .d-print-inline { display: inline !important; }
+  .d-print-inline-block { display: inline-block !important; }
+  .d-print-block { display: block !important; }
+}

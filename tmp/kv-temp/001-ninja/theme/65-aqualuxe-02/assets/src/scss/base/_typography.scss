@@ -1,0 +1,449 @@
+/**
+ * AquaLuxe Theme Typography
+ */
+
+// Base typography
+body {
+  font-family: $font-family-sans;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+  color: $color-gray-900;
+  
+  @include dark-mode {
+    color: $color-gray-100;
+  }
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: $spacing-4;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+}
+
+h1 {
+  font-size: $font-size-3xl;
+  
+  @include respond-to('md') {
+    font-size: $font-size-4xl;
+  }
+  
+  @include respond-to('lg') {
+    font-size: $font-size-5xl;
+  }
+}
+
+h2 {
+  font-size: $font-size-2xl;
+  
+  @include respond-to('md') {
+    font-size: $font-size-3xl;
+  }
+  
+  @include respond-to('lg') {
+    font-size: $font-size-4xl;
+  }
+}
+
+h3 {
+  font-size: $font-size-xl;
+  
+  @include respond-to('md') {
+    font-size: $font-size-2xl;
+  }
+  
+  @include respond-to('lg') {
+    font-size: $font-size-3xl;
+  }
+}
+
+h4 {
+  font-size: $font-size-lg;
+  
+  @include respond-to('md') {
+    font-size: $font-size-xl;
+  }
+  
+  @include respond-to('lg') {
+    font-size: $font-size-2xl;
+  }
+}
+
+h5 {
+  font-size: $font-size-base;
+  
+  @include respond-to('md') {
+    font-size: $font-size-lg;
+  }
+  
+  @include respond-to('lg') {
+    font-size: $font-size-xl;
+  }
+}
+
+h6 {
+  font-size: $font-size-sm;
+  
+  @include respond-to('md') {
+    font-size: $font-size-base;
+  }
+  
+  @include respond-to('lg') {
+    font-size: $font-size-lg;
+  }
+}
+
+// Paragraphs
+p {
+  margin-top: 0;
+  margin-bottom: $spacing-4;
+}
+
+// Links
+a {
+  color: $color-primary;
+  text-decoration: none;
+  @include transition(color);
+  
+  &:hover,
+  &:focus {
+    color: $color-primary-dark;
+    text-decoration: underline;
+  }
+  
+  @include dark-mode {
+    color: $color-primary-light;
+    
+    &:hover,
+    &:focus {
+      color: lighten($color-primary-light, 10%);
+    }
+  }
+}
+
+// Lists
+ul, ol {
+  margin-top: 0;
+  margin-bottom: $spacing-4;
+  padding-left: $spacing-5;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+li {
+  margin-bottom: $spacing-2;
+}
+
+// Blockquotes
+blockquote {
+  margin: $spacing-4 0;
+  padding: $spacing-4;
+  border-left: 4px solid $color-primary;
+  background-color: $color-gray-100;
+  font-style: italic;
+  
+  @include dark-mode {
+    background-color: $color-gray-800;
+    border-left-color: $color-primary-light;
+  }
+  
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Code
+code, pre {
+  font-family: $font-family-mono;
+  font-size: $font-size-sm;
+}
+
+code {
+  padding: $spacing-0-5 $spacing-1;
+  background-color: $color-gray-100;
+  border-radius: $border-radius;
+  
+  @include dark-mode {
+    background-color: $color-gray-800;
+  }
+}
+
+pre {
+  margin: $spacing-4 0;
+  padding: $spacing-4;
+  background-color: $color-gray-100;
+  border-radius: $border-radius;
+  overflow-x: auto;
+  
+  @include dark-mode {
+    background-color: $color-gray-800;
+  }
+  
+  code {
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+  }
+}
+
+// Horizontal rule
+hr {
+  margin: $spacing-6 0;
+  border: 0;
+  border-top: 1px solid $color-gray-300;
+  
+  @include dark-mode {
+    border-top-color: $color-gray-700;
+  }
+}
+
+// Small text
+small {
+  font-size: $font-size-sm;
+}
+
+// Strong text
+strong {
+  font-weight: $font-weight-bold;
+}
+
+// Emphasis
+em {
+  font-style: italic;
+}
+
+// Abbreviations
+abbr[title] {
+  border-bottom: 1px dotted $color-gray-400;
+  cursor: help;
+}
+
+// Address
+address {
+  margin-bottom: $spacing-4;
+  font-style: normal;
+  line-height: $line-height-relaxed;
+}
+
+// Definition lists
+dl {
+  margin-top: 0;
+  margin-bottom: $spacing-4;
+}
+
+dt {
+  font-weight: $font-weight-bold;
+}
+
+dd {
+  margin-left: 0;
+  margin-bottom: $spacing-2;
+}
+
+// Selection
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}
+
+// Text utilities
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-truncate {
+  @include text-truncate;
+}
+
+// Font weights
+.font-thin {
+  font-weight: $font-weight-thin;
+}
+
+.font-extralight {
+  font-weight: $font-weight-extralight;
+}
+
+.font-light {
+  font-weight: $font-weight-light;
+}
+
+.font-normal {
+  font-weight: $font-weight-normal;
+}
+
+.font-medium {
+  font-weight: $font-weight-medium;
+}
+
+.font-semibold {
+  font-weight: $font-weight-semibold;
+}
+
+.font-bold {
+  font-weight: $font-weight-bold;
+}
+
+.font-extrabold {
+  font-weight: $font-weight-extrabold;
+}
+
+.font-black {
+  font-weight: $font-weight-black;
+}
+
+// Font styles
+.italic {
+  font-style: italic;
+}
+
+.not-italic {
+  font-style: normal;
+}
+
+// Line heights
+.leading-none {
+  line-height: $line-height-none;
+}
+
+.leading-tight {
+  line-height: $line-height-tight;
+}
+
+.leading-snug {
+  line-height: $line-height-snug;
+}
+
+.leading-normal {
+  line-height: $line-height-normal;
+}
+
+.leading-relaxed {
+  line-height: $line-height-relaxed;
+}
+
+.leading-loose {
+  line-height: $line-height-loose;
+}
+
+// Text colors
+.text-primary {
+  color: $color-primary;
+}
+
+.text-secondary {
+  color: $color-secondary;
+}
+
+.text-accent {
+  color: $color-accent;
+}
+
+.text-success {
+  color: $color-success;
+}
+
+.text-warning {
+  color: $color-warning;
+}
+
+.text-error {
+  color: $color-error;
+}
+
+.text-info {
+  color: $color-info;
+}
+
+// WordPress specific typography
+.wp-caption {
+  max-width: 100%;
+  margin-bottom: $spacing-4;
+  
+  img {
+    margin-bottom: $spacing-1;
+  }
+}
+
+.wp-caption-text {
+  font-size: $font-size-sm;
+  color: $color-gray-600;
+  text-align: center;
+  
+  @include dark-mode {
+    color: $color-gray-400;
+  }
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: $spacing-4;
+  margin-bottom: $spacing-4;
+}
+
+.gallery-item {
+  text-align: center;
+}
+
+.gallery-caption {
+  font-size: $font-size-sm;
+  color: $color-gray-600;
+  
+  @include dark-mode {
+    color: $color-gray-400;
+  }
+}
+
+.alignleft {
+  float: left;
+  margin-right: $spacing-4;
+  margin-bottom: $spacing-4;
+}
+
+.alignright {
+  float: right;
+  margin-left: $spacing-4;
+  margin-bottom: $spacing-4;
+}
+
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.screen-reader-text {
+  @include visually-hidden;
+}

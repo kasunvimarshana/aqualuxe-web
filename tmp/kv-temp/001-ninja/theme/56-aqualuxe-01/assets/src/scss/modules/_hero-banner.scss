@@ -1,0 +1,382 @@
+// Hero Banner Module Styles
+
+.hero-banner {
+  position: relative;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  
+  // Height variations
+  &--small {
+    min-height: 300px;
+    
+    @media (min-width: 768px) {
+      min-height: 400px;
+    }
+  }
+  
+  &--medium {
+    min-height: 400px;
+    
+    @media (min-width: 768px) {
+      min-height: 500px;
+    }
+  }
+  
+  &--large {
+    min-height: 500px;
+    
+    @media (min-width: 768px) {
+      min-height: 600px;
+    }
+  }
+  
+  &--full {
+    min-height: 100vh;
+  }
+  
+  // Background types
+  &--bg-image {
+    background-color: transparent;
+  }
+  
+  &--bg-color {
+    background-image: none;
+  }
+  
+  &--bg-video {
+    background-image: none;
+    background-color: #000;
+  }
+  
+  // Alignment variations
+  &--align-left {
+    .hero-banner__content {
+      text-align: left;
+      margin-right: auto;
+    }
+  }
+  
+  &--align-center {
+    .hero-banner__content {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  
+  &--align-right {
+    .hero-banner__content {
+      text-align: right;
+      margin-left: auto;
+    }
+  }
+  
+  // Animation variations
+  &--animate-fade {
+    .hero-banner__title,
+    .hero-banner__subtitle,
+    .hero-banner__description,
+    .hero-banner__buttons {
+      opacity: 0;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+    
+    .hero-banner__subtitle {
+      animation-delay: 0.2s;
+    }
+    
+    .hero-banner__description {
+      animation-delay: 0.4s;
+    }
+    
+    .hero-banner__buttons {
+      animation-delay: 0.6s;
+    }
+  }
+  
+  &--animate-slide {
+    .hero-banner__title,
+    .hero-banner__subtitle,
+    .hero-banner__description,
+    .hero-banner__buttons {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideUp 0.8s ease-out forwards;
+    }
+    
+    .hero-banner__subtitle {
+      animation-delay: 0.2s;
+    }
+    
+    .hero-banner__description {
+      animation-delay: 0.4s;
+    }
+    
+    .hero-banner__buttons {
+      animation-delay: 0.6s;
+    }
+  }
+  
+  &--animate-zoom {
+    .hero-banner__content {
+      opacity: 0;
+      transform: scale(0.9);
+      animation: zoomIn 1s ease-out forwards;
+    }
+  }
+  
+  &--animate-bounce {
+    .hero-banner__title,
+    .hero-banner__subtitle,
+    .hero-banner__description,
+    .hero-banner__buttons {
+      opacity: 0;
+      animation: bounceIn 1s ease-out forwards;
+    }
+    
+    .hero-banner__subtitle {
+      animation-delay: 0.2s;
+    }
+    
+    .hero-banner__description {
+      animation-delay: 0.4s;
+    }
+    
+    .hero-banner__buttons {
+      animation-delay: 0.6s;
+    }
+  }
+  
+  // Video container
+  &__video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  &__video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+  }
+  
+  &__youtube-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  // Overlay
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+  }
+  
+  // Container
+  &__container {
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 2rem 1rem;
+    
+    @media (min-width: 768px) {
+      padding: 3rem 2rem;
+    }
+  }
+  
+  // Content
+  &__content {
+    max-width: 800px;
+    width: 100%;
+  }
+  
+  &__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    
+    @media (min-width: 768px) {
+      font-size: 3.5rem;
+    }
+    
+    @media (min-width: 992px) {
+      font-size: 4rem;
+    }
+  }
+  
+  &__subtitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+    
+    @media (min-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+  
+  &__description {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    
+    @media (min-width: 768px) {
+      font-size: 1.25rem;
+    }
+    
+    p {
+      margin-bottom: 1rem;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+  // Buttons
+  &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    
+    @media (max-width: 767px) {
+      flex-direction: column;
+    }
+  }
+  
+  &__button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    
+    @media (min-width: 768px) {
+      padding: 0.875rem 2rem;
+      font-size: 1.125rem;
+    }
+    
+    &--primary {
+      background-color: var(--aqualuxe-primary-color);
+      color: #fff;
+      border: 2px solid var(--aqualuxe-primary-color);
+      
+      &:hover, &:focus {
+        background-color: darken(#0073aa, 10%);
+        border-color: darken(#0073aa, 10%);
+        color: #fff;
+      }
+    }
+    
+    &--secondary {
+      background-color: transparent;
+      color: #fff;
+      border: 2px solid #fff;
+      
+      &:hover, &:focus {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+}
+
+// Animation keyframes
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+// Dark mode styles
+.dark-mode {
+  .hero-banner {
+    &--bg-color {
+      background-color: var(--aqualuxe-secondary-color);
+    }
+    
+    &__button {
+      &--secondary {
+        border-color: #fff;
+        color: #fff;
+        
+        &:hover, &:focus {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
+  }
+}

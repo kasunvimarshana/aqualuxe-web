@@ -1,0 +1,305 @@
+{
+  "theme_info": {
+    "name": "AquaLuxe Demo Content",
+    "version": "1.0.0",
+    "description": "Complete demo content for luxury aquatic retail theme"
+  },
+  "customizer_settings": {
+    "aqualuxe_logo": "",
+    "aqualuxe_primary_color": "#0891b2",
+    "aqualuxe_secondary_color": "#0e7490",
+    "aqualuxe_accent_color": "#0284c7",
+    "aqualuxe_dark_mode": false,
+    "aqualuxe_header_style": "default",
+    "aqualuxe_footer_style": "default",
+    "aqualuxe_typography_heading": "Inter",
+    "aqualuxe_typography_body": "Inter",
+    "aqualuxe_layout_sidebar": "right",
+    "aqualuxe_layout_container_width": "1200",
+    "aqualuxe_social_facebook": "https://facebook.com/aqualuxe",
+    "aqualuxe_social_instagram": "https://instagram.com/aqualuxe",
+    "aqualuxe_social_twitter": "https://twitter.com/aqualuxe",
+    "aqualuxe_contact_phone": "+1 (555) 123-4567",
+    "aqualuxe_contact_email": "info@aqualuxe.com",
+    "aqualuxe_contact_address": "123 Ocean Drive, Marine City, MC 12345"
+  },
+  "pages": [
+    {
+      "title": "Home",
+      "slug": "home",
+      "content": "<div class=\"hero-section bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-20\">\n  <div class=\"container mx-auto px-4 text-center\">\n    <h1 class=\"text-5xl font-bold mb-6\">Bringing Elegance to Aquatic Life</h1>\n    <p class=\"text-xl mb-8\">Discover our premium collection of rare fish, aquatic plants, and luxury aquarium equipment from around the world.</p>\n    <a href=\"/shop\" class=\"btn btn-primary btn-lg\">Explore Collection</a>\n  </div>\n</div>\n\n<div class=\"featured-products py-16\">\n  <div class=\"container mx-auto px-4\">\n    <h2 class=\"text-3xl font-bold text-center mb-12\">Featured Aquatic Species</h2>\n    <!-- Featured products will be populated dynamically -->\n  </div>\n</div>\n\n<div class=\"testimonials py-16 bg-gray-50\">\n  <div class=\"container mx-auto px-4\">\n    <h2 class=\"text-3xl font-bold text-center mb-12\">What Our Customers Say</h2>\n    <!-- Testimonials will be populated -->\n  </div>\n</div>",
+      "template": "front-page",
+      "is_front_page": true,
+      "meta": {
+        "_aqualuxe_hero_background": "gradient",
+        "_aqualuxe_show_breadcrumbs": "0",
+        "_aqualuxe_page_layout": "full-width"
+      }
+    },
+    {
+      "title": "About Us",
+      "slug": "about",
+      "content": "<div class=\"about-hero py-16 bg-gradient-to-r from-blue-600 to-cyan-500 text-white\">\n  <div class=\"container mx-auto px-4 text-center\">\n    <h1 class=\"text-4xl font-bold mb-6\">About AquaLuxe</h1>\n    <p class=\"text-xl\">Pioneers in luxury aquatic life since 1995</p>\n  </div>\n</div>\n\n<div class=\"about-content py-16\">\n  <div class=\"container mx-auto px-4\">\n    <div class=\"grid md:grid-cols-2 gap-12 items-center\">\n      <div>\n        <h2 class=\"text-3xl font-bold mb-6\">Our Mission</h2>\n        <p class=\"text-lg mb-6\">At AquaLuxe, we are dedicated to bringing the most exquisite aquatic species and premium equipment to enthusiasts worldwide. Our passion for marine life drives us to source only the finest specimens while maintaining the highest standards of ethical breeding and sustainable practices.</p>\n        <p class=\"text-lg\">From rare tropical fish to exotic marine invertebrates, every creature in our collection represents our commitment to quality, beauty, and the preservation of aquatic biodiversity.</p>\n      </div>\n      <div>\n        <img src=\"/wp-content/uploads/2024/about-aquarium.jpg\" alt=\"Luxury Aquarium Setup\" class=\"rounded-lg shadow-lg\">\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"values py-16 bg-gray-50\">\n  <div class=\"container mx-auto px-4\">\n    <h2 class=\"text-3xl font-bold text-center mb-12\">Our Values</h2>\n    <div class=\"grid md:grid-cols-3 gap-8\">\n      <div class=\"text-center\">\n        <div class=\"w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4\">\n          <svg class=\"w-8 h-8 text-blue-600\" fill=\"currentColor\" viewBox=\"0 0 20 20\">\n            <path d=\"M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z\"></path>\n          </svg>\n        </div>\n        <h3 class=\"text-xl font-semibold mb-4\">Quality Assurance</h3>\n        <p>Every specimen undergoes rigorous health checks and quarantine procedures.</p>\n      </div>\n      <div class=\"text-center\">\n        <div class=\"w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4\">\n          <svg class=\"w-8 h-8 text-green-600\" fill=\"currentColor\" viewBox=\"0 0 20 20\">\n            <path d=\"M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z\"></path>\n          </svg>\n        </div>\n        <h3 class=\"text-xl font-semibold mb-4\">Sustainability</h3>\n        <p>Committed to ethical breeding practices and conservation efforts.</p>\n      </div>\n      <div class=\"text-center\">\n        <div class=\"w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4\">\n          <svg class=\"w-8 h-8 text-purple-600\" fill=\"currentColor\" viewBox=\"0 0 20 20\">\n            <path d=\"M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z\"></path>\n          </svg>\n        </div>\n        <h3 class=\"text-xl font-semibold mb-4\">Excellence</h3>\n        <p>Delivering premium service and expertise to aquatic enthusiasts globally.</p>\n      </div>\n    </div>\n  </div>\n</div>",
+      "template": "page-about",
+      "meta": {
+        "_aqualuxe_hero_background": "gradient",
+        "_aqualuxe_show_breadcrumbs": "1",
+        "_aqualuxe_page_layout": "full-width"
+      }
+    },
+    {
+      "title": "Contact Us",
+      "slug": "contact",
+      "content": "<div class=\"contact-hero py-16 bg-gradient-to-r from-cyan-600 to-blue-600 text-white\">\n  <div class=\"container mx-auto px-4 text-center\">\n    <h1 class=\"text-4xl font-bold mb-6\">Contact AquaLuxe</h1>\n    <p class=\"text-xl\">Get in touch with our aquatic experts</p>\n  </div>\n</div>\n\n<div class=\"contact-content py-16\">\n  <div class=\"container mx-auto px-4\">\n    <div class=\"grid lg:grid-cols-2 gap-12\">\n      <div>\n        <h2 class=\"text-3xl font-bold mb-8\">Get In Touch</h2>\n        \n        <div class=\"contact-info space-y-6\">\n          <div class=\"flex items-start space-x-4\">\n            <div class=\"w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0\">\n              <svg class=\"w-6 h-6 text-blue-600\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\">\n                <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z\"></path>\n                <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 11a3 3 0 11-6 0 3 3 0 016 0z\"></path>\n              </svg>\n            </div>\n            <div>\n              <h3 class=\"font-semibold text-lg mb-2\">Visit Our Facility</h3>\n              <p class=\"text-gray-600\">123 Ocean Drive<br>Marine City, MC 12345<br>United States</p>\n            </div>\n          </div>\n          \n          <div class=\"flex items-start space-x-4\">\n            <div class=\"w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0\">\n              <svg class=\"w-6 h-6 text-green-600\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\">\n                <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z\"></path>\n              </svg>\n            </div>\n            <div>\n              <h3 class=\"font-semibold text-lg mb-2\">Call Us</h3>\n              <p class=\"text-gray-600\">Phone: +1 (555) 123-4567<br>Toll Free: 1-800-AQUALUX</p>\n            </div>\n          </div>\n          \n          <div class=\"flex items-start space-x-4\">\n            <div class=\"w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0\">\n              <svg class=\"w-6 h-6 text-purple-600\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\">\n                <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z\"></path>\n              </svg>\n            </div>\n            <div>\n              <h3 class=\"font-semibold text-lg mb-2\">Email Us</h3>\n              <p class=\"text-gray-600\">General: info@aqualuxe.com<br>Support: support@aqualuxe.com<br>Sales: sales@aqualuxe.com</p>\n            </div>\n          </div>\n        </div>\n        \n        <div class=\"business-hours mt-8\">\n          <h3 class=\"font-semibold text-lg mb-4\">Business Hours</h3>\n          <div class=\"space-y-2\">\n            <div class=\"flex justify-between\">\n              <span>Monday - Friday:</span>\n              <span>9:00 AM - 7:00 PM</span>\n            </div>\n            <div class=\"flex justify-between\">\n              <span>Saturday:</span>\n              <span>10:00 AM - 6:00 PM</span>\n            </div>\n            <div class=\"flex justify-between\">\n              <span>Sunday:</span>\n              <span>12:00 PM - 5:00 PM</span>\n            </div>\n          </div>\n        </div>\n      </div>\n      \n      <div>\n        <div class=\"contact-form bg-white rounded-lg shadow-lg p-8\">\n          <h3 class=\"text-2xl font-bold mb-6\">Send us a Message</h3>\n          <!-- Contact form will be inserted here -->\n          [contact-form-7 id=\"123\" title=\"Contact form\"]\n        </div>\n      </div>\n    </div>\n  </div>\n</div>",
+      "template": "page-contact",
+      "meta": {
+        "_aqualuxe_hero_background": "gradient",
+        "_aqualuxe_show_breadcrumbs": "1",
+        "_aqualuxe_page_layout": "full-width",
+        "_aqualuxe_contact_map": "1"
+      }
+    }
+  ],
+  "posts": [
+    {
+      "title": "The Art of Aquascaping: Creating Underwater Landscapes",
+      "slug": "art-of-aquascaping-underwater-landscapes",
+      "content": "Aquascaping is more than just arranging plants and decorations in an aquarium—it's the art of creating living underwater landscapes that captivate and inspire. Whether you're a beginner or an experienced aquarist, mastering the principles of aquascaping can transform your aquarium into a stunning centerpiece.\n\n## Understanding Aquascaping Styles\n\nThere are several distinct aquascaping styles, each with its own aesthetic philosophy:\n\n### Nature Style (Takashi Amano Style)\nInspired by natural landscapes, this style emphasizes asymmetrical compositions using rocks, driftwood, and carefully selected plants to recreate scenes from nature.\n\n### Dutch Style\nKnown for its lush, garden-like appearance, Dutch aquascaping focuses on dense plant growth with careful attention to color, texture, and plant placement.\n\n### Iwagumi Style\nThis minimalist approach uses rocks as the primary hardscape element, typically featuring odd numbers of stones arranged according to Japanese aesthetic principles.\n\n## Essential Elements\n\n### Hardscape Materials\n- **Dragon Stone**: Provides texture and natural coloring\n- **Seiryu Stone**: Creates dramatic focal points\n- **Driftwood**: Adds organic shapes and tannins\n\n### Plant Selection\n- **Foreground**: Glossostigma, Monte Carlo, Baby Tears\n- **Midground**: Anubias, Cryptocoryne, Java Fern\n- **Background**: Vallisneria, Rotala, Ludwigia\n\n### Technical Considerations\n- **Lighting**: LED systems with adjustable spectrum\n- **CO2 Injection**: Essential for plant growth\n- **Filtration**: Canister filters for optimal flow\n- **Substrate**: Nutrient-rich aqua soil\n\n## Design Principles\n\n### Rule of Thirds\nDivide your aquarium into a 3x3 grid and place focal points at the intersections for visual balance.\n\n### Color Theory\nUse complementary colors to create visual interest while maintaining harmony.\n\n### Perspective and Depth\nCreate the illusion of depth using:\n- Smaller plants in the background\n- Lighter colors in the distance\n- Strategic positioning of hardscape\n\n## Maintenance Tips\n\n### Daily Care\n- Monitor lighting schedule (6-8 hours)\n- Check CO2 levels\n- Observe plant and fish health\n\n### Weekly Maintenance\n- Water changes (20-30%)\n- Trim overgrown plants\n- Clean glass and equipment\n- Test water parameters\n\n### Monthly Tasks\n- Deep clean substrate\n- Replace filter media\n- Fertilizer adjustments\n- Equipment inspection\n\n## Common Mistakes to Avoid\n\n1. **Overcrowding**: Less is often more in aquascaping\n2. **Symmetrical designs**: Nature is rarely perfectly symmetrical\n3. **Inadequate lighting**: Plants need proper spectrum and intensity\n4. **Ignoring growth patterns**: Plan for how plants will develop\n5. **Poor plant selection**: Choose species with similar requirements\n\n## Advanced Techniques\n\n### Creating Flow\nUse plant placement and hardscape to guide the viewer's eye through the composition.\n\n### Seasonal Maintenance\nRotate plant species to maintain year-round interest and health.\n\n### Photography\nCapture your aquascape with proper lighting and camera angles to showcase your creation.\n\n## Conclusion\n\nSuccessful aquascaping requires patience, creativity, and understanding of aquatic ecosystems. Start with simple designs and gradually incorporate more complex elements as you gain experience. Remember, the best aquascapes tell a story and create an emotional connection with viewers.\n\nExplore our premium aquascaping supplies and rare plant collection to begin your underwater artistry journey today.",
+      "excerpt": "Discover the art of creating stunning underwater landscapes through aquascaping. Learn design principles, plant selection, and maintenance techniques for breathtaking aquariums.",
+      "category": "Aquascaping",
+      "tags": ["aquascaping", "plants", "design", "maintenance"],
+      "featured_image": "aquascaping-landscape.jpg",
+      "author": "Marina Rodriguez",
+      "date": "2024-01-15"
+    },
+    {
+      "title": "Caring for Rare Tropical Fish: A Complete Guide",
+      "slug": "caring-rare-tropical-fish-complete-guide",
+      "content": "Rare tropical fish represent some of the most beautiful and fascinating creatures in the aquatic world. However, their beauty comes with responsibility—these delicate species require specialized care, proper environment, and deep understanding of their natural habitat needs.\n\n## Understanding Rare Species Requirements\n\n### Water Parameters\nRare tropical fish often come from specific ecosystems with unique water conditions:\n\n- **pH Levels**: Range from 6.0-8.5 depending on species\n- **Temperature**: Typically 75-82°F (24-28°C)\n- **Hardness**: Soft to moderately hard water\n- **Salinity**: Freshwater vs. brackish requirements\n\n### Tank Setup Essentials\n\n#### Filtration Systems\n- **Biological filtration**: Beneficial bacteria colonies\n- **Mechanical filtration**: Physical debris removal\n- **Chemical filtration**: Activated carbon, specialized media\n\n#### Heating and Circulation\n- Reliable heater systems with backup\n- Proper water circulation without strong currents\n- Temperature monitoring and controls\n\n## Species-Specific Care Guidelines\n\n### Rare Cichlids\n**Examples**: Tropheus, Petrochromis, endemic lake species\n\n- **Tank Size**: Minimum 75 gallons for small groups\n- **Diet**: Specialized cichlid pellets, vegetable matter\n- **Social Structure**: Species-specific grouping requirements\n- **Breeding**: Complex social hierarchies and spawning behaviors\n\n### Exotic Catfish\n**Examples**: Royal Plecos, Zebra Plecos, rare Corydoras\n\n- **Substrate**: Fine sand for bottom-dwellers\n- **Hiding Places**: Caves, driftwood, dense vegetation\n- **Diet**: High-protein sinking foods, live/frozen options\n- **Water Flow**: Moderate to strong current simulation\n\n### Rare Tetras and Characins\n**Examples**: Cardinal Tetras, rare Pencilfish species\n\n- **School Size**: Minimum 6-8 individuals\n- **Plant Coverage**: Dense vegetation for security\n- **Lighting**: Subdued lighting preferences\n- **Diet**: Small live foods, high-quality flakes\n\n## Feeding and Nutrition\n\n### Dietary Requirements\n\n#### Live Foods\n- **Brine shrimp**: Excellent protein source\n- **Daphnia**: Natural water filterers\n- **Bloodworms**: High-energy option\n- **Tubifex worms**: For bottom feeders\n\n#### Prepared Foods\n- **Species-specific pellets**: Tailored nutrition\n- **Frozen foods**: Convenient alternative to live\n- **Vegetable supplements**: For herbivorous species\n\n### Feeding Schedules\n- **Frequency**: 2-3 small meals daily\n- **Portion Control**: What can be consumed in 2-3 minutes\n- **Variety**: Rotate different food types\n- **Fasting Days**: Weekly fasting for digestive health\n\n## Health Monitoring and Disease Prevention\n\n### Daily Observations\n- **Behavior patterns**: Swimming, feeding, social interactions\n- **Physical appearance**: Color, fin condition, body shape\n- **Water quality**: Visual clarity, odor, parameter testing\n\n### Common Health Issues\n\n#### Parasites\n- **Ich (White Spot Disease)**: Temperature and medication treatment\n- **Velvet Disease**: Copper-based treatments\n- **Internal parasites**: Medicated foods, quarantine protocols\n\n#### Bacterial Infections\n- **Fin rot**: Water quality improvement, antibiotics\n- **Columnaris**: Aggressive treatment required\n- **Pop-eye**: Usually secondary to poor water conditions\n\n### Quarantine Protocols\n- **New arrivals**: 2-4 week isolation period\n- **Treatment tank**: Separate system for sick fish\n- **Observation**: Daily monitoring during quarantine\n- **Water testing**: Frequent parameter checks\n\n## Breeding Rare Species\n\n### Environmental Triggers\n- **Water changes**: Simulate seasonal variations\n- **Temperature fluctuations**: Gradual changes\n- **Lighting cycles**: Photoperiod adjustments\n- **Diet enhancement**: High-protein conditioning foods\n\n### Breeding Setup\n- **Spawning tanks**: Species-appropriate environments\n- **Water parameters**: Optimal breeding conditions\n- **Spawning media**: Caves, plants, or open water\n- **Fry care**: Specialized foods and protection\n\n## Conservation Considerations\n\n### Ethical Sourcing\n- **Captive-bred specimens**: Support sustainable practices\n- **CITES regulations**: Legal compliance\n- **Quarantine facilities**: Disease prevention\n- **Documentation**: Maintain breeding records\n\n### Supporting Conservation\n- **Breeding programs**: Participate in species preservation\n- **Data sharing**: Contribute to scientific knowledge\n- **Habitat protection**: Support conservation organizations\n\n## Advanced Care Techniques\n\n### Water Chemistry Management\n- **Buffer systems**: Maintain stable pH\n- **Trace elements**: Essential mineral supplementation\n- **Water aging**: Proper preparation protocols\n- **Testing schedules**: Regular parameter monitoring\n\n### Equipment Maintenance\n- **Filter cleaning**: Regular beneficial bacteria preservation\n- **Equipment replacement**: Preventive maintenance schedules\n- **Backup systems**: Redundancy for critical equipment\n\n## Troubleshooting Common Problems\n\n### Stress Indicators\n- **Erratic swimming**: Environmental stress\n- **Color loss**: Health or water quality issues\n- **Hiding behavior**: Security or territorial concerns\n- **Reduced appetite**: Multiple potential causes\n\n### Solutions\n- **Environmental assessment**: Complete system evaluation\n- **Gradual adjustments**: Avoid sudden changes\n- **Professional consultation**: Expert advice when needed\n\n## Conclusion\n\nCaring for rare tropical fish is both challenging and rewarding. Success requires dedication to understanding each species' unique needs, maintaining optimal water conditions, and providing appropriate nutrition and healthcare. The investment in proper care is repaid with the incredible beauty and fascinating behaviors these remarkable creatures display.\n\nExplore our collection of rare tropical fish and specialized care products to enhance your aquatic experience responsibly and successfully.",
+      "excerpt": "Master the art of caring for rare tropical fish with our comprehensive guide covering species requirements, health monitoring, and breeding techniques.",
+      "category": "Fish Care",
+      "tags": ["tropical fish", "rare species", "care guide", "aquarium"],
+      "featured_image": "rare-tropical-fish.jpg",
+      "author": "Dr. James Chen",
+      "date": "2024-01-20"
+    }
+  ],
+  "products": [
+    {
+      "title": "Premium Discus Fish - Blue Diamond",
+      "slug": "premium-discus-blue-diamond",
+      "type": "simple",
+      "price": 299.99,
+      "sale_price": 249.99,
+      "sku": "AQL-DISC-BD001",
+      "stock_quantity": 5,
+      "description": "Exquisite Blue Diamond Discus fish, known for their stunning coloration and peaceful temperament. Tank-bred specimens with guaranteed health and quality. Perfect centerpiece for planted aquariums.",
+      "short_description": "Premium Blue Diamond Discus - Tank-bred, healthy specimens with vibrant blue coloration.",
+      "categories": ["Tropical Fish", "Discus", "Rare Species"],
+      "tags": ["discus", "blue diamond", "tropical", "centerpiece"],
+      "images": ["discus-blue-diamond-1.jpg", "discus-blue-diamond-2.jpg"],
+      "attributes": {
+        "Size": ["4-5 inches", "5-6 inches"],
+        "Origin": ["Tank Bred"],
+        "Difficulty": ["Advanced"],
+        "Temperament": ["Peaceful"]
+      },
+      "weight": 0.5,
+      "dimensions": {
+        "length": "6",
+        "width": "6",
+        "height": "8"
+      }
+    },
+    {
+      "title": "Rare Zebra Pleco (L46)",
+      "slug": "rare-zebra-pleco-l46",
+      "type": "simple",
+      "price": 899.99,
+      "sku": "AQL-PLECO-ZB001",
+      "stock_quantity": 2,
+      "description": "Extremely rare Zebra Pleco (Hypancistrus zebra) from the Xingu River. These magnificent catfish are prized for their striking black and white striped pattern. Due to dam construction, wild collection is now prohibited, making tank-bred specimens incredibly valuable.",
+      "short_description": "Ultra-rare Zebra Pleco - One of the most sought-after aquarium fish in the world.",
+      "categories": ["Tropical Fish", "Plecos", "Ultra Rare"],
+      "tags": ["zebra pleco", "L46", "rare", "catfish"],
+      "images": ["zebra-pleco-1.jpg", "zebra-pleco-2.jpg"],
+      "attributes": {
+        "Size": ["3-4 inches"],
+        "Origin": ["Tank Bred"],
+        "Difficulty": ["Expert"],
+        "Temperament": ["Peaceful"]
+      },
+      "weight": 0.3,
+      "dimensions": {
+        "length": "4",
+        "width": "4",
+        "height": "6"
+      }
+    },
+    {
+      "title": "Aquatic Plant Bundle - Premium Carpeting Mix",
+      "slug": "aquatic-plant-bundle-premium-carpeting",
+      "type": "simple",
+      "price": 89.99,
+      "sale_price": 69.99,
+      "sku": "AQL-PLANT-CAR001",
+      "stock_quantity": 15,
+      "description": "Complete carpeting plant package including Glossostigma elatinoides, Monte Carlo, and Baby Tears. Perfect for creating lush foreground carpets in planted aquariums. All plants are tissue-cultured for guaranteed pest-free introduction.",
+      "short_description": "Premium carpeting plant bundle - Everything needed for stunning aquarium foregrounds.",
+      "categories": ["Aquatic Plants", "Carpeting Plants", "Plant Bundles"],
+      "tags": ["plants", "carpeting", "foreground", "tissue culture"],
+      "images": ["carpeting-plants-1.jpg", "carpeting-plants-2.jpg"],
+      "attributes": {
+        "Light Requirements": ["Medium", "High"],
+        "CO2 Requirements": ["Recommended"],
+        "Difficulty": ["Intermediate"],
+        "Growth Rate": ["Medium to Fast"]
+      },
+      "weight": 0.2,
+      "dimensions": {
+        "length": "8",
+        "width": "6",
+        "height": "4"
+      }
+    },
+    {
+      "title": "Luxury Rimless Aquarium - 120L Crystal Clear",
+      "slug": "luxury-rimless-aquarium-120l-crystal",
+      "type": "simple",
+      "price": 1299.99,
+      "sku": "AQL-TANK-RIM120",
+      "stock_quantity": 3,
+      "description": "Ultra-clear glass rimless aquarium with beveled edges and precision-cut joints. Features low-iron glass for exceptional clarity and includes matching glass cover. Perfect for showcasing aquascapes and rare fish collections.",
+      "short_description": "Premium rimless aquarium with ultra-clear glass and professional-grade construction.",
+      "categories": ["Aquariums", "Rimless Tanks", "Premium Equipment"],
+      "tags": ["rimless", "aquarium", "crystal clear", "luxury"],
+      "images": ["rimless-120l-1.jpg", "rimless-120l-2.jpg"],
+      "attributes": {
+        "Volume": ["120 Liters"],
+        "Glass Type": ["Low-Iron Ultra-Clear"],
+        "Style": ["Rimless"],
+        "Includes": ["Glass Cover", "Leveling Mat"]
+      },
+      "weight": 45.0,
+      "dimensions": {
+        "length": "80",
+        "width": "40",
+        "height": "40"
+      }
+    }
+  ],
+  "menus": {
+    "primary": [
+      {
+        "title": "Home",
+        "url": "/",
+        "classes": "home-link"
+      },
+      {
+        "title": "Shop",
+        "url": "/shop",
+        "children": [
+          {
+            "title": "Tropical Fish",
+            "url": "/shop/tropical-fish"
+          },
+          {
+            "title": "Aquatic Plants",
+            "url": "/shop/aquatic-plants"
+          },
+          {
+            "title": "Equipment",
+            "url": "/shop/equipment"
+          },
+          {
+            "title": "Rare Species",
+            "url": "/shop/rare-species"
+          }
+        ]
+      },
+      {
+        "title": "Services",
+        "url": "/services",
+        "children": [
+          {
+            "title": "Aquarium Design",
+            "url": "/services/aquarium-design"
+          },
+          {
+            "title": "Maintenance",
+            "url": "/services/maintenance"
+          },
+          {
+            "title": "Consultation",
+            "url": "/services/consultation"
+          }
+        ]
+      },
+      {
+        "title": "About",
+        "url": "/about"
+      },
+      {
+        "title": "Blog",
+        "url": "/blog"
+      },
+      {
+        "title": "Contact",
+        "url": "/contact"
+      }
+    ],
+    "footer": [
+      {
+        "title": "Shop",
+        "children": [
+          {
+            "title": "Tropical Fish",
+            "url": "/shop/tropical-fish"
+          },
+          {
+            "title": "Plants",
+            "url": "/shop/plants"
+          },
+          {
+            "title": "Equipment",
+            "url": "/shop/equipment"
+          }
+        ]
+      },
+      {
+        "title": "Support",
+        "children": [
+          {
+            "title": "Care Guides",
+            "url": "/care-guides"
+          },
+          {
+            "title": "FAQ",
+            "url": "/faq"
+          },
+          {
+            "title": "Contact",
+            "url": "/contact"
+          }
+        ]
+      },
+      {
+        "title": "Company",
+        "children": [
+          {
+            "title": "About Us",
+            "url": "/about"
+          },
+          {
+            "title": "Privacy Policy",
+            "url": "/privacy-policy"
+          },
+          {
+            "title": "Terms of Service",
+            "url": "/terms"
+          }
+        ]
+      }
+    ]
+  }
+}

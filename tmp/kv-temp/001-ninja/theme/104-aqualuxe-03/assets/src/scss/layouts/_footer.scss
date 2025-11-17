@@ -1,0 +1,70 @@
+// Footer layout styles
+@layer components {
+  .site-footer {
+    .footer-main {
+      .footer-brand {
+        .footer-logo img {
+          @apply max-h-12 w-auto;
+        }
+
+        .social-links {
+          @apply flex space-x-4;
+
+          a {
+            @apply w-10 h-10 bg-gray-700 hover:bg-primary-600 text-white rounded-full flex items-center justify-center transition-colors;
+          }
+        }
+      }
+
+      .footer-links {
+        ul {
+          @apply space-y-2;
+
+          li a {
+            @apply text-gray-400 hover:text-white transition-colors;
+          }
+        }
+      }
+
+      .footer-contact {
+        .contact-item {
+          @apply flex items-start mb-3;
+
+          .contact-icon {
+            @apply w-5 h-5 text-primary-500 mr-3 mt-0.5 flex-shrink-0;
+          }
+
+          .contact-text {
+            @apply text-gray-400;
+          }
+        }
+      }
+    }
+
+    .footer-newsletter {
+      .newsletter-form {
+        @apply flex max-w-md mx-auto;
+
+        input[type="email"] {
+          @apply flex-1 px-4 py-3 bg-gray-700 text-white placeholder-gray-400 border border-gray-600 rounded-l-lg focus:outline-none focus:border-primary-500;
+        }
+
+        button[type="submit"] {
+          @apply px-6 py-3 bg-primary-600 text-white rounded-r-lg hover:bg-primary-700 transition-colors;
+        }
+      }
+    }
+
+    .footer-bottom {
+      .footer-legal {
+        ul {
+          @apply flex flex-wrap space-x-6;
+
+          li a {
+            @apply hover:text-white transition-colors;
+          }
+        }
+      }
+    }
+  }
+}

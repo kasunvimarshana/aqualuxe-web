@@ -1,0 +1,219 @@
+/**
+ * AquaLuxe Theme - Dark Mode Stylesheet
+ *
+ * This stylesheet contains dark mode specific styles.
+ * It is loaded conditionally when dark mode is enabled.
+ */
+
+/**
+ * Import Tailwind CSS dark mode utilities
+ */
+@tailwind utilities;
+
+/**
+ * Import dark mode variables
+ */
+@import "abstracts/variables-dark";
+
+/**
+ * Dark mode base styles
+ */
+.dark {
+  color-scheme: dark;
+  
+  /* Base styles */
+  background-color: theme('colors.neutral.900');
+  color: theme('colors.neutral.100');
+  
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+    color: theme('colors.neutral.50');
+  }
+  
+  /* Links */
+  a:not(.btn) {
+    color: theme('colors.primary.300');
+    
+    &:hover, &:focus {
+      color: theme('colors.primary.200');
+    }
+  }
+  
+  /* Borders */
+  .border, .border-t, .border-r, .border-b, .border-l {
+    border-color: theme('colors.neutral.800');
+  }
+  
+  /* Form elements */
+  input, select, textarea {
+    background-color: theme('colors.neutral.800');
+    border-color: theme('colors.neutral.700');
+    color: theme('colors.neutral.100');
+    
+    &::placeholder {
+      color: theme('colors.neutral.500');
+    }
+    
+    &:focus {
+      border-color: theme('colors.primary.500');
+      box-shadow: 0 0 0 2px rgba(0, 175, 204, 0.25);
+    }
+  }
+  
+  /* Buttons */
+  .btn {
+    &.btn-primary {
+      background-color: theme('colors.primary.600');
+      
+      &:hover, &:focus {
+        background-color: theme('colors.primary.700');
+      }
+    }
+    
+    &.btn-secondary {
+      background-color: theme('colors.secondary.700');
+      
+      &:hover, &:focus {
+        background-color: theme('colors.secondary.800');
+      }
+    }
+    
+    &.btn-accent {
+      background-color: theme('colors.accent.600');
+      
+      &:hover, &:focus {
+        background-color: theme('colors.accent.700');
+      }
+    }
+    
+    &.btn-outline {
+      border-color: theme('colors.neutral.600');
+      color: theme('colors.neutral.300');
+      
+      &:hover, &:focus {
+        border-color: theme('colors.primary.500');
+        color: theme('colors.primary.300');
+      }
+    }
+  }
+  
+  /* Cards */
+  .card {
+    background-color: theme('colors.neutral.800');
+    border-color: theme('colors.neutral.700');
+    
+    .card-header {
+      border-bottom-color: theme('colors.neutral.700');
+    }
+    
+    .card-footer {
+      border-top-color: theme('colors.neutral.700');
+    }
+  }
+  
+  /* Tables */
+  table {
+    th {
+      background-color: theme('colors.neutral.800');
+    }
+    
+    tr:nth-child(even) {
+      background-color: theme('colors.neutral.850', theme('colors.neutral.900'));
+    }
+    
+    td {
+      border-color: theme('colors.neutral.800');
+    }
+  }
+  
+  /* Header */
+  .site-header {
+    background-color: theme('colors.neutral.900');
+    border-bottom-color: theme('colors.neutral.800');
+  }
+  
+  /* Footer */
+  .site-footer {
+    background-color: theme('colors.neutral.900');
+    border-top-color: theme('colors.neutral.800');
+  }
+  
+  /* Navigation */
+  .main-navigation {
+    .menu-item {
+      a {
+        color: theme('colors.neutral.300');
+        
+        &:hover, &:focus {
+          color: theme('colors.primary.300');
+        }
+      }
+      
+      &.current-menu-item > a {
+        color: theme('colors.primary.300');
+      }
+    }
+  }
+  
+  /* Mobile menu */
+  .mobile-menu {
+    background-color: theme('colors.neutral.900');
+    
+    .menu-item {
+      border-bottom-color: theme('colors.neutral.800');
+    }
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    .widget {
+      background-color: theme('colors.neutral.800');
+      border-color: theme('colors.neutral.700');
+    }
+  }
+  
+  /* WooCommerce specific */
+  &.woocommerce {
+    .products .product {
+      .woocommerce-loop-product__title {
+        color: theme('colors.neutral.200');
+      }
+      
+      .price {
+        color: theme('colors.primary.300');
+      }
+    }
+    
+    .star-rating span::before {
+      color: theme('colors.accent.400');
+    }
+    
+    .onsale {
+      background-color: theme('colors.accent.600');
+      color: theme('colors.neutral.900');
+    }
+  }
+}
+
+/* Dark mode toggle button */
+.dark-mode-toggle {
+  .sun-icon {
+    display: none;
+  }
+  
+  .moon-icon {
+    display: block;
+  }
+}
+
+.dark {
+  .dark-mode-toggle {
+    .sun-icon {
+      display: block;
+    }
+    
+    .moon-icon {
+      display: none;
+    }
+  }
+}

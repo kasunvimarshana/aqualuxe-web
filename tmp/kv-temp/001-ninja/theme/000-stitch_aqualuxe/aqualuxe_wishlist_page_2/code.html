@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Work+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>AquaLuxe - My Wishlist</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+      :root {
+        --primary-color: #11b4d4;
+        --secondary-color: #f8fbfc;
+        --text-primary: #0d191b;
+        --text-secondary: #4c8d9a;
+        --border-color: #e7f1f3;
+      }
+      .btn-primary {
+        @apply bg-[var(--primary-color)] text-white;
+      }
+      .btn-secondary {
+        @apply bg-[var(--secondary-color)] text-[var(--text-primary)];
+      }
+    </style>
+</head>
+<body class="bg-[var(--secondary-color)]" style='font-family: "Work Sans", "Noto Sans", sans-serif;'>
+<div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[var(--border-color)] px-10 py-4 shadow-sm">
+<div class="flex items-center gap-4 text-[var(--text-primary)]">
+<div class="size-8 text-[var(--primary-color)]">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h1 class="text-[var(--text-primary)] text-xl font-bold leading-tight tracking-tight">AquaLuxe</h1>
+</div>
+<nav class="flex flex-1 justify-center gap-8">
+<a class="text-[var(--text-primary)] text-sm font-medium leading-normal hover:text-[var(--primary-color)] transition-colors" href="#">New Arrivals</a>
+<a class="text-[var(--text-primary)] text-sm font-medium leading-normal hover:text-[var(--primary-color)] transition-colors" href="#">Best Sellers</a>
+<a class="text-[var(--text-primary)] text-sm font-medium leading-normal hover:text-[var(--primary-color)] transition-colors" href="#">Aquatic Plants</a>
+<a class="text-[var(--text-primary)] text-sm font-medium leading-normal hover:text-[var(--primary-color)] transition-colors" href="#">Fish &amp; Invertebrates</a>
+<a class="text-[var(--text-primary)] text-sm font-medium leading-normal hover:text-[var(--primary-color)] transition-colors" href="#">Decor &amp; Substrates</a>
+<a class="text-[var(--text-primary)] text-sm font-medium leading-normal hover:text-[var(--primary-color)] transition-colors" href="#">Care &amp; Maintenance</a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-md h-10 w-10 btn-secondary hover:bg-[#e7f1f3] transition-colors">
+<span class="material-symbols-outlined text-[var(--text-primary)]">search</span>
+</button>
+<button class="flex items-center justify-center rounded-md h-10 w-10 btn-secondary hover:bg-[#e7f1f3] transition-colors">
+<span class="material-symbols-outlined text-[var(--text-primary)]">favorite_border</span>
+</button>
+<button class="flex items-center justify-center rounded-md h-10 w-10 btn-secondary hover:bg-[#e7f1f3] transition-colors">
+<span class="material-symbols-outlined text-[var(--text-primary)]">shopping_bag</span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuABuHC8YSKAZzzo3fNhwHR9aJC_lt3gdGzXlJamchoB2psqbShsrS5OPftUEp4XqM6fpU2JuzbKCcTg6ISkGZWnbb3RdP9myGAorLbpI7iJreY878kdvr_NZafKOXzBWcxopv52YK2fdqSmVOekTg362jckvAt-c9KkyarRwilGFOsYTUgc9q5uN50KphOs6-T30XlpXNjhNl6sR4ACbkJNnvfPqJjgCcOk1A2noF_dM2jJSqYmorHiEyuXxrnTK8Cu0rm3hUv2wQ");'></div>
+</div>
+</header>
+<main class="px-10 md:px-20 lg:px-40 flex flex-1 justify-center py-10">
+<div class="layout-content-container flex flex-col w-full max-w-5xl">
+<div class="flex flex-wrap justify-between items-center gap-4 p-4 mb-6">
+<h2 class="text-[var(--text-primary)] text-4xl font-bold leading-tight tracking-tight">My Wishlist</h2>
+</div>
+<div class="bg-white rounded-md shadow-md">
+<ul class="divide-y divide-[var(--border-color)]">
+<li class="flex items-center gap-6 p-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-md size-24 shrink-0" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAKuJFg-VN6ogkbZtIeIwJaYTF1DVOukKwSMUPlWhdo42K4476ERP0ExxVzXPEbkjhIJj_K2I01S1Ll0fWB7tK198mVln0v4C-z07nNs7ud1k8EMTKUoaqvKTs3rRyPzZOTWfserUODIe192ZxsAg7tIvOgvBzLWm0OzfR2q_orMBq62yD0Nk2Ed24JU9KM2ysGUMJN8SEf-KFKyXDThjVB4J6awi2Nxlfjf2gR1G5dRm5fpC7bspbO1iHNYVIpxHFO24tZox68fQ");'></div>
+<div class="flex-grow">
+<h3 class="text-[var(--text-primary)] text-lg font-semibold leading-normal">Rare Amazonian Sword Plant</h3>
+<p class="text-[var(--text-secondary)] text-md font-medium leading-normal">$49.99</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center rounded-md h-10 px-4 text-sm font-bold btn-primary hover:bg-opacity-90 transition-colors">Add to Cart</button>
+<button class="flex items-center justify-center rounded-md h-10 w-10 btn-secondary hover:bg-[#e7f1f3] transition-colors" title="Move to another wishlist">
+<span class="material-symbols-outlined text-lg">low_priority</span>
+</button>
+<button class="flex items-center justify-center rounded-md h-10 w-10 btn-secondary hover:bg-[#e7f1f3] transition-colors" title="Remove">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</li>
+<li class="flex items-center gap-6 p-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-md size-24 shrink-0" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAUDzpFd9dvgL7zrmjDu0pKuAZQsziXju3DN3344ze1VfzDtiMbBN3ux_yNvQHjv7vcjtLJa4k62Ll30ucEFP8v8KWqaL9r2erk4KMMTkQa5--HdgBqZiIVMeaVOFA1jqffCDZ8yvjHLMiJD9jrfv6n3glqPKycwlrZ5PRkW0NQll9J2p5C7zPcPVoWPmjF2NwpnP62RAGsv5mkp-cVPLNeyiy8gn1zcgvUjjSXIA1gQsL0kV0wS-5HfIGgYvySoTh3LwTrdlH-yw");'></div>
+<div class="flex-grow">
+<h3 class="text-[var(--text-primary)] text-lg font-semibold leading-normal">Crystal Red Shrimp</h3>
+<p class="text-[var(--text-secondary)] text-md font-medium leading-normal">$29.99</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center rounded-md h-10 px-4 text-sm font-bold btn-primary hover:bg-opacity-90 transition-colors">Add to Cart</button>
+<button class="flex items-center justify-center rounded-md h-10 w-10 btn-secondary hover:bg-[#e7f1f3] transition-colors" title="Move to another wishlist">
+<span class="material-symbols-outlined text-lg">low_priority</span>
+</button>
+<button class="flex items-center justify-center rounded-md h-10 w-10 btn-secondary hover:bg-[#e7f1f3] transition-colors" title="Remove">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</li>
+<li class="flex items-center gap-6 p-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-md size-24 shrink-0" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC--nOYrT4G2qR-ihB1_ngYVkUuf7Uo3D-2ngJv0jXlcTKc11tQIkidwXXyhFX4brYs3V0f0yRT6p39c6fRmg3bC5gN-YASsapuPhGpeozYYvuayBFdSOmELsoUAluiduEKhvrDNjrZD6f7ju0FWd5noFB_0eFz2TUyXgga2A65X1hj_Ee7dVW-PWfamOhjRwFdrXAHrbw0h8t30cHYmC_yPTgVKfUwkcYOJF4PCKBS6gLWk37cnHRrm8-GRbsE2y-YiH0IWpQraw");'></div>
+<div class="flex-grow">
+<h3 class="text-[var(--text-primary)] text-lg font-semibold leading-normal">Java Moss</h3>
+<p class="text-[var(--text-secondary)] text-md font-medium leading-normal">$19.99</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center rounded-md h-10 px-4 text-sm font-bold btn-primary hover:bg-opacity-90 transition-colors">Add to Cart</button>
+<button class="flex items-center justify-center rounded-md h-10 w-10 btn-secondary hover:bg-[#e7f1f3] transition-colors" title="Move to another wishlist">
+<span class="material-symbols-outlined text-lg">low_priority</span>
+</button>
+<button class="flex items-center justify-center rounded-md h-10 w-10 btn-secondary hover:bg-[#e7f1f3] transition-colors" title="Remove">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</li>
+<li class="flex items-center gap-6 p-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-md size-24 shrink-0" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBzraDTA81dGWgAMm9cVNGa0pMrCZ0Ru21ZBn6s8mDXCKstQp1e2pY47CBD6PYrjWmJZcoyJKw2QnUVouqywj2A57UDlJt_tcf73GTlQdB4PPrIph257dxoM_-k2iYYVMK70J5E7yVSLRagVGYJqwa7rHR-ef1QWW47BHcafjUky85Hd_s7K3rmyKrriBHfPhmwXJNrZkTaJDESf1MG9RpKFYII-E06pIqtxp7I0aCFWYfSXl742oX80OwYulJJCVOCt8fKwNOjig");'></div>
+<div class="flex-grow">
+<h3 class="text-[var(--text-primary)] text-lg font-semibold leading-normal">Dragon Stone</h3>
+<p class="text-[var(--text-secondary)] text-md font-medium leading-normal">$99.99</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center rounded-md h-10 px-4 text-sm font-bold btn-primary hover:bg-opacity-90 transition-colors">Add to Cart</button>
+<button class="flex items-center justify-center rounded-md h-10 w-10 btn-secondary hover:bg-[#e7f1f3] transition-colors" title="Move to another wishlist">
+<span class="material-symbols-outlined text-lg">low_priority</span>
+</button>
+<button class="flex items-center justify-center rounded-md h-10 w-10 btn-secondary hover:bg-[#e7f1f3] transition-colors" title="Remove">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</li>
+</ul>
+</div>
+<h2 class="text-[var(--text-primary)] text-2xl font-bold leading-tight tracking-tight px-4 pb-3 pt-12">You may also like</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
+<div class="flex flex-col gap-4 rounded-md overflow-hidden bg-white shadow-md group">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover group-hover:scale-110 transition-transform duration-300" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDvRYqP4j08X57ddE6Hg906jAXSgdi5iwadlwxaSxJ6XBqWpuzC8j86U3jm1IR98fMziff2tlQEwzsxx7boDjhtZliAY2GXji8W8VX0jmcTVXKsR6b7wNw-FWoEbOEcdntikvF8992qXj-xCtmji88plktvtDb4q7GECXbwI0H0hdk805uq00ZIEdxY5DCFNESNO230RgWz6dSqtHCMgjxY8HKIaMlgwDdAf6CcjZviTrSIHCo-0KiFsrVxgZRtokIDDwO-3y9ZEQ");'></div>
+</div>
+<div class="p-4 pt-0">
+<h3 class="text-[var(--text-primary)] text-base font-semibold leading-normal">Planted Aquarium Starter Kit</h3>
+<p class="text-[var(--text-secondary)] text-sm font-medium leading-normal">$149.99</p>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-md overflow-hidden bg-white shadow-md group">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover group-hover:scale-110 transition-transform duration-300" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDLc6NlVSEKGTDmDYKS5U2qRpuKLXb89JQypC54F1dCUN81PWPxtU-BgPqbe_26swl15V3mBNQX2bhJTwsWt620yoUh-O7pJpZaCHgUogZ4lv55gxNEezS4GxEeReQr_7Dk8totgyYvC2-EdV7EKkBTihlG6BRiSDLHrhxrJxLUidl0u1WXm5kWo5hIyup0zZL-UYKijM9NnaUNR0GqQPpCZ8YgjMGqigMGcxDCIMcZWes4oH_sOibLIsnmZbjhPk8cmjrtXvQ-ug");'></div>
+</div>
+<div class="p-4 pt-0">
+<h3 class="text-[var(--text-primary)] text-base font-semibold leading-normal">Community Fish Pack</h3>
+<p class="text-[var(--text-secondary)] text-sm font-medium leading-normal">$79.99</p>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-md overflow-hidden bg-white shadow-md group">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover group-hover:scale-110 transition-transform duration-300" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCevtYMCtuDnrdayhk38d5D-Fj1rLPWQ-tMUOmN2bsJB1EHjbLtI8UPtu43XMz1ezYu1Fik-10waP7kZs58UIL5nY-9FjN7d-UHnHCC6cNhgPaiV1V-I20VMxERShokiuEbm680gv38fqdvyCp3HKSfpkpCbvEtz0bKSJOGeE-Xh1IqIEiLR3JnGUYeoqhG9vrnjvQr0cKtCHD2NA6mq-wByIZxpGSEzUw9A2sqyywzmlTExd2J6YuRIEx1gyW9ZimoWdvq7uUVLg");'></div>
+</div>
+<div class="p-4 pt-0">
+<h3 class="text-[var(--text-primary)] text-base font-semibold leading-normal">Shrimp Breeding Kit</h3>
+<p class="text-[var(--text-secondary)] text-sm font-medium leading-normal">$59.99</p>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-md overflow-hidden bg-white shadow-md group">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover group-hover:scale-110 transition-transform duration-300" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD2AUqqTpDU-lruIB2ZGK-h05SEvg4a9KGbPlXpzXDeOD40Vpy4oUmF1MhM1oxeLSPBqVDpxmjgApx9hKYMkcknTg0RGVH4B5S1El7o5_W7qks5VezMWlUkS7fCtRcCi8Ue1hBa91L4on1RaeOP9_sXnyChiam3t91lpvN5QBUtwFt3yklKmfc0PxU9usg2P8CF-v6YRGlCsbwuf-d_qLSMRuhViFOlfGns9lmJhUqt3WFj7B0qjsV0yoYL_wGo5bg94bmRhJx-Dw");'></div>
+</div>
+<div class="p-4 pt-0">
+<h3 class="text-[var(--text-primary)] text-base font-semibold leading-normal">Driftwood Assortment</h3>
+<p class="text-[var(--text-secondary)] text-sm font-medium leading-normal">$39.99</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>

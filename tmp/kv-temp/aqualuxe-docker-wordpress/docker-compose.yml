@@ -1,0 +1,111 @@
+version: '3.8'
+
+services:
+  wordpress:
+    build: .
+    container_name: aqualuxe_wordpress
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: mysql:3306
+      WORDPRESS_DB_USER: aqualuxe_user
+      WORDPRESS_DB_PASSWORD: aqualuxe_secure_password
+      WORDPRESS_DB_NAME: aqualuxe_db
+      WORDPRESS_TABLE_PREFIX: aq_
+      WORDPRESS_DEBUG: 1
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_REDIS_HOST', 'redis');
+        define('WP_REDIS_PORT', 6379);
+        define('WP_REDIS_TIMEOUT', 1);
+        define('WP_REDIS_READ_TIMEOUT', 1);
+        define('WP_REDIS_DATABASE', 0);
+        define('WP_CACHE', true);
+        define('WP_MEMORY_LIMIT', '512M');
+        define('COMPRESS_CSS', true);
+        define('COMPRESS_SCRIPTS', true);
+        define('CONCATENATE_SCRIPTS', false);
+        define('ENFORCE_GZIP', true);
+    volumes:
+      - wordpress_data:/var/www/html
+      - ./themes/aqualuxe-child:/var/www/html/wp-content/themes/aqualuxe-child
+      - ./plugins:/var/www/html/wp-content/plugins
+      - ./uploads:/var/www/html/wp-content/uploads
+    depends_on:
+      - mysql
+      - redis
+    networks:
+      - aqualuxe_network
+
+  mysql:
+    image: mysql:8.0
+    container_name: aqualuxe_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: aqualuxe_db
+      MYSQL_USER: aqualuxe_user
+      MYSQL_PASSWORD: aqualuxe_secure_password
+      MYSQL_ROOT_PASSWORD: aqualuxe_root_password
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3306:3306"
+    networks:
+      - aqualuxe_network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: aqualuxe_phpmyadmin
+    restart: unless-stopped
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: aqualuxe_root_password
+      MYSQL_ROOT_PASSWORD: aqualuxe_root_password
+    ports:
+      - "8081:80"
+    depends_on:
+      - mysql
+    networks:
+      - aqualuxe_network
+
+  redis:
+    image: redis:7-alpine
+    container_name: aqualuxe_redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+      - ./docker/redis/redis.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf
+    networks:
+      - aqualuxe_network
+
+  nginx:
+    image: nginx:alpine
+    container_name: aqualuxe_nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./docker/ssl:/etc/nginx/ssl
+      - wordpress_data:/var/www/html
+    depends_on:
+      - wordpress
+    networks:
+      - aqualuxe_network
+
+volumes:
+  wordpress_data:
+  mysql_data:
+  redis_data:
+
+networks:
+  aqualuxe_network:
+    driver: bridge

@@ -1,0 +1,4 @@
+# This is a placeholder for the theme screenshot
+# In a real theme, this would be a screenshot.png file showing the theme's appearance
+# The recommended size for theme screenshots is 1200x900 pixels
+# The file should be in PNG format

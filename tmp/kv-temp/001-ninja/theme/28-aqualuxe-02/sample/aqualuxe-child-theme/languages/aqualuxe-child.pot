@@ -1,0 +1,60 @@
+# Copyright (C) 2025 Your Name
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: AquaLuxe Child 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/aqualuxe-child\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-08-12T07:44:02+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: aqualuxe-child\n"
+
+#. Theme Name of the theme
+msgid "AquaLuxe Child"
+msgstr ""
+
+#. Theme URI of the theme
+msgid "https://aqualuxe.com"
+msgstr ""
+
+#. Description of the theme
+msgid "Child theme for AquaLuxe - Premium WordPress + WooCommerce theme for aquatic businesses"
+msgstr ""
+
+#. Author of the theme
+msgid "Your Name"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://yoursite.com"
+msgstr ""
+
+#: functions.php:46
+msgid "Custom Sidebar"
+msgstr ""
+
+#: functions.php:48
+msgid "Add widgets here for your custom sidebar."
+msgstr ""
+
+#: functions.php:76
+msgid "Care Instructions"
+msgstr ""
+
+#: functions.php:91
+msgid "Care instructions for this product will be added soon."
+msgstr ""
+
+#: functions.php:135
+#: functions.php:139
+msgid "Product not found or WooCommerce is not active."
+msgstr ""
+
+#: functions.php:143
+msgid "Product not found."
+msgstr ""

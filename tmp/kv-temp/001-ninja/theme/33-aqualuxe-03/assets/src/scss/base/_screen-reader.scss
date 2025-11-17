@@ -1,0 +1,255 @@
+/**
+ * AquaLuxe Theme - Screen Reader Utilities
+ *
+ * This file contains utilities for screen reader accessibility.
+ */
+
+// Screen reader text - visually hidden but available to screen readers
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+// Make screen reader text visible on focus
+.sr-only-focusable {
+  &:not(:focus) {
+    @extend .sr-only;
+  }
+  
+  &:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+}
+
+// Visually hidden but accessible to screen readers (extends sr-only)
+%visually-hidden {
+  @extend .sr-only;
+}
+
+// Screen reader only announcements
+.sr-announce {
+  @extend .sr-only;
+  
+  &[aria-live] {
+    // Ensure screen readers pick up the content
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+// Skip links
+.skip-link {
+  @extend .sr-only-focusable;
+  
+  &:focus {
+    display: block;
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: 700;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+    z-index: 100000;
+    
+    .dark & {
+      background-color: #333333;
+      color: #ffffff;
+    }
+  }
+}
+
+// Screen reader text for icons
+.icon {
+  &[aria-hidden="true"] {
+    // Icon is decorative, no screen reader text needed
+  }
+  
+  &:not([aria-hidden="true"]) {
+    // Icon conveys meaning, needs screen reader text
+    .icon-text {
+      @extend .sr-only;
+    }
+  }
+}
+
+// Screen reader text for images
+img {
+  &[aria-hidden="true"] {
+    // Image is decorative, no alt text needed
+  }
+  
+  &:not([aria-hidden="true"]) {
+    // Image conveys meaning, needs alt text
+    &:not([alt]) {
+      // This is a development helper, not actual CSS
+      // outline: 2px solid red;
+    }
+  }
+}
+
+// Screen reader text for form labels
+.form-group {
+  label {
+    &.sr-only {
+      @extend .sr-only;
+    }
+  }
+}
+
+// Screen reader text for buttons
+button, 
+.btn {
+  .btn-text {
+    &.sr-only {
+      @extend .sr-only;
+    }
+  }
+}
+
+// Screen reader text for pagination
+.pagination {
+  .page-link {
+    .page-text {
+      &.sr-only {
+        @extend .sr-only;
+      }
+    }
+  }
+}
+
+// Screen reader text for breadcrumbs
+.breadcrumbs {
+  .breadcrumb-separator {
+    .separator-text {
+      &.sr-only {
+        @extend .sr-only;
+      }
+    }
+  }
+}
+
+// Screen reader text for tables
+table {
+  caption {
+    &.sr-only {
+      @extend .sr-only;
+    }
+  }
+}
+
+// Screen reader text for form validation
+.form-error,
+.form-success,
+.form-info {
+  &[aria-live] {
+    // Ensure screen readers announce validation messages
+  }
+}
+
+// Screen reader text for ARIA landmarks
+[role="banner"],
+[role="navigation"],
+[role="main"],
+[role="complementary"],
+[role="contentinfo"],
+[role="search"],
+[role="form"],
+[role="region"][aria-labelledby],
+section[aria-labelledby] {
+  // Ensure landmarks have proper labeling
+  &:not([aria-label]):not([aria-labelledby]) {
+    // This is a development helper, not actual CSS
+    // outline: 2px solid orange;
+  }
+}
+
+// Screen reader text for dialogs
+[role="dialog"],
+[role="alertdialog"] {
+  &:not([aria-label]):not([aria-labelledby]) {
+    // This is a development helper, not actual CSS
+    // outline: 2px solid purple;
+  }
+}
+
+// Screen reader text for tabs
+[role="tablist"] {
+  [role="tab"] {
+    &:not([aria-controls]) {
+      // This is a development helper, not actual CSS
+      // outline: 2px solid blue;
+    }
+  }
+  
+  [role="tabpanel"] {
+    &:not([aria-labelledby]) {
+      // This is a development helper, not actual CSS
+      // outline: 2px solid blue;
+    }
+  }
+}
+
+// Screen reader text for accordions
+.accordion {
+  .accordion-header {
+    &:not([aria-controls]) {
+      // This is a development helper, not actual CSS
+      // outline: 2px solid green;
+    }
+  }
+  
+  .accordion-panel {
+    &:not([aria-labelledby]) {
+      // This is a development helper, not actual CSS
+      // outline: 2px solid green;
+    }
+  }
+}
+
+// Screen reader text for carousels
+[role="region"][aria-roledescription="carousel"] {
+  .carousel-controls {
+    button {
+      &:not([aria-label]) {
+        // This is a development helper, not actual CSS
+        // outline: 2px solid red;
+      }
+    }
+  }
+}
+
+// Screen reader text for status messages
+[role="status"],
+[role="alert"],
+[aria-live] {
+  // Ensure status messages are announced by screen readers
+}
+
+// Screen reader text for progress indicators
+[role="progressbar"] {
+  &:not([aria-valuenow]):not([aria-valuetext]) {
+    // This is a development helper, not actual CSS
+    // outline: 2px solid yellow;
+  }
+}

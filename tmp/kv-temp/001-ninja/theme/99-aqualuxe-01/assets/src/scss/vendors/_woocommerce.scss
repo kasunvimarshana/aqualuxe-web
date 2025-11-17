@@ -1,0 +1,30 @@
+// WooCommerce specific styles
+
+.woocommerce-message,
+.woocommerce-info,
+.woocommerce-error,
+.woocommerce-noreviews,
+p.no-comments {
+    @apply p-4 mb-4 border rounded;
+}
+
+.woocommerce-message {
+    @apply bg-green-100 border-green-400 text-green-700;
+}
+
+.woocommerce-info {
+    @apply bg-blue-100 border-blue-400 text-blue-700;
+}
+
+.woocommerce-error {
+    @apply bg-red-100 border-red-400 text-red-700;
+}
+
+.woocommerce ul.products li.product .woocommerce-loop-product__title {
+    @apply text-lg font-bold;
+}
+
+.woocommerce .star-rating {
+    @apply text-yellow-500;
+}
+

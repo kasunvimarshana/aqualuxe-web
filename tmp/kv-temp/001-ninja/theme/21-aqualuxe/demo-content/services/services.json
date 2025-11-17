@@ -1,0 +1,92 @@
+[
+  {
+    "title": "Custom Aquarium Design & Installation",
+    "slug": "custom-aquarium-design-installation",
+    "content": "<p>Transform your space with a custom-designed aquarium that perfectly complements your home or office environment. Our expert designers work closely with you to create a unique underwater ecosystem that serves as a stunning focal point and brings the beauty of aquatic life into your space.</p><h3>Our Design & Installation Process</h3><ul><li>Initial consultation to understand your vision and space requirements</li><li>Custom design proposal with 3D renderings</li><li>Professional installation by our certified technicians</li><li>Complete setup including filtration, lighting, and decor</li><li>Initial water treatment and conditioning</li><li>Guidance on selecting appropriate fish and plants</li></ul><p>Whether you're looking for a sleek modern design, a nature-inspired biotope, or a specialized reef system, our team has the expertise to bring your vision to life. We handle everything from basic freshwater setups to complex marine ecosystems.</p><p>All installations include a 30-day follow-up service to ensure your aquarium is functioning optimally and your aquatic life is thriving in its new environment.</p>",
+    "excerpt": "Professional design and installation of custom aquariums for homes and businesses. Our expert team creates stunning underwater ecosystems tailored to your space and preferences.",
+    "featured_image": "hero-image.jpg",
+    "icon": "design",
+    "price": "$500-$10,000+",
+    "duration": "2-4 weeks",
+    "meta": {
+      "service_icon": "fa-pencil-ruler",
+      "service_color": "#4CAF50",
+      "service_featured": "yes"
+    }
+  },
+  {
+    "title": "Aquarium Maintenance & Cleaning",
+    "slug": "aquarium-maintenance-cleaning",
+    "content": "<p>Keep your aquarium looking pristine and your aquatic life healthy with our professional maintenance and cleaning services. Our certified technicians provide comprehensive care for all types of aquariums, ensuring optimal water conditions and a thriving ecosystem.</p><h3>Our Maintenance Services Include</h3><ul><li>Regular water testing and parameter adjustment</li><li>Water changes and substrate cleaning</li><li>Filter maintenance and media replacement</li><li>Algae removal and glass cleaning</li><li>Equipment inspection and maintenance</li><li>Plant trimming and aquascaping touch-ups</li><li>Fish health assessment</li><li>Treatment recommendations when necessary</li></ul><p>We offer flexible maintenance schedules to suit your needs, from weekly visits for demanding systems to monthly maintenance for more established setups. Each service is performed by experienced technicians who understand the delicate balance of aquatic ecosystems.</p><p>Our maintenance clients receive priority support for any aquarium emergencies and discounted rates on additional services and products from our store.</p>",
+    "excerpt": "Professional cleaning and maintenance services to keep your aquarium healthy and beautiful. Regular service plans available for all types of aquatic systems.",
+    "featured_image": "about-image.jpg",
+    "icon": "maintenance",
+    "price": "$75-$200 per visit",
+    "duration": "Weekly, Bi-weekly, or Monthly",
+    "meta": {
+      "service_icon": "fa-brush",
+      "service_color": "#2196F3",
+      "service_featured": "yes"
+    }
+  },
+  {
+    "title": "Aquascaping & Remodeling",
+    "slug": "aquascaping-remodeling",
+    "content": "<p>Revitalize your existing aquarium with our professional aquascaping and remodeling services. Whether you're looking to refresh a tired setup or completely transform your aquatic display, our creative designers can create a stunning underwater landscape that enhances the beauty of your aquatic life.</p><h3>Our Aquascaping Services</h3><ul><li>Consultation to understand your aesthetic preferences</li><li>Custom design planning with material selection</li><li>Professional implementation with minimal stress to livestock</li><li>Selection and arrangement of hardscape elements (rocks, driftwood)</li><li>Strategic plant placement and arrangement</li><li>Creation of natural-looking environments</li><li>Specialized biotope recreations</li></ul><p>We specialize in various aquascaping styles including Nature Aquarium, Iwagumi, Dutch Planted, and Biotope recreations. Our designers stay current with the latest trends and techniques in the aquascaping world to bring you cutting-edge designs.</p><p>Remodeling services can often be completed in a single day, with minimal disruption to your aquatic life. We carefully preserve your existing livestock while transforming their environment into a more beautiful and functional space.</p>",
+    "excerpt": "Transform your existing aquarium with expert aquascaping services. Our designers create stunning underwater landscapes using premium materials and artistic techniques.",
+    "featured_image": "fish1.jpg",
+    "icon": "aquascaping",
+    "price": "$250-$1,500",
+    "duration": "1-2 days",
+    "meta": {
+      "service_icon": "fa-leaf",
+      "service_color": "#FF9800",
+      "service_featured": "yes"
+    }
+  },
+  {
+    "title": "Aquarium Consultation & Troubleshooting",
+    "slug": "aquarium-consultation-troubleshooting",
+    "content": "<p>Facing challenges with your aquarium? Our expert consultation and troubleshooting services provide solutions to even the most complex aquarium issues. Whether you're dealing with water quality problems, equipment failures, livestock health concerns, or simply need guidance on improving your setup, our specialists are here to help.</p><h3>Our Consultation Services Cover</h3><ul><li>Water quality analysis and correction</li><li>Disease diagnosis and treatment recommendations</li><li>Algae control strategies</li><li>Equipment evaluation and optimization</li><li>Stocking recommendations and compatibility assessment</li><li>Feeding regimens and nutrition advice</li><li>System upgrades and improvements</li></ul><p>Our consultations begin with a thorough assessment of your current setup, including comprehensive water testing and system evaluation. We then provide detailed recommendations tailored to your specific situation, with clear steps to resolve issues and improve your aquarium's health and appearance.</p><p>For emergency situations, we offer priority same-day consultations to address critical issues that threaten the health of your aquatic life.</p>",
+    "excerpt": "Expert advice and solutions for aquarium problems. Our specialists diagnose issues with water quality, equipment, and fish health, providing effective remedies.",
+    "featured_image": "fish2.jpg",
+    "icon": "consultation",
+    "price": "$95-$195",
+    "duration": "1-2 hours",
+    "meta": {
+      "service_icon": "fa-stethoscope",
+      "service_color": "#9C27B0",
+      "service_featured": "no"
+    }
+  },
+  {
+    "title": "Aquarium Relocation Services",
+    "slug": "aquarium-relocation-services",
+    "content": "<p>Moving your aquarium requires specialized knowledge and equipment to ensure the safety of your aquatic life and the integrity of your system. Our professional relocation services take the stress out of moving your aquarium, whether you're relocating within the same building or across town.</p><h3>Our Relocation Process</h3><ul><li>Pre-move consultation and planning</li><li>Proper fish and invertebrate handling and temporary housing</li><li>Safe dismantling and packing of equipment</li><li>Secure transport of tank, stand, and components</li><li>Preservation of beneficial bacteria and ecosystem</li><li>Professional setup at the new location</li><li>Water conditioning and parameter stabilization</li><li>Safe reintroduction of livestock</li></ul><p>We use specialized equipment and techniques to minimize stress on your aquatic life during the move. Our team coordinates every aspect of the relocation to ensure a smooth transition to the new location with minimal downtime for your system.</p><p>For complex systems or long-distance moves, we offer custom solutions including temporary housing services and staggered relocation plans to maintain system stability throughout the process.</p>",
+    "excerpt": "Professional aquarium moving services for safe relocation of your aquatic system. We handle everything from dismantling to setup at your new location.",
+    "featured_image": "fish3.jpg",
+    "icon": "relocation",
+    "price": "$350-$1,200",
+    "duration": "1-2 days",
+    "meta": {
+      "service_icon": "fa-truck",
+      "service_color": "#607D8B",
+      "service_featured": "no"
+    }
+  },
+  {
+    "title": "Custom Aquarium Automation",
+    "slug": "custom-aquarium-automation",
+    "content": "<p>Bring your aquarium into the modern age with our custom automation solutions. We design and install smart systems that monitor and control your aquarium's vital parameters, making maintenance easier and ensuring optimal conditions for your aquatic life.</p><h3>Our Automation Solutions Include</h3><ul><li>Automated water parameter monitoring (temperature, pH, etc.)</li><li>Smart lighting systems with customizable schedules</li><li>Automated feeding systems</li><li>Programmable water change and top-off systems</li><li>Mobile app integration for remote monitoring and control</li><li>Alert systems for parameter deviations</li><li>Integration with home automation systems</li></ul><p>Each automation system is custom designed based on your specific needs and aquarium setup. Our technicians carefully integrate new technology with your existing equipment to create a seamless, reliable system that enhances both the health of your aquarium and your enjoyment of it.</p><p>Our automation solutions are particularly valuable for complex reef systems, discus tanks, and other specialized setups that require precise parameter control. They're also perfect for busy hobbyists who want to maintain optimal conditions with minimal daily intervention.</p>",
+    "excerpt": "Smart technology solutions for modern aquarium management. Our automation systems monitor and control vital parameters for optimal aquatic health.",
+    "featured_image": "about-image.jpg",
+    "icon": "automation",
+    "price": "$500-$3,000",
+    "duration": "1-3 days",
+    "meta": {
+      "service_icon": "fa-robot",
+      "service_color": "#00BCD4",
+      "service_featured": "no"
+    }
+  }
+]

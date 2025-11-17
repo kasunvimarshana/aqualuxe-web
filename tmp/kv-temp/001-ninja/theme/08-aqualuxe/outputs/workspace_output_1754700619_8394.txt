@@ -1,0 +1,8 @@
+total 108
+drwxr-xr-x  2 root root   162 Aug  9 00:43 .
+drwxr-xr-x 10 root root  4096 Aug  9 00:38 ..
+-rw-r--r--  1 root root 16772 Aug  9 00:38 about-template.php
+-rw-r--r--  1 root root 21421 Aug  9 00:40 contact-template.php
+-rw-r--r--  1 root root 15614 Aug  9 00:41 faq-template.php
+-rw-r--r--  1 root root 15547 Aug  9 00:39 services-template.php
+-rw-r--r--  1 root root 25234 Aug  9 00:43 team-template.php

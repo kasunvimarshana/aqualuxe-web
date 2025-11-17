@@ -1,0 +1,352 @@
+/**
+ * AquaLuxe Admin Styles
+ *
+ * Styles for WordPress admin interface customizations
+ *
+ * @package AquaLuxe
+ * @since 1.0.0
+ */
+
+// Admin variables
+:root {
+  --admin-primary: #0073aa;
+  --admin-secondary: #005177;
+  --admin-accent: #00a0d2;
+  --admin-success: #46b450;
+  --admin-warning: #ffb900;
+  --admin-error: #dc3232;
+  --admin-text: #23282d;
+  --admin-border: #c3c4c7;
+  --admin-background: #f1f1f1;
+}
+
+// AquaLuxe admin branding
+.aqualuxe-admin {
+  .wrap {
+    h1 {
+      color: var(--admin-primary);
+      border-bottom: 2px solid var(--admin-accent);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      
+      &::before {
+        content: '🐠';
+        margin-right: 10px;
+        font-size: 0.8em;
+      }
+    }
+  }
+  
+  // Admin cards
+  .aqualuxe-admin-card {
+    background: white;
+    border: 1px solid var(--admin-border);
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    
+    h2, h3 {
+      margin-top: 0;
+      color: var(--admin-text);
+    }
+    
+    &.success {
+      border-left: 4px solid var(--admin-success);
+    }
+    
+    &.warning {
+      border-left: 4px solid var(--admin-warning);
+    }
+    
+    &.error {
+      border-left: 4px solid var(--admin-error);
+    }
+  }
+  
+  // Admin buttons
+  .button {
+    &.aqualuxe-primary {
+      background: var(--admin-primary);
+      border-color: var(--admin-secondary);
+      color: white;
+      
+      &:hover, &:focus {
+        background: var(--admin-secondary);
+        border-color: var(--admin-secondary);
+        color: white;
+      }
+    }
+    
+    &.aqualuxe-accent {
+      background: var(--admin-accent);
+      border-color: var(--admin-accent);
+      color: white;
+      
+      &:hover, &:focus {
+        background: var(--admin-primary);
+        border-color: var(--admin-primary);
+        color: white;
+      }
+    }
+  }
+  
+  // Admin tables
+  .widefat {
+    &.aqualuxe-table {
+      th {
+        background: var(--admin-primary);
+        color: white;
+        
+        a {
+          color: white;
+          text-decoration: none;
+          
+          &:hover {
+            color: #ccc;
+          }
+        }
+      }
+      
+      .alternate {
+        background: #f9f9f9;
+      }
+      
+      .row-actions {
+        a {
+          color: var(--admin-primary);
+          
+          &:hover {
+            color: var(--admin-secondary);
+          }
+        }
+      }
+    }
+  }
+  
+  // Admin forms
+  .form-table {
+    th {
+      color: var(--admin-text);
+      font-weight: 600;
+    }
+    
+    .aqualuxe-color-picker {
+      .wp-picker-container {
+        .wp-color-result {
+          border-radius: 3px;
+        }
+      }
+    }
+  }
+  
+  // Module toggles
+  .aqualuxe-module-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background: white;
+    border: 1px solid var(--admin-border);
+    border-radius: 6px;
+    margin-bottom: 10px;
+    
+    .module-info {
+      flex: 1;
+      
+      h4 {
+        margin: 0 0 5px 0;
+        color: var(--admin-text);
+      }
+      
+      .description {
+        font-size: 13px;
+        color: #666;
+        margin: 0;
+      }
+    }
+    
+    .toggle-switch {
+      position: relative;
+      width: 50px;
+      height: 24px;
+      
+      input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        
+        &:checked + .slider {
+          background-color: var(--admin-success);
+          
+          &:before {
+            transform: translateX(26px);
+          }
+        }
+      }
+      
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        border-radius: 24px;
+        transition: 0.4s;
+        
+        &:before {
+          position: absolute;
+          content: "";
+          height: 18px;
+          width: 18px;
+          left: 3px;
+          bottom: 3px;
+          background-color: white;
+          border-radius: 50%;
+          transition: 0.4s;
+        }
+      }
+    }
+  }
+  
+  // Progress bars
+  .aqualuxe-progress {
+    width: 100%;
+    height: 20px;
+    background: var(--admin-background);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+    
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--admin-primary), var(--admin-accent));
+      border-radius: 10px;
+      transition: width 0.3s ease;
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, 
+          transparent 33%, 
+          rgba(255,255,255,0.3) 33%, 
+          rgba(255,255,255,0.3) 66%, 
+          transparent 66%);
+        background-size: 20px 20px;
+        animation: progress-stripes 1s linear infinite;
+      }
+    }
+  }
+  
+  // Status indicators
+  .aqualuxe-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    
+    &.active {
+      background: #d1e7dd;
+      color: #0f5132;
+    }
+    
+    &.inactive {
+      background: #f8d7da;
+      color: #842029;
+    }
+    
+    &.pending {
+      background: #fff3cd;
+      color: #664d03;
+    }
+    
+    &::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+  }
+  
+  // Tooltips
+  .aqualuxe-tooltip {
+    position: relative;
+    cursor: help;
+    
+    &::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--admin-text);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+      z-index: 1000;
+    }
+    
+    &:hover::after {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+@keyframes progress-stripes {
+  0% { background-position: 20px 0; }
+  100% { background-position: 0 0; }
+}
+
+// Admin notices
+.notice {
+  &.aqualuxe-notice {
+    border-left-width: 4px;
+    padding: 12px;
+    
+    .notice-title {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    
+    .notice-content {
+      font-size: 13px;
+      line-height: 1.5;
+    }
+  }
+}
+
+// Media uploader customizations
+.aqualuxe-media-upload {
+  .button {
+    vertical-align: top;
+    margin-right: 10px;
+  }
+  
+  .media-preview {
+    margin-top: 10px;
+    
+    img {
+      max-width: 150px;
+      height: auto;
+      border: 1px solid var(--admin-border);
+      border-radius: 4px;
+    }
+  }
+}

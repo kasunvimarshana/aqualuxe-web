@@ -1,0 +1,17 @@
+// Hero section component styles
+.hero, .about-hero, .services-hero, .faq-hero, .contact-hero {
+  background: linear-gradient(135deg, #e0f7fa 0%, #fff 100%);
+  padding: 4em 0 2em 0;
+  text-align: center;
+  .hero-title, .about-title, .services-title, .faq-title, .contact-title {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--color-primary, #0077cc);
+    margin-bottom: 0.5em;
+  }
+  .hero-tagline, .about-tagline, .services-tagline, .faq-tagline, .contact-tagline {
+    font-size: 1.25em;
+    color: #555;
+    margin-bottom: 1.5em;
+  }
+}

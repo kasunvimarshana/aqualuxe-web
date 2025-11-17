@@ -1,0 +1,30 @@
+/*
+Theme Name: AquaLuxe
+Theme URI: https://github.com/kasunvimarshana
+Author: Kasun Vimarshana
+Author URI: https://github.com/kasunvimarshana
+Description: AquaLuxe - A premium, commercial-grade, WooCommerce-compatible theme optimized for performance, SEO, and mobile.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: aqualuxe
+Tags: e-commerce, responsive, woocommerce, custom-colors, custom-logo, accessibility-ready
+*/
+
+/* Reset & Base Styles */
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}

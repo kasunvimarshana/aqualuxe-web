@@ -1,0 +1,113 @@
+[
+  {
+    "name": "Neon Tetra",
+    "slug": "neon-tetra",
+    "category": "Tropical Fish",
+    "price": 3.99,
+    "regular_price": 4.99,
+    "sale_price": 3.99,
+    "description": "The Neon Tetra is a popular freshwater fish known for its vibrant blue and red coloration. These small, peaceful fish are perfect for community aquariums and add a stunning flash of color to any tank. They thrive in groups of 6 or more and prefer slightly acidic, soft water with plenty of plants.",
+    "short_description": "Vibrant blue and red freshwater fish, perfect for community tanks.",
+    "image": "fish1.jpg",
+    "stock_quantity": 50,
+    "weight": "0.01",
+    "dimensions": {
+      "length": "2",
+      "width": "0.5",
+      "height": "1"
+    },
+    "attributes": [
+      {
+        "name": "Size",
+        "options": ["Small (1-2 cm)"]
+      },
+      {
+        "name": "Water Type",
+        "options": ["Freshwater"]
+      },
+      {
+        "name": "Temperature",
+        "options": ["72-78°F (22-26°C)"]
+      },
+      {
+        "name": "pH Level",
+        "options": ["6.0-7.0"]
+      }
+    ],
+    "tags": ["beginner-friendly", "schooling-fish", "colorful"]
+  },
+  {
+    "name": "Betta Fish - Male",
+    "slug": "betta-fish-male",
+    "category": "Tropical Fish",
+    "price": 15.99,
+    "regular_price": 15.99,
+    "sale_price": "",
+    "description": "The Siamese Fighting Fish, commonly known as the Betta, is renowned for its spectacular fins and brilliant colors. Males are particularly vibrant and display a range of hues from deep blues to fiery reds. These fish are known for their intelligence and personality. Each Betta should be kept individually as males will fight with each other. They prefer warm water with minimal current and appreciate plenty of hiding spots.",
+    "short_description": "Stunning male Betta with vibrant colors and flowing fins.",
+    "image": "fish2.jpg",
+    "stock_quantity": 25,
+    "weight": "0.02",
+    "dimensions": {
+      "length": "5",
+      "width": "2",
+      "height": "3"
+    },
+    "attributes": [
+      {
+        "name": "Size",
+        "options": ["Medium (5-7 cm)"]
+      },
+      {
+        "name": "Water Type",
+        "options": ["Freshwater"]
+      },
+      {
+        "name": "Temperature",
+        "options": ["76-82°F (24-28°C)"]
+      },
+      {
+        "name": "pH Level",
+        "options": ["6.5-7.5"]
+      }
+    ],
+    "tags": ["beginner-friendly", "colorful", "solitary"]
+  },
+  {
+    "name": "Discus Fish",
+    "slug": "discus-fish",
+    "category": "Tropical Fish",
+    "price": 49.99,
+    "regular_price": 59.99,
+    "sale_price": 49.99,
+    "description": "Discus fish are among the most beautiful and sought-after aquarium fish in the world. Their distinctive disc-shaped bodies and vibrant patterns make them a centerpiece in any aquarium. These fish require more advanced care, including precise water parameters and regular maintenance. They thrive in groups and prefer warm, soft, slightly acidic water with minimal current.",
+    "short_description": "Stunning disc-shaped tropical fish with vibrant patterns.",
+    "image": "fish3.jpg",
+    "stock_quantity": 10,
+    "weight": "0.1",
+    "dimensions": {
+      "length": "15",
+      "width": "3",
+      "height": "15"
+    },
+    "attributes": [
+      {
+        "name": "Size",
+        "options": ["Large (12-15 cm)"]
+      },
+      {
+        "name": "Water Type",
+        "options": ["Freshwater"]
+      },
+      {
+        "name": "Temperature",
+        "options": ["82-86°F (28-30°C)"]
+      },
+      {
+        "name": "pH Level",
+        "options": ["6.0-7.0"]
+      }
+    ],
+    "tags": ["advanced-care", "colorful", "schooling-fish"]
+  }
+]

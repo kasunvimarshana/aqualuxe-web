@@ -1,0 +1,190 @@
+/**
+ * AquaLuxe Demo Importer CSS
+ *
+ * Styles for the demo content importer admin page.
+ */
+
+/* Main container */
+.aqualuxe-demo-importer {
+    max-width: 1200px;
+    margin: 20px 0;
+}
+
+/* Introduction section */
+.aqualuxe-demo-importer-intro {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.aqualuxe-demo-importer-intro p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+/* Warning box */
+.aqualuxe-demo-importer-warning {
+    background-color: #fcf8e3;
+    border-left: 4px solid #f0ad4e;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.aqualuxe-demo-importer-warning h3 {
+    margin-top: 0;
+    color: #8a6d3b;
+}
+
+.aqualuxe-demo-importer-warning ul {
+    margin-bottom: 0;
+}
+
+.aqualuxe-demo-importer-warning li {
+    margin-bottom: 5px;
+}
+
+/* Content options */
+.aqualuxe-demo-content-options {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.aqualuxe-demo-content-option {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.aqualuxe-demo-content-option:last-child {
+    border-bottom: none;
+}
+
+.aqualuxe-demo-content-option label {
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.aqualuxe-demo-content-option .description {
+    color: #777;
+    font-style: italic;
+    margin-left: 5px;
+}
+
+/* Import actions */
+.aqualuxe-demo-import-actions {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #f1f1f1;
+}
+
+.aqualuxe-demo-import-actions .spinner {
+    float: none;
+    margin-top: 0;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+/* Progress bar */
+.aqualuxe-demo-import-progress {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.aqualuxe-progress-bar {
+    height: 20px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.aqualuxe-progress-bar-inner {
+    height: 100%;
+    background-color: #0073aa;
+    width: 0;
+    transition: width 0.3s ease;
+}
+
+.aqualuxe-progress-status {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #777;
+}
+
+/* Log */
+.aqualuxe-demo-import-log {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.aqualuxe-log-entries {
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    font-family: monospace;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.aqualuxe-log-entry {
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #e5e5e5;
+}
+
+.aqualuxe-log-entry:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.aqualuxe-log-time {
+    color: #777;
+    margin-right: 5px;
+}
+
+.aqualuxe-log-info {
+    color: #333;
+}
+
+.aqualuxe-log-success {
+    color: #46b450;
+}
+
+.aqualuxe-log-error {
+    color: #dc3232;
+}
+
+.aqualuxe-log-warning {
+    color: #ffb900;
+}
+
+/* Responsive */
+@media screen and (max-width: 782px) {
+    .aqualuxe-demo-content-option label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .aqualuxe-demo-content-option .description {
+        display: block;
+        margin-left: 0;
+        margin-top: 5px;
+    }
+}

@@ -1,0 +1,268 @@
+/**
+ * Button Components
+ * Button styles for the AquaLuxe theme
+ */
+
+// Base button styles
+.btn {
+  @apply inline-flex items-center justify-center px-6 py-3;
+  @apply font-medium text-sm rounded-lg;
+  @apply transition-all duration-200 ease-in-out;
+  @apply border-2 border-transparent;
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+  @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply relative overflow-hidden;
+  
+  // Remove default button styles
+  background: none;
+  text-decoration: none;
+  
+  &:hover {
+    text-decoration: none;
+    transform: translateY(-1px);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Primary button
+.btn-primary {
+  @extend .btn;
+  @apply bg-primary-600 text-white border-primary-600;
+  @apply hover:bg-primary-700 hover:border-primary-700;
+  @apply focus:ring-primary-500;
+  @apply shadow-md hover:shadow-lg;
+}
+
+// Secondary button
+.btn-secondary {
+  @extend .btn;
+  @apply bg-secondary-600 text-white border-secondary-600;
+  @apply hover:bg-secondary-700 hover:border-secondary-700;
+  @apply focus:ring-secondary-500;
+  @apply shadow-md hover:shadow-lg;
+}
+
+// Outline buttons
+.btn-outline {
+  @extend .btn;
+  @apply bg-transparent text-primary-600 border-primary-600;
+  @apply hover:bg-primary-600 hover:text-white;
+  @apply focus:ring-primary-500;
+}
+
+.btn-outline-secondary {
+  @extend .btn;
+  @apply bg-transparent text-secondary-600 border-secondary-600;
+  @apply hover:bg-secondary-600 hover:text-white;
+  @apply focus:ring-secondary-500;
+}
+
+// Ghost buttons
+.btn-ghost {
+  @extend .btn;
+  @apply bg-transparent text-gray-700 dark:text-gray-300;
+  @apply hover:bg-gray-100 dark:hover:bg-gray-800;
+  @apply focus:ring-gray-500;
+}
+
+// Luxury gradient button
+.btn-luxury {
+  @extend .btn;
+  @apply text-white border-transparent;
+  background: linear-gradient(135deg, var(--color-luxury-gold), var(--color-primary-600));
+  @apply hover:shadow-lg focus:ring-yellow-500;
+  
+  &:hover {
+    background: linear-gradient(135deg, #f59e0b, var(--color-primary-700));
+  }
+}
+
+// Size variants
+.btn-sm {
+  @apply px-4 py-2 text-xs;
+}
+
+.btn-lg {
+  @apply px-8 py-4 text-base;
+}
+
+.btn-xl {
+  @apply px-10 py-5 text-lg;
+}
+
+// Full width button
+.btn-full {
+  @apply w-full;
+}
+
+// Icon buttons
+.btn-icon {
+  @apply w-10 h-10 p-0 flex items-center justify-center;
+  @apply rounded-full;
+}
+
+.btn-icon-left {
+  .icon {
+    @apply mr-2 w-4 h-4;
+  }
+}
+
+.btn-icon-right {
+  .icon {
+    @apply ml-2 w-4 h-4;
+  }
+}
+
+// Loading state
+.btn-loading {
+  @apply relative text-transparent;
+  
+  &::after {
+    content: '';
+    @apply absolute inset-0 flex items-center justify-center;
+    @apply w-4 h-4 border-2 border-white border-t-transparent;
+    @apply rounded-full animate-spin;
+    margin: auto;
+  }
+}
+
+// Button groups
+.btn-group {
+  @apply inline-flex rounded-lg shadow-sm;
+  
+  .btn {
+    @apply rounded-none border-r-0 focus:z-10;
+    
+    &:first-child {
+      @apply rounded-l-lg;
+    }
+    
+    &:last-child {
+      @apply rounded-r-lg border-r-2;
+    }
+    
+    &:only-child {
+      @apply rounded-lg border-r-2;
+    }
+  }
+}
+
+// Floating action button
+.btn-fab {
+  @extend .btn;
+  @apply fixed bottom-6 right-6 w-14 h-14 p-0;
+  @apply rounded-full shadow-lg hover:shadow-xl;
+  @apply bg-primary-600 text-white;
+  @apply z-50;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+// Social buttons
+.btn-social {
+  @extend .btn;
+  @apply w-10 h-10 p-0 rounded-full;
+  
+  &.btn-facebook {
+    @apply bg-blue-600 text-white hover:bg-blue-700;
+  }
+  
+  &.btn-twitter {
+    @apply bg-sky-500 text-white hover:bg-sky-600;
+  }
+  
+  &.btn-instagram {
+    @apply bg-pink-600 text-white hover:bg-pink-700;
+  }
+  
+  &.btn-linkedin {
+    @apply bg-blue-700 text-white hover:bg-blue-800;
+  }
+  
+  &.btn-youtube {
+    @apply bg-red-600 text-white hover:bg-red-700;
+  }
+}
+
+// Toggle button
+.btn-toggle {
+  @extend .btn;
+  @apply bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300;
+  
+  &.is-active {
+    @apply bg-primary-600 text-white;
+  }
+}
+
+// Dropdown button
+.btn-dropdown {
+  @extend .btn;
+  @apply relative;
+  
+  .dropdown-arrow {
+    @apply ml-2 w-4 h-4 transition-transform duration-200;
+  }
+  
+  &.is-open .dropdown-arrow {
+    @apply rotate-180;
+  }
+}
+
+// Close button
+.btn-close {
+  @apply w-8 h-8 flex items-center justify-center;
+  @apply text-gray-400 hover:text-gray-600;
+  @apply dark:text-gray-500 dark:hover:text-gray-300;
+  @apply rounded-full hover:bg-gray-100 dark:hover:bg-gray-800;
+  @apply transition-colors duration-200;
+  
+  &::before {
+    content: '×';
+    @apply text-xl font-light;
+  }
+}
+
+// Button animations
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.btn-ripple {
+  @apply relative overflow-hidden;
+  
+  &::before {
+    content: '';
+    @apply absolute top-1/2 left-1/2 w-0 h-0;
+    @apply bg-white/25 rounded-full;
+    @apply transform -translate-x-1/2 -translate-y-1/2;
+    @apply transition-all duration-300;
+  }
+  
+  &:active::before {
+    @apply w-full h-full;
+    animation: ripple 0.6s ease-out;
+  }
+}
+
+// Responsive button adjustments
+@media (max-width: 640px) {
+  .btn {
+    @apply px-4 py-2 text-sm;
+  }
+  
+  .btn-lg {
+    @apply px-6 py-3 text-base;
+  }
+  
+  .btn-xl {
+    @apply px-8 py-4 text-lg;
+  }
+}

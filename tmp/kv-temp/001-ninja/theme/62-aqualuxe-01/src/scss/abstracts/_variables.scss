@@ -1,0 +1,360 @@
+/**
+ * AquaLuxe Variables
+ *
+ * @package AquaLuxe
+ * @since 1.0.0
+ */
+
+// Color System
+// -------------------------
+
+// Primary Colors
+$primary: #0073aa !default;
+$primary-light: lighten($primary, 10%) !default;
+$primary-dark: darken($primary, 10%) !default;
+$primary-transparent: rgba($primary, 0.1) !default;
+
+// Secondary Colors
+$secondary: #6c757d !default;
+$secondary-light: lighten($secondary, 10%) !default;
+$secondary-dark: darken($secondary, 10%) !default;
+$secondary-transparent: rgba($secondary, 0.1) !default;
+
+// Accent Colors
+$accent: #00a0d2 !default;
+$accent-light: lighten($accent, 10%) !default;
+$accent-dark: darken($accent, 10%) !default;
+$accent-transparent: rgba($accent, 0.1) !default;
+
+// Neutral Colors
+$white: #ffffff !default;
+$black: #000000 !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+
+// Semantic Colors
+$success: #28a745 !default;
+$info: #17a2b8 !default;
+$warning: #ffc107 !default;
+$danger: #dc3545 !default;
+$light: $gray-100 !default;
+$dark: $gray-800 !default;
+
+// Body
+$body-bg: $white !default;
+$body-color: $gray-900 !default;
+
+// Links
+$link-color: $primary !default;
+$link-hover-color: darken($link-color, 15%) !default;
+$link-decoration: none !default;
+$link-hover-decoration: underline !default;
+
+// Typography
+// -------------------------
+
+// Font Families
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
+$font-family-serif: Georgia, "Times New Roman", Times, serif !default;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-base: $font-family-sans-serif !default;
+$font-family-heading: $font-family-sans-serif !default;
+
+// Font Sizes
+$font-size-base: 1rem !default; // 16px
+$font-size-lg: $font-size-base * 1.25 !default; // 20px
+$font-size-sm: $font-size-base * 0.875 !default; // 14px
+$font-size-xs: $font-size-base * 0.75 !default; // 12px
+
+$h1-font-size: $font-size-base * 2.5 !default; // 40px
+$h2-font-size: $font-size-base * 2 !default; // 32px
+$h3-font-size: $font-size-base * 1.75 !default; // 28px
+$h4-font-size: $font-size-base * 1.5 !default; // 24px
+$h5-font-size: $font-size-base * 1.25 !default; // 20px
+$h6-font-size: $font-size-base !default; // 16px
+
+// Font Weights
+$font-weight-lighter: lighter !default;
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-medium: 500 !default;
+$font-weight-semibold: 600 !default;
+$font-weight-bold: 700 !default;
+$font-weight-bolder: bolder !default;
+
+// Line Heights
+$line-height-base: 1.5 !default;
+$line-height-sm: 1.25 !default;
+$line-height-lg: 2 !default;
+$line-height-heading: 1.2 !default;
+
+// Letter Spacing
+$letter-spacing-base: 0 !default;
+$letter-spacing-sm: -0.01em !default;
+$letter-spacing-lg: 0.01em !default;
+$letter-spacing-heading: -0.02em !default;
+
+// Spacing
+// -------------------------
+
+$spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  1: ($spacer * 0.25), // 4px
+  2: ($spacer * 0.5),  // 8px
+  3: $spacer,          // 16px
+  4: ($spacer * 1.5),  // 24px
+  5: ($spacer * 3),    // 48px
+  6: ($spacer * 4),    // 64px
+  7: ($spacer * 5),    // 80px
+  8: ($spacer * 6),    // 96px
+) !default;
+
+// Grid
+// -------------------------
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+) !default;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+) !default;
+
+$grid-columns: 12 !default;
+$grid-gutter-width: 30px !default;
+
+// Components
+// -------------------------
+
+// Border
+$border-width: 1px !default;
+$border-color: $gray-300 !default;
+$border-radius: 0.25rem !default;
+$border-radius-sm: 0.2rem !default;
+$border-radius-lg: 0.5rem !default;
+$border-radius-pill: 50rem !default;
+
+// Box Shadow
+$box-shadow-sm: 0 0.125rem 0.25rem rgba($black, 0.075) !default;
+$box-shadow: 0 0.5rem 1rem rgba($black, 0.15) !default;
+$box-shadow-lg: 0 1rem 3rem rgba($black, 0.175) !default;
+
+// Transition
+$transition-base: all 0.2s ease-in-out !default;
+$transition-fade: opacity 0.15s linear !default;
+$transition-collapse: height 0.35s ease !default;
+
+// Z-index
+$zindex-dropdown: 1000 !default;
+$zindex-sticky: 1020 !default;
+$zindex-fixed: 1030 !default;
+$zindex-modal-backdrop: 1040 !default;
+$zindex-modal: 1050 !default;
+$zindex-popover: 1060 !default;
+$zindex-tooltip: 1070 !default;
+
+// Components
+// -------------------------
+
+// Header
+$header-height: 80px !default;
+$header-height-mobile: 60px !default;
+$header-bg: $white !default;
+$header-color: $body-color !default;
+$header-border-color: $border-color !default;
+$header-shadow: $box-shadow-sm !default;
+$header-sticky-bg: rgba($white, 0.95) !default;
+$header-sticky-shadow: $box-shadow !default;
+
+// Navigation
+$nav-link-padding-y: 0.5rem !default;
+$nav-link-padding-x: 1rem !default;
+$nav-link-color: $body-color !default;
+$nav-link-hover-color: $primary !default;
+$nav-link-active-color: $primary !default;
+$nav-link-disabled-color: $gray-500 !default;
+$nav-link-transition: color 0.15s ease-in-out !default;
+
+// Footer
+$footer-bg: $gray-900 !default;
+$footer-color: $gray-300 !default;
+$footer-link-color: $gray-300 !default;
+$footer-link-hover-color: $white !default;
+$footer-padding-y: 3rem !default;
+$footer-padding-x: 0 !default;
+$footer-border-color: rgba($white, 0.1) !default;
+
+// Buttons
+$btn-padding-y: 0.5rem !default;
+$btn-padding-x: 1rem !default;
+$btn-padding-y-sm: 0.25rem !default;
+$btn-padding-x-sm: 0.5rem !default;
+$btn-padding-y-lg: 0.75rem !default;
+$btn-padding-x-lg: 1.5rem !default;
+$btn-font-size: $font-size-base !default;
+$btn-font-size-sm: $font-size-sm !default;
+$btn-font-size-lg: $font-size-lg !default;
+$btn-font-weight: $font-weight-medium !default;
+$btn-line-height: $line-height-base !default;
+$btn-border-width: $border-width !default;
+$btn-border-radius: $border-radius !default;
+$btn-border-radius-sm: $border-radius-sm !default;
+$btn-border-radius-lg: $border-radius-lg !default;
+$btn-transition: $transition-base !default;
+
+// Forms
+$input-padding-y: 0.5rem !default;
+$input-padding-x: 1rem !default;
+$input-padding-y-sm: 0.25rem !default;
+$input-padding-x-sm: 0.5rem !default;
+$input-padding-y-lg: 0.75rem !default;
+$input-padding-x-lg: 1.5rem !default;
+$input-font-size: $font-size-base !default;
+$input-font-size-sm: $font-size-sm !default;
+$input-font-size-lg: $font-size-lg !default;
+$input-font-weight: $font-weight-normal !default;
+$input-line-height: $line-height-base !default;
+$input-bg: $white !default;
+$input-color: $body-color !default;
+$input-border-width: $border-width !default;
+$input-border-color: $border-color !default;
+$input-border-radius: $border-radius !default;
+$input-border-radius-sm: $border-radius-sm !default;
+$input-border-radius-lg: $border-radius-lg !default;
+$input-focus-bg: $input-bg !default;
+$input-focus-color: $input-color !default;
+$input-focus-border-color: lighten($primary, 25%) !default;
+$input-focus-box-shadow: 0 0 0 0.25rem rgba($primary, 0.25) !default;
+$input-placeholder-color: $gray-500 !default;
+$input-disabled-bg: $gray-200 !default;
+$input-disabled-color: $gray-600 !default;
+
+// Cards
+$card-bg: $white !default;
+$card-color: $body-color !default;
+$card-border-width: $border-width !default;
+$card-border-color: $border-color !default;
+$card-border-radius: $border-radius !default;
+$card-box-shadow: $box-shadow-sm !default;
+$card-padding-y: 1.25rem !default;
+$card-padding-x: 1.25rem !default;
+$card-title-font-size: $h5-font-size !default;
+$card-title-font-weight: $font-weight-bold !default;
+$card-title-margin-bottom: 0.75rem !default;
+
+// Alerts
+$alert-padding-y: 0.75rem !default;
+$alert-padding-x: 1.25rem !default;
+$alert-border-width: $border-width !default;
+$alert-border-radius: $border-radius !default;
+$alert-font-size: $font-size-base !default;
+$alert-font-weight: $font-weight-normal !default;
+$alert-bg-level: -10 !default;
+$alert-border-level: -9 !default;
+$alert-color-level: 6 !default;
+
+// Badges
+$badge-padding-y: 0.25em !default;
+$badge-padding-x: 0.5em !default;
+$badge-font-size: 0.75em !default;
+$badge-font-weight: $font-weight-bold !default;
+$badge-border-radius: $border-radius !default;
+
+// Modals
+$modal-backdrop-bg: $black !default;
+$modal-backdrop-opacity: 0.5 !default;
+$modal-content-bg: $white !default;
+$modal-content-border-width: $border-width !default;
+$modal-content-border-color: rgba($black, 0.2) !default;
+$modal-content-border-radius: $border-radius-lg !default;
+$modal-content-box-shadow: 0 0.5rem 1rem rgba($black, 0.5) !default;
+$modal-header-padding-y: 1rem !default;
+$modal-header-padding-x: 1rem !default;
+$modal-header-border-width: $border-width !default;
+$modal-header-border-color: $border-color !default;
+$modal-footer-padding-y: 0.75rem !default;
+$modal-footer-padding-x: 1rem !default;
+$modal-footer-border-width: $border-width !default;
+$modal-footer-border-color: $border-color !default;
+
+// Pagination
+$pagination-padding-y: 0.5rem !default;
+$pagination-padding-x: 0.75rem !default;
+$pagination-padding-y-sm: 0.25rem !default;
+$pagination-padding-x-sm: 0.5rem !default;
+$pagination-padding-y-lg: 0.75rem !default;
+$pagination-padding-x-lg: 1.5rem !default;
+$pagination-font-size: $font-size-base !default;
+$pagination-font-size-sm: $font-size-sm !default;
+$pagination-font-size-lg: $font-size-lg !default;
+$pagination-color: $link-color !default;
+$pagination-bg: $white !default;
+$pagination-border-width: $border-width !default;
+$pagination-border-color: $border-color !default;
+$pagination-border-radius: $border-radius !default;
+$pagination-hover-color: $link-hover-color !default;
+$pagination-hover-bg: $gray-200 !default;
+$pagination-hover-border-color: $border-color !default;
+$pagination-active-color: $white !default;
+$pagination-active-bg: $primary !default;
+$pagination-active-border-color: $primary !default;
+$pagination-disabled-color: $gray-500 !default;
+$pagination-disabled-bg: $white !default;
+$pagination-disabled-border-color: $border-color !default;
+
+// Breadcrumbs
+$breadcrumb-padding-y: 0.75rem !default;
+$breadcrumb-padding-x: 1rem !default;
+$breadcrumb-bg: $gray-100 !default;
+$breadcrumb-border-radius: $border-radius !default;
+$breadcrumb-divider-color: $gray-500 !default;
+$breadcrumb-active-color: $gray-600 !default;
+$breadcrumb-divider: "/" !default;
+$breadcrumb-item-padding-x: 0.5rem !default;
+
+// Theme Specific
+// -------------------------
+
+// Container
+$container-padding-x: 1.5rem !default;
+
+// Section
+$section-padding-y: 4rem !default;
+$section-padding-y-sm: 2rem !default;
+$section-padding-y-lg: 6rem !default;
+
+// Hero
+$hero-padding-y: 6rem !default;
+$hero-padding-y-sm: 4rem !default;
+$hero-padding-y-lg: 8rem !default;
+$hero-bg: $primary !default;
+$hero-color: $white !default;
+$hero-overlay-bg: rgba($black, 0.5) !default;
+
+// Dark Mode
+$dark-mode-bg: $gray-900 !default;
+$dark-mode-color: $gray-200 !default;
+$dark-mode-border-color: $gray-700 !default;
+$dark-mode-input-bg: $gray-800 !default;
+$dark-mode-input-color: $gray-200 !default;
+$dark-mode-input-border-color: $gray-700 !default;
+$dark-mode-card-bg: $gray-800 !default;
+$dark-mode-header-bg: $gray-900 !default;
+$dark-mode-header-sticky-bg: rgba($gray-900, 0.95) !default;

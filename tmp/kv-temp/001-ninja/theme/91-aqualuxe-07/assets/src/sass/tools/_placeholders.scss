@@ -1,0 +1,174 @@
+// =============================================================================
+// PLACEHOLDERS
+// =============================================================================
+
+// Button placeholders
+%btn-base {
+  @include button-base;
+}
+
+%btn-reset {
+  @include button-reset;
+}
+
+// Layout placeholders
+%flex-center {
+  @include flex-center;
+}
+
+%absolute-center {
+  @include absolute-center;
+}
+
+%absolute-fill {
+  @include absolute-fill;
+}
+
+// Text placeholders
+%truncate {
+  @include truncate;
+}
+
+%visually-hidden {
+  @include visually-hidden;
+}
+
+// Glass effect placeholders
+%glass-light {
+  @include glass-morphism;
+}
+
+%glass-dark {
+  @include glass-morphism-dark;
+}
+
+// Focus placeholders
+%focus-ring {
+  @include focus-ring;
+}
+
+// Animation placeholders
+%hover-lift {
+  @include hover-lift;
+}
+
+// Container placeholders
+%container {
+  @include container;
+}
+
+// Typography placeholders
+%heading-base {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-neutral-900);
+  margin: 0 0 1rem 0;
+}
+
+%body-text {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  color: var(--color-neutral-700);
+}
+
+// Interactive placeholders
+%interactive {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    opacity: 0.8;
+  }
+  
+  &:active {
+    transform: scale(0.98);
+  }
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+// Card placeholders
+%card-base {
+  background: white;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+  
+  &:hover {
+    box-shadow: var(--shadow-md);
+  }
+}
+
+// Input placeholders
+%input-base {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--color-neutral-300);
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-base);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  
+  &:focus {
+    outline: none;
+    border-color: var(--color-primary-500);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+  
+  &::placeholder {
+    color: var(--color-neutral-500);
+  }
+  
+  &:disabled {
+    background: var(--color-neutral-100);
+    color: var(--color-neutral-500);
+    cursor: not-allowed;
+  }
+}
+
+// Loading placeholders
+%loading-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading-shimmer 1.5s infinite;
+}
+
+@keyframes loading-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+// Accessibility placeholders
+%sr-only {
+  @include visually-hidden;
+}
+
+%skip-link {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  padding: 1rem;
+  background: var(--color-neutral-900);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--border-radius-md);
+  
+  &:focus {
+    top: 1rem;
+  }
+}

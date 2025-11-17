@@ -1,0 +1,625 @@
+/**
+ * AquaLuxe Theme Admin Stylesheet
+ *
+ * @package AquaLuxe
+ * @since 1.0.0
+ */
+
+/**
+ * Table of Contents:
+ *
+ * 1.0 - General Admin Styles
+ * 2.0 - Theme Options Page
+ * 3.0 - Customizer Controls
+ * 4.0 - Meta Boxes
+ * 5.0 - WooCommerce Admin
+ */
+
+/**
+ * 1.0 - General Admin Styles
+ */
+.aqualuxe-admin-header {
+    background-color: #0077b6;
+    color: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.aqualuxe-admin-header h1 {
+    font-size: 24px;
+    margin: 0 0 10px;
+}
+
+.aqualuxe-admin-header p {
+    font-size: 14px;
+    margin: 0;
+    opacity: 0.9;
+}
+
+.aqualuxe-admin-notice {
+    background-color: #f0f9ff;
+    border-left: 4px solid #0077b6;
+    padding: 12px;
+    margin: 15px 0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.aqualuxe-admin-notice.success {
+    background-color: #f0fff4;
+    border-left-color: #38a169;
+}
+
+.aqualuxe-admin-notice.warning {
+    background-color: #fffbeb;
+    border-left-color: #d97706;
+}
+
+.aqualuxe-admin-notice.error {
+    background-color: #fff5f5;
+    border-left-color: #e53e3e;
+}
+
+.aqualuxe-admin-notice h4 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.aqualuxe-admin-notice p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.aqualuxe-admin-button {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #0077b6;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.aqualuxe-admin-button:hover {
+    background-color: #005b8a;
+    color: #fff;
+}
+
+.aqualuxe-admin-button.secondary {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.aqualuxe-admin-button.secondary:hover {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.aqualuxe-admin-button.danger {
+    background-color: #e53e3e;
+}
+
+.aqualuxe-admin-button.danger:hover {
+    background-color: #c53030;
+}
+
+/**
+ * 2.0 - Theme Options Page
+ */
+.aqualuxe-options-wrapper {
+    margin: 20px 0;
+}
+
+.aqualuxe-options-wrapper .nav-tab-wrapper {
+    margin-bottom: 20px;
+}
+
+.aqualuxe-options-wrapper .nav-tab {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    color: #555;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 15px;
+    margin-right: 5px;
+    transition: all 0.3s ease;
+}
+
+.aqualuxe-options-wrapper .nav-tab:hover {
+    background-color: #fff;
+    color: #0077b6;
+}
+
+.aqualuxe-options-wrapper .nav-tab-active {
+    background-color: #fff;
+    border-bottom: 1px solid #fff;
+    color: #0077b6;
+}
+
+.aqualuxe-options-wrapper .nav-tab-content {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    display: none;
+}
+
+.aqualuxe-options-wrapper .nav-tab-content.active {
+    display: block;
+}
+
+.aqualuxe-options-wrapper .form-table {
+    margin-top: 0;
+}
+
+.aqualuxe-options-wrapper .form-table th {
+    padding: 20px 10px 20px 0;
+    width: 200px;
+}
+
+.aqualuxe-options-wrapper .form-table td {
+    padding: 15px 10px;
+}
+
+.aqualuxe-options-wrapper .description {
+    font-style: italic;
+    color: #666;
+    margin-top: 5px;
+    font-size: 13px;
+}
+
+.aqualuxe-options-wrapper .submit {
+    margin-top: 20px;
+    padding: 0;
+}
+
+/**
+ * 3.0 - Customizer Controls
+ */
+.customize-control {
+    margin-bottom: 15px;
+}
+
+.customize-control-title {
+    margin-bottom: 8px;
+}
+
+.customize-control-description {
+    font-style: italic;
+    color: #666;
+    margin-top: 5px;
+    font-size: 13px;
+}
+
+/* Color Picker */
+.aqualuxe-color-picker {
+    width: 100%;
+}
+
+/* Range Slider */
+.aqualuxe-range-slider {
+    width: 100%;
+    margin: 10px 0;
+    background-color: #ddd;
+    height: 4px;
+    border-radius: 2px;
+    position: relative;
+}
+
+.aqualuxe-range-slider .ui-slider-range {
+    background-color: #0077b6;
+    height: 100%;
+    position: absolute;
+    border-radius: 2px;
+}
+
+.aqualuxe-range-slider .ui-slider-handle {
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    border: 2px solid #0077b6;
+    border-radius: 50%;
+    position: absolute;
+    top: -6px;
+    margin-left: -8px;
+    cursor: pointer;
+}
+
+/* Toggle Switch */
+.aqualuxe-toggle-switch {
+    display: none;
+}
+
+.aqualuxe-toggle-switch + .toggle {
+    width: 50px;
+    height: 24px;
+    background-color: #ddd;
+    border-radius: 12px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.aqualuxe-toggle-switch + .toggle::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s ease;
+}
+
+.aqualuxe-toggle-switch:checked + .toggle {
+    background-color: #0077b6;
+}
+
+.aqualuxe-toggle-switch:checked + .toggle::before {
+    transform: translateX(26px);
+}
+
+/* Image Radio Buttons */
+.aqualuxe-image-radio-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -5px;
+}
+
+.aqualuxe-image-radio-wrapper label {
+    flex: 0 0 calc(33.333% - 10px);
+    margin: 0 5px 10px;
+    position: relative;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.aqualuxe-image-radio-wrapper label.active {
+    border-color: #0077b6;
+}
+
+.aqualuxe-image-radio-wrapper label img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.aqualuxe-image-radio-wrapper .aqualuxe-image-radio {
+    position: absolute;
+    opacity: 0;
+}
+
+/* Font Selector */
+.aqualuxe-font-selector {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.font-preview {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+/* Sortable */
+.aqualuxe-sortable {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.aqualuxe-sortable li {
+    padding: 10px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    cursor: move;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.aqualuxe-sortable li .dashicons {
+    color: #999;
+}
+
+/* Responsive Controls */
+.responsive-tabs {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.responsive-tabs a {
+    padding: 5px 10px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 4px 4px 0 0;
+    margin-right: 5px;
+    text-decoration: none;
+    color: #555;
+    font-size: 12px;
+}
+
+.responsive-tabs a.active {
+    background-color: #fff;
+    border-bottom-color: #fff;
+    color: #0077b6;
+}
+
+.responsive-controls .control-responsive {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 0 4px 4px 4px;
+    margin-top: -1px;
+}
+
+/**
+ * 4.0 - Meta Boxes
+ */
+.aqualuxe-meta-box {
+    margin: 15px 0;
+}
+
+.aqualuxe-meta-box-field {
+    margin-bottom: 15px;
+}
+
+.aqualuxe-meta-box-field:last-child {
+    margin-bottom: 0;
+}
+
+.aqualuxe-meta-box-field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.aqualuxe-meta-box-field input[type="text"],
+.aqualuxe-meta-box-field input[type="number"],
+.aqualuxe-meta-box-field input[type="url"],
+.aqualuxe-meta-box-field select,
+.aqualuxe-meta-box-field textarea {
+    width: 100%;
+}
+
+.aqualuxe-meta-box-field textarea {
+    min-height: 100px;
+}
+
+.aqualuxe-meta-box-field .description {
+    font-style: italic;
+    color: #666;
+    margin-top: 5px;
+    font-size: 13px;
+}
+
+.aqualuxe-meta-box-field .aqualuxe-image-preview {
+    max-width: 150px;
+    max-height: 150px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.aqualuxe-meta-box-field .aqualuxe-image-remove {
+    color: #e53e3e;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+/**
+ * 5.0 - WooCommerce Admin
+ */
+.aqualuxe-wc-admin-header {
+    background-color: #0077b6;
+    color: #fff;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.aqualuxe-wc-admin-header h2 {
+    margin: 0;
+    color: #fff;
+    font-size: 18px;
+}
+
+.aqualuxe-wc-admin-header .button {
+    background-color: #fff;
+    color: #0077b6;
+    border: none;
+    box-shadow: none;
+    padding: 5px 15px;
+    height: auto;
+    line-height: 1.5;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.aqualuxe-wc-admin-header .button:hover {
+    background-color: #f0f0f0;
+}
+
+.aqualuxe-wc-admin-section {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.aqualuxe-wc-admin-section h3 {
+    margin-top: 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.aqualuxe-wc-admin-field {
+    margin-bottom: 15px;
+}
+
+.aqualuxe-wc-admin-field:last-child {
+    margin-bottom: 0;
+}
+
+.aqualuxe-wc-admin-field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.aqualuxe-wc-admin-field input[type="text"],
+.aqualuxe-wc-admin-field input[type="number"],
+.aqualuxe-wc-admin-field select,
+.aqualuxe-wc-admin-field textarea {
+    width: 100%;
+}
+
+.aqualuxe-wc-admin-field textarea {
+    min-height: 100px;
+}
+
+.aqualuxe-wc-admin-field .description {
+    font-style: italic;
+    color: #666;
+    margin-top: 5px;
+    font-size: 13px;
+}
+
+/* Product Data Tabs */
+#woocommerce-product-data ul.wc-tabs li.aqualuxe_options a::before {
+    content: '\f513';
+}
+
+.aqualuxe-wc-options-panel .form-field {
+    padding: 0 20px 20px;
+    margin: 0;
+}
+
+.aqualuxe-wc-options-panel .form-field label {
+    display: block;
+    width: 100%;
+    float: none;
+    margin: 0 0 5px;
+    font-weight: 600;
+}
+
+.aqualuxe-wc-options-panel .form-field input[type="text"],
+.aqualuxe-wc-options-panel .form-field input[type="number"],
+.aqualuxe-wc-options-panel .form-field select,
+.aqualuxe-wc-options-panel .form-field textarea {
+    width: 100%;
+}
+
+.aqualuxe-wc-options-panel .form-field .description {
+    font-style: italic;
+    color: #666;
+    margin-top: 5px;
+    font-size: 13px;
+    clear: both;
+    width: 100%;
+    padding: 0;
+}
+
+/* Care Instructions Editor */
+#aqualuxe_care_instructions_field .wp-editor-wrap {
+    margin-top: 10px;
+}
+
+/* Variation Swatches */
+.aqualuxe-variation-swatches {
+    margin-top: 10px;
+}
+
+.aqualuxe-variation-swatch {
+    display: inline-block;
+    margin: 0 5px 5px 0;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.aqualuxe-variation-swatch.selected {
+    border-color: #0077b6;
+    background-color: #f0f9ff;
+}
+
+.aqualuxe-variation-swatch-color {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.aqualuxe-variation-swatch-image {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Order Details */
+.aqualuxe-order-details {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.aqualuxe-order-details h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.aqualuxe-order-details-item {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.aqualuxe-order-details-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.aqualuxe-order-details-item label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+}

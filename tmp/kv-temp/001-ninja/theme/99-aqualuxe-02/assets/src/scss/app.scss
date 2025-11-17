@@ -1,0 +1,8 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Brand tweaks */
+:root { --color-brand: theme('colors.brand.DEFAULT'); }
+
+.prose img { @apply rounded-md; }

@@ -1,0 +1,10 @@
+{
+  "name": "Vendors",
+  "enabled": false,
+  "description": "Adapter layer to integrate with multivendor plugins (Dokan, WCFM, WC Vendors).",
+  "requiresAny": [
+    "class:Dokan",
+    "class:WCFM",
+    "class:WC_Vendors"
+  ]
+}

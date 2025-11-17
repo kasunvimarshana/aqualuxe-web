@@ -1,0 +1,203 @@
+// Form component styles
+@layer components {
+  .form-group {
+    @apply mb-4;
+    
+    label {
+      @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2;
+      
+      &.required::after {
+        content: ' *';
+        @apply text-red-500;
+      }
+    }
+    
+    .form-control {
+      @apply w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors;
+      
+      &:disabled {
+        @apply bg-gray-100 dark:bg-gray-800 cursor-not-allowed opacity-60;
+      }
+      
+      &.error {
+        @apply border-red-500 focus:ring-red-500 focus:border-red-500;
+      }
+      
+      &.success {
+        @apply border-green-500 focus:ring-green-500 focus:border-green-500;
+      }
+    }
+    
+    textarea.form-control {
+      @apply resize-y min-h-[100px];
+    }
+    
+    select.form-control {
+      @apply cursor-pointer;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+      background-position: right 0.5rem center;
+      background-repeat: no-repeat;
+      background-size: 1.5em 1.5em;
+      padding-right: 2.5rem;
+    }
+    
+    .form-help {
+      @apply text-sm text-gray-600 dark:text-gray-400 mt-1;
+    }
+    
+    .form-error {
+      @apply text-sm text-red-600 dark:text-red-400 mt-1;
+    }
+    
+    .form-success {
+      @apply text-sm text-green-600 dark:text-green-400 mt-1;
+    }
+  }
+  
+  .form-row {
+    @apply flex flex-wrap -mx-2;
+    
+    .form-col {
+      @apply px-2;
+      
+      &.form-col-6 {
+        @apply w-full md:w-1/2;
+      }
+      
+      &.form-col-4 {
+        @apply w-full md:w-1/3;
+      }
+      
+      &.form-col-3 {
+        @apply w-full md:w-1/4;
+      }
+    }
+  }
+  
+  .checkbox-group,
+  .radio-group {
+    .form-check {
+      @apply flex items-center mb-2;
+      
+      input[type="checkbox"],
+      input[type="radio"] {
+        @apply w-4 h-4 text-primary-600 bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded focus:ring-primary-500 focus:ring-2;
+      }
+      
+      input[type="radio"] {
+        @apply rounded-full;
+      }
+      
+      label {
+        @apply ml-2 text-sm text-gray-700 dark:text-gray-300 mb-0;
+      }
+    }
+  }
+  
+  .input-group {
+    @apply flex;
+    
+    .input-group-prepend,
+    .input-group-append {
+      @apply flex items-center px-3 text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600;
+    }
+    
+    .input-group-prepend {
+      @apply rounded-l-md border-r-0;
+    }
+    
+    .input-group-append {
+      @apply rounded-r-md border-l-0;
+    }
+    
+    .form-control {
+      @apply rounded-none;
+      
+      &:first-child {
+        @apply rounded-l-md;
+      }
+      
+      &:last-child {
+        @apply rounded-r-md;
+      }
+      
+      &:only-child {
+        @apply rounded-md;
+      }
+    }
+  }
+  
+  .form-floating {
+    @apply relative;
+    
+    .form-control {
+      @apply pt-6 pb-2;
+      
+      &:focus ~ label,
+      &:not(:placeholder-shown) ~ label {
+        @apply transform scale-75 -translate-y-2 text-primary-600;
+      }
+    }
+    
+    label {
+      @apply absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400 transition-all duration-200 pointer-events-none origin-left;
+    }
+  }
+  
+  .search-form {
+    @apply relative;
+    
+    .search-input {
+      @apply w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500;
+    }
+    
+    .search-icon {
+      @apply absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none;
+    }
+    
+    .search-button {
+      @apply absolute right-2 top-1/2 transform -translate-y-1/2 p-1 text-gray-400 hover:text-primary-600;
+    }
+  }
+  
+  .form-steps {
+    @apply flex items-center justify-between mb-8;
+    
+    .step {
+      @apply flex items-center;
+      
+      .step-number {
+        @apply w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 flex items-center justify-center text-sm font-medium;
+      }
+      
+      .step-title {
+        @apply ml-2 text-sm text-gray-600 dark:text-gray-400;
+      }
+      
+      &.active {
+        .step-number {
+          @apply bg-primary-600 text-white;
+        }
+        
+        .step-title {
+          @apply text-primary-600 font-medium;
+        }
+      }
+      
+      &.completed {
+        .step-number {
+          @apply bg-green-500 text-white;
+        }
+        
+        .step-title {
+          @apply text-green-600;
+        }
+      }
+      
+      &:not(:last-child)::after {
+        content: '';
+        @apply w-8 h-px bg-gray-300 dark:bg-gray-600 ml-4;
+      }
+    }
+  }
+}

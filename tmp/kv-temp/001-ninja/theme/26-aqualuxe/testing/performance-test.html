@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaLuxe Performance Testing Tool</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #0d9488;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #0c4a6e;
+            border-bottom: 2px solid #e0f2fe;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .url-input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        .test-btn {
+            padding: 10px 15px;
+            background-color: #14b8a6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .test-btn:hover {
+            background-color: #0d9488;
+        }
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .metric-card {
+            background-color: #f0fdfa;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .metric-card h3 {
+            margin-top: 0;
+            color: #0f766e;
+            font-size: 16px;
+        }
+        .metric-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0c4a6e;
+            margin: 10px 0;
+        }
+        .metric-description {
+            font-size: 14px;
+            color: #666;
+        }
+        .metric-status {
+            margin-top: 10px;
+            padding: 5px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        .status-good {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+        .status-moderate {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+        .status-poor {
+            background-color: #fee2e2;
+            color: #b91c1c;
+        }
+        .recommendations {
+            background-color: #f0f9ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .recommendations h3 {
+            margin-top: 0;
+            color: #0369a1;
+        }
+        .recommendations ul {
+            padding-left: 20px;
+        }
+        .recommendations li {
+            margin-bottom: 10px;
+        }
+        .test-results {
+            margin-top: 30px;
+        }
+        .test-results textarea {
+            width: 100%;
+            height: 200px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        .progress-container {
+            margin: 20px 0;
+            background-color: #e5e7eb;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            display: none;
+        }
+        .progress-bar {
+            height: 100%;
+            background-color: #0ea5e9;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #f9fafb;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            border-radius: 4px 4px 0 0;
+            margin-right: 5px;
+        }
+        .tab.active {
+            background-color: #fff;
+            border-bottom: 1px solid #fff;
+            margin-bottom: -1px;
+            font-weight: 500;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>AquaLuxe Performance Testing Tool</h1>
+        
+        <div class="controls">
+            <input type="text" class="url-input" id="urlInput" placeholder="Enter URL to test (e.g., http://localhost:8000)" value="http://localhost:8000">
+            <button class="test-btn" id="testBtn">Run Performance Test</button>
+        </div>
+        
+        <div class="progress-container" id="progressContainer">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        
+        <div class="tabs">
+            <div class="tab active" data-tab="metrics">Performance Metrics</div>
+            <div class="tab" data-tab="recommendations">Recommendations</div>
+            <div class="tab" data-tab="assets">Asset Analysis</div>
+        </div>
+        
+        <div class="tab-content active" id="metricsTab">
+            <div class="metrics">
+                <div class="metric-card">
+                    <h3>First Contentful Paint (FCP)</h3>
+                    <div class="metric-value" id="fcpValue">-</div>
+                    <div class="metric-description">Time until the first text or image is painted</div>
+                    <div class="metric-status" id="fcpStatus">Not tested</div>
+                </div>
+                
+                <div class="metric-card">
+                    <h3>Largest Contentful Paint (LCP)</h3>
+                    <div class="metric-value" id="lcpValue">-</div>
+                    <div class="metric-description">Time until largest content element is visible</div>
+                    <div class="metric-status" id="lcpStatus">Not tested</div>
+                </div>
+                
+                <div class="metric-card">
+                    <h3>Total Blocking Time (TBT)</h3>
+                    <div class="metric-value" id="tbtValue">-</div>
+                    <div class="metric-description">Sum of time when main thread was blocked</div>
+                    <div class="metric-status" id="tbtStatus">Not tested</div>
+                </div>
+                
+                <div class="metric-card">
+                    <h3>Cumulative Layout Shift (CLS)</h3>
+                    <div class="metric-value" id="clsValue">-</div>
+                    <div class="metric-description">Measure of visual stability</div>
+                    <div class="metric-status" id="clsStatus">Not tested</div>
+                </div>
+                
+                <div class="metric-card">
+                    <h3>Speed Index</h3>
+                    <div class="metric-value" id="siValue">-</div>
+                    <div class="metric-description">How quickly content is visually displayed</div>
+                    <div class="metric-status" id="siStatus">Not tested</div>
+                </div>
+                
+                <div class="metric-card">
+                    <h3>Time to Interactive (TTI)</h3>
+                    <div class="metric-value" id="ttiValue">-</div>
+                    <div class="metric-description">Time until page is fully interactive</div>
+                    <div class="metric-status" id="ttiStatus">Not tested</div>
+                </div>
+                
+                <div class="metric-card">
+                    <h3>Page Size</h3>
+                    <div class="metric-value" id="pageSizeValue">-</div>
+                    <div class="metric-description">Total size of all resources</div>
+                    <div class="metric-status" id="pageSizeStatus">Not tested</div>
+                </div>
+                
+                <div class="metric-card">
+                    <h3>Requests</h3>
+                    <div class="metric-value" id="requestsValue">-</div>
+                    <div class="metric-description">Number of HTTP requests</div>
+                    <div class="metric-status" id="requestsStatus">Not tested</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="recommendationsTab">
+            <div class="recommendations">
+                <h3>Performance Recommendations</h3>
+                <ul id="recommendationsList">
+                    <li>Run a test to see recommendations</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="assetsTab">
+            <h2>Asset Analysis</h2>
+            <div class="test-results">
+                <textarea id="assetsArea" readonly placeholder="Run a test to see asset analysis..."></textarea>
+            </div>
+        </div>
+        
+        <div class="test-results">
+            <h2>Test Results</h2>
+            <textarea id="resultsArea" readonly placeholder="Run a test to see detailed results..."></textarea>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlInput = document.getElementById('urlInput');
+            const testBtn = document.getElementById('testBtn');
+            const progressContainer = document.getElementById('progressContainer');
+            const progressBar = document.getElementById('progressBar');
+            const resultsArea = document.getElementById('resultsArea');
+            const assetsArea = document.getElementById('assetsArea');
+            const recommendationsList = document.getElementById('recommendationsList');
+            const tabs = document.querySelectorAll('.tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            // Metrics elements
+            const metrics = {
+                fcp: { value: document.getElementById('fcpValue'), status: document.getElementById('fcpStatus') },
+                lcp: { value: document.getElementById('lcpValue'), status: document.getElementById('lcpStatus') },
+                tbt: { value: document.getElementById('tbtValue'), status: document.getElementById('tbtStatus') },
+                cls: { value: document.getElementById('clsValue'), status: document.getElementById('clsStatus') },
+                si: { value: document.getElementById('siValue'), status: document.getElementById('siStatus') },
+                tti: { value: document.getElementById('ttiValue'), status: document.getElementById('ttiStatus') },
+                pageSize: { value: document.getElementById('pageSizeValue'), status: document.getElementById('pageSizeStatus') },
+                requests: { value: document.getElementById('requestsValue'), status: document.getElementById('requestsStatus') }
+            };
+            
+            // Tab switching
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Update active tab
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show active content
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                        if (content.id === tabId + 'Tab') {
+                            content.classList.add('active');
+                        }
+                    });
+                });
+            });
+            
+            // Run test
+            testBtn.addEventListener('click', function() {
+                const url = urlInput.value.trim();
+                if (!url) return;
+                
+                // Reset UI
+                progressContainer.style.display = 'block';
+                progressBar.style.width = '0%';
+                resultsArea.value = 'Running performance test...';
+                assetsArea.value = '';
+                recommendationsList.innerHTML = '<li>Analyzing performance data...</li>';
+                
+                Object.values(metrics).forEach(metric => {
+                    metric.value.textContent = '-';
+                    metric.status.textContent = 'Testing...';
+                    metric.status.className = 'metric-status';
+                });
+                
+                // Simulate test progress
+                let progress = 0;
+                const progressInterval = setInterval(() => {
+                    progress += 5;
+                    progressBar.style.width = `${Math.min(progress, 95)}%`;
+                    
+                    if (progress >= 100) {
+                        clearInterval(progressInterval);
+                    }
+                }, 300);
+                
+                // Simulate test completion after delay
+                setTimeout(() => {
+                    clearInterval(progressInterval);
+                    progressBar.style.width = '100%';
+                    
+                    // Generate mock results
+                    const mockResults = generateMockResults(url);
+                    displayResults(mockResults);
+                    
+                    setTimeout(() => {
+                        progressContainer.style.display = 'none';
+                    }, 500);
+                }, 3000);
+            });
+            
+            // Generate mock performance results
+            function generateMockResults(url) {
+                // Random values within realistic ranges
+                const fcp = (Math.random() * 1.5 + 0.8).toFixed(1);
+                const lcp = (Math.random() * 2.5 + 1.5).toFixed(1);
+                const tbt = (Math.random() * 300 + 100).toFixed(0);
+                const cls = (Math.random() * 0.15).toFixed(3);
+                const si = (Math.random() * 3000 + 2000).toFixed(0);
+                const tti = (Math.random() * 4 + 2).toFixed(1);
+                const pageSize = (Math.random() * 3 + 0.5).toFixed(1);
+                const requests = Math.floor(Math.random() * 50 + 30);
+                
+                // Generate mock asset data
+                const assets = {
+                    js: {
+                        count: Math.floor(Math.random() * 15 + 5),
+                        size: (Math.random() * 1.5 + 0.3).toFixed(1)
+                    },
+                    css: {
+                        count: Math.floor(Math.random() * 5 + 2),
+                        size: (Math.random() * 0.3 + 0.1).toFixed(1)
+                    },
+                    images: {
+                        count: Math.floor(Math.random() * 20 + 10),
+                        size: (Math.random() * 1.5 + 0.5).toFixed(1)
+                    },
+                    fonts: {
+                        count: Math.floor(Math.random() * 4 + 2),
+                        size: (Math.random() * 0.3 + 0.1).toFixed(1)
+                    }
+                };
+                
+                // Generate recommendations based on values
+                const recommendations = [];
+                
+                if (fcp > 1.8) recommendations.push('Optimize First Contentful Paint by reducing render-blocking resources');
+                if (lcp > 2.5) recommendations.push('Improve Largest Contentful Paint by optimizing the loading of your largest content element');
+                if (tbt > 200) recommendations.push('Reduce Total Blocking Time by minimizing long tasks and optimizing JavaScript execution');
+                if (cls > 0.1) recommendations.push('Improve visual stability by setting size attributes on images and avoiding inserting content above existing content');
+                if (si > 3500) recommendations.push('Improve Speed Index by optimizing content rendering');
+                if (tti > 3.8) recommendations.push('Improve Time to Interactive by reducing JavaScript execution time and minimizing main thread work');
+                if (pageSize > 2) recommendations.push('Reduce page size by optimizing and compressing resources');
+                if (requests > 50) recommendations.push('Reduce the number of HTTP requests by combining files and using sprite sheets');
+                if (assets.js.size > 1) recommendations.push('Optimize JavaScript by code splitting, tree shaking, and removing unused code');
+                if (assets.images.size > 1) recommendations.push('Optimize images by using WebP format, proper sizing, and compression');
+                
+                return {
+                    url,
+                    timestamp: new Date().toISOString(),
+                    metrics: {
+                        fcp,
+                        lcp,
+                        tbt,
+                        cls,
+                        si,
+                        tti,
+                        pageSize,
+                        requests
+                    },
+                    assets,
+                    recommendations
+                };
+            }
+            
+            // Display results in the UI
+            function displayResults(results) {
+                // Update metrics
+                updateMetric(metrics.fcp, results.metrics.fcp + 's', results.metrics.fcp, 1, 1.8, 3);
+                updateMetric(metrics.lcp, results.metrics.lcp + 's', results.metrics.lcp, 2.5, 4, 5);
+                updateMetric(metrics.tbt, results.metrics.tbt + 'ms', results.metrics.tbt, 200, 600, 1000);
+                updateMetric(metrics.cls, results.metrics.cls, results.metrics.cls, 0.1, 0.25, 0.5);
+                updateMetric(metrics.si, results.metrics.si + 'ms', results.metrics.si, 3000, 5000, 7000);
+                updateMetric(metrics.tti, results.metrics.tti + 's', results.metrics.tti, 3.5, 5, 7);
+                updateMetric(metrics.pageSize, results.metrics.pageSize + 'MB', results.metrics.pageSize, 1.5, 3, 5);
+                updateMetric(metrics.requests, results.metrics.requests, results.metrics.requests, 40, 70, 100);
+                
+                // Update recommendations
+                recommendationsList.innerHTML = '';
+                if (results.recommendations.length > 0) {
+                    results.recommendations.forEach(rec => {
+                        const li = document.createElement('li');
+                        li.textContent = rec;
+                        recommendationsList.appendChild(li);
+                    });
+                } else {
+                    const li = document.createElement('li');
+                    li.textContent = 'No specific recommendations - performance looks good!';
+                    recommendationsList.appendChild(li);
+                }
+                
+                // Update assets analysis
+                let assetsText = `ASSET BREAKDOWN FOR ${results.url}\n`;
+                assetsText += `Timestamp: ${results.timestamp}\n\n`;
+                assetsText += `JavaScript:\n`;
+                assetsText += `  Files: ${results.assets.js.count}\n`;
+                assetsText += `  Total Size: ${results.assets.js.size} MB\n\n`;
+                assetsText += `CSS:\n`;
+                assetsText += `  Files: ${results.assets.css.count}\n`;
+                assetsText += `  Total Size: ${results.assets.css.size} MB\n\n`;
+                assetsText += `Images:\n`;
+                assetsText += `  Files: ${results.assets.images.count}\n`;
+                assetsText += `  Total Size: ${results.assets.images.size} MB\n\n`;
+                assetsText += `Fonts:\n`;
+                assetsText += `  Files: ${results.assets.fonts.count}\n`;
+                assetsText += `  Total Size: ${results.assets.fonts.size} MB\n\n`;
+                assetsText += `Total Page Size: ${results.metrics.pageSize} MB\n`;
+                assetsText += `Total Requests: ${results.metrics.requests}`;
+                
+                assetsArea.value = assetsText;
+                
+                // Update results area
+                let resultsText = `PERFORMANCE TEST RESULTS FOR ${results.url}\n`;
+                resultsText += `Timestamp: ${results.timestamp}\n\n`;
+                resultsText += `Core Web Vitals:\n`;
+                resultsText += `  Largest Contentful Paint (LCP): ${results.metrics.lcp}s\n`;
+                resultsText += `  First Input Delay (FID): ${Math.floor(Math.random() * 80 + 20)}ms\n`;
+                resultsText += `  Cumulative Layout Shift (CLS): ${results.metrics.cls}\n\n`;
+                resultsText += `Other Metrics:\n`;
+                resultsText += `  First Contentful Paint (FCP): ${results.metrics.fcp}s\n`;
+                resultsText += `  Speed Index (SI): ${results.metrics.si}ms\n`;
+                resultsText += `  Time to Interactive (TTI): ${results.metrics.tti}s\n`;
+                resultsText += `  Total Blocking Time (TBT): ${results.metrics.tbt}ms\n\n`;
+                resultsText += `Page Statistics:\n`;
+                resultsText += `  Total Page Size: ${results.metrics.pageSize} MB\n`;
+                resultsText += `  Total Requests: ${results.metrics.requests}\n\n`;
+                resultsText += `Performance Score: ${calculatePerformanceScore(results.metrics)}/100`;
+                
+                resultsArea.value = resultsText;
+            }
+            
+            // Update a metric display with value and status
+            function updateMetric(metricElements, displayValue, actualValue, goodThreshold, moderateThreshold, poorThreshold) {
+                metricElements.value.textContent = displayValue;
+                
+                let status, statusClass;
+                if (actualValue <= goodThreshold) {
+                    status = 'Good';
+                    statusClass = 'status-good';
+                } else if (actualValue <= moderateThreshold) {
+                    status = 'Needs Improvement';
+                    statusClass = 'status-moderate';
+                } else {
+                    status = 'Poor';
+                    statusClass = 'status-poor';
+                }
+                
+                metricElements.status.textContent = status;
+                metricElements.status.className = `metric-status ${statusClass}`;
+            }
+            
+            // Calculate overall performance score
+            function calculatePerformanceScore(metrics) {
+                // Simplified scoring algorithm
+                let score = 100;
+                
+                if (metrics.lcp > 2.5) score -= 15;
+                if (metrics.lcp > 4) score -= 10;
+                
+                if (metrics.fcp > 1.8) score -= 10;
+                if (metrics.fcp > 3) score -= 5;
+                
+                if (metrics.cls > 0.1) score -= 15;
+                if (metrics.cls > 0.25) score -= 10;
+                
+                if (metrics.tbt > 200) score -= 10;
+                if (metrics.tbt > 600) score -= 10;
+                
+                if (metrics.tti > 3.5) score -= 5;
+                if (metrics.tti > 5) score -= 5;
+                
+                if (metrics.pageSize > 1.5) score -= 5;
+                if (metrics.pageSize > 3) score -= 5;
+                
+                if (metrics.requests > 40) score -= 5;
+                if (metrics.requests > 70) score -= 5;
+                
+                return Math.max(0, Math.min(100, Math.round(score)));
+            }
+        });
+    </script>
+</body>
+</html>

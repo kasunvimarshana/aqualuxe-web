@@ -1,0 +1,340 @@
+/**
+ * Pagination Component Styles
+ *
+ * Styles for pagination components used throughout the theme.
+ */
+
+// Base Pagination
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+  
+  // Pagination List
+  .pagination-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+    // Pagination Item
+    .pagination-item {
+      margin: 0 0.25rem;
+      
+      // Pagination Link
+      .pagination-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: var(--border-radius-sm);
+        background-color: var(--color-white);
+        border: 1px solid var(--color-border);
+        color: var(--color-text);
+        font-weight: 600;
+        transition: all 0.2s ease;
+        
+        &:hover {
+          background-color: var(--color-background-light);
+          border-color: var(--color-border);
+          color: var(--color-primary);
+        }
+        
+        &.active {
+          background-color: var(--color-primary);
+          border-color: var(--color-primary);
+          color: var(--color-white);
+        }
+        
+        &.disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+          
+          &:hover {
+            background-color: var(--color-white);
+            border-color: var(--color-border);
+            color: var(--color-text);
+          }
+        }
+        
+        // Pagination Icons
+        svg {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+  }
+}
+
+// Pagination Variations
+.pagination-rounded {
+  .pagination-list {
+    .pagination-item {
+      .pagination-link {
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+.pagination-simple {
+  .pagination-list {
+    .pagination-item {
+      .pagination-link {
+        width: auto;
+        height: auto;
+        padding: 0.5rem 1rem;
+        border: none;
+        background-color: transparent;
+        
+        &:hover {
+          background-color: transparent;
+          color: var(--color-primary);
+        }
+        
+        &.active {
+          background-color: transparent;
+          color: var(--color-primary);
+          font-weight: 700;
+          position: relative;
+          
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 2px;
+            background-color: var(--color-primary);
+          }
+        }
+      }
+    }
+  }
+}
+
+.pagination-bordered {
+  .pagination-list {
+    .pagination-item {
+      .pagination-link {
+        border: 1px solid var(--color-border);
+        
+        &.active {
+          border-color: var(--color-primary);
+        }
+      }
+    }
+  }
+}
+
+.pagination-filled {
+  .pagination-list {
+    .pagination-item {
+      .pagination-link {
+        background-color: var(--color-background-light);
+        border: none;
+        
+        &:hover {
+          background-color: var(--color-background);
+        }
+        
+        &.active {
+          background-color: var(--color-primary);
+        }
+      }
+    }
+  }
+}
+
+// Pagination Sizes
+.pagination-sm {
+  .pagination-list {
+    .pagination-item {
+      .pagination-link {
+        width: 32px;
+        height: 32px;
+        font-size: 0.875rem;
+      }
+    }
+  }
+}
+
+.pagination-lg {
+  .pagination-list {
+    .pagination-item {
+      .pagination-link {
+        width: 48px;
+        height: 48px;
+        font-size: 1.125rem;
+      }
+    }
+  }
+}
+
+// Pagination with Text
+.pagination-with-text {
+  .pagination-list {
+    .pagination-item {
+      &.prev,
+      &.next {
+        .pagination-link {
+          width: auto;
+          padding: 0 1rem;
+          
+          span {
+            margin: 0 0.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Pagination with Ellipsis
+.pagination-with-ellipsis {
+  .pagination-list {
+    .pagination-item {
+      &.ellipsis {
+        .pagination-link {
+          border: none;
+          background: none;
+          
+          &:hover {
+            background: none;
+            color: var(--color-text);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Pagination Alignment
+.pagination-start {
+  justify-content: flex-start;
+}
+
+.pagination-end {
+  justify-content: flex-end;
+}
+
+// Pagination with Results Info
+.pagination-with-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  
+  .pagination-info {
+    color: var(--color-text-light);
+    font-size: 0.875rem;
+    
+    @media (max-width: 767px) {
+      margin-bottom: 1rem;
+      width: 100%;
+      text-align: center;
+    }
+  }
+  
+  .pagination {
+    margin: 0;
+    
+    @media (max-width: 767px) {
+      width: 100%;
+    }
+  }
+}
+
+// Responsive Pagination
+@media (max-width: 575px) {
+  .pagination {
+    .pagination-list {
+      .pagination-item {
+        &:not(.prev):not(.next):not(.active) {
+          display: none;
+          
+          @media (min-width: 400px) {
+            &:nth-child(2),
+            &:nth-last-child(2) {
+              display: block;
+            }
+          }
+        }
+        
+        .pagination-link {
+          width: 36px;
+          height: 36px;
+        }
+      }
+    }
+  }
+  
+  .pagination-with-text {
+    .pagination-list {
+      .pagination-item {
+        &.prev,
+        &.next {
+          .pagination-link {
+            span {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Infinite Scroll
+.infinite-scroll-trigger {
+  text-align: center;
+  padding: 2rem 0;
+  
+  .infinite-scroll-button {
+    padding: 0.75rem 1.5rem;
+    
+    &.loading {
+      position: relative;
+      color: transparent;
+      
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        margin: -10px 0 0 -10px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-top-color: var(--color-white);
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+    }
+  }
+  
+  .infinite-scroll-loader {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(var(--color-primary-rgb), 0.3);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  
+  .infinite-scroll-end {
+    color: var(--color-text-light);
+    font-style: italic;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

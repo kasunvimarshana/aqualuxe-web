@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<ruleset name="AquaLuxe WordPress Theme Coding Standards">
+    <description>A custom set of code standard rules for AquaLuxe WordPress Theme.</description>
+
+    <!-- Scan all files in directory -->
+    <file>.</file>
+
+    <!-- Exclude patterns -->
+    <exclude-pattern>/vendor/*</exclude-pattern>
+    <exclude-pattern>/node_modules/*</exclude-pattern>
+    <exclude-pattern>/assets/dist/*</exclude-pattern>
+    <exclude-pattern>/tests/*</exclude-pattern>
+    <exclude-pattern>/.github/*</exclude-pattern>
+
+    <!-- Include WordPress Coding Standards -->
+    <rule ref="WordPress-Core" />
+    <rule ref="WordPress-Docs" />
+    <rule ref="WordPress-Extra" />
+
+    <!-- Include WooCommerce Coding Standards if available -->
+    <rule ref="WooCommerce-Core" />
+
+    <!-- Let's also check that everything is properly documented. -->
+    <rule ref="WordPress-Docs" />
+
+    <!-- Add in some extra rules from other standards. -->
+    <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter" />
+    <rule ref="Generic.Commenting.Todo" />
+
+    <!-- Check for PHP cross-version compatibility. -->
+    <config name="testVersion" value="7.4-" />
+    <rule ref="PHPCompatibilityWP" />
+
+    <!-- Set minimum WordPress version compatibility. -->
+    <config name="minimum_supported_wp_version" value="5.6" />
+
+    <!-- Verify that the text_domain is set to 'aqualuxe'. -->
+    <rule ref="WordPress.WP.I18n">
+        <properties>
+            <property name="text_domain" type="array" value="aqualuxe" />
+        </properties>
+    </rule>
+
+    <!-- Verify that correct text domain is used. -->
+    <rule ref="WordPress.WP.I18n">
+        <properties>
+            <property name="text_domain" type="array">
+                <element value="aqualuxe"/>
+            </property>
+        </properties>
+    </rule>
+
+    <!-- Verify that everything is properly escaped. -->
+    <rule ref="WordPress.Security.EscapeOutput" />
+
+    <!-- Verify that nonces are being used. -->
+    <rule ref="WordPress.Security.NonceVerification" />
+
+    <!-- Check for proper sanitization. -->
+    <rule ref="WordPress.Security.ValidatedSanitizedInput" />
+
+    <!-- Enforce proper indentation. -->
+    <rule ref="Generic.WhiteSpace.ScopeIndent">
+        <properties>
+            <property name="indent" value="4" />
+            <property name="tabIndent" value="true" />
+        </properties>
+    </rule>
+
+    <!-- Check for PHP parse errors. -->
+    <rule ref="Generic.PHP.Syntax" />
+
+    <!-- Exclude specific sniffs that conflict with our coding style. -->
+    <rule ref="WordPress.Files.FileName.InvalidClassFileName">
+        <exclude-pattern>*/inc/*</exclude-pattern>
+    </rule>
+</ruleset>

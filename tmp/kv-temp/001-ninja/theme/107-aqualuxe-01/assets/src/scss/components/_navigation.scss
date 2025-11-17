@@ -1,0 +1,32 @@
+// Component: Navigation
+.nav-menu {
+  @apply flex space-x-8;
+
+  .nav-item {
+    @apply relative;
+  }
+
+  .nav-link {
+    @apply text-gray-700 hover:text-primary-600 px-3 py-2 text-sm font-medium transition-colors duration-300;
+
+    .dark & {
+      @apply text-gray-300 hover:text-primary-400;
+    }
+
+    &.active {
+      @apply text-primary-600;
+    }
+  }
+}
+
+.mobile-nav-menu {
+  @apply space-y-4;
+
+  .nav-item {
+    @apply block;
+  }
+
+  .nav-link {
+    @apply block text-gray-900 hover:text-primary-600 px-4 py-3 text-base font-medium;
+  }
+}

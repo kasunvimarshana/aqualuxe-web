@@ -1,0 +1,63 @@
+/* Mega Menu Styles */
+.menu-item-has-mega-menu {
+    position: static;
+}
+
+.mega-menu-wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    width: 100%;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 2rem;
+    display: none;
+    z-index: 1000;
+}
+
+.dark .mega-menu-wrapper {
+    background-color: #1f2937; /* dark:bg-gray-800 */
+    border-top-color: #374151; /* dark:border-gray-700 */
+}
+
+.menu-item-has-mega-menu:hover > .mega-menu-wrapper {
+    display: block;
+}
+
+.mega-menu-sub-menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.mega-menu-column > a {
+    font-weight: bold;
+    color: #111827; /* dark:text-gray-900 */
+    pointer-events: none; /* Make top-level item in column unclickable */
+}
+
+.dark .mega-menu-column > a {
+    color: #f9fafb; /* dark:text-gray-50 */
+}
+
+.mega-menu-column .sub-menu {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0.5rem;
+}
+
+.mega-menu-column .sub-menu li a {
+    display: block;
+    padding: 0.5rem 0;
+    color: #4b5563; /* dark:text-gray-500 */
+}
+
+.dark .mega-menu-column .sub-menu li a {
+    color: #9ca3af; /* dark:text-gray-400 */
+}
+
+.mega-menu-column .sub-menu li a:hover {
+    color: #1d4ed8; /* dark:text-blue-600 */
+}

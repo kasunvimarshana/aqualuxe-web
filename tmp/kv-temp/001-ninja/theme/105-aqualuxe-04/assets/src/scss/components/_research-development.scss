@@ -1,0 +1,471 @@
+/**
+ * Research & Development Module Styles
+ *
+ * Styles for R&D projects, sustainability tracking, and innovation showcase
+ *
+ * @package AquaLuxe
+ * @since 1.0.0
+ */
+
+/* Research Projects Grid */
+.research-projects-grid {
+  .research-project-card {
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl;
+    
+    &.card-hover {
+      @apply transform -translate-y-1;
+    }
+    
+    .project-thumbnail {
+      @apply relative overflow-hidden;
+      
+      img {
+        @apply w-full h-48 object-cover transition-transform duration-300;
+      }
+      
+      &:hover img {
+        @apply scale-105;
+      }
+    }
+    
+    .project-content {
+      .project-title {
+        a {
+          @apply transition-colors duration-200 hover:text-primary-700 dark:hover:text-primary-400;
+        }
+      }
+      
+      .project-meta {
+        .progress-bar {
+          @apply bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-2;
+          
+          .progress-fill {
+            @apply bg-primary-500 h-2 rounded-full transition-all duration-500;
+          }
+        }
+        
+        .progress-label {
+          @apply text-gray-600 dark:text-gray-400;
+        }
+        
+        .team-lead {
+          @apply text-gray-600 dark:text-gray-400;
+        }
+      }
+      
+      .project-areas {
+        .area-tag {
+          @apply bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-200;
+        }
+      }
+    }
+  }
+}
+
+/* Sustainability Tracker */
+.sustainability-tracker {
+  .sustainability-metrics {
+    .metric-card {
+      @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 text-center transition-all duration-300;
+      
+      &.metric-animate {
+        animation: metricPulse 0.6s ease-out;
+      }
+      
+      .metric-icon {
+        @apply text-4xl mb-3;
+      }
+      
+      .metric-label {
+        @apply text-gray-600 dark:text-gray-400 uppercase tracking-wide;
+      }
+      
+      .metric-value {
+        @apply text-3xl font-bold text-primary-600 dark:text-primary-400 mb-2;
+      }
+      
+      .metric-target {
+        @apply text-gray-500 dark:text-gray-400;
+      }
+      
+      .metric-progress {
+        .progress-track {
+          @apply bg-gray-200 dark:bg-gray-700 rounded-full h-2 mt-3;
+          
+          .progress-fill {
+            @apply h-2 rounded-full transition-all duration-700;
+            
+            &.bg-green-500 {
+              @apply bg-gradient-to-r from-green-400 to-green-600;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .sustainability-initiatives {
+    .initiatives-list {
+      .initiative-item {
+        @apply bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4 transition-all duration-200 hover:shadow-md;
+        
+        h5 {
+          @apply text-green-800 dark:text-green-200 font-semibold;
+        }
+        
+        p {
+          @apply text-green-700 dark:text-green-300;
+        }
+      }
+    }
+  }
+}
+
+/* Research Proposal Form */
+.research-proposal-form {
+  @apply max-w-2xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8;
+  
+  .form-group {
+    @apply mb-6;
+    
+    label {
+      @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2;
+    }
+    
+    .form-control {
+      @apply w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-all duration-200;
+      
+      &.error {
+        @apply border-red-500 ring-2 ring-red-200 dark:ring-red-800;
+      }
+    }
+    
+    textarea.form-control {
+      @apply resize-y min-h-32;
+    }
+    
+    .field-error {
+      @apply mt-1 text-sm text-red-600 dark:text-red-400;
+    }
+  }
+  
+  .form-row {
+    .form-group {
+      @apply mb-0;
+    }
+  }
+}
+
+/* Proposal Success */
+.proposal-success {
+  @apply text-center py-8;
+  
+  .success-icon {
+    @apply text-6xl mb-4;
+  }
+  
+  h3 {
+    @apply text-2xl font-bold text-gray-900 dark:text-white mb-4;
+  }
+  
+  .proposal-id {
+    @apply text-sm font-mono bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded inline-block mb-4;
+  }
+  
+  .next-steps {
+    @apply text-gray-600 dark:text-gray-400 italic;
+  }
+}
+
+/* Innovation Showcase */
+.innovation-showcase {
+  .innovations-grid {
+    .innovation-card {
+      @apply rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl cursor-pointer;
+      
+      .innovation-title {
+        @apply text-gray-900 dark:text-white mb-3;
+      }
+      
+      .innovation-description {
+        @apply text-gray-600 dark:text-gray-400 mb-4;
+      }
+      
+      .innovation-impact {
+        .impact-score {
+          .stars {
+            @apply flex;
+            
+            .star {
+              @apply text-lg;
+              
+              &.text-yellow-400 {
+                text-shadow: 0 0 3px rgba(251, 191, 36, 0.5);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Innovation Modal */
+.innovation-modal {
+  @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50;
+  
+  .modal-content {
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-2xl max-w-2xl w-full mx-4 max-h-96 overflow-y-auto;
+    
+    .modal-close {
+      @apply absolute top-4 right-4 text-2xl text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 cursor-pointer;
+    }
+    
+    h2 {
+      @apply text-2xl font-bold text-gray-900 dark:text-white p-6 pb-4;
+    }
+    
+    .innovation-details {
+      @apply p-6 pt-0;
+      
+      .innovation-meta {
+        @apply flex justify-between items-center mb-4 text-sm;
+        
+        .research-area {
+          @apply bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full;
+        }
+        
+        .impact-score {
+          @apply text-gray-600 dark:text-gray-400;
+        }
+      }
+      
+      .innovation-description {
+        @apply text-gray-600 dark:text-gray-400 mb-6;
+      }
+      
+      .innovation-team {
+        @apply mb-6;
+        
+        h4 {
+          @apply text-lg font-semibold text-gray-900 dark:text-white mb-2;
+        }
+      }
+      
+      .innovation-progress {
+        h4 {
+          @apply text-lg font-semibold text-gray-900 dark:text-white mb-3;
+        }
+        
+        .progress-bar {
+          @apply bg-gray-200 dark:bg-gray-700 rounded-full h-3 mb-2;
+          
+          .progress-fill {
+            @apply bg-primary-500 h-3 rounded-full transition-all duration-500;
+          }
+        }
+        
+        .progress-text {
+          @apply text-sm text-gray-600 dark:text-gray-400;
+        }
+      }
+    }
+  }
+}
+
+/* Impact Calculator */
+.impact-calculator {
+  @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6;
+  
+  .calculator-inputs {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-4 mb-6;
+    
+    .input-group {
+      label {
+        @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2;
+      }
+      
+      input {
+        @apply w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-700 dark:text-white;
+      }
+    }
+  }
+  
+  .impact-results {
+    @apply text-center bg-gray-50 dark:bg-gray-700 rounded-lg p-6;
+    
+    .impact-score {
+      @apply text-4xl font-bold text-primary-600 dark:text-primary-400;
+    }
+    
+    .impact-rating {
+      @apply text-lg font-semibold text-gray-700 dark:text-gray-300 mt-2;
+    }
+    
+    .impact-progress {
+      @apply mt-4;
+      
+      .progress-track {
+        @apply bg-gray-200 dark:bg-gray-600 rounded-full h-3;
+        
+        .progress-fill {
+          @apply bg-gradient-to-r from-green-400 to-blue-500 h-3 rounded-full transition-all duration-500;
+        }
+      }
+    }
+  }
+}
+
+/* Latest Research Updates */
+.latest-research-container {
+  .research-updates {
+    @apply space-y-4;
+    
+    .research-update {
+      @apply bg-white dark:bg-gray-800 rounded-lg shadow p-4 border-l-4 border-primary-500;
+      
+      h5 {
+        a {
+          @apply text-lg font-semibold text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200;
+        }
+      }
+      
+      .update-meta {
+        @apply flex justify-between items-center text-sm text-gray-500 dark:text-gray-400 mt-2 mb-3;
+        
+        .research-area {
+          @apply bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded text-xs;
+        }
+      }
+      
+      .update-excerpt {
+        @apply text-gray-600 dark:text-gray-400;
+      }
+    }
+  }
+}
+
+/* Research Area Filter */
+.research-area-filter {
+  @apply mb-6 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white;
+}
+
+/* Project Join Button */
+.join-project-btn {
+  @apply bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
+  
+  &:disabled {
+    @apply bg-gray-400 cursor-not-allowed;
+  }
+}
+
+.update-progress-btn {
+  @apply bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .research-projects-grid .grid {
+    @apply grid-cols-1;
+  }
+  
+  .sustainability-metrics .grid {
+    @apply grid-cols-1 gap-4;
+  }
+  
+  .impact-calculator .calculator-inputs {
+    @apply grid-cols-1;
+  }
+  
+  .innovation-modal .modal-content {
+    @apply mx-2 max-h-80;
+  }
+}
+
+/* Dark Mode Specific Adjustments */
+.dark {
+  .research-project-card {
+    .project-title a {
+      @apply text-white;
+    }
+  }
+  
+  .innovation-modal .modal-content {
+    @apply border border-gray-600;
+  }
+}
+
+/* Animation Classes */
+@keyframes metricPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Progress Bar Animation */
+.progress-fill {
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Sustainability Badge */
+.sustainability-badge {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300;
+  
+  &::before {
+    content: '🌱';
+    @apply mr-1;
+  }
+}
+
+/* Research Status Indicators */
+.research-status {
+  @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium;
+  
+  &.status-concept {
+    @apply bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300;
+  }
+  
+  &.status-research {
+    @apply bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300;
+  }
+  
+  &.status-development {
+    @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300;
+  }
+  
+  &.status-testing {
+    @apply bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300;
+  }
+  
+  &.status-implementation {
+    @apply bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300;
+  }
+  
+  &.status-completed {
+    @apply bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300;
+  }
+}

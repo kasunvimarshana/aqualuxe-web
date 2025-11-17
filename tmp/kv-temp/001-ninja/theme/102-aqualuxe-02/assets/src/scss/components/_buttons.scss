@@ -1,0 +1,57 @@
+/**
+ * Button Components
+ */
+
+.btn {
+  @include button-base;
+  
+  &.btn-primary {
+    @include button-primary;
+  }
+  
+  &.btn-secondary {
+    @include button-secondary;
+  }
+  
+  &.btn-outline {
+    @include button-outline;
+  }
+  
+  &.btn-sm {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: var(--font-size-sm);
+  }
+  
+  &.btn-lg {
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: var(--font-size-lg);
+  }
+  
+  &.btn-block {
+    width: 100%;
+  }
+}
+
+// WordPress specific buttons
+.wp-block-button {
+  .wp-block-button__link {
+    @include button-primary;
+    text-decoration: none;
+  }
+}
+
+// WooCommerce buttons
+.woocommerce {
+  .button {
+    @include button-primary;
+    text-decoration: none;
+    
+    &.alt {
+      @include button-secondary;
+    }
+  }
+  
+  .single_add_to_cart_button {
+    @include button-primary;
+  }
+}

@@ -1,0 +1,62 @@
+version: '3.9'
+
+services:
+  db:
+    image: mariadb:11
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PW}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PW}
+    volumes:
+      - ./mariadb:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    volumes:
+      - ./redis:/data
+    ports:
+      - "6379:6379"
+
+  wordpress:
+    build:
+      context: .
+      dockerfile: Dockerfile.wordpress
+    restart: unless-stopped
+    depends_on:
+      - db
+      - redis
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: ${DB_NAME}
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD: ${DB_PW}
+      WORDPRESS_TABLE_PREFIX: ${WP_PREFIX}
+      WORDPRESS_DEBUG: ${WP_DEBUG:-true}
+      WORDPRESS_CONFIG_EXTRA: |
+        /* Redis Object Cache */
+        define('WP_REDIS_HOST', 'redis');
+        define('WP_CACHE', true);
+    volumes:
+      - ./wordpress:/var/www/html
+      - ./wp-content:/var/www/html/wp-content
+      - ./logs:/var/log
+    ports:
+      - "8080:80"
+
+  phpmyadmin:
+    image: phpmyadmin:5
+    restart: unless-stopped
+    depends_on:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: ${DB_ROOT_PW}
+    ports:
+      - "8081:80"

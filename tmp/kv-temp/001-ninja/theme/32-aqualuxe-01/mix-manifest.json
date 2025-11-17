@@ -1,0 +1,18 @@
+{
+    "/assets/js/app.js": "/assets/js/app.js?id=1c8edf9374d1c09ca8cd6d100558f695",
+    "/assets/js/woocommerce.js": "/assets/js/woocommerce.js?id=0f338e3e7961d895abe834e486abf2a6",
+    "/assets/js/customizer.js": "/assets/js/customizer.js?id=db3ec65b20374a82559c6459a00505e4",
+    "/assets/js/customizer-preview.js": "/assets/js/customizer-preview.js?id=88bcae8456a1416c31183a3ebac21f64",
+    "/assets/js/lazy-loading.js": "/assets/js/lazy-loading.js?id=7cdf34d9688e847d65a357cf80b3a74d",
+    "/assets/js/service-worker-register.js": "/assets/js/service-worker-register.js?id=d2cc5fc172efe210f8b71bc1d8f5d401",
+    "/assets/js/manifest.js": "/assets/js/manifest.js?id=3dab7bff058187cc9068adf1cfc472a4",
+    "/assets/css/editor.css": "/assets/css/editor.css?id=4b39a9301735b601acda9854c2daf62a",
+    "/assets/css/admin.css": "/assets/css/admin.css?id=a8a22c5f2b4153b1e57ffb86439b67db",
+    "/assets/css/woocommerce.css": "/assets/css/woocommerce.css?id=560b03a98d7c3d3697076a468b02fd0d",
+    "/assets/css/dark-mode.css": "/assets/css/dark-mode.css?id=044aa1456e848339078123d6c7284139",
+    "/assets/css/main.css": "/assets/css/main.css?id=7d8ac9c3e255d74cd27bd1ea0733e670",
+    "/assets/css/customizer-controls.css": "/assets/css/customizer-controls.css?id=0dc5d9ae2c10cee0e3c8f901fcc61d46",
+    "/assets/css/print.css": "/assets/css/print.css?id=a4f40e73c7834b05a0ee5ccb9e74f90e",
+    "/assets/images/sprite.svg": "/assets/images/sprite.svg?id=e09aa97a409ce36fc0011b52364df0e5",
+    "/service-worker.js": "/service-worker.js?id=593544d35c0ea8ae4ab249f59a199748"
+}

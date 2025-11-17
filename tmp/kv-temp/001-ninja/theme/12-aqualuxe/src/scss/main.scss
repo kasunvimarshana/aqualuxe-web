@@ -1,0 +1,63 @@
+/*!
+ * AquaLuxe Theme Styles
+ * A premium WordPress theme for high-end ornamental fish farming business
+ * 
+ * @package AquaLuxe
+ * @version 1.0.0
+ */
+
+/* Utils - Variables, mixins, functions */
+@import 'utils/variables';
+@import 'utils/mixins';
+@import 'utils/functions';
+@import 'utils/helpers';
+
+/* Vendors - Third-party styles */
+@import 'vendors/normalize';
+@import 'vendors/bootstrap-grid';
+
+/* Base - Base styles, typography, animations */
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/animations';
+@import 'base/base';
+
+/* Layout - Header, footer, grid, navigation */
+@import 'layout/grid';
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/navigation';
+@import 'layout/sidebar';
+@import 'layout/forms';
+
+/* Components - Buttons, cards, sliders */
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/hero';
+@import 'components/slider';
+@import 'components/testimonials';
+@import 'components/team';
+@import 'components/species';
+@import 'components/gallery';
+@import 'components/pagination';
+@import 'components/breadcrumbs';
+@import 'components/widgets';
+
+/* WooCommerce - Shop styles */
+@import 'components/woocommerce/products';
+@import 'components/woocommerce/single-product';
+@import 'components/woocommerce/cart';
+@import 'components/woocommerce/checkout';
+@import 'components/woocommerce/account';
+@import 'components/woocommerce/widgets';
+
+/* Pages - Page-specific styles */
+@import 'pages/home';
+@import 'pages/about';
+@import 'pages/contact';
+@import 'pages/blog';
+@import 'pages/shop';
+@import 'pages/species';
+
+/* Responsive - Media queries */
+@import 'utils/responsive';

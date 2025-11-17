@@ -1,0 +1,67 @@
+// Cart page styles
+.woocommerce-cart {
+  .cart-collaterals {
+    @apply grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8;
+
+    .cart_totals {
+      @apply lg:col-start-3;
+
+      h2 {
+        @apply text-xl font-semibold text-gray-900 dark:text-white mb-4;
+      }
+
+      .shop_table {
+        @apply w-full bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700;
+
+        th,
+        td {
+          @apply px-4 py-3 border-b border-gray-200 dark:border-gray-700;
+        }
+
+        .order-total {
+          th,
+          td {
+            @apply font-semibold text-lg;
+          }
+        }
+      }
+
+      .wc-proceed-to-checkout {
+        @apply mt-4;
+
+        .checkout-button {
+          @apply btn btn-primary btn-lg btn-block;
+        }
+      }
+    }
+  }
+}
+
+.cart_item {
+  @apply border-b border-gray-200 dark:border-gray-700;
+
+  .product-thumbnail {
+    img {
+      @apply w-16 h-16 object-cover rounded;
+    }
+  }
+
+  .product-name {
+    a {
+      @apply text-gray-900 dark:text-white font-medium no-underline;
+      @apply hover:text-primary-600 dark:hover:text-primary-400;
+    }
+  }
+
+  .product-quantity {
+    input {
+      @apply w-16 text-center;
+    }
+  }
+
+  .product-remove {
+    a {
+      @apply text-red-600 hover:text-red-700 no-underline;
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "posts": [
+    {
+      "title": "Welcome to AquaLuxe",
+      "content": "This is your first post. Edit or delete it, then start writing! We're excited to have you here. AquaLuxe is a theme designed for beauty, elegance, and performance. Dive in and explore the features."
+    },
+    {
+      "title": "Aquascaping Tips for Beginners",
+      "content": "Creating a beautiful underwater landscape can be a rewarding experience. Here are a few tips to get you started: 1. Choose the right substrate. 2. Select a variety of plants with different heights and textures. 3. Use rocks and driftwood to create focal points. 4. Be patient and allow your aquarium to cycle before adding fish."
+    },
+    {
+      "title": "The Rarest and Most Beautiful Fish Species",
+      "content": "From the vibrant Mandarin fish to the elusive Peppermint Angelfish, the ocean is full of stunning creatures. This post explores some of a kind species that capture the imagination of aquarium enthusiasts worldwide."
+    }
+  ],
+  "pages": [
+    {
+      "title": "Home",
+      "content": "[aqualuxe_placeholder content_id='home']"
+    },
+    {
+      "title": "About Us",
+      "content": "Founded in 2025, AquaLuxe was born from a passion for aquatic life and cutting-edge design. Our mission is to provide the most beautiful and functional WordPress themes for aquarium enthusiasts and businesses. Our team is composed of designers, developers, and marine biologists who are dedicated to bringing the beauty of the underwater world to your screen."
+    },
+    {
+      "title": "Services",
+      "content": "We offer a range of services to help you get the most out of your AquaLuxe theme, including: Custom theme design and development, WooCommerce integration and customization, and performance optimization."
+    },
+    {
+      "title": "Projects",
+      "content": "Here are some of the stunning websites our clients have created using the AquaLuxe theme. [aqualuxe_placeholder content_id='projects_gallery']"
+    },
+    {
+      "title": "Blog",
+      "content": ""
+    },
+    {
+      "title": "Contact Us",
+      "content": "Have a question or a project in mind? We'd love to hear from you. You can reach us at contact@aqualuxe.com or use the form below. [aqualuxe_placeholder content_id='contact_form']"
+    }
+  ],
+  "products": [
+    {
+      "title": "Anubias Nana",
+      "content": "A hardy and popular plant for beginners.",
+      "price": "7.99",
+      "image": "anubias.jpg"
+    },
+    {
+      "title": "Java Fern",
+      "content": "A versatile and low-maintenance plant.",
+      "price": "5.99",
+      "image": "java-fern.jpg"
+    },
+    {
+      "title": "Red Cherry Shrimp",
+      "content": "A vibrant and active addition to any peaceful aquarium.",
+      "price": "3.99",
+      "image": "cherry-shrimp.jpg"
+    }
+  ],
+  "menu": {
+    "name": "Primary Menu",
+    "location": "menu-1",
+    "items": [
+      { "type": "page", "title": "Home" },
+      { "type": "page", "title": "About Us" },
+      { "type": "page", "title": "Services" },
+      { "type": "page", "title": "Projects" },
+      { "type": "page", "title": "Blog" },
+      { "type": "page", "title": "Contact Us" }
+    ]
+  },
+  "reading_options": {
+    "show_on_front": "page",
+    "page_on_front": "Home",
+    "page_for_posts": "Blog"
+  }
+}

@@ -1,0 +1,35 @@
+/**
+ * AquaLuxe Admin Stylesheet
+ *
+ * @package AquaLuxe
+ * @since 1.0.0
+ */
+
+// Import variables and mixins
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'abstracts/functions';
+@import 'abstracts/placeholders';
+
+// Admin components
+@import 'admin/variables';
+@import 'admin/general';
+@import 'admin/buttons';
+@import 'admin/forms';
+@import 'admin/tables';
+@import 'admin/notices';
+@import 'admin/metaboxes';
+@import 'admin/widgets';
+@import 'admin/customizer';
+@import 'admin/media-uploader';
+@import 'admin/icons';
+
+// Module admin styles
+@import 'admin/modules/demo-importer';
+@import 'admin/modules/seo';
+@import 'admin/modules/performance';
+@import 'admin/modules/dark-mode';
+@import 'admin/modules/multilingual';
+
+// Admin responsive
+@import 'admin/responsive';

@@ -1,0 +1,262 @@
+/**
+ * AquaLuxe Admin Styles
+ */
+
+/* Customizer Styles */
+.customize-control {
+    margin-bottom: 20px;
+}
+
+.customize-control-title {
+    margin-bottom: 8px;
+}
+
+.customize-control-description {
+    font-style: italic;
+    margin-bottom: 8px;
+}
+
+/* Color Controls */
+.customize-control-color .wp-color-result {
+    border-radius: 4px;
+}
+
+/* Range Controls */
+.customize-control-range input[type=range] {
+    width: 100%;
+}
+
+/* Custom Sections */
+#customize-theme-controls .customize-pane-child.accordion-section-content.customize-pane-child.accordion-section-content {
+    padding: 12px;
+}
+
+/* Custom Panels */
+.customize-panel-description {
+    margin-bottom: 15px;
+}
+
+/* Custom Category Control */
+.customize-control-checkbox-multiple input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.customize-control-checkbox-multiple label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Custom Radio Image Control */
+.customize-control-radio-image input[type="radio"] {
+    display: none;
+}
+
+.customize-control-radio-image label {
+    display: inline-block;
+    margin: 0 5px 5px 0;
+    border: 3px solid transparent;
+}
+
+.customize-control-radio-image input:checked + label {
+    border-color: #0085ba;
+}
+
+.customize-control-radio-image img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+}
+
+/* Custom Sortable Control */
+.customize-control-sortable ul {
+    margin: 0;
+    padding: 0;
+}
+
+.customize-control-sortable li {
+    background: #f7f7f7;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 5px;
+    cursor: move;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.customize-control-sortable li:hover {
+    background: #f0f0f0;
+}
+
+.customize-control-sortable .visibility {
+    cursor: pointer;
+}
+
+/* Custom Dimensions Control */
+.customize-control-dimensions .dimension-wrap {
+    display: inline-block;
+    width: 23%;
+    margin-right: 2%;
+}
+
+.customize-control-dimensions .dimension-wrap input {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.customize-control-dimensions .dimension-wrap .dimension-label {
+    display: block;
+    text-align: center;
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+/* Custom Typography Control */
+.customize-control-typography .typography-font-family {
+    margin-bottom: 10px;
+}
+
+.customize-control-typography .typography-font-weight,
+.customize-control-typography .typography-font-style,
+.customize-control-typography .typography-font-size,
+.customize-control-typography .typography-line-height {
+    margin-bottom: 10px;
+    width: 48%;
+    display: inline-block;
+}
+
+.customize-control-typography .typography-font-weight,
+.customize-control-typography .typography-font-size {
+    margin-right: 4%;
+}
+
+/* AquaLuxe Theme Options Panel */
+#customize-theme-controls #accordion-panel-aqualuxe_theme_options > .accordion-section-title {
+    background-color: #0891b2;
+    color: #fff;
+}
+
+#customize-theme-controls #accordion-panel-aqualuxe_theme_options > .accordion-section-title:hover {
+    background-color: #0e7490;
+}
+
+/* WooCommerce Section */
+#customize-theme-controls #accordion-section-aqualuxe_woocommerce > .accordion-section-title:before {
+    content: "\f174";
+    font-family: dashicons;
+    margin-right: 5px;
+}
+
+/* Social Media Section */
+#customize-theme-controls #accordion-section-aqualuxe_social_media > .accordion-section-title:before {
+    content: "\f237";
+    font-family: dashicons;
+    margin-right: 5px;
+}
+
+/* Performance Section */
+#customize-theme-controls #accordion-section-aqualuxe_performance > .accordion-section-title:before {
+    content: "\f311";
+    font-family: dashicons;
+    margin-right: 5px;
+}
+
+/* Custom Separator Control */
+.customize-control-separator {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+}
+
+/* Custom Heading Control */
+.customize-control-heading .customize-control-title {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+/* Custom Info Control */
+.customize-control-info {
+    background: #f7f7f7;
+    padding: 10px;
+    border-left: 4px solid #0891b2;
+    margin-bottom: 15px;
+}
+
+/* Custom Toggle Control */
+.customize-control-toggle .toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.customize-control-toggle .toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.customize-control-toggle .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.customize-control-toggle .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+.customize-control-toggle input:checked + .slider {
+    background-color: #0891b2;
+}
+
+.customize-control-toggle input:focus + .slider {
+    box-shadow: 0 0 1px #0891b2;
+}
+
+.customize-control-toggle input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* Custom Responsive Control */
+.customize-control-responsive .responsive-switchers {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.customize-control-responsive .responsive-switchers button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 5px;
+    color: #555;
+}
+
+.customize-control-responsive .responsive-switchers button.active {
+    color: #0891b2;
+}
+
+.customize-control-responsive .responsive-control-wrap {
+    display: none;
+}
+
+.customize-control-responsive .responsive-control-wrap.active {
+    display: block;
+}

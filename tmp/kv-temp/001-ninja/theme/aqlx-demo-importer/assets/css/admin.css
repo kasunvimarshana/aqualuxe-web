@@ -1,0 +1,4 @@
+.aqlxdi .aqlxdi-controls label{margin-right:12px}
+.aqlxdi .aqlxdi-params label{margin-right:12px}
+.aqlxdi .aqlxdi-progress .bar{height:10px;background:#eee;border-radius:4px;overflow:hidden;margin:10px 0;width:420px}
+.aqlxdi .aqlxdi-progress .bar span{display:block;height:10px;background:#00a0d2;transition:width .2s}

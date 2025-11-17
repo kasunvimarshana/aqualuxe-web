@@ -1,0 +1,618 @@
+/**
+ * AquaLuxe Theme - Dark Mode Styles
+ *
+ * Dark theme implementation with smooth transitions
+ * and consistent color schemes for the AquaLuxe theme.
+ * Includes accessibility considerations and user preferences.
+ *
+ * @package AquaLuxe
+ * @subpackage Assets/SCSS
+ * @since 2.0.0
+ */
+
+/* Dark Mode Variables */
+:root.dark {
+  /* Primary Colors (adjusted for dark theme) */
+  --aqualuxe-primary: #38bdf8;
+  --aqualuxe-primary-dark: #0ea5e9;
+  --aqualuxe-primary-light: #7dd3fc;
+  
+  --aqualuxe-secondary: #0e7490;
+  --aqualuxe-secondary-dark: #155e75;
+  --aqualuxe-secondary-light: #06b6d4;
+  
+  --aqualuxe-accent: #fb923c;
+  --aqualuxe-accent-dark: #f97316;
+  --aqualuxe-accent-light: #fed7aa;
+  
+  /* Status Colors */
+  --aqualuxe-success: #10b981;
+  --aqualuxe-warning: #f59e0b;
+  --aqualuxe-error: #f87171;
+  --aqualuxe-info: #60a5fa;
+  
+  /* Background Colors */
+  --aqualuxe-bg-primary: #0f172a;
+  --aqualuxe-bg-secondary: #1e293b;
+  --aqualuxe-bg-tertiary: #334155;
+  --aqualuxe-bg-card: #1e293b;
+  --aqualuxe-bg-overlay: rgba(15, 23, 42, 0.8);
+  
+  /* Text Colors */
+  --aqualuxe-text-primary: #f8fafc;
+  --aqualuxe-text-secondary: #e2e8f0;
+  --aqualuxe-text-muted: #94a3b8;
+  --aqualuxe-text-subtle: #64748b;
+  
+  /* Border Colors */
+  --aqualuxe-border-primary: #475569;
+  --aqualuxe-border-secondary: #64748b;
+  --aqualuxe-border-muted: #374151;
+  
+  /* Shadow Colors */
+  --aqualuxe-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --aqualuxe-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  --aqualuxe-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  --aqualuxe-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark Mode Base Styles */
+.dark {
+  color-scheme: dark;
+  
+  body {
+    background-color: var(--aqualuxe-bg-primary);
+    color: var(--aqualuxe-text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Typography Adjustments */
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--aqualuxe-text-primary);
+  }
+  
+  p, span, div {
+    color: var(--aqualuxe-text-secondary);
+  }
+  
+  /* Link Adjustments */
+  a {
+    color: var(--aqualuxe-primary);
+    
+    &:hover {
+      color: var(--aqualuxe-primary-light);
+    }
+    
+    &:visited {
+      color: var(--aqualuxe-secondary);
+    }
+  }
+  
+  /* Selection Styles */
+  ::selection {
+    background-color: var(--aqualuxe-primary);
+    color: var(--aqualuxe-bg-primary);
+  }
+  
+  ::-moz-selection {
+    background-color: var(--aqualuxe-primary);
+    color: var(--aqualuxe-bg-primary);
+  }
+}
+
+/* Dark Mode Component Overrides */
+.dark {
+  
+  /* Cards */
+  .card {
+    background-color: var(--aqualuxe-bg-card);
+    border-color: var(--aqualuxe-border-primary);
+    box-shadow: var(--aqualuxe-shadow);
+    
+    .card-header {
+      border-color: var(--aqualuxe-border-primary);
+      background-color: var(--aqualuxe-bg-secondary);
+    }
+    
+    .card-footer {
+      border-color: var(--aqualuxe-border-primary);
+      background-color: var(--aqualuxe-bg-secondary);
+    }
+  }
+  
+  /* Forms */
+  .form-input,
+  .form-select,
+  .form-textarea {
+    background-color: var(--aqualuxe-bg-secondary);
+    border-color: var(--aqualuxe-border-primary);
+    color: var(--aqualuxe-text-primary);
+    
+    &:focus {
+      border-color: var(--aqualuxe-primary);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+    }
+    
+    &::placeholder {
+      color: var(--aqualuxe-text-muted);
+    }
+  }
+  
+  .form-label {
+    color: var(--aqualuxe-text-primary);
+  }
+  
+  /* Buttons */
+  .btn-ghost {
+    color: var(--aqualuxe-text-muted);
+    
+    &:hover {
+      background-color: var(--aqualuxe-bg-secondary);
+      color: var(--aqualuxe-text-primary);
+    }
+  }
+  
+  .btn-outline {
+    color: var(--aqualuxe-primary);
+    border-color: var(--aqualuxe-primary);
+    
+    &:hover {
+      background-color: var(--aqualuxe-primary);
+      color: var(--aqualuxe-bg-primary);
+    }
+  }
+  
+  /* Navigation */
+  .nav-link {
+    color: var(--aqualuxe-text-muted);
+    
+    &:hover,
+    &.active {
+      color: var(--aqualuxe-primary);
+      background-color: rgba(56, 189, 248, 0.15);
+    }
+  }
+  
+  /* Alerts */
+  .alert-success {
+    background-color: rgba(16, 185, 129, 0.15);
+    border-color: var(--aqualuxe-success);
+    color: #a7f3d0;
+  }
+  
+  .alert-warning {
+    background-color: rgba(245, 158, 11, 0.15);
+    border-color: var(--aqualuxe-warning);
+    color: #fde68a;
+  }
+  
+  .alert-error {
+    background-color: rgba(248, 113, 113, 0.15);
+    border-color: var(--aqualuxe-error);
+    color: #fca5a5;
+  }
+  
+  .alert-info {
+    background-color: rgba(96, 165, 250, 0.15);
+    border-color: var(--aqualuxe-info);
+    color: #dbeafe;
+  }
+  
+  /* Badges */
+  .badge-secondary {
+    background-color: var(--aqualuxe-bg-tertiary);
+    color: var(--aqualuxe-text-primary);
+  }
+  
+  /* Tooltips */
+  .tooltip-content {
+    background-color: var(--aqualuxe-bg-tertiary);
+    color: var(--aqualuxe-text-primary);
+    border: 1px solid var(--aqualuxe-border-primary);
+    
+    &::after {
+      border-top-color: var(--aqualuxe-bg-tertiary);
+    }
+  }
+}
+
+/* Dark Mode Layout Components */
+.dark {
+  
+  /* Header */
+  .site-header {
+    background-color: var(--aqualuxe-bg-secondary);
+    border-bottom: 1px solid var(--aqualuxe-border-primary);
+    
+    .site-title {
+      color: var(--aqualuxe-text-primary);
+    }
+    
+    .site-description {
+      color: var(--aqualuxe-text-muted);
+    }
+  }
+  
+  /* Navigation Menu */
+  .main-navigation {
+    background-color: var(--aqualuxe-bg-secondary);
+    
+    .menu {
+      li {
+        a {
+          color: var(--aqualuxe-text-secondary);
+          
+          &:hover {
+            color: var(--aqualuxe-primary);
+            background-color: rgba(56, 189, 248, 0.1);
+          }
+        }
+        
+        &.current-menu-item > a,
+        &.current_page_item > a {
+          color: var(--aqualuxe-primary);
+          background-color: rgba(56, 189, 248, 0.2);
+        }
+        
+        /* Dropdown Menus */
+        .sub-menu {
+          background-color: var(--aqualuxe-bg-tertiary);
+          border: 1px solid var(--aqualuxe-border-primary);
+          box-shadow: var(--aqualuxe-shadow-lg);
+          
+          li a {
+            color: var(--aqualuxe-text-secondary);
+            border-bottom: 1px solid var(--aqualuxe-border-muted);
+            
+            &:hover {
+              background-color: rgba(56, 189, 248, 0.1);
+              color: var(--aqualuxe-primary);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  /* Content Areas */
+  .content-area {
+    background-color: var(--aqualuxe-bg-primary);
+  }
+  
+  .entry-content {
+    color: var(--aqualuxe-text-secondary);
+  }
+  
+  .entry-title {
+    color: var(--aqualuxe-text-primary);
+  }
+  
+  .entry-meta {
+    color: var(--aqualuxe-text-muted);
+    
+    a {
+      color: var(--aqualuxe-text-muted);
+      
+      &:hover {
+        color: var(--aqualuxe-primary);
+      }
+    }
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    background-color: var(--aqualuxe-bg-secondary);
+    
+    .widget {
+      background-color: var(--aqualuxe-bg-card);
+      border: 1px solid var(--aqualuxe-border-primary);
+      
+      .widget-title {
+        color: var(--aqualuxe-text-primary);
+        background-color: var(--aqualuxe-bg-secondary);
+        border-bottom: 1px solid var(--aqualuxe-border-primary);
+      }
+      
+      .widget-content {
+        color: var(--aqualuxe-text-secondary);
+      }
+    }
+  }
+  
+  /* Footer */
+  .site-footer {
+    background-color: var(--aqualuxe-bg-secondary);
+    border-top: 1px solid var(--aqualuxe-border-primary);
+    color: var(--aqualuxe-text-secondary);
+    
+    .footer-widgets {
+      .widget-title {
+        color: var(--aqualuxe-text-primary);
+      }
+    }
+    
+    .site-info {
+      color: var(--aqualuxe-text-muted);
+      border-top: 1px solid var(--aqualuxe-border-muted);
+      
+      a {
+        color: var(--aqualuxe-text-muted);
+        
+        &:hover {
+          color: var(--aqualuxe-primary);
+        }
+      }
+    }
+  }
+}
+
+/* Dark Mode WooCommerce Styles */
+.dark {
+  
+  /* Shop Layout */
+  .woocommerce {
+    .woocommerce-products-header {
+      background-color: var(--aqualuxe-bg-secondary);
+      border-bottom: 1px solid var(--aqualuxe-border-primary);
+    }
+    
+    .woocommerce-result-count {
+      color: var(--aqualuxe-text-muted);
+    }
+    
+    .woocommerce-ordering select {
+      background-color: var(--aqualuxe-bg-secondary);
+      border-color: var(--aqualuxe-border-primary);
+      color: var(--aqualuxe-text-primary);
+    }
+  }
+  
+  /* Product Cards */
+  .wc-block-grid__product,
+  .product {
+    background-color: var(--aqualuxe-bg-card);
+    border: 1px solid var(--aqualuxe-border-primary);
+    
+    .woocommerce-loop-product__title {
+      color: var(--aqualuxe-text-primary);
+    }
+    
+    .price {
+      color: var(--aqualuxe-primary);
+      
+      del {
+        color: var(--aqualuxe-text-muted);
+      }
+    }
+    
+    .star-rating {
+      &::before {
+        color: var(--aqualuxe-border-primary);
+      }
+      
+      span::before {
+        color: var(--aqualuxe-warning);
+      }
+    }
+  }
+  
+  /* Cart & Checkout */
+  .woocommerce-cart,
+  .woocommerce-checkout {
+    .cart_totals,
+    .woocommerce-checkout-review-order {
+      background-color: var(--aqualuxe-bg-card);
+      border: 1px solid var(--aqualuxe-border-primary);
+    }
+    
+    table.cart {
+      background-color: var(--aqualuxe-bg-card);
+      
+      th,
+      td {
+        border-color: var(--aqualuxe-border-primary);
+        color: var(--aqualuxe-text-secondary);
+      }
+      
+      th {
+        background-color: var(--aqualuxe-bg-secondary);
+        color: var(--aqualuxe-text-primary);
+      }
+    }
+  }
+  
+  /* My Account */
+  .woocommerce-account {
+    .woocommerce-MyAccount-navigation {
+      background-color: var(--aqualuxe-bg-secondary);
+      border: 1px solid var(--aqualuxe-border-primary);
+      
+      ul li {
+        border-color: var(--aqualuxe-border-muted);
+        
+        a {
+          color: var(--aqualuxe-text-secondary);
+          
+          &:hover {
+            color: var(--aqualuxe-primary);
+            background-color: rgba(56, 189, 248, 0.1);
+          }
+        }
+        
+        &.is-active a {
+          color: var(--aqualuxe-primary);
+          background-color: rgba(56, 189, 248, 0.2);
+        }
+      }
+    }
+    
+    .woocommerce-MyAccount-content {
+      background-color: var(--aqualuxe-bg-card);
+      color: var(--aqualuxe-text-secondary);
+    }
+  }
+}
+
+/* Dark Mode Animations & Transitions */
+.dark {
+  
+  /* Smooth transitions for theme switching */
+  *,
+  *::before,
+  *::after {
+    transition: 
+      background-color 0.3s ease,
+      border-color 0.3s ease,
+      color 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+  
+  /* Loading States */
+  .loading::after {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(56, 189, 248, 0.2),
+      transparent
+    );
+  }
+  
+  .spinner {
+    border-color: var(--aqualuxe-border-primary);
+    border-top-color: var(--aqualuxe-primary);
+  }
+  
+  /* Focus States */
+  :focus-visible {
+    outline-color: var(--aqualuxe-primary);
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.3);
+  }
+}
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  border: 2px solid var(--aqualuxe-border-primary);
+  background-color: var(--aqualuxe-bg-card);
+  color: var(--aqualuxe-text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--aqualuxe-shadow-lg);
+  
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: var(--aqualuxe-shadow-xl);
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
+  
+  .icon-sun,
+  .icon-moon {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .dark & {
+    .icon-sun {
+      opacity: 0;
+      transform: rotate(180deg);
+    }
+    
+    .icon-moon {
+      opacity: 1;
+      transform: rotate(0deg);
+    }
+  }
+  
+  :not(.dark) & {
+    .icon-sun {
+      opacity: 1;
+      transform: rotate(0deg);
+    }
+    
+    .icon-moon {
+      opacity: 0;
+      transform: rotate(-180deg);
+    }
+  }
+}
+
+/* Dark Mode Media Queries */
+@media (prefers-color-scheme: dark) {
+  /* Auto dark mode for users with system preference */
+  :root:not(.light) {
+    color-scheme: dark;
+  }
+  
+  :root:not(.light) body {
+    background-color: var(--aqualuxe-bg-primary);
+    color: var(--aqualuxe-text-primary);
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .dark {
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .dark {
+    --aqualuxe-primary: #60a5fa;
+    --aqualuxe-text-primary: #ffffff;
+    --aqualuxe-text-secondary: #f1f5f9;
+    --aqualuxe-bg-primary: #000000;
+    --aqualuxe-bg-secondary: #1a1a1a;
+    --aqualuxe-border-primary: #666666;
+  }
+}
+
+/* Print Styles for Dark Mode */
+@media print {
+  .dark {
+    background: white !important;
+    color: black !important;
+    
+    *,
+    *::before,
+    *::after {
+      background: transparent !important;
+      color: black !important;
+      box-shadow: none !important;
+    }
+    
+    a,
+    a:visited {
+      color: black !important;
+      text-decoration: underline;
+    }
+  }
+}
+
+/* Dark Mode Utility Classes */
+.dark {
+  .text-light { color: var(--aqualuxe-text-primary); }
+  .text-muted-light { color: var(--aqualuxe-text-muted); }
+  .bg-dark-primary { background-color: var(--aqualuxe-bg-primary); }
+  .bg-dark-secondary { background-color: var(--aqualuxe-bg-secondary); }
+  .bg-dark-card { background-color: var(--aqualuxe-bg-card); }
+  .border-dark { border-color: var(--aqualuxe-border-primary); }
+}

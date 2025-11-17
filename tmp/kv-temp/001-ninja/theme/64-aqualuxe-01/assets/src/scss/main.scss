@@ -1,0 +1,76 @@
+/**
+ * AquaLuxe Main Stylesheet
+ *
+ * This is the main stylesheet for the AquaLuxe theme.
+ * It imports all other stylesheets and defines global styles.
+ *
+ * @package AquaLuxe
+ * @since 1.0.0
+ */
+
+/* Tailwind CSS */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Variables */
+@import 'variables';
+
+/* Mixins */
+@import 'mixins';
+
+/* Base Styles */
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/forms';
+@import 'base/buttons';
+@import 'base/accessibility';
+@import 'base/animations';
+
+/* Layout */
+@import 'layout/grid';
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/sidebar';
+@import 'layout/content';
+@import 'layout/pages';
+
+/* Components */
+@import 'components/navigation';
+@import 'components/search';
+@import 'components/breadcrumbs';
+@import 'components/pagination';
+@import 'components/cards';
+@import 'components/widgets';
+@import 'components/comments';
+@import 'components/social';
+@import 'components/modal';
+@import 'components/tabs';
+@import 'components/accordion';
+@import 'components/alerts';
+@import 'components/badges';
+@import 'components/tooltips';
+@import 'components/dark-mode-toggle';
+@import 'components/language-switcher';
+@import 'components/back-to-top';
+
+/* Templates */
+@import 'templates/home';
+@import 'templates/blog';
+@import 'templates/archive';
+@import 'templates/single';
+@import 'templates/page';
+@import 'templates/404';
+@import 'templates/search';
+@import 'templates/contact';
+
+/* Modules */
+@import 'modules/dark-mode';
+@import 'modules/multilingual';
+
+/* Utilities */
+@import 'utilities/helpers';
+@import 'utilities/responsive';
+
+/* Responsive */
+@import 'responsive';

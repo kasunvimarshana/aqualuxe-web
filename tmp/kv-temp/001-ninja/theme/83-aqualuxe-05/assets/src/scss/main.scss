@@ -1,0 +1,210 @@
+// AquaLuxe Main SCSS Entry Point
+// Bringing elegance to aquatic life – globally
+
+// Foundation & Configuration
+@import 'base/reset';
+@import 'base/variables';
+@import 'base/mixins';
+@import 'base/functions';
+@import 'base/typography';
+@import 'base/grid';
+
+// Layout Components
+@import 'layout/header';
+@import 'layout/navigation';
+@import 'layout/footer';
+@import 'layout/sidebar';
+@import 'layout/container';
+
+// UI Components
+@import 'components/buttons';
+@import 'components/forms';
+@import 'components/cards';
+@import 'components/modals';
+@import 'components/notifications';
+@import 'components/tabs';
+@import 'components/accordions';
+@import 'components/sliders';
+@import 'components/tooltips';
+@import 'components/breadcrumbs';
+@import 'components/pagination';
+@import 'components/loading';
+
+// Feature Components
+@import 'components/fishtank';
+@import 'components/hero-sections';
+@import 'components/testimonials';
+@import 'components/team';
+@import 'components/pricing';
+@import 'components/contact';
+@import 'components/gallery';
+@import 'components/blog';
+
+// WooCommerce Components
+@import 'woocommerce/shop';
+@import 'woocommerce/products';
+@import 'woocommerce/cart';
+@import 'woocommerce/checkout';
+@import 'woocommerce/account';
+@import 'woocommerce/widgets';
+
+// Utilities & Responsive
+@import 'utilities/animations';
+@import 'utilities/helpers';
+@import 'utilities/responsive';
+@import 'utilities/dark-mode';
+@import 'utilities/accessibility';
+
+// WordPress Specific
+@import 'wordpress/blocks';
+@import 'wordpress/editor';
+@import 'wordpress/comments';
+@import 'wordpress/widgets';
+
+// Global Styles
+body {
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  overflow-x: hidden;
+  
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+
+// Smooth scrolling
+html {
+  scroll-behavior: smooth;
+}
+
+// Selection styles
+::selection {
+  background-color: var(--color-aqua-500);
+  color: var(--color-white);
+}
+
+::-moz-selection {
+  background-color: var(--color-aqua-500);
+  color: var(--color-white);
+}
+
+// Focus styles for accessibility
+:focus {
+  outline: 2px solid var(--color-aqua-500);
+  outline-offset: 2px;
+}
+
+// Skip link for accessibility
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--color-dark);
+  color: var(--color-white);
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 1000;
+  
+  &:focus {
+    top: 6px;
+  }
+}
+
+// Main content wrapper
+.site-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding-top: var(--header-height, 80px);
+}
+
+// Container system
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  
+  &.container-fluid {
+    max-width: 100%;
+  }
+  
+  &.container-narrow {
+    max-width: var(--container-narrow);
+  }
+  
+  &.container-wide {
+    max-width: var(--container-wide);
+  }
+}
+
+// Loading states
+.loading {
+  position: relative;
+  pointer-events: none;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid var(--color-aqua-200);
+    border-top-color: var(--color-aqua-600);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Error states
+.error {
+  color: var(--color-error);
+  border-color: var(--color-error);
+}
+
+.success {
+  color: var(--color-success);
+  border-color: var(--color-success);
+}
+
+.warning {
+  color: var(--color-warning);
+  border-color: var(--color-warning);
+}
+
+.info {
+  color: var(--color-info);
+  border-color: var(--color-info);
+}
+
+// Print styles
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .fishtank,
+  .video-background,
+  .parallax-section {
+    display: none !important;
+  }
+}

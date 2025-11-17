@@ -1,0 +1,27 @@
+// Cards
+.card {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden;
+  @apply border border-gray-200 dark:border-gray-700;
+  @apply transition-all duration-200 hover:shadow-lg;
+}
+
+// Hero
+.hero {
+  @apply relative bg-gradient-to-br from-primary-600 to-secondary-600;
+  @apply text-white py-24 lg:py-32;
+}
+
+// Features
+.feature-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+}
+
+// Testimonials
+.testimonial {
+  @apply bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md;
+}
+
+// Footer
+.site-footer {
+  @apply bg-gray-900 text-white py-12;
+}

@@ -1,0 +1,196 @@
+/**
+ * AquaLuxe Custom Styles
+ *
+ * @package AquaLuxe
+ * @since 1.0.0
+ */
+
+/* Variables */
+:root {
+  --primary-color: #007cba;
+  --secondary-color: #005a87;
+  --accent-color: #00a0d2;
+  --text-color: #333;
+  --bg-color: #fff;
+  --border-color: #ddd;
+  --success-color: #46b450;
+  --error-color: #dc3232;
+}
+
+/* Base Styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover,
+a:focus {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+/* Header */
+.site-header {
+  background-color: var(--bg-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 100;
+}
+
+/* Sticky Header */
+.aqualuxe-sticky-header .site-header {
+  position: sticky;
+  top: 0;
+}
+
+/* Navigation */
+.main-navigation {
+  background-color: var(--primary-color);
+}
+
+.main-navigation ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.main-navigation li {
+  position: relative;
+}
+
+.main-navigation a {
+  color: #fff;
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+}
+
+.main-navigation a:hover,
+.main-navigation a:focus {
+  background-color: var(--secondary-color);
+  text-decoration: none;
+}
+
+/* Main Content */
+.site-main {
+  padding: 2rem 0;
+}
+
+/* Footer */
+.site-footer {
+  background-color: #f5f5f5;
+  padding: 2rem 0;
+  margin-top: 2rem;
+}
+
+/* Buttons */
+.button,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover,
+.button:focus,
+button:hover,
+button:focus,
+input[type="button"]:hover,
+input[type="button"]:focus,
+input[type="reset"]:hover,
+input[type="reset"]:focus,
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  background-color: var(--secondary-color);
+  text-decoration: none;
+}
+
+/* Forms */
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+/* Accessibility */
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  clip-path: none;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-navigation ul {
+    flex-direction: column;
+  }
+  
+  .site-main {
+    padding: 1rem 0;
+  }
+}

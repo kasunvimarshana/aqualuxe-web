@@ -1,0 +1,38 @@
+// Layout: Header
+.site-header {
+  transition: transform 0.3s ease;
+
+  &.header-scrolled {
+    @apply bg-white/95 backdrop-blur-sm;
+  }
+
+  .top-bar {
+    @apply bg-primary-900 text-white py-2;
+  }
+
+  .main-header {
+    @apply py-4;
+  }
+
+  .site-branding {
+    .site-logo img {
+      @apply h-12 w-auto;
+    }
+
+    .site-title {
+      @apply text-2xl font-bold text-primary-900;
+
+      .dark & {
+        @apply text-white;
+      }
+    }
+
+    .site-description {
+      @apply text-gray-600;
+
+      .dark & {
+        @apply text-gray-400;
+      }
+    }
+  }
+}

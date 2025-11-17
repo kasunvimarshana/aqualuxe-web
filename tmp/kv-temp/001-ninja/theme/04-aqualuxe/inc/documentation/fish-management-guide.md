@@ -1,0 +1,231 @@
+# AquaLuxe Fish Management Guide
+
+This guide provides detailed information on how to use the fish management features in the AquaLuxe WordPress theme.
+
+## Table of Contents
+
+1. [Fish Species Management](#fish-species-management)
+2. [Water Parameter Calculator](#water-parameter-calculator)
+3. [Fish Compatibility Checker](#fish-compatibility-checker)
+4. [Tank Volume Calculator](#tank-volume-calculator)
+5. [Fish Stocking Calculator](#fish-stocking-calculator)
+6. [Shortcodes Reference](#shortcodes-reference)
+
+## Fish Species Management
+
+The AquaLuxe theme includes a comprehensive fish species management system that allows you to create, organize, and display detailed information about different fish species.
+
+### Adding a New Fish Species
+
+1. In your WordPress admin dashboard, navigate to **Fish Species > Add New**
+2. Enter the common name of the fish in the title field
+3. Add a detailed description in the main content editor
+4. Upload a featured image of the fish
+5. Fill in the following meta boxes:
+
+#### Fish Specifications
+
+- **Scientific Name**: The scientific (Latin) name of the fish
+- **Adult Size**: The average adult size in inches
+- **Lifespan**: The average lifespan in years
+- **Minimum Tank Size**: The minimum recommended tank size in gallons
+- **Temperature Range**: The minimum and maximum temperature in °F
+- **pH Range**: The minimum and maximum pH levels
+- **Water Hardness**: The minimum and maximum water hardness in dGH
+- **Diet**: The type of diet (e.g., Omnivore, Carnivore, Herbivore)
+- **Temperament**: Choose from Peaceful, Semi-Aggressive, or Aggressive
+- **Swimming Level**: Choose from Top, Middle, Bottom, or All Levels
+- **Breeding Difficulty**: Choose from Easy, Moderate, Difficult, or Very Difficult
+
+#### Fish Compatibility
+
+- **Compatible With**: List fish species that are compatible with this fish
+- **Incompatible With**: List fish species that are incompatible with this fish
+- **Compatibility Notes**: Additional notes about compatibility
+
+#### Fish Care Guide
+
+- **Care Instructions**: Detailed care instructions for the fish
+- **Feeding Guide**: Recommended feeding schedule and food types
+- **Tank Setup**: Recommended tank setup including substrate, plants, decorations
+- **Common Diseases & Prevention**: Information about common diseases and prevention
+- **Breeding Tips**: Tips for breeding this fish species
+
+### Organizing Fish Species
+
+The AquaLuxe theme includes several taxonomies to help you organize your fish species:
+
+1. **Fish Categories**: Broad categories like Freshwater, Saltwater, Brackish
+2. **Fish Families**: Taxonomic families of fish
+3. **Fish Origins**: Geographic origins of fish species
+4. **Care Levels**: Difficulty levels for fish care (e.g., Beginner, Intermediate, Expert)
+
+To add or manage these taxonomies:
+
+1. Navigate to **Fish Species > [Taxonomy Name]** in the WordPress admin
+2. Add new terms or edit existing ones
+3. You can add descriptions to each term that will appear on archive pages
+
+### Displaying Fish Species
+
+The AquaLuxe theme automatically creates beautiful layouts for:
+
+1. **Single Fish Species**: Detailed page with tabbed interface showing all fish information
+2. **Fish Species Archive**: Grid layout showing all fish species
+3. **Taxonomy Archives**: Collections of fish based on categories, families, origins, or care levels
+
+## Water Parameter Calculator
+
+The Water Parameter Calculator helps aquarium owners adjust their water parameters correctly.
+
+### Using the pH Calculator
+
+1. Navigate to the Water Parameter Calculator page
+2. Select the "pH Adjustment" tab
+3. Enter your current pH level
+4. Enter your target pH level
+5. Enter your tank volume in gallons
+6. Select whether you want to increase or decrease pH
+7. Click "Calculate" to get dosage recommendations
+
+### Using the Water Hardness Calculator
+
+1. Navigate to the Water Parameter Calculator page
+2. Select the "Water Hardness" tab
+3. Enter your current water hardness in dGH
+4. Enter your target water hardness in dGH
+5. Enter your tank volume in gallons
+6. Select whether you want to increase or decrease hardness
+7. Click "Calculate" to get dosage recommendations
+
+### Using the Medication Dosage Calculator
+
+1. Navigate to the Water Parameter Calculator page
+2. Select the "Medication Dosage" tab
+3. Select the medication type from the dropdown
+4. Enter your tank volume in gallons
+5. For custom medications, enter the dosage rate
+6. Click "Calculate" to get the correct dosage amount
+
+## Fish Compatibility Checker
+
+The Fish Compatibility Checker helps you determine which fish species can live together harmoniously.
+
+### Checking Compatibility
+
+1. Navigate to the Fish Compatibility Checker page
+2. Use the search box to filter fish species
+3. Use the category filter to narrow down options
+4. Select the fish species you want to check (minimum 2)
+5. Click "Check Compatibility" to see results
+
+### Understanding Results
+
+The compatibility results include:
+
+1. **Compatibility Matrix**: Shows compatibility between each pair of selected fish
+2. **Water Parameter Overlap**: Shows whether the selected fish share compatible water parameters
+3. **Compatibility Notes**: Specific notes about potential issues or considerations
+
+## Tank Volume Calculator
+
+The Tank Volume Calculator helps you determine the exact volume of your aquarium.
+
+### Calculating Tank Volume
+
+1. Navigate to the Tank Volume Calculator page
+2. Select the appropriate tank shape tab:
+   - Rectangular
+   - Cylindrical
+   - Bowfront
+3. Enter the dimensions of your tank
+4. Enter the substrate depth (if applicable)
+5. Click "Calculate" to get the tank volume in gallons and liters
+
+## Fish Stocking Calculator
+
+The Fish Stocking Calculator helps you determine how many fish your aquarium can safely support.
+
+### Calculating Stocking Levels
+
+1. Navigate to the Fish Stocking Calculator page
+2. Enter your tank volume in gallons
+3. Enter your filtration capacity (optional)
+4. Select your tank type (Community, Cichlid, Goldfish, etc.)
+5. Add fish entries with:
+   - Fish name
+   - Quantity
+   - Adult size in inches
+6. Click "Calculate" to see your stocking level
+
+### Understanding Stocking Results
+
+The stocking results include:
+
+1. **Stocking Level**: Percentage of recommended capacity
+2. **Stocking Status**: Understocked, Adequately Stocked, or Overstocked
+3. **Bioload Analysis**: Breakdown of how each fish contributes to the total bioload
+4. **Recommendations**: Suggestions for improving your stocking plan
+
+## Shortcodes Reference
+
+The AquaLuxe theme includes several shortcodes to display fish-related information on any page or post:
+
+### Fish Species Shortcode
+
+```
+[fish_species category="freshwater" care_level="beginner" limit="8" orderby="title" order="ASC"]
+```
+
+**Parameters:**
+- `category`: Filter by fish category slug
+- `care_level`: Filter by care level slug
+- `temperament`: Filter by temperament (peaceful, semi-aggressive, aggressive)
+- `limit`: Number of fish to display
+- `orderby`: Sort by field (title, date, rand)
+- `order`: Sort order (ASC, DESC)
+
+### Fish Compatibility Shortcode
+
+```
+[fish_compatibility id="123"]
+```
+
+**Parameters:**
+- `id`: The ID of the fish species to show compatibility for
+
+### Fish Compatibility Checker Shortcode
+
+```
+[fish_compatibility_checker title="Check Fish Compatibility" limit="20"]
+```
+
+**Parameters:**
+- `title`: Custom title for the checker
+- `limit`: Maximum number of fish to display in the selection
+
+### Water Parameter Calculator Shortcode
+
+```
+[water_parameter_calculator tab="ph-adjustment"]
+```
+
+**Parameters:**
+- `tab`: Default tab to show (ph-adjustment, hardness-adjustment, medication-dosage)
+
+### Tank Volume Calculator Shortcode
+
+```
+[tank_volume_calculator tab="rectangular"]
+```
+
+**Parameters:**
+- `tab`: Default tab to show (rectangular, cylindrical, bowfront)
+
+### Fish Stocking Calculator Shortcode
+
+```
+[stocking_calculator]
+```
+
+No parameters required.

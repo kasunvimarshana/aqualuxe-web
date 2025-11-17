@@ -1,0 +1,30 @@
+/**
+ * WooCommerce Simple Auctions specific styles for AquaLuxe Pro Theme.
+ */
+
+.aqualuxe-auction-wrapper {
+    .auction-time-left, .auction-time-right {
+        @apply text-sm font-semibold text-red-600;
+    }
+
+    .auction-price {
+        @apply text-2xl font-bold text-primary;
+    }
+
+    .auction_form {
+        @apply mt-4 p-4 bg-gray-100 border border-gray-200 rounded-lg;
+
+        .bid {
+            .label {
+                @apply block text-gray-700 text-sm font-bold mb-2;
+            }
+            .input-text {
+                @apply w-full;
+            }
+        }
+
+        .button {
+            @apply mt-4;
+        }
+    }
+}

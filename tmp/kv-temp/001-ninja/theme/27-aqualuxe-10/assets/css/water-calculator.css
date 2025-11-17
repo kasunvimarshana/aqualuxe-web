@@ -1,0 +1,423 @@
+/**
+ * AquaLuxe Water Parameter Calculator Styles
+ * 
+ * Styles for the water parameter calculator tool
+ */
+
+/* Calculator Container */
+.water-calculator-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    font-family: var(--font-primary, 'Open Sans', sans-serif);
+    color: var(--color-text, #333);
+}
+
+.water-calculator-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.water-calculator-header h2 {
+    color: var(--color-primary, #0056b3);
+    margin-bottom: 1rem;
+}
+
+.water-calculator-header p {
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--color-text-muted, #6c757d);
+}
+
+/* Calculator Form */
+.water-calculator-form {
+    background-color: var(--color-background-light, #f8f9fa);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.form-section {
+    margin-bottom: 2rem;
+}
+
+.form-section-title {
+    color: var(--color-primary, #0056b3);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border, #e1e4e8);
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -0.5rem;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 200px;
+    padding: 0 0.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group .parameter-range {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-text-muted, #6c757d);
+    margin-top: 0.25rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--color-border, #e1e4e8);
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus,
+.form-group select:focus {
+    border-color: var(--color-primary, #0056b3);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+}
+
+.form-group.has-error input[type="text"],
+.form-group.has-error input[type="number"],
+.form-group.has-error select {
+    border-color: var(--color-danger, #dc3545);
+}
+
+.error-message {
+    color: var(--color-danger, #dc3545);
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+.parameter-group {
+    margin-bottom: 1rem;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--color-primary, #0056b3);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-dark, #004494);
+}
+
+.btn-secondary {
+    background-color: var(--color-light, #f8f9fa);
+    color: var(--color-text, #333);
+    border: 1px solid var(--color-border, #e1e4e8);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-border, #e1e4e8);
+}
+
+/* Results Section */
+.calculator-results {
+    display: none;
+    background-color: var(--color-background-light, #f8f9fa);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.results-header {
+    margin-bottom: 1.5rem;
+}
+
+.results-header h3 {
+    color: var(--color-primary, #0056b3);
+    margin-bottom: 0.5rem;
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+
+.results-table th,
+.results-table td {
+    padding: 0.75rem;
+    border: 1px solid var(--color-border, #e1e4e8);
+    text-align: left;
+}
+
+.results-table th {
+    background-color: var(--color-background, #fff);
+    font-weight: 600;
+}
+
+.results-table tr.status-good {
+    background-color: rgba(40, 167, 69, 0.1);
+}
+
+.results-table tr.status-low {
+    background-color: rgba(255, 193, 7, 0.1);
+}
+
+.results-table tr.status-high {
+    background-color: rgba(220, 53, 69, 0.1);
+}
+
+.results-table tr.status-unknown {
+    background-color: rgba(108, 117, 125, 0.1);
+}
+
+.recommendations-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recommendation-item {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    border-left: 4px solid transparent;
+}
+
+.recommendation-item.status-low {
+    background-color: rgba(255, 193, 7, 0.1);
+    border-left-color: var(--color-warning, #ffc107);
+}
+
+.recommendation-item.status-high {
+    background-color: rgba(220, 53, 69, 0.1);
+    border-left-color: var(--color-danger, #dc3545);
+}
+
+.all-good-message {
+    padding: 1.5rem;
+    background-color: rgba(40, 167, 69, 0.1);
+    border-radius: 4px;
+    border-left: 4px solid var(--color-success, #28a745);
+    text-align: center;
+}
+
+.all-good-message h3 {
+    color: var(--color-success, #28a745);
+    margin-top: 0;
+}
+
+.results-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border, #e1e4e8);
+}
+
+/* History Section */
+.history-container {
+    background-color: var(--color-background-light, #f8f9fa);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.history-header h3 {
+    color: var(--color-primary, #0056b3);
+    margin: 0;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.history-table th,
+.history-table td {
+    padding: 0.75rem;
+    border: 1px solid var(--color-border, #e1e4e8);
+    text-align: left;
+}
+
+.history-table th {
+    background-color: var(--color-background, #fff);
+    font-weight: 600;
+}
+
+.view-history-details {
+    background-color: var(--color-primary, #0056b3);
+    color: white;
+    border: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.view-history-details:hover {
+    background-color: var(--color-primary-dark, #004494);
+}
+
+/* Modal */
+.water-calculator-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.water-calculator-modal-content {
+    background-color: var(--color-background, #fff);
+    margin: 10% auto;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 800px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.water-calculator-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-text-muted, #6c757d);
+    cursor: pointer;
+}
+
+.water-calculator-modal-close:hover {
+    color: var(--color-text, #333);
+}
+
+.history-details-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.history-details-table th,
+.history-details-table td {
+    padding: 0.75rem;
+    border: 1px solid var(--color-border, #e1e4e8);
+    text-align: left;
+}
+
+.history-details-table th {
+    background-color: var(--color-background-light, #f8f9fa);
+    font-weight: 600;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .form-group {
+        min-width: 100%;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .form-actions .btn {
+        margin-bottom: 0.5rem;
+        width: 100%;
+    }
+    
+    .results-actions {
+        flex-direction: column;
+    }
+    
+    .results-actions .btn {
+        margin-bottom: 0.5rem;
+        width: 100%;
+    }
+    
+    .history-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .history-header h3 {
+        margin-bottom: 1rem;
+    }
+    
+    .history-table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .water-calculator-modal-content {
+        margin: 20% auto;
+        padding: 1.5rem;
+        width: 90%;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .water-calculator-form,
+    .form-actions,
+    .results-actions,
+    .history-container {
+        display: none;
+    }
+    
+    .calculator-results {
+        display: block !important;
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .results-table th,
+    .results-table td {
+        border: 1px solid #ddd;
+    }
+    
+    .recommendation-item {
+        border: 1px solid #ddd;
+        page-break-inside: avoid;
+    }
+}

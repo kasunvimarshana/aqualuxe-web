@@ -1,0 +1,22 @@
+// Layout: Sidebar
+.sidebar {
+  .widget {
+    @apply mb-8;
+
+    .widget-title {
+      @apply text-lg font-semibold text-gray-900 mb-4;
+
+      .dark & {
+        @apply text-white;
+      }
+    }
+
+    .widget-content {
+      @apply text-gray-700;
+
+      .dark & {
+        @apply text-gray-300;
+      }
+    }
+  }
+}

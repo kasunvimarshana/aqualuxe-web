@@ -1,0 +1,277 @@
+/**
+ * AquaLuxe Theme - Breadcrumbs Styles
+ *
+ * This file contains all styles related to breadcrumb navigation.
+ */
+
+/* Base Breadcrumbs */
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 1rem 0;
+  margin: 0;
+  list-style: none;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  
+  &__item {
+    display: flex;
+    align-items: center;
+    
+    &:not(:last-child)::after {
+      content: "/";
+      margin: 0 0.5rem;
+      color: var(--color-text-light);
+    }
+    
+    &--active {
+      color: var(--color-text);
+      font-weight: 500;
+    }
+  }
+  
+  &__link {
+    color: var(--color-text-light);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+  
+  &__home {
+    color: var(--color-text-light);
+    
+    i, svg {
+      font-size: 1.1em;
+    }
+  }
+}
+
+/* Breadcrumbs Container */
+.breadcrumbs-container {
+  background-color: var(--color-background-alt);
+  padding: 0.75rem 0;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--color-border);
+  
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .breadcrumbs {
+    padding: 0;
+  }
+}
+
+/* Breadcrumbs with Background */
+.breadcrumbs--bg {
+  background-color: var(--color-background-alt);
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+}
+
+/* Breadcrumbs with Border */
+.breadcrumbs--border {
+  border: 1px solid var(--color-border);
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+}
+
+/* Breadcrumbs with Shadow */
+.breadcrumbs--shadow {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  background-color: var(--color-background);
+}
+
+/* Breadcrumbs with Arrows */
+.breadcrumbs--arrows {
+  .breadcrumbs__item {
+    &:not(:last-child)::after {
+      content: "›";
+      margin: 0 0.5rem;
+      color: var(--color-text-light);
+      font-size: 1.2em;
+      line-height: 1;
+    }
+  }
+}
+
+/* Breadcrumbs with Chevrons */
+.breadcrumbs--chevrons {
+  .breadcrumbs__item {
+    &:not(:last-child)::after {
+      content: "›";
+      margin: 0 0.5rem;
+      color: var(--color-text-light);
+      font-size: 1.2em;
+      line-height: 1;
+    }
+  }
+}
+
+/* Breadcrumbs with Icons */
+.breadcrumbs--icons {
+  .breadcrumbs__item {
+    &:not(:last-child)::after {
+      content: "\f105";
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      margin: 0 0.5rem;
+      color: var(--color-text-light);
+    }
+  }
+}
+
+/* Breadcrumbs with Bullets */
+.breadcrumbs--bullets {
+  .breadcrumbs__item {
+    &:not(:last-child)::after {
+      content: "•";
+      margin: 0 0.5rem;
+      color: var(--color-text-light);
+    }
+  }
+}
+
+/* Breadcrumbs Sizes */
+.breadcrumbs--sm {
+  font-size: var(--font-size-xs);
+  padding: 0.5rem 0;
+}
+
+.breadcrumbs--lg {
+  font-size: var(--font-size-base);
+  padding: 1.25rem 0;
+}
+
+/* Breadcrumbs Alignment */
+.breadcrumbs--center {
+  justify-content: center;
+}
+
+.breadcrumbs--right {
+  justify-content: flex-end;
+}
+
+/* Breadcrumbs with Background Image */
+.breadcrumbs-hero {
+  position: relative;
+  padding: 3rem 0;
+  margin-bottom: 3rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--color-white);
+  text-align: center;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  &__container {
+    position: relative;
+    z-index: 1;
+  }
+  
+  &__title {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    margin: 0 0 1rem;
+    color: var(--color-white);
+    
+    @media (min-width: 768px) {
+      font-size: var(--font-size-3xl);
+    }
+  }
+  
+  .breadcrumbs {
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.8);
+    
+    &__item {
+      &:not(:last-child)::after {
+        color: rgba(255, 255, 255, 0.5);
+      }
+      
+      &--active {
+        color: var(--color-white);
+      }
+    }
+    
+    &__link {
+      color: rgba(255, 255, 255, 0.8);
+      
+      &:hover {
+        color: var(--color-white);
+      }
+    }
+    
+    &__home {
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+}
+
+/* WooCommerce Breadcrumbs */
+.woocommerce-breadcrumb {
+  @extend .breadcrumbs;
+  display: inline-flex;
+  
+  a {
+    @extend .breadcrumbs__link;
+  }
+}
+
+/* Responsive Breadcrumbs */
+@media (max-width: 576px) {
+  .breadcrumbs {
+    font-size: var(--font-size-xs);
+    
+    &__item {
+      &:not(.breadcrumbs__item--active):not(:nth-last-child(2)) {
+        display: none;
+      }
+      
+      &:nth-last-child(2)::before {
+        content: "...";
+        margin-right: 0.5rem;
+      }
+    }
+  }
+  
+  .breadcrumbs-hero {
+    padding: 2rem 0;
+    
+    &__title {
+      font-size: var(--font-size-xl);
+    }
+  }
+}
+
+/* Schema.org Structured Data Support */
+.breadcrumbs[itemscope] {
+  [itemprop="itemListElement"] {
+    display: inline-block;
+  }
+  
+  [itemprop="item"] {
+    display: inline-block;
+  }
+  
+  [itemprop="name"] {
+    display: inline-block;
+  }
+}

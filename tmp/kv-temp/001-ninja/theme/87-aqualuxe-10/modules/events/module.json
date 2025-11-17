@@ -1,0 +1,12 @@
+{
+    "name": "Events & Ticketing",
+    "description": "Integrates with The Events Calendar to provide event listings and ticketing features.",
+    "version": "1.0.0",
+    "enabled": true,
+    "requires": [
+        "class:AquaLuxe\\Core\\Contracts\\ModuleInterface"
+    ],
+    "requiresAny": [
+        "class:Tribe__Events__Main"
+    ]
+}

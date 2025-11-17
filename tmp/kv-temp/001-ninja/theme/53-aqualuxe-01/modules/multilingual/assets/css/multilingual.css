@@ -1,0 +1,145 @@
+/**
+ * Multilingual styles
+ *
+ * @package AquaLuxe
+ */
+
+/* Language Switcher */
+.language-switcher {
+    display: inline-block;
+    position: relative;
+    margin: 0 10px;
+}
+
+/* Dropdown Style */
+.language-switcher-dropdown {
+    position: relative;
+}
+
+.language-switcher-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 5px 25px 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="6" viewBox="0 0 12 6"><path fill="currentColor" d="M0 0l6 6 6-6z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+}
+
+.language-switcher-select:focus {
+    outline: none;
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Flags Style */
+.language-switcher-flags {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.language-switcher-flags li {
+    margin: 0 5px;
+}
+
+.language-switcher-flags a {
+    display: block;
+    width: 24px;
+    height: 16px;
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+.language-switcher-flags img {
+    display: block;
+    width: 24px;
+    height: 16px;
+    object-fit: cover;
+}
+
+.language-switcher-flags li.active a {
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Flags with Names Style */
+.language-switcher-flags-names {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.language-switcher-flags-names li {
+    margin: 0 5px;
+}
+
+.language-switcher-flags-names a {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.language-switcher-flags-names a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.language-switcher-flags-names img {
+    display: block;
+    width: 24px;
+    height: 16px;
+    object-fit: cover;
+    margin-right: 5px;
+    border-radius: 2px;
+}
+
+.language-switcher-flags-names span {
+    font-size: 14px;
+}
+
+.language-switcher-flags-names li.active a {
+    background-color: rgba(0, 0, 0, 0.05);
+    font-weight: bold;
+}
+
+/* Dark Mode Compatibility */
+[data-theme='dark'] .language-switcher-select {
+    border-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color, #e0e0e0);
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="6" viewBox="0 0 12 6"><path fill="%23e0e0e0" d="M0 0l6 6 6-6z"/></svg>');
+}
+
+[data-theme='dark'] .language-switcher-select:focus {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme='dark'] .language-switcher-flags li.active a {
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+[data-theme='dark'] .language-switcher-flags-names a:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme='dark'] .language-switcher-flags-names li.active a {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .language-switcher-flags-names span {
+        display: none;
+    }
+    
+    .language-switcher-flags-names img {
+        margin-right: 0;
+    }
+}

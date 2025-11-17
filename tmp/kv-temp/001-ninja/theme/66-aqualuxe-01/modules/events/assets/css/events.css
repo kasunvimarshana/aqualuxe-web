@@ -1,0 +1,1467 @@
+/**
+ * Events Module CSS
+ *
+ * @package AquaLuxe\Modules\Events
+ */
+
+/* Event Archive */
+.aqualuxe-events {
+    margin-bottom: 3rem;
+}
+
+.aqualuxe-events__filters {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: var(--aqualuxe-background-alt);
+    border-radius: 0.5rem;
+}
+
+.aqualuxe-events__filter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.aqualuxe-events__filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.aqualuxe-events__filter-field {
+    flex: 1;
+    min-width: 200px;
+}
+
+.aqualuxe-events__filter-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.aqualuxe-events__filter-select,
+.aqualuxe-events__filter-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--aqualuxe-border-color);
+    border-radius: 0.25rem;
+    background-color: var(--aqualuxe-background);
+}
+
+.aqualuxe-events__filter-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.aqualuxe-events__filter-button {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--aqualuxe-primary);
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.aqualuxe-events__filter-button:hover {
+    background-color: var(--aqualuxe-primary-dark);
+}
+
+.aqualuxe-events__filter-reset {
+    color: var(--aqualuxe-text);
+    text-decoration: underline;
+}
+
+.aqualuxe-events__filter-toggle {
+    display: flex;
+    align-items: center;
+}
+
+.aqualuxe-events__filter-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.aqualuxe-events__filter-view {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.aqualuxe-events__filter-view-label {
+    margin-right: 0.5rem;
+}
+
+.aqualuxe-events__filter-view-button {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.5rem;
+    border: 1px solid var(--aqualuxe-border-color);
+    border-radius: 0.25rem;
+    background-color: var(--aqualuxe-background);
+    color: var(--aqualuxe-text);
+    text-decoration: none;
+}
+
+.aqualuxe-events__filter-view-button--active {
+    background-color: var(--aqualuxe-primary);
+    color: white;
+    border-color: var(--aqualuxe-primary);
+}
+
+/* Event List */
+.aqualuxe-events__list {
+    display: grid;
+    gap: 2rem;
+}
+
+.aqualuxe-events__list--list {
+    grid-template-columns: 1fr;
+}
+
+.aqualuxe-events__list--grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.aqualuxe-events__item {
+    border: 1px solid var(--aqualuxe-border-color);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.aqualuxe-events__item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.aqualuxe-events__item--featured {
+    border-color: var(--aqualuxe-primary);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.aqualuxe-events__item-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: var(--aqualuxe-text);
+    text-decoration: none;
+}
+
+.aqualuxe-events__list--list .aqualuxe-events__item-link {
+    flex-direction: row;
+}
+
+.aqualuxe-events__item-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.aqualuxe-events__list--list .aqualuxe-events__item-image {
+    width: 300px;
+    flex-shrink: 0;
+}
+
+.aqualuxe-events__item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.aqualuxe-events__item:hover .aqualuxe-events__item-image img {
+    transform: scale(1.05);
+}
+
+.aqualuxe-events__item-featured-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.25rem 0.75rem;
+    background-color: var(--aqualuxe-primary);
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 2rem;
+}
+
+.aqualuxe-events__item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    flex-grow: 1;
+}
+
+.aqualuxe-events__item-title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--aqualuxe-heading);
+}
+
+.aqualuxe-events__item-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+}
+
+.aqualuxe-events__item-date,
+.aqualuxe-events__item-time,
+.aqualuxe-events__item-venue,
+.aqualuxe-events__item-cost {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.aqualuxe-events__item-icon {
+    color: var(--aqualuxe-primary);
+}
+
+.aqualuxe-events__item-cost--free .aqualuxe-events__item-text {
+    color: var(--aqualuxe-success);
+    font-weight: 500;
+}
+
+.aqualuxe-events__item-excerpt {
+    font-size: 0.875rem;
+    color: var(--aqualuxe-text-light);
+}
+
+.aqualuxe-events__item-status {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+.aqualuxe-events__item-status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.aqualuxe-events__item-status-badge--open {
+    background-color: var(--aqualuxe-success-light);
+    color: var(--aqualuxe-success);
+}
+
+.aqualuxe-events__item-status-badge--closed {
+    background-color: var(--aqualuxe-warning-light);
+    color: var(--aqualuxe-warning);
+}
+
+.aqualuxe-events__item-status-badge--sold-out {
+    background-color: var(--aqualuxe-danger-light);
+    color: var(--aqualuxe-danger);
+}
+
+/* Event Calendar */
+.aqualuxe-events__calendar {
+    margin-bottom: 2rem;
+}
+
+.aqualuxe-calendar {
+    margin-bottom: 2rem;
+}
+
+.aqualuxe-calendar__title {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.aqualuxe-calendar__container {
+    border: 1px solid var(--aqualuxe-border-color);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.aqualuxe-calendar__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: var(--aqualuxe-background-alt);
+    border-bottom: 1px solid var(--aqualuxe-border-color);
+}
+
+.aqualuxe-calendar__month {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.aqualuxe-calendar__nav {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.aqualuxe-calendar__nav-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid var(--aqualuxe-border-color);
+    border-radius: 50%;
+    background-color: var(--aqualuxe-background);
+    color: var(--aqualuxe-text);
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.aqualuxe-calendar__nav-button:hover {
+    background-color: var(--aqualuxe-primary);
+    color: white;
+    border-color: var(--aqualuxe-primary);
+}
+
+.aqualuxe-calendar__table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.aqualuxe-calendar__weekdays {
+    background-color: var(--aqualuxe-background-alt);
+}
+
+.aqualuxe-calendar__weekday {
+    padding: 0.75rem;
+    text-align: center;
+    font-weight: 500;
+    border-bottom: 1px solid var(--aqualuxe-border-color);
+}
+
+.aqualuxe-calendar__day {
+    position: relative;
+    height: 100px;
+    padding: 0.5rem;
+    border: 1px solid var(--aqualuxe-border-color);
+    vertical-align: top;
+}
+
+.aqualuxe-calendar__day--other-month {
+    background-color: var(--aqualuxe-background-alt);
+    color: var(--aqualuxe-text-light);
+}
+
+.aqualuxe-calendar__day--today {
+    background-color: var(--aqualuxe-primary-light);
+}
+
+.aqualuxe-calendar__day-number {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.aqualuxe-calendar__day--today .aqualuxe-calendar__day-number {
+    background-color: var(--aqualuxe-primary);
+    color: white;
+    border-radius: 50%;
+}
+
+.aqualuxe-calendar__events {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+}
+
+.aqualuxe-calendar__event {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    background-color: var(--aqualuxe-primary-light);
+    color: var(--aqualuxe-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.aqualuxe-calendar__event:hover {
+    background-color: var(--aqualuxe-primary);
+    color: white;
+}
+
+.aqualuxe-calendar__event--featured {
+    background-color: var(--aqualuxe-accent-light);
+    color: var(--aqualuxe-accent);
+}
+
+.aqualuxe-calendar__event--featured:hover {
+    background-color: var(--aqualuxe-accent);
+    color: white;
+}
+
+.aqualuxe-calendar__legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: var(--aqualuxe-background-alt);
+    border-radius: 0.5rem;
+}
+
+.aqualuxe-calendar__legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.aqualuxe-calendar__legend-color {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 0.25rem;
+}
+
+.aqualuxe-calendar__legend-color--event {
+    background-color: var(--aqualuxe-primary-light);
+}
+
+.aqualuxe-calendar__legend-color--featured {
+    background-color: var(--aqualuxe-accent-light);
+}
+
+.aqualuxe-calendar__legend-color--today {
+    background-color: var(--aqualuxe-primary);
+}
+
+.aqualuxe-events__calendar-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.aqualuxe-events__calendar-nav-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--aqualuxe-border-color);
+    border-radius: 0.25rem;
+    background-color: var(--aqualuxe-background);
+    color: var(--aqualuxe-text);
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.aqualuxe-events__calendar-nav-button:hover {
+    background-color: var(--aqualuxe-primary);
+    color: white;
+    border-color: var(--aqualuxe-primary);
+}
+
+.aqualuxe-events__calendar-nav-button--current {
+    background-color: var(--aqualuxe-primary-light);
+    color: var(--aqualuxe-primary);
+    border-color: var(--aqualuxe-primary-light);
+}
+
+/* Event Detail */
+.aqualuxe-event {
+    margin-bottom: 3rem;
+}
+
+.aqualuxe-event__header {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .aqualuxe-event__header {
+        flex-direction: row;
+    }
+}
+
+.aqualuxe-event__image {
+    flex: 0 0 40%;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.aqualuxe-event__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.aqualuxe-event__meta {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--aqualuxe-background-alt);
+    border-radius: 0.5rem;
+}
+
+.aqualuxe-event__date,
+.aqualuxe-event__time,
+.aqualuxe-event__cost,
+.aqualuxe-event__capacity,
+.aqualuxe-event__registration-status {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.aqualuxe-event__date-icon,
+.aqualuxe-event__time-icon,
+.aqualuxe-event__cost-icon,
+.aqualuxe-event__capacity-icon,
+.aqualuxe-event__registration-status-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: var(--aqualuxe-primary-light);
+    color: var(--aqualuxe-primary);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.aqualuxe-event__date-icon svg,
+.aqualuxe-event__time-icon svg,
+.aqualuxe-event__cost-icon svg,
+.aqualuxe-event__capacity-icon svg,
+.aqualuxe-event__registration-status-icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.aqualuxe-event__date-text,
+.aqualuxe-event__time-text,
+.aqualuxe-event__cost-text,
+.aqualuxe-event__capacity-text,
+.aqualuxe-event__registration-status-text {
+    font-size: 1rem;
+}
+
+.aqualuxe-event__cost-description {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--aqualuxe-text-light);
+    margin-top: 0.25rem;
+}
+
+.aqualuxe-event__registration-status--open .aqualuxe-event__registration-status-icon {
+    background-color: var(--aqualuxe-success-light);
+    color: var(--aqualuxe-success);
+}
+
+.aqualuxe-event__registration-status--closed .aqualuxe-event__registration-status-icon {
+    background-color: var(--aqualuxe-danger-light);
+    color: var(--aqualuxe-danger);
+}
+
+.aqualuxe-event__content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.aqualuxe-event__venue,
+.aqualuxe-event__organizer,
+.aqualuxe-event__description,
+.aqualuxe-event__tickets,
+.aqualuxe-event__sharing,
+.aqualuxe-event__related {
+    padding: 2rem;
+    background-color: var(--aqualuxe-background-alt);
+    border-radius: 0.5rem;
+}
+
+.aqualuxe-event__venue-title,
+.aqualuxe-event__organizer-title,
+.aqualuxe-event__description-title,
+.aqualuxe-event__tickets-title,
+.aqualuxe-event__sharing-title,
+.aqualuxe-event__related-title {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--aqualuxe-heading);
+}
+
+.aqualuxe-event__venue-details,
+.aqualuxe-event__organizer-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.aqualuxe-event__venue-name,
+.aqualuxe-event__organizer-name {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--aqualuxe-heading);
+}
+
+.aqualuxe-event__venue-address {
+    margin-bottom: 0.5rem;
+}
+
+.aqualuxe-event__venue-phone,
+.aqualuxe-event__venue-website,
+.aqualuxe-event__organizer-phone,
+.aqualuxe-event__organizer-email,
+.aqualuxe-event__organizer-website {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.aqualuxe-event__venue-phone-label,
+.aqualuxe-event__venue-website-label,
+.aqualuxe-event__organizer-phone-label,
+.aqualuxe-event__organizer-email-label,
+.aqualuxe-event__organizer-website-label {
+    font-weight: 500;
+}
+
+.aqualuxe-event__venue-map {
+    height: 300px;
+    margin-top: 1.5rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.aqualuxe-event__organizer-description {
+    margin-bottom: 1rem;
+}
+
+.aqualuxe-event__tickets-list {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.aqualuxe-event__ticket {
+    border: 1px solid var(--aqualuxe-border-color);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background-color: var(--aqualuxe-background);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.aqualuxe-event__ticket:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.aqualuxe-event__ticket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--aqualuxe-primary);
+    color: white;
+}
+
+.aqualuxe-event__ticket-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.aqualuxe-event__ticket-price {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.aqualuxe-event__ticket-description {
+    padding: 1rem;
+    border-bottom: 1px solid var(--aqualuxe-border-color);
+}
+
+.aqualuxe-event__ticket-availability {
+    padding: 1rem;
+    font-size: 0.875rem;
+    color: var(--aqualuxe-text-light);
+    border-bottom: 1px solid var(--aqualuxe-border-color);
+}
+
+.aqualuxe-event__ticket-actions {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.aqualuxe-event__ticket-select-button {
+    padding: 0.75rem 2rem;
+    background-color: var(--aqualuxe-primary);
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.aqualuxe-event__ticket-select-button:hover {
+    background-color: var(--aqualuxe-primary-dark);
+}
+
+.aqualuxe-event__registration-form {
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: var(--aqualuxe-background);
+    border-radius: 0.5rem;
+    border: 1px solid var(--aqualuxe-border-color);
+}
+
+.aqualuxe-event__registration-form-title {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--aqualuxe-heading);
+}
+
+.aqualuxe-event__registration-form-ticket-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    background-color: var(--aqualuxe-background-alt);
+    border-radius: 0.5rem;
+}
+
+.aqualuxe-event__registration-form-ticket-name {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.aqualuxe-event__registration-form-ticket-price {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--aqualuxe-primary);
+}
+
+.aqualuxe-event__registration-form-field {
+    margin-bottom: 1.5rem;
+}
+
+.aqualuxe-event__registration-form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.aqualuxe-event__registration-form-input,
+.aqualuxe-event__registration-form-select,
+.aqualuxe-event__registration-form-textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--aqualuxe-border-color);
+    border-radius: 0.25rem;
+    background-color: var(--aqualuxe-background);
+}
+
+.aqualuxe-event__registration-form-textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.aqualuxe-event__registration-form-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.aqualuxe-event__registration-form-row .aqualuxe-event__registration-form-field {
+    flex: 1;
+}
+
+.aqualuxe-event__registration-form-payment {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.aqualuxe-event__registration-form-payment-title {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--aqualuxe-heading);
+}
+
+.aqualuxe-event__registration-form-payment-methods {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.aqualuxe-event__registration-form-payment-method {
+    position: relative;
+}
+
+.aqualuxe-event__registration-form-payment-method-input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.aqualuxe-event__registration-form-payment-method-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    border: 1px solid var(--aqualuxe-border-color);
+    border-radius: 0.5rem;
+    background-color: var(--aqualuxe-background);
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.aqualuxe-event__registration-form-payment-method-input:checked + .aqualuxe-event__registration-form-payment-method-label {
+    border-color: var(--aqualuxe-primary);
+    background-color: var(--aqualuxe-primary-light);
+}
+
+.aqualuxe-event__registration-form-payment-method-icon {
+    font-size: 2rem;
+    color: var(--aqualuxe-primary);
+}
+
+.aqualuxe-event__registration-form-payment-method-name {
+    font-weight: 500;
+}
+
+.aqualuxe-event__registration-form-payment-method-description {
+    font-size: 0.75rem;
+    color: var(--aqualuxe-text-light);
+    text-align: center;
+}
+
+.aqualuxe-event__registration-form-payment-details {
+    margin-top: 1.5rem;
+}
+
+.aqualuxe-event__registration-form-payment-detail {
+    padding: 1.5rem;
+    border: 1px solid var(--aqualuxe-border-color);
+    border-radius: 0.5rem;
+    background-color: var(--aqualuxe-background-alt);
+}
+
+.aqualuxe-event__registration-form-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    background-color: var(--aqualuxe-background-alt);
+    border-radius: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.aqualuxe-event__registration-form-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.aqualuxe-event__registration-form-back-button,
+.aqualuxe-event__registration-form-submit-button {
+    padding: 0.75rem 2rem;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.aqualuxe-event__registration-form-back-button {
+    background-color: var(--aqualuxe-background-alt);
+    color: var(--aqualuxe-text);
+    border: 1px solid var(--aqualuxe-border-color);
+}
+
+.aqualuxe-event__registration-form-back-button:hover {
+    background-color: var(--aqualuxe-background);
+}
+
+.aqualuxe-event__registration-form-submit-button {
+    background-color: var(--aqualuxe-primary);
+    color: white;
+    border: none;
+}
+
+.aqualuxe-event__registration-form-submit-button:hover {
+    background-color: var(--aqualuxe-primary-dark);
+}
+
+.aqualuxe-event__registration-form-message {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.aqualuxe-event__registration-form-message--success {
+    background-color: var(--aqualuxe-success-light);
+    color: var(--aqualuxe-success);
+}
+
+.aqualuxe-event__registration-form-message--error {
+    background-color: var(--aqualuxe-danger-light);
+    color: var(--aqualuxe-danger);
+}
+
+.aqualuxe-event__sharing-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.aqualuxe-event__sharing-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.aqualuxe-event__sharing-button--facebook {
+    background-color: #3b5998;
+    color: white;
+}
+
+.aqualuxe-event__sharing-button--twitter {
+    background-color: #1da1f2;
+    color: white;
+}
+
+.aqualuxe-event__sharing-button--linkedin {
+    background-color: #0077b5;
+    color: white;
+}
+
+.aqualuxe-event__sharing-button--email {
+    background-color: var(--aqualuxe-background);
+    color: var(--aqualuxe-text);
+    border: 1px solid var(--aqualuxe-border-color);
+}
+
+.aqualuxe-event__sharing-button:hover {
+    opacity: 0.9;
+}
+
+.aqualuxe-event__related-list {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.aqualuxe-event__related-item {
+    border: 1px solid var(--aqualuxe-border-color);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background-color: var(--aqualuxe-background);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.aqualuxe-event__related-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.aqualuxe-event__related-link {
+    display: flex;
+    flex-direction: column;
+    color: var(--aqualuxe-text);
+    text-decoration: none;
+}
+
+.aqualuxe-event__related-image {
+    height: 150px;
+    overflow: hidden;
+}
+
+.aqualuxe-event__related-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.aqualuxe-event__related-item:hover .aqualuxe-event__related-image img {
+    transform: scale(1.05);
+}
+
+.aqualuxe-event__related-content {
+    padding: 1rem;
+}
+
+.aqualuxe-event__related-name {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--aqualuxe-heading);
+}
+
+.aqualuxe-event__related-date {
+    font-size: 0.875rem;
+    color: var(--aqualuxe-text-light);
+}
+
+/* Registration Confirmation */
+.aqualuxe-registration-confirmation {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: var(--aqualuxe-background-alt);
+    border-radius: 0.5rem;
+}
+
+.aqualuxe-registration-confirmation__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--aqualuxe-border-color);
+}
+
+.aqualuxe-registration-confirmation__icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.aqualuxe-registration-confirmation__icon .dashicons-yes-alt {
+    color: var(--aqualuxe-success);
+}
+
+.aqualuxe-registration-confirmation__icon .dashicons-dismiss {
+    color: var(--aqualuxe-danger);
+}
+
+.aqualuxe-registration-confirmation__icon .dashicons-clock {
+    color: var(--aqualuxe-warning);
+}
+
+.aqualuxe-registration-confirmation__title {
+    margin: 0 0 0.5rem;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--aqualuxe-heading);
+}
+
+.aqualuxe-registration-confirmation__id {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.aqualuxe-registration-confirmation__date {
+    font-size: 0.875rem;
+    color: var(--aqualuxe-text-light);
+}
+
+.aqualuxe-registration-confirmation__content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.aqualuxe-registration-confirmation__section {
+    padding: 1.5rem;
+    background-color: var(--aqualuxe-background);
+    border-radius: 0.5rem;
+    border: 1px solid var(--aqualuxe-border-color);
+}
+
+.aqualuxe-registration-confirmation__section-title {
+    margin: 0 0 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--aqualuxe-heading);
+}
+
+.aqualuxe-registration-confirmation__event {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.aqualuxe-registration-confirmation__event-name {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.aqualuxe-registration-confirmation__event-link {
+    color: var(--aqualuxe-primary);
+    text-decoration: none;
+}
+
+.aqualuxe-registration-confirmation__event-link:hover {
+    text-decoration: underline;
+}
+
+.aqualuxe-registration-confirmation__event-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.aqualuxe-registration-confirmation__event-date,
+.aqualuxe-registration-confirmation__event-time,
+.aqualuxe-registration-confirmation__event-venue {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.aqualuxe-registration-confirmation__event-icon {
+    color: var(--aqualuxe-primary);
+    margin-top: 0.25rem;
+}
+
+.aqualuxe-registration-confirmation__ticket {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.aqualuxe-registration-confirmation__ticket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.aqualuxe-registration-confirmation__ticket-name {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.aqualuxe-registration-confirmation__ticket-quantity {
+    font-size: 1rem;
+    color: var(--aqualuxe-text-light);
+}
+
+.aqualuxe-registration-confirmation__ticket-price,
+.aqualuxe-registration-confirmation__ticket-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.aqualuxe-registration-confirmation__ticket-total {
+    padding-top: 1rem;
+    margin-top: 1rem;
+    border-top: 1px solid var(--aqualuxe-border-color);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.aqualuxe-registration-confirmation__attendee {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.aqualuxe-registration-confirmation__attendee-name,
+.aqualuxe-registration-confirmation__attendee-email,
+.aqualuxe-registration-confirmation__attendee-phone,
+.aqualuxe-registration-confirmation__attendee-address,
+.aqualuxe-registration-confirmation__attendee-notes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.aqualuxe-registration-confirmation__attendee-label {
+    font-weight: 500;
+}
+
+.aqualuxe-registration-confirmation__payment {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.aqualuxe-registration-confirmation__payment-method,
+.aqualuxe-registration-confirmation__payment-status,
+.aqualuxe-registration-confirmation__payment-transaction,
+.aqualuxe-registration-confirmation__payment-date,
+.aqualuxe-registration-confirmation__payment-amount {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.aqualuxe-registration-confirmation__payment-label {
+    font-weight: 500;
+}
+
+.aqualuxe-registration-confirmation__payment-value--completed {
+    color: var(--aqualuxe-success);
+}
+
+.aqualuxe-registration-confirmation__payment-value--pending {
+    color: var(--aqualuxe-warning);
+}
+
+.aqualuxe-registration-confirmation__payment-value--failed,
+.aqualuxe-registration-confirmation__payment-value--cancelled,
+.aqualuxe-registration-confirmation__payment-value--refunded {
+    color: var(--aqualuxe-danger);
+}
+
+.aqualuxe-registration-confirmation__payment-instructions {
+    grid-column: 1 / -1;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: var(--aqualuxe-background-alt);
+    border-radius: 0.5rem;
+}
+
+.aqualuxe-registration-confirmation__status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+}
+
+.aqualuxe-registration-confirmation__status-badge {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.aqualuxe-registration-confirmation__status-badge--pending {
+    background-color: var(--aqualuxe-warning-light);
+    color: var(--aqualuxe-warning);
+}
+
+.aqualuxe-registration-confirmation__status-badge--confirmed {
+    background-color: var(--aqualuxe-success-light);
+    color: var(--aqualuxe-success);
+}
+
+.aqualuxe-registration-confirmation__status-badge--cancelled,
+.aqualuxe-registration-confirmation__status-badge--refunded,
+.aqualuxe-registration-confirmation__status-badge--failed {
+    background-color: var(--aqualuxe-danger-light);
+    color: var(--aqualuxe-danger);
+}
+
+.aqualuxe-registration-confirmation__status-badge--completed {
+    background-color: var(--aqualuxe-primary-light);
+    color: var(--aqualuxe-primary);
+}
+
+.aqualuxe-registration-confirmation__status-message {
+    font-size: 1rem;
+}
+
+.aqualuxe-registration-confirmation__footer {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--aqualuxe-border-color);
+    text-align: center;
+}
+
+.aqualuxe-registration-confirmation__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.aqualuxe-registration-confirmation__action {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.aqualuxe-registration-confirmation__action--cancel {
+    background-color: var(--aqualuxe-danger);
+    color: white;
+}
+
+.aqualuxe-registration-confirmation__action--event {
+    background-color: var(--aqualuxe-primary);
+    color: white;
+}
+
+.aqualuxe-registration-confirmation__action--print {
+    background-color: var(--aqualuxe-background);
+    color: var(--aqualuxe-text);
+    border: 1px solid var(--aqualuxe-border-color);
+}
+
+.aqualuxe-registration-confirmation__action:hover {
+    opacity: 0.9;
+}
+
+.aqualuxe-registration-confirmation__contact {
+    font-size: 0.875rem;
+    color: var(--aqualuxe-text-light);
+}
+
+.aqualuxe-registration-confirmation__contact-email {
+    color: var(--aqualuxe-primary);
+    text-decoration: none;
+}
+
+.aqualuxe-registration-confirmation__contact-email:hover {
+    text-decoration: underline;
+}
+
+/* Empty State */
+.aqualuxe-events__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 3rem;
+    background-color: var(--aqualuxe-background-alt);
+    border-radius: 0.5rem;
+}
+
+.aqualuxe-events__empty-icon {
+    font-size: 3rem;
+    color: var(--aqualuxe-text-light);
+    margin-bottom: 1rem;
+}
+
+.aqualuxe-events__empty-title {
+    margin: 0 0 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--aqualuxe-heading);
+}
+
+.aqualuxe-events__empty-text {
+    margin: 0 0 1.5rem;
+    max-width: 600px;
+    color: var(--aqualuxe-text-light);
+}
+
+.aqualuxe-events__empty-button {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--aqualuxe-primary);
+    color: white;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.aqualuxe-events__empty-button:hover {
+    background-color: var(--aqualuxe-primary-dark);
+}
+
+/* Pagination */
+.aqualuxe-events__pagination {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.aqualuxe-events__pagination .page-numbers {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0 0.25rem;
+    border: 1px solid var(--aqualuxe-border-color);
+    border-radius: 0.25rem;
+    background-color: var(--aqualuxe-background);
+    color: var(--aqualuxe-text);
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.aqualuxe-events__pagination .page-numbers.current {
+    background-color: var(--aqualuxe-primary);
+    color: white;
+    border-color: var(--aqualuxe-primary);
+}
+
+.aqualuxe-events__pagination .page-numbers:hover:not(.current) {
+    background-color: var(--aqualuxe-background-alt);
+}
+
+.aqualuxe-events__pagination .prev,
+.aqualuxe-events__pagination .next {
+    width: auto;
+    padding: 0 1rem;
+}
+
+/* Print Styles */
+@media print {
+    .aqualuxe-registration-confirmation {
+        padding: 0;
+        background-color: white;
+    }
+    
+    .aqualuxe-registration-confirmation__section {
+        border: 1px solid #ddd;
+        page-break-inside: avoid;
+    }
+    
+    .aqualuxe-registration-confirmation__actions {
+        display: none;
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .aqualuxe-events__filter-row {
+        flex-direction: column;
+    }
+    
+    .aqualuxe-events__list--grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .aqualuxe-events__list--list .aqualuxe-events__item-link {
+        flex-direction: column;
+    }
+    
+    .aqualuxe-events__list--list .aqualuxe-events__item-image {
+        width: 100%;
+    }
+    
+    .aqualuxe-event__registration-form-row {
+        flex-direction: column;
+    }
+    
+    .aqualuxe-registration-confirmation__attendee,
+    .aqualuxe-registration-confirmation__payment {
+        grid-template-columns: 1fr;
+    }
+}

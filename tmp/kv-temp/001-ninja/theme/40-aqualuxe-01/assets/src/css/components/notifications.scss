@@ -1,0 +1,125 @@
+/**
+ * Notification Component Styles
+ */
+
+.aqualuxe-notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  z-index: 9999;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  transform: translateX(120%);
+  transition: transform 0.3s ease;
+  
+  &.active {
+    transform: translateX(0);
+  }
+  
+  .notification-content {
+    display: flex;
+    align-items: flex-start;
+    flex: 1;
+  }
+  
+  .notification-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    flex-shrink: 0;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .notification-message {
+    font-size: 14px;
+    line-height: 1.4;
+    padding-right: 10px;
+  }
+  
+  .notification-close {
+    background: none;
+    border: none;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    color: #999;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    
+    &:hover {
+      color: #333;
+    }
+  }
+  
+  &.success {
+    border-left: 4px solid #7ad03a;
+    
+    .notification-icon {
+      background-color: #7ad03a;
+      color: #fff;
+    }
+  }
+  
+  &.error {
+    border-left: 4px solid #dc3232;
+    
+    .notification-icon {
+      background-color: #dc3232;
+      color: #fff;
+    }
+  }
+  
+  &.info {
+    border-left: 4px solid #00a0d2;
+    
+    .notification-icon {
+      background-color: #00a0d2;
+      color: #fff;
+    }
+  }
+  
+  &.warning {
+    border-left: 4px solid #ffba00;
+    
+    .notification-icon {
+      background-color: #ffba00;
+      color: #fff;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    width: calc(100% - 40px);
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+  }
+}
+
+// Multiple notifications stacking
+.aqualuxe-notification + .aqualuxe-notification {
+  bottom: 90px;
+  
+  & + .aqualuxe-notification {
+    bottom: 160px;
+    
+    & + .aqualuxe-notification {
+      bottom: 230px;
+    }
+  }
+}

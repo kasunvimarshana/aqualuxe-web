@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme base styles */
+body { @apply bg-white text-slate-800 antialiased; }
+.dark body { @apply bg-dark text-slate-100; }
+.aqlx-dark-toggle { @apply fixed bottom-4 right-4 px-3 py-2 rounded bg-brand text-white shadow hover:bg-accent transition; }

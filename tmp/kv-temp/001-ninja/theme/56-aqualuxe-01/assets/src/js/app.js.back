@@ -1,0 +1,601 @@
+/**
+ * AquaLuxe Theme Main JavaScript
+ * 
+ * This file contains the main JavaScript functionality for the theme.
+ */
+
+// Import dependencies
+import Alpine from 'alpinejs';
+import persist from '@alpinejs/persist';
+import { gsap } from 'gsap';
+import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
+
+// Import modules
+import './modules/navigation';
+import './modules/dark-mode';
+import './modules/animations';
+import './modules/sliders';
+import './modules/modals';
+import './modules/forms';
+import './modules/lazy-loading';
+import './modules/scroll-effects';
+
+// Import conditionally loaded modules
+import './conditionals/woocommerce';
+
+// Initialize Alpine.js
+window.Alpine = Alpine;
+Alpine.plugin(persist);
+Alpine.start();
+
+// Initialize Swiper
+Swiper.use([Navigation, Pagination, Autoplay]);
+
+/**
+ * Document Ready
+ */
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize components
+  initComponents();
+  
+  // Handle responsive navigation
+  handleResponsiveNav();
+  
+  // Initialize animations
+  initAnimations();
+  
+  // Initialize sliders
+  initSliders();
+  
+  // Initialize modals
+  initModals();
+  
+  // Initialize forms
+  initForms();
+  
+  // Initialize lazy loading
+  initLazyLoading();
+  
+  // Initialize scroll effects
+  initScrollEffects();
+  
+  // Initialize WooCommerce features if available
+  if (typeof woocommerce !== 'undefined') {
+    initWooCommerce();
+  }
+});
+
+/**
+ * Initialize Components
+ */
+function initComponents() {
+  // Toggle dropdown menus
+  const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+  dropdownToggles.forEach(toggle => {
+    toggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      const dropdown = this.nextElementSibling;
+      dropdown.classList.toggle('hidden');
+    });
+  });
+  
+  // Handle accordion toggles
+  const accordionToggles = document.querySelectorAll('.accordion-toggle');
+  accordionToggles.forEach(toggle => {
+    toggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      const content = this.nextElementSibling;
+      const isOpen = !content.classList.contains('hidden');
+      
+      // Close all other accordions in the same group
+      const group = this.closest('.accordion-group');
+      if (group) {
+        const contents = group.querySelectorAll('.accordion-content');
+        const toggles = group.querySelectorAll('.accordion-toggle');
+        
+        contents.forEach(item => item.classList.add('hidden'));
+        toggles.forEach(item => item.setAttribute('aria-expanded', 'false'));
+      }
+      
+      // Toggle current accordion
+      if (isOpen) {
+        content.classList.add('hidden');
+        this.setAttribute('aria-expanded', 'false');
+      } else {
+        content.classList.remove('hidden');
+        this.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+  
+  // Handle tabs
+  const tabToggles = document.querySelectorAll('.tab-toggle');
+  tabToggles.forEach(toggle => {
+    toggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      const tabId = this.getAttribute('data-tab');
+      const tabGroup = this.closest('.tab-group');
+      
+      // Hide all tab contents
+      const tabContents = tabGroup.querySelectorAll('.tab-content');
+      tabContents.forEach(content => content.classList.add('hidden'));
+      
+      // Deactivate all tab toggles
+      const toggles = tabGroup.querySelectorAll('.tab-toggle');
+      toggles.forEach(item => {
+        item.classList.remove('active');
+        item.setAttribute('aria-selected', 'false');
+      });
+      
+      // Activate current tab
+      document.getElementById(tabId).classList.remove('hidden');
+      this.classList.add('active');
+      this.setAttribute('aria-selected', 'true');
+    });
+  });
+}
+
+/**
+ * Handle Responsive Navigation
+ */
+function handleResponsiveNav() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', function() {
+      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', !isExpanded);
+      mobileMenu.classList.toggle('hidden');
+      
+      // Prevent body scroll when menu is open
+      document.body.classList.toggle('overflow-hidden');
+    });
+  }
+}
+
+/**
+ * Initialize Animations
+ */
+function initAnimations() {
+  // Fade in elements with data-animate="fade-in"
+  gsap.utils.toArray('[data-animate="fade-in"]').forEach(element => {
+    gsap.from(element, {
+      opacity: 0,
+      y: 20,
+      duration: 0.8,
+      scrollTrigger: {
+        trigger: element,
+        start: 'top 80%',
+      }
+    });
+  });
+  
+  // Slide up elements with data-animate="slide-up"
+  gsap.utils.toArray('[data-animate="slide-up"]').forEach(element => {
+    gsap.from(element, {
+      opacity: 0,
+      y: 50,
+      duration: 0.8,
+      scrollTrigger: {
+        trigger: element,
+        start: 'top 80%',
+      }
+    });
+  });
+}
+
+/**
+ * Initialize Sliders
+ */
+function initSliders() {
+  // Hero slider
+  const heroSlider = document.querySelector('.hero-slider');
+  if (heroSlider) {
+    new Swiper(heroSlider, {
+      slidesPerView: 1,
+      spaceBetween: 0,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  }
+  
+  // Testimonials slider
+  const testimonialSlider = document.querySelector('.testimonial-slider');
+  if (testimonialSlider) {
+    new Swiper(testimonialSlider, {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 4000,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 3,
+        },
+      },
+    });
+  }
+  
+  // Product slider
+  const productSlider = document.querySelector('.product-slider');
+  if (productSlider) {
+    new Swiper(productSlider, {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+        },
+        768: {
+          slidesPerView: 3,
+        },
+        1024: {
+          slidesPerView: 4,
+        },
+      },
+    });
+  }
+}
+
+/**
+ * Initialize Modals
+ */
+function initModals() {
+  // Modal triggers
+  const modalTriggers = document.querySelectorAll('[data-modal-target]');
+  const modalCloseButtons = document.querySelectorAll('[data-modal-close]');
+  
+  modalTriggers.forEach(trigger => {
+    trigger.addEventListener('click', function(e) {
+      e.preventDefault();
+      const modalId = this.getAttribute('data-modal-target');
+      const modal = document.getElementById(modalId);
+      
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+        
+        // Focus on first focusable element
+        const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        if (focusableElements.length) {
+          focusableElements[0].focus();
+        }
+      }
+    });
+  });
+  
+  modalCloseButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const modal = this.closest('.modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      }
+    });
+  });
+  
+  // Close modal on background click
+  document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('modal-backdrop')) {
+      const modal = e.target.closest('.modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      }
+    }
+  });
+  
+  // Close modal on ESC key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      const openModal = document.querySelector('.modal:not(.hidden)');
+      if (openModal) {
+        openModal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      }
+    }
+  });
+}
+
+/**
+ * Initialize Forms
+ */
+function initForms() {
+  // Form validation
+  const forms = document.querySelectorAll('form[data-validate]');
+  forms.forEach(form => {
+    form.addEventListener('submit', function(e) {
+      let isValid = true;
+      const requiredFields = form.querySelectorAll('[required]');
+      
+      requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+          isValid = false;
+          field.classList.add('error');
+          
+          // Add error message if not exists
+          let errorMessage = field.nextElementSibling;
+          if (!errorMessage || !errorMessage.classList.contains('error-message')) {
+            errorMessage = document.createElement('span');
+            errorMessage.classList.add('error-message', 'text-red-500', 'text-sm', 'mt-1');
+            errorMessage.textContent = 'This field is required';
+            field.parentNode.insertBefore(errorMessage, field.nextSibling);
+          }
+        } else {
+          field.classList.remove('error');
+          
+          // Remove error message if exists
+          const errorMessage = field.nextElementSibling;
+          if (errorMessage && errorMessage.classList.contains('error-message')) {
+            errorMessage.remove();
+          }
+        }
+      });
+      
+      if (!isValid) {
+        e.preventDefault();
+      }
+    });
+  });
+}
+
+/**
+ * Initialize Lazy Loading
+ */
+function initLazyLoading() {
+  // Check if native lazy loading is supported
+  if ('loading' in HTMLImageElement.prototype) {
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    lazyImages.forEach(img => {
+      img.src = img.dataset.src;
+      if (img.dataset.srcset) {
+        img.srcset = img.dataset.srcset;
+      }
+    });
+  } else {
+    // Fallback for browsers that don't support native lazy loading
+    const lazyImages = document.querySelectorAll('.lazy-image');
+    
+    const lazyLoad = function() {
+      const lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            const lazyImage = entry.target;
+            lazyImage.src = lazyImage.dataset.src;
+            if (lazyImage.dataset.srcset) {
+              lazyImage.srcset = lazyImage.dataset.srcset;
+            }
+            lazyImage.classList.remove('lazy-image');
+            lazyImageObserver.unobserve(lazyImage);
+          }
+        });
+      });
+      
+      lazyImages.forEach(function(lazyImage) {
+        lazyImageObserver.observe(lazyImage);
+      });
+    };
+    
+    // Check if Intersection Observer is supported
+    if ('IntersectionObserver' in window) {
+      lazyLoad();
+    } else {
+      // Fallback for older browsers
+      lazyImages.forEach(img => {
+        img.src = img.dataset.src;
+        if (img.dataset.srcset) {
+          img.srcset = img.dataset.srcset;
+        }
+      });
+    }
+  }
+}
+
+/**
+ * Initialize Scroll Effects
+ */
+function initScrollEffects() {
+  // Sticky header
+  const header = document.querySelector('.site-header');
+  if (header) {
+    const headerHeight = header.offsetHeight;
+    const scrollThreshold = 100;
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > scrollThreshold) {
+        header.classList.add('sticky', 'animated', 'slideDown');
+      } else {
+        header.classList.remove('sticky', 'animated', 'slideDown');
+      }
+    });
+  }
+  
+  // Scroll to top button
+  const scrollToTopBtn = document.querySelector('.scroll-to-top');
+  if (scrollToTopBtn) {
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 500) {
+        scrollToTopBtn.classList.remove('hidden');
+      } else {
+        scrollToTopBtn.classList.add('hidden');
+      }
+    });
+    
+    scrollToTopBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+}
+
+/**
+ * Initialize WooCommerce Features
+ */
+function initWooCommerce() {
+  // Quick view functionality
+  const quickViewButtons = document.querySelectorAll('.quick-view-button');
+  quickViewButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      const productId = this.getAttribute('data-product-id');
+      
+      // Show loading state
+      const modal = document.getElementById('quick-view-modal');
+      const modalContent = modal.querySelector('.modal-content');
+      modalContent.innerHTML = '<div class="flex justify-center items-center p-8"><div class="loader"></div></div>';
+      modal.classList.remove('hidden');
+      
+      // Fetch product data
+      fetch(`/wp-json/wc/v3/products/${productId}`)
+        .then(response => response.json())
+        .then(data => {
+          // Populate modal with product data
+          modalContent.innerHTML = `
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="product-gallery">
+                <img src="${data.images[0].src}" alt="${data.name}" class="w-full h-auto">
+              </div>
+              <div class="product-details">
+                <h2 class="text-2xl font-serif font-bold mb-2">${data.name}</h2>
+                <div class="price text-xl mb-4">${data.price_html}</div>
+                <div class="description mb-6">${data.short_description}</div>
+                <form class="cart">
+                  <div class="quantity mb-4">
+                    <label for="quantity" class="sr-only">Quantity</label>
+                    <input type="number" id="quantity" name="quantity" value="1" min="1" class="w-20 p-2 border rounded">
+                  </div>
+                  <button type="submit" class="btn btn-primary add-to-cart" data-product-id="${data.id}">Add to Cart</button>
+                </form>
+              </div>
+            </div>
+          `;
+        })
+        .catch(error => {
+          modalContent.innerHTML = `<div class="p-6 text-center">Error loading product data. Please try again.</div>`;
+        });
+    });
+  });
+  
+  // Add to cart functionality
+  document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('add-to-cart')) {
+      e.preventDefault();
+      const button = e.target;
+      const productId = button.getAttribute('data-product-id');
+      const quantity = document.getElementById('quantity') ? document.getElementById('quantity').value : 1;
+      
+      // Show loading state
+      button.classList.add('loading');
+      button.textContent = 'Adding...';
+      
+      // Add to cart via AJAX
+      const formData = new FormData();
+      formData.append('product_id', productId);
+      formData.append('quantity', quantity);
+      formData.append('add-to-cart', productId);
+      
+      fetch('/wp-admin/admin-ajax.php', {
+        method: 'POST',
+        body: formData
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Update button state
+          button.classList.remove('loading');
+          button.textContent = 'Added to Cart';
+          
+          // Update mini cart
+          if (data.fragments) {
+            for (const key in data.fragments) {
+              const fragment = document.querySelector(key);
+              if (fragment) {
+                fragment.outerHTML = data.fragments[key];
+              }
+            }
+          }
+          
+          // Show notification
+          const notification = document.createElement('div');
+          notification.classList.add('notification', 'success', 'fixed', 'top-4', 'right-4', 'p-4', 'bg-green-500', 'text-white', 'rounded', 'shadow-md', 'z-50');
+          notification.textContent = 'Product added to cart successfully!';
+          document.body.appendChild(notification);
+          
+          // Remove notification after 3 seconds
+          setTimeout(() => {
+            notification.remove();
+          }, 3000);
+        })
+        .catch(error => {
+          // Update button state
+          button.classList.remove('loading');
+          button.textContent = 'Add to Cart';
+          
+          // Show error notification
+          const notification = document.createElement('div');
+          notification.classList.add('notification', 'error', 'fixed', 'top-4', 'right-4', 'p-4', 'bg-red-500', 'text-white', 'rounded', 'shadow-md', 'z-50');
+          notification.textContent = 'Error adding product to cart. Please try again.';
+          document.body.appendChild(notification);
+          
+          // Remove notification after 3 seconds
+          setTimeout(() => {
+            notification.remove();
+          }, 3000);
+        });
+    }
+  });
+  
+  // Update cart quantity
+  const quantityInputs = document.querySelectorAll('.cart .quantity input');
+  quantityInputs.forEach(input => {
+    input.addEventListener('change', function() {
+      const form = this.closest('form');
+      if (form) {
+        form.querySelector('[name="update_cart"]').click();
+      }
+    });
+  });
+}
+
+// Export public API
+export default {
+  initComponents,
+  handleResponsiveNav,
+  initAnimations,
+  initSliders,
+  initModals,
+  initForms,
+  initLazyLoading,
+  initScrollEffects,
+  initWooCommerce
+};

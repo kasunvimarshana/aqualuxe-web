@@ -1,0 +1,232 @@
+/**
+ * AquaLuxe Functions
+ *
+ * @package AquaLuxe
+ * @since 1.0.0
+ */
+
+// Color functions
+// -------------------------
+
+// Get color from theme colors map
+@function theme-color($key) {
+  @return map-get($theme-colors, $key);
+}
+
+// Get color with opacity
+@function color-opacity($color, $opacity) {
+  @return rgba($color, $opacity);
+}
+
+// Color contrast
+@function color-contrast($color) {
+  $r: red($color);
+  $g: green($color);
+  $b: blue($color);
+  
+  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+  
+  @if ($yiq >= 150) {
+    @return $black;
+  } @else {
+    @return $white;
+  }
+}
+
+// Lighten color
+@function color-lighten($color, $percentage) {
+  @return lighten($color, $percentage);
+}
+
+// Darken color
+@function color-darken($color, $percentage) {
+  @return darken($color, $percentage);
+}
+
+// Tint color (mix with white)
+@function color-tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+// Shade color (mix with black)
+@function color-shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+// Spacing functions
+// -------------------------
+
+// Get spacing value from spacers map
+@function spacing($key) {
+  @return map-get($spacers, $key);
+}
+
+// Convert px to rem
+@function rem($px) {
+  @return $px / 16px * 1rem;
+}
+
+// Convert px to em
+@function em($px, $base: 16px) {
+  @return $px / $base * 1em;
+}
+
+// Breakpoint functions
+// -------------------------
+
+// Get breakpoint value
+@function breakpoint($key) {
+  @return map-get($grid-breakpoints, $key);
+}
+
+// Get next breakpoint
+@function breakpoint-next($name) {
+  $breakpoint-names: map-keys($grid-breakpoints);
+  $n: index($breakpoint-names, $name);
+  @if $n != null and $n < length($breakpoint-names) {
+    @return nth($breakpoint-names, $n + 1);
+  } @else {
+    @return null;
+  }
+}
+
+// Get previous breakpoint
+@function breakpoint-prev($name) {
+  $breakpoint-names: map-keys($grid-breakpoints);
+  $n: index($breakpoint-names, $name);
+  @if $n != null and $n > 1 {
+    @return nth($breakpoint-names, $n - 1);
+  } @else {
+    @return null;
+  }
+}
+
+// Get breakpoint min width
+@function breakpoint-min($name) {
+  $min: map-get($grid-breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+
+// Get breakpoint max width
+@function breakpoint-max($name) {
+  $next: breakpoint-next($name);
+  @return if($next, breakpoint-min($next) - 0.02, null);
+}
+
+// String functions
+// -------------------------
+
+// Replace substring in string
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  
+  @return $string;
+}
+
+// Math functions
+// -------------------------
+
+// Power function
+@function pow($base, $exponent) {
+  $result: 1;
+  
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $result: $result * $base;
+    }
+  } @else if $exponent < 0 {
+    @for $i from 1 through -$exponent {
+      $result: $result / $base;
+    }
+  }
+  
+  @return $result;
+}
+
+// Factorial function
+@function factorial($number) {
+  $result: 1;
+  
+  @if $number > 0 {
+    @for $i from 1 through $number {
+      $result: $result * $i;
+    }
+  }
+  
+  @return $result;
+}
+
+// Map functions
+// -------------------------
+
+// Deep map get
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  
+  @return $map;
+}
+
+// Map merge deep
+@function map-merge-deep($parent-map, $child-map) {
+  $result: $parent-map;
+  
+  @each $key, $value in $child-map {
+    @if (type-of($value) == map and type-of(map-get($result, $key)) == map) {
+      $result: map-merge($result, ($key: map-merge-deep(map-get($result, $key), $value)));
+    } @else {
+      $result: map-merge($result, ($key: $value));
+    }
+  }
+  
+  @return $result;
+}
+
+// List functions
+// -------------------------
+
+// Check if list contains value
+@function list-contains($list, $value) {
+  @return not not index($list, $value);
+}
+
+// Remove item from list
+@function list-remove($list, $value) {
+  $result: ();
+  
+  @each $item in $list {
+    @if $item != $value {
+      $result: append($result, $item);
+    }
+  }
+  
+  @return $result;
+}
+
+// Utility functions
+// -------------------------
+
+// Z-index function
+@function z-index($key) {
+  @return map-get($z-indices, $key);
+}
+
+// Asset URL function
+@function asset-url($path) {
+  @return url('../' + $path);
+}
+
+// Font URL function
+@function font-url($filename) {
+  @return asset-url('fonts/' + $filename);
+}
+
+// Image URL function
+@function image-url($filename) {
+  @return asset-url('images/' + $filename);
+}

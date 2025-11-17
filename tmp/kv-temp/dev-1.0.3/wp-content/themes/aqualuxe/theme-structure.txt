@@ -1,0 +1,20 @@
+aqualuxe/
+│
+├── style.css
+├── functions.php
+├── header.php
+├── footer.php
+├── index.php
+├── page.php
+├── single.php
+├── archive.php
+├── search.php
+├── 404.php
+│
+├── inc/                # PHP classes & helpers
+├── assets/             # CSS, JS, images, fonts
+│   ├── css/
+│   ├── js/
+│   ├── images/
+│   └── fonts/
+└── woocommerce/        # WooCommerce template overrides

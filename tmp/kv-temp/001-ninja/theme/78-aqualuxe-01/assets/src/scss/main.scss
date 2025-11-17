@@ -1,0 +1,402 @@
+/*!
+ * AquaLuxe Theme - Main Stylesheet
+ * 
+ * @package AquaLuxe
+ * @since 1.0.0
+ */
+
+// Tailwind CSS Import
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+// Theme Variables
+@import 'variables';
+
+// Base Styles
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/forms';
+
+// Layout Components
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/navigation';
+@import 'layout/sidebar';
+
+// UI Components
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/modals';
+@import 'components/breadcrumbs';
+@import 'components/pagination';
+@import 'components/search';
+@import 'components/tooltips';
+@import 'components/alerts';
+
+// Content Styles
+@import 'content/posts';
+@import 'content/pages';
+@import 'content/comments';
+@import 'content/archives';
+
+// WooCommerce Styles
+@import 'woocommerce/shop';
+@import 'woocommerce/products';
+@import 'woocommerce/cart';
+@import 'woocommerce/checkout';
+@import 'woocommerce/account';
+
+// Utility Classes
+@import 'utilities/animations';
+@import 'utilities/helpers';
+@import 'utilities/dark-mode';
+@import 'utilities/responsive';
+
+// Theme Specific Styles
+@import 'theme/hero';
+@import 'theme/testimonials';
+@import 'theme/newsletter';
+@import 'theme/gallery';
+
+// Print Styles
+@import 'print';
+
+// Custom Properties for Dynamic Theming
+:root {
+  // Primary Colors
+  --color-primary: theme('colors.primary.DEFAULT');
+  --color-primary-dark: theme('colors.primary.dark');
+  --color-primary-light: theme('colors.primary.light');
+  --color-primary-rgb: 59, 130, 246;
+
+  // Secondary Colors
+  --color-secondary: theme('colors.secondary.DEFAULT');
+  --color-secondary-dark: theme('colors.secondary.dark');
+  --color-secondary-light: theme('colors.secondary.light');
+
+  // Accent Colors
+  --color-accent: theme('colors.accent.DEFAULT');
+  --color-aqua: theme('colors.aqua.500');
+  --color-ocean: theme('colors.ocean.500');
+  --color-luxe: theme('colors.luxe.500');
+
+  // Neutral Colors
+  --color-gray-50: theme('colors.gray.50');
+  --color-gray-100: theme('colors.gray.100');
+  --color-gray-200: theme('colors.gray.200');
+  --color-gray-300: theme('colors.gray.300');
+  --color-gray-400: theme('colors.gray.400');
+  --color-gray-500: theme('colors.gray.500');
+  --color-gray-600: theme('colors.gray.600');
+  --color-gray-700: theme('colors.gray.700');
+  --color-gray-800: theme('colors.gray.800');
+  --color-gray-900: theme('colors.gray.900');
+
+  // Typography
+  --font-primary: theme('fontFamily.primary');
+  --font-secondary: theme('fontFamily.secondary');
+  --font-mono: theme('fontFamily.mono');
+
+  // Spacing
+  --container-max-width: theme('maxWidth.7xl');
+  --container-padding: theme('spacing.4');
+
+  // Borders
+  --border-radius: theme('borderRadius.lg');
+  --border-color: theme('colors.gray.200');
+
+  // Shadows
+  --shadow-sm: theme('boxShadow.sm');
+  --shadow-md: theme('boxShadow.md');
+  --shadow-lg: theme('boxShadow.lg');
+  --shadow-xl: theme('boxShadow.xl');
+
+  // Transitions
+  --transition-fast: theme('transitionDuration.150');
+  --transition-normal: theme('transitionDuration.300');
+  --transition-slow: theme('transitionDuration.500');
+
+  // Z-indexes
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  --z-toast: 1080;
+}
+
+// Dark mode custom properties
+[data-theme="dark"] {
+  --color-primary: theme('colors.primary.400');
+  --color-primary-dark: theme('colors.primary.500');
+  --color-primary-light: theme('colors.primary.300');
+
+  --color-gray-50: theme('colors.gray.900');
+  --color-gray-100: theme('colors.gray.800');
+  --color-gray-200: theme('colors.gray.700');
+  --color-gray-300: theme('colors.gray.600');
+  --color-gray-400: theme('colors.gray.500');
+  --color-gray-500: theme('colors.gray.400');
+  --color-gray-600: theme('colors.gray.300');
+  --color-gray-700: theme('colors.gray.200');
+  --color-gray-800: theme('colors.gray.100');
+  --color-gray-900: theme('colors.gray.50');
+
+  --border-color: theme('colors.gray.700');
+}
+
+// Global base styles
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  @apply antialiased;
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  color: var(--color-gray-900);
+  background-color: var(--color-gray-50);
+  overflow-x: hidden;
+}
+
+// Focus styles for accessibility
+*:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+// Skip link for accessibility
+.skip-link {
+  @apply sr-only;
+  
+  &:focus {
+    @apply not-sr-only fixed top-0 left-0 z-50 bg-primary text-white px-4 py-2 rounded-br;
+  }
+}
+
+// Container utility
+.container {
+  @apply mx-auto px-4 sm:px-6 lg:px-8;
+  max-width: var(--container-max-width);
+}
+
+// WordPress specific overrides
+.wp-block-image {
+  @apply mb-6;
+  
+  img {
+    @apply rounded-lg shadow-md;
+  }
+}
+
+.wp-block-quote {
+  @apply border-l-4 border-primary pl-6 italic text-lg text-gray-700 my-6;
+}
+
+.wp-block-pullquote {
+  @apply text-center border-t border-b border-primary py-6 my-8;
+  
+  blockquote {
+    @apply text-2xl font-semibold text-gray-900 mb-4;
+  }
+  
+  cite {
+    @apply text-sm text-gray-600 font-normal;
+  }
+}
+
+.wp-block-code {
+  @apply bg-gray-100 rounded-lg p-4 font-mono text-sm overflow-x-auto;
+}
+
+.wp-block-preformatted {
+  @apply bg-gray-900 text-gray-100 rounded-lg p-4 font-mono text-sm overflow-x-auto;
+}
+
+.wp-block-table {
+  @apply w-full border-collapse;
+  
+  table {
+    @apply w-full;
+  }
+  
+  th,
+  td {
+    @apply border border-gray-200 px-4 py-2 text-left;
+  }
+  
+  th {
+    @apply bg-gray-50 font-semibold;
+  }
+}
+
+.wp-block-separator {
+  @apply border-none h-px bg-gray-200 my-8;
+  
+  &.is-style-wide {
+    @apply w-full;
+  }
+  
+  &.is-style-dots {
+    @apply bg-transparent text-center;
+    
+    &::before {
+      content: '...';
+      @apply text-gray-400 text-2xl;
+    }
+  }
+}
+
+// Gutenberg editor support
+.wp-block-columns {
+  @apply flex flex-wrap -mx-4;
+  
+  .wp-block-column {
+    @apply px-4 flex-1;
+  }
+}
+
+.wp-block-media-text {
+  @apply flex flex-col lg:flex-row items-center gap-8 my-8;
+  
+  &.has-media-on-the-right {
+    @apply lg:flex-row-reverse;
+  }
+  
+  .wp-block-media-text__media {
+    @apply lg:w-1/2;
+  }
+  
+  .wp-block-media-text__content {
+    @apply lg:w-1/2;
+  }
+}
+
+.wp-block-cover {
+  @apply relative overflow-hidden rounded-lg;
+  
+  .wp-block-cover__inner-container {
+    @apply relative z-10 p-8 text-center;
+  }
+  
+  &::before {
+    content: '';
+    @apply absolute inset-0 bg-black bg-opacity-40 z-0;
+  }
+}
+
+// Gallery styles
+.wp-block-gallery {
+  @apply grid gap-4 my-8;
+  
+  &.columns-2 {
+    @apply grid-cols-1 sm:grid-cols-2;
+  }
+  
+  &.columns-3 {
+    @apply grid-cols-1 sm:grid-cols-2 lg:grid-cols-3;
+  }
+  
+  &.columns-4 {
+    @apply grid-cols-1 sm:grid-cols-2 lg:grid-cols-4;
+  }
+  
+  .wp-block-image {
+    @apply mb-0;
+  }
+}
+
+// Embed blocks
+.wp-block-embed {
+  @apply my-8;
+  
+  .wp-block-embed__wrapper {
+    @apply relative overflow-hidden rounded-lg;
+    padding-bottom: 56.25%; // 16:9 aspect ratio
+    
+    iframe {
+      @apply absolute inset-0 w-full h-full;
+    }
+  }
+}
+
+// Button styles for Gutenberg
+.wp-block-button {
+  @apply inline-block;
+  
+  .wp-block-button__link {
+    @apply inline-block px-6 py-3 rounded-lg font-semibold text-center transition-all duration-300 no-underline;
+    
+    &:not(.has-background) {
+      @apply bg-primary text-white;
+      
+      &:hover {
+        @apply bg-primary-dark;
+      }
+    }
+  }
+  
+  &.is-style-outline .wp-block-button__link {
+    @apply border-2 border-primary text-primary bg-transparent;
+    
+    &:hover {
+      @apply bg-primary text-white;
+    }
+  }
+}
+
+// Responsive design helpers
+@screen sm {
+  .container {
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+  }
+}
+
+@screen lg {
+  .container {
+    padding-left: calc(var(--container-padding) * 2);
+    padding-right: calc(var(--container-padding) * 2);
+  }
+}
+
+// Print styles preview
+@media print {
+  * {
+    @apply text-black bg-white;
+  }
+  
+  .no-print {
+    @apply hidden;
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  :root {
+    --color-primary: #000000;
+    --color-gray-900: #000000;
+    --border-color: #000000;
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}

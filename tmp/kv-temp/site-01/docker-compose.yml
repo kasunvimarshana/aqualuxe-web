@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  wordpress:
+    image: wordpress:latest
+    container_name: aqualuxe-wordpress
+    depends_on:
+      - mysql
+      - redis
+    ports:
+      - '8080:80'
+    environment:
+      WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_REDIS_HOST', '${REDIS_HOST}');
+        define('WP_REDIS_PORT', 6379);
+        define('FS_METHOD', 'direct');
+    volumes:
+      - ./wordpress:/var/www/html
+      - ./wordpress/wp-content:/var/www/html/wp-content
+    networks:
+      - aqualuxe-network
+
+  mysql:
+    image: mysql:5.7
+    container_name: aqualuxe-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - ./mysql:/var/lib/mysql
+    networks:
+      - aqualuxe-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: aqualuxe-phpmyadmin
+    depends_on:
+      - mysql
+    environment:
+      PMA_HOST: ${PMA_HOST}
+      PMA_PORT: ${PMA_PORT}
+    ports:
+      - '8081:80'
+    networks:
+      - aqualuxe-network
+
+  redis:
+    image: redis:latest
+    container_name: aqualuxe-redis
+    volumes:
+      - ./redis:/data
+    networks:
+      - aqualuxe-network
+
+networks:
+  aqualuxe-network:
+    driver: bridge

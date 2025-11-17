@@ -1,0 +1,5 @@
+{
+  "name": "Dark Mode",
+  "enabled": true,
+  "description": "Adds server-side hooks to complement dark mode handled via CSS/JS."
+}

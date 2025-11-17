@@ -1,0 +1,481 @@
+/**
+ * AquaLuxe Theme - Sidebar Styles
+ *
+ * This file contains all styles related to the sidebar and widget areas.
+ */
+
+.site-sidebar {
+  margin-bottom: 2rem;
+  
+  @media (min-width: 992px) {
+    margin-bottom: 0;
+  }
+}
+
+.widget {
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+  background-color: var(--color-background-alt);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  &__title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    margin: 0 0 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-border);
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background-color: var(--color-primary);
+    }
+  }
+  
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+    li {
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--color-border-light);
+      
+      &:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+      
+      a {
+        color: var(--color-text);
+        text-decoration: none;
+        transition: color 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+        &:hover {
+          color: var(--color-primary);
+        }
+        
+        .count {
+          font-size: var(--font-size-xs);
+          color: var(--color-text-light);
+          background-color: var(--color-background);
+          border-radius: 20px;
+          padding: 0.25rem 0.5rem;
+          min-width: 24px;
+          text-align: center;
+          transition: background-color 0.2s ease, color 0.2s ease;
+        }
+        
+        &:hover .count {
+          background-color: var(--color-primary);
+          color: var(--color-white);
+        }
+      }
+    }
+  }
+}
+
+/* Search Widget */
+.widget_search {
+  .search-form {
+    position: relative;
+  }
+  
+  .search-field {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    padding-right: 3rem;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-size: var(--font-size-sm);
+    transition: border-color 0.2s ease;
+    
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+  }
+  
+  .search-submit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 3rem;
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: 0 4px 4px 0;
+    color: var(--color-white);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    
+    &:hover {
+      background-color: var(--color-primary-dark);
+    }
+    
+    svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+}
+
+/* Recent Posts Widget */
+.widget_recent_entries {
+  li {
+    display: flex;
+    flex-direction: column;
+    
+    .post-date {
+      font-size: var(--font-size-xs);
+      color: var(--color-text-light);
+      margin-top: 0.25rem;
+    }
+  }
+}
+
+/* Recent Comments Widget */
+.widget_recent_comments {
+  .recentcomments {
+    color: var(--color-text-light);
+    font-size: var(--font-size-sm);
+    
+    .comment-author-link {
+      font-weight: 600;
+      color: var(--color-text);
+    }
+    
+    a {
+      display: inline;
+    }
+  }
+}
+
+/* Tag Cloud Widget */
+.widget_tag_cloud {
+  .tagcloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    
+    a {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      font-size: var(--font-size-xs) !important;
+      background-color: var(--color-background);
+      border-radius: 20px;
+      color: var(--color-text-light);
+      text-decoration: none;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      
+      &:hover {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+      }
+    }
+  }
+}
+
+/* Calendar Widget */
+.widget_calendar {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    
+    caption {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    
+    th, td {
+      padding: 0.5rem;
+      text-align: center;
+      border: 1px solid var(--color-border-light);
+    }
+    
+    th {
+      font-weight: 600;
+      background-color: var(--color-background);
+    }
+    
+    tbody td {
+      a {
+        display: block;
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        border-radius: 50%;
+        width: 28px;
+        height: 28px;
+        line-height: 28px;
+        margin: 0 auto;
+        text-decoration: none;
+        transition: background-color 0.2s ease;
+        
+        &:hover {
+          background-color: var(--color-primary-dark);
+        }
+      }
+    }
+    
+    #prev, #next {
+      padding: 0.5rem 0;
+      border: none;
+      
+      a {
+        color: var(--color-text);
+        text-decoration: none;
+        transition: color 0.2s ease;
+        
+        &:hover {
+          color: var(--color-primary);
+        }
+      }
+    }
+    
+    #prev {
+      text-align: left;
+    }
+    
+    #next {
+      text-align: right;
+    }
+  }
+}
+
+/* Custom AquaLuxe Widgets */
+.widget_aqualuxe_featured_products {
+  .featured-products {
+    &__list {
+      display: grid;
+      gap: 1rem;
+    }
+    
+    &__item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--color-border-light);
+      
+      &:last-child {
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+    }
+    
+    &__image {
+      width: 70px;
+      height: 70px;
+      border-radius: 4px;
+      overflow: hidden;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    
+    &__content {
+      flex: 1;
+    }
+    
+    &__title {
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      margin: 0 0 0.25rem;
+      
+      a {
+        color: var(--color-text);
+        text-decoration: none;
+        transition: color 0.2s ease;
+        
+        &:hover {
+          color: var(--color-primary);
+        }
+      }
+    }
+    
+    &__price {
+      font-size: var(--font-size-sm);
+      color: var(--color-primary);
+      font-weight: 600;
+      
+      del {
+        color: var(--color-text-light);
+        font-weight: normal;
+        margin-right: 0.5rem;
+      }
+    }
+    
+    &__rating {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin-top: 0.25rem;
+      
+      .star {
+        color: var(--color-star);
+        font-size: var(--font-size-xs);
+      }
+    }
+  }
+}
+
+.widget_aqualuxe_filter {
+  .filter {
+    &__group {
+      margin-bottom: 1.5rem;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    
+    &__title {
+      font-size: var(--font-size-md);
+      font-weight: 600;
+      margin: 0 0 1rem;
+    }
+    
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    &__item {
+      display: flex;
+      align-items: center;
+      
+      label {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        font-size: var(--font-size-sm);
+        
+        input[type="checkbox"] {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+    
+    &__price {
+      margin-top: 1rem;
+      
+      &-inputs {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        
+        input {
+          width: 100%;
+          padding: 0.5rem;
+          border: 1px solid var(--color-border);
+          border-radius: 4px;
+          font-size: var(--font-size-sm);
+          
+          &:focus {
+            outline: none;
+            border-color: var(--color-primary);
+          }
+        }
+        
+        span {
+          color: var(--color-text-light);
+        }
+      }
+      
+      &-slider {
+        height: 4px;
+        background-color: var(--color-border);
+        border-radius: 2px;
+        position: relative;
+        margin-bottom: 1.5rem;
+        
+        .ui-slider-range {
+          position: absolute;
+          height: 100%;
+          background-color: var(--color-primary);
+        }
+        
+        .ui-slider-handle {
+          position: absolute;
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          background-color: var(--color-primary);
+          top: 50%;
+          transform: translateY(-50%);
+          cursor: pointer;
+          
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+    
+    &__colors {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      
+      &-item {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        cursor: pointer;
+        position: relative;
+        
+        &.active::after {
+          content: '';
+          position: absolute;
+          top: -4px;
+          left: -4px;
+          right: -4px;
+          bottom: -4px;
+          border: 2px solid var(--color-primary);
+          border-radius: 50%;
+        }
+      }
+    }
+    
+    &__button {
+      display: block;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      border: none;
+      border-radius: 4px;
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      text-align: center;
+      margin-top: 1rem;
+      
+      &:hover {
+        background-color: var(--color-primary-dark);
+      }
+    }
+  }
+}

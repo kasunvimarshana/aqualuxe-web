@@ -1,0 +1,85 @@
+/**
+ * Functions
+ *
+ * Theme functions
+ */
+
+// Convert px to rem
+@function rem($pixels, $context: 16) {
+  @return ($pixels / $context) * 1rem;
+}
+
+// Convert px to em
+@function em($pixels, $context: 16) {
+  @return ($pixels / $context) * 1em;
+}
+
+// Get color from palette
+@function color($color, $shade: null) {
+  @if $shade {
+    @return var(--aqualuxe-#{$color}-#{$shade});
+  } @else {
+    @return var(--aqualuxe-#{$color}-color);
+  }
+}
+
+// Get spacing value
+@function spacing($key) {
+  @return var(--aqualuxe-spacing-#{$key});
+}
+
+// Get z-index value
+@function z-index($key) {
+  @return var(--aqualuxe-z-#{$key});
+}
+
+// Get font-size value
+@function font-size($key) {
+  @return var(--aqualuxe-font-size-#{$key});
+}
+
+// Get font-weight value
+@function font-weight($key) {
+  @return var(--aqualuxe-font-weight-#{$key});
+}
+
+// Get border-radius value
+@function border-radius($key) {
+  @return var(--aqualuxe-border-radius#{if($key != '', '-#{$key}', '')});
+}
+
+// Get shadow value
+@function shadow($key) {
+  @return var(--aqualuxe-shadow#{if($key != '', '-#{$key}', '')});
+}
+
+// Darken color
+@function darken($color, $percentage) {
+  @return mix(#000, $color, $percentage);
+}
+
+// Lighten color
+@function lighten($color, $percentage) {
+  @return mix(#fff, $color, $percentage);
+}
+
+// Strip unit
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
+
+// Calculate fluid font size
+@function fluid-font-size($min-size, $max-size, $min-width: 320, $max-width: 1200) {
+  $min-size: strip-unit($min-size);
+  $max-size: strip-unit($max-size);
+  $min-width: strip-unit($min-width);
+  $max-width: strip-unit($max-width);
+  
+  $slope: ($max-size - $min-size) / ($max-width - $min-width);
+  $y-intercept: $min-size - $slope * $min-width;
+  
+  @return calc(#{$y-intercept}px + #{$slope} * 100vw);
+}

@@ -1,0 +1,564 @@
+/**
+ * AquaLuxe Theme Grid System
+ *
+ * This file contains styles for the grid system.
+ */
+
+// Container
+.container,
+.container-fluid {
+  @include make-container();
+}
+
+// Container max widths
+.container {
+  @include make-container-max-widths();
+}
+
+// Row
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -($grid-gutter-width * 0.5);
+  margin-left: -($grid-gutter-width * 0.5);
+}
+
+// No gutters
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+  
+  > .col,
+  > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+// Columns
+.col,
+.col-auto,
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6,
+.col-7, .col-8, .col-9, .col-10, .col-11, .col-12,
+.col-sm, .col-sm-auto,
+.col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6,
+.col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12,
+.col-md, .col-md-auto,
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6,
+.col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12,
+.col-lg, .col-lg-auto,
+.col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6,
+.col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12,
+.col-xl, .col-xl-auto,
+.col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6,
+.col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12,
+.col-xxl, .col-xxl-auto,
+.col-xxl-1, .col-xxl-2, .col-xxl-3, .col-xxl-4, .col-xxl-5, .col-xxl-6,
+.col-xxl-7, .col-xxl-8, .col-xxl-9, .col-xxl-10, .col-xxl-11, .col-xxl-12 {
+  position: relative;
+  width: 100%;
+  padding-right: $grid-gutter-width * 0.5;
+  padding-left: $grid-gutter-width * 0.5;
+}
+
+// Column sizing
+.col {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+.col-auto {
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 100%;
+}
+
+@for $i from 1 through $grid-columns {
+  .col-#{$i} {
+    flex: 0 0 percentage($i / $grid-columns);
+    max-width: percentage($i / $grid-columns);
+  }
+}
+
+// Responsive columns
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+  
+  @include media-breakpoint-up($breakpoint) {
+    .col#{$infix} {
+      flex-basis: 0;
+      flex-grow: 1;
+      max-width: 100%;
+    }
+    
+    .col#{$infix}-auto {
+      flex: 0 0 auto;
+      width: auto;
+      max-width: 100%;
+    }
+    
+    @for $i from 1 through $grid-columns {
+      .col#{$infix}-#{$i} {
+        flex: 0 0 percentage($i / $grid-columns);
+        max-width: percentage($i / $grid-columns);
+      }
+    }
+  }
+}
+
+// Order classes
+.order-first {
+  order: -1;
+}
+
+.order-last {
+  order: $grid-columns + 1;
+}
+
+@for $i from 0 through $grid-columns {
+  .order-#{$i} {
+    order: $i;
+  }
+}
+
+// Responsive order
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+  
+  @include media-breakpoint-up($breakpoint) {
+    .order#{$infix}-first {
+      order: -1;
+    }
+    
+    .order#{$infix}-last {
+      order: $grid-columns + 1;
+    }
+    
+    @for $i from 0 through $grid-columns {
+      .order#{$infix}-#{$i} {
+        order: $i;
+      }
+    }
+  }
+}
+
+// Offset
+@for $i from 0 through ($grid-columns - 1) {
+  .offset-#{$i} {
+    margin-left: percentage($i / $grid-columns);
+  }
+}
+
+// Responsive offset
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+  
+  @include media-breakpoint-up($breakpoint) {
+    @for $i from 0 through ($grid-columns - 1) {
+      .offset#{$infix}-#{$i} {
+        margin-left: percentage($i / $grid-columns);
+      }
+    }
+  }
+}
+
+// Flex utilities
+.d-flex {
+  display: flex !important;
+}
+
+.d-inline-flex {
+  display: inline-flex !important;
+}
+
+.flex-row {
+  flex-direction: row !important;
+}
+
+.flex-column {
+  flex-direction: column !important;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse !important;
+}
+
+.flex-column-reverse {
+  flex-direction: column-reverse !important;
+}
+
+.flex-wrap {
+  flex-wrap: wrap !important;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap !important;
+}
+
+.flex-wrap-reverse {
+  flex-wrap: wrap-reverse !important;
+}
+
+.flex-fill {
+  flex: 1 1 auto !important;
+}
+
+.flex-grow-0 {
+  flex-grow: 0 !important;
+}
+
+.flex-grow-1 {
+  flex-grow: 1 !important;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0 !important;
+}
+
+.flex-shrink-1 {
+  flex-shrink: 1 !important;
+}
+
+.justify-content-start {
+  justify-content: flex-start !important;
+}
+
+.justify-content-end {
+  justify-content: flex-end !important;
+}
+
+.justify-content-center {
+  justify-content: center !important;
+}
+
+.justify-content-between {
+  justify-content: space-between !important;
+}
+
+.justify-content-around {
+  justify-content: space-around !important;
+}
+
+.align-items-start {
+  align-items: flex-start !important;
+}
+
+.align-items-end {
+  align-items: flex-end !important;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+.align-items-baseline {
+  align-items: baseline !important;
+}
+
+.align-items-stretch {
+  align-items: stretch !important;
+}
+
+.align-content-start {
+  align-content: flex-start !important;
+}
+
+.align-content-end {
+  align-content: flex-end !important;
+}
+
+.align-content-center {
+  align-content: center !important;
+}
+
+.align-content-between {
+  align-content: space-between !important;
+}
+
+.align-content-around {
+  align-content: space-around !important;
+}
+
+.align-content-stretch {
+  align-content: stretch !important;
+}
+
+.align-self-auto {
+  align-self: auto !important;
+}
+
+.align-self-start {
+  align-self: flex-start !important;
+}
+
+.align-self-end {
+  align-self: flex-end !important;
+}
+
+.align-self-center {
+  align-self: center !important;
+}
+
+.align-self-baseline {
+  align-self: baseline !important;
+}
+
+.align-self-stretch {
+  align-self: stretch !important;
+}
+
+// Responsive flex utilities
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+  
+  @include media-breakpoint-up($breakpoint) {
+    .d#{$infix}-flex {
+      display: flex !important;
+    }
+    
+    .d#{$infix}-inline-flex {
+      display: inline-flex !important;
+    }
+    
+    .flex#{$infix}-row {
+      flex-direction: row !important;
+    }
+    
+    .flex#{$infix}-column {
+      flex-direction: column !important;
+    }
+    
+    .flex#{$infix}-row-reverse {
+      flex-direction: row-reverse !important;
+    }
+    
+    .flex#{$infix}-column-reverse {
+      flex-direction: column-reverse !important;
+    }
+    
+    .flex#{$infix}-wrap {
+      flex-wrap: wrap !important;
+    }
+    
+    .flex#{$infix}-nowrap {
+      flex-wrap: nowrap !important;
+    }
+    
+    .flex#{$infix}-wrap-reverse {
+      flex-wrap: wrap-reverse !important;
+    }
+    
+    .flex#{$infix}-fill {
+      flex: 1 1 auto !important;
+    }
+    
+    .flex#{$infix}-grow-0 {
+      flex-grow: 0 !important;
+    }
+    
+    .flex#{$infix}-grow-1 {
+      flex-grow: 1 !important;
+    }
+    
+    .flex#{$infix}-shrink-0 {
+      flex-shrink: 0 !important;
+    }
+    
+    .flex#{$infix}-shrink-1 {
+      flex-shrink: 1 !important;
+    }
+    
+    .justify-content#{$infix}-start {
+      justify-content: flex-start !important;
+    }
+    
+    .justify-content#{$infix}-end {
+      justify-content: flex-end !important;
+    }
+    
+    .justify-content#{$infix}-center {
+      justify-content: center !important;
+    }
+    
+    .justify-content#{$infix}-between {
+      justify-content: space-between !important;
+    }
+    
+    .justify-content#{$infix}-around {
+      justify-content: space-around !important;
+    }
+    
+    .align-items#{$infix}-start {
+      align-items: flex-start !important;
+    }
+    
+    .align-items#{$infix}-end {
+      align-items: flex-end !important;
+    }
+    
+    .align-items#{$infix}-center {
+      align-items: center !important;
+    }
+    
+    .align-items#{$infix}-baseline {
+      align-items: baseline !important;
+    }
+    
+    .align-items#{$infix}-stretch {
+      align-items: stretch !important;
+    }
+    
+    .align-content#{$infix}-start {
+      align-content: flex-start !important;
+    }
+    
+    .align-content#{$infix}-end {
+      align-content: flex-end !important;
+    }
+    
+    .align-content#{$infix}-center {
+      align-content: center !important;
+    }
+    
+    .align-content#{$infix}-between {
+      align-content: space-between !important;
+    }
+    
+    .align-content#{$infix}-around {
+      align-content: space-around !important;
+    }
+    
+    .align-content#{$infix}-stretch {
+      align-content: stretch !important;
+    }
+    
+    .align-self#{$infix}-auto {
+      align-self: auto !important;
+    }
+    
+    .align-self#{$infix}-start {
+      align-self: flex-start !important;
+    }
+    
+    .align-self#{$infix}-end {
+      align-self: flex-end !important;
+    }
+    
+    .align-self#{$infix}-center {
+      align-self: center !important;
+    }
+    
+    .align-self#{$infix}-baseline {
+      align-self: baseline !important;
+    }
+    
+    .align-self#{$infix}-stretch {
+      align-self: stretch !important;
+    }
+  }
+}
+
+// Grid system for CSS Grid
+.grid {
+  display: grid;
+  grid-template-columns: repeat($grid-columns, 1fr);
+  grid-gap: $grid-gutter-width;
+}
+
+.grid-auto-flow-row {
+  grid-auto-flow: row;
+}
+
+.grid-auto-flow-column {
+  grid-auto-flow: column;
+}
+
+// Grid column span
+@for $i from 1 through $grid-columns {
+  .grid-col-span-#{$i} {
+    grid-column: span $i;
+  }
+}
+
+// Grid row span
+@for $i from 1 through 12 {
+  .grid-row-span-#{$i} {
+    grid-row: span $i;
+  }
+}
+
+// Responsive grid
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+  
+  @include media-breakpoint-up($breakpoint) {
+    .grid#{$infix} {
+      display: grid;
+    }
+    
+    .grid#{$infix}-template-columns-1 {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    
+    .grid#{$infix}-template-columns-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .grid#{$infix}-template-columns-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .grid#{$infix}-template-columns-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .grid#{$infix}-template-columns-5 {
+      grid-template-columns: repeat(5, 1fr);
+    }
+    
+    .grid#{$infix}-template-columns-6 {
+      grid-template-columns: repeat(6, 1fr);
+    }
+    
+    .grid#{$infix}-template-columns-12 {
+      grid-template-columns: repeat(12, 1fr);
+    }
+    
+    .grid#{$infix}-gap-0 {
+      grid-gap: 0;
+    }
+    
+    .grid#{$infix}-gap-1 {
+      grid-gap: $spacer * 0.25;
+    }
+    
+    .grid#{$infix}-gap-2 {
+      grid-gap: $spacer * 0.5;
+    }
+    
+    .grid#{$infix}-gap-3 {
+      grid-gap: $spacer;
+    }
+    
+    .grid#{$infix}-gap-4 {
+      grid-gap: $spacer * 1.5;
+    }
+    
+    .grid#{$infix}-gap-5 {
+      grid-gap: $spacer * 3;
+    }
+    
+    @for $i from 1 through $grid-columns {
+      .grid#{$infix}-col-span-#{$i} {
+        grid-column: span $i;
+      }
+    }
+    
+    @for $i from 1 through 12 {
+      .grid#{$infix}-row-span-#{$i} {
+        grid-row: span $i;
+      }
+    }
+  }
+}

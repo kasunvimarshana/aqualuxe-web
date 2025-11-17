@@ -1,0 +1,337 @@
+/**
+ * AquaLuxe Theme - Print Base Styles
+ *
+ * This file contains basic print styles for the theme.
+ * More comprehensive print styles are in print.scss.
+ */
+
+@media print {
+  /* General */
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  /* Links */
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    font-weight: normal;
+  }
+  
+  /* Don't show links for images, or javascript/internal links */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after,
+  a[href^="tel:"]::after,
+  a[href^="mailto:"]::after,
+  a.no-print-url::after,
+  a.button::after,
+  .btn::after {
+    content: "";
+  }
+  
+  /* Abbreviations */
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+  
+  /* Page breaks */
+  pre,
+  blockquote {
+    page-break-inside: avoid;
+  }
+  
+  thead {
+    display: table-header-group;
+  }
+  
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+  
+  /* Layout */
+  body {
+    min-width: auto !important;
+  }
+  
+  .container {
+    min-width: auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  
+  /* Hide elements */
+  .site-header-cart,
+  .main-navigation,
+  .secondary-navigation,
+  .site-footer,
+  .widget-area,
+  .comment-respond,
+  .comments-area .comment-edit-link,
+  .comments-area .reply,
+  .comment-reply-title,
+  .navigation.post-navigation,
+  .pagination.navigation,
+  .site-header-cart,
+  .widget_shopping_cart,
+  .woocommerce-tabs .tabs,
+  .woocommerce-pagination,
+  .mobile-menu,
+  .search-form,
+  .site-search,
+  .skip-link,
+  .menu-toggle,
+  .handheld-navigation,
+  .site-header-cart .cart-contents,
+  button,
+  input[type="button"],
+  input[type="reset"],
+  input[type="submit"],
+  .button,
+  .added_to_cart,
+  .widget a.button,
+  .site-header-cart .widget_shopping_cart a.button,
+  #comments .comment-list .reply a,
+  .woocommerce-pagination ul.page-numbers li .page-numbers,
+  .dark-mode-toggle,
+  .back-to-top,
+  .social-navigation,
+  .product-filter-widgets,
+  .woocommerce-result-count,
+  .woocommerce-ordering,
+  .woocommerce-breadcrumb,
+  .product_meta,
+  .product-actions,
+  .product-share,
+  .related.products,
+  .upsells.products,
+  .cross-sells.products,
+  .woocommerce-tabs .panel > h2:first-child,
+  .woocommerce-tabs .panel #reviews #comments h2,
+  .woocommerce-tabs .panel #reviews .woocommerce-Reviews-title,
+  .woocommerce-notices-wrapper,
+  .woocommerce-message,
+  .woocommerce-info,
+  .woocommerce-error,
+  .woocommerce-noreviews,
+  p.no-comments,
+  .woocommerce-tabs #tab-reviews #review_form_wrapper,
+  .woocommerce-tabs #tab-reviews #reviews #respond,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .star-rating,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .meta,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .description,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .avatar,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .meta .woocommerce-review__author,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .meta .woocommerce-review__dash,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .meta .woocommerce-review__published-date,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .description p,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .star-rating span,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .star-rating span::before,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .star-rating::before,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .star-rating span::before,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .star-rating::before,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .meta .woocommerce-review__verified,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .meta .woocommerce-review__dash,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .meta .woocommerce-review__published-date,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .description p,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .star-rating span,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .star-rating span::before,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .star-rating::before,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .star-rating span::before,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .star-rating::before,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .meta .woocommerce-review__verified,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .meta .woocommerce-review__dash,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .meta .woocommerce-review__published-date,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .description p,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .star-rating span,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .star-rating span::before,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .star-rating::before,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .star-rating span::before,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .star-rating::before,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .meta .woocommerce-review__verified,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .meta .woocommerce-review__dash,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .meta .woocommerce-review__published-date,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .description p,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .star-rating span,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .star-rating span::before,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .star-rating::before,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .star-rating span::before,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .star-rating::before,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .meta .woocommerce-review__verified,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .meta .woocommerce-review__dash,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .meta .woocommerce-review__published-date,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .description p,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .star-rating span,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .star-rating span::before,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .star-rating::before,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .star-rating span::before,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .star-rating::before,
+  .woocommerce-tabs #tab-reviews #reviews #comments .commentlist .comment .comment_container .comment-text .meta .woocommerce-review__verified,
+  .no-print {
+    display: none !important;
+  }
+  
+  /* Show elements */
+  .site-main {
+    display: block !important;
+  }
+  
+  /* Logo */
+  .site-branding {
+    margin-bottom: 20px;
+  }
+  
+  /* Content */
+  .site-content {
+    padding: 0 !important;
+  }
+  
+  /* WooCommerce */
+  .woocommerce-product-gallery {
+    max-width: 300px;
+  }
+  
+  .woocommerce-product-gallery__wrapper {
+    display: block !important;
+  }
+  
+  .woocommerce-product-gallery__image {
+    margin-bottom: 20px;
+  }
+  
+  .woocommerce-product-gallery__image a {
+    display: block;
+  }
+  
+  .woocommerce-product-gallery__image img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  
+  .woocommerce-tabs {
+    margin-top: 20px;
+  }
+  
+  .woocommerce-tabs .panel {
+    display: block !important;
+    margin-bottom: 20px;
+  }
+  
+  .woocommerce-tabs .panel h2 {
+    margin-top: 0;
+  }
+  
+  .product_title {
+    margin-top: 0;
+  }
+  
+  .price {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .woocommerce-product-details__short-description {
+    margin-bottom: 20px;
+  }
+  
+  /* Tables */
+  table {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+  }
+  
+  table th,
+  table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  /* Images */
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+  
+  /* Page margins */
+  @page {
+    margin: 2cm;
+  }
+  
+  /* Font sizes */
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+  
+  h1 {
+    font-size: 24pt;
+  }
+  
+  h2 {
+    font-size: 20pt;
+  }
+  
+  h3 {
+    font-size: 16pt;
+  }
+  
+  h4, h5, h6 {
+    font-size: 14pt;
+  }
+  
+  /* Print-specific classes */
+  .print-only {
+    display: block !important;
+  }
+  
+  .print-break-before {
+    page-break-before: always;
+  }
+  
+  .print-break-after {
+    page-break-after: always;
+  }
+  
+  .print-avoid-break {
+    page-break-inside: avoid;
+  }
+  
+  /* Print header */
+  .print-header {
+    display: block !important;
+    border-bottom: 1pt solid #000;
+    margin-bottom: 20pt;
+  }
+  
+  /* Print footer */
+  .print-footer {
+    display: block !important;
+    border-top: 1pt solid #000;
+    margin-top: 20pt;
+    font-size: 9pt;
+  }
+}

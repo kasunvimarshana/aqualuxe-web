@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AquaLuxe - Rare Fish</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+    :root {
+      --primary-color: #38e07b;
+    }
+    body {
+      font-family: 'Spline Sans', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-[#122118] text-white">
+<div class="relative flex size-full min-h-screen flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#264532] px-10 py-4">
+<div class="flex items-center gap-10">
+<div class="flex items-center gap-3 text-white">
+<svg class="h-8 w-8 text-[var(--primary-color)]" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+<h1 class="text-2xl font-bold">AquaLuxe</h1>
+</div>
+<nav class="flex items-center gap-8">
+<a class="text-base font-medium hover:text-[var(--primary-color)] transition-colors" href="#">Shop</a>
+<a class="text-base font-medium hover:text-[var(--primary-color)] transition-colors" href="#">About</a>
+<a class="text-base font-medium hover:text-[var(--primary-color)] transition-colors" href="#">Contact</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end items-center gap-4">
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#96c5a9]">search</span>
+<input class="form-input w-full rounded-full border-none bg-[#264532] h-11 placeholder:text-[#96c5a9] pl-10 pr-4 text-base focus:ring-2 focus:ring-[var(--primary-color)] transition-shadow" placeholder="Search products..." value=""/>
+</div>
+<button class="flex items-center justify-center rounded-full h-11 w-11 bg-[#264532] hover:bg-[#3a634a] transition-colors">
+<span class="material-symbols-outlined text-2xl">shopping_bag</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-11 border-2 border-transparent hover:border-[var(--primary-color)] transition-all cursor-pointer" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDM66YDwgcwojUiC7PiJRUSj3yz5I2GcnPNzNHruyIXgP12pQVIxdQiFyqGn1myh3930rhwHj5lRLH-i9oBKTfZ5Ubt2herMpNJeGgRSFCzkBRxaOgEivHyUOoEsW5gSr7nyEY1lEdS8VnEkxDZ98yr1OVr12tRVNk1OenWGnquy6Ia19JchHuDOgsnStG7-iu3GrkRI_kwM--mhWNG7tIUv1Isuxy61pfmP457RB7hVFnMHkque01xigygD2EzNsAqB-03SKdlVg");'></div>
+</div>
+</header>
+<main class="px-10 lg:px-20 xl:px-40 py-8 flex-1">
+<div class="max-w-7xl mx-auto">
+<div class="flex items-center gap-2 mb-8 text-sm">
+<a class="text-[#96c5a9] hover:text-[var(--primary-color)] transition-colors" href="#">Shop</a>
+<span class="text-[#5b876d]">/</span>
+<span class="text-white font-medium">Rare Fish</span>
+</div>
+<h2 class="text-4xl font-bold mb-8">Rare Fish</h2>
+<div class="flex flex-wrap gap-4 mb-8">
+<button class="flex h-10 items-center justify-center gap-x-2 rounded-full bg-[#264532] pl-5 pr-4 hover:bg-[#3a634a] transition-colors">
+<span class="text-sm font-medium">Species</span>
+<span class="material-symbols-outlined text-lg">expand_more</span>
+</button>
+<button class="flex h-10 items-center justify-center gap-x-2 rounded-full bg-[#264532] pl-5 pr-4 hover:bg-[#3a634a] transition-colors">
+<span class="text-sm font-medium">Price</span>
+<span class="material-symbols-outlined text-lg">expand_more</span>
+</button>
+<button class="flex h-10 items-center justify-center gap-x-2 rounded-full bg-[#264532] pl-5 pr-4 hover:bg-[#3a634a] transition-colors">
+<span class="text-sm font-medium">Availability</span>
+<span class="material-symbols-outlined text-lg">expand_more</span>
+</button>
+<button class="flex h-10 items-center justify-center gap-x-2 rounded-full bg-[#264532] pl-5 pr-4 hover:bg-[#3a634a] transition-colors">
+<span class="text-sm font-medium">Water Type</span>
+<span class="material-symbols-outlined text-lg">expand_more</span>
+</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+<div class="group flex flex-col gap-4">
+<div class="relative w-full aspect-square overflow-hidden rounded-2xl">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-300 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA8lvAv7TD1m5GyscPtJajLJRKFJc8FCRkSCi8ChGHEvXw6DiIJd3ERc9c27rdqcIne6Een0S1ayUeZLTGWb63t_vG5pzxpGTIeHCjbFjgGTERvIgpv7frstNKqXI7vZOL0SflLs87WnXdSHGxOdzLZp9gsPyPS-O4htENBl0N3zoVBrfoq3Gcfw4o4jZ5NSGu9gn4Ai6SNxFx8HQeJHp0bloeazxJWS8UCPiNCTzKQ0V1-qtgaBN8_28-cPwG3Dsw-W6MaLnNbbA");'></div>
+<button class="absolute top-3 right-3 flex items-center justify-center rounded-full h-10 w-10 bg-black/30 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+</div>
+<div>
+<h3 class="text-lg font-medium">Neon Tetra</h3>
+<p class="text-[var(--primary-color)] text-base font-semibold">$2.99</p>
+</div>
+</div>
+<div class="group flex flex-col gap-4">
+<div class="relative w-full aspect-square overflow-hidden rounded-2xl">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-300 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBAF8vNGIfgRcXYOjz8yrBO24_mQi_A-S-jrGUfIemydTC2gneTt0JKySqdYX8qSBimGhnT5AU1CELJydJp36ilsTbdVVfS93r9S5tCmyWI1pDDdzhkY11c3TCQm4vK_P7rbPoVm2wyHYvkMRFeCzB3yQg8SNIEWl8lkCJ5VnznLyHdi8WqJELjNwvu4kTb0CP2lU3rdWut1jNhzu2Lwt4tcLOtNO4fZaGCiubVSE61pV2Cd5lo-AYozAcNWajpPP5vylEqsCkWdA");'></div>
+<button class="absolute top-3 right-3 flex items-center justify-center rounded-full h-10 w-10 bg-black/30 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+</div>
+<div>
+<h3 class="text-lg font-medium">Celestial Pearl Danio</h3>
+<p class="text-[var(--primary-color)] text-base font-semibold">$4.99</p>
+</div>
+</div>
+<div class="group flex flex-col gap-4">
+<div class="relative w-full aspect-square overflow-hidden rounded-2xl">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-300 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA2cX-4T9P63x1xyJJyCrNuNXfkZ55t5qyLsLJaaOIFZcD9MF6_YbcfRJnlNiRAtW31vvKtKzAS09mPwMAX2Rjju5cNKLLnUPWva5sFNAsUIfNhFJroWSNELBV7vhkxKtRTHVIIdElsoc3UDJNIMQEhijPlE-0bWB2JQ-I9kQ75t3Z0qnWXmvBIKCgg22r92AIX8gMp4p-5nZ3h9OhcPbWEOZGhHYZT4Mp8x7ZPqu2UTHXA9YORdf4LJz7M4H6DtAIHt5nfLl-hEw");'></div>
+<button class="absolute top-3 right-3 flex items-center justify-center rounded-full h-10 w-10 bg-black/30 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+</div>
+<div>
+<h3 class="text-lg font-medium">Panda Corydoras</h3>
+<p class="text-[var(--primary-color)] text-base font-semibold">$3.49</p>
+</div>
+</div>
+<div class="group flex flex-col gap-4">
+<div class="relative w-full aspect-square overflow-hidden rounded-2xl">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-300 group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAmmSED9DkU1YOwnZgV5Vz3bOm3Zv6ADf3faAmYzU3eVkKXr3YrDWTHfLkAi5QVGqcUhy5u33biRIH3B9sMDPrrEbf4-eGMBtjn-Q_QW0n2PZU97NRxtgNQZthX8mwC_Mn1MdmBAVkYuySjm1MFiepsVaJj_VwkrlY0FCbQMtfkBwHZDcQ60iin5Avu1f8H5kE9V3G_oewfjerDzQketXV-7gVzmb2iCflci1WOHnLET29KRDlZhe76S1x3co3n4k8k3oaIxEaB_w");'></div>
+<button class="absolute top-3 right-3 flex items-center justify-center rounded-full h-10 w-10 bg-black/30 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+</div>
+<div>
+<h3 class="text-lg font-medium">Apistogramma Agassizii</h3>
+<p class="text-[var(--primary-color)] text-base font-semibold">$7.99</p>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-center mt-12 gap-2">
+<a class="flex size-10 items-center justify-center rounded-full hover:bg-[#264532] transition-colors" href="#">
+<span class="material-symbols-outlined">chevron_left</span>
+</a>
+<a class="text-sm font-bold flex size-10 items-center justify-center text-white rounded-full bg-[var(--primary-color)]" href="#">1</a>
+<a class="text-sm font-medium flex size-10 items-center justify-center text-white rounded-full hover:bg-[#264532] transition-colors" href="#">2</a>
+<a class="text-sm font-medium flex size-10 items-center justify-center text-white rounded-full hover:bg-[#264532] transition-colors" href="#">3</a>
+<span class="text-sm flex size-10 items-center justify-center text-white">...</span>
+<a class="text-sm font-medium flex size-10 items-center justify-center text-white rounded-full hover:bg-[#264532] transition-colors" href="#">10</a>
+<a class="flex size-10 items-center justify-center rounded-full hover:bg-[#264532] transition-colors" href="#">
+<span class="material-symbols-outlined">chevron_right</span>
+</a>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>

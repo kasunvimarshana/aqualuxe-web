@@ -1,0 +1,52 @@
+// Component: Cards
+.card {
+  @apply bg-white rounded-lg shadow-md overflow-hidden transition-shadow duration-300;
+
+  .dark & {
+    @apply bg-gray-800;
+  }
+
+  &:hover {
+    @apply shadow-lg;
+  }
+}
+
+.post-card {
+  @apply card;
+
+  .post-thumbnail img {
+    @apply w-full h-48 object-cover;
+  }
+
+  .post-content {
+    @apply p-6;
+  }
+
+  .post-title {
+    @apply text-xl font-semibold text-gray-900 mb-2;
+
+    .dark & {
+      @apply text-white;
+    }
+
+    a {
+      @apply hover:text-primary-600 transition-colors duration-300;
+    }
+  }
+
+  .post-meta {
+    @apply text-sm text-gray-600 mb-4;
+
+    .dark & {
+      @apply text-gray-400;
+    }
+  }
+
+  .post-excerpt {
+    @apply text-gray-700 mb-4;
+
+    .dark & {
+      @apply text-gray-300;
+    }
+  }
+}

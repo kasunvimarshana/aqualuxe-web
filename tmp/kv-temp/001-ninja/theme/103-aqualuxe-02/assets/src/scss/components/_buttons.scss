@@ -1,0 +1,302 @@
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+// Base button styles
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-3 $space-6;
+  font-family: $font-primary;
+  font-weight: $font-weight-medium;
+  font-size: $text-base;
+  line-height: $leading-none;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: $rounded-lg;
+  cursor: pointer;
+  transition: all $transition-fast;
+  min-height: 44px; // Accessibility minimum touch target
+  
+  &:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgba($aqua-500, 0.5);
+  }
+  
+  &:disabled,
+  &.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  
+  // Icon spacing
+  svg {
+    width: 1em;
+    height: 1em;
+    
+    &:first-child:not(:last-child) {
+      margin-right: $space-2;
+    }
+    
+    &:last-child:not(:first-child) {
+      margin-left: $space-2;
+    }
+  }
+}
+
+// Primary button
+.btn-primary {
+  color: $white;
+  background-color: $aqua-500;
+  border-color: $aqua-500;
+  box-shadow: $shadow-aqua;
+  
+  &:hover,
+  &:focus {
+    color: $white;
+    background-color: $aqua-600;
+    border-color: $aqua-600;
+    box-shadow: $shadow-lg;
+    text-decoration: none;
+    transform: translateY(-1px);
+  }
+  
+  &:active {
+    background-color: $aqua-700;
+    border-color: $aqua-700;
+    transform: translateY(0);
+  }
+}
+
+// Secondary button
+.btn-secondary {
+  color: $ocean-900;
+  background-color: $luxury-500;
+  border-color: $luxury-500;
+  box-shadow: $shadow-luxury;
+  
+  &:hover,
+  &:focus {
+    color: $ocean-900;
+    background-color: $luxury-600;
+    border-color: $luxury-600;
+    box-shadow: $shadow-lg;
+    text-decoration: none;
+    transform: translateY(-1px);
+  }
+  
+  &:active {
+    background-color: $luxury-700;
+    border-color: $luxury-700;
+    transform: translateY(0);
+  }
+}
+
+// Outline button
+.btn-outline {
+  color: $aqua-600;
+  background-color: transparent;
+  border-color: $aqua-500;
+  
+  &:hover,
+  &:focus {
+    color: $white;
+    background-color: $aqua-500;
+    border-color: $aqua-500;
+    text-decoration: none;
+  }
+  
+  &:active {
+    background-color: $aqua-600;
+    border-color: $aqua-600;
+  }
+  
+  .dark & {
+    color: $aqua-400;
+    border-color: $aqua-400;
+    
+    &:hover,
+    &:focus {
+      color: $ocean-900;
+      background-color: $aqua-400;
+      border-color: $aqua-400;
+    }
+  }
+}
+
+// Ghost button
+.btn-ghost {
+  color: $gray-700;
+  background-color: transparent;
+  border-color: transparent;
+  
+  &:hover,
+  &:focus {
+    color: $aqua-600;
+    background-color: $gray-50;
+    text-decoration: none;
+  }
+  
+  &:active {
+    background-color: $gray-100;
+  }
+  
+  .dark & {
+    color: $gray-300;
+    
+    &:hover,
+    &:focus {
+      color: $aqua-400;
+      background-color: $gray-800;
+    }
+    
+    &:active {
+      background-color: $gray-700;
+    }
+  }
+}
+
+// Danger button
+.btn-danger {
+  color: $white;
+  background-color: $coral-600;
+  border-color: $coral-600;
+  
+  &:hover,
+  &:focus {
+    color: $white;
+    background-color: $coral-700;
+    border-color: $coral-700;
+    text-decoration: none;
+    transform: translateY(-1px);
+  }
+  
+  &:active {
+    background-color: $coral-800;
+    border-color: $coral-800;
+    transform: translateY(0);
+  }
+}
+
+// Button sizes
+.btn-sm {
+  padding: $space-2 $space-4;
+  font-size: $text-sm;
+  min-height: 36px;
+}
+
+.btn-lg {
+  padding: $space-4 $space-8;
+  font-size: $text-lg;
+  min-height: 52px;
+}
+
+.btn-xl {
+  padding: $space-5 $space-10;
+  font-size: $text-xl;
+  min-height: 60px;
+}
+
+// Full width button
+.btn-block {
+  width: 100%;
+}
+
+// Button group
+.btn-group {
+  display: inline-flex;
+  
+  .btn {
+    border-radius: 0;
+    
+    &:first-child {
+      border-top-left-radius: $rounded-lg;
+      border-bottom-left-radius: $rounded-lg;
+    }
+    
+    &:last-child {
+      border-top-right-radius: $rounded-lg;
+      border-bottom-right-radius: $rounded-lg;
+    }
+    
+    &:not(:first-child) {
+      margin-left: -1px;
+    }
+    
+    &:hover,
+    &:focus {
+      z-index: 1;
+    }
+  }
+}
+
+// Loading state
+.btn-loading {
+  position: relative;
+  color: transparent !important;
+  pointer-events: none;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1rem;
+    height: 1rem;
+    margin: -0.5rem 0 0 -0.5rem;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: btn-loading-spin 0.6s linear infinite;
+  }
+}
+
+@keyframes btn-loading-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Floating action button
+.btn-fab {
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border-radius: 50%;
+  box-shadow: $shadow-lg;
+  
+  &:hover,
+  &:focus {
+    box-shadow: $shadow-xl;
+  }
+  
+  svg {
+    margin: 0;
+  }
+}
+
+// Icon button
+.btn-icon {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  
+  svg {
+    margin: 0;
+  }
+  
+  &.btn-sm {
+    width: 32px;
+    height: 32px;
+    min-height: 32px;
+  }
+  
+  &.btn-lg {
+    width: 48px;
+    height: 48px;
+    min-height: 48px;
+  }
+}

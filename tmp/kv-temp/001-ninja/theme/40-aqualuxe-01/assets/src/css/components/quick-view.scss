@@ -1,0 +1,329 @@
+/**
+ * Quick View Modal Styles
+ */
+
+.quick-view-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .quick-view-modal-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .quick-view-content {
+    background-color: #fff;
+    max-width: 900px;
+    width: 100%;
+    max-height: 90vh;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    
+    @media (max-width: 767px) {
+      max-width: 95%;
+      max-height: 95vh;
+    }
+  }
+  
+  .quick-view-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    border: none;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+    
+    &:hover {
+      background-color: var(--primary-color-dark);
+    }
+  }
+  
+  .quick-view-content-inner {
+    padding: 30px;
+    overflow-y: auto;
+    max-height: 90vh;
+    
+    @media (max-width: 767px) {
+      padding: 20px;
+    }
+  }
+}
+
+.quick-view-product {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+  
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
+  
+  .quick-view-product-image,
+  .quick-view-product-summary {
+    padding: 0 15px;
+    width: 50%;
+    
+    @media (max-width: 767px) {
+      width: 100%;
+    }
+  }
+  
+  .quick-view-product-image {
+    .woocommerce-product-gallery__image {
+      margin-bottom: 10px;
+      
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+    }
+    
+    .quick-view-thumbnails {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -5px;
+      
+      .woocommerce-product-gallery__image {
+        width: 25%;
+        padding: 0 5px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        
+        img {
+          width: 100%;
+          height: auto;
+          display: block;
+          border: 1px solid #eee;
+          transition: border-color 0.3s ease;
+          
+          &:hover {
+            border-color: var(--primary-color);
+          }
+        }
+      }
+    }
+  }
+  
+  .quick-view-product-summary {
+    .product-categories {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 10px;
+    }
+    
+    .product_title {
+      font-size: 24px;
+      margin-bottom: 15px;
+      
+      @media (max-width: 767px) {
+        font-size: 20px;
+      }
+    }
+    
+    .woocommerce-product-rating {
+      margin-bottom: 15px;
+    }
+    
+    .product-price {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      
+      del {
+        color: #777;
+        font-weight: normal;
+        font-size: 16px;
+      }
+      
+      ins {
+        text-decoration: none;
+      }
+    }
+    
+    .product-short-description {
+      margin-bottom: 20px;
+      
+      p {
+        margin-bottom: 10px;
+      }
+    }
+    
+    .product-add-to-cart {
+      margin-bottom: 20px;
+      
+      .quantity {
+        display: inline-flex;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        
+        .qty {
+          width: 70px;
+          height: 40px;
+          padding: 0 10px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+        }
+      }
+      
+      .single_add_to_cart_button {
+        height: 40px;
+        padding: 0 20px;
+        background-color: var(--primary-color);
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+        
+        &:hover {
+          background-color: var(--primary-color-dark);
+        }
+        
+        &.disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+      }
+      
+      .variations {
+        width: 100%;
+        margin-bottom: 15px;
+        
+        td, th {
+          padding: 5px 0;
+          vertical-align: middle;
+        }
+        
+        label {
+          font-weight: 600;
+        }
+        
+        select {
+          width: 100%;
+          height: 40px;
+          padding: 0 10px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+        }
+        
+        .reset_variations {
+          display: inline-block;
+          margin-top: 10px;
+          font-size: 14px;
+        }
+      }
+    }
+    
+    .product-meta {
+      margin-bottom: 20px;
+      font-size: 14px;
+      
+      .sku_wrapper {
+        display: block;
+        margin-bottom: 5px;
+      }
+      
+      .product-stock-status {
+        display: block;
+        margin-bottom: 5px;
+        
+        .in-stock {
+          color: #7ad03a;
+        }
+        
+        .out-of-stock {
+          color: #a00;
+        }
+      }
+    }
+    
+    .view-full-details {
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #f5f5f5;
+        color: #333;
+        border: none;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+        
+        &:hover {
+          background-color: #e5e5e5;
+        }
+      }
+    }
+  }
+}
+
+// Quick view button on product cards
+.products {
+  .product {
+    .quick-view-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      color: #333;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 600;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      z-index: 5;
+      
+      &:hover {
+        background-color: var(--primary-color);
+        color: #fff;
+      }
+    }
+    
+    &:hover {
+      .quick-view-button {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+/*
+Theme Name: AquaLuxe
+Theme URI: https://aqualuxe.com
+Author: NinjaTech AI
+Author URI: https://ninjatech.ai
+Description: A premium, fully responsive WordPress + WooCommerce theme built for high-end ornamental fish farming businesses. AquaLuxe combines elegant aquatic visuals with refined typography and smooth micro-interactions to create a luxury e-commerce experience.
+Version: 1.0.0
+Requires at least: 5.6
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: aqualuxe
+Domain Path: /languages
+Tags: e-commerce, custom-colors, custom-menu, custom-logo, featured-images, flexible-header, footer-widgets, full-width-template, multilingual, responsive-layout, theme-options, threaded-comments, translation-ready, woocommerce
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/* 
+This file is intentionally left mostly empty.
+Actual styles will be generated from Tailwind CSS and loaded via functions.php
+*/

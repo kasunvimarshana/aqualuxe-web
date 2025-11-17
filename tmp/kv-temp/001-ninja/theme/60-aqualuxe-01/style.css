@@ -1,0 +1,22 @@
+/*
+Theme Name: AquaLuxe
+Theme URI: https://aqualuxe.com
+Author: NinjaTech AI
+Author URI: https://ninjatech.ai
+Description: Premium WordPress theme for AquaLuxe - Ornamental Aquatic Solutions. A modular, multitenant, multivendor, multilingual, multicurrency theme with dual-state architecture that works with or without WooCommerce.
+Version: 1.0.0
+Requires at least: 5.8
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: aqualuxe
+Tags: e-commerce, custom-colors, custom-menu, custom-logo, featured-images, flexible-header, footer-widgets, full-width-template, multilingual, responsive-layout, right-sidebar, rtl-language-support, theme-options, threaded-comments, translation-ready, two-columns
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/* 
+This file is intentionally left empty as all styles are compiled from SCSS files
+and loaded from the assets/dist directory.
+*/

@@ -1,0 +1,181 @@
+/**
+ * AquaLuxe WordPress Theme
+ * Reset Styles
+ */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin and padding */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: var(--line-height-normal);
+  font-family: var(--font-family-sans);
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
+  padding: 0;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: var(--color-link);
+  
+  &:hover,
+  &:focus {
+    color: var(--color-link-hover);
+  }
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* WordPress specific resets */
+.alignleft {
+  float: left;
+  margin-right: var(--spacing-4);
+  margin-bottom: var(--spacing-4);
+}
+
+.alignright {
+  float: right;
+  margin-left: var(--spacing-4);
+  margin-bottom: var(--spacing-4);
+}
+
+.aligncenter {
+  clear: both;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wp-caption {
+  margin-bottom: var(--spacing-4);
+  max-width: 100%;
+
+  img[class*="wp-image-"] {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.wp-caption-text {
+  margin: var(--spacing-2) 0;
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-600);
+}
+
+.screen-reader-text {
+  @extend %visually-hidden;
+  
+  &:focus {
+    background-color: var(--color-gray-100);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    clip: auto !important;
+    color: var(--color-primary);
+    display: block;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: var(--spacing-3);
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+  }
+}
+
+.gallery {
+  margin-bottom: var(--spacing-4);
+  
+  &-item {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    padding: var(--spacing-1);
+    text-align: center;
+  }
+  
+  &-columns-2 .gallery-item { width: 50%; }
+  &-columns-3 .gallery-item { width: 33.33%; }
+  &-columns-4 .gallery-item { width: 25%; }
+  &-columns-5 .gallery-item { width: 20%; }
+  &-columns-6 .gallery-item { width: 16.66%; }
+  &-columns-7 .gallery-item { width: 14.28%; }
+  &-columns-8 .gallery-item { width: 12.5%; }
+  &-columns-9 .gallery-item { width: 11.11%; }
+  
+  &-caption {
+    display: block;
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-600);
+    margin-top: var(--spacing-1);
+  }
+}
+
+/* Clear floats */
+.clear::after,
+.entry-content::after,
+.comment-content::after,
+.site-header::after,
+.site-content::after,
+.site-footer::after {
+  @extend %clearfix;
+}

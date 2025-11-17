@@ -1,0 +1,242 @@
+/**
+ * AquaLuxe Print Styles
+ *
+ * This file contains styles for printing.
+ */
+
+@media print {
+  // Hide unnecessary elements
+  header.site-header,
+  footer.site-footer,
+  .sidebar,
+  .comments-area,
+  .navigation,
+  .aqualuxe-breadcrumbs,
+  .aqualuxe-back-to-top,
+  .aqualuxe-social-icons,
+  .aqualuxe-mobile-menu,
+  .aqualuxe-menu-toggle,
+  .wp-block-button,
+  .wp-block-buttons,
+  .post-navigation,
+  .pagination,
+  .woocommerce-pagination,
+  .woocommerce-tabs .tabs,
+  .woocommerce-notices-wrapper,
+  .woocommerce-cart-form__contents .product-remove,
+  .woocommerce-cart-form__contents .product-thumbnail,
+  .cart_totals .wc-proceed-to-checkout,
+  .woocommerce-checkout #payment,
+  .woocommerce-MyAccount-navigation,
+  .aqualuxe-portfolio-filters,
+  .aqualuxe-blog-filters,
+  .aqualuxe-portfolio-item-actions,
+  .aqualuxe-blog-item-more,
+  .aqualuxe-contact-form-submit,
+  .aqualuxe-contact-social,
+  .aqualuxe-contact-map,
+  form button,
+  form input[type="submit"],
+  form input[type="button"],
+  form input[type="reset"] {
+    display: none !important;
+  }
+
+  // Basic page setup
+  body {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 12pt;
+    line-height: 1.5;
+    background: #fff !important;
+    color: #000 !important;
+    margin: 0;
+    padding: 0;
+  }
+
+  // Set page margins
+  @page {
+    margin: 2cm;
+  }
+
+  // Typography
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+    font-family: Georgia, "Times New Roman", Times, serif;
+  }
+
+  h1 {
+    font-size: 24pt;
+  }
+
+  h2 {
+    font-size: 20pt;
+  }
+
+  h3 {
+    font-size: 18pt;
+  }
+
+  h4, h5, h6 {
+    font-size: 14pt;
+  }
+
+  p, ul, ol, dl, blockquote, table, pre {
+    page-break-inside: avoid;
+    margin-bottom: 1cm;
+  }
+
+  // Links
+  a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+    font-style: italic;
+  }
+
+  // Don't show URL for internal links
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+
+  // Images
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+    page-break-after: avoid;
+  }
+
+  // Tables
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 1cm;
+  }
+
+  table, th, td {
+    border: 1px solid #000;
+  }
+
+  th, td {
+    padding: 0.5cm;
+    text-align: left;
+  }
+
+  // Specific elements
+  .site-main {
+    width: 100%;
+  }
+
+  .entry-content,
+  .entry-summary {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  .entry-title {
+    font-size: 24pt;
+    margin-bottom: 1cm;
+  }
+
+  // WooCommerce specific
+  .woocommerce .product {
+    display: block;
+    width: 100%;
+  }
+
+  .woocommerce-product-gallery {
+    width: 50%;
+    float: left;
+    margin-right: 2cm;
+    margin-bottom: 2cm;
+  }
+
+  .woocommerce .summary {
+    width: 45%;
+    float: left;
+  }
+
+  .woocommerce-cart-form__contents,
+  .woocommerce-checkout-review-order-table,
+  .woocommerce-table--order-details {
+    width: 100%;
+    margin-bottom: 1cm;
+  }
+
+  // Portfolio specific
+  .aqualuxe-portfolio-items {
+    display: block;
+  }
+
+  .aqualuxe-portfolio-item {
+    width: 100%;
+    margin-bottom: 2cm;
+    page-break-inside: avoid;
+  }
+
+  // Blog specific
+  .aqualuxe-blog-grid {
+    display: block;
+  }
+
+  .aqualuxe-blog-item {
+    width: 100%;
+    margin-bottom: 2cm;
+    page-break-inside: avoid;
+  }
+
+  // Contact specific
+  .aqualuxe-contact-container {
+    display: block;
+  }
+
+  .aqualuxe-contact-form-container,
+  .aqualuxe-contact-info-container {
+    width: 100%;
+    margin-bottom: 2cm;
+  }
+
+  // Print header and footer
+  .print-header,
+  .print-footer {
+    display: block;
+    text-align: center;
+    margin-bottom: 1cm;
+  }
+
+  .print-header {
+    border-bottom: 1pt solid #000;
+    padding-bottom: 0.5cm;
+  }
+
+  .print-footer {
+    border-top: 1pt solid #000;
+    padding-top: 0.5cm;
+    margin-top: 2cm;
+  }
+
+  // Add print header and footer
+  body::before {
+    content: "AquaLuxe Theme - " attr(data-title);
+    display: block;
+    text-align: center;
+    font-size: 18pt;
+    font-weight: bold;
+    margin-bottom: 1cm;
+  }
+
+  body::after {
+    content: "Printed from " attr(data-url) " on " attr(data-date);
+    display: block;
+    text-align: center;
+    font-size: 10pt;
+    font-style: italic;
+    margin-top: 2cm;
+  }
+}

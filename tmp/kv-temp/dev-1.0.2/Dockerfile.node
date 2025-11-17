@@ -1,0 +1,15 @@
+FROM node:16-alpine
+
+WORKDIR /app
+
+# 1️⃣ Copy manifest files first for layer caching
+COPY wp-content/themes/aqualuxe/package*.json ./
+
+# 2️⃣ Install dependencies (creates node_modules inside image)
+RUN npm install --no-audit --no-fund
+
+# 3️⃣ Ensure node_modules/.bin is on the PATH
+ENV PATH /app/node_modules/.bin:$PATH
+
+# Mount source via compose
+ENTRYPOINT ["npm", "run", "watch:css"]

@@ -1,0 +1,361 @@
+/**
+ * AquaLuxe Theme Functions
+ *
+ * This file contains all the theme functions.
+ */
+
+/**
+ * Strip unit from a number
+ * @param {Number} $number - Number to strip unit from
+ * @return {Number} - Unitless number
+ */
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
+
+/**
+ * Convert px to rem
+ * @param {Number} $px - Value in px
+ * @param {Number} $base-font-size (16px) - Base font size
+ * @return {Number} - Value in rem
+ */
+@function rem($px, $base-font-size: 16px) {
+  @return strip-unit($px) / strip-unit($base-font-size) * 1rem;
+}
+
+/**
+ * Convert px to em
+ * @param {Number} $px - Value in px
+ * @param {Number} $base-font-size (16px) - Base font size
+ * @return {Number} - Value in em
+ */
+@function em($px, $base-font-size: 16px) {
+  @return strip-unit($px) / strip-unit($base-font-size) * 1em;
+}
+
+/**
+ * Get color from palette
+ * @param {String} $color - Color name
+ * @param {Number} $shade (500) - Color shade
+ * @return {Color} - Color value
+ */
+@function color($color, $shade: 500) {
+  $color-name: '#{$color}-#{$shade}';
+  @return var(--#{$color-name});
+}
+
+/**
+ * Get z-index value
+ * @param {String} $key - Z-index key
+ * @return {Number} - Z-index value
+ */
+@function z-index($key) {
+  $z-indexes: (
+    'dropdown': 1000,
+    'sticky': 1020,
+    'fixed': 1030,
+    'modal-backdrop': 1040,
+    'modal': 1050,
+    'popover': 1060,
+    'tooltip': 1070
+  );
+  
+  @if map-has-key($z-indexes, $key) {
+    @return map-get($z-indexes, $key);
+  }
+  
+  @warn 'Unknown z-index key: #{$key}';
+  @return null;
+}
+
+/**
+ * Get spacing value
+ * @param {Number|String} $key - Spacing key
+ * @return {Number} - Spacing value
+ */
+@function spacing($key) {
+  $spacings: (
+    '0': $spacing-0,
+    'px': $spacing-px,
+    '0.5': $spacing-0-5,
+    '1': $spacing-1,
+    '1.5': $spacing-1-5,
+    '2': $spacing-2,
+    '2.5': $spacing-2-5,
+    '3': $spacing-3,
+    '3.5': $spacing-3-5,
+    '4': $spacing-4,
+    '5': $spacing-5,
+    '6': $spacing-6,
+    '7': $spacing-7,
+    '8': $spacing-8,
+    '9': $spacing-9,
+    '10': $spacing-10,
+    '11': $spacing-11,
+    '12': $spacing-12,
+    '14': $spacing-14,
+    '16': $spacing-16,
+    '20': $spacing-20,
+    '24': $spacing-24,
+    '28': $spacing-28,
+    '32': $spacing-32,
+    '36': $spacing-36,
+    '40': $spacing-40,
+    '44': $spacing-44,
+    '48': $spacing-48,
+    '52': $spacing-52,
+    '56': $spacing-56,
+    '60': $spacing-60,
+    '64': $spacing-64,
+    '72': $spacing-72,
+    '80': $spacing-80,
+    '96': $spacing-96
+  );
+  
+  // If key is a number, convert it to string
+  @if type-of($key) == 'number' {
+    $key: '#{$key}';
+  }
+  
+  @if map-has-key($spacings, $key) {
+    @return map-get($spacings, $key);
+  }
+  
+  @warn 'Unknown spacing key: #{$key}';
+  @return null;
+}
+
+/**
+ * Get font size
+ * @param {String} $key - Font size key
+ * @return {Number} - Font size value
+ */
+@function font-size($key) {
+  $font-sizes: (
+    'xs': $font-size-xs,
+    'sm': $font-size-sm,
+    'base': $font-size-base,
+    'lg': $font-size-lg,
+    'xl': $font-size-xl,
+    '2xl': $font-size-2xl,
+    '3xl': $font-size-3xl,
+    '4xl': $font-size-4xl,
+    '5xl': $font-size-5xl,
+    '6xl': $font-size-6xl,
+    '7xl': $font-size-7xl,
+    '8xl': $font-size-8xl,
+    '9xl': $font-size-9xl
+  );
+  
+  @if map-has-key($font-sizes, $key) {
+    @return map-get($font-sizes, $key);
+  }
+  
+  @warn 'Unknown font size key: #{$key}';
+  @return null;
+}
+
+/**
+ * Get font weight
+ * @param {String} $key - Font weight key
+ * @return {Number} - Font weight value
+ */
+@function font-weight($key) {
+  $font-weights: (
+    'light': $font-weight-light,
+    'normal': $font-weight-normal,
+    'medium': $font-weight-medium,
+    'semibold': $font-weight-semibold,
+    'bold': $font-weight-bold,
+    'extrabold': $font-weight-extrabold,
+    'black': $font-weight-black
+  );
+  
+  @if map-has-key($font-weights, $key) {
+    @return map-get($font-weights, $key);
+  }
+  
+  @warn 'Unknown font weight key: #{$key}';
+  @return null;
+}
+
+/**
+ * Get line height
+ * @param {String} $key - Line height key
+ * @return {Number} - Line height value
+ */
+@function line-height($key) {
+  $line-heights: (
+    'none': $line-height-none,
+    'tight': $line-height-tight,
+    'snug': $line-height-snug,
+    'normal': $line-height-normal,
+    'relaxed': $line-height-relaxed,
+    'loose': $line-height-loose
+  );
+  
+  @if map-has-key($line-heights, $key) {
+    @return map-get($line-heights, $key);
+  }
+  
+  @warn 'Unknown line height key: #{$key}';
+  @return null;
+}
+
+/**
+ * Get border radius
+ * @param {String} $key - Border radius key
+ * @return {Number} - Border radius value
+ */
+@function border-radius($key) {
+  $border-radiuses: (
+    'none': $border-radius-none,
+    'sm': $border-radius-sm,
+    'default': $border-radius-default,
+    'md': $border-radius-md,
+    'lg': $border-radius-lg,
+    'xl': $border-radius-xl,
+    '2xl': $border-radius-2xl,
+    '3xl': $border-radius-3xl,
+    'full': $border-radius-full
+  );
+  
+  @if map-has-key($border-radiuses, $key) {
+    @return map-get($border-radiuses, $key);
+  }
+  
+  @warn 'Unknown border radius key: #{$key}';
+  @return null;
+}
+
+/**
+ * Get shadow
+ * @param {String} $key - Shadow key
+ * @return {String} - Shadow value
+ */
+@function shadow($key) {
+  $shadows: (
+    'sm': $shadow-sm,
+    'default': $shadow-default,
+    'md': $shadow-md,
+    'lg': $shadow-lg,
+    'xl': $shadow-xl,
+    '2xl': $shadow-2xl,
+    'inner': $shadow-inner,
+    'none': $shadow-none,
+    'soft': $shadow-soft
+  );
+  
+  @if map-has-key($shadows, $key) {
+    @return map-get($shadows, $key);
+  }
+  
+  @warn 'Unknown shadow key: #{$key}';
+  @return null;
+}
+
+/**
+ * Get breakpoint
+ * @param {String} $key - Breakpoint key
+ * @return {String} - Breakpoint value
+ */
+@function breakpoint($key) {
+  @if map-has-key($breakpoints, $key) {
+    @return map-get($breakpoints, $key);
+  }
+  
+  @warn 'Unknown breakpoint key: #{$key}';
+  @return null;
+}
+
+/**
+ * Get container max width
+ * @param {String} $key - Breakpoint key
+ * @return {Number} - Container max width
+ */
+@function container-max-width($key) {
+  @if map-has-key($container-max-widths, $key) {
+    @return map-get($container-max-widths, $key);
+  }
+  
+  @warn 'Unknown container max width key: #{$key}';
+  @return null;
+}
+
+/**
+ * Calculate fluid font size
+ * @param {Number} $min-size - Minimum font size
+ * @param {Number} $max-size - Maximum font size
+ * @param {Number} $min-width - Minimum viewport width
+ * @param {Number} $max-width - Maximum viewport width
+ * @return {String} - Fluid font size
+ */
+@function fluid-font-size($min-size, $max-size, $min-width: $breakpoint-sm, $max-width: $breakpoint-xl) {
+  $min-size: strip-unit($min-size);
+  $max-size: strip-unit($max-size);
+  $min-width: strip-unit($min-width);
+  $max-width: strip-unit($max-width);
+  
+  $slope: ($max-size - $min-size) / ($max-width - $min-width);
+  $y-intercept: -$min-width * $slope + $min-size;
+  
+  @return clamp(#{$min-size}px, #{$y-intercept}px + #{$slope * 100}vw, #{$max-size}px);
+}
+
+/**
+ * Calculate aspect ratio
+ * @param {Number} $width - Width
+ * @param {Number} $height - Height
+ * @return {Number} - Aspect ratio
+ */
+@function aspect-ratio($width, $height) {
+  @return $width / $height * 100%;
+}
+
+/**
+ * Calculate contrast color
+ * @param {Color} $color - Background color
+ * @return {Color} - Contrast color (black or white)
+ */
+@function contrast-color($color) {
+  $r: red($color);
+  $g: green($color);
+  $b: blue($color);
+  
+  $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+  
+  @return if($yiq >= 128, #000, #fff);
+}
+
+/**
+ * Darken color
+ * @param {Color} $color - Color to darken
+ * @param {Number} $amount - Amount to darken (0-100)
+ * @return {Color} - Darkened color
+ */
+@function darken-color($color, $amount) {
+  @return darken($color, $amount);
+}
+
+/**
+ * Lighten color
+ * @param {Color} $color - Color to lighten
+ * @param {Number} $amount - Amount to lighten (0-100)
+ * @return {Color} - Lightened color
+ */
+@function lighten-color($color, $amount) {
+  @return lighten($color, $amount);
+}
+
+/**
+ * Get color with opacity
+ * @param {Color} $color - Color
+ * @param {Number} $opacity - Opacity (0-1)
+ * @return {Color} - Color with opacity
+ */
+@function color-opacity($color, $opacity) {
+  @return rgba($color, $opacity);
+}

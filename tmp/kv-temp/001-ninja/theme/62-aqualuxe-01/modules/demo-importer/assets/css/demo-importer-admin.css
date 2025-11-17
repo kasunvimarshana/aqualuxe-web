@@ -1,0 +1,206 @@
+/**
+ * AquaLuxe Demo Importer Admin CSS
+ *
+ * @package AquaLuxe
+ * @subpackage Modules/Demo_Importer
+ * @since 1.0.0
+ */
+
+/* Demo Importer Container */
+.aqualuxe-demo-importer {
+    margin: 20px 0;
+}
+
+.aqualuxe-demo-importer-intro {
+    margin-bottom: 30px;
+}
+
+.aqualuxe-demo-importer-warning {
+    color: #d63638;
+    font-weight: 500;
+}
+
+/* Demo Packages */
+.aqualuxe-demo-packages {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.aqualuxe-demo-package {
+    background-color: #fff;
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.aqualuxe-demo-package:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.aqualuxe-demo-package-screenshot {
+    position: relative;
+    padding-bottom: 75%; /* 4:3 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    background-color: #f0f0f1;
+}
+
+.aqualuxe-demo-package-screenshot img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.aqualuxe-demo-package:hover .aqualuxe-demo-package-screenshot img {
+    transform: scale(1.05);
+}
+
+.aqualuxe-demo-package-details {
+    padding: 20px;
+}
+
+.aqualuxe-demo-package-details h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.aqualuxe-demo-package-details p {
+    margin-bottom: 20px;
+    color: #646970;
+}
+
+.aqualuxe-demo-package-plugins {
+    margin-bottom: 20px;
+}
+
+.aqualuxe-demo-package-plugins h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.aqualuxe-demo-package-plugins ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.aqualuxe-demo-package-plugins li {
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+.aqualuxe-demo-package-required {
+    color: #d63638;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.aqualuxe-demo-package-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Modal */
+.aqualuxe-demo-importer-modal {
+    display: none;
+    position: fixed;
+    z-index: 999999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.aqualuxe-demo-importer-modal-content {
+    position: relative;
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 4px;
+    width: 60%;
+    max-width: 600px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    animation: aqualuxeModalFadeIn 0.3s;
+}
+
+@keyframes aqualuxeModalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.aqualuxe-demo-importer-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #646970;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.aqualuxe-demo-importer-modal-close:hover {
+    color: #d63638;
+}
+
+.aqualuxe-demo-importer-modal h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.aqualuxe-demo-importer-modal-progress {
+    margin-bottom: 20px;
+    background-color: #f0f0f1;
+    border-radius: 4px;
+    height: 20px;
+    overflow: hidden;
+}
+
+.aqualuxe-demo-importer-progress-bar {
+    height: 100%;
+    width: 0;
+    background-color: #2271b1;
+    transition: width 0.3s ease;
+}
+
+.aqualuxe-demo-importer-modal-status {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #646970;
+}
+
+/* Responsive */
+@media screen and (max-width: 782px) {
+    .aqualuxe-demo-packages {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .aqualuxe-demo-importer-modal-content {
+        width: 90%;
+        margin: 20% auto;
+        padding: 20px;
+    }
+}

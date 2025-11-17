@@ -1,0 +1,20 @@
+/*
+Theme Name: AquaLuxe
+Theme URI: https://example.com/themes/aqualuxe
+Author: AquaLuxe Team
+Author URI: https://example.com
+Description: Modular, multitenant, WooCommerce-ready, accessible, SEO-optimized theme with dual-state architecture (with/without WooCommerce). Mobile-first, Tailwind-powered, SOLID/DRY/KISS, asset-pipeline via Laravel Mix, no external CDNs.
+Version: 1.0.0
+Requires at least: 6.4
+Tested up to: 6.6
+Requires PHP: 8.0
+Text Domain: aqualuxe
+License: GPL-2.0-or-later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: e-commerce, custom-colors, custom-logo, custom-menu, featured-images, one-column, two-columns, right-sidebar, accessibility-ready, translation-ready
+*/
+
+/*
+Note: All CSS is built from assets/src via Tailwind & Laravel Mix into assets/dist.
+This file exists to satisfy WordPress requirements and to expose the theme header.
+*/

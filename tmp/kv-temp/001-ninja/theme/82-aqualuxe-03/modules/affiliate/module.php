@@ -1,0 +1,2 @@
+<?php
+// Affiliate/referral placeholders

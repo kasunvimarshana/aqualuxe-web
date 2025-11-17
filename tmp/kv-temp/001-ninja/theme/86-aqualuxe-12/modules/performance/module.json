@@ -1,0 +1,6 @@
+{
+  "name": "Performance",
+  "enabled": true,
+  "description": "Lightweight security headers and performance tweaks (no external CDNs)",
+  "requires": []
+}

@@ -1,0 +1,428 @@
+/**
+ * AquaLuxe Dark Mode Stylesheet
+ *
+ * This stylesheet contains all dark mode specific styles.
+ * It will be loaded conditionally when dark mode is active.
+ */
+
+// Import variables and mixins
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+// Dark mode styles
+.dark-mode {
+  // Base styles
+  --body-bg: var(--dark-bg);
+  --body-color: var(--dark-text);
+  --heading-color: var(--dark-text);
+  --border-color: var(--dark-border);
+  
+  background-color: var(--body-bg);
+  color: var(--body-color);
+  
+  // Header styles
+  .site-header {
+    background-color: var(--dark-card);
+    border-bottom-color: var(--dark-border);
+    
+    .site-title a {
+      color: var(--dark-text);
+    }
+    
+    .main-navigation {
+      .menu-item a {
+        color: var(--dark-text);
+        
+        &:hover {
+          color: var(--primary-500);
+        }
+      }
+      
+      .sub-menu {
+        background-color: var(--dark-card);
+        border-color: var(--dark-border);
+      }
+    }
+  }
+  
+  // Footer styles
+  .site-footer {
+    background-color: var(--dark-card);
+    border-top-color: var(--dark-border);
+    
+    .widget-title {
+      color: var(--dark-text);
+    }
+    
+    a {
+      color: var(--dark-muted);
+      
+      &:hover {
+        color: var(--primary-500);
+      }
+    }
+  }
+  
+  // Content styles
+  .site-content {
+    background-color: var(--dark-bg);
+    
+    .entry-title {
+      color: var(--dark-text);
+    }
+    
+    .entry-meta {
+      color: var(--dark-muted);
+    }
+    
+    .entry-content {
+      color: var(--dark-text);
+      
+      h1, h2, h3, h4, h5, h6 {
+        color: var(--dark-text);
+      }
+      
+      a {
+        color: var(--primary-500);
+        
+        &:hover {
+          color: var(--primary-400);
+        }
+      }
+      
+      blockquote {
+        border-left-color: var(--primary-500);
+        background-color: var(--dark-card);
+      }
+      
+      code, pre {
+        background-color: var(--dark-card);
+        border-color: var(--dark-border);
+      }
+      
+      table {
+        border-color: var(--dark-border);
+        
+        th {
+          background-color: var(--dark-card);
+        }
+        
+        tr:nth-child(even) {
+          background-color: rgba(255, 255, 255, 0.05);
+        }
+      }
+    }
+  }
+  
+  // Component styles
+  .card {
+    background-color: var(--dark-card);
+    border-color: var(--dark-border);
+  }
+  
+  .button {
+    &.button-outline {
+      border-color: var(--dark-border);
+      color: var(--dark-text);
+      
+      &:hover {
+        background-color: var(--primary-500);
+        border-color: var(--primary-500);
+        color: white;
+      }
+    }
+  }
+  
+  .pagination {
+    .page-numbers {
+      background-color: var(--dark-card);
+      border-color: var(--dark-border);
+      color: var(--dark-text);
+      
+      &.current {
+        background-color: var(--primary-500);
+        border-color: var(--primary-500);
+        color: white;
+      }
+      
+      &:hover {
+        background-color: var(--primary-500);
+        border-color: var(--primary-500);
+        color: white;
+      }
+    }
+  }
+  
+  // Form styles
+  input[type="text"],
+  input[type="email"],
+  input[type="url"],
+  input[type="password"],
+  input[type="search"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="range"],
+  input[type="date"],
+  input[type="month"],
+  input[type="week"],
+  input[type="time"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="color"],
+  textarea,
+  select {
+    background-color: var(--dark-bg);
+    border-color: var(--dark-border);
+    color: var(--dark-text);
+    
+    &:focus {
+      border-color: var(--primary-500);
+    }
+  }
+  
+  // Widget styles
+  .widget {
+    .widget-title {
+      color: var(--dark-text);
+    }
+    
+    ul li {
+      border-bottom-color: var(--dark-border);
+    }
+  }
+  
+  // WooCommerce specific styles
+  &.woocommerce-active {
+    .woocommerce-breadcrumb {
+      color: var(--dark-muted);
+      
+      a {
+        color: var(--dark-text);
+      }
+    }
+    
+    .woocommerce-products-header__title {
+      color: var(--dark-text);
+    }
+    
+    .woocommerce-result-count,
+    .woocommerce-ordering select {
+      color: var(--dark-muted);
+    }
+    
+    .product {
+      .woocommerce-loop-product__title {
+        color: var(--dark-text);
+      }
+      
+      .price {
+        color: var(--primary-500);
+      }
+      
+      .star-rating span::before {
+        color: var(--secondary-500);
+      }
+    }
+    
+    .product-card {
+      background-color: var(--dark-card);
+      border-color: var(--dark-border);
+    }
+    
+    .single-product {
+      div.product {
+        .woocommerce-product-gallery {
+          .woocommerce-product-gallery__trigger {
+            background-color: var(--dark-card);
+            color: var(--dark-text);
+          }
+        }
+        
+        .summary {
+          .product_title {
+            color: var(--dark-text);
+          }
+          
+          .price {
+            color: var(--primary-500);
+          }
+          
+          .woocommerce-product-details__short-description {
+            color: var(--dark-text);
+          }
+        }
+        
+        .woocommerce-tabs {
+          ul.tabs {
+            li {
+              background-color: var(--dark-card);
+              border-color: var(--dark-border);
+              
+              a {
+                color: var(--dark-text);
+              }
+              
+              &.active {
+                background-color: var(--dark-bg);
+                border-bottom-color: var(--dark-bg);
+                
+                a {
+                  color: var(--primary-500);
+                }
+              }
+            }
+          }
+          
+          .panel {
+            color: var(--dark-text);
+            
+            h2 {
+              color: var(--dark-text);
+            }
+          }
+        }
+      }
+    }
+    
+    .related.products,
+    .upsells.products {
+      h2 {
+        color: var(--dark-text);
+      }
+    }
+    
+    .woocommerce-cart,
+    .woocommerce-checkout {
+      table.shop_table {
+        background-color: var(--dark-card);
+        border-color: var(--dark-border);
+        
+        th {
+          border-color: var(--dark-border);
+        }
+        
+        td {
+          border-color: var(--dark-border);
+        }
+      }
+      
+      .cart-collaterals .cart_totals {
+        background-color: var(--dark-card);
+        border-color: var(--dark-border);
+      }
+    }
+    
+    form.checkout {
+      .woocommerce-billing-fields,
+      .woocommerce-shipping-fields,
+      .woocommerce-additional-fields {
+        h3 {
+          color: var(--dark-text);
+        }
+      }
+      
+      #order_review_heading {
+        color: var(--dark-text);
+      }
+      
+      #payment {
+        background-color: var(--dark-card);
+        border-color: var(--dark-border);
+        
+        .payment_methods > li:not(.woocommerce-notice) {
+          background-color: var(--dark-card);
+          border-color: var(--dark-border);
+        }
+        
+        div.payment_box {
+          background-color: var(--dark-bg);
+          color: var(--dark-text);
+          
+          &::before {
+            border-bottom-color: var(--dark-bg);
+          }
+        }
+      }
+    }
+    
+    .woocommerce-account {
+      .woocommerce-MyAccount-navigation {
+        ul {
+          li {
+            border-color: var(--dark-border);
+            
+            a {
+              color: var(--dark-text);
+            }
+            
+            &.is-active a {
+              color: var(--primary-500);
+            }
+          }
+        }
+      }
+      
+      .woocommerce-MyAccount-content {
+        color: var(--dark-text);
+        
+        h2, h3 {
+          color: var(--dark-text);
+        }
+        
+        .woocommerce-orders-table,
+        .woocommerce-table--order-details {
+          background-color: var(--dark-card);
+          border-color: var(--dark-border);
+          
+          th, td {
+            border-color: var(--dark-border);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Dark mode toggle button
+.dark-mode-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    
+    .dark-mode & {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+  
+  .icon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+    
+    &.sun {
+      display: none;
+      
+      .dark-mode & {
+        display: block;
+      }
+    }
+    
+    &.moon {
+      display: block;
+      
+      .dark-mode & {
+        display: none;
+      }
+    }
+  }
+}

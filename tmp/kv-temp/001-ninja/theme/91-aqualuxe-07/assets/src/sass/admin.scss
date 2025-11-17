@@ -1,0 +1,329 @@
+// =============================================================================
+// ADMIN STYLES
+// =============================================================================
+// 
+// WordPress admin area styles for AquaLuxe theme
+//
+// @package AquaLuxe
+// @since 1.2.0
+// =============================================================================
+
+// Import base settings
+@import 'settings/variables';
+@import 'settings/colors';
+
+// -----------------------------------------------------------------------------
+// ADMIN VARIABLES
+// -----------------------------------------------------------------------------
+
+$admin-primary: #0073aa;
+$admin-secondary: #00a0d2;
+$admin-success: #46b450;
+$admin-warning: #ffb900;
+$admin-error: #dc3232;
+
+// -----------------------------------------------------------------------------
+// GENERAL ADMIN STYLES
+// -----------------------------------------------------------------------------
+
+.aqualuxe-admin {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  // Admin notices
+  .notice {
+    &.aqualuxe-notice {
+      border-left-color: var(--color-primary-500);
+      position: relative;
+      padding-left: 50px;
+      
+      .notice-icon {
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        font-size: 20px;
+      }
+    }
+  }
+  
+  // Buttons
+  .button {
+    &.aqualuxe-button {
+      background: var(--color-primary-500);
+      border-color: var(--color-primary-600);
+      color: white;
+      text-shadow: none;
+      
+      &:hover {
+        background: var(--color-primary-600);
+        border-color: var(--color-primary-700);
+      }
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// META BOXES
+// -----------------------------------------------------------------------------
+
+.aqualuxe-meta-box {
+  .meta-box-section {
+    margin-bottom: 20px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    
+    .meta-box-header {
+      background: #f9f9f9;
+      padding: 10px 15px;
+      border-bottom: 1px solid #e5e5e5;
+      cursor: pointer;
+      
+      .meta-box-toggle {
+        float: right;
+        
+        &:before {
+          content: '▼';
+          transition: transform 0.2s;
+        }
+        
+        &.open:before {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+    
+    .meta-box-content {
+      padding: 15px;
+      
+      .form-table {
+        th {
+          width: 150px;
+          font-weight: 600;
+        }
+        
+        td {
+          .description {
+            font-style: italic;
+            color: #666;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// CUSTOMIZER CONTROLS
+// -----------------------------------------------------------------------------
+
+.aqualuxe-customizer-control {
+  .color-preset-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    
+    .preset-button {
+      width: 30px;
+      height: 30px;
+      border: 2px solid #ddd;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: border-color 0.2s;
+      
+      &:hover {
+        border-color: #999;
+      }
+      
+      &.active {
+        border-color: #0073aa;
+        box-shadow: 0 0 0 2px rgba(0, 115, 170, 0.3);
+      }
+    }
+  }
+  
+  .range-slider {
+    .slider-value {
+      background: #f1f1f1;
+      padding: 5px 10px;
+      border-radius: 3px;
+      font-family: monospace;
+      font-size: 12px;
+      margin-left: 10px;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// ADMIN TABS
+// -----------------------------------------------------------------------------
+
+.aqualuxe-tabs {
+  .tab-nav {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+    
+    .tab-link {
+      display: inline-block;
+      padding: 10px 20px;
+      text-decoration: none;
+      border: 1px solid transparent;
+      border-bottom: none;
+      color: #666;
+      
+      &:hover {
+        color: #000;
+        background: #f9f9f9;
+      }
+      
+      &.active {
+        background: white;
+        border-color: #ccc;
+        color: #000;
+        position: relative;
+        top: 1px;
+      }
+    }
+  }
+  
+  .tab-content {
+    .tab-pane {
+      display: none;
+      
+      &.active {
+        display: block;
+      }
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// DASHBOARD WIDGETS
+// -----------------------------------------------------------------------------
+
+#aqualuxe-status-widget {
+  .theme-status {
+    padding: 15px;
+    text-align: center;
+    
+    .status-ok {
+      color: $admin-success;
+      font-weight: bold;
+    }
+    
+    .status-warning {
+      color: $admin-warning;
+      font-weight: bold;
+    }
+    
+    .status-error {
+      color: $admin-error;
+      font-weight: bold;
+    }
+  }
+  
+  .theme-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding: 15px;
+    
+    .info-item {
+      .label {
+        font-weight: 600;
+        color: #666;
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+      
+      .value {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+      }
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// MEDIA UPLOAD CONTROLS
+// -----------------------------------------------------------------------------
+
+.aqualuxe-media-control {
+  .media-preview {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 2px dashed #ddd;
+    text-align: center;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    .placeholder {
+      color: #999;
+      font-style: italic;
+    }
+  }
+  
+  .media-buttons {
+    display: flex;
+    gap: 10px;
+    
+    .button {
+      flex: 1;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// TOOLTIPS
+// -----------------------------------------------------------------------------
+
+.aqualuxe-tooltip-popup {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  z-index: 999999;
+  max-width: 250px;
+  pointer-events: none;
+}
+
+// -----------------------------------------------------------------------------
+// RESPONSIVE ADMIN
+// -----------------------------------------------------------------------------
+
+@media (max-width: 782px) {
+  .aqualuxe-admin {
+    .meta-box-content {
+      .form-table {
+        th, td {
+          display: block;
+          width: 100%;
+        }
+        
+        th {
+          padding-bottom: 5px;
+        }
+      }
+    }
+  }
+  
+  .aqualuxe-tabs {
+    .tab-nav {
+      .tab-link {
+        display: block;
+        margin-bottom: 5px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+      }
+    }
+  }
+}

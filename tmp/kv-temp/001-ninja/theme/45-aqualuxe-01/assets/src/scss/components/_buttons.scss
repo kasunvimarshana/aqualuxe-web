@@ -1,0 +1,751 @@
+/**
+ * AquaLuxe Theme Button Styles
+ *
+ * This file contains styles for buttons.
+ */
+
+// Base Button
+.btn,
+.button,
+button.button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  display: inline-block;
+  font-weight: $font-weight-medium;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: $spacing-3 $spacing-6;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+  border-radius: $border-radius;
+  transition: $transition-base;
+  cursor: pointer;
+  
+  &:focus,
+  &:hover {
+    text-decoration: none;
+    outline: 0;
+  }
+  
+  &:disabled,
+  &.disabled {
+    opacity: 0.65;
+    pointer-events: none;
+  }
+}
+
+// Button Sizes
+.btn-sm,
+.button.small {
+  padding: $spacing-2 $spacing-4;
+  font-size: $font-size-sm;
+  border-radius: $border-radius-sm;
+}
+
+.btn-lg,
+.button.large {
+  padding: $spacing-4 $spacing-8;
+  font-size: $font-size-lg;
+  border-radius: $border-radius-lg;
+}
+
+// Button Variants
+.btn-primary,
+.button.primary {
+  color: $color-white;
+  background-color: $color-primary;
+  border-color: $color-primary;
+  
+  &:hover,
+  &:focus {
+    color: $color-white;
+    background-color: darken($color-primary, 7.5%);
+    border-color: darken($color-primary, 10%);
+  }
+  
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba($color-primary, 0.5);
+  }
+}
+
+.btn-secondary,
+.button.secondary {
+  color: $color-white;
+  background-color: $color-secondary;
+  border-color: $color-secondary;
+  
+  &:hover,
+  &:focus {
+    color: $color-white;
+    background-color: darken($color-secondary, 7.5%);
+    border-color: darken($color-secondary, 10%);
+  }
+  
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba($color-secondary, 0.5);
+  }
+}
+
+.btn-accent,
+.button.accent {
+  color: $color-white;
+  background-color: $color-accent;
+  border-color: $color-accent;
+  
+  &:hover,
+  &:focus {
+    color: $color-white;
+    background-color: darken($color-accent, 7.5%);
+    border-color: darken($color-accent, 10%);
+  }
+  
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba($color-accent, 0.5);
+  }
+}
+
+.btn-success,
+.button.success {
+  color: $color-white;
+  background-color: $color-success;
+  border-color: $color-success;
+  
+  &:hover,
+  &:focus {
+    color: $color-white;
+    background-color: darken($color-success, 7.5%);
+    border-color: darken($color-success, 10%);
+  }
+  
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba($color-success, 0.5);
+  }
+}
+
+.btn-danger,
+.button.danger {
+  color: $color-white;
+  background-color: $color-danger;
+  border-color: $color-danger;
+  
+  &:hover,
+  &:focus {
+    color: $color-white;
+    background-color: darken($color-danger, 7.5%);
+    border-color: darken($color-danger, 10%);
+  }
+  
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba($color-danger, 0.5);
+  }
+}
+
+.btn-warning,
+.button.warning {
+  color: $color-dark;
+  background-color: $color-warning;
+  border-color: $color-warning;
+  
+  &:hover,
+  &:focus {
+    color: $color-dark;
+    background-color: darken($color-warning, 7.5%);
+    border-color: darken($color-warning, 10%);
+  }
+  
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba($color-warning, 0.5);
+  }
+}
+
+.btn-info,
+.button.info {
+  color: $color-white;
+  background-color: $color-info;
+  border-color: $color-info;
+  
+  &:hover,
+  &:focus {
+    color: $color-white;
+    background-color: darken($color-info, 7.5%);
+    border-color: darken($color-info, 10%);
+  }
+  
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba($color-info, 0.5);
+  }
+}
+
+.btn-light,
+.button.light {
+  color: $color-dark;
+  background-color: $color-light;
+  border-color: $color-light;
+  
+  &:hover,
+  &:focus {
+    color: $color-dark;
+    background-color: darken($color-light, 7.5%);
+    border-color: darken($color-light, 10%);
+  }
+  
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba($color-light, 0.5);
+  }
+}
+
+.btn-dark,
+.button.dark {
+  color: $color-white;
+  background-color: $color-dark;
+  border-color: $color-dark;
+  
+  &:hover,
+  &:focus {
+    color: $color-white;
+    background-color: darken($color-dark, 7.5%);
+    border-color: darken($color-dark, 10%);
+  }
+  
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba($color-dark, 0.5);
+  }
+}
+
+// Outline Buttons
+.btn-outline-primary,
+.button.outline-primary {
+  color: $color-primary;
+  background-color: transparent;
+  border-color: $color-primary;
+  
+  &:hover,
+  &:focus {
+    color: $color-white;
+    background-color: $color-primary;
+    border-color: $color-primary;
+  }
+}
+
+.btn-outline-secondary,
+.button.outline-secondary {
+  color: $color-secondary;
+  background-color: transparent;
+  border-color: $color-secondary;
+  
+  &:hover,
+  &:focus {
+    color: $color-white;
+    background-color: $color-secondary;
+    border-color: $color-secondary;
+  }
+}
+
+.btn-outline-accent,
+.button.outline-accent {
+  color: $color-accent;
+  background-color: transparent;
+  border-color: $color-accent;
+  
+  &:hover,
+  &:focus {
+    color: $color-white;
+    background-color: $color-accent;
+    border-color: $color-accent;
+  }
+}
+
+.btn-outline-success,
+.button.outline-success {
+  color: $color-success;
+  background-color: transparent;
+  border-color: $color-success;
+  
+  &:hover,
+  &:focus {
+    color: $color-white;
+    background-color: $color-success;
+    border-color: $color-success;
+  }
+}
+
+.btn-outline-danger,
+.button.outline-danger {
+  color: $color-danger;
+  background-color: transparent;
+  border-color: $color-danger;
+  
+  &:hover,
+  &:focus {
+    color: $color-white;
+    background-color: $color-danger;
+    border-color: $color-danger;
+  }
+}
+
+.btn-outline-warning,
+.button.outline-warning {
+  color: $color-warning;
+  background-color: transparent;
+  border-color: $color-warning;
+  
+  &:hover,
+  &:focus {
+    color: $color-dark;
+    background-color: $color-warning;
+    border-color: $color-warning;
+  }
+}
+
+.btn-outline-info,
+.button.outline-info {
+  color: $color-info;
+  background-color: transparent;
+  border-color: $color-info;
+  
+  &:hover,
+  &:focus {
+    color: $color-white;
+    background-color: $color-info;
+    border-color: $color-info;
+  }
+}
+
+.btn-outline-light,
+.button.outline-light {
+  color: $color-light;
+  background-color: transparent;
+  border-color: $color-light;
+  
+  &:hover,
+  &:focus {
+    color: $color-dark;
+    background-color: $color-light;
+    border-color: $color-light;
+  }
+}
+
+.btn-outline-dark,
+.button.outline-dark {
+  color: $color-dark;
+  background-color: transparent;
+  border-color: $color-dark;
+  
+  &:hover,
+  &:focus {
+    color: $color-white;
+    background-color: $color-dark;
+    border-color: $color-dark;
+  }
+}
+
+// Link Buttons
+.btn-link,
+.button.link {
+  font-weight: $font-weight-normal;
+  color: $color-primary;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  
+  &:hover,
+  &:focus {
+    color: darken($color-primary, 15%);
+    text-decoration: underline;
+    background-color: transparent;
+    border-color: transparent;
+  }
+  
+  &:disabled,
+  &.disabled {
+    color: $color-gray-500;
+    pointer-events: none;
+  }
+}
+
+// Button Block
+.btn-block,
+.button.block {
+  display: block;
+  width: 100%;
+  
+  + .btn-block,
+  + .button.block {
+    margin-top: $spacing-2;
+  }
+}
+
+// Button with Icon
+.btn-icon,
+.button.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  i, svg {
+    margin-right: $spacing-2;
+    
+    &:last-child {
+      margin-right: 0;
+      margin-left: $spacing-2;
+    }
+  }
+  
+  &.icon-right {
+    i, svg {
+      margin-right: 0;
+      margin-left: $spacing-2;
+      
+      &:last-child {
+        margin-left: 0;
+        margin-right: $spacing-2;
+      }
+    }
+  }
+}
+
+// Icon Only Button
+.btn-icon-only,
+.button.icon-only {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  &.btn-sm,
+  &.small {
+    width: 30px;
+    height: 30px;
+  }
+  
+  &.btn-lg,
+  &.large {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+// Rounded Button
+.btn-rounded,
+.button.rounded {
+  border-radius: $border-radius-full;
+}
+
+// Button Group
+.btn-group {
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle;
+  
+  > .btn,
+  > .button {
+    position: relative;
+    flex: 1 1 auto;
+    
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      z-index: 1;
+    }
+  }
+  
+  > .btn:not(:first-child),
+  > .button:not(:first-child),
+  > .btn-group:not(:first-child) {
+    margin-left: -1px;
+  }
+  
+  > .btn:not(:last-child):not(.dropdown-toggle),
+  > .button:not(:last-child):not(.dropdown-toggle),
+  > .btn-group:not(:last-child) > .btn,
+  > .btn-group:not(:last-child) > .button {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  
+  > .btn:not(:first-child),
+  > .button:not(:first-child),
+  > .btn-group:not(:first-child) > .btn,
+  > .btn-group:not(:first-child) > .button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+// Button Toolbar
+.btn-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  
+  .btn-group {
+    margin-right: $spacing-2;
+  }
+}
+
+// Button Styles
+.btn-3d,
+.button.btn-3d {
+  position: relative;
+  top: 0;
+  box-shadow: 0 4px 0 darken($color-primary, 15%);
+  
+  &:hover,
+  &:focus {
+    top: 2px;
+    box-shadow: 0 2px 0 darken($color-primary, 15%);
+  }
+  
+  &:active {
+    top: 4px;
+    box-shadow: none;
+  }
+  
+  &.btn-secondary,
+  &.secondary {
+    box-shadow: 0 4px 0 darken($color-secondary, 15%);
+    
+    &:hover,
+    &:focus {
+      box-shadow: 0 2px 0 darken($color-secondary, 15%);
+    }
+  }
+  
+  &.btn-accent,
+  &.accent {
+    box-shadow: 0 4px 0 darken($color-accent, 15%);
+    
+    &:hover,
+    &:focus {
+      box-shadow: 0 2px 0 darken($color-accent, 15%);
+    }
+  }
+  
+  &.btn-success,
+  &.success {
+    box-shadow: 0 4px 0 darken($color-success, 15%);
+    
+    &:hover,
+    &:focus {
+      box-shadow: 0 2px 0 darken($color-success, 15%);
+    }
+  }
+  
+  &.btn-danger,
+  &.danger {
+    box-shadow: 0 4px 0 darken($color-danger, 15%);
+    
+    &:hover,
+    &:focus {
+      box-shadow: 0 2px 0 darken($color-danger, 15%);
+    }
+  }
+  
+  &.btn-warning,
+  &.warning {
+    box-shadow: 0 4px 0 darken($color-warning, 15%);
+    
+    &:hover,
+    &:focus {
+      box-shadow: 0 2px 0 darken($color-warning, 15%);
+    }
+  }
+  
+  &.btn-info,
+  &.info {
+    box-shadow: 0 4px 0 darken($color-info, 15%);
+    
+    &:hover,
+    &:focus {
+      box-shadow: 0 2px 0 darken($color-info, 15%);
+    }
+  }
+  
+  &.btn-dark,
+  &.dark {
+    box-shadow: 0 4px 0 darken($color-dark, 15%);
+    
+    &:hover,
+    &:focus {
+      box-shadow: 0 2px 0 darken($color-dark, 15%);
+    }
+  }
+}
+
+// Button with Gradient
+.btn-gradient,
+.button.gradient {
+  background-image: linear-gradient(to right, $color-primary, $color-accent);
+  border: none;
+  color: $color-white;
+  
+  &:hover,
+  &:focus {
+    background-image: linear-gradient(to right, darken($color-primary, 7.5%), darken($color-accent, 7.5%));
+    color: $color-white;
+  }
+  
+  &.btn-secondary,
+  &.secondary {
+    background-image: linear-gradient(to right, $color-secondary, $color-accent);
+    
+    &:hover,
+    &:focus {
+      background-image: linear-gradient(to right, darken($color-secondary, 7.5%), darken($color-accent, 7.5%));
+    }
+  }
+}
+
+// Button with Shadow
+.btn-shadow,
+.button.shadow {
+  box-shadow: $box-shadow-md;
+  
+  &:hover,
+  &:focus {
+    box-shadow: $box-shadow-lg;
+    transform: translateY(-2px);
+  }
+}
+
+// Button with Border Animation
+.btn-border-anim,
+.button.border-anim {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border: 1px solid $color-primary;
+  color: $color-primary;
+  background-color: transparent;
+  
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: $color-primary;
+    z-index: -1;
+    transition: width 0.3s ease;
+  }
+  
+  &:hover,
+  &:focus {
+    color: $color-white;
+    
+    &:before {
+      width: 100%;
+    }
+  }
+}
+
+// Button with Ripple Effect
+.btn-ripple,
+.button.ripple {
+  position: relative;
+  overflow: hidden;
+  
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform 0.5s, opacity 1s;
+  }
+  
+  &:active:after {
+    transform: scale(0, 0);
+    opacity: 0.3;
+    transition: 0s;
+  }
+}
+
+// Button with Loading State
+.btn-loading,
+.button.loading {
+  position: relative;
+  color: transparent !important;
+  pointer-events: none;
+  
+  &:after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    margin-top: -8px;
+    margin-left: -8px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-top-color: $color-white;
+    animation: spin 0.8s infinite linear;
+  }
+  
+  &.btn-outline-primary,
+  &.outline-primary,
+  &.btn-outline-secondary,
+  &.outline-secondary,
+  &.btn-outline-accent,
+  &.outline-accent,
+  &.btn-outline-success,
+  &.outline-success,
+  &.btn-outline-danger,
+  &.outline-danger,
+  &.btn-outline-warning,
+  &.outline-warning,
+  &.btn-outline-info,
+  &.outline-info,
+  &.btn-outline-light,
+  &.outline-light,
+  &.btn-outline-dark,
+  &.outline-dark {
+    &:after {
+      border: 2px solid rgba($color-gray-600, 0.5);
+      border-top-color: $color-gray-600;
+    }
+  }
+}
+
+// WooCommerce Buttons
+.woocommerce {
+  .button {
+    padding: $spacing-3 $spacing-6;
+    font-weight: $font-weight-medium;
+    border-radius: $border-radius;
+    
+    &.alt {
+      background-color: $color-primary;
+      color: $color-white;
+      
+      &:hover {
+        background-color: darken($color-primary, 7.5%);
+      }
+    }
+  }
+  
+  &.single-product {
+    .button {
+      &.alt {
+        padding: $spacing-3 $spacing-8;
+      }
+    }
+  }
+}

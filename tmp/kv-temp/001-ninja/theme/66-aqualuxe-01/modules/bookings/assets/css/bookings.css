@@ -1,0 +1,804 @@
+/**
+ * Bookings Module Styles
+ */
+
+/* Variables */
+:root {
+    --aqualuxe-primary: #0073aa;
+    --aqualuxe-primary-light: #00a0d2;
+    --aqualuxe-primary-dark: #005177;
+    --aqualuxe-secondary: #23282d;
+    --aqualuxe-success: #46b450;
+    --aqualuxe-danger: #dc3232;
+    --aqualuxe-warning: #ffb900;
+    --aqualuxe-info: #00a0d2;
+    --aqualuxe-light: #f0f0f1;
+    --aqualuxe-dark: #1d2327;
+    --aqualuxe-gray: #646970;
+    --aqualuxe-border: #dcdcde;
+    --aqualuxe-shadow: rgba(0, 0, 0, 0.1);
+    --aqualuxe-transition: all 0.3s ease;
+}
+
+/* Booking Form */
+.aqualuxe-booking-form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px var(--aqualuxe-shadow);
+}
+
+.aqualuxe-booking-form__title {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: var(--aqualuxe-primary);
+    border-bottom: 1px solid var(--aqualuxe-border);
+    padding-bottom: 10px;
+}
+
+.aqualuxe-booking-form__section {
+    margin-bottom: 30px;
+}
+
+.aqualuxe-booking-form__section-title {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: var(--aqualuxe-secondary);
+}
+
+.aqualuxe-booking-form__field {
+    margin-bottom: 15px;
+}
+
+.aqualuxe-booking-form__label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.aqualuxe-booking-form__input,
+.aqualuxe-booking-form__select,
+.aqualuxe-booking-form__textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--aqualuxe-border);
+    border-radius: 4px;
+    font-size: 16px;
+    transition: var(--aqualuxe-transition);
+}
+
+.aqualuxe-booking-form__input:focus,
+.aqualuxe-booking-form__select:focus,
+.aqualuxe-booking-form__textarea:focus {
+    outline: none;
+    border-color: var(--aqualuxe-primary);
+    box-shadow: 0 0 0 1px var(--aqualuxe-primary);
+}
+
+.aqualuxe-booking-form__textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.aqualuxe-booking-form__button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--aqualuxe-primary);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--aqualuxe-transition);
+}
+
+.aqualuxe-booking-form__button:hover {
+    background-color: var(--aqualuxe-primary-dark);
+}
+
+.aqualuxe-booking-form__button:disabled {
+    background-color: var(--aqualuxe-gray);
+    cursor: not-allowed;
+}
+
+.aqualuxe-booking-form__error {
+    color: var(--aqualuxe-danger);
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.aqualuxe-booking-form__success {
+    color: var(--aqualuxe-success);
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.aqualuxe-booking-form__required {
+    color: var(--aqualuxe-danger);
+    margin-left: 3px;
+}
+
+.aqualuxe-booking-form__field--inline {
+    display: flex;
+    align-items: center;
+}
+
+.aqualuxe-booking-form__field--inline .aqualuxe-booking-form__label {
+    margin-right: 10px;
+    margin-bottom: 0;
+    flex: 0 0 150px;
+}
+
+.aqualuxe-booking-form__field--inline .aqualuxe-booking-form__input,
+.aqualuxe-booking-form__field--inline .aqualuxe-booking-form__select {
+    flex: 1;
+}
+
+/* Calendar */
+.aqualuxe-calendar {
+    margin-bottom: 30px;
+}
+
+.aqualuxe-calendar__title {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: var(--aqualuxe-secondary);
+}
+
+.aqualuxe-calendar__container {
+    position: relative;
+}
+
+.aqualuxe-calendar .ui-datepicker {
+    width: 100%;
+    padding: 0;
+    border: none;
+    font-family: inherit;
+}
+
+.aqualuxe-calendar .ui-datepicker-header {
+    background-color: var(--aqualuxe-primary);
+    color: #fff;
+    border: none;
+    border-radius: 4px 4px 0 0;
+    padding: 10px;
+}
+
+.aqualuxe-calendar .ui-datepicker-title {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.aqualuxe-calendar .ui-datepicker-prev,
+.aqualuxe-calendar .ui-datepicker-next {
+    top: 10px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.aqualuxe-calendar .ui-datepicker-prev {
+    left: 10px;
+}
+
+.aqualuxe-calendar .ui-datepicker-next {
+    right: 10px;
+}
+
+.aqualuxe-calendar .ui-datepicker-prev span,
+.aqualuxe-calendar .ui-datepicker-next span {
+    background-image: none;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    margin-left: 0;
+    margin-top: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.aqualuxe-calendar .ui-datepicker-prev span {
+    border-width: 6px 10px 6px 0;
+    border-color: transparent #fff transparent transparent;
+}
+
+.aqualuxe-calendar .ui-datepicker-next span {
+    border-width: 6px 0 6px 10px;
+    border-color: transparent transparent transparent #fff;
+}
+
+.aqualuxe-calendar .ui-datepicker-calendar {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 0;
+}
+
+.aqualuxe-calendar .ui-datepicker-calendar th {
+    padding: 10px;
+    background-color: var(--aqualuxe-light);
+    border: 1px solid var(--aqualuxe-border);
+    font-weight: 600;
+    text-align: center;
+}
+
+.aqualuxe-calendar .ui-datepicker-calendar td {
+    padding: 0;
+    border: 1px solid var(--aqualuxe-border);
+    text-align: center;
+}
+
+.aqualuxe-calendar .ui-datepicker-calendar td a,
+.aqualuxe-calendar .ui-datepicker-calendar td span {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    background: none;
+}
+
+.aqualuxe-calendar .ui-datepicker-calendar td a.ui-state-default {
+    background-color: #fff;
+    color: var(--aqualuxe-secondary);
+}
+
+.aqualuxe-calendar .ui-datepicker-calendar td a.ui-state-active {
+    background-color: var(--aqualuxe-primary);
+    color: #fff;
+}
+
+.aqualuxe-calendar .ui-datepicker-calendar td a.ui-state-hover {
+    background-color: var(--aqualuxe-primary-light);
+    color: #fff;
+}
+
+.aqualuxe-calendar .ui-datepicker-calendar td.ui-datepicker-unselectable span {
+    background-color: #f9f9f9;
+    color: var(--aqualuxe-gray);
+}
+
+.aqualuxe-calendar .ui-datepicker-calendar td.ui-datepicker-today a {
+    background-color: var(--aqualuxe-light);
+    font-weight: 600;
+}
+
+.aqualuxe-calendar .ui-datepicker-multi .ui-datepicker-group {
+    float: left;
+    width: 50%;
+}
+
+.aqualuxe-calendar .ui-datepicker-multi .ui-datepicker-group-first {
+    padding-right: 10px;
+}
+
+.aqualuxe-calendar .ui-datepicker-multi .ui-datepicker-group-last {
+    padding-left: 10px;
+}
+
+.aqualuxe-calendar .ui-datepicker-multi .ui-datepicker-group-middle {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.aqualuxe-calendar__time-slots {
+    margin-top: 20px;
+}
+
+.aqualuxe-calendar__time-slots h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: var(--aqualuxe-secondary);
+}
+
+.aqualuxe-calendar__time-slots-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.aqualuxe-calendar__time-slot {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #fff;
+    border: 1px solid var(--aqualuxe-border);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--aqualuxe-transition);
+}
+
+.aqualuxe-calendar__time-slot:hover {
+    background-color: var(--aqualuxe-light);
+}
+
+.aqualuxe-calendar__time-slot--selected {
+    background-color: var(--aqualuxe-primary);
+    color: #fff;
+    border-color: var(--aqualuxe-primary);
+}
+
+.aqualuxe-calendar__time-slot--selected:hover {
+    background-color: var(--aqualuxe-primary-dark);
+}
+
+/* Booking Details */
+.aqualuxe-booking-details {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px var(--aqualuxe-shadow);
+}
+
+.aqualuxe-booking-details__title {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: var(--aqualuxe-primary);
+    border-bottom: 1px solid var(--aqualuxe-border);
+    padding-bottom: 10px;
+}
+
+.aqualuxe-booking-details__section {
+    margin-bottom: 30px;
+}
+
+.aqualuxe-booking-details__section-title {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: var(--aqualuxe-secondary);
+}
+
+.aqualuxe-booking-details__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.aqualuxe-booking-details__table th,
+.aqualuxe-booking-details__table td {
+    padding: 10px;
+    border-bottom: 1px solid var(--aqualuxe-border);
+    text-align: left;
+}
+
+.aqualuxe-booking-details__table th {
+    font-weight: 600;
+    background-color: var(--aqualuxe-light);
+}
+
+.aqualuxe-booking-details__status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.aqualuxe-booking-details__status--pending {
+    background-color: var(--aqualuxe-warning);
+    color: #fff;
+}
+
+.aqualuxe-booking-details__status--confirmed {
+    background-color: var(--aqualuxe-success);
+    color: #fff;
+}
+
+.aqualuxe-booking-details__status--cancelled {
+    background-color: var(--aqualuxe-danger);
+    color: #fff;
+}
+
+.aqualuxe-booking-details__status--completed {
+    background-color: var(--aqualuxe-info);
+    color: #fff;
+}
+
+.aqualuxe-booking-details__status--refunded {
+    background-color: var(--aqualuxe-gray);
+    color: #fff;
+}
+
+.aqualuxe-booking-details__status--failed {
+    background-color: var(--aqualuxe-dark);
+    color: #fff;
+}
+
+.aqualuxe-booking-details__actions {
+    margin-top: 20px;
+}
+
+.aqualuxe-booking-details__button {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: var(--aqualuxe-primary);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--aqualuxe-transition);
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.aqualuxe-booking-details__button:hover {
+    background-color: var(--aqualuxe-primary-dark);
+}
+
+.aqualuxe-booking-details__button--cancel {
+    background-color: var(--aqualuxe-danger);
+}
+
+.aqualuxe-booking-details__button--cancel:hover {
+    background-color: #b32d2e;
+}
+
+/* Booking List */
+.aqualuxe-booking-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.aqualuxe-booking-list__title {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: var(--aqualuxe-primary);
+    border-bottom: 1px solid var(--aqualuxe-border);
+    padding-bottom: 10px;
+}
+
+.aqualuxe-booking-list__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.aqualuxe-booking-list__table th,
+.aqualuxe-booking-list__table td {
+    padding: 10px;
+    border-bottom: 1px solid var(--aqualuxe-border);
+    text-align: left;
+}
+
+.aqualuxe-booking-list__table th {
+    font-weight: 600;
+    background-color: var(--aqualuxe-light);
+}
+
+.aqualuxe-booking-list__table tr:hover {
+    background-color: #f9f9f9;
+}
+
+.aqualuxe-booking-list__status {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.aqualuxe-booking-list__status--pending {
+    background-color: var(--aqualuxe-warning);
+    color: #fff;
+}
+
+.aqualuxe-booking-list__status--confirmed {
+    background-color: var(--aqualuxe-success);
+    color: #fff;
+}
+
+.aqualuxe-booking-list__status--cancelled {
+    background-color: var(--aqualuxe-danger);
+    color: #fff;
+}
+
+.aqualuxe-booking-list__status--completed {
+    background-color: var(--aqualuxe-info);
+    color: #fff;
+}
+
+.aqualuxe-booking-list__status--refunded {
+    background-color: var(--aqualuxe-gray);
+    color: #fff;
+}
+
+.aqualuxe-booking-list__status--failed {
+    background-color: var(--aqualuxe-dark);
+    color: #fff;
+}
+
+.aqualuxe-booking-list__action {
+    display: inline-block;
+    padding: 3px 8px;
+    background-color: var(--aqualuxe-primary);
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--aqualuxe-transition);
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.aqualuxe-booking-list__action:hover {
+    background-color: var(--aqualuxe-primary-dark);
+}
+
+.aqualuxe-booking-list__empty {
+    padding: 20px;
+    text-align: center;
+    background-color: var(--aqualuxe-light);
+    border-radius: 4px;
+}
+
+/* Payment Methods */
+.aqualuxe-payment-methods {
+    margin-top: 30px;
+}
+
+.aqualuxe-payment-methods__title {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: var(--aqualuxe-secondary);
+}
+
+.aqualuxe-payment-methods__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.aqualuxe-payment-methods__item {
+    margin-bottom: 15px;
+}
+
+.aqualuxe-payment-methods__label {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid var(--aqualuxe-border);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--aqualuxe-transition);
+}
+
+.aqualuxe-payment-methods__label:hover {
+    background-color: var(--aqualuxe-light);
+}
+
+.aqualuxe-payment-methods__radio {
+    margin-right: 10px;
+}
+
+.aqualuxe-payment-methods__icon {
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aqualuxe-payment-methods__name {
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.aqualuxe-payment-methods__description {
+    font-size: 14px;
+    color: var(--aqualuxe-gray);
+}
+
+.aqualuxe-payment-methods__content {
+    display: none;
+    padding: 15px;
+    border: 1px solid var(--aqualuxe-border);
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    background-color: #f9f9f9;
+}
+
+.aqualuxe-payment-methods__item--active .aqualuxe-payment-methods__label {
+    border-color: var(--aqualuxe-primary);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.aqualuxe-payment-methods__item--active .aqualuxe-payment-methods__content {
+    display: block;
+    border-color: var(--aqualuxe-primary);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .aqualuxe-booking-form__field--inline {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .aqualuxe-booking-form__field--inline .aqualuxe-booking-form__label {
+        margin-right: 0;
+        margin-bottom: 5px;
+        flex: none;
+    }
+
+    .aqualuxe-calendar .ui-datepicker-multi .ui-datepicker-group {
+        float: none;
+        width: 100%;
+    }
+
+    .aqualuxe-calendar .ui-datepicker-multi .ui-datepicker-group-first,
+    .aqualuxe-calendar .ui-datepicker-multi .ui-datepicker-group-last,
+    .aqualuxe-calendar .ui-datepicker-multi .ui-datepicker-group-middle {
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+    .aqualuxe-booking-list__table,
+    .aqualuxe-booking-list__table thead,
+    .aqualuxe-booking-list__table tbody,
+    .aqualuxe-booking-list__table th,
+    .aqualuxe-booking-list__table td,
+    .aqualuxe-booking-list__table tr {
+        display: block;
+    }
+
+    .aqualuxe-booking-list__table thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .aqualuxe-booking-list__table tr {
+        margin-bottom: 20px;
+        border: 1px solid var(--aqualuxe-border);
+        border-radius: 4px;
+    }
+
+    .aqualuxe-booking-list__table td {
+        border: none;
+        border-bottom: 1px solid var(--aqualuxe-border);
+        position: relative;
+        padding-left: 50%;
+    }
+
+    .aqualuxe-booking-list__table td:before {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: 600;
+    }
+
+    .aqualuxe-booking-list__table td:nth-of-type(1):before { content: "ID"; }
+    .aqualuxe-booking-list__table td:nth-of-type(2):before { content: "Item"; }
+    .aqualuxe-booking-list__table td:nth-of-type(3):before { content: "Date"; }
+    .aqualuxe-booking-list__table td:nth-of-type(4):before { content: "Status"; }
+    .aqualuxe-booking-list__table td:nth-of-type(5):before { content: "Price"; }
+    .aqualuxe-booking-list__table td:nth-of-type(6):before { content: "Actions"; }
+}
+
+/* Dark Mode Support */
+body.dark-mode .aqualuxe-booking-form,
+body.dark-mode .aqualuxe-booking-details,
+body.dark-mode .aqualuxe-calendar .ui-datepicker-calendar td a.ui-state-default {
+    background-color: var(--dark-surface);
+    color: var(--dark-text);
+}
+
+body.dark-mode .aqualuxe-booking-form__input,
+body.dark-mode .aqualuxe-booking-form__select,
+body.dark-mode .aqualuxe-booking-form__textarea {
+    background-color: var(--dark-surface-2);
+    color: var(--dark-text);
+    border-color: var(--dark-border);
+}
+
+body.dark-mode .aqualuxe-booking-form__input:focus,
+body.dark-mode .aqualuxe-booking-form__select:focus,
+body.dark-mode .aqualuxe-booking-form__textarea:focus {
+    border-color: var(--dark-accent);
+    box-shadow: 0 0 0 1px var(--dark-accent);
+}
+
+body.dark-mode .aqualuxe-calendar .ui-datepicker-header {
+    background-color: var(--dark-surface-2);
+}
+
+body.dark-mode .aqualuxe-calendar .ui-datepicker-calendar th {
+    background-color: var(--dark-surface-2);
+    border-color: var(--dark-border);
+    color: var(--dark-text);
+}
+
+body.dark-mode .aqualuxe-calendar .ui-datepicker-calendar td {
+    border-color: var(--dark-border);
+}
+
+body.dark-mode .aqualuxe-calendar .ui-datepicker-calendar td.ui-datepicker-unselectable span {
+    background-color: var(--dark-surface);
+    color: var(--dark-text-secondary);
+}
+
+body.dark-mode .aqualuxe-calendar .ui-datepicker-calendar td.ui-datepicker-today a {
+    background-color: var(--dark-surface-2);
+}
+
+body.dark-mode .aqualuxe-calendar__time-slot {
+    background-color: var(--dark-surface-2);
+    border-color: var(--dark-border);
+    color: var(--dark-text);
+}
+
+body.dark-mode .aqualuxe-calendar__time-slot:hover {
+    background-color: var(--dark-surface);
+}
+
+body.dark-mode .aqualuxe-booking-details__table th {
+    background-color: var(--dark-surface-2);
+    color: var(--dark-text);
+}
+
+body.dark-mode .aqualuxe-booking-details__table td,
+body.dark-mode .aqualuxe-booking-details__table th {
+    border-color: var(--dark-border);
+}
+
+body.dark-mode .aqualuxe-payment-methods__label {
+    background-color: var(--dark-surface);
+    border-color: var(--dark-border);
+    color: var(--dark-text);
+}
+
+body.dark-mode .aqualuxe-payment-methods__label:hover {
+    background-color: var(--dark-surface-2);
+}
+
+body.dark-mode .aqualuxe-payment-methods__content {
+    background-color: var(--dark-surface-2);
+    border-color: var(--dark-border);
+    color: var(--dark-text);
+}
+
+body.dark-mode .aqualuxe-payment-methods__description {
+    color: var(--dark-text-secondary);
+}
+
+body.dark-mode .aqualuxe-booking-list__table th {
+    background-color: var(--dark-surface-2);
+    color: var(--dark-text);
+}
+
+body.dark-mode .aqualuxe-booking-list__table td,
+body.dark-mode .aqualuxe-booking-list__table th {
+    border-color: var(--dark-border);
+}
+
+body.dark-mode .aqualuxe-booking-list__table tr:hover {
+    background-color: var(--dark-surface-2);
+}
+
+body.dark-mode .aqualuxe-booking-list__empty {
+    background-color: var(--dark-surface-2);
+    color: var(--dark-text);
+}

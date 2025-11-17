@@ -1,0 +1,165 @@
+/**
+ * Header Styles
+ */
+
+.site-header {
+  @apply py-4 bg-white border-b border-gray-200;
+  
+  .dark-mode & {
+    @apply bg-gray-900 border-gray-800;
+  }
+  
+  &__container {
+    @apply container flex items-center justify-between;
+  }
+  
+  &__logo {
+    @apply flex items-center;
+    
+    img {
+      @apply max-h-16 w-auto;
+    }
+    
+    .site-title {
+      @apply text-2xl font-serif font-bold text-primary m-0;
+      
+      .dark-mode & {
+        @apply text-primary-light;
+      }
+    }
+    
+    .site-description {
+      @apply text-sm text-gray-600 mt-1;
+      
+      .dark-mode & {
+        @apply text-gray-400;
+      }
+    }
+  }
+  
+  &__nav {
+    @apply hidden md:flex items-center space-x-1;
+  }
+  
+  &__actions {
+    @apply flex items-center space-x-4;
+  }
+  
+  &__search-toggle {
+    @apply p-2 text-gray-600 hover:text-primary transition-colors duration-200;
+    
+    .dark-mode & {
+      @apply text-gray-400 hover:text-primary-light;
+    }
+  }
+  
+  &__cart {
+    @apply relative p-2 text-gray-600 hover:text-primary transition-colors duration-200;
+    
+    .dark-mode & {
+      @apply text-gray-400 hover:text-primary-light;
+    }
+    
+    &-count {
+      @apply absolute -top-1 -right-1 flex items-center justify-center w-5 h-5 text-xs text-white bg-primary rounded-full;
+      
+      .dark-mode & {
+        @apply bg-primary-light text-gray-900;
+      }
+    }
+  }
+  
+  &__mobile-toggle {
+    @apply md:hidden p-2 text-gray-600 hover:text-primary transition-colors duration-200;
+    
+    .dark-mode & {
+      @apply text-gray-400 hover:text-primary-light;
+    }
+  }
+  
+  &__search-form {
+    @apply hidden absolute top-full left-0 w-full bg-white border-b border-gray-200 p-4 z-20;
+    
+    .dark-mode & {
+      @apply bg-gray-900 border-gray-800;
+    }
+    
+    &.active {
+      @apply block;
+    }
+    
+    form {
+      @apply container flex;
+      
+      input[type="search"] {
+        @apply form-input flex-grow;
+      }
+      
+      button {
+        @apply btn-primary ml-2;
+      }
+    }
+  }
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+  @apply fixed inset-0 bg-white z-50 transform translate-x-full transition-transform duration-300 ease-in-out;
+  
+  .dark-mode & {
+    @apply bg-gray-900;
+  }
+  
+  &.active {
+    @apply translate-x-0;
+  }
+  
+  &__header {
+    @apply flex items-center justify-between p-4 border-b border-gray-200;
+    
+    .dark-mode & {
+      @apply border-gray-800;
+    }
+  }
+  
+  &__close {
+    @apply p-2 text-gray-600 hover:text-primary transition-colors duration-200;
+    
+    .dark-mode & {
+      @apply text-gray-400 hover:text-primary-light;
+    }
+  }
+  
+  &__body {
+    @apply p-4 overflow-y-auto;
+    height: calc(100vh - 70px);
+  }
+  
+  &__menu {
+    @apply space-y-2;
+    
+    li {
+      @apply block;
+      
+      a {
+        @apply block py-2 px-4 text-gray-800 hover:text-primary transition-colors duration-200;
+        
+        .dark-mode & {
+          @apply text-gray-200 hover:text-primary-light;
+        }
+      }
+      
+      &.current-menu-item > a {
+        @apply text-primary font-medium;
+        
+        .dark-mode & {
+          @apply text-primary-light;
+        }
+      }
+    }
+    
+    .sub-menu {
+      @apply pl-4 mt-2 space-y-2;
+    }
+  }
+}

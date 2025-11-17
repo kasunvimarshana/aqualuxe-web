@@ -1,0 +1,138 @@
+// Component: Buttons
+.btn {
+  @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer;
+
+  &:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  // Button variants
+  &.btn-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+
+    .dark & {
+      @apply bg-primary-500 hover:bg-primary-600;
+    }
+  }
+
+  &.btn-secondary {
+    @apply bg-secondary-600 text-white hover:bg-secondary-700 focus:ring-secondary-500;
+  }
+
+  &.btn-accent {
+    @apply bg-accent-600 text-white hover:bg-accent-700 focus:ring-accent-500;
+  }
+
+  &.btn-outline {
+    @apply border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white focus:ring-primary-500;
+  }
+
+  &.btn-ghost {
+    @apply text-primary-600 hover:bg-primary-50 focus:ring-primary-500;
+  }
+
+  &.btn-link {
+    @apply text-primary-600 hover:text-primary-700 underline focus:ring-primary-500 bg-transparent border-transparent p-0;
+  }
+
+  // Button sizes
+  &.btn-xs {
+    @apply px-2 py-1 text-xs;
+  }
+
+  &.btn-sm {
+    @apply px-4 py-2 text-sm;
+  }
+
+  &.btn-lg {
+    @apply px-8 py-4 text-lg;
+  }
+
+  &.btn-xl {
+    @apply px-10 py-5 text-xl;
+  }
+
+  // Button shapes
+  &.btn-round {
+    @apply rounded-full;
+  }
+
+  &.btn-square {
+    @apply rounded-none;
+  }
+
+  // Button with icon
+  &.btn-icon {
+    @apply p-3;
+
+    svg {
+      @apply w-5 h-5;
+    }
+
+    &.btn-sm {
+      @apply p-2;
+      
+      svg {
+        @apply w-4 h-4;
+      }
+    }
+
+    &.btn-lg {
+      @apply p-4;
+      
+      svg {
+        @apply w-6 h-6;
+      }
+    }
+  }
+
+  // Loading state
+  &.btn-loading {
+    @apply relative;
+
+    &::after {
+      content: '';
+      @apply absolute inset-0 rounded-lg bg-current opacity-20;
+    }
+
+    &::before {
+      content: '';
+      @apply absolute top-1/2 left-1/2 w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin;
+      transform: translate(-50%, -50%);
+    }
+
+    span {
+      @apply opacity-0;
+    }
+  }
+
+  // Button group
+  .btn-group & {
+    @apply rounded-none border-r-0;
+
+    &:first-child {
+      @apply rounded-l-lg;
+    }
+
+    &:last-child {
+      @apply rounded-r-lg border-r;
+    }
+
+    &:only-child {
+      @apply rounded-lg border-r;
+    }
+  }
+}
+
+// Floating Action Button
+.fab {
+  @apply fixed bottom-6 right-6 w-14 h-14 bg-primary-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center z-50;
+
+  svg {
+    @apply w-6 h-6;
+  }
+
+  &:hover {
+    @apply bg-primary-700 transform scale-110;
+  }
+}

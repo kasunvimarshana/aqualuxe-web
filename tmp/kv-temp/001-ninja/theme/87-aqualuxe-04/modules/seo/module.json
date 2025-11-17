@@ -1,0 +1,5 @@
+{
+  "name": "SEO",
+  "enabled": true,
+  "description": "Basic SEO helpers (e.g., format-detection meta) and language attributes tweaks."
+}

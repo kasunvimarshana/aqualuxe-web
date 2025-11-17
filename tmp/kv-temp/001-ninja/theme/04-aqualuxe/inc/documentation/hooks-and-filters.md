@@ -1,0 +1,440 @@
+# AquaLuxe Theme - Hooks and Filters Reference
+
+This document provides a comprehensive reference for all the action hooks and filters available in the AquaLuxe WordPress child theme. These hooks and filters allow developers to extend and customize the theme's functionality without modifying core files.
+
+## Table of Contents
+
+1. [Action Hooks](#action-hooks)
+   - [Template Hooks](#template-hooks)
+   - [Fish Species Hooks](#fish-species-hooks)
+   - [Calculator Hooks](#calculator-hooks)
+   - [Compatibility Checker Hooks](#compatibility-checker-hooks)
+   - [Cache Hooks](#cache-hooks)
+
+2. [Filters](#filters)
+   - [Template Filters](#template-filters)
+   - [Fish Species Filters](#fish-species-filters)
+   - [Calculator Filters](#calculator-filters)
+   - [Compatibility Checker Filters](#compatibility-checker-filters)
+   - [Cache and Performance Filters](#cache-and-performance-filters)
+
+## Action Hooks
+
+### Template Hooks
+
+These hooks allow you to add content to specific locations in the theme templates.
+
+#### `aqualuxe_before_header`
+Fires before the site header.
+```php
+do_action('aqualuxe_before_header');
+```
+
+#### `aqualuxe_after_header`
+Fires after the site header.
+```php
+do_action('aqualuxe_after_header');
+```
+
+#### `aqualuxe_before_content`
+Fires before the main content area.
+```php
+do_action('aqualuxe_before_content');
+```
+
+#### `aqualuxe_after_content`
+Fires after the main content area.
+```php
+do_action('aqualuxe_after_content');
+```
+
+#### `aqualuxe_before_footer`
+Fires before the site footer.
+```php
+do_action('aqualuxe_before_footer');
+```
+
+#### `aqualuxe_after_footer`
+Fires after the site footer.
+```php
+do_action('aqualuxe_after_footer');
+```
+
+#### `aqualuxe_breadcrumbs`
+Used to output breadcrumbs.
+```php
+do_action('aqualuxe_breadcrumbs');
+```
+
+#### `aqualuxe_page_header`
+Used to output the page header.
+```php
+do_action('aqualuxe_page_header');
+```
+
+### Fish Species Hooks
+
+These hooks allow you to extend the fish species functionality.
+
+#### `aqualuxe_before_fish_species_content`
+Fires before the fish species content.
+```php
+do_action('aqualuxe_before_fish_species_content', $post_id);
+```
+
+#### `aqualuxe_after_fish_species_content`
+Fires after the fish species content.
+```php
+do_action('aqualuxe_after_fish_species_content', $post_id);
+```
+
+#### `aqualuxe_before_fish_species_tabs`
+Fires before the fish species tabs.
+```php
+do_action('aqualuxe_before_fish_species_tabs', $post_id);
+```
+
+#### `aqualuxe_after_fish_species_tabs`
+Fires after the fish species tabs.
+```php
+do_action('aqualuxe_after_fish_species_tabs', $post_id);
+```
+
+#### `aqualuxe_fish_species_tab_content_{$tab_id}`
+Fires inside a specific fish species tab.
+```php
+do_action('aqualuxe_fish_species_tab_content_overview', $post_id);
+do_action('aqualuxe_fish_species_tab_content_specs', $post_id);
+do_action('aqualuxe_fish_species_tab_content_care', $post_id);
+do_action('aqualuxe_fish_species_tab_content_compatibility', $post_id);
+do_action('aqualuxe_fish_species_tab_content_breeding', $post_id);
+```
+
+#### `aqualuxe_before_related_fish`
+Fires before the related fish section.
+```php
+do_action('aqualuxe_before_related_fish', $post_id);
+```
+
+#### `aqualuxe_after_related_fish`
+Fires after the related fish section.
+```php
+do_action('aqualuxe_after_related_fish', $post_id);
+```
+
+### Calculator Hooks
+
+These hooks allow you to extend the calculator functionality.
+
+#### `aqualuxe_before_calculator_form`
+Fires before a calculator form.
+```php
+do_action('aqualuxe_before_calculator_form', $calculator_type);
+```
+
+#### `aqualuxe_after_calculator_form`
+Fires after a calculator form.
+```php
+do_action('aqualuxe_after_calculator_form', $calculator_type);
+```
+
+#### `aqualuxe_before_calculator_results`
+Fires before calculator results are displayed.
+```php
+do_action('aqualuxe_before_calculator_results', $calculator_type, $results);
+```
+
+#### `aqualuxe_after_calculator_results`
+Fires after calculator results are displayed.
+```php
+do_action('aqualuxe_after_calculator_results', $calculator_type, $results);
+```
+
+### Compatibility Checker Hooks
+
+These hooks allow you to extend the compatibility checker functionality.
+
+#### `aqualuxe_before_compatibility_form`
+Fires before the compatibility checker form.
+```php
+do_action('aqualuxe_before_compatibility_form');
+```
+
+#### `aqualuxe_after_compatibility_form`
+Fires after the compatibility checker form.
+```php
+do_action('aqualuxe_after_compatibility_form');
+```
+
+#### `aqualuxe_before_compatibility_results`
+Fires before compatibility results are displayed.
+```php
+do_action('aqualuxe_before_compatibility_results', $fish_ids);
+```
+
+#### `aqualuxe_after_compatibility_results`
+Fires after compatibility results are displayed.
+```php
+do_action('aqualuxe_after_compatibility_results', $fish_ids);
+```
+
+### Cache Hooks
+
+These hooks allow you to extend the caching functionality.
+
+#### `aqualuxe_before_cache_flush`
+Fires before the cache is flushed.
+```php
+do_action('aqualuxe_before_cache_flush', $cache_type);
+```
+
+#### `aqualuxe_after_cache_flush`
+Fires after the cache is flushed.
+```php
+do_action('aqualuxe_after_cache_flush', $cache_type);
+```
+
+#### `aqualuxe_daily_cache_cleanup`
+Fires during the daily cache cleanup process.
+```php
+do_action('aqualuxe_daily_cache_cleanup');
+```
+
+## Filters
+
+### Template Filters
+
+These filters allow you to modify template elements.
+
+#### `aqualuxe_page_title`
+Filters the page title.
+```php
+$title = apply_filters('aqualuxe_page_title', $title);
+```
+
+#### `aqualuxe_breadcrumb_args`
+Filters the breadcrumb arguments.
+```php
+$args = apply_filters('aqualuxe_breadcrumb_args', $args);
+```
+
+#### `aqualuxe_sidebar_id`
+Filters the sidebar ID.
+```php
+$sidebar_id = apply_filters('aqualuxe_sidebar_id', $sidebar_id);
+```
+
+### Fish Species Filters
+
+These filters allow you to modify fish species data and display.
+
+#### `aqualuxe_fish_species_tabs`
+Filters the fish species tabs.
+```php
+$tabs = apply_filters('aqualuxe_fish_species_tabs', $tabs, $post_id);
+```
+
+#### `aqualuxe_fish_species_meta_fields`
+Filters the fish species meta fields.
+```php
+$meta_fields = apply_filters('aqualuxe_fish_species_meta_fields', $meta_fields);
+```
+
+#### `aqualuxe_fish_species_archive_per_page`
+Filters the number of fish species per page on archive pages.
+```php
+$per_page = apply_filters('aqualuxe_fish_species_archive_per_page', 24);
+```
+
+#### `aqualuxe_fish_species_placeholder_image`
+Filters the placeholder image URL for fish species without featured images.
+```php
+$placeholder_url = apply_filters('aqualuxe_fish_species_placeholder_image', $placeholder_url);
+```
+
+#### `aqualuxe_related_fish_query_args`
+Filters the query arguments for related fish species.
+```php
+$args = apply_filters('aqualuxe_related_fish_query_args', $args, $post_id);
+```
+
+#### `aqualuxe_fish_species_shortcode_args`
+Filters the arguments for the fish species shortcode.
+```php
+$args = apply_filters('aqualuxe_fish_species_shortcode_args', $args);
+```
+
+### Calculator Filters
+
+These filters allow you to modify calculator functionality.
+
+#### `aqualuxe_calculator_results`
+Filters the calculator results.
+```php
+$results = apply_filters('aqualuxe_calculator_results', $results, $params);
+```
+
+#### `aqualuxe_ph_adjustment_recommendations`
+Filters the pH adjustment recommendations.
+```php
+$recommendations = apply_filters('aqualuxe_ph_adjustment_recommendations', $recommendations, $current_ph, $target_ph, $tank_volume);
+```
+
+#### `aqualuxe_hardness_adjustment_recommendations`
+Filters the water hardness adjustment recommendations.
+```php
+$recommendations = apply_filters('aqualuxe_hardness_adjustment_recommendations', $recommendations, $current_hardness, $target_hardness, $tank_volume);
+```
+
+#### `aqualuxe_medication_dosage_recommendations`
+Filters the medication dosage recommendations.
+```php
+$recommendations = apply_filters('aqualuxe_medication_dosage_recommendations', $recommendations, $medication_type, $tank_volume, $custom_dosage);
+```
+
+#### `aqualuxe_tank_volume_calculation`
+Filters the tank volume calculation results.
+```php
+$volume = apply_filters('aqualuxe_tank_volume_calculation', $volume, $dimensions, $tank_type);
+```
+
+#### `aqualuxe_stocking_level_calculation`
+Filters the fish stocking level calculation.
+```php
+$stocking_level = apply_filters('aqualuxe_stocking_level_calculation', $stocking_level, $fish_data, $tank_volume, $tank_type);
+```
+
+### Compatibility Checker Filters
+
+These filters allow you to modify compatibility checker functionality.
+
+#### `aqualuxe_compatibility_results`
+Filters the compatibility checker results.
+```php
+$results = apply_filters('aqualuxe_compatibility_results', $results, $fish_ids);
+```
+
+#### `aqualuxe_compatibility_matrix`
+Filters the compatibility matrix.
+```php
+$matrix = apply_filters('aqualuxe_compatibility_matrix', $matrix, $fish_data);
+```
+
+#### `aqualuxe_water_parameter_overlap`
+Filters the water parameter overlap calculation.
+```php
+$overlap = apply_filters('aqualuxe_water_parameter_overlap', $overlap, $fish_data);
+```
+
+#### `aqualuxe_compatibility_query_args`
+Filters the query arguments for the compatibility checker.
+```php
+$args = apply_filters('aqualuxe_compatibility_query_args', $args);
+```
+
+### Cache and Performance Filters
+
+These filters allow you to modify caching and performance functionality.
+
+#### `aqualuxe_cache_max_age`
+Filters the maximum cache age in seconds.
+```php
+$max_age = apply_filters('aqualuxe_cache_max_age', $max_age);
+```
+
+#### `aqualuxe_lazy_load_enabled`
+Filters whether lazy loading is enabled.
+```php
+$enabled = apply_filters('aqualuxe_lazy_load_enabled', true);
+```
+
+#### `aqualuxe_lazy_load_placeholder`
+Filters the lazy load placeholder image.
+```php
+$placeholder = apply_filters('aqualuxe_lazy_load_placeholder', $placeholder);
+```
+
+#### `aqualuxe_query_optimization_enabled`
+Filters whether query optimization is enabled.
+```php
+$enabled = apply_filters('aqualuxe_query_optimization_enabled', true);
+```
+
+## Usage Examples
+
+### Adding a Custom Tab to Fish Species
+
+```php
+// Add a new tab to fish species
+add_filter('aqualuxe_fish_species_tabs', 'add_custom_fish_tab', 10, 2);
+function add_custom_fish_tab($tabs, $post_id) {
+    $tabs['videos'] = __('Videos', 'your-text-domain');
+    return $tabs;
+}
+
+// Add content to the custom tab
+add_action('aqualuxe_fish_species_tab_content_videos', 'add_custom_fish_tab_content');
+function add_custom_fish_tab_content($post_id) {
+    // Get custom field data
+    $video_url = get_post_meta($post_id, '_fish_video_url', true);
+    
+    if (!empty($video_url)) {
+        echo '<div class="fish-videos">';
+        echo '<h3>' . __('Fish Videos', 'your-text-domain') . '</h3>';
+        echo wp_oembed_get($video_url);
+        echo '</div>';
+    } else {
+        echo '<p>' . __('No videos available for this fish species.', 'your-text-domain') . '</p>';
+    }
+}
+```
+
+### Modifying Calculator Results
+
+```php
+// Modify pH adjustment recommendations
+add_filter('aqualuxe_ph_adjustment_recommendations', 'modify_ph_recommendations', 10, 4);
+function modify_ph_recommendations($recommendations, $current_ph, $target_ph, $tank_volume) {
+    // Add a custom recommendation
+    $recommendations[] = array(
+        'product' => 'My Custom pH Adjuster',
+        'dosage' => abs($target_ph - $current_ph) * $tank_volume * 0.1 . ' ml',
+        'notes' => 'Add slowly over 24 hours while monitoring pH levels.',
+    );
+    
+    return $recommendations;
+}
+```
+
+### Adding Content Before Fish Species Content
+
+```php
+// Add content before fish species content
+add_action('aqualuxe_before_fish_species_content', 'add_fish_species_notice');
+function add_fish_species_notice($post_id) {
+    // Check if this is a rare fish
+    $is_rare = get_post_meta($post_id, '_is_rare_fish', true);
+    
+    if ($is_rare) {
+        echo '<div class="fish-notice rare-fish-notice">';
+        echo '<p><strong>' . __('Rare Species:', 'your-text-domain') . '</strong> ';
+        echo __('This is a rare fish species that may not always be available in stock.', 'your-text-domain') . '</p>';
+        echo '</div>';
+    }
+}
+```
+
+### Modifying Cache Settings
+
+```php
+// Change cache duration based on content type
+add_filter('aqualuxe_cache_max_age', 'modify_cache_duration');
+function modify_cache_duration($max_age) {
+    // Set a longer cache time for fish species pages
+    if (is_singular('fish_species')) {
+        return 86400; // 24 hours
+    }
+    
+    return $max_age;
+}
+```

@@ -1,0 +1,207 @@
+/**
+ * AquaLuxe Booking System Styles
+ */
+
+/* Booking Form */
+.booking-form-wrapper {
+    position: relative;
+}
+
+.booking-result {
+    padding: 1rem;
+    border-radius: 0.375rem;
+    margin-bottom: 1.5rem;
+}
+
+.booking-result.success {
+    background-color: rgba(52, 211, 153, 0.1);
+    border: 1px solid rgba(52, 211, 153, 0.2);
+    color: #047857;
+}
+
+.booking-result.error {
+    background-color: rgba(248, 113, 113, 0.1);
+    border: 1px solid rgba(248, 113, 113, 0.2);
+    color: #b91c1c;
+}
+
+/* Flatpickr Customization */
+.flatpickr-calendar {
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(209, 213, 219, 0.5);
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange,
+.flatpickr-day.selected.inRange,
+.flatpickr-day.startRange.inRange,
+.flatpickr-day.endRange.inRange,
+.flatpickr-day.selected:focus,
+.flatpickr-day.startRange:focus,
+.flatpickr-day.endRange:focus,
+.flatpickr-day.selected:hover,
+.flatpickr-day.startRange:hover,
+.flatpickr-day.endRange:hover,
+.flatpickr-day.selected.prevMonthDay,
+.flatpickr-day.startRange.prevMonthDay,
+.flatpickr-day.endRange.prevMonthDay,
+.flatpickr-day.selected.nextMonthDay,
+.flatpickr-day.startRange.nextMonthDay,
+.flatpickr-day.endRange.nextMonthDay {
+    background: var(--color-primary-600);
+    border-color: var(--color-primary-600);
+}
+
+.flatpickr-day.selected.startRange + .endRange:not(:nth-child(7n+1)),
+.flatpickr-day.startRange.startRange + .endRange:not(:nth-child(7n+1)),
+.flatpickr-day.endRange.startRange + .endRange:not(:nth-child(7n+1)) {
+    box-shadow: -10px 0 0 var(--color-primary-600);
+}
+
+/* Form Validation */
+.booking-form input.error,
+.booking-form select.error,
+.booking-form textarea.error {
+    border-color: #ef4444;
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(var(--color-primary-rgb), 0.25);
+    border-color: var(--color-primary-500);
+}
+
+/* Loading Overlay */
+.booking-loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.booking-loading .loader {
+    padding: 1.25rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.booking-loading .loader .animate-spin {
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: var(--color-primary-600);
+    border-bottom-color: var(--color-primary-600);
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Booking Summary */
+.booking-summary-content {
+    background-color: rgba(var(--color-primary-rgb), 0.05);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+}
+
+.booking-summary-details {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.booking-summary-details > div {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(209, 213, 219, 0.3);
+}
+
+.booking-summary-details > div:last-child {
+    border-bottom: none;
+}
+
+.booking-summary-note {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: rgba(107, 114, 128, 0.8);
+}
+
+/* Dark Mode Support */
+.dark .booking-result.success {
+    background-color: rgba(52, 211, 153, 0.1);
+    border-color: rgba(52, 211, 153, 0.2);
+    color: #34d399;
+}
+
+.dark .booking-result.error {
+    background-color: rgba(248, 113, 113, 0.1);
+    border-color: rgba(248, 113, 113, 0.2);
+    color: #f87171;
+}
+
+.dark .flatpickr-calendar {
+    background-color: #1f2937;
+    border-color: rgba(75, 85, 99, 0.5);
+}
+
+.dark .flatpickr-day {
+    color: #e5e7eb;
+}
+
+.dark .flatpickr-day.prevMonthDay,
+.dark .flatpickr-day.nextMonthDay {
+    color: #6b7280;
+}
+
+.dark .flatpickr-day.disabled,
+.dark .flatpickr-day.disabled:hover {
+    color: #4b5563;
+}
+
+.dark .flatpickr-day.today {
+    border-color: rgba(var(--color-primary-rgb), 0.5);
+}
+
+.dark .booking-loading .loader {
+    background-color: #1f2937;
+    color: #e5e7eb;
+}
+
+.dark .booking-summary-content {
+    background-color: rgba(var(--color-primary-rgb), 0.1);
+}
+
+.dark .booking-summary-details > div {
+    border-color: rgba(75, 85, 99, 0.3);
+}
+
+.dark .booking-summary-note {
+    color: #9ca3af;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+    .booking-form .grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+    
+    .booking-summary-details > div {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+}

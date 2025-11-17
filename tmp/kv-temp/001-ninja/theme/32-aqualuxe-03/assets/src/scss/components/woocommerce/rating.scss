@@ -1,0 +1,426 @@
+/**
+ * WooCommerce Rating
+ *
+ * This file contains styles for WooCommerce star ratings.
+ */
+
+.woocommerce {
+  // Star rating base
+  .star-rating {
+    position: relative;
+    float: right;
+    overflow: hidden;
+    position: relative;
+    height: 1em;
+    line-height: 1;
+    font-size: 1em;
+    width: 5.4em;
+    font-family: 'star';
+    color: var(--primary-color);
+    
+    &::before {
+      content: '\f005\f005\f005\f005\f005';
+      float: left;
+      top: 0;
+      left: 0;
+      position: absolute;
+      color: rgba(var(--text-muted-rgb), 0.25);
+      font-weight: 400;
+    }
+    
+    span {
+      overflow: hidden;
+      float: left;
+      top: 0;
+      left: 0;
+      position: absolute;
+      padding-top: 1.5em;
+    }
+    
+    span::before {
+      content: '\f005\f005\f005\f005\f005';
+      top: 0;
+      position: absolute;
+      left: 0;
+      font-weight: 900;
+    }
+  }
+  
+  // Star rating in product loops
+  .products {
+    .star-rating {
+      display: block;
+      margin: 0.5em auto 0.5em;
+      float: none;
+    }
+  }
+  
+  // Star rating in widgets
+  .widget_rating_filter,
+  .widget_top_rated_products {
+    .star-rating {
+      float: none;
+      margin-bottom: 0.25em;
+    }
+  }
+  
+  // Star rating on single product
+  .woocommerce-product-rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+    line-height: 1;
+    
+    .star-rating {
+      margin-right: 0.5em;
+      float: none;
+    }
+    
+    .woocommerce-review-link {
+      font-size: 0.875em;
+      color: var(--text-muted);
+      text-decoration: none;
+      
+      &:hover {
+        color: var(--primary-color);
+        text-decoration: underline;
+      }
+    }
+  }
+  
+  // Star rating in reviews
+  #reviews {
+    .star-rating {
+      float: right;
+      margin-left: 0.5em;
+    }
+    
+    .comment-form-rating {
+      margin: 1em 0;
+      
+      label {
+        display: block;
+        margin-bottom: 0.5em;
+        font-weight: 500;
+      }
+      
+      .stars {
+        display: inline-block;
+        margin: 0;
+        
+        a {
+          position: relative;
+          height: 1em;
+          width: 1em;
+          text-indent: -999em;
+          display: inline-block;
+          text-decoration: none;
+          margin-right: 0.1em;
+          font-weight: 400;
+          
+          &::before {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1em;
+            height: 1em;
+            line-height: 1;
+            font-family: 'Font Awesome 5 Free', sans-serif;
+            content: '\f005';
+            color: rgba(var(--text-muted-rgb), 0.25);
+            text-indent: 0;
+            font-weight: 400;
+          }
+          
+          &:hover ~ a::before {
+            content: '\f005';
+            color: rgba(var(--text-muted-rgb), 0.25);
+            font-weight: 400;
+          }
+        }
+        
+        &:hover a::before {
+          content: '\f005';
+          color: var(--primary-color);
+          font-weight: 900;
+        }
+        
+        &.selected {
+          a.active::before {
+            content: '\f005';
+            color: var(--primary-color);
+            font-weight: 900;
+          }
+          
+          a.active ~ a::before {
+            content: '\f005';
+            color: rgba(var(--text-muted-rgb), 0.25);
+            font-weight: 400;
+          }
+          
+          a:not(.active)::before {
+            content: '\f005';
+            color: var(--primary-color);
+            font-weight: 900;
+          }
+        }
+      }
+    }
+  }
+  
+  // Rating filter widget
+  .widget_rating_filter {
+    ul {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      list-style: none outside;
+      
+      li {
+        padding: 0 0 0.5em;
+        list-style: none;
+        
+        a {
+          padding: 0.25em 0;
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          color: var(--body-color);
+          
+          &:hover {
+            color: var(--primary-color);
+          }
+          
+          .star-rating {
+            margin-right: 0.5em;
+          }
+        }
+        
+        .count {
+          margin-left: auto;
+          font-size: 0.875em;
+          color: var(--text-muted);
+        }
+      }
+    }
+  }
+  
+  // Rating in product meta
+  .product_meta {
+    .rating-wrap {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5em;
+      
+      .star-rating {
+        float: none;
+        margin-right: 0.5em;
+      }
+      
+      .rating-count {
+        font-size: 0.875em;
+        color: var(--text-muted);
+      }
+    }
+  }
+  
+  // Custom star rating styles
+  .custom-stars {
+    .star-rating {
+      font-family: 'Font Awesome 5 Free';
+      
+      &::before {
+        content: '\f005\f005\f005\f005\f005';
+        font-weight: 400;
+      }
+      
+      span::before {
+        content: '\f005\f005\f005\f005\f005';
+        font-weight: 900;
+      }
+    }
+    
+    .comment-form-rating {
+      .stars {
+        a::before {
+          font-family: 'Font Awesome 5 Free';
+          content: '\f005';
+          font-weight: 400;
+        }
+        
+        &:hover a::before,
+        &.selected a.active::before,
+        &.selected a:not(.active)::before {
+          content: '\f005';
+          font-weight: 900;
+        }
+        
+        &.selected a.active ~ a::before {
+          content: '\f005';
+          font-weight: 400;
+        }
+      }
+    }
+  }
+  
+  // Rating colors
+  .star-rating-colors {
+    .star-rating {
+      color: #FFD700; // Gold color for stars
+      
+      &::before {
+        color: rgba(0, 0, 0, 0.15);
+      }
+    }
+    
+    .comment-form-rating {
+      .stars {
+        a:hover ~ a::before {
+          color: rgba(0, 0, 0, 0.15);
+        }
+        
+        &:hover a::before {
+          color: #FFD700;
+        }
+        
+        &.selected {
+          a.active::before {
+            color: #FFD700;
+          }
+          
+          a.active ~ a::before {
+            color: rgba(0, 0, 0, 0.15);
+          }
+          
+          a:not(.active)::before {
+            color: #FFD700;
+          }
+        }
+      }
+    }
+  }
+  
+  // Rating sizes
+  .star-rating-small {
+    .star-rating {
+      font-size: 0.8em;
+    }
+  }
+  
+  .star-rating-large {
+    .star-rating {
+      font-size: 1.2em;
+    }
+  }
+  
+  // Rating with text
+  .rating-with-text {
+    display: flex;
+    align-items: center;
+    
+    .star-rating {
+      float: none;
+      margin-right: 0.5em;
+    }
+    
+    .rating-text {
+      font-size: 0.875em;
+      color: var(--text-muted);
+      
+      strong {
+        color: var(--body-color);
+        font-weight: 500;
+      }
+    }
+  }
+  
+  // Rating in product card
+  .product-card {
+    .star-rating {
+      float: none;
+      margin: 0.5em 0;
+    }
+  }
+  
+  // Rating in product list
+  .products.list {
+    .product {
+      .star-rating {
+        float: none;
+        margin: 0.5em 0;
+      }
+    }
+  }
+  
+  // Rating in product grid
+  .products.grid {
+    .product {
+      .star-rating {
+        float: none;
+        margin: 0.5em auto;
+      }
+    }
+  }
+  
+  // Rating in reviews list
+  .commentlist {
+    .comment {
+      .star-rating {
+        float: right;
+        margin-left: 1em;
+      }
+    }
+  }
+  
+  // Rating in product tabs
+  .woocommerce-tabs {
+    .star-rating {
+      float: right;
+      margin-left: 0.5em;
+    }
+  }
+  
+  // Rating in widgets
+  .widget {
+    .star-rating {
+      font-size: 0.9em;
+    }
+  }
+  
+  // Dark mode adjustments
+  .dark {
+    .star-rating {
+      &::before {
+        color: rgba(255, 255, 255, 0.2);
+      }
+    }
+    
+    .comment-form-rating {
+      .stars {
+        a::before {
+          color: rgba(255, 255, 255, 0.2);
+        }
+        
+        a:hover ~ a::before {
+          color: rgba(255, 255, 255, 0.2);
+        }
+        
+        &.selected {
+          a.active ~ a::before {
+            color: rgba(255, 255, 255, 0.2);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Use Font Awesome instead of custom star font
+// This avoids the need for custom font files
+.woocommerce {
+  .star-rating, 
+  .comment-form-rating .stars a::before {
+    font-family: 'Font Awesome 5 Free', sans-serif;
+  }
+}

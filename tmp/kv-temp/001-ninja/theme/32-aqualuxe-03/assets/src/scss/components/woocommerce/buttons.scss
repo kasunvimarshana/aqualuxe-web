@@ -1,0 +1,187 @@
+/**
+ * WooCommerce Buttons
+ *
+ * This file contains styles for WooCommerce buttons.
+ */
+
+.woocommerce {
+  // Primary button
+  .button,
+  .button.alt {
+    @include button-base;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+    
+    &:hover,
+    &:focus {
+      background-color: darken($primary-color, 7.5%);
+      border-color: darken($primary-color, 10%);
+      color: #fff;
+    }
+    
+    &:active {
+      background-color: darken($primary-color, 10%);
+      border-color: darken($primary-color, 12.5%);
+      color: #fff;
+    }
+    
+    &:disabled,
+    &.disabled {
+      background-color: rgba(var(--primary-color-rgb), 0.5);
+      border-color: rgba(var(--primary-color-rgb), 0.5);
+      color: #fff;
+    }
+  }
+  
+  // Secondary button
+  .button.secondary {
+    @include button-base;
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: #fff;
+    
+    &:hover,
+    &:focus {
+      background-color: darken($secondary-color, 7.5%);
+      border-color: darken($secondary-color, 10%);
+      color: #fff;
+    }
+    
+    &:active {
+      background-color: darken($secondary-color, 10%);
+      border-color: darken($secondary-color, 12.5%);
+      color: #fff;
+    }
+  }
+  
+  // Outline button
+  .button.outline {
+    @include button-base;
+    background-color: transparent;
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    
+    &:hover,
+    &:focus {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+      color: #fff;
+    }
+    
+    &:active {
+      background-color: darken($primary-color, 5%);
+      border-color: darken($primary-color, 5%);
+      color: #fff;
+    }
+  }
+  
+  // Button sizes
+  .button.small {
+    padding: $btn-padding-y-sm $btn-padding-x-sm;
+    font-size: $font-size-sm;
+  }
+  
+  .button.large {
+    padding: $btn-padding-y-lg $btn-padding-x-lg;
+    font-size: $font-size-lg;
+  }
+  
+  // Button with icon
+  .button.icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    i, svg {
+      margin-right: 0.5rem;
+    }
+    
+    &.icon-right {
+      i, svg {
+        margin-right: 0;
+        margin-left: 0.5rem;
+      }
+    }
+  }
+  
+  // Add to cart button
+  .add_to_cart_button {
+    @extend .button;
+    
+    &.loading {
+      opacity: 0.7;
+      padding-right: 2.5rem;
+      position: relative;
+      
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 1rem;
+        width: 1rem;
+        height: 1rem;
+        margin-top: -0.5rem;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        border-top-color: #fff;
+        animation: spin 0.8s infinite linear;
+      }
+    }
+    
+    &.added {
+      &::after {
+        content: "\f00c";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        position: absolute;
+        top: 50%;
+        right: 1rem;
+        transform: translateY(-50%);
+        animation: none;
+        border: none;
+        width: auto;
+        height: auto;
+        margin-top: 0;
+      }
+    }
+  }
+  
+  // View cart button
+  .added_to_cart {
+    @include button-outline-variant($primary-color);
+    margin-left: 0.5rem;
+    font-size: $font-size-sm;
+    padding: $btn-padding-y-sm $btn-padding-x-sm;
+  }
+  
+  // Checkout button
+  .checkout-button {
+    @extend .button;
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: $font-size-lg;
+    padding: $btn-padding-y-lg $btn-padding-x-lg;
+  }
+  
+  // Place order button
+  #place_order {
+    @extend .button;
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: $font-size-lg;
+    padding: $btn-padding-y-lg $btn-padding-x-lg;
+  }
+  
+  // Button animations
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

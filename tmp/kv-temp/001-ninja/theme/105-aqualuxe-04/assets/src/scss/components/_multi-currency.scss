@@ -1,0 +1,345 @@
+/**
+ * Multi-Currency Module Styles
+ *
+ * Styles for currency switching and price conversion
+ *
+ * @package AquaLuxe
+ * @since 1.0.0
+ */
+
+/* Currency Switcher */
+.aqualuxe-currency-switcher {
+  @apply relative inline-block;
+  
+  &.loading {
+    @apply opacity-50 pointer-events-none;
+  }
+  
+  .currency-switcher-dropdown {
+    @apply px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm min-w-24;
+    
+    &:focus {
+      @apply ring-2 ring-primary-500 border-transparent outline-none;
+    }
+  }
+  
+  .currency-buttons {
+    @apply flex flex-wrap gap-2;
+    
+    .currency-btn {
+      @apply px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-600;
+      
+      &.active {
+        @apply bg-primary-600 text-white border-primary-600;
+      }
+      
+      &:disabled {
+        @apply opacity-50 cursor-not-allowed;
+      }
+      
+      .currency-name {
+        @apply block text-xs text-gray-500 dark:text-gray-400;
+      }
+      
+      &.active .currency-name {
+        @apply text-primary-100;
+      }
+    }
+  }
+}
+
+/* Price Converter */
+.aqualuxe-price-converter {
+  @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6;
+  
+  .base-price {
+    @apply text-center mb-6;
+    
+    strong {
+      @apply text-3xl font-bold text-gray-900 dark:text-white;
+    }
+    
+    .base-currency {
+      @apply ml-2 text-lg text-gray-500 dark:text-gray-400;
+    }
+  }
+  
+  .converted-prices {
+    .converted-price {
+      @apply text-center bg-gray-50 dark:bg-gray-700 rounded-lg p-4;
+      
+      .currency-code {
+        @apply text-gray-600 dark:text-gray-400 mb-1;
+      }
+      
+      .converted-amount {
+        @apply text-xl font-bold text-primary-600 dark:text-primary-400;
+      }
+    }
+  }
+  
+  .current-price {
+    @apply text-center p-4 bg-primary-50 dark:bg-primary-900/20 rounded-lg;
+    
+    .label {
+      @apply text-sm text-gray-600 dark:text-gray-400 mr-2;
+    }
+    
+    .converted-amount {
+      @apply text-2xl font-bold text-primary-600 dark:text-primary-400;
+    }
+  }
+}
+
+/* Exchange Rates Table */
+.aqualuxe-exchange-rates {
+  @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6;
+  
+  h4 {
+    @apply text-lg font-semibold text-gray-900 dark:text-white mb-4;
+  }
+  
+  .exchange-rates-table {
+    @apply w-full border-collapse;
+    
+    thead {
+      th {
+        @apply bg-gray-50 dark:bg-gray-700 px-4 py-3 text-left text-sm font-medium text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-600;
+      }
+    }
+    
+    tbody {
+      tr {
+        @apply border-b border-gray-100 dark:border-gray-700;
+        
+        &:hover {
+          @apply bg-gray-50 dark:bg-gray-700/50;
+        }
+      }
+      
+      td {
+        @apply px-4 py-3 text-sm;
+        
+        .currency-symbol {
+          @apply font-bold text-primary-600 dark:text-primary-400 mr-2;
+        }
+        
+        .currency-name {
+          @apply block text-xs text-gray-500 dark:text-gray-400 mt-1;
+        }
+        
+        &.rate-value {
+          @apply font-mono text-right font-medium;
+        }
+      }
+    }
+  }
+  
+  .last-updated {
+    @apply mt-4 pt-4 border-t border-gray-200 dark:border-gray-600;
+  }
+}
+
+/* Currency Tooltip */
+.currency-tooltip {
+  @apply bg-gray-900 text-white text-xs rounded-lg shadow-lg p-3 z-50;
+  
+  h5 {
+    @apply font-semibold mb-2 text-gray-200;
+  }
+  
+  .tooltip-currency {
+    @apply flex justify-between items-center py-1;
+    
+    &:not(:last-child) {
+      @apply border-b border-gray-700;
+    }
+  }
+}
+
+/* Price Hover Effects */
+.price, .woocommerce-Price-amount {
+  @apply transition-colors duration-200;
+  
+  &:hover {
+    @apply text-primary-600 dark:text-primary-400 cursor-help;
+  }
+}
+
+/* Loading Spinner for Currency Operations */
+.currency-loading {
+  @apply inline-block w-4 h-4 border-2 border-primary-200 border-t-primary-600 rounded-full animate-spin;
+}
+
+/* Currency Flag Icons (if using flags) */
+.currency-flag {
+  @apply w-5 h-4 rounded-sm mr-2 object-cover;
+}
+
+/* Price Conversion Input */
+.price-converter-input {
+  @apply w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-gray-700 dark:text-white;
+}
+
+.conversion-output {
+  @apply text-lg font-semibold text-primary-600 dark:text-primary-400;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .currency-buttons {
+    @apply flex-col;
+    
+    .currency-btn {
+      @apply w-full justify-center;
+    }
+  }
+  
+  .converted-prices.grid {
+    @apply grid-cols-2;
+  }
+  
+  .exchange-rates-table {
+    @apply text-xs;
+    
+    th, td {
+      @apply px-2 py-2;
+    }
+  }
+}
+
+/* Currency Switcher in Header */
+.header-currency-switcher {
+  @apply ml-4;
+  
+  .currency-switcher-dropdown {
+    @apply border-0 bg-transparent text-gray-700 dark:text-gray-300;
+  }
+}
+
+/* Currency Display in Product Cards */
+.product-card {
+  .price-container {
+    @apply relative;
+    
+    .original-price {
+      @apply text-sm text-gray-500 line-through;
+    }
+    
+    .converted-price {
+      @apply text-lg font-bold text-primary-600;
+    }
+    
+    .currency-note {
+      @apply text-xs text-gray-400 mt-1;
+    }
+  }
+}
+
+/* Auto-detect Currency Button */
+.auto-detect-currency {
+  @apply inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors duration-200;
+  
+  &::before {
+    content: '🌍';
+    @apply mr-2;
+  }
+}
+
+/* Currency Conversion Status */
+.conversion-status {
+  @apply text-xs text-gray-500 dark:text-gray-400 mt-2;
+  
+  &.converting {
+    @apply text-yellow-600;
+  }
+  
+  &.converted {
+    @apply text-green-600;
+  }
+  
+  &.error {
+    @apply text-red-600;
+  }
+}
+
+/* Mini Currency Converter Widget */
+.mini-currency-converter {
+  @apply bg-gray-50 dark:bg-gray-700 rounded-lg p-4;
+  
+  .converter-row {
+    @apply flex items-center gap-2 mb-2;
+    
+    input {
+      @apply flex-1 px-2 py-1 border border-gray-300 dark:border-gray-600 rounded text-sm;
+    }
+    
+    select {
+      @apply px-2 py-1 border border-gray-300 dark:border-gray-600 rounded text-sm;
+    }
+    
+    .swap-btn {
+      @apply p-1 text-gray-500 hover:text-primary-600 transition-colors duration-200;
+      
+      &::before {
+        content: '⇄';
+      }
+    }
+  }
+  
+  .result {
+    @apply text-center font-semibold text-primary-600 dark:text-primary-400;
+  }
+}
+
+/* Dark Mode Specific Adjustments */
+.dark {
+  .currency-tooltip {
+    @apply bg-gray-800 border border-gray-600;
+  }
+  
+  .aqualuxe-exchange-rates {
+    .exchange-rates-table {
+      tbody tr:hover {
+        @apply bg-gray-600/30;
+      }
+    }
+  }
+}
+
+/* Animation for Currency Switch */
+.currency-switch-animation {
+  animation: currencySwitch 0.3s ease-in-out;
+}
+
+@keyframes currencySwitch {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Price Update Animation */
+.price-update {
+  animation: priceUpdate 0.5s ease-in-out;
+}
+
+@keyframes priceUpdate {
+  0% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+  100% {
+    background-color: transparent;
+  }
+}

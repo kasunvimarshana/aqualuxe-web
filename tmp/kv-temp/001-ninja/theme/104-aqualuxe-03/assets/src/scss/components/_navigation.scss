@@ -1,0 +1,210 @@
+// Navigation component styles
+@layer components {
+  .main-navigation {
+    .menu {
+      @apply flex items-center space-x-8;
+
+      .menu-item {
+        @apply relative;
+
+        > a {
+          @apply text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors duration-200 py-2;
+        }
+
+        &.current-menu-item > a,
+        &.current_page_item > a {
+          @apply text-primary-600 dark:text-primary-400;
+        }
+
+        &.menu-item-has-children {
+          .sub-menu {
+            @apply absolute top-full left-0 bg-white dark:bg-gray-800 shadow-lg rounded-lg py-2 min-w-[200px] opacity-0 invisible transform translate-y-2 transition-all duration-200 z-50;
+
+            .menu-item {
+              a {
+                @apply block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-primary-600;
+              }
+
+              &.menu-item-has-children {
+                .sub-menu {
+                  @apply left-full top-0 -translate-y-0;
+                }
+              }
+            }
+          }
+
+          &:hover .sub-menu {
+            @apply opacity-100 visible translate-y-0;
+          }
+        }
+      }
+    }
+
+    // Mobile menu styles
+    @media (max-width: 1023px) {
+      .menu {
+        @apply flex-col space-x-0 space-y-2 w-full;
+
+        .menu-item {
+          @apply w-full;
+
+          > a {
+            @apply block w-full py-3 px-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800;
+          }
+
+          &.menu-item-has-children {
+            .sub-menu {
+              @apply static opacity-100 visible transform-none shadow-none bg-transparent dark:bg-transparent mt-2 ml-4 border-l-2 border-gray-200 dark:border-gray-700 pl-4;
+
+              .menu-item a {
+                @apply py-2 px-0;
+              }
+            }
+
+            &.is-open .sub-menu {
+              @apply block;
+            }
+
+            &:not(.is-open) .sub-menu {
+              @apply hidden;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .mobile-navigation {
+    .menu-toggle {
+      @apply p-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 lg:hidden;
+
+      .hamburger {
+        @apply w-6 h-6 flex flex-col justify-center items-center;
+
+        span {
+          @apply block w-full h-0.5 bg-current transition-all duration-200;
+
+          &:nth-child(1) {
+            @apply mb-1;
+          }
+
+          &:nth-child(3) {
+            @apply mt-1;
+          }
+        }
+      }
+
+      &.is-active {
+        .hamburger span {
+          &:nth-child(1) {
+            @apply transform rotate-45 translate-y-2;
+          }
+
+          &:nth-child(2) {
+            @apply opacity-0;
+          }
+
+          &:nth-child(3) {
+            @apply transform -rotate-45 -translate-y-2;
+          }
+        }
+      }
+    }
+  }
+
+  .breadcrumbs {
+    @apply flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400 mb-6;
+
+    .breadcrumb-item {
+      @apply flex items-center;
+
+      a {
+        @apply hover:text-primary-600 transition-colors;
+      }
+
+      &:not(:last-child)::after {
+        content: "'/'";
+        @apply mx-2 text-gray-400;
+      }
+
+      &:last-child {
+        @apply text-gray-900 dark:text-gray-100 font-medium;
+      }
+    }
+  }
+
+  .pagination {
+    @apply flex items-center justify-center space-x-2 mt-8;
+
+    .page-numbers {
+      @apply px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors;
+
+      &.current {
+        @apply bg-primary-600 text-white border-primary-600 hover:bg-primary-700;
+      }
+
+      &.dots {
+        @apply cursor-default hover:bg-white dark:hover:bg-gray-800;
+      }
+
+      &.prev,
+      &.next {
+        @apply px-4;
+      }
+    }
+  }
+
+  .tabs {
+    .tab-list {
+      @apply flex border-b border-gray-200 dark:border-gray-700 mb-6;
+
+      .tab-button {
+        @apply px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 border-b-2 border-transparent hover:text-gray-900 dark:hover:text-gray-100 hover:border-gray-300 dark:hover:border-gray-600 transition-colors;
+
+        &.active {
+          @apply text-primary-600 dark:text-primary-400 border-primary-600;
+        }
+      }
+    }
+
+    .tab-content {
+      .tab-panel {
+        @apply hidden;
+
+        &.active {
+          @apply block;
+        }
+      }
+    }
+  }
+
+  .accordion {
+    .accordion-item {
+      @apply border border-gray-200 dark:border-gray-700 rounded-lg mb-2 overflow-hidden;
+
+      .accordion-header {
+        button {
+          @apply w-full px-4 py-3 text-left font-medium text-gray-900 dark:text-gray-100 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex items-center justify-between;
+
+          .accordion-icon {
+            @apply transform transition-transform duration-200;
+          }
+        }
+
+        &.active {
+          button .accordion-icon {
+            @apply rotate-180;
+          }
+        }
+      }
+
+      .accordion-content {
+        @apply px-4 py-3 bg-white dark:bg-gray-900 hidden;
+
+        &.active {
+          @apply block;
+        }
+      }
+    }
+  }
+}

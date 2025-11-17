@@ -1,0 +1,443 @@
+/**
+ * Social Icons Component
+ */
+
+// Base social icons styles
+.social-icons {
+  @apply flex flex-wrap items-center;
+  
+  &__item {
+    @apply mr-2 last:mr-0;
+  }
+  
+  &__link {
+    @apply inline-flex items-center justify-center w-10 h-10 rounded-full transition-colors duration-200;
+    
+    svg {
+      @apply w-5 h-5;
+    }
+  }
+  
+  // Default style
+  &--default {
+    .social-icons__link {
+      @apply bg-gray-100 hover:bg-gray-200 text-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-300;
+    }
+  }
+  
+  // Outline style
+  &--outline {
+    .social-icons__link {
+      @apply border border-gray-300 hover:border-gray-400 text-gray-700 dark:border-gray-600 dark:hover:border-gray-500 dark:text-gray-300;
+    }
+  }
+  
+  // Colored style
+  &--colored {
+    .social-icons__link {
+      &--facebook {
+        @apply bg-[#1877F2] hover:bg-[#0d6ae4] text-white;
+      }
+      
+      &--twitter {
+        @apply bg-[#1DA1F2] hover:bg-[#0c90e0] text-white;
+      }
+      
+      &--instagram {
+        @apply bg-[#E4405F] hover:bg-[#d32e4d] text-white;
+      }
+      
+      &--linkedin {
+        @apply bg-[#0A66C2] hover:bg-[#085396] text-white;
+      }
+      
+      &--youtube {
+        @apply bg-[#FF0000] hover:bg-[#e00000] text-white;
+      }
+      
+      &--pinterest {
+        @apply bg-[#E60023] hover:bg-[#cf001f] text-white;
+      }
+      
+      &--tiktok {
+        @apply bg-[#000000] hover:bg-[#333333] text-white;
+      }
+      
+      &--snapchat {
+        @apply bg-[#FFFC00] hover:bg-[#e6e300] text-black;
+      }
+      
+      &--whatsapp {
+        @apply bg-[#25D366] hover:bg-[#20bd5a] text-white;
+      }
+      
+      &--telegram {
+        @apply bg-[#26A5E4] hover:bg-[#1e94cd] text-white;
+      }
+      
+      &--reddit {
+        @apply bg-[#FF4500] hover:bg-[#e63e00] text-white;
+      }
+      
+      &--discord {
+        @apply bg-[#5865F2] hover:bg-[#4752e0] text-white;
+      }
+      
+      &--twitch {
+        @apply bg-[#9146FF] hover:bg-[#8438fa] text-white;
+      }
+      
+      &--github {
+        @apply bg-[#181717] hover:bg-[#333333] text-white;
+      }
+      
+      &--dribbble {
+        @apply bg-[#EA4C89] hover:bg-[#e7337c] text-white;
+      }
+      
+      &--behance {
+        @apply bg-[#1769FF] hover:bg-[#0057fa] text-white;
+      }
+      
+      &--medium {
+        @apply bg-[#000000] hover:bg-[#333333] text-white;
+      }
+      
+      &--vimeo {
+        @apply bg-[#1AB7EA] hover:bg-[#14a5d3] text-white;
+      }
+      
+      &--tumblr {
+        @apply bg-[#36465D] hover:bg-[#2c3a4c] text-white;
+      }
+    }
+  }
+  
+  // Colored outline style
+  &--colored-outline {
+    .social-icons__link {
+      @apply border bg-transparent;
+      
+      &--facebook {
+        @apply border-[#1877F2] text-[#1877F2] hover:bg-[#1877F2] hover:text-white dark:text-[#1877F2] dark:hover:text-white;
+      }
+      
+      &--twitter {
+        @apply border-[#1DA1F2] text-[#1DA1F2] hover:bg-[#1DA1F2] hover:text-white dark:text-[#1DA1F2] dark:hover:text-white;
+      }
+      
+      &--instagram {
+        @apply border-[#E4405F] text-[#E4405F] hover:bg-[#E4405F] hover:text-white dark:text-[#E4405F] dark:hover:text-white;
+      }
+      
+      &--linkedin {
+        @apply border-[#0A66C2] text-[#0A66C2] hover:bg-[#0A66C2] hover:text-white dark:text-[#0A66C2] dark:hover:text-white;
+      }
+      
+      &--youtube {
+        @apply border-[#FF0000] text-[#FF0000] hover:bg-[#FF0000] hover:text-white dark:text-[#FF0000] dark:hover:text-white;
+      }
+      
+      &--pinterest {
+        @apply border-[#E60023] text-[#E60023] hover:bg-[#E60023] hover:text-white dark:text-[#E60023] dark:hover:text-white;
+      }
+      
+      &--tiktok {
+        @apply border-[#000000] text-[#000000] hover:bg-[#000000] hover:text-white dark:text-gray-300 dark:hover:text-white;
+      }
+      
+      &--snapchat {
+        @apply border-[#FFFC00] text-[#FFFC00] hover:bg-[#FFFC00] hover:text-black dark:text-[#FFFC00] dark:hover:text-black;
+      }
+      
+      &--whatsapp {
+        @apply border-[#25D366] text-[#25D366] hover:bg-[#25D366] hover:text-white dark:text-[#25D366] dark:hover:text-white;
+      }
+      
+      &--telegram {
+        @apply border-[#26A5E4] text-[#26A5E4] hover:bg-[#26A5E4] hover:text-white dark:text-[#26A5E4] dark:hover:text-white;
+      }
+      
+      &--reddit {
+        @apply border-[#FF4500] text-[#FF4500] hover:bg-[#FF4500] hover:text-white dark:text-[#FF4500] dark:hover:text-white;
+      }
+      
+      &--discord {
+        @apply border-[#5865F2] text-[#5865F2] hover:bg-[#5865F2] hover:text-white dark:text-[#5865F2] dark:hover:text-white;
+      }
+      
+      &--twitch {
+        @apply border-[#9146FF] text-[#9146FF] hover:bg-[#9146FF] hover:text-white dark:text-[#9146FF] dark:hover:text-white;
+      }
+      
+      &--github {
+        @apply border-[#181717] text-[#181717] hover:bg-[#181717] hover:text-white dark:text-gray-300 dark:hover:text-white;
+      }
+      
+      &--dribbble {
+        @apply border-[#EA4C89] text-[#EA4C89] hover:bg-[#EA4C89] hover:text-white dark:text-[#EA4C89] dark:hover:text-white;
+      }
+      
+      &--behance {
+        @apply border-[#1769FF] text-[#1769FF] hover:bg-[#1769FF] hover:text-white dark:text-[#1769FF] dark:hover:text-white;
+      }
+      
+      &--medium {
+        @apply border-[#000000] text-[#000000] hover:bg-[#000000] hover:text-white dark:text-gray-300 dark:hover:text-white;
+      }
+      
+      &--vimeo {
+        @apply border-[#1AB7EA] text-[#1AB7EA] hover:bg-[#1AB7EA] hover:text-white dark:text-[#1AB7EA] dark:hover:text-white;
+      }
+      
+      &--tumblr {
+        @apply border-[#36465D] text-[#36465D] hover:bg-[#36465D] hover:text-white dark:text-[#36465D] dark:hover:text-white;
+      }
+    }
+  }
+  
+  // Monochrome style
+  &--monochrome {
+    .social-icons__link {
+      @apply text-gray-700 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400 transition-colors duration-200;
+    }
+  }
+  
+  // Size variants
+  &--sm {
+    .social-icons__link {
+      @apply w-8 h-8;
+      
+      svg {
+        @apply w-4 h-4;
+      }
+    }
+  }
+  
+  &--lg {
+    .social-icons__link {
+      @apply w-12 h-12;
+      
+      svg {
+        @apply w-6 h-6;
+      }
+    }
+  }
+  
+  // Shape variants
+  &--square {
+    .social-icons__link {
+      @apply rounded-md;
+    }
+  }
+  
+  &--rounded {
+    .social-icons__link {
+      @apply rounded-lg;
+    }
+  }
+  
+  // Spacing variants
+  &--tight {
+    .social-icons__item {
+      @apply mr-1;
+    }
+  }
+  
+  &--loose {
+    .social-icons__item {
+      @apply mr-3;
+    }
+  }
+}
+
+// Social share buttons
+.social-share {
+  @apply flex flex-wrap items-center;
+  
+  &__title {
+    @apply mr-3 text-sm font-medium text-gray-700 dark:text-gray-300;
+  }
+  
+  &__buttons {
+    @apply flex flex-wrap;
+  }
+  
+  &__button {
+    @apply inline-flex items-center justify-center h-8 px-3 mr-2 last:mr-0 rounded-md text-sm font-medium transition-colors duration-200;
+    
+    svg {
+      @apply w-4 h-4 mr-2;
+    }
+    
+    // Default style
+    &--default {
+      @apply bg-gray-100 hover:bg-gray-200 text-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-300;
+    }
+    
+    // Colored style
+    &--facebook {
+      @apply bg-[#1877F2] hover:bg-[#0d6ae4] text-white;
+    }
+    
+    &--twitter {
+      @apply bg-[#1DA1F2] hover:bg-[#0c90e0] text-white;
+    }
+    
+    &--linkedin {
+      @apply bg-[#0A66C2] hover:bg-[#085396] text-white;
+    }
+    
+    &--pinterest {
+      @apply bg-[#E60023] hover:bg-[#cf001f] text-white;
+    }
+    
+    &--reddit {
+      @apply bg-[#FF4500] hover:bg-[#e63e00] text-white;
+    }
+    
+    &--whatsapp {
+      @apply bg-[#25D366] hover:bg-[#20bd5a] text-white;
+    }
+    
+    &--telegram {
+      @apply bg-[#26A5E4] hover:bg-[#1e94cd] text-white;
+    }
+    
+    &--email {
+      @apply bg-gray-600 hover:bg-gray-700 text-white;
+    }
+    
+    &--copy {
+      @apply bg-gray-100 hover:bg-gray-200 text-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-300;
+      
+      &--copied {
+        @apply bg-green-100 text-green-700 dark:bg-green-900 dark:bg-opacity-30 dark:text-green-400;
+      }
+    }
+  }
+  
+  // Vertical layout
+  &--vertical {
+    @apply flex-col items-start;
+    
+    .social-share__title {
+      @apply mb-2 mr-0;
+    }
+    
+    .social-share__buttons {
+      @apply w-full;
+    }
+    
+    .social-share__button {
+      @apply mb-2 last:mb-0;
+    }
+  }
+  
+  // Icon only style
+  &--icons {
+    .social-share__button {
+      @apply w-8 px-0;
+      
+      svg {
+        @apply mr-0;
+      }
+      
+      span {
+        @apply sr-only;
+      }
+    }
+  }
+}
+
+// Social login buttons
+.social-login {
+  @apply space-y-3;
+  
+  &__button {
+    @apply w-full inline-flex items-center justify-center px-4 py-2 border rounded-md font-medium transition-colors duration-200;
+    
+    svg {
+      @apply w-5 h-5 mr-3;
+    }
+    
+    &--google {
+      @apply border-gray-300 bg-white text-gray-700 hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700;
+    }
+    
+    &--facebook {
+      @apply bg-[#1877F2] hover:bg-[#0d6ae4] text-white border-transparent;
+    }
+    
+    &--apple {
+      @apply bg-black hover:bg-gray-900 text-white border-transparent;
+    }
+    
+    &--twitter {
+      @apply bg-[#1DA1F2] hover:bg-[#0c90e0] text-white border-transparent;
+    }
+  }
+  
+  &__divider {
+    @apply flex items-center my-4;
+    
+    &::before,
+    &::after {
+      content: '';
+      @apply flex-grow border-t border-gray-200 dark:border-gray-700;
+    }
+    
+    span {
+      @apply px-4 text-sm text-gray-500 dark:text-gray-400;
+    }
+  }
+}
+
+// Social follow counter
+.social-counter {
+  @apply flex flex-wrap gap-3;
+  
+  &__item {
+    @apply flex-grow bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4 border border-gray-100 dark:border-gray-700 text-center;
+  }
+  
+  &__icon {
+    @apply inline-flex items-center justify-center w-12 h-12 rounded-full mb-3 mx-auto;
+    
+    svg {
+      @apply w-6 h-6;
+    }
+    
+    &--facebook {
+      @apply bg-[#1877F2] text-white;
+    }
+    
+    &--twitter {
+      @apply bg-[#1DA1F2] text-white;
+    }
+    
+    &--instagram {
+      @apply bg-[#E4405F] text-white;
+    }
+    
+    &--youtube {
+      @apply bg-[#FF0000] text-white;
+    }
+    
+    &--tiktok {
+      @apply bg-black text-white;
+    }
+  }
+  
+  &__count {
+    @apply text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1;
+  }
+  
+  &__label {
+    @apply text-sm text-gray-500 dark:text-gray-400;
+  }
+  
+  &__button {
+    @apply mt-3 inline-block text-xs font-medium py-1 px-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-300 transition-colors duration-200;
+  }
+}

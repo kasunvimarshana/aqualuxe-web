@@ -1,0 +1,675 @@
+/**
+ * AquaLuxe Theme - Accessibility
+ *
+ * This file contains accessibility-related styles for the theme.
+ */
+
+/* Screen reader text */
+.screen-reader-text {
+  @extend %visually-hidden;
+  
+  &:focus {
+    background-color: $color-neutral-100;
+    border-radius: $border-radius-default;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto !important;
+    color: $color-primary-600;
+    display: block;
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+    
+    .dark & {
+      background-color: $color-neutral-800;
+      color: $color-primary-400;
+    }
+  }
+}
+
+/* Skip links */
+.skip-link {
+  background-color: $color-neutral-100;
+  border-radius: 0 0 $border-radius-default $border-radius-default;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+  color: $color-primary-600;
+  display: block;
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  left: 50%;
+  padding: 10px 20px;
+  position: absolute;
+  text-decoration: none;
+  top: -100px;
+  transform: translateX(-50%);
+  transition: top 0.3s ease-in-out;
+  z-index: 100000;
+  
+  .dark & {
+    background-color: $color-neutral-800;
+    color: $color-primary-400;
+  }
+  
+  &:focus {
+    top: 0;
+  }
+}
+
+/* Focus styles */
+:focus {
+  outline: 2px solid $color-primary-500;
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid $color-primary-500;
+  outline-offset: 2px;
+}
+
+/* Keyboard focus indicator */
+.keyboard-focus-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: $color-primary-500;
+  transform: scaleX(0);
+  transition: transform 0.2s ease-in-out;
+  z-index: 9999;
+  
+  &.is-active {
+    transform: scaleX(1);
+  }
+}
+
+/* ARIA landmarks */
+[role="banner"],
+[role="navigation"],
+[role="main"],
+[role="complementary"],
+[role="contentinfo"],
+[role="search"],
+[role="form"],
+[role="region"][aria-labelledby],
+section[aria-labelledby] {
+  // Add subtle visual indicators for debugging
+  // Uncomment for development only
+  // outline: 1px solid rgba($color-primary-500, 0.2);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .animate,
+  .animate-on-scroll,
+  .stagger-animation > * {
+    transition: none !important;
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* High contrast mode */
+@media (forced-colors: active) {
+  * {
+    border-color: currentColor;
+  }
+  
+  a {
+    text-decoration: underline;
+  }
+  
+  button,
+  .btn {
+    border: 1px solid currentColor;
+  }
+  
+  img {
+    border: 1px solid transparent;
+  }
+}
+
+/* Accessible form elements */
+input,
+button,
+textarea,
+select {
+  &:focus {
+    outline: 2px solid $color-primary-500;
+    outline-offset: 2px;
+  }
+}
+
+/* Form labels */
+label {
+  display: block;
+  margin-bottom: $spacing-1;
+  font-weight: $font-weight-medium;
+}
+
+/* Required form fields */
+.required-field::after {
+  content: '*';
+  color: $color-error-500;
+  margin-left: $spacing-1;
+}
+
+/* Form field descriptions */
+.field-description {
+  display: block;
+  margin-top: $spacing-1;
+  font-size: $font-size-sm;
+  color: $color-neutral-600;
+  
+  .dark & {
+    color: $color-neutral-400;
+  }
+}
+
+/* Error messages */
+.error-message {
+  display: block;
+  margin-top: $spacing-1;
+  font-size: $font-size-sm;
+  color: $color-error-500;
+  
+  .dark & {
+    color: $color-error-400;
+  }
+}
+
+/* Accessible tables */
+table {
+  caption {
+    font-weight: $font-weight-bold;
+    text-align: left;
+    margin-bottom: $spacing-2;
+  }
+  
+  th {
+    text-align: left;
+  }
+  
+  th, td {
+    padding: $spacing-2 $spacing-3;
+  }
+}
+
+/* Accessible images */
+img {
+  &.with-border {
+    border: 1px solid $color-neutral-200;
+    
+    .dark & {
+      border-color: $color-neutral-700;
+    }
+  }
+}
+
+/* Accessible SVGs */
+svg {
+  &:not([aria-hidden="true"]) {
+    // Add accessible title and description if not decorative
+    &:not(:has(title)) {
+      // This is a development helper, not actual CSS
+      // outline: 2px solid $color-error-500;
+    }
+  }
+}
+
+/* Accessible buttons */
+button,
+.btn {
+  &:not([aria-label]):empty {
+    // This is a development helper, not actual CSS
+    // outline: 2px solid $color-error-500;
+  }
+}
+
+/* Accessible modals */
+.modal {
+  &[role="dialog"] {
+    &:not([aria-labelledby]):not([aria-label]) {
+      // This is a development helper, not actual CSS
+      // outline: 2px solid $color-error-500;
+    }
+  }
+}
+
+/* Accessible tabs */
+.tabs {
+  &[role="tablist"] {
+    .tabs-button {
+      &[role="tab"] {
+        &[aria-selected="true"] {
+          background-color: $color-primary-100;
+          color: $color-primary-800;
+          border-color: $color-primary-500;
+          
+          .dark & {
+            background-color: $color-primary-900;
+            color: $color-primary-200;
+          }
+        }
+      }
+    }
+    
+    .tabs-panel {
+      &[role="tabpanel"] {
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 0 2px $color-primary-500;
+        }
+      }
+    }
+  }
+}
+
+/* Accessible accordions */
+.accordion {
+  .accordion-header {
+    &[aria-expanded="true"] {
+      .accordion-icon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+/* Accessible tooltips */
+.tooltip {
+  &[role="tooltip"] {
+    position: absolute;
+    z-index: $z-index-90;
+    padding: $spacing-2 $spacing-3;
+    background-color: $color-neutral-800;
+    color: white;
+    border-radius: $border-radius-default;
+    font-size: $font-size-sm;
+    max-width: 200px;
+    box-shadow: $box-shadow-md;
+    
+    .dark & {
+      background-color: $color-neutral-900;
+      color: $color-neutral-100;
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border: 6px solid transparent;
+    }
+    
+    &.tooltip-top::after {
+      top: 100%;
+      left: 50%;
+      margin-left: -6px;
+      border-top-color: $color-neutral-800;
+      
+      .dark & {
+        border-top-color: $color-neutral-900;
+      }
+    }
+    
+    &.tooltip-bottom::after {
+      bottom: 100%;
+      left: 50%;
+      margin-left: -6px;
+      border-bottom-color: $color-neutral-800;
+      
+      .dark & {
+        border-bottom-color: $color-neutral-900;
+      }
+    }
+    
+    &.tooltip-left::after {
+      top: 50%;
+      left: 100%;
+      margin-top: -6px;
+      border-left-color: $color-neutral-800;
+      
+      .dark & {
+        border-left-color: $color-neutral-900;
+      }
+    }
+    
+    &.tooltip-right::after {
+      top: 50%;
+      right: 100%;
+      margin-top: -6px;
+      border-right-color: $color-neutral-800;
+      
+      .dark & {
+        border-right-color: $color-neutral-900;
+      }
+    }
+  }
+}
+
+/* Accessible alerts */
+.alert {
+  &[role="alert"] {
+    border-left-width: 4px;
+  }
+}
+
+/* Accessible progress bars */
+.progress {
+  &[role="progressbar"] {
+    display: block;
+    width: 100%;
+    height: 8px;
+    margin-bottom: $spacing-3;
+    background-color: $color-neutral-200;
+    border-radius: $border-radius-full;
+    overflow: hidden;
+    
+    .dark & {
+      background-color: $color-neutral-700;
+    }
+    
+    .progress-bar {
+      height: 100%;
+      background-color: $color-primary-500;
+      transition: width 0.3s ease;
+      
+      .dark & {
+        background-color: $color-primary-400;
+      }
+    }
+  }
+}
+
+/* Accessible color contrast */
+.text-contrast-safe {
+  color: $color-neutral-900;
+  
+  .dark & {
+    color: $color-neutral-100;
+  }
+}
+
+.bg-contrast-safe {
+  background-color: white;
+  
+  .dark & {
+    background-color: $color-neutral-900;
+  }
+}
+
+/* Accessible links */
+.link-underline {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  
+  &:hover, &:focus {
+    text-decoration-thickness: 2px;
+  }
+}
+
+.link-contrast {
+  color: $color-primary-700;
+  
+  .dark & {
+    color: $color-primary-300;
+  }
+  
+  &:hover, &:focus {
+    color: $color-primary-900;
+    
+    .dark & {
+      color: $color-primary-200;
+    }
+  }
+}
+
+/* Accessible font sizes */
+.text-readable {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Accessible line height */
+.leading-readable {
+  line-height: 1.6;
+}
+
+/* Accessible letter spacing */
+.tracking-readable {
+  letter-spacing: 0.01em;
+}
+
+/* Accessible word spacing */
+.word-spacing-readable {
+  word-spacing: 0.05em;
+}
+
+/* Accessible text alignment */
+.text-align-readable {
+  text-align: left;
+  
+  [dir="rtl"] & {
+    text-align: right;
+  }
+}
+
+/* Accessible text width */
+.text-width-readable {
+  max-width: 70ch;
+}
+
+/* Accessible focus indicator */
+.focus-indicator {
+  &:focus-visible {
+    outline: 2px solid $color-primary-500;
+    outline-offset: 2px;
+  }
+}
+
+/* Accessible form controls */
+.form-control-accessible {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Accessible touch targets */
+.touch-target-accessible {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Accessible spacing */
+.spacing-accessible {
+  > * + * {
+    margin-top: $spacing-4;
+  }
+}
+
+/* Accessible content */
+.content-accessible {
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: $spacing-6;
+    margin-bottom: $spacing-3;
+    
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  
+  p, ul, ol, dl, table, blockquote, pre {
+    margin-bottom: $spacing-4;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  ul, ol {
+    padding-left: $spacing-5;
+  }
+  
+  ul {
+    list-style-type: disc;
+  }
+  
+  ol {
+    list-style-type: decimal;
+  }
+  
+  li {
+    margin-bottom: $spacing-2;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    
+    &:hover, &:focus {
+      text-decoration-thickness: 2px;
+    }
+  }
+}
+
+/* ARIA roles */
+[role="button"] {
+  cursor: pointer;
+}
+
+[role="checkbox"],
+[role="radio"] {
+  cursor: pointer;
+}
+
+[role="heading"] {
+  font-weight: $font-weight-bold;
+}
+
+[role="separator"] {
+  border: 0;
+  border-top: 1px solid $color-neutral-200;
+  margin: $spacing-4 0;
+  
+  .dark & {
+    border-top-color: $color-neutral-700;
+  }
+}
+
+/* Accessible focus within */
+.focus-within-outline {
+  &:focus-within {
+    outline: 2px solid $color-primary-500;
+    outline-offset: 2px;
+  }
+}
+
+/* Accessible keyboard navigation */
+.keyboard-navigation {
+  &:focus {
+    outline: 2px solid $color-primary-500;
+    outline-offset: 2px;
+  }
+}
+
+/* Accessible hover states */
+.hover-accessible {
+  &:hover {
+    background-color: $color-neutral-100;
+    
+    .dark & {
+      background-color: $color-neutral-800;
+    }
+  }
+}
+
+/* Accessible active states */
+.active-accessible {
+  &:active {
+    background-color: $color-neutral-200;
+    
+    .dark & {
+      background-color: $color-neutral-700;
+    }
+  }
+}
+
+/* Accessible disabled states */
+.disabled-accessible {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Accessible loading states */
+.loading-accessible {
+  position: relative;
+  color: transparent !important;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1em;
+    height: 1em;
+    margin-top: -0.5em;
+    margin-left: -0.5em;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.75s linear infinite;
+  }
+}
+
+/* Accessible error states */
+.error-accessible {
+  border-color: $color-error-500 !important;
+  
+  &:focus {
+    outline-color: $color-error-500 !important;
+  }
+}
+
+/* Accessible success states */
+.success-accessible {
+  border-color: $color-success-500 !important;
+  
+  &:focus {
+    outline-color: $color-success-500 !important;
+  }
+}
+
+/* Accessible warning states */
+.warning-accessible {
+  border-color: $color-warning-500 !important;
+  
+  &:focus {
+    outline-color: $color-warning-500 !important;
+  }
+}

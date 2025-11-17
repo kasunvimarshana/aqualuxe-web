@@ -1,0 +1,432 @@
+/**
+ * Quick View Styles
+ */
+
+// Quick View Button
+.quick-view-button {
+  @apply absolute top-2 right-2 bg-white bg-opacity-90 rounded-full p-2 shadow-sm z-10 flex items-center justify-center opacity-0 transition-opacity duration-200 transform translate-y-2;
+  
+  .dark-mode & {
+    @apply bg-gray-800 bg-opacity-90;
+  }
+  
+  svg {
+    @apply w-5 h-5 text-gray-700;
+    
+    .dark-mode & {
+      @apply text-gray-300;
+    }
+  }
+  
+  span {
+    @apply hidden md:inline-block ml-1 text-sm;
+  }
+  
+  &:hover {
+    @apply bg-primary text-white;
+    
+    svg {
+      @apply text-white;
+    }
+  }
+  
+  .product:hover & {
+    @apply opacity-100 transform translate-y-0;
+  }
+}
+
+// Quick View Modal
+.quick-view-modal {
+  @apply fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 opacity-0 invisible transition-all duration-300 ease-in-out;
+  
+  &.active {
+    @apply opacity-100 visible;
+  }
+  
+  .quick-view-container {
+    @apply relative bg-white rounded-lg shadow-xl max-w-5xl w-full mx-4 max-h-[90vh] overflow-hidden transform scale-95 transition-transform duration-300;
+    
+    .dark-mode & {
+      @apply bg-gray-900;
+    }
+    
+    .active & {
+      @apply scale-100;
+    }
+  }
+  
+  .quick-view-content {
+    @apply overflow-y-auto max-h-[90vh] p-6;
+  }
+  
+  .quick-view-close {
+    @apply absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 z-10 transition-colors duration-200;
+    
+    &:hover {
+      @apply bg-gray-200 text-gray-800;
+    }
+    
+    .dark-mode & {
+      @apply bg-gray-800 text-gray-400;
+      
+      &:hover {
+        @apply bg-gray-700 text-gray-200;
+      }
+    }
+    
+    svg {
+      @apply w-5 h-5;
+    }
+  }
+  
+  .quick-view-loader {
+    @apply flex items-center justify-center h-64;
+    
+    .spinner {
+      @apply w-12 h-12 rounded-full border-4 border-primary border-t-transparent animate-spin;
+      
+      .dark-mode & {
+        @apply border-primary-light;
+      }
+    }
+  }
+  
+  .quick-view-error {
+    @apply flex flex-col items-center justify-center h-64 text-center p-6;
+    
+    svg {
+      @apply w-12 h-12 text-red-500 mb-4;
+    }
+    
+    p {
+      @apply text-gray-700 mb-6;
+      
+      .dark-mode & {
+        @apply text-gray-300;
+      }
+    }
+  }
+  
+  .quick-view-message {
+    @apply fixed top-4 right-4 flex items-center bg-white rounded-lg shadow-lg p-4 z-20 transform translate-y-0 opacity-100 transition-all duration-300;
+    
+    &--success {
+      @apply bg-green-50 text-green-800;
+      
+      .dark-mode & {
+        @apply bg-green-900 bg-opacity-50 text-green-200;
+      }
+      
+      svg {
+        @apply text-green-500;
+        
+        .dark-mode & {
+          @apply text-green-400;
+        }
+      }
+    }
+    
+    &--error {
+      @apply bg-red-50 text-red-800;
+      
+      .dark-mode & {
+        @apply bg-red-900 bg-opacity-50 text-red-200;
+      }
+      
+      svg {
+        @apply text-red-500;
+        
+        .dark-mode & {
+          @apply text-red-400;
+        }
+      }
+    }
+    
+    svg {
+      @apply w-5 h-5 mr-2 flex-shrink-0;
+    }
+    
+    span {
+      @apply text-sm font-medium;
+    }
+  }
+}
+
+// Quick View Product
+.quick-view-product {
+  &__inner {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+  }
+  
+  &__images {
+    .woocommerce-product-gallery {
+      @apply relative;
+      
+      &__image {
+        @apply relative overflow-hidden rounded-lg mb-4 bg-no-repeat;
+        
+        img {
+          @apply w-full h-auto rounded-lg;
+        }
+        
+        &.zoom-active {
+          @apply cursor-zoom-in bg-cover;
+          
+          img {
+            @apply opacity-0;
+          }
+        }
+      }
+      
+      &__thumbs {
+        @apply grid grid-cols-5 gap-2;
+        
+        img {
+          @apply w-full h-auto rounded cursor-pointer border-2 border-transparent transition-colors duration-200;
+          
+          &.active {
+            @apply border-primary;
+            
+            .dark-mode & {
+              @apply border-primary-light;
+            }
+          }
+          
+          &:hover:not(.active) {
+            @apply border-gray-300;
+            
+            .dark-mode & {
+              @apply border-gray-700;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  &__summary {
+    @apply flex flex-col;
+  }
+  
+  &__title {
+    @apply text-2xl font-bold mb-2;
+  }
+  
+  &__price {
+    @apply text-xl font-semibold mb-4;
+    
+    ins {
+      @apply no-underline text-primary font-bold;
+      
+      .dark-mode & {
+        @apply text-primary-light;
+      }
+    }
+    
+    del {
+      @apply text-gray-500 text-base ml-2;
+      
+      .dark-mode & {
+        @apply text-gray-400;
+      }
+    }
+  }
+  
+  &__rating {
+    @apply flex items-center mb-4;
+    
+    .star-rating {
+      @apply mr-2;
+    }
+    
+    .quick-view-product__review-link {
+      @apply text-sm text-gray-600;
+      
+      .dark-mode & {
+        @apply text-gray-400;
+      }
+      
+      &:hover {
+        @apply text-primary;
+        
+        .dark-mode & {
+          @apply text-primary-light;
+        }
+      }
+    }
+  }
+  
+  &__short-description {
+    @apply text-gray-700 mb-6;
+    
+    .dark-mode & {
+      @apply text-gray-300;
+    }
+    
+    p:last-child {
+      @apply mb-0;
+    }
+  }
+  
+  &__add-to-cart {
+    @apply mb-6;
+    
+    form.cart {
+      @apply space-y-4;
+      
+      .variations {
+        @apply w-full mb-4;
+        
+        td, th {
+          @apply py-2 px-0 border-0;
+        }
+        
+        label {
+          @apply font-medium mb-1 block;
+        }
+        
+        select {
+          @apply form-input;
+        }
+        
+        .reset_variations {
+          @apply text-sm text-gray-600 mt-1 inline-block;
+          
+          .dark-mode & {
+            @apply text-gray-400;
+          }
+          
+          &:hover {
+            @apply text-primary;
+            
+            .dark-mode & {
+              @apply text-primary-light;
+            }
+          }
+        }
+      }
+      
+      .single_variation_wrap {
+        .single_variation {
+          @apply mb-4;
+          
+          .woocommerce-variation-price {
+            @apply mb-2;
+          }
+          
+          .woocommerce-variation-availability {
+            @apply text-sm;
+            
+            .stock {
+              &.in-stock {
+                @apply text-green-600;
+                
+                .dark-mode & {
+                  @apply text-green-400;
+                }
+              }
+              
+              &.out-of-stock {
+                @apply text-red-600;
+                
+                .dark-mode & {
+                  @apply text-red-400;
+                }
+              }
+            }
+          }
+        }
+      }
+      
+      .quantity {
+        @apply inline-block mr-2;
+        
+        .quantity-buttons {
+          @apply flex items-center border border-gray-300 rounded overflow-hidden;
+          
+          .dark-mode & {
+            @apply border-gray-700;
+          }
+          
+          input {
+            @apply w-12 text-center border-0 p-0 h-10 focus:ring-0;
+            
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+              -webkit-appearance: none;
+              margin: 0;
+            }
+          }
+          
+          .quantity-button {
+            @apply w-8 h-10 flex items-center justify-center bg-gray-100 text-gray-700 border-0 cursor-pointer;
+            
+            .dark-mode & {
+              @apply bg-gray-800 text-gray-300;
+            }
+            
+            &:hover {
+              @apply bg-gray-200;
+              
+              .dark-mode & {
+                @apply bg-gray-700;
+              }
+            }
+          }
+        }
+      }
+      
+      button.single_add_to_cart_button {
+        @apply btn-primary;
+        
+        &.loading {
+          @apply opacity-75 cursor-wait;
+          
+          &::after {
+            @apply inline-block ml-2 w-4 h-4 rounded-full border-2 border-white border-t-transparent animate-spin;
+            content: '';
+          }
+        }
+      }
+    }
+  }
+  
+  &__meta {
+    @apply text-sm text-gray-600 border-t border-gray-200 pt-4 mb-6;
+    
+    .dark-mode & {
+      @apply text-gray-400 border-gray-700;
+    }
+    
+    .product_meta {
+      > span {
+        @apply block mb-1;
+      }
+      
+      a {
+        @apply text-primary;
+        
+        .dark-mode & {
+          @apply text-primary-light;
+        }
+        
+        &:hover {
+          @apply underline;
+        }
+      }
+    }
+  }
+  
+  &__actions {
+    @apply mt-auto;
+    
+    .btn {
+      @apply w-full;
+    }
+  }
+}
+
+// Prevent body scrolling when modal is open
+body.quick-view-active {
+  @apply overflow-hidden;
+}

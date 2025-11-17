@@ -1,0 +1,287 @@
+/**
+ * Dark Theme
+ *
+ * Dark theme color scheme for the AquaLuxe WordPress theme.
+ */
+
+.dark-mode {
+  // Base colors
+  --body-bg: #{$dark-body-bg};
+  --body-color: #{$dark-body-color};
+  --border-color: #{$dark-border-color};
+  
+  // Link colors
+  --link-color: #{$dark-link-color};
+  --link-hover-color: #{$dark-link-hover-color};
+  
+  // Header colors
+  --header-bg: #{$dark-color};
+  --header-border-color: #{$dark-border-color};
+  --header-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+  
+  // Footer colors
+  --footer-bg: #{darken($dark-color, 3%)};
+  --footer-color: #{$gray-300};
+  --footer-border-color: #{$dark-border-color};
+  --footer-link-color: #{$gray-300};
+  --footer-link-hover-color: #{$primary-color-light};
+  
+  // Sidebar colors
+  --sidebar-bg: #{$dark-color};
+  --sidebar-border-color: #{$dark-border-color};
+  
+  // Navigation colors
+  --nav-link-color: #{$gray-300};
+  --nav-link-hover-color: #{$primary-color-light};
+  --nav-link-active-color: #{$primary-color-light};
+  
+  // Form colors
+  --input-bg: #{darken($dark-color, 3%)};
+  --input-color: #{$gray-200};
+  --input-border-color: #{$dark-border-color};
+  --input-placeholder-color: #{$gray-500};
+  --input-focus-border-color: #{$primary-color-light};
+  --input-focus-box-shadow: 0 0 0 0.2rem rgba(#{red($primary-color-light)}, #{green($primary-color-light)}, #{blue($primary-color-light)}, 0.25);
+  
+  // Card colors
+  --card-bg: #{darken($dark-color, 2%)};
+  --card-border-color: #{$dark-border-color};
+  --card-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+  
+  // Post colors
+  --post-border-color: #{$dark-border-color};
+  --post-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+  
+  // Comment colors
+  --comment-border-color: #{$dark-border-color};
+  --comment-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  
+  // Widget colors
+  --widget-border-color: #{$dark-border-color};
+  --widget-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  
+  // Pagination colors
+  --pagination-color: #{$gray-300};
+  --pagination-bg: #{$dark-color};
+  --pagination-border-color: #{$dark-border-color};
+  --pagination-hover-color: #{$gray-100};
+  --pagination-hover-bg: #{lighten($dark-color, 10%)};
+  --pagination-hover-border-color: #{$primary-color-light};
+  --pagination-active-color: #{$light-color};
+  --pagination-active-bg: #{$primary-color};
+  --pagination-active-border-color: #{$primary-color};
+  
+  // Breadcrumb colors
+  --breadcrumb-bg: transparent;
+  --breadcrumb-divider-color: #{$gray-500};
+  --breadcrumb-active-color: #{$gray-400};
+  
+  // Alert colors
+  --alert-bg-level: -10;
+  --alert-border-level: -9;
+  --alert-color-level: 6;
+  
+  // Modal colors
+  --modal-content-bg: #{$dark-color};
+  --modal-content-border-color: #{$dark-border-color};
+  --modal-backdrop-bg: #{darken($dark-color, 10%)};
+  --modal-header-border-color: #{$dark-border-color};
+  --modal-footer-border-color: #{$dark-border-color};
+  
+  // Theme colors with RGB values for opacity utilities
+  --primary-rgb: #{red($primary-color-light)}, #{green($primary-color-light)}, #{blue($primary-color-light)};
+  --secondary-rgb: #{red($secondary-color-light)}, #{green($secondary-color-light)}, #{blue($secondary-color-light)};
+  --accent-rgb: #{red($accent-color-light)}, #{green($accent-color-light)}, #{blue($accent-color-light)};
+  --success-rgb: #{red(lighten($success-color, 10%))}, #{green(lighten($success-color, 10%))}, #{blue(lighten($success-color, 10%))};
+  --info-rgb: #{red(lighten($info-color, 10%))}, #{green(lighten($info-color, 10%))}, #{blue(lighten($info-color, 10%))};
+  --warning-rgb: #{red(lighten($warning-color, 10%))}, #{green(lighten($warning-color, 10%))}, #{blue(lighten($warning-color, 10%))};
+  --danger-rgb: #{red(lighten($danger-color, 10%))}, #{green(lighten($danger-color, 10%))}, #{blue(lighten($danger-color, 10%))};
+  --light-rgb: #{red($gray-100)}, #{green($gray-100)}, #{blue($gray-100)};
+  --dark-rgb: #{red($gray-900)}, #{green($gray-900)}, #{blue($gray-900)};
+  
+  // Dark mode specific styles
+  background-color: var(--body-bg);
+  color: var(--body-color);
+  
+  // Invert images that need to be inverted in dark mode
+  .invert-in-dark-mode {
+    filter: invert(1) hue-rotate(180deg);
+  }
+  
+  // Adjust box shadows for dark mode
+  .shadow-sm, .shadow, .shadow-md, .shadow-lg, .shadow-xl, .shadow-2xl {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3) !important;
+  }
+  
+  // Adjust buttons for dark mode
+  .btn-light {
+    @include button-variant($dark-color, $dark-color);
+  }
+  
+  .btn-dark {
+    @include button-variant($light-color, $light-color);
+  }
+  
+  .btn-outline-light {
+    @include button-outline-variant($dark-color);
+  }
+  
+  .btn-outline-dark {
+    @include button-outline-variant($light-color);
+  }
+  
+  // Adjust alerts for dark mode
+  .alert {
+    background-color: darken($dark-color, 3%);
+    border-color: $dark-border-color;
+  }
+  
+  // Adjust tables for dark mode
+  .table {
+    color: var(--body-color);
+    
+    th, td {
+      border-color: $dark-border-color;
+    }
+    
+    thead th {
+      border-bottom-color: $dark-border-color;
+    }
+    
+    tbody + tbody {
+      border-top-color: $dark-border-color;
+    }
+  }
+  
+  .table-bordered {
+    border-color: $dark-border-color;
+    
+    th, td {
+      border-color: $dark-border-color;
+    }
+  }
+  
+  .table-striped {
+    tbody tr:nth-of-type(#{$table-striped-order}) {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+  }
+  
+  .table-hover {
+    tbody tr {
+      &:hover {
+        color: var(--body-color);
+        background-color: rgba(255, 255, 255, 0.075);
+      }
+    }
+  }
+  
+  // Adjust code blocks for dark mode
+  pre, code, kbd, samp {
+    background-color: darken($dark-color, 5%);
+    color: $gray-200;
+  }
+  
+  // Adjust form controls for dark mode
+  .form-control {
+    background-color: var(--input-bg);
+    color: var(--input-color);
+    border-color: var(--input-border-color);
+    
+    &:focus {
+      background-color: var(--input-bg);
+      color: var(--input-color);
+    }
+  }
+  
+  // Adjust dropdown menus for dark mode
+  .dropdown-menu {
+    background-color: darken($dark-color, 2%);
+    border-color: $dark-border-color;
+    
+    .dropdown-item {
+      color: $gray-300;
+      
+      &:hover, &:focus {
+        color: $gray-100;
+        background-color: lighten($dark-color, 10%);
+      }
+      
+      &.active, &:active {
+        color: $light-color;
+        background-color: $primary-color;
+      }
+      
+      &.disabled, &:disabled {
+        color: $gray-600;
+      }
+    }
+    
+    .dropdown-divider {
+      border-color: $dark-border-color;
+    }
+  }
+  
+  // Adjust list groups for dark mode
+  .list-group {
+    .list-group-item {
+      background-color: var(--card-bg);
+      border-color: var(--border-color);
+      color: var(--body-color);
+      
+      &.active {
+        background-color: $primary-color;
+        border-color: $primary-color;
+        color: $light-color;
+      }
+    }
+  }
+  
+  // Adjust cards for dark mode
+  .card {
+    background-color: var(--card-bg);
+    border-color: var(--card-border-color);
+    
+    .card-header, .card-footer {
+      background-color: rgba(0, 0, 0, 0.1);
+      border-color: var(--card-border-color);
+    }
+  }
+  
+  // Adjust modal for dark mode
+  .modal-content {
+    background-color: var(--modal-content-bg);
+    border-color: var(--modal-content-border-color);
+    
+    .modal-header, .modal-footer {
+      border-color: var(--modal-header-border-color);
+    }
+  }
+  
+  // Adjust pagination for dark mode
+  .pagination {
+    .page-link {
+      color: var(--pagination-color);
+      background-color: var(--pagination-bg);
+      border-color: var(--pagination-border-color);
+      
+      &:hover {
+        color: var(--pagination-hover-color);
+        background-color: var(--pagination-hover-bg);
+        border-color: var(--pagination-hover-border-color);
+      }
+      
+      &.active, &.active:hover {
+        color: var(--pagination-active-color);
+        background-color: var(--pagination-active-bg);
+        border-color: var(--pagination-active-border-color);
+      }
+    }
+    
+    .page-item.disabled .page-link {
+      color: $gray-600;
+      background-color: var(--pagination-bg);
+      border-color: var(--pagination-border-color);
+    }
+  }
+}

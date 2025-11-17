@@ -1,0 +1,14 @@
+{
+	"name": "aqualuxe/theme",
+	"description": "AquaLuxe modular WordPress theme",
+	"type": "project",
+	"license": "GPL-2.0-or-later",
+	"require-dev": {
+		"dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+		"wp-coding-standards/wpcs": "^3.0"
+	},
+	"scripts": {
+		"lint": "phpcs --standard=phpcs.xml",
+		"format": "phpcbf --standard=phpcs.xml"
+	}
+}

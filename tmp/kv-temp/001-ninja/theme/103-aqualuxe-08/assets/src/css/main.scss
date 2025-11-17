@@ -1,0 +1,463 @@
+/**
+ * Main Stylesheet for AquaLuxe Theme
+ * 
+ * @package AquaLuxe
+ * @version 1.0.0
+ */
+
+/* Import Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+/* CSS Custom Properties for Theme Colors */
+:root {
+  --color-primary: theme('colors.primary.600');
+  --color-primary-hover: theme('colors.primary.700');
+  --color-secondary: theme('colors.secondary.600');
+  --color-accent: theme('colors.accent.500');
+  --color-text: theme('colors.neutral.800');
+  --color-text-light: theme('colors.neutral.600');
+  --color-background: theme('colors.white');
+  --color-surface: theme('colors.neutral.50');
+  --color-border: theme('colors.neutral.200');
+  
+  /* Dark mode colors */
+  --color-dark-text: theme('colors.neutral.100');
+  --color-dark-text-light: theme('colors.neutral.300');
+  --color-dark-background: theme('colors.neutral.900');
+  --color-dark-surface: theme('colors.neutral.800');
+  --color-dark-border: theme('colors.neutral.700');
+}
+
+/* Base Layer Customizations */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans text-neutral-800 bg-white antialiased;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1, 'pnum' 1, 'tnum' 0, 'onum' 1, 'lnum' 0, 'dlig' 0;
+  }
+  
+  .dark body {
+    @apply text-neutral-100 bg-neutral-900;
+  }
+  
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-semibold leading-tight;
+  }
+  
+  h1 {
+    @apply text-4xl lg:text-5xl xl:text-6xl;
+  }
+  
+  h2 {
+    @apply text-3xl lg:text-4xl xl:text-5xl;
+  }
+  
+  h3 {
+    @apply text-2xl lg:text-3xl;
+  }
+  
+  h4 {
+    @apply text-xl lg:text-2xl;
+  }
+  
+  h5 {
+    @apply text-lg lg:text-xl;
+  }
+  
+  h6 {
+    @apply text-base lg:text-lg;
+  }
+  
+  p {
+    @apply leading-relaxed;
+  }
+  
+  a {
+    @apply text-primary-600 hover:text-primary-700 transition-colors duration-200;
+  }
+  
+  .dark a {
+    @apply text-primary-400 hover:text-primary-300;
+  }
+  
+  /* Focus styles for accessibility */
+  *:focus {
+    @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+  }
+  
+  .dark *:focus {
+    @apply ring-offset-neutral-900;
+  }
+  
+  /* Skip link */
+  .skip-link {
+    @apply absolute top-4 left-4 z-50 px-4 py-2 bg-primary-600 text-white rounded transform -translate-y-16 opacity-0 transition-all duration-200;
+  }
+  
+  .skip-link:focus {
+    @apply translate-y-0 opacity-100;
+  }
+  
+  /* Screen reader only */
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  
+  .focus\:not-sr-only:focus {
+    @apply static w-auto h-auto p-0 m-0 overflow-visible;
+    clip: auto;
+    white-space: normal;
+  }
+}
+
+/* Component Layer */
+@layer components {
+  /* Button Components */
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .btn-primary {
+    @apply btn bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-secondary-600 text-white hover:bg-secondary-700 focus:ring-secondary-500;
+  }
+  
+  .btn-accent {
+    @apply btn bg-accent-500 text-white hover:bg-accent-600 focus:ring-accent-500;
+  }
+  
+  .btn-outline {
+    @apply btn border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white focus:ring-primary-500;
+  }
+  
+  .btn-ghost {
+    @apply btn text-primary-600 hover:bg-primary-50 focus:ring-primary-500;
+  }
+  
+  .btn-sm {
+    @apply px-4 py-2 text-sm;
+  }
+  
+  .btn-lg {
+    @apply px-8 py-4 text-lg;
+  }
+  
+  /* Card Components */
+  .card {
+    @apply bg-white rounded-xl shadow-soft border border-neutral-200 overflow-hidden;
+  }
+  
+  .dark .card {
+    @apply bg-neutral-800 border-neutral-700;
+  }
+  
+  .card-hover {
+    @apply card transition-all duration-300 hover:shadow-medium hover:-translate-y-1;
+  }
+  
+  /* Form Components */
+  .form-input {
+    @apply block w-full px-4 py-3 text-base border border-neutral-300 rounded-lg focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200;
+  }
+  
+  .dark .form-input {
+    @apply bg-neutral-800 border-neutral-600 text-neutral-100;
+  }
+  
+  .form-label {
+    @apply block text-sm font-medium text-neutral-700 mb-2;
+  }
+  
+  .dark .form-label {
+    @apply text-neutral-300;
+  }
+  
+  .form-error {
+    @apply text-red-600 text-sm mt-1;
+  }
+  
+  /* Navigation Components */
+  .nav-link {
+    @apply text-neutral-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200;
+  }
+  
+  .dark .nav-link {
+    @apply text-neutral-300 hover:text-primary-400;
+  }
+  
+  .nav-link.active {
+    @apply text-primary-600 bg-primary-50;
+  }
+  
+  .dark .nav-link.active {
+    @apply text-primary-400 bg-primary-900/20;
+  }
+  
+  /* Header Components */
+  .site-header {
+    @apply sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-neutral-200;
+  }
+  
+  .dark .site-header {
+    @apply bg-neutral-900/95 border-neutral-700;
+  }
+  
+  /* Footer Components */
+  .site-footer {
+    @apply bg-primary-900 text-white;
+  }
+  
+  .footer-widget h3 {
+    @apply text-lg font-semibold mb-4 text-primary-200;
+  }
+  
+  .footer-widget ul {
+    @apply space-y-2;
+  }
+  
+  .footer-widget a {
+    @apply text-primary-300 hover:text-white transition-colors duration-200;
+  }
+  
+  /* Content Components */
+  .content-area {
+    @apply prose prose-lg max-w-none;
+  }
+  
+  .dark .content-area {
+    @apply prose-invert;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    @apply relative min-h-screen flex items-center justify-center text-center overflow-hidden;
+  }
+  
+  .hero-background {
+    @apply absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800;
+  }
+  
+  .hero-overlay {
+    @apply absolute inset-0 bg-black/20;
+  }
+  
+  .hero-content {
+    @apply relative z-10 max-w-4xl mx-auto px-4;
+  }
+  
+  .hero-title {
+    @apply text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-fade-in;
+  }
+  
+  .hero-subtitle {
+    @apply text-xl md:text-2xl text-primary-100 mb-8 animate-slide-up;
+  }
+  
+  /* Product Grid */
+  .product-grid {
+    @apply grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+  }
+  
+  .product-card {
+    @apply card-hover group;
+  }
+  
+  .product-image {
+    @apply aspect-square overflow-hidden bg-neutral-100;
+  }
+  
+  .product-image img {
+    @apply w-full h-full object-cover group-hover:scale-105 transition-transform duration-300;
+  }
+  
+  .product-info {
+    @apply p-4;
+  }
+  
+  .product-title {
+    @apply font-semibold text-neutral-800 mb-2 group-hover:text-primary-600 transition-colors;
+  }
+  
+  .dark .product-title {
+    @apply text-neutral-100 group-hover:text-primary-400;
+  }
+  
+  .product-price {
+    @apply text-lg font-bold text-primary-600;
+  }
+  
+  .dark .product-price {
+    @apply text-primary-400;
+  }
+  
+  /* Pagination */
+  .pagination {
+    @apply flex items-center justify-center space-x-2 mt-8;
+  }
+  
+  .pagination a,
+  .pagination span {
+    @apply px-4 py-2 text-sm border border-neutral-300 rounded-md hover:bg-neutral-50 transition-colors;
+  }
+  
+  .dark .pagination a,
+  .dark .pagination span {
+    @apply border-neutral-600 hover:bg-neutral-800;
+  }
+  
+  .pagination .current {
+    @apply bg-primary-600 text-white border-primary-600;
+  }
+  
+  /* Loading States */
+  .loading {
+    @apply animate-pulse;
+  }
+  
+  .loading-skeleton {
+    @apply bg-neutral-200 rounded;
+  }
+  
+  .dark .loading-skeleton {
+    @apply bg-neutral-700;
+  }
+  
+  /* Accessibility Helpers */
+  .visually-hidden {
+    @apply sr-only;
+  }
+  
+  /* Print Styles */
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+    
+    .site-header,
+    .site-footer {
+      display: none !important;
+    }
+    
+    body {
+      @apply text-black bg-white;
+    }
+    
+    a[href]:after {
+      content: " (" attr(href) ")";
+    }
+  }
+}
+
+/* Utility Layer Customizations */
+@layer utilities {
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+  
+  .animate-slide-down {
+    animation: slideDown 0.5s ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out;
+  }
+  
+  /* Gradient utilities */
+  .gradient-primary {
+    background: linear-gradient(135deg, theme('colors.primary.500'), theme('colors.primary.700'));
+  }
+  
+  .gradient-secondary {
+    background: linear-gradient(135deg, theme('colors.secondary.500'), theme('colors.secondary.700'));
+  }
+  
+  .gradient-accent {
+    background: linear-gradient(135deg, theme('colors.accent.400'), theme('colors.accent.600'));
+  }
+  
+  .gradient-aqua {
+    background: linear-gradient(135deg, theme('colors.aqua.400'), theme('colors.aqua.600'));
+  }
+  
+  /* Text gradient utilities */
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-primary-500 to-primary-700 bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-accent {
+    @apply bg-gradient-to-r from-accent-400 to-accent-600 bg-clip-text text-transparent;
+  }
+  
+  /* Custom scrollbar */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.primary.400') theme('colors.neutral.200');
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-neutral-200;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-primary-400 rounded-full;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-500;
+  }
+  
+  .dark .scrollbar-thin {
+    scrollbar-color: theme('colors.primary.400') theme('colors.neutral.700');
+  }
+  
+  .dark .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-neutral-700;
+  }
+  
+  /* Image utilities */
+  .image-cover {
+    @apply object-cover w-full h-full;
+  }
+  
+  .image-contain {
+    @apply object-contain w-full h-full;
+  }
+  
+  /* Aspect ratio utilities */
+  .aspect-square {
+    aspect-ratio: 1 / 1;
+  }
+  
+  .aspect-video {
+    aspect-ratio: 16 / 9;
+  }
+  
+  .aspect-golden {
+    aspect-ratio: 1.618 / 1;
+  }
+}

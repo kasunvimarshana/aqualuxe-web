@@ -1,0 +1,2002 @@
+# Copyright (C) 2025 AquaLuxe
+# This file is distributed under the MIT.
+msgid ""
+msgstr ""
+"Project-Id-Version: AquaLuxe 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/aqualuxe\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-08-15T19:44:51+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: aqualuxe\n"
+
+#. Theme Name of the theme
+#. Author of the theme
+#: style.css
+msgid "AquaLuxe"
+msgstr ""
+
+#. Theme URI of the theme
+#. Author URI of the theme
+#: style.css
+msgid "https://aqualuxe.example.com/"
+msgstr ""
+
+#. Description of the theme
+#: style.css
+msgid "AquaLuxe is a premium WordPress theme designed for aquatic businesses. It features a dual-state architecture that works seamlessly with or without WooCommerce, delivering elegant design, robust functionality, and exceptional user experience."
+msgstr ""
+
+#: 404.php:16
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:17
+msgid "It looks like nothing was found at this location."
+msgstr ""
+
+#: 404.php:22
+msgid "404 Not Found"
+msgstr ""
+
+#: 404.php:26
+msgid "Perhaps searching can help you find what you're looking for:"
+msgstr ""
+
+#: 404.php:31
+msgid "Here are some helpful links instead:"
+msgstr ""
+
+#: 404.php:35
+msgid "Site Navigation"
+msgstr ""
+
+#: 404.php:37
+#: inc/seo/schema.php:532
+#: inc/template-functions/breadcrumbs.php:22
+msgid "Home"
+msgstr ""
+
+#: 404.php:38
+#: inc/template-functions/breadcrumbs.php:270
+msgid "Blog"
+msgstr ""
+
+#: 404.php:40
+#: inc/template-functions/breadcrumbs.php:285
+#: inc/template-functions/breadcrumbs.php:297
+#: inc/template-functions/breadcrumbs.php:336
+#: inc/template-functions/breadcrumbs.php:356
+msgid "Shop"
+msgstr ""
+
+#: 404.php:42
+msgid "Latest Articles"
+msgstr ""
+
+#: 404.php:47
+msgid "Popular Content"
+msgstr ""
+
+#: 404.php:69
+msgid "No popular content found"
+msgstr ""
+
+#. translators: 1: title.
+#: comments.php:35
+#, php-format
+msgid "One comment on &ldquo;%1$s&rdquo;"
+msgstr ""
+
+#. translators: 1: comment count number, 2: title.
+#: comments.php:41
+#, php-format
+msgctxt "comments title"
+msgid "%1$s comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:70
+msgid "Comments are closed."
+msgstr ""
+
+#: comments.php:78
+msgid "Leave a Comment"
+msgstr ""
+
+#: comments.php:81
+#: inc/hooks/filters.php:110
+msgid "Your email address will not be published. Required fields are marked *"
+msgstr ""
+
+#: comments.php:86
+#: inc/accessibility.php:320
+#: inc/accessibility/accessibility-functions.php:129
+#: inc/accessibility/accessibility.php:145
+msgid "Comment"
+msgstr ""
+
+#: comments.php:88
+#: inc/accessibility.php:317
+#: inc/accessibility/accessibility.php:142
+msgid "Name"
+msgstr ""
+
+#: comments.php:89
+#: inc/accessibility.php:318
+#: inc/accessibility/accessibility.php:143
+#: inc/customizer/register.php:1433
+#: templates/content/content-single.php:125
+msgid "Email"
+msgstr ""
+
+#: comments.php:90
+#: inc/accessibility.php:319
+#: inc/accessibility/accessibility.php:144
+#: inc/hooks/filters.php:136
+msgid "Website"
+msgstr ""
+
+#: comments.php:91
+msgid "Save my name, email, and website in this browser for the next time I comment."
+msgstr ""
+
+#: footer.php:54
+msgid "All rights reserved."
+msgstr ""
+
+#: footer.php:87
+#: inc/customizer/register.php:1429
+#: inc/hooks/hooks.php:117
+#: templates/content/content-single.php:109
+msgid "Facebook"
+msgstr ""
+
+#: footer.php:91
+#: inc/customizer/register.php:1430
+#: inc/hooks/hooks.php:123
+#: templates/content/content-single.php:113
+msgid "Twitter"
+msgstr ""
+
+#: footer.php:95
+#: inc/hooks/hooks.php:129
+msgid "Instagram"
+msgstr ""
+
+#: footer.php:99
+#: inc/hooks/hooks.php:141
+msgid "YouTube"
+msgstr ""
+
+#: footer.php:103
+#: inc/customizer/register.php:1431
+#: inc/hooks/hooks.php:147
+#: templates/content/content-single.php:121
+msgid "Pinterest"
+msgstr ""
+
+#: footer.php:107
+#: inc/customizer/register.php:1432
+#: inc/hooks/hooks.php:135
+#: templates/content/content-single.php:117
+msgid "LinkedIn"
+msgstr ""
+
+#: footer.php:130
+#: inc/hooks/hooks.php:193
+msgid "Back to top"
+msgstr ""
+
+#: header.php:26
+#: inc/accessibility/accessibility.php:21
+#: inc/accessibility/skip-links.php:30
+#: inc/hooks/hooks.php:67
+msgid "Skip to content"
+msgstr ""
+
+#: header.php:50
+#: inc/assets/enqueue.php:90
+msgid "Menu"
+msgstr ""
+
+#: header.php:71
+#: inc/accessibility.php:280
+#: inc/accessibility/accessibility-functions.php:73
+#: inc/accessibility/accessibility-functions.php:149
+#: inc/accessibility/accessibility.php:160
+#: inc/hooks/filters.php:173
+msgid "Search"
+msgstr ""
+
+#: header.php:88
+msgid "My Account"
+msgstr ""
+
+#: inc/accessibility.php:86
+#: inc/accessibility/accessibility-functions.php:306
+#: inc/accessibility/accessibility.php:316
+msgid "Accessibility"
+msgstr ""
+
+#: inc/accessibility.php:104
+#: inc/accessibility/accessibility.php:698
+msgid "Enable Accessibility Toolbar"
+msgstr ""
+
+#: inc/accessibility.php:105
+msgid "Adds a toolbar with accessibility options like high contrast mode, font size adjustment, and reduced motion."
+msgstr ""
+
+#: inc/accessibility.php:123
+msgid "Enable Skip Links"
+msgstr ""
+
+#: inc/accessibility.php:124
+msgid "Adds skip links for keyboard navigation."
+msgstr ""
+
+#: inc/accessibility.php:142
+msgid "Enable Keyboard Navigation"
+msgstr ""
+
+#: inc/accessibility.php:143
+msgid "Enhances keyboard navigation for dropdown menus and other interactive elements."
+msgstr ""
+
+#: inc/accessibility.php:161
+msgid "Enable Focus Styles"
+msgstr ""
+
+#: inc/accessibility.php:162
+msgid "Adds visible focus styles for keyboard navigation."
+msgstr ""
+
+#: inc/accessibility.php:180
+msgid "Enable Reduced Motion by Default"
+msgstr ""
+
+#: inc/accessibility.php:181
+msgid "Reduces or eliminates animations and transitions by default."
+msgstr ""
+
+#: inc/accessibility.php:199
+msgid "Enable High Contrast Mode by Default"
+msgstr ""
+
+#: inc/accessibility.php:200
+msgid "Increases contrast for better readability by default."
+msgstr ""
+
+#: inc/accessibility.php:264
+#: inc/accessibility/accessibility.php:59
+msgid "Primary Navigation"
+msgstr ""
+
+#: inc/accessibility.php:264
+#: inc/accessibility/accessibility.php:59
+msgid "Navigation"
+msgstr ""
+
+#: inc/accessibility.php:279
+#: inc/accessibility/accessibility.php:159
+msgid "Site Search"
+msgstr ""
+
+#: inc/accessibility.php:281
+#: inc/accessibility/accessibility-functions.php:152
+#: inc/accessibility/accessibility.php:161
+#: inc/hooks/filters.php:177
+msgid "Submit Search"
+msgstr ""
+
+#: inc/accessibility.php:295
+#: inc/accessibility/accessibility-functions.php:215
+#: inc/accessibility/accessibility.php:175
+msgid "Posts Navigation"
+msgstr ""
+
+#: inc/accessibility.php:297
+#: inc/accessibility/accessibility.php:177
+#: templates/content/content-search.php:35
+msgid "Page"
+msgstr ""
+
+#: inc/accessibility.php:298
+#: inc/accessibility/accessibility-functions.php:218
+#: inc/accessibility/accessibility.php:178
+msgid "Previous Page"
+msgstr ""
+
+#: inc/accessibility.php:299
+#: inc/accessibility/accessibility-functions.php:219
+#: inc/accessibility/accessibility.php:179
+msgid "Next Page"
+msgstr ""
+
+#: inc/accessibility.php:313
+#: inc/accessibility/accessibility.php:138
+msgid "Leave a comment"
+msgstr ""
+
+#: inc/accessibility.php:314
+#: inc/accessibility/accessibility.php:139
+msgid "Comment form notes"
+msgstr ""
+
+#: inc/accessibility/accessibility-functions.php:82
+#: inc/integrations/woocommerce/setup.php:315
+msgid "View your shopping cart"
+msgstr ""
+
+#: inc/accessibility/accessibility-functions.php:91
+msgid "Toggle Menu"
+msgstr ""
+
+#: inc/accessibility/accessibility-functions.php:132
+msgid "Submit Comment"
+msgstr ""
+
+#: inc/accessibility/accessibility-functions.php:234
+msgid "Previous Post"
+msgstr ""
+
+#: inc/accessibility/accessibility-functions.php:236
+msgid "Next Post"
+msgstr ""
+
+#: inc/accessibility/accessibility-functions.php:323
+msgid "Enable skip link"
+msgstr ""
+
+#: inc/accessibility/accessibility-functions.php:341
+#: inc/accessibility/skip-links.php:388
+msgid "Enable keyboard navigation"
+msgstr ""
+
+#: inc/accessibility/accessibility-functions.php:359
+msgid "Enable focus styles"
+msgstr ""
+
+#: inc/accessibility/accessibility-functions.php:377
+msgid "Enable screen reader text"
+msgstr ""
+
+#: inc/accessibility/accessibility-functions.php:395
+msgid "Enable ARIA attributes"
+msgstr ""
+
+#: inc/accessibility/accessibility-functions.php:413
+msgid "Enable high contrast mode"
+msgstr ""
+
+#: inc/accessibility/accessibility-functions.php:431
+msgid "Enable font size adjustment"
+msgstr ""
+
+#: inc/accessibility/accessibility-functions.php:519
+#: inc/accessibility/accessibility-functions.php:520
+msgid "Toggle High Contrast Mode"
+msgstr ""
+
+#: inc/accessibility/accessibility-functions.php:613
+msgid "Adjust Font Size"
+msgstr ""
+
+#: inc/accessibility/accessibility-functions.php:614
+msgid "Small Font Size"
+msgstr ""
+
+#: inc/accessibility/accessibility-functions.php:615
+msgid "Medium Font Size"
+msgstr ""
+
+#: inc/accessibility/accessibility-functions.php:616
+msgid "Large Font Size"
+msgstr ""
+
+#: inc/accessibility/accessibility-functions.php:617
+msgid "Extra Large Font Size"
+msgstr ""
+
+#. translators: %s: social network name
+#: inc/accessibility/accessibility.php:124
+#, php-format
+msgid "Visit our %s page"
+msgstr ""
+
+#: inc/accessibility/accessibility.php:333
+msgid "Enable High Contrast Mode"
+msgstr ""
+
+#: inc/accessibility/accessibility.php:334
+msgid "Increases contrast for better readability."
+msgstr ""
+
+#: inc/accessibility/accessibility.php:352
+msgid "Base Font Size"
+msgstr ""
+
+#: inc/accessibility/accessibility.php:353
+msgid "Set the base font size for better readability."
+msgstr ""
+
+#: inc/accessibility/accessibility.php:357
+#: inc/setup/theme-setup.php:99
+msgid "Small"
+msgstr ""
+
+#: inc/accessibility/accessibility.php:358
+msgid "Medium"
+msgstr ""
+
+#: inc/accessibility/accessibility.php:359
+#: inc/setup/theme-setup.php:111
+msgid "Large"
+msgstr ""
+
+#: inc/accessibility/accessibility.php:376
+#: inc/accessibility/accessibility.php:663
+msgid "Reduce Motion"
+msgstr ""
+
+#: inc/accessibility/accessibility.php:377
+msgid "Reduces or eliminates animations and transitions."
+msgstr ""
+
+#: inc/accessibility/accessibility.php:395
+msgid "Focus Indicator Style"
+msgstr ""
+
+#: inc/accessibility/accessibility.php:396
+msgid "Choose the style of the focus indicator for keyboard navigation."
+msgstr ""
+
+#: inc/accessibility/accessibility.php:400
+msgid "Default"
+msgstr ""
+
+#: inc/accessibility/accessibility.php:401
+msgid "Bold"
+msgstr ""
+
+#: inc/accessibility/accessibility.php:402
+msgid "Subtle"
+msgstr ""
+
+#: inc/accessibility/accessibility.php:643
+#: inc/accessibility/accessibility.php:645
+msgid "Accessibility Tools"
+msgstr ""
+
+#: inc/accessibility/accessibility.php:651
+msgid "High Contrast"
+msgstr ""
+
+#: inc/accessibility/accessibility.php:655
+msgid "Increase Font Size"
+msgstr ""
+
+#: inc/accessibility/accessibility.php:659
+msgid "Decrease Font Size"
+msgstr ""
+
+#: inc/accessibility/accessibility.php:699
+msgid "Adds a toolbar with accessibility options."
+msgstr ""
+
+#: inc/accessibility/skip-links.php:31
+msgid "Skip to navigation"
+msgstr ""
+
+#: inc/accessibility/skip-links.php:32
+msgid "Skip to footer"
+msgstr ""
+
+#: inc/accessibility/skip-links.php:369
+msgid "Enable skip links"
+msgstr ""
+
+#: inc/accessibility/skip-links.php:370
+msgid "Add skip links for keyboard navigation."
+msgstr ""
+
+#: inc/accessibility/skip-links.php:389
+msgid "Add keyboard navigation support."
+msgstr ""
+
+#: inc/assets/enqueue-accessibility.php:86
+msgid "Enable accessibility toolbar"
+msgstr ""
+
+#: inc/assets/enqueue-accessibility.php:87
+msgid "Add an accessibility toolbar with high contrast mode, font size adjustment, and reduced motion options."
+msgstr ""
+
+#: inc/assets/enqueue.php:89
+#: inc/hooks/filters.php:175
+msgid "Search..."
+msgstr ""
+
+#: inc/assets/enqueue.php:91
+msgid "Close Menu"
+msgstr ""
+
+#: inc/assets/enqueue.php:92
+#: inc/hooks/filters.php:246
+msgid "Toggle Dark Mode"
+msgstr ""
+
+#: inc/assets/enqueue.php:93
+msgid "Loading..."
+msgstr ""
+
+#: inc/assets/enqueue.php:94
+msgid "Add to Cart"
+msgstr ""
+
+#: inc/assets/enqueue.php:95
+msgid "Adding..."
+msgstr ""
+
+#: inc/assets/enqueue.php:96
+msgid "Added!"
+msgstr ""
+
+#: inc/assets/enqueue.php:97
+msgid "View Cart"
+msgstr ""
+
+#: inc/customizer/register.php:53
+msgid "AquaLuxe Theme Options"
+msgstr ""
+
+#: inc/customizer/register.php:54
+msgid "Configure AquaLuxe theme settings"
+msgstr ""
+
+#: inc/customizer/register.php:87
+msgid "General Settings"
+msgstr ""
+
+#: inc/customizer/register.php:88
+msgid "Configure general theme settings"
+msgstr ""
+
+#: inc/customizer/register.php:106
+msgid "Enable Dark Mode Toggle"
+msgstr ""
+
+#: inc/customizer/register.php:107
+msgid "Allow users to switch between light and dark mode"
+msgstr ""
+
+#: inc/customizer/register.php:125
+msgid "Default Color Scheme"
+msgstr ""
+
+#: inc/customizer/register.php:126
+msgid "Choose the default color scheme for your site"
+msgstr ""
+
+#: inc/customizer/register.php:130
+#: inc/setup/theme-setup.php:145
+msgid "Light"
+msgstr ""
+
+#: inc/customizer/register.php:131
+#: inc/setup/theme-setup.php:140
+msgid "Dark"
+msgstr ""
+
+#: inc/customizer/register.php:132
+msgid "Auto (follow system preference)"
+msgstr ""
+
+#: inc/customizer/register.php:149
+msgid "Container Width (px)"
+msgstr ""
+
+#: inc/customizer/register.php:150
+msgid "Set the maximum width of the content container"
+msgstr ""
+
+#: inc/customizer/register.php:173
+msgid "Enable Breadcrumbs"
+msgstr ""
+
+#: inc/customizer/register.php:174
+msgid "Show breadcrumb navigation on pages and posts"
+msgstr ""
+
+#: inc/customizer/register.php:192
+msgid "Enable Back to Top Button"
+msgstr ""
+
+#: inc/customizer/register.php:193
+msgid "Show a button to scroll back to the top of the page"
+msgstr ""
+
+#: inc/customizer/register.php:209
+msgid "Header Settings"
+msgstr ""
+
+#: inc/customizer/register.php:210
+msgid "Configure header layout and elements"
+msgstr ""
+
+#: inc/customizer/register.php:228
+msgid "Header Layout"
+msgstr ""
+
+#: inc/customizer/register.php:229
+msgid "Choose the layout for your site header"
+msgstr ""
+
+#: inc/customizer/register.php:233
+#: inc/customizer/register.php:1067
+msgid "Standard"
+msgstr ""
+
+#: inc/customizer/register.php:234
+msgid "Centered"
+msgstr ""
+
+#: inc/customizer/register.php:235
+msgid "Split (Logo in Center)"
+msgstr ""
+
+#: inc/customizer/register.php:236
+msgid "Transparent"
+msgstr ""
+
+#: inc/customizer/register.php:253
+msgid "Enable Sticky Header"
+msgstr ""
+
+#: inc/customizer/register.php:254
+msgid "Keep the header visible when scrolling down"
+msgstr ""
+
+#: inc/customizer/register.php:272
+msgid "Show Search in Header"
+msgstr ""
+
+#: inc/customizer/register.php:273
+msgid "Display a search icon/form in the header"
+msgstr ""
+
+#: inc/customizer/register.php:291
+msgid "Show Cart in Header"
+msgstr ""
+
+#: inc/customizer/register.php:292
+msgid "Display a shopping cart icon in the header (requires WooCommerce)"
+msgstr ""
+
+#: inc/customizer/register.php:313
+msgid "Show Account in Header"
+msgstr ""
+
+#: inc/customizer/register.php:314
+msgid "Display an account/login icon in the header"
+msgstr ""
+
+#: inc/customizer/register.php:332
+msgid "Enable Top Bar"
+msgstr ""
+
+#: inc/customizer/register.php:333
+msgid "Show a top bar above the main header"
+msgstr ""
+
+#: inc/customizer/register.php:343
+#: inc/hooks/hooks.php:82
+msgid "Welcome to AquaLuxe - Bringing elegance to aquatic life – globally."
+msgstr ""
+
+#: inc/customizer/register.php:351
+msgid "Top Bar Content"
+msgstr ""
+
+#: inc/customizer/register.php:352
+msgid "Text or HTML to display in the top bar"
+msgstr ""
+
+#: inc/customizer/register.php:371
+msgid "Footer Settings"
+msgstr ""
+
+#: inc/customizer/register.php:372
+msgid "Configure footer layout and content"
+msgstr ""
+
+#: inc/customizer/register.php:390
+msgid "Footer Widget Layout"
+msgstr ""
+
+#: inc/customizer/register.php:391
+msgid "Choose the layout for footer widgets"
+msgstr ""
+
+#: inc/customizer/register.php:395
+msgid "4 Columns"
+msgstr ""
+
+#: inc/customizer/register.php:396
+msgid "3 Columns"
+msgstr ""
+
+#: inc/customizer/register.php:397
+msgid "2 Columns"
+msgstr ""
+
+#: inc/customizer/register.php:398
+msgid "1 Column"
+msgstr ""
+
+#: inc/customizer/register.php:399
+msgid "No Widgets"
+msgstr ""
+
+#: inc/customizer/register.php:418
+msgid "Footer Logo"
+msgstr ""
+
+#: inc/customizer/register.php:419
+msgid "Upload a logo to display in the footer"
+msgstr ""
+
+#. translators: %1$s: Current year, %2$s: Site name
+#: inc/customizer/register.php:432
+#: inc/hooks/hooks.php:225
+#, php-format
+msgid "© %1$s %2$s. All rights reserved."
+msgstr ""
+
+#: inc/customizer/register.php:443
+msgid "Copyright Text"
+msgstr ""
+
+#: inc/customizer/register.php:444
+msgid "Text or HTML to display in the copyright area"
+msgstr ""
+
+#: inc/customizer/register.php:462
+msgid "Show Payment Icons"
+msgstr ""
+
+#: inc/customizer/register.php:463
+msgid "Display payment method icons in the footer"
+msgstr ""
+
+#: inc/customizer/register.php:483
+msgid "Select Payment Icons"
+msgstr ""
+
+#: inc/customizer/register.php:484
+msgid "Choose which payment icons to display"
+msgstr ""
+
+#: inc/customizer/register.php:489
+msgid "Visa"
+msgstr ""
+
+#: inc/customizer/register.php:490
+msgid "Mastercard"
+msgstr ""
+
+#: inc/customizer/register.php:491
+msgid "American Express"
+msgstr ""
+
+#: inc/customizer/register.php:492
+msgid "Discover"
+msgstr ""
+
+#: inc/customizer/register.php:493
+msgid "PayPal"
+msgstr ""
+
+#: inc/customizer/register.php:494
+msgid "Apple Pay"
+msgstr ""
+
+#: inc/customizer/register.php:495
+msgid "Google Pay"
+msgstr ""
+
+#: inc/customizer/register.php:496
+msgid "Stripe"
+msgstr ""
+
+#: inc/customizer/register.php:515
+msgid "Colors"
+msgstr ""
+
+#: inc/customizer/register.php:516
+msgid "Customize theme colors"
+msgstr ""
+
+#: inc/customizer/register.php:536
+msgid "Primary Color"
+msgstr ""
+
+#: inc/customizer/register.php:537
+msgid "Main brand color used for buttons, links, and accents"
+msgstr ""
+
+#: inc/customizer/register.php:557
+msgid "Secondary Color"
+msgstr ""
+
+#: inc/customizer/register.php:558
+msgid "Secondary brand color used for accents and highlights"
+msgstr ""
+
+#: inc/customizer/register.php:578
+msgid "Text Color (Light Mode)"
+msgstr ""
+
+#: inc/customizer/register.php:579
+msgid "Main text color in light mode"
+msgstr ""
+
+#: inc/customizer/register.php:599
+msgid "Background Color (Light Mode)"
+msgstr ""
+
+#: inc/customizer/register.php:600
+msgid "Main background color in light mode"
+msgstr ""
+
+#: inc/customizer/register.php:620
+msgid "Text Color (Dark Mode)"
+msgstr ""
+
+#: inc/customizer/register.php:621
+msgid "Main text color in dark mode"
+msgstr ""
+
+#: inc/customizer/register.php:641
+msgid "Background Color (Dark Mode)"
+msgstr ""
+
+#: inc/customizer/register.php:642
+msgid "Main background color in dark mode"
+msgstr ""
+
+#: inc/customizer/register.php:662
+msgid "Header Background Color"
+msgstr ""
+
+#: inc/customizer/register.php:663
+msgid "Background color for the header"
+msgstr ""
+
+#: inc/customizer/register.php:683
+msgid "Footer Background Color"
+msgstr ""
+
+#: inc/customizer/register.php:684
+msgid "Background color for the footer"
+msgstr ""
+
+#: inc/customizer/register.php:704
+msgid "Footer Text Color"
+msgstr ""
+
+#: inc/customizer/register.php:705
+msgid "Text color for the footer"
+msgstr ""
+
+#: inc/customizer/register.php:721
+msgid "Typography"
+msgstr ""
+
+#: inc/customizer/register.php:722
+msgid "Customize fonts and typography"
+msgstr ""
+
+#: inc/customizer/register.php:740
+msgid "Body Font Family"
+msgstr ""
+
+#: inc/customizer/register.php:741
+msgid "Font family for body text"
+msgstr ""
+
+#: inc/customizer/register.php:770
+msgid "Heading Font Family"
+msgstr ""
+
+#: inc/customizer/register.php:771
+msgid "Font family for headings"
+msgstr ""
+
+#: inc/customizer/register.php:800
+msgid "Base Font Size (px)"
+msgstr ""
+
+#: inc/customizer/register.php:801
+msgid "Base font size for body text"
+msgstr ""
+
+#: inc/customizer/register.php:824
+msgid "Line Height"
+msgstr ""
+
+#: inc/customizer/register.php:825
+msgid "Line height for body text"
+msgstr ""
+
+#: inc/customizer/register.php:848
+msgid "Body Font Weight"
+msgstr ""
+
+#: inc/customizer/register.php:849
+msgid "Font weight for body text"
+msgstr ""
+
+#: inc/customizer/register.php:853
+msgid "Light (300)"
+msgstr ""
+
+#: inc/customizer/register.php:854
+#: inc/customizer/register.php:879
+msgid "Regular (400)"
+msgstr ""
+
+#: inc/customizer/register.php:855
+#: inc/customizer/register.php:880
+msgid "Medium (500)"
+msgstr ""
+
+#: inc/customizer/register.php:856
+#: inc/customizer/register.php:881
+msgid "Semi-Bold (600)"
+msgstr ""
+
+#: inc/customizer/register.php:857
+#: inc/customizer/register.php:882
+msgid "Bold (700)"
+msgstr ""
+
+#: inc/customizer/register.php:874
+msgid "Heading Font Weight"
+msgstr ""
+
+#: inc/customizer/register.php:875
+msgid "Font weight for headings"
+msgstr ""
+
+#: inc/customizer/register.php:883
+msgid "Extra-Bold (800)"
+msgstr ""
+
+#: inc/customizer/register.php:898
+msgid "Layout Settings"
+msgstr ""
+
+#: inc/customizer/register.php:899
+msgid "Configure layout options"
+msgstr ""
+
+#: inc/customizer/register.php:917
+msgid "Page Layout"
+msgstr ""
+
+#: inc/customizer/register.php:918
+msgid "Choose the layout for pages"
+msgstr ""
+
+#: inc/customizer/register.php:922
+#: inc/customizer/register.php:946
+#: inc/customizer/register.php:970
+#: inc/customizer/register.php:994
+#: inc/customizer/register.php:1021
+msgid "Right Sidebar"
+msgstr ""
+
+#: inc/customizer/register.php:923
+#: inc/customizer/register.php:947
+#: inc/customizer/register.php:971
+#: inc/customizer/register.php:995
+#: inc/customizer/register.php:1022
+msgid "Left Sidebar"
+msgstr ""
+
+#: inc/customizer/register.php:924
+#: inc/customizer/register.php:948
+#: inc/customizer/register.php:972
+#: inc/customizer/register.php:996
+#: inc/customizer/register.php:1023
+msgid "No Sidebar"
+msgstr ""
+
+#: inc/customizer/register.php:941
+msgid "Post Layout"
+msgstr ""
+
+#: inc/customizer/register.php:942
+msgid "Choose the layout for single posts"
+msgstr ""
+
+#: inc/customizer/register.php:965
+msgid "Archive Layout"
+msgstr ""
+
+#: inc/customizer/register.php:966
+msgid "Choose the layout for archives and blog"
+msgstr ""
+
+#: inc/customizer/register.php:989
+msgid "Shop Layout"
+msgstr ""
+
+#: inc/customizer/register.php:990
+msgid "Choose the layout for shop pages"
+msgstr ""
+
+#: inc/customizer/register.php:1016
+msgid "Product Layout"
+msgstr ""
+
+#: inc/customizer/register.php:1017
+msgid "Choose the layout for single product pages"
+msgstr ""
+
+#: inc/customizer/register.php:1041
+msgid "Blog Settings"
+msgstr ""
+
+#: inc/customizer/register.php:1042
+msgid "Configure blog and post options"
+msgstr ""
+
+#: inc/customizer/register.php:1060
+msgid "Blog Layout"
+msgstr ""
+
+#: inc/customizer/register.php:1061
+msgid "Choose the layout for the blog archive"
+msgstr ""
+
+#: inc/customizer/register.php:1065
+msgid "Grid"
+msgstr ""
+
+#: inc/customizer/register.php:1066
+msgid "List"
+msgstr ""
+
+#: inc/customizer/register.php:1084
+msgid "Posts Per Row"
+msgstr ""
+
+#: inc/customizer/register.php:1085
+msgid "Number of posts per row in grid layout"
+msgstr ""
+
+#: inc/customizer/register.php:1111
+msgid "Show Featured Image"
+msgstr ""
+
+#: inc/customizer/register.php:1112
+msgid "Display featured image on blog and single posts"
+msgstr ""
+
+#: inc/customizer/register.php:1130
+msgid "Show Post Meta"
+msgstr ""
+
+#: inc/customizer/register.php:1131
+msgid "Display post date, author, categories, etc."
+msgstr ""
+
+#: inc/customizer/register.php:1149
+msgid "Show Post Excerpt"
+msgstr ""
+
+#: inc/customizer/register.php:1150
+msgid "Display post excerpt on blog archive"
+msgstr ""
+
+#: inc/customizer/register.php:1168
+msgid "Excerpt Length"
+msgstr ""
+
+#: inc/customizer/register.php:1169
+msgid "Number of words in the excerpt"
+msgstr ""
+
+#: inc/customizer/register.php:1187
+#: inc/hooks/hooks.php:396
+#: templates/components/related-posts.php:67
+#: templates/content/content-search.php:68
+#: templates/content/content.php:81
+msgid "Read More"
+msgstr ""
+
+#: inc/customizer/register.php:1195
+msgid "Read More Text"
+msgstr ""
+
+#: inc/customizer/register.php:1196
+msgid "Text for the read more link"
+msgstr ""
+
+#: inc/customizer/register.php:1214
+msgid "Show Related Posts"
+msgstr ""
+
+#: inc/customizer/register.php:1215
+msgid "Display related posts on single post pages"
+msgstr ""
+
+#: inc/customizer/register.php:1233
+msgid "Show Post Navigation"
+msgstr ""
+
+#: inc/customizer/register.php:1234
+msgid "Display previous/next post navigation on single post pages"
+msgstr ""
+
+#: inc/customizer/register.php:1250
+msgid "Social Media"
+msgstr ""
+
+#: inc/customizer/register.php:1251
+msgid "Configure social media profiles and sharing"
+msgstr ""
+
+#: inc/customizer/register.php:1269
+msgid "Facebook URL"
+msgstr ""
+
+#: inc/customizer/register.php:1270
+msgid "Enter your Facebook profile or page URL"
+msgstr ""
+
+#: inc/customizer/register.php:1288
+msgid "Twitter URL"
+msgstr ""
+
+#: inc/customizer/register.php:1289
+msgid "Enter your Twitter profile URL"
+msgstr ""
+
+#: inc/customizer/register.php:1307
+msgid "Twitter Username"
+msgstr ""
+
+#: inc/customizer/register.php:1308
+msgid "Enter your Twitter username without @"
+msgstr ""
+
+#: inc/customizer/register.php:1326
+msgid "Instagram URL"
+msgstr ""
+
+#: inc/customizer/register.php:1327
+msgid "Enter your Instagram profile URL"
+msgstr ""
+
+#: inc/customizer/register.php:1345
+msgid "LinkedIn URL"
+msgstr ""
+
+#: inc/customizer/register.php:1346
+msgid "Enter your LinkedIn profile or company URL"
+msgstr ""
+
+#: inc/customizer/register.php:1364
+msgid "YouTube URL"
+msgstr ""
+
+#: inc/customizer/register.php:1365
+msgid "Enter your YouTube channel URL"
+msgstr ""
+
+#: inc/customizer/register.php:1383
+msgid "Pinterest URL"
+msgstr ""
+
+#: inc/customizer/register.php:1384
+msgid "Enter your Pinterest profile URL"
+msgstr ""
+
+#: inc/customizer/register.php:1402
+msgid "Enable Social Sharing"
+msgstr ""
+
+#: inc/customizer/register.php:1403
+msgid "Display social sharing buttons on posts and products"
+msgstr ""
+
+#: inc/customizer/register.php:1423
+msgid "Social Sharing Networks"
+msgstr ""
+
+#: inc/customizer/register.php:1424
+msgid "Select which social networks to include in sharing buttons"
+msgstr ""
+
+#: inc/customizer/register.php:1434
+msgid "WhatsApp"
+msgstr ""
+
+#: inc/customizer/register.php:1435
+msgid "Telegram"
+msgstr ""
+
+#: inc/customizer/register.php:1458
+msgid "Default Social Image"
+msgstr ""
+
+#: inc/customizer/register.php:1459
+msgid "Upload a default image for social sharing when no featured image is available"
+msgstr ""
+
+#: inc/customizer/register.php:1476
+msgid "Contact Information"
+msgstr ""
+
+#: inc/customizer/register.php:1477
+msgid "Configure contact details and information"
+msgstr ""
+
+#: inc/customizer/register.php:1495
+msgid "Phone Number"
+msgstr ""
+
+#: inc/customizer/register.php:1496
+msgid "Enter your business phone number"
+msgstr ""
+
+#: inc/customizer/register.php:1514
+msgid "Email Address"
+msgstr ""
+
+#: inc/customizer/register.php:1515
+msgid "Enter your business email address"
+msgstr ""
+
+#: inc/customizer/register.php:1533
+msgid "Street Address"
+msgstr ""
+
+#: inc/customizer/register.php:1534
+msgid "Enter your street address"
+msgstr ""
+
+#: inc/customizer/register.php:1551
+msgid "City"
+msgstr ""
+
+#: inc/customizer/register.php:1552
+msgid "Enter your city"
+msgstr ""
+
+#: inc/customizer/register.php:1569
+msgid "State/Province"
+msgstr ""
+
+#: inc/customizer/register.php:1570
+msgid "Enter your state or province"
+msgstr ""
+
+#: inc/customizer/register.php:1587
+msgid "ZIP/Postal Code"
+msgstr ""
+
+#: inc/customizer/register.php:1588
+msgid "Enter your ZIP or postal code"
+msgstr ""
+
+#: inc/customizer/register.php:1605
+msgid "Country"
+msgstr ""
+
+#: inc/customizer/register.php:1606
+msgid "Enter your country"
+msgstr ""
+
+#: inc/customizer/register.php:1624
+msgid "Google Maps Embed Code"
+msgstr ""
+
+#: inc/customizer/register.php:1625
+msgid "Enter the Google Maps embed code for your location"
+msgstr ""
+
+#: inc/customizer/register.php:1643
+msgid "Business Hours"
+msgstr ""
+
+#: inc/customizer/register.php:1644
+msgid "Enter your business hours (HTML allowed)"
+msgstr ""
+
+#: inc/customizer/register.php:1660
+#: inc/performance/asset-optimization.php:462
+msgid "Performance"
+msgstr ""
+
+#: inc/customizer/register.php:1661
+msgid "Configure performance optimization settings"
+msgstr ""
+
+#: inc/customizer/register.php:1679
+msgid "Enable Lazy Loading"
+msgstr ""
+
+#: inc/customizer/register.php:1680
+msgid "Lazy load images and iframes for better performance"
+msgstr ""
+
+#: inc/customizer/register.php:1698
+msgid "Preload Critical Assets"
+msgstr ""
+
+#: inc/customizer/register.php:1699
+msgid "Preload critical CSS and fonts for faster rendering"
+msgstr ""
+
+#: inc/customizer/register.php:1717
+msgid "Disable WordPress Emojis"
+msgstr ""
+
+#: inc/customizer/register.php:1718
+msgid "Remove emoji scripts for better performance"
+msgstr ""
+
+#: inc/customizer/register.php:1736
+msgid "Disable WordPress Embeds"
+msgstr ""
+
+#: inc/customizer/register.php:1737
+msgid "Remove embed scripts for better performance (may affect embedded content)"
+msgstr ""
+
+#: inc/customizer/register.php:1755
+msgid "Minify HTML Output"
+msgstr ""
+
+#: inc/customizer/register.php:1756
+msgid "Minify HTML output for better performance (may affect some plugins)"
+msgstr ""
+
+#: inc/customizer/register.php:1774
+msgid "Defer JavaScript"
+msgstr ""
+
+#: inc/customizer/register.php:1775
+msgid "Defer non-critical JavaScript for better performance"
+msgstr ""
+
+#: inc/customizer/register.php:1791
+msgid "WooCommerce"
+msgstr ""
+
+#: inc/customizer/register.php:1792
+msgid "Configure WooCommerce settings"
+msgstr ""
+
+#: inc/customizer/register.php:1810
+msgid "Products Per Row"
+msgstr ""
+
+#: inc/customizer/register.php:1811
+msgid "Number of products to display per row"
+msgstr ""
+
+#: inc/customizer/register.php:1834
+msgid "Products Per Page"
+msgstr ""
+
+#: inc/customizer/register.php:1835
+msgid "Number of products to display per page"
+msgstr ""
+
+#: inc/customizer/register.php:1858
+msgid "Enable Product Gallery Zoom"
+msgstr ""
+
+#: inc/customizer/register.php:1859
+msgid "Allow customers to zoom in on product images"
+msgstr ""
+
+#: inc/customizer/register.php:1877
+msgid "Enable Product Gallery Lightbox"
+msgstr ""
+
+#: inc/customizer/register.php:1878
+msgid "Allow customers to view product images in a lightbox"
+msgstr ""
+
+#: inc/customizer/register.php:1896
+msgid "Enable Product Gallery Slider"
+msgstr ""
+
+#: inc/customizer/register.php:1897
+msgid "Display product images in a slider"
+msgstr ""
+
+#: inc/customizer/register.php:1915
+msgid "Show Related Products"
+msgstr ""
+
+#: inc/customizer/register.php:1916
+msgid "Display related products on single product pages"
+msgstr ""
+
+#: inc/customizer/register.php:1934
+msgid "Show Up-Sells"
+msgstr ""
+
+#: inc/customizer/register.php:1935
+msgid "Display up-sell products on single product pages"
+msgstr ""
+
+#: inc/customizer/register.php:1953
+msgid "Show Cross-Sells"
+msgstr ""
+
+#: inc/customizer/register.php:1954
+msgid "Display cross-sell products on cart page"
+msgstr ""
+
+#: inc/customizer/register.php:1972
+msgid "Enable Quick View"
+msgstr ""
+
+#: inc/customizer/register.php:1973
+msgid "Allow customers to view product details in a modal"
+msgstr ""
+
+#: inc/customizer/register.php:1991
+msgid "Enable Wishlist"
+msgstr ""
+
+#: inc/customizer/register.php:1992
+msgid "Allow customers to add products to a wishlist"
+msgstr ""
+
+#: inc/customizer/register.php:2010
+msgid "Enable Catalog Mode"
+msgstr ""
+
+#: inc/customizer/register.php:2011
+msgid "Hide prices and add to cart buttons (display products only)"
+msgstr ""
+
+#: inc/customizer/register.php:2021
+msgid "<h2>Our Products</h2><p>We offer a wide range of premium aquatic products. Please install WooCommerce to enable our online store.</p><a href=\"#\" class=\"button\">Contact Us</a>"
+msgstr ""
+
+#: inc/customizer/register.php:2029
+msgid "WooCommerce Fallback Content"
+msgstr ""
+
+#: inc/customizer/register.php:2030
+msgid "Content to display when WooCommerce is not active (HTML allowed)"
+msgstr ""
+
+#. translators: %s: pingback URL
+#: inc/hooks/filters.php:67
+#, php-format
+msgid "<link rel=\"pingback\" href=\"%s\">"
+msgstr ""
+
+#: inc/hooks/filters.php:105
+msgid "Comment *"
+msgstr ""
+
+#: inc/hooks/filters.php:118
+msgid "Name *"
+msgstr ""
+
+#: inc/hooks/filters.php:127
+msgid "Email *"
+msgstr ""
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#: inc/hooks/hooks.php:374
+#: templates/content/content-single.php:54
+#: templates/content/content.php:63
+#, php-format
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#: inc/hooks/hooks.php:387
+#: inc/hooks/hooks.php:521
+#: templates/content/content-page.php:30
+#: templates/content/content-single.php:67
+msgid "Pages:"
+msgstr ""
+
+#: inc/hooks/hooks.php:417
+#: templates/content/content-single.php:32
+msgid ", "
+msgstr ""
+
+#: inc/hooks/hooks.php:418
+msgctxt "list item separator"
+msgid ", "
+msgstr ""
+
+#: inc/hooks/hooks.php:425
+msgid "Categories:"
+msgstr ""
+
+#: inc/hooks/hooks.php:432
+msgid "Tags:"
+msgstr ""
+
+#: inc/hooks/hooks.php:451
+#: single.php:43
+msgid "Previous:"
+msgstr ""
+
+#: inc/hooks/hooks.php:452
+#: single.php:52
+msgid "Next:"
+msgstr ""
+
+#: inc/integrations/woocommerce/setup.php:213
+#: inc/integrations/woocommerce/setup.php:423
+msgid "Invalid nonce."
+msgstr ""
+
+#: inc/integrations/woocommerce/setup.php:218
+#: inc/integrations/woocommerce/setup.php:433
+msgid "Invalid product ID."
+msgstr ""
+
+#: inc/integrations/woocommerce/setup.php:229
+#: inc/integrations/woocommerce/setup.php:444
+msgid "Product not found."
+msgstr ""
+
+#: inc/integrations/woocommerce/setup.php:254
+msgid "Failed to add product to cart."
+msgstr ""
+
+#. translators: %s: product name
+#: inc/integrations/woocommerce/setup.php:273
+#, php-format
+msgid "%s has been added to your cart."
+msgstr ""
+
+#: inc/integrations/woocommerce/setup.php:412
+msgid "Remove from Wishlist"
+msgstr ""
+
+#: inc/integrations/woocommerce/setup.php:412
+msgid "Add to Wishlist"
+msgstr ""
+
+#: inc/integrations/woocommerce/setup.php:428
+msgid "You must be logged in to add products to your wishlist."
+msgstr ""
+
+#. translators: %s: product name
+#: inc/integrations/woocommerce/setup.php:473
+#, php-format
+msgid "%s has been removed from your wishlist."
+msgstr ""
+
+#. translators: %s: product name
+#: inc/integrations/woocommerce/setup.php:488
+#, php-format
+msgid "%s has been added to your wishlist."
+msgstr ""
+
+#: inc/integrations/woocommerce/setup.php:531
+#: inc/template-functions/breadcrumbs.php:29
+msgid "Breadcrumb"
+msgstr ""
+
+#: inc/integrations/woocommerce/setup.php:535
+msgctxt "breadcrumb"
+msgid "Home"
+msgstr ""
+
+#: inc/integrations/woocommerce/setup.php:547
+msgid "Previous"
+msgstr ""
+
+#: inc/integrations/woocommerce/setup.php:548
+msgid "Next"
+msgstr ""
+
+#: inc/performance/asset-optimization.php:353
+#: inc/performance/image-optimization.php:42
+#: inc/performance/lazy-loading.php:271
+msgid "Featured Image"
+msgstr ""
+
+#: inc/performance/asset-optimization.php:354
+#: inc/performance/image-optimization.php:43
+#: inc/performance/lazy-loading.php:272
+msgid "Card Image"
+msgstr ""
+
+#: inc/performance/asset-optimization.php:355
+#: inc/performance/image-optimization.php:41
+#: inc/performance/lazy-loading.php:274
+msgid "Hero Image"
+msgstr ""
+
+#: inc/performance/asset-optimization.php:479
+msgid "Disable WordPress emojis"
+msgstr ""
+
+#: inc/performance/asset-optimization.php:497
+msgid "Disable WordPress embeds"
+msgstr ""
+
+#: inc/performance/asset-optimization.php:515
+msgid "Inline critical CSS"
+msgstr ""
+
+#: inc/performance/asset-optimization.php:533
+msgid "Preload critical assets"
+msgstr ""
+
+#: inc/performance/asset-optimization.php:551
+msgid "Use Google Fonts"
+msgstr ""
+
+#: inc/performance/asset-optimization.php:569
+msgid "Use Font Awesome CDN"
+msgstr ""
+
+#: inc/performance/asset-optimization.php:587
+msgid "Google Analytics ID"
+msgstr ""
+
+#: inc/performance/caching.php:474
+msgid "Caching"
+msgstr ""
+
+#: inc/performance/caching.php:492
+msgid "Enable Browser Caching"
+msgstr ""
+
+#: inc/performance/caching.php:493
+msgid "Add browser caching headers to improve performance."
+msgstr ""
+
+#: inc/performance/caching.php:511
+msgid "Enable Object Caching"
+msgstr ""
+
+#: inc/performance/caching.php:512
+msgid "Cache database queries to improve performance."
+msgstr ""
+
+#: inc/performance/caching.php:530
+msgid "Enable Transient Caching"
+msgstr ""
+
+#: inc/performance/caching.php:531
+msgid "Cache expensive operations to improve performance."
+msgstr ""
+
+#: inc/performance/caching.php:549
+msgid "Enable Fragment Caching"
+msgstr ""
+
+#: inc/performance/caching.php:550
+msgid "Cache template parts to improve performance."
+msgstr ""
+
+#: inc/performance/caching.php:568
+msgid "Enable Page Caching"
+msgstr ""
+
+#: inc/performance/caching.php:569
+msgid "Cache entire pages to improve performance. Not recommended if you use dynamic content."
+msgstr ""
+
+#: inc/performance/caching.php:602
+msgid "Cache Control"
+msgstr ""
+
+#: inc/performance/caching.php:612
+msgid "Clear All Caches"
+msgstr ""
+
+#: inc/performance/caching.php:622
+msgid "Clear Page Cache"
+msgstr ""
+
+#: inc/performance/caching.php:632
+msgid "Clear Fragment Cache"
+msgstr ""
+
+#: inc/performance/caching.php:642
+msgid "Clear Transient Cache"
+msgstr ""
+
+#: inc/performance/caching.php:655
+#: inc/performance/caching.php:680
+#: inc/performance/caching.php:703
+#: inc/performance/caching.php:726
+msgid "Security check failed."
+msgstr ""
+
+#: inc/performance/caching.php:660
+#: inc/performance/caching.php:685
+#: inc/performance/caching.php:708
+#: inc/performance/caching.php:731
+msgid "You do not have permission to clear caches."
+msgstr ""
+
+#: inc/performance/image-optimization.php:44
+msgid "Thumbnail Square"
+msgstr ""
+
+#: inc/performance/image-optimization.php:45
+msgid "Logo Size"
+msgstr ""
+
+#: inc/performance/image-optimization.php:508
+msgid "Image Optimization"
+msgstr ""
+
+#: inc/performance/image-optimization.php:516
+msgid "JPEG Quality"
+msgstr ""
+
+#: inc/performance/image-optimization.php:524
+msgid "Generate WebP Images"
+msgstr ""
+
+#: inc/performance/image-optimization.php:540
+msgid "Configure image optimization settings for better performance."
+msgstr ""
+
+#: inc/performance/image-optimization.php:549
+msgid "Set the quality of JPEG images (0-100). Higher values mean better quality but larger file size. Default is 82."
+msgstr ""
+
+#: inc/performance/image-optimization.php:558
+msgid "Generate WebP versions of uploaded images for better performance. Requires GD library with WebP support."
+msgstr ""
+
+#: inc/performance/lazy-loading.php:273
+msgid "Thumbnail Image"
+msgstr ""
+
+#: inc/performance/responsive-images.php:73
+msgid "Small (400px)"
+msgstr ""
+
+#: inc/performance/responsive-images.php:74
+msgid "Medium (800px)"
+msgstr ""
+
+#: inc/performance/responsive-images.php:75
+msgid "Large (1200px)"
+msgstr ""
+
+#: inc/performance/responsive-images.php:76
+msgid "Extra Large (1600px)"
+msgstr ""
+
+#: inc/performance/responsive-images.php:77
+msgid "XX Large (2000px)"
+msgstr ""
+
+#: inc/performance/responsive-images.php:78
+msgid "Hero (1280x720)"
+msgstr ""
+
+#: inc/performance/responsive-images.php:79
+msgid "Card (600x450)"
+msgstr ""
+
+#: inc/performance/responsive-images.php:80
+msgid "Featured (1280x720)"
+msgstr ""
+
+#: inc/performance/responsive-images.php:457
+msgid "Responsive Images"
+msgstr ""
+
+#: inc/performance/responsive-images.php:476
+msgid "Enable responsive images"
+msgstr ""
+
+#: inc/performance/responsive-images.php:477
+msgid "Add srcset and sizes attributes to images for better performance on different devices."
+msgstr ""
+
+#: inc/performance/responsive-images.php:496
+msgid "Enable WebP support"
+msgstr ""
+
+#: inc/performance/responsive-images.php:497
+msgid "Allow WebP image uploads and display in the media library."
+msgstr ""
+
+#: inc/performance/responsive-images.php:516
+msgid "Generate WebP images"
+msgstr ""
+
+#: inc/performance/responsive-images.php:517
+msgid "Automatically generate WebP versions of uploaded JPEG and PNG images."
+msgstr ""
+
+#: inc/security/hardening.php:121
+msgid "You are not currently logged in."
+msgstr ""
+
+#: inc/security/hardening.php:144
+msgid "<strong>Error</strong>: Invalid username or password."
+msgstr ""
+
+#: inc/setup/theme-setup.php:100
+msgid "S"
+msgstr ""
+
+#: inc/setup/theme-setup.php:105
+msgid "Normal"
+msgstr ""
+
+#: inc/setup/theme-setup.php:106
+msgid "M"
+msgstr ""
+
+#: inc/setup/theme-setup.php:112
+msgid "L"
+msgstr ""
+
+#: inc/setup/theme-setup.php:117
+msgid "Huge"
+msgstr ""
+
+#: inc/setup/theme-setup.php:118
+msgid "XL"
+msgstr ""
+
+#: inc/setup/theme-setup.php:130
+msgid "Primary"
+msgstr ""
+
+#: inc/setup/theme-setup.php:135
+msgid "Secondary"
+msgstr ""
+
+#: inc/setup/theme-setup.php:150
+msgid "White"
+msgstr ""
+
+#: inc/setup/theme-setup.php:155
+msgid "Black"
+msgstr ""
+
+#: inc/setup/theme-setup.php:193
+msgid "Sidebar"
+msgstr ""
+
+#: inc/setup/theme-setup.php:195
+msgid "Add widgets here."
+msgstr ""
+
+#. translators: %d: footer number
+#: inc/setup/theme-setup.php:208
+#, php-format
+msgid "Footer %d"
+msgstr ""
+
+#: inc/setup/theme-setup.php:210
+msgid "Add footer widgets here."
+msgstr ""
+
+#: inc/setup/theme-setup.php:223
+msgid "Shop Sidebar"
+msgstr ""
+
+#: inc/setup/theme-setup.php:225
+msgid "Add shop widgets here."
+msgstr ""
+
+#: inc/template-functions/breadcrumbs.php:178
+msgid "Search results for: "
+msgstr ""
+
+#: inc/template-functions/breadcrumbs.php:185
+msgid "Page not found"
+msgstr ""
+
+#: inc/template-functions/breadcrumbs.php:192
+msgid "Author: "
+msgstr ""
+
+#. translators: %s: search query.
+#: search.php:26
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: single.php:38
+msgid "Post navigation"
+msgstr ""
+
+#: templates/components/related-posts.php:35
+msgid "Related Posts"
+msgstr ""
+
+#: templates/content/content-none.php:14
+msgid "Nothing Found"
+msgstr ""
+
+#. translators: 1: link to WP admin new post page.
+#: templates/content/content-none.php:24
+#, php-format
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: templates/content/content-none.php:37
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr ""
+
+#: templates/content/content-none.php:44
+msgid "Search Suggestions:"
+msgstr ""
+
+#: templates/content/content-none.php:46
+msgid "Check your spelling."
+msgstr ""
+
+#: templates/content/content-none.php:47
+msgid "Try more general keywords."
+msgstr ""
+
+#: templates/content/content-none.php:48
+msgid "Try different keywords that mean the same thing."
+msgstr ""
+
+#: templates/content/content-none.php:49
+msgid "Try searching with short and simple keywords."
+msgstr ""
+
+#: templates/content/content-none.php:54
+msgid "Popular Content:"
+msgstr ""
+
+#: templates/content/content-none.php:92
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#: templates/content/content-page.php:44
+#, php-format
+msgid "Edit <span class=\"screen-reader-text\">%s</span>"
+msgstr ""
+
+#: templates/content/content-search.php:39
+msgid "Product"
+msgstr ""
+
+#: templates/content/content-search.php:66
+msgid "View Product"
+msgstr ""
+
+#: templates/content/content-single.php:105
+msgid "Share this post"
+msgstr ""
+
+#. translators: %s: Text displayed for sticky posts
+#: templates/content/content.php:38
+msgid "Featured"
+msgstr ""

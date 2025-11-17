@@ -1,0 +1,59 @@
+{
+  "name": "aqualuxe",
+  "version": "1.0.0",
+  "description": "AquaLuxe WordPress Theme",
+  "author": "NinjaTech AI",
+  "license": "GPL-2.0-or-later",
+  "private": true,
+  "scripts": {
+    "start": "cross-env NODE_ENV=development webpack --watch",
+    "build": "cross-env NODE_ENV=production webpack",
+    "dev": "cross-env NODE_ENV=development webpack",
+    "lint:js": "eslint src/js/**/*.js",
+    "lint:css": "stylelint src/scss/**/*.scss",
+    "lint": "npm run lint:js && npm run lint:css",
+    "format:js": "eslint src/js/**/*.js --fix",
+    "format:css": "stylelint src/scss/**/*.scss --fix",
+    "format": "npm run format:js && npm run format:css"
+  },
+  "browserslist": [
+    "extends @wordpress/browserslist-config"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.22.5",
+    "@babel/plugin-transform-runtime": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "@wordpress/browserslist-config": "^5.17.0",
+    "@wordpress/dependency-extraction-webpack-plugin": "^4.17.0",
+    "autoprefixer": "^10.4.14",
+    "babel-loader": "^9.1.2",
+    "browser-sync": "^2.29.3",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.8.1",
+    "css-minimizer-webpack-plugin": "^5.0.1",
+    "cssnano": "^6.0.1",
+    "eslint": "^8.43.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "mini-css-extract-plugin": "^2.7.6",
+    "postcss": "^8.4.24",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-loader": "^7.3.3",
+    "prettier": "^2.8.8",
+    "sass": "^1.63.6",
+    "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.3",
+    "stylelint": "^15.9.0",
+    "stylelint-config-standard-scss": "^10.0.0",
+    "terser-webpack-plugin": "^5.3.9",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.22.5",
+    "normalize.css": "^8.0.1"
+  }
+}

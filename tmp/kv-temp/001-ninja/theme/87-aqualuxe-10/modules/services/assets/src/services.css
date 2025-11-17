@@ -1,0 +1,13 @@
+/* Styling for the Services Module */
+
+/* Add styles for the prose class used in the single template if not already globally defined */
+.prose {
+    /* Basic prose styles */
+}
+.dark .prose-invert {
+    /* Dark mode prose styles */
+}
+
+.aqualuxe-btn-primary {
+    @apply inline-block bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300;
+}

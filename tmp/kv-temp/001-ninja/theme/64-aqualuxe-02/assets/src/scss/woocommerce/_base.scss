@@ -1,0 +1,198 @@
+/**
+ * WooCommerce Base Styles
+ *
+ * Base styles for WooCommerce elements.
+ */
+
+// WooCommerce container
+.woocommerce {
+  @apply w-full;
+}
+
+// WooCommerce columns
+.woocommerce-columns {
+  @apply flex flex-wrap -mx-4;
+
+  .woocommerce-column {
+    @apply px-4;
+
+    &--1-2 {
+      @apply w-full md:w-1/2;
+    }
+
+    &--1-3 {
+      @apply w-full md:w-1/3;
+    }
+
+    &--2-3 {
+      @apply w-full md:w-2/3;
+    }
+  }
+}
+
+// WooCommerce notices
+.woocommerce-notices-wrapper {
+  @apply mb-6;
+}
+
+// WooCommerce info
+.woocommerce-info {
+  @apply p-4 mb-4 border border-blue-200 bg-blue-50 text-blue-700 rounded;
+
+  .button {
+    @apply ml-2 text-blue-700 font-medium underline;
+
+    &:hover {
+      @apply text-blue-900;
+    }
+  }
+}
+
+// WooCommerce message
+.woocommerce-message {
+  @apply p-4 mb-4 border border-green-200 bg-green-50 text-green-700 rounded;
+
+  .button {
+    @apply ml-2 text-green-700 font-medium underline;
+
+    &:hover {
+      @apply text-green-900;
+    }
+  }
+}
+
+// WooCommerce error
+.woocommerce-error {
+  @apply p-4 mb-4 border border-red-200 bg-red-50 text-red-700 rounded list-none;
+
+  li {
+    @apply mb-2 last:mb-0;
+  }
+
+  .button {
+    @apply ml-2 text-red-700 font-medium underline;
+
+    &:hover {
+      @apply text-red-900;
+    }
+  }
+}
+
+// WooCommerce result count and ordering
+.woocommerce-result-count {
+  @apply text-sm text-gray-600 mb-4;
+}
+
+.woocommerce-ordering {
+  @apply mb-6;
+
+  select {
+    @apply w-full md:w-auto;
+  }
+}
+
+// Star ratings
+.star-rating {
+  @apply relative inline-block h-5 overflow-hidden text-yellow-400 w-20;
+
+  &::before {
+    @apply absolute top-0 left-0 content-['★★★★★'];
+  }
+
+  span {
+    @apply absolute top-0 left-0 overflow-hidden;
+
+    &::before {
+      @apply content-['★★★★★'];
+    }
+  }
+}
+
+// Price
+.price {
+  @apply text-lg font-medium text-primary;
+
+  del {
+    @apply text-gray-500 font-normal text-base mr-2;
+  }
+
+  ins {
+    @apply no-underline;
+  }
+}
+
+// Sale badge
+.onsale {
+  @apply absolute top-4 left-4 z-10 bg-accent text-white text-xs font-bold uppercase py-1 px-2 rounded;
+}
+
+// Stock status
+.stock {
+  @apply text-sm mt-2;
+
+  &.in-stock {
+    @apply text-green-600;
+  }
+
+  &.out-of-stock {
+    @apply text-red-600;
+  }
+
+  &.available-on-backorder {
+    @apply text-yellow-600;
+  }
+}
+
+// Quantity input
+.quantity {
+  @apply relative inline-block;
+
+  input[type="number"] {
+    @apply w-20 py-2 px-3 border border-gray-300 rounded;
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+}
+
+// Breadcrumbs
+.woocommerce-breadcrumb {
+  @apply text-sm text-gray-600 mb-6;
+
+  a {
+    @apply text-primary;
+
+    &:hover {
+      @apply text-primary-dark;
+    }
+  }
+}
+
+// Pagination
+.woocommerce-pagination {
+  @apply my-8;
+
+  ul.page-numbers {
+    @apply flex flex-wrap justify-center;
+
+    li {
+      @apply mx-1;
+
+      .page-numbers {
+        @apply inline-block py-2 px-4 border border-gray-300 rounded;
+
+        &.current {
+          @apply bg-primary text-white border-primary;
+        }
+
+        &:hover:not(.current) {
+          @apply bg-gray-100;
+        }
+      }
+    }
+  }
+}

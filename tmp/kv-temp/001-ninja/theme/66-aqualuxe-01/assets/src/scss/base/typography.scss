@@ -1,0 +1,440 @@
+/**
+ * AquaLuxe Typography Styles
+ *
+ * This file contains typography styles for the theme.
+ */
+
+/* Base Typography */
+body {
+  font-family: var(--aqualuxe-body-font, 'Inter, sans-serif');
+  font-size: var(--aqualuxe-body-font-size, 16px);
+  line-height: var(--aqualuxe-line-height, 1.6);
+  color: var(--aqualuxe-text-color, #333333);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--aqualuxe-heading-font, 'Montserrat, sans-serif');
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--aqualuxe-heading-color, #222222);
+}
+
+h1 {
+  font-size: 2.5rem;
+  
+  @include respond-to(md) {
+    font-size: 3rem;
+  }
+  
+  @include respond-to(lg) {
+    font-size: 3.5rem;
+  }
+}
+
+h2 {
+  font-size: 2rem;
+  
+  @include respond-to(md) {
+    font-size: 2.5rem;
+  }
+  
+  @include respond-to(lg) {
+    font-size: 3rem;
+  }
+}
+
+h3 {
+  font-size: 1.75rem;
+  
+  @include respond-to(md) {
+    font-size: 2rem;
+  }
+  
+  @include respond-to(lg) {
+    font-size: 2.5rem;
+  }
+}
+
+h4 {
+  font-size: 1.5rem;
+  
+  @include respond-to(md) {
+    font-size: 1.75rem;
+  }
+  
+  @include respond-to(lg) {
+    font-size: 2rem;
+  }
+}
+
+h5 {
+  font-size: 1.25rem;
+  
+  @include respond-to(md) {
+    font-size: 1.5rem;
+  }
+}
+
+h6 {
+  font-size: 1rem;
+  
+  @include respond-to(md) {
+    font-size: 1.25rem;
+  }
+}
+
+/* Paragraphs */
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Links */
+a {
+  color: var(--aqualuxe-primary-color, #0073aa);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+  
+  &:hover,
+  &:focus {
+    color: var(--aqualuxe-secondary-color, #00a0d2);
+    text-decoration: underline;
+  }
+}
+
+/* Lists */
+ul, ol {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  
+  li {
+    margin-bottom: 0.5rem;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+ul {
+  list-style-type: disc;
+  
+  ul {
+    list-style-type: circle;
+    margin-top: 0.5rem;
+    
+    ul {
+      list-style-type: square;
+    }
+  }
+}
+
+ol {
+  list-style-type: decimal;
+  
+  ol {
+    list-style-type: lower-alpha;
+    margin-top: 0.5rem;
+    
+    ol {
+      list-style-type: lower-roman;
+    }
+  }
+}
+
+/* Definition Lists */
+dl {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+dt {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+dd {
+  margin-left: 0;
+  margin-bottom: 1rem;
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid var(--aqualuxe-primary-color, #0073aa);
+  padding-left: 1rem;
+  font-style: italic;
+  margin: 1.5rem 0;
+  
+  p {
+    margin-bottom: 0.5rem;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  cite {
+    display: block;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    font-style: normal;
+    
+    &:before {
+      content: "— ";
+    }
+  }
+}
+
+/* Code */
+code, pre {
+  font-family: monospace;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+}
+
+code {
+  padding: 0.2em 0.4em;
+  font-size: 0.9em;
+}
+
+pre {
+  padding: 1rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  
+  code {
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+  }
+}
+
+/* Small Text */
+small {
+  font-size: 0.875em;
+}
+
+/* Text Utilities */
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+.text-italic {
+  font-style: italic;
+}
+
+.text-normal {
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Font Weights */
+.font-light {
+  font-weight: 300;
+}
+
+.font-normal {
+  font-weight: 400;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+/* Text Colors */
+.text-primary {
+  color: var(--aqualuxe-primary-color, #0073aa);
+}
+
+.text-secondary {
+  color: var(--aqualuxe-secondary-color, #00a0d2);
+}
+
+.text-accent {
+  color: var(--aqualuxe-accent-color, #00c1b6);
+}
+
+.text-muted {
+  color: $gray-600;
+}
+
+/* Luxury Typography Classes */
+.heading-luxury {
+  font-family: var(--aqualuxe-heading-font, 'Montserrat, sans-serif');
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  
+  &::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: var(--aqualuxe-accent-color, #00c1b6);
+    margin-top: 0.5rem;
+  }
+}
+
+.heading-elegant {
+  font-family: var(--aqualuxe-heading-font, 'Montserrat, sans-serif');
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.text-lead {
+  font-size: 1.125rem;
+  font-weight: 300;
+  line-height: 1.7;
+  
+  @include respond-to(md) {
+    font-size: 1.25rem;
+  }
+}
+
+/* Aquatic Typography Classes */
+.heading-wave {
+  position: relative;
+  padding-bottom: 1rem;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(to right, $water-light, $water-deep);
+    border-radius: 2px;
+  }
+}
+
+.text-water {
+  background: linear-gradient(to right, $water-light, $water-deep);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Responsive Typography */
+@include respond-to(md) {
+  body {
+    font-size: calc(var(--aqualuxe-body-font-size, 16px) * 1.05);
+  }
+}
+
+@include respond-to(lg) {
+  body {
+    font-size: calc(var(--aqualuxe-body-font-size, 16px) * 1.1);
+  }
+}
+
+/* WordPress Editor Styles */
+.wp-block-quote {
+  border-left: 4px solid var(--aqualuxe-primary-color, #0073aa);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+}
+
+.wp-block-pullquote {
+  border-top: 4px solid var(--aqualuxe-primary-color, #0073aa);
+  border-bottom: 4px solid var(--aqualuxe-primary-color, #0073aa);
+  padding: 1.5rem 0;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.has-large-font-size {
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+.has-medium-font-size {
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.has-small-font-size {
+  font-size: 0.875rem;
+}
+
+.has-text-align-center {
+  text-align: center;
+}
+
+.has-text-align-right {
+  text-align: right;
+}
+
+.has-text-align-left {
+  text-align: left;
+}
+
+/* RTL Support */
+[dir="rtl"] {
+  blockquote {
+    border-left: none;
+    border-right: 4px solid var(--aqualuxe-primary-color, #0073aa);
+    padding-left: 0;
+    padding-right: 1rem;
+  }
+  
+  ul, ol {
+    padding-left: 0;
+    padding-right: 1.5rem;
+  }
+  
+  .heading-wave {
+    &::after {
+      left: auto;
+      right: 0;
+    }
+  }
+}

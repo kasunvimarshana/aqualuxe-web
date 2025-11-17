@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "../../modules/dark_mode/dark_mode.css";
+@import "../../modules/maintenance_mode/maintenance_mode.css";
+@import "../../modules/social_sharing/social_sharing.css";

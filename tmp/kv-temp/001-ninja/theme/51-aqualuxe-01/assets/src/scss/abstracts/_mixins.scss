@@ -1,0 +1,493 @@
+/**
+ * AquaLuxe Theme Mixins
+ *
+ * This file contains all the theme mixins.
+ */
+
+// Import breakpoints
+@import 'breakpoints';
+
+/**
+ * Responsive breakpoint manager
+ * @param {String} $breakpoint - Breakpoint name
+ * @requires $breakpoints
+ */
+@mixin respond-to($breakpoint) {
+  $raw-query: map-get($breakpoints, $breakpoint);
+
+  @if $raw-query {
+    $query: if(
+      type-of($raw-query) == 'string',
+      unquote($raw-query),
+      inspect($raw-query)
+    );
+
+    @media #{$query} {
+      @content;
+    }
+  } @else {
+    @error 'No value found for `#{$breakpoint}`. '
+         + 'Please make sure it is defined in `$breakpoints` map.';
+  }
+}
+
+/**
+ * Container
+ */
+@mixin container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $container-padding-x;
+  padding-left: $container-padding-x;
+
+  @each $breakpoint, $container-max-width in $container-max-widths {
+    @include respond-to($breakpoint) {
+      max-width: $container-max-width;
+    }
+  }
+}
+
+/**
+ * Clearfix
+ */
+@mixin clearfix {
+  &::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+}
+
+/**
+ * Text truncate
+ * Requires inline-block or block for proper styling
+ */
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/**
+ * Visually hidden
+ * Make an element visually hidden but still accessible to screen readers
+ */
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/**
+ * Visually hidden focusable
+ * Make an element visually hidden but still accessible to screen readers and focusable
+ */
+@mixin visually-hidden-focusable {
+  &:not(:focus) {
+    @include visually-hidden;
+  }
+}
+
+/**
+ * Center block
+ */
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/**
+ * Absolute center
+ */
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/**
+ * Flex center
+ */
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/**
+ * Size
+ */
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+/**
+ * Square
+ */
+@mixin square($size) {
+  @include size($size);
+}
+
+/**
+ * Circle
+ */
+@mixin circle($size) {
+  @include square($size);
+  border-radius: 50%;
+}
+
+/**
+ * Placeholder
+ */
+@mixin placeholder {
+  &::placeholder {
+    @content;
+  }
+}
+
+/**
+ * Transition
+ */
+@mixin transition($transition...) {
+  transition: $transition;
+}
+
+/**
+ * Box shadow
+ */
+@mixin box-shadow($shadow...) {
+  box-shadow: $shadow;
+}
+
+/**
+ * Text shadow
+ */
+@mixin text-shadow($shadow...) {
+  text-shadow: $shadow;
+}
+
+/**
+ * Gradient
+ */
+@mixin gradient($start-color, $end-color, $direction: to bottom) {
+  background-image: linear-gradient($direction, $start-color, $end-color);
+}
+
+/**
+ * Triangle
+ */
+@mixin triangle($direction, $size, $color) {
+  width: 0;
+  height: 0;
+  
+  @if $direction == up {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-bottom: $size solid $color;
+  } @else if $direction == down {
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    border-top: $size solid $color;
+  } @else if $direction == left {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-right: $size solid $color;
+  } @else if $direction == right {
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: $size solid $color;
+  }
+}
+
+/**
+ * Overlay
+ */
+@mixin overlay($color: rgba(0, 0, 0, 0.5), $z-index: 1) {
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $color;
+    z-index: $z-index;
+  }
+}
+
+/**
+ * Aspect ratio
+ */
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  
+  &::before {
+    content: '';
+    display: block;
+    padding-top: ($height / $width) * 100%;
+  }
+  
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/**
+ * Hide text
+ */
+@mixin hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+/**
+ * Retina image
+ */
+@mixin retina-image($file-1x, $file-2x, $width-1x, $height-1x) {
+  background-image: url($file-1x);
+  
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+         only screen and (min--moz-device-pixel-ratio: 2),
+         only screen and (-o-min-device-pixel-ratio: 2/1),
+         only screen and (min-device-pixel-ratio: 2),
+         only screen and (min-resolution: 192dpi),
+         only screen and (min-resolution: 2dppx) {
+    background-image: url($file-2x);
+    background-size: $width-1x $height-1x;
+  }
+}
+
+/**
+ * Word wrap
+ */
+@mixin word-wrap {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+/**
+ * Ellipsis
+ */
+@mixin ellipsis($lines: 1) {
+  @if $lines == 1 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/**
+ * Font face
+ */
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: $font-family;
+    font-weight: $weight;
+    font-style: $style;
+    font-display: swap;
+    src: url('#{$file-path}.woff2') format('woff2'),
+         url('#{$file-path}.woff') format('woff');
+  }
+}
+
+/**
+ * List reset
+ */
+@mixin list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/**
+ * Button reset
+ */
+@mixin button-reset {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/**
+ * Input reset
+ */
+@mixin input-reset {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  
+  &:focus {
+    outline: none;
+  }
+}
+
+/**
+ * Scrollbar
+ */
+@mixin scrollbar($width: 8px, $track-color: $gray-200, $thumb-color: $gray-400) {
+  &::-webkit-scrollbar {
+    width: $width;
+    height: $width;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: $track-color;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: $thumb-color;
+    border-radius: $width / 2;
+  }
+  
+  &::-webkit-scrollbar-thumb:hover {
+    background: darken($thumb-color, 10%);
+  }
+}
+
+/**
+ * Grid
+ */
+@mixin grid($columns: 12, $gap: $grid-gutter-width) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+/**
+ * Grid column
+ */
+@mixin grid-column($span: 1, $start: auto, $end: auto) {
+  grid-column: $start / span $span;
+  
+  @if $end != auto {
+    grid-column-end: $end;
+  }
+}
+
+/**
+ * Grid row
+ */
+@mixin grid-row($span: 1, $start: auto, $end: auto) {
+  grid-row: $start / span $span;
+  
+  @if $end != auto {
+    grid-row-end: $end;
+  }
+}
+
+/**
+ * Hover
+ */
+@mixin hover {
+  &:hover {
+    @content;
+  }
+}
+
+/**
+ * Focus
+ */
+@mixin focus {
+  &:focus {
+    @content;
+  }
+}
+
+/**
+ * Active
+ */
+@mixin active {
+  &:active {
+    @content;
+  }
+}
+
+/**
+ * Hover focus
+ */
+@mixin hover-focus {
+  &:hover,
+  &:focus {
+    @content;
+  }
+}
+
+/**
+ * Plain hover focus
+ */
+@mixin plain-hover-focus {
+  &,
+  &:hover,
+  &:focus {
+    @content;
+  }
+}
+
+/**
+ * Hover focus active
+ */
+@mixin hover-focus-active {
+  &:hover,
+  &:focus,
+  &:active {
+    @content;
+  }
+}
+
+/**
+ * Dark mode
+ */
+@mixin dark-mode {
+  .dark-mode & {
+    @content;
+  }
+}
+
+/**
+ * RTL
+ */
+@mixin rtl {
+  [dir="rtl"] & {
+    @content;
+  }
+}
+
+/**
+ * LTR
+ */
+@mixin ltr {
+  [dir="ltr"] & {
+    @content;
+  }
+}

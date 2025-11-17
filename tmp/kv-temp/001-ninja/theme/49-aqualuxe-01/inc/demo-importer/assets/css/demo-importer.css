@@ -1,0 +1,146 @@
+/**
+ * AquaLuxe Demo Importer CSS
+ */
+
+.aqualuxe-demo-importer {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.aqualuxe-demo-importer-intro {
+    margin-bottom: 30px;
+}
+
+.aqualuxe-demo-importer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.aqualuxe-demo-item {
+    background: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.aqualuxe-demo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.aqualuxe-demo-item-image {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+
+.aqualuxe-demo-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.aqualuxe-demo-item:hover .aqualuxe-demo-item-image img {
+    transform: scale(1.05);
+}
+
+.aqualuxe-demo-item-content {
+    padding: 20px;
+}
+
+.aqualuxe-demo-item-content h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.aqualuxe-demo-item-content p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.aqualuxe-demo-item-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.aqualuxe-demo-importer-tools {
+    margin-bottom: 40px;
+}
+
+.aqualuxe-demo-tool-card {
+    background: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.aqualuxe-demo-tool-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.aqualuxe-mock-data-result {
+    margin-top: 15px;
+    padding: 10px;
+    background: #f5f5f5;
+    border-radius: 4px;
+    display: none;
+}
+
+.aqualuxe-demo-importer-faq {
+    margin-top: 40px;
+}
+
+.aqualuxe-demo-faq-item {
+    background: #fff;
+    border-radius: 5px;
+    padding: 0;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.aqualuxe-demo-faq-item h3 {
+    margin: 0;
+    padding: 15px 20px;
+    background: #f9f9f9;
+    cursor: pointer;
+    position: relative;
+    font-size: 16px;
+}
+
+.aqualuxe-demo-faq-item h3:after {
+    content: "\f347";
+    font-family: dashicons;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+}
+
+.aqualuxe-demo-faq-item.active h3:after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.aqualuxe-demo-faq-content {
+    padding: 0 20px 20px;
+    display: none;
+}
+
+.aqualuxe-demo-faq-item.active .aqualuxe-demo-faq-content {
+    display: block;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 782px) {
+    .aqualuxe-demo-importer-grid {
+        grid-template-columns: 1fr;
+    }
+}

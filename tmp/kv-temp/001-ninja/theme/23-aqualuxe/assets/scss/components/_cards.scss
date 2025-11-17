@@ -1,0 +1,482 @@
+/**
+ * AquaLuxe Theme Cards Styles
+ *
+ * This file contains styles for various card components.
+ */
+
+@layer components {
+  /* Base Card */
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-sm overflow-hidden transition-shadow duration-300;
+    
+    &:hover {
+      @apply shadow-md;
+    }
+    
+    /* Card Header */
+    .card-header {
+      @apply p-6 border-b border-gray-200 dark:border-gray-700;
+      
+      .card-title {
+        @apply text-xl font-bold text-gray-900 dark:text-gray-100 mb-1;
+      }
+      
+      .card-subtitle {
+        @apply text-sm text-gray-600 dark:text-gray-400;
+      }
+    }
+    
+    /* Card Body */
+    .card-body {
+      @apply p-6;
+      
+      p:last-child {
+        @apply mb-0;
+      }
+    }
+    
+    /* Card Footer */
+    .card-footer {
+      @apply p-6 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800;
+    }
+    
+    /* Card Image */
+    .card-image {
+      @apply relative;
+      
+      img {
+        @apply w-full h-auto;
+      }
+      
+      .card-image-overlay {
+        @apply absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 transition-opacity duration-300;
+        
+        &:hover {
+          @apply opacity-100;
+        }
+      }
+    }
+  }
+  
+  /* Card Variants */
+  
+  /* Horizontal Card */
+  .card-horizontal {
+    @apply flex flex-col md:flex-row;
+    
+    .card-image {
+      @apply md:w-1/3;
+      
+      img {
+        @apply h-full w-full object-cover;
+      }
+    }
+    
+    .card-content {
+      @apply md:w-2/3 flex flex-col;
+    }
+  }
+  
+  /* Card with Overlay */
+  .card-overlay {
+    @apply relative;
+    
+    .card-image {
+      @apply h-full;
+      
+      img {
+        @apply h-full w-full object-cover;
+      }
+    }
+    
+    .card-content {
+      @apply absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-end p-6 text-white;
+      
+      .card-title {
+        @apply text-white;
+      }
+      
+      .card-subtitle {
+        @apply text-gray-200;
+      }
+    }
+  }
+  
+  /* Post Card */
+  .post-card {
+    @apply card;
+    
+    .post-card-image {
+      @apply relative overflow-hidden;
+      
+      img {
+        @apply w-full h-48 md:h-56 object-cover transition-transform duration-300;
+      }
+      
+      .post-card-category {
+        @apply absolute top-4 left-4 bg-primary-600 text-white text-xs font-medium px-2 py-1 rounded-md;
+      }
+      
+      &:hover {
+        img {
+          @apply transform scale-105;
+        }
+      }
+    }
+    
+    .post-card-content {
+      @apply p-6;
+      
+      .post-card-meta {
+        @apply flex items-center text-sm text-gray-500 dark:text-gray-400 mb-2;
+        
+        .post-card-date {
+          @apply flex items-center;
+          
+          svg {
+            @apply w-4 h-4 mr-1;
+          }
+        }
+        
+        .post-card-author {
+          @apply flex items-center ml-4;
+          
+          svg {
+            @apply w-4 h-4 mr-1;
+          }
+        }
+      }
+      
+      .post-card-title {
+        @apply text-xl font-bold text-gray-900 dark:text-gray-100 mb-2 line-clamp-2;
+        
+        a {
+          @apply text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200;
+        }
+      }
+      
+      .post-card-excerpt {
+        @apply text-gray-600 dark:text-gray-400 mb-4 line-clamp-3;
+      }
+      
+      .post-card-link {
+        @apply inline-flex items-center text-primary-600 dark:text-primary-400 hover:text-primary-800 dark:hover:text-primary-300 transition-colors duration-200;
+        
+        svg {
+          @apply w-4 h-4 ml-1;
+        }
+      }
+    }
+  }
+  
+  /* Product Card */
+  .product-card {
+    @apply card;
+    
+    .product-card-image {
+      @apply relative overflow-hidden;
+      
+      img {
+        @apply w-full h-48 md:h-56 object-cover transition-transform duration-300;
+      }
+      
+      .product-card-badge {
+        @apply absolute top-4 left-4 bg-primary-600 text-white text-xs font-medium px-2 py-1 rounded-md;
+        
+        &.sale {
+          @apply bg-red-600;
+        }
+        
+        &.new {
+          @apply bg-green-600;
+        }
+        
+        &.featured {
+          @apply bg-purple-600;
+        }
+      }
+      
+      .product-card-actions {
+        @apply absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 transition-opacity duration-300;
+        
+        .product-card-action {
+          @apply w-10 h-10 rounded-full bg-white text-gray-900 flex items-center justify-center mx-1 hover:bg-primary-600 hover:text-white transition-colors duration-200;
+          
+          svg {
+            @apply w-5 h-5;
+          }
+        }
+      }
+      
+      &:hover {
+        img {
+          @apply transform scale-105;
+        }
+        
+        .product-card-actions {
+          @apply opacity-100;
+        }
+      }
+    }
+    
+    .product-card-content {
+      @apply p-6;
+      
+      .product-card-category {
+        @apply text-sm text-gray-500 dark:text-gray-400 mb-1;
+      }
+      
+      .product-card-title {
+        @apply text-lg font-bold text-gray-900 dark:text-gray-100 mb-2;
+        
+        a {
+          @apply text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200;
+        }
+      }
+      
+      .product-card-price {
+        @apply flex items-center mb-4;
+        
+        .regular-price {
+          @apply text-lg font-bold text-gray-900 dark:text-gray-100;
+          
+          &.has-sale {
+            @apply line-through text-gray-500 dark:text-gray-400 text-base font-normal mr-2;
+          }
+        }
+        
+        .sale-price {
+          @apply text-lg font-bold text-red-600 dark:text-red-400;
+        }
+      }
+      
+      .product-card-rating {
+        @apply flex items-center mb-4;
+        
+        .stars {
+          @apply flex text-yellow-400;
+          
+          svg {
+            @apply w-4 h-4;
+          }
+        }
+        
+        .rating-count {
+          @apply text-sm text-gray-500 dark:text-gray-400 ml-2;
+        }
+      }
+      
+      .product-card-button {
+        @apply w-full;
+      }
+    }
+  }
+  
+  /* Team Card */
+  .team-card {
+    @apply card;
+    
+    .team-card-image {
+      @apply relative overflow-hidden;
+      
+      img {
+        @apply w-full h-64 object-cover;
+      }
+    }
+    
+    .team-card-content {
+      @apply p-6 text-center;
+      
+      .team-card-name {
+        @apply text-xl font-bold text-gray-900 dark:text-gray-100 mb-1;
+      }
+      
+      .team-card-position {
+        @apply text-sm text-gray-600 dark:text-gray-400 mb-4;
+      }
+      
+      .team-card-bio {
+        @apply text-gray-600 dark:text-gray-400 mb-4;
+      }
+      
+      .team-card-social {
+        @apply flex justify-center space-x-3;
+        
+        a {
+          @apply w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary-600 hover:text-white dark:hover:bg-primary-600 transition-colors duration-200;
+          
+          svg {
+            @apply w-4 h-4;
+          }
+        }
+      }
+    }
+  }
+  
+  /* Testimonial Card */
+  .testimonial-card {
+    @apply card;
+    
+    .testimonial-card-content {
+      @apply p-6;
+      
+      .testimonial-card-rating {
+        @apply flex text-yellow-400 mb-4;
+        
+        svg {
+          @apply w-5 h-5;
+        }
+      }
+      
+      .testimonial-card-text {
+        @apply text-gray-600 dark:text-gray-400 italic mb-6;
+      }
+      
+      .testimonial-card-author {
+        @apply flex items-center;
+        
+        .testimonial-card-avatar {
+          @apply w-12 h-12 rounded-full overflow-hidden mr-4;
+          
+          img {
+            @apply w-full h-full object-cover;
+          }
+        }
+        
+        .testimonial-card-info {
+          .testimonial-card-name {
+            @apply font-bold text-gray-900 dark:text-gray-100;
+          }
+          
+          .testimonial-card-position {
+            @apply text-sm text-gray-500 dark:text-gray-400;
+          }
+        }
+      }
+    }
+  }
+  
+  /* Pricing Card */
+  .pricing-card {
+    @apply card;
+    
+    &.featured {
+      @apply border-2 border-primary-500 dark:border-primary-600 shadow-md;
+      
+      .pricing-card-header {
+        @apply bg-primary-600 text-white;
+        
+        .pricing-card-title,
+        .pricing-card-subtitle {
+          @apply text-white;
+        }
+      }
+    }
+    
+    .pricing-card-header {
+      @apply p-6 text-center border-b border-gray-200 dark:border-gray-700;
+      
+      .pricing-card-title {
+        @apply text-xl font-bold text-gray-900 dark:text-gray-100 mb-1;
+      }
+      
+      .pricing-card-subtitle {
+        @apply text-sm text-gray-600 dark:text-gray-400;
+      }
+    }
+    
+    .pricing-card-price {
+      @apply p-6 text-center border-b border-gray-200 dark:border-gray-700;
+      
+      .price {
+        @apply text-4xl font-bold text-gray-900 dark:text-gray-100;
+        
+        .currency {
+          @apply text-xl align-super;
+        }
+      }
+      
+      .period {
+        @apply text-sm text-gray-600 dark:text-gray-400 mt-1;
+      }
+    }
+    
+    .pricing-card-features {
+      @apply p-6;
+      
+      ul {
+        @apply space-y-3;
+        
+        li {
+          @apply flex items-center text-gray-600 dark:text-gray-400;
+          
+          svg.included {
+            @apply w-5 h-5 mr-3 text-green-500 dark:text-green-400 flex-shrink-0;
+          }
+          
+          svg.excluded {
+            @apply w-5 h-5 mr-3 text-red-500 dark:text-red-400 flex-shrink-0;
+          }
+        }
+      }
+    }
+    
+    .pricing-card-action {
+      @apply p-6 border-t border-gray-200 dark:border-gray-700;
+      
+      .pricing-card-button {
+        @apply w-full;
+      }
+    }
+  }
+  
+  /* Feature Card */
+  .feature-card {
+    @apply card p-6;
+    
+    .feature-card-icon {
+      @apply w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-400 flex items-center justify-center mb-4;
+      
+      svg {
+        @apply w-6 h-6;
+      }
+    }
+    
+    .feature-card-title {
+      @apply text-xl font-bold text-gray-900 dark:text-gray-100 mb-2;
+    }
+    
+    .feature-card-description {
+      @apply text-gray-600 dark:text-gray-400;
+    }
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 640px) {
+    .card {
+      .card-header {
+        @apply p-4;
+      }
+      
+      .card-body {
+        @apply p-4;
+      }
+      
+      .card-footer {
+        @apply p-4;
+      }
+    }
+    
+    .post-card {
+      .post-card-content {
+        @apply p-4;
+      }
+    }
+    
+    .product-card {
+      .product-card-content {
+        @apply p-4;
+      }
+    }
+  }
+}

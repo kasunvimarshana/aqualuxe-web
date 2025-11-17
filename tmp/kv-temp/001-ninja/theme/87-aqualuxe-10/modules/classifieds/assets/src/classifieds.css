@@ -1,0 +1,11 @@
+/* Styling for the Classifieds Module */
+
+/* The templates use Tailwind utility classes, but we can add component styles here if needed. */
+
+.aqualuxe-btn-primary {
+    @apply inline-block bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition-colors duration-300;
+}
+
+.aqualuxe-btn-secondary {
+    @apply inline-block bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded hover:bg-gray-300 transition-colors duration-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600;
+}

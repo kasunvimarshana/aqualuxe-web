@@ -1,0 +1,4 @@
+/* Editor styles */
+:root { --editor-bg: #ffffff; }
+body.block-editor-page { background: var(--editor-bg); }
+.editor-styles-wrapper .wp-block { max-width: 760px; }

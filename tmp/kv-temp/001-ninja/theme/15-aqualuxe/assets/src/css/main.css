@@ -1,0 +1,168 @@
+/* Import Tailwind CSS */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=JetBrains+Mono&display=swap');
+
+/* Custom Components */
+@layer components {
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply btn bg-primary text-white hover:bg-primary-dark focus:ring-primary;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-secondary text-white hover:bg-secondary-dark focus:ring-secondary;
+  }
+  
+  .btn-accent {
+    @apply btn bg-accent text-dark hover:bg-accent-dark focus:ring-accent;
+  }
+  
+  .btn-outline {
+    @apply btn bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white focus:ring-primary;
+  }
+  
+  /* Cards */
+  .card {
+    @apply bg-white dark:bg-dark-light rounded-lg overflow-hidden shadow-soft transition-shadow duration-300 hover:shadow-elegant;
+  }
+  
+  .card-header {
+    @apply p-6 border-b border-light-darker dark:border-dark-lighter;
+  }
+  
+  .card-body {
+    @apply p-6;
+  }
+  
+  .card-footer {
+    @apply p-6 border-t border-light-darker dark:border-dark-lighter;
+  }
+  
+  /* Form Elements */
+  .form-input {
+    @apply block w-full rounded-md border-light-darker dark:border-dark-lighter shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 dark:bg-dark-light dark:text-light;
+  }
+  
+  .form-label {
+    @apply block text-sm font-medium text-dark dark:text-light mb-1;
+  }
+  
+  /* Navigation */
+  .nav-link {
+    @apply text-dark dark:text-light hover:text-primary dark:hover:text-secondary-light transition-colors duration-200;
+  }
+  
+  .nav-link-active {
+    @apply text-primary dark:text-secondary-light font-medium;
+  }
+  
+  /* Product Cards */
+  .product-card {
+    @apply card group;
+  }
+  
+  .product-image-container {
+    @apply relative overflow-hidden;
+  }
+  
+  .product-image {
+    @apply w-full h-64 object-cover object-center transition-transform duration-300 group-hover:scale-105;
+  }
+  
+  .product-quick-actions {
+    @apply absolute inset-0 bg-dark bg-opacity-40 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100;
+  }
+  
+  .product-title {
+    @apply text-lg font-medium text-dark dark:text-light mt-4 transition-colors duration-200 group-hover:text-primary dark:group-hover:text-secondary-light;
+  }
+  
+  .product-price {
+    @apply text-lg font-bold text-primary dark:text-secondary-light;
+  }
+  
+  .product-category {
+    @apply text-sm text-dark-light dark:text-light-dark;
+  }
+  
+  /* Section Styles */
+  .section {
+    @apply py-16 md:py-24;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-serif font-bold text-dark dark:text-light mb-8;
+  }
+  
+  .section-subtitle {
+    @apply text-lg text-dark-light dark:text-light-dark mb-12 max-w-3xl mx-auto;
+  }
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  }
+  
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, theme('colors.primary.light'), theme('colors.primary.dark'));
+  }
+  
+  .bg-gradient-secondary {
+    background: linear-gradient(135deg, theme('colors.secondary.light'), theme('colors.secondary.dark'));
+  }
+  
+  .bg-underwater {
+    background: linear-gradient(180deg, #0077B6 0%, #03045E 100%);
+  }
+}
+
+/* Dark Mode Transitions */
+.dark-transition {
+  @apply transition-colors duration-300;
+}
+
+/* WooCommerce Specific Styles */
+.woocommerce-product-gallery {
+  @apply relative;
+}
+
+.woocommerce-tabs {
+  @apply mt-8;
+}
+
+.woocommerce-tabs .tabs {
+  @apply flex border-b border-light-darker dark:border-dark-lighter mb-6;
+}
+
+.woocommerce-tabs .tabs li {
+  @apply mr-4;
+}
+
+.woocommerce-tabs .tabs li a {
+  @apply inline-block py-2 px-1 border-b-2 border-transparent hover:text-primary dark:hover:text-secondary-light transition-colors duration-200;
+}
+
+.woocommerce-tabs .tabs li.active a {
+  @apply border-primary dark:border-secondary-light text-primary dark:text-secondary-light;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+  .btn {
+    @apply px-4 py-2 text-sm;
+  }
+}

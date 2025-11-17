@@ -1,0 +1,33 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root { --aqlx-primary: var(--wp--preset--color--primary, #0ea5e9); }
+
+/* Utility alias for primary background using CSS var (mirrors Tailwind 'primary' extension) */
+.bg-primary { background-color: var(--aqlx-primary); }
+.focus\:ring-primary\/40:focus { --tw-ring-color: color-mix(in oklab, var(--aqlx-primary) 40%, transparent); }
+.focus\:ring-primary\/50:focus { --tw-ring-color: color-mix(in oklab, var(--aqlx-primary) 50%, transparent); }
+.focus\:border-primary:focus { border-color: var(--aqlx-primary); }
+
+/* Base typography */
+body { font-family: var(--aqlx-font, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji"); }
+
+/* Micro-interactions */
+.hover-lift { transition: transform .2s ease, box-shadow .2s ease; }
+.hover-lift:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+
+/* Dark mode tweaks */
+.dark .card { background-color: #0b1324; color: #e5e7eb; }
+
+/* Header badges */
+.mini-cart .count { display:inline-block; min-width: 1.25rem; padding: 0 .25rem; text-align:center; border-radius: 9999px; background: var(--aqlx-primary); color:#fff; font-size: .75rem; line-height: 1.25rem; }
+
+/* Mobile drawer animation */
+#aqlx-mobile-menu { transition: max-height .25s ease; overflow: hidden; }
+#aqlx-mobile-menu.hidden { max-height: 0; }
+#aqlx-mobile-menu:not(.hidden) { max-height: 480px; }
+
+/* Skip link */
+.skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+.skip-link:focus { position: absolute; left: 1rem; top: 1rem; width: auto; height: auto; background: #111; color: #fff; padding: .5rem .75rem; border-radius: .25rem; z-index: 1000; }

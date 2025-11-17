@@ -1,0 +1,54 @@
+/**
+ * AquaLuxe WooCommerce Stylesheet
+ * 
+ * Styles for WooCommerce integration
+ */
+
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+// WooCommerce specific styles
+.woocommerce {
+  .products {
+    @include grid-auto-fit(280px);
+    
+    .product {
+      @include card-base;
+      @include card-hover;
+      
+      .product-image {
+        @include aspect-ratio(1, 1);
+      }
+      
+      .product-title {
+        @include heading-base;
+        font-size: $font-size-lg;
+      }
+      
+      .price {
+        color: $primary-blue;
+        font-weight: 600;
+      }
+    }
+  }
+  
+  .cart-button {
+    @include button-primary;
+  }
+  
+  .checkout-form {
+    .form-row {
+      margin-bottom: $spacing-4;
+      
+      label {
+        display: block;
+        margin-bottom: $spacing-2;
+        font-weight: 600;
+      }
+      
+      input, select, textarea {
+        @include input-base;
+      }
+    }
+  }
+}

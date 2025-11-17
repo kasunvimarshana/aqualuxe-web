@@ -1,0 +1,142 @@
+/**
+ * Alert Component Styles
+ *
+ * Styles for alert messages throughout the AquaLuxe theme
+ */
+
+.alert {
+  @apply relative p-4 mb-4 border rounded-md;
+  
+  // Alert variants
+  &--primary {
+    @apply bg-primary-50 border-primary-200 text-primary-800;
+  }
+  
+  &--secondary {
+    @apply bg-secondary-50 border-secondary-200 text-secondary-800;
+  }
+  
+  &--accent {
+    @apply bg-accent-50 border-accent-200 text-accent-800;
+  }
+  
+  &--success {
+    @apply bg-success-50 border-success-200 text-success-800;
+  }
+  
+  &--warning {
+    @apply bg-warning-50 border-warning-200 text-warning-800;
+  }
+  
+  &--error {
+    @apply bg-error-50 border-error-200 text-error-800;
+  }
+  
+  &--info {
+    @apply bg-primary-50 border-primary-200 text-primary-800;
+  }
+  
+  // Alert title
+  &__title {
+    @apply text-lg font-bold mb-2;
+  }
+  
+  // Alert content
+  &__content {
+    @apply text-base;
+  }
+  
+  // Alert with icon
+  &--with-icon {
+    @apply pl-12;
+    
+    .alert__icon {
+      @apply absolute left-4 top-4 w-6 h-6;
+    }
+  }
+  
+  // Alert with close button
+  &--dismissible {
+    @apply pr-12;
+    
+    .alert__close {
+      @apply absolute right-4 top-4 w-6 h-6 cursor-pointer opacity-70 hover:opacity-100 transition-opacity;
+    }
+  }
+  
+  // Alert sizes
+  &--sm {
+    @apply p-2 text-sm;
+    
+    .alert__title {
+      @apply text-base mb-1;
+    }
+  }
+  
+  &--lg {
+    @apply p-6 text-lg;
+    
+    .alert__title {
+      @apply text-xl mb-3;
+    }
+  }
+  
+  // Alert with border styles
+  &--border-left {
+    @apply border-l-4;
+  }
+  
+  &--border-top {
+    @apply border-t-4;
+  }
+  
+  // Alert with rounded corners
+  &--rounded-lg {
+    @apply rounded-lg;
+  }
+  
+  &--rounded-full {
+    @apply rounded-full;
+  }
+  
+  // Alert with shadow
+  &--shadow {
+    @apply shadow-md;
+  }
+  
+  // Alert animations
+  &--fade-in {
+    @apply animate-fade-in;
+  }
+  
+  &--slide-in {
+    @apply animate-slide-up;
+  }
+}
+
+// WooCommerce specific alerts
+.woocommerce-info,
+.woocommerce-message,
+.woocommerce-error {
+  @apply p-4 mb-4 border rounded-md list-none;
+  
+  &::before {
+    @apply mr-2;
+  }
+}
+
+.woocommerce-info {
+  @apply bg-primary-50 border-primary-200 text-primary-800;
+}
+
+.woocommerce-message {
+  @apply bg-success-50 border-success-200 text-success-800;
+}
+
+.woocommerce-error {
+  @apply bg-error-50 border-error-200 text-error-800;
+  
+  li {
+    @apply mb-2 last:mb-0;
+  }
+}

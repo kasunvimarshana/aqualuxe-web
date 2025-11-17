@@ -1,0 +1,11 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Components */
+.btn { @apply inline-flex items-center justify-center px-4 py-2 rounded font-medium transition; }
+.btn-primary { @apply bg-aqua-500 text-white hover:opacity-90; }
+.btn-secondary { @apply bg-slate-900 text-white hover:opacity-90 dark:bg-slate-700; }
+
+/* Typography */
+.prose a { @apply text-aqua-500 underline decoration-2 underline-offset-2 hover:opacity-90; }

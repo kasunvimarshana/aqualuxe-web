@@ -1,0 +1,167 @@
+<?php
+/**
+ * Module Loader Class
+ *
+ * @package AquaLuxe
+ */
+
+if (!class_exists('AquaLuxe_Module_Loader')) {
+
+    /**
+     * Module Loader Class
+     * 
+     * Handles the loading of modular features
+     */
+    class AquaLuxe_Module_Loader {
+
+        /**
+         * Modules configuration
+         *
+         * @var array
+         */
+        private $modules = array();
+
+        /**
+         * Constructor
+         */
+        public function __construct() {
+            $this->modules = $this->get_modules_config();
+        }
+
+        /**
+         * Get modules configuration
+         *
+         * @return array Modules configuration
+         */
+        private function get_modules_config() {
+            $default_modules = array(
+                'dark-mode' => array(
+                    'name' => 'Dark Mode',
+                    'description' => 'Adds dark mode functionality with persistent user preference',
+                    'enabled' => true,
+                ),
+                'multilingual' => array(
+                    'name' => 'Multilingual',
+                    'description' => 'Adds multilingual support',
+                    'enabled' => true,
+                ),
+                'subscriptions' => array(
+                    'name' => 'Subscriptions',
+                    'description' => 'Adds subscription functionality',
+                    'enabled' => true,
+                    'requires_woocommerce' => true,
+                ),
+                'auctions' => array(
+                    'name' => 'Auctions',
+                    'description' => 'Adds auction functionality',
+                    'enabled' => true,
+                    'requires_woocommerce' => true,
+                ),
+                'bookings' => array(
+                    'name' => 'Bookings',
+                    'description' => 'Adds booking functionality',
+                    'enabled' => true,
+                    'requires_woocommerce' => true,
+                ),
+                'events' => array(
+                    'name' => 'Events',
+                    'description' => 'Adds events and ticketing functionality',
+                    'enabled' => true,
+                ),
+                'wholesale' => array(
+                    'name' => 'Wholesale',
+                    'description' => 'Adds wholesale/B2B functionality',
+                    'enabled' => true,
+                    'requires_woocommerce' => true,
+                ),
+                'services' => array(
+                    'name' => 'Services',
+                    'description' => 'Adds services functionality',
+                    'enabled' => true,
+                ),
+                'franchise' => array(
+                    'name' => 'Franchise',
+                    'description' => 'Adds franchise/licensing functionality',
+                    'enabled' => true,
+                ),
+                'sustainability' => array(
+                    'name' => 'Sustainability',
+                    'description' => 'Adds R&D and sustainability functionality',
+                    'enabled' => true,
+                ),
+                'affiliate' => array(
+                    'name' => 'Affiliate',
+                    'description' => 'Adds affiliate/referral functionality',
+                    'enabled' => true,
+                ),
+            );
+
+            // Allow modules to be filtered
+            return apply_filters('aqualuxe_modules', $default_modules);
+        }
+
+        /**
+         * Load enabled modules
+         */
+        public function load_modules() {
+            foreach ($this->modules as $module_id => $module) {
+                // Skip disabled modules
+                if (!isset($module['enabled']) || !$module['enabled']) {
+                    continue;
+                }
+
+                // Skip WooCommerce-dependent modules if WooCommerce is not active
+                if (isset($module['requires_woocommerce']) && $module['requires_woocommerce'] && !class_exists('WooCommerce')) {
+                    continue;
+                }
+
+                $module_dir = AQUALUXE_MODULES_DIR . $module_id;
+                $module_file = $module_dir . '/module.php';
+
+                // Check if module directory and file exist
+                if (file_exists($module_file)) {
+                    require_once $module_file;
+                }
+            }
+
+            // Action hook after modules are loaded
+            do_action('aqualuxe_modules_loaded');
+        }
+
+        /**
+         * Get all modules
+         *
+         * @return array All modules
+         */
+        public function get_modules() {
+            return $this->modules;
+        }
+
+        /**
+         * Get enabled modules
+         *
+         * @return array Enabled modules
+         */
+        public function get_enabled_modules() {
+            $enabled_modules = array();
+
+            foreach ($this->modules as $module_id => $module) {
+                if (isset($module['enabled']) && $module['enabled']) {
+                    $enabled_modules[$module_id] = $module;
+                }
+            }
+
+            return $enabled_modules;
+        }
+
+        /**
+         * Check if a module is enabled
+         *
+         * @param string $module_id Module ID
+         * @return bool Whether the module is enabled
+         */
+        public function is_module_enabled($module_id) {
+            return isset($this->modules[$module_id]['enabled']) && $this->modules[$module_id]['enabled'];
+        }
+    }
+}

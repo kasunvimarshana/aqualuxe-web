@@ -1,0 +1,67 @@
+/**
+ * Main SCSS file for the AquaLuxe theme
+ *
+ * This file imports all other SCSS files
+ */
+
+// Abstracts
+@import 'abstracts/variables';
+@import 'abstracts/functions';
+@import 'abstracts/mixins';
+
+// Vendors
+@import 'vendors/normalize';
+@import 'vendors/swiper';
+
+// Base
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/animations';
+@import 'base/utilities';
+
+// Layout
+@import 'layout/grid';
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/sidebar';
+@import 'layout/forms';
+@import 'layout/navigation';
+
+// Components
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/hero';
+@import 'components/slider';
+@import 'components/pagination';
+@import 'components/breadcrumbs';
+@import 'components/widgets';
+@import 'components/social-icons';
+@import 'components/search-form';
+@import 'components/comments';
+@import 'components/alerts';
+@import 'components/modal';
+@import 'components/tabs';
+@import 'components/accordion';
+
+// Pages
+@import 'pages/home';
+@import 'pages/blog';
+@import 'pages/single';
+@import 'pages/archive';
+@import 'pages/contact';
+@import 'pages/404';
+
+// Themes
+@import 'themes/dark-mode';
+@import 'themes/rtl';
+
+// WooCommerce
+@import 'woocommerce/shop';
+@import 'woocommerce/product';
+@import 'woocommerce/cart';
+@import 'woocommerce/checkout';
+@import 'woocommerce/account';
+@import 'woocommerce/widgets';
+
+// Tailwind
+@import 'tailwind';

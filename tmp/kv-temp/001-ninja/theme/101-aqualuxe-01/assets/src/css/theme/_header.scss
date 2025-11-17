@@ -1,0 +1,49 @@
+// Site header styles
+.site-header {
+  @apply bg-white dark:bg-gray-900 shadow-sm border-b border-gray-200 dark:border-gray-700;
+  @apply sticky top-0 z-40 transition-colors duration-300;
+
+  .container {
+    @apply flex items-center justify-between py-4;
+  }
+
+  .site-branding {
+    @apply flex items-center;
+
+    .custom-logo-link {
+      @apply block;
+
+      img {
+        @apply h-12 w-auto;
+      }
+    }
+
+    .site-title {
+      @apply text-2xl font-bold text-gray-900 dark:text-white;
+      @apply font-serif mb-0;
+
+      a {
+        @apply no-underline text-inherit hover:text-primary-600 dark:hover:text-primary-400;
+      }
+    }
+
+    .site-description {
+      @apply text-sm text-gray-600 dark:text-gray-400 mt-1;
+    }
+  }
+
+  .header-cart {
+    @apply ml-4;
+
+    .cart-contents {
+      @apply flex items-center px-3 py-2 rounded-lg;
+      @apply bg-gray-100 dark:bg-gray-800 hover:bg-primary-50 dark:hover:bg-primary-900;
+      @apply text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400;
+      @apply transition-colors duration-200 no-underline;
+
+      .cart-count {
+        @apply ml-2 px-2 py-1 bg-primary-600 text-white text-xs rounded-full;
+      }
+    }
+  }
+}

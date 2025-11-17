@@ -1,0 +1,26 @@
+/*!
+Theme Name: AquaLuxe
+Theme URI: https://example.com/aqualuxe
+Author: AquaLuxe Team
+Author URI: https://example.com
+Description: A premium WordPress theme for luxury aquatic businesses. AquaLuxe brings elegance to aquatic life – globally, with a refined design that emphasizes rarity and quality.
+Version: 1.0.0
+Requires at least: 5.6
+Tested up to: 6.4
+Requires PHP: 7.4
+License: MIT License
+License URI: https://opensource.org/licenses/MIT
+Text Domain: aqualuxe
+Domain Path: /languages
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, e-commerce, aquatic, luxury
+
+AquaLuxe WordPress Theme, (C) 2025 AquaLuxe Team
+AquaLuxe is distributed under the terms of the MIT License.
+
+This theme is built with modern best practices and carefully crafted for luxury aquatic businesses.
+*/
+
+/* 
+This file is intentionally left empty.
+Actual styles are loaded from the compiled assets in the assets/dist directory.
+*/

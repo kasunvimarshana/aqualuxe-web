@@ -1,0 +1,234 @@
+/**
+ * AquaLuxe Design System - Variables
+ *
+ * Core design tokens and system variables
+ * Foundation for the entire design system
+ *
+ * @package AquaLuxe
+ * @since 1.2.0
+ */
+
+// =============================================================================
+// CORE SYSTEM VARIABLES
+// =============================================================================
+
+// Theme Configuration
+$theme-version: '1.2.0';
+$theme-prefix: 'aqualuxe';
+
+// Base Font Size (for rem calculations)
+$base-font-size: 16px !default;
+
+// Enable/Disable Features
+$enable-dark-mode: true !default;
+$enable-glass-effects: true !default;
+$enable-animations: true !default;
+$enable-gradients: true !default;
+$enable-three-js: true !default;
+$enable-accessibility: true !default;
+
+// =============================================================================
+// CONTAINER AND LAYOUT
+// =============================================================================
+
+// Container widths
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+) !default;
+
+// Container padding
+$container-padding-x: 1rem !default;
+$container-padding-y: 0 !default;
+
+// Grid system
+$grid-columns: 12 !default;
+$grid-gutter-width: 1.5rem !default;
+$grid-row-columns: 6 !default;
+
+// =============================================================================
+// THEME SPECIFIC VARIABLES
+// =============================================================================
+
+// Ocean/Aqua Theme Values
+$water-opacity: 0.1 !default;
+$glass-opacity: 0.15 !default;
+$wave-amplitude: 20px !default;
+$bubble-size-min: 4px !default;
+$bubble-size-max: 12px !default;
+
+// Three.js Scene Settings
+$three-canvas-height: 100vh !default;
+$three-particle-count: 1000 !default;
+$three-wave-speed: 0.02 !default;
+
+// Glass Morphism Settings
+$glass-blur: 16px !default;
+$glass-border-opacity: 0.2 !default;
+$glass-shadow-opacity: 0.1 !default;
+
+// =============================================================================
+// COMPONENT SIZING
+// =============================================================================
+
+// Border radius
+$border-radius: 0.375rem !default;
+$border-radius-base: 0.375rem !default;
+$border-radius-sm: 0.25rem !default;
+$border-radius-md: 0.375rem !default;
+$border-radius-lg: 0.5rem !default;
+$border-radius-xl: 1rem !default;
+$border-radius-2xl: 1.5rem !default;
+$border-radius-full: 50rem !default;
+$border-radius-pill: 50rem !default;
+
+// Border widths
+$border-width: 1px !default;
+$border-width-2: 2px !default;
+$border-width-3: 3px !default;
+$border-width-4: 4px !default;
+$border-width-5: 5px !default;
+
+// Component heights
+$input-height: 2.5rem !default;
+$input-height-sm: 2rem !default;
+$input-height-lg: 3rem !default;
+
+$btn-height: 2.5rem !default;
+$btn-height-sm: 2rem !default;
+$btn-height-lg: 3rem !default;
+
+// =============================================================================
+// PERFORMANCE AND OPTIMIZATION
+// =============================================================================
+
+// Transition durations (for consistency)
+$transition-base: all 0.2s ease-in-out !default;
+$transition-fast: all 0.15s ease-in-out !default;
+$transition-slow: all 0.3s ease-in-out !default;
+
+// Transform origins
+$transform-origin-center: 50% 50% !default;
+$transform-origin-top: 50% 0% !default;
+$transform-origin-bottom: 50% 100% !default;
+
+// =============================================================================
+// ACCESSIBILITY
+// =============================================================================
+
+// Focus ring
+$focus-ring-width: 2px !default;
+$focus-ring-opacity: 0.8 !default;
+$focus-ring-color: var(--aqualuxe-focus, #{blue}) !default;
+
+// Skip links
+$skip-link-height: 2.5rem !default;
+$skip-link-padding: 0.5rem 1rem !default;
+
+// Screen reader
+$sr-only-clip: rect(0, 0, 0, 0) !default;
+
+// =============================================================================
+// CUSTOM PROPERTIES (CSS Variables)
+// =============================================================================
+
+:root {
+  // Theme version
+  --aqualuxe-version: #{$theme-version};
+  
+  // Base measurements
+  --aqualuxe-base-font-size: #{$base-font-size};
+  --aqualuxe-grid-gutter: #{$grid-gutter-width};
+  
+  // Glass morphism
+  --aqualuxe-glass-opacity: #{$glass-opacity};
+  --aqualuxe-glass-blur: #{$glass-blur};
+  --aqualuxe-glass-border-opacity: #{$glass-border-opacity};
+  
+  // Water effects
+  --aqualuxe-water-opacity: #{$water-opacity};
+  --aqualuxe-wave-amplitude: #{$wave-amplitude};
+  
+  // Transitions
+  --aqualuxe-transition-base: #{$transition-base};
+  --aqualuxe-transition-fast: #{$transition-fast};
+  --aqualuxe-transition-slow: #{$transition-slow};
+  
+  // Focus ring
+  --aqualuxe-focus-ring-width: #{$focus-ring-width};
+  --aqualuxe-focus-ring-opacity: #{$focus-ring-opacity};
+}
+
+// =============================================================================
+// FEATURE FLAGS CSS VARIABLES
+// =============================================================================
+
+:root {
+  --aqualuxe-enable-dark-mode: #{if($enable-dark-mode, 1, 0)};
+  --aqualuxe-enable-glass-effects: #{if($enable-glass-effects, 1, 0)};
+  --aqualuxe-enable-animations: #{if($enable-animations, 1, 0)};
+  --aqualuxe-enable-gradients: #{if($enable-gradients, 1, 0)};
+  --aqualuxe-enable-three-js: #{if($enable-three-js, 1, 0)};
+}
+
+// =============================================================================
+// ENVIRONMENT DETECTION
+// =============================================================================
+
+// JavaScript availability (updated by JS)
+:root {
+  --aqualuxe-js-enabled: 0;
+}
+
+.js {
+  --aqualuxe-js-enabled: 1;
+}
+
+// Touch device detection (updated by JS)
+:root {
+  --aqualuxe-touch-enabled: 0;
+}
+
+.is-touch {
+  --aqualuxe-touch-enabled: 1;
+}
+
+// =============================================================================
+// COMPONENT DEFAULTS
+// =============================================================================
+
+// Button defaults
+$btn-padding-y: 0.5rem !default;
+$btn-padding-x: 1rem !default;
+$btn-font-family: null !default;
+$btn-font-size: 1rem !default;
+$btn-line-height: 1.5 !default;
+$btn-font-weight: 500 !default;
+
+// Form defaults
+$input-padding-y: 0.5rem !default;
+$input-padding-x: 0.75rem !default;
+$input-font-family: null !default;
+$input-font-size: 1rem !default;
+$input-font-weight: 400 !default;
+$input-line-height: 1.5 !default;
+
+// Card defaults
+$card-padding: 1.5rem !default;
+$card-margin-bottom: 1.5rem !default;
+$card-border-width: 0 !default;
+$card-border-radius: $border-radius !default;
+
+// =============================================================================
+// LEGACY COMPATIBILITY
+// =============================================================================
+
+// Maintain compatibility with existing variables
+$primary-color: var(--aqualuxe-primary) !default;
+$secondary-color: var(--aqualuxe-secondary) !default;
+$accent-color: var(--aqualuxe-accent) !default;
+$text-color: var(--aqualuxe-text) !default;
+$bg-color: var(--aqualuxe-bg) !default;

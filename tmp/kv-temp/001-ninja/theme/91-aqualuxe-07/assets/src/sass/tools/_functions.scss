@@ -1,0 +1,116 @@
+// =============================================================================
+// FUNCTIONS
+// =============================================================================
+
+// Strip units from values
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
+
+// Convert px to rem
+@function rem($pixels, $context: 16) {
+  @return (strip-unit($pixels) / strip-unit($context)) * 1rem;
+}
+
+// Convert px to em
+@function em($pixels, $context: 16) {
+  @return (strip-unit($pixels) / strip-unit($context)) * 1em;
+}
+
+// Get color from theme map
+@function color($name, $variant: 500) {
+  @if map-has-key($colors, $name) {
+    $color-map: map-get($colors, $name);
+    @if map-has-key($color-map, $variant) {
+      @return map-get($color-map, $variant);
+    }
+  }
+  @warn "Color '#{$name}-#{$variant}' not found in theme colors.";
+  @return null;
+}
+
+// Get spacing value
+@function spacing($key) {
+  @if map-has-key($spacing-values, $key) {
+    @return map-get($spacing-values, $key);
+  }
+  @warn "Spacing '#{$key}' not found.";
+  @return null;
+}
+
+// Calculate contrast ratio
+@function contrast-ratio($color1, $color2) {
+  $l1: lightness($color1);
+  $l2: lightness($color2);
+  
+  @if $l1 > $l2 {
+    @return ($l1 + 5) / ($l2 + 5);
+  } @else {
+    @return ($l2 + 5) / ($l1 + 5);
+  }
+}
+
+// Get accessible color
+@function accessible-color($background, $light: #fff, $dark: #000) {
+  $light-contrast: contrast-ratio($background, $light);
+  $dark-contrast: contrast-ratio($background, $dark);
+  
+  @if $light-contrast > $dark-contrast {
+    @return $light;
+  } @else {
+    @return $dark;
+  }
+}
+
+// Clamp function for CSS
+@function css-clamp($min, $val, $max) {
+  @return clamp(#{$min}, #{$val}, #{$max});
+}
+
+// Fluid typography
+@function fluid-size($min-size, $max-size, $min-width: 320px, $max-width: 1200px) {
+  $slope: ($max-size - $min-size) / ($max-width - $min-width);
+  $intersection: (-$min-width * $slope) + $min-size;
+  
+  @return css-clamp(#{$min-size}, #{$intersection} + #{$slope * 100vw}, #{$max-size});
+}
+
+// Generate color variants
+@function lighten-color($color, $amount: 10%) {
+  @return lighten($color, $amount);
+}
+
+@function darken-color($color, $amount: 10%) {
+  @return darken($color, $amount);
+}
+
+// Math helpers
+@function pow($number, $exponent) {
+  $value: 1;
+  
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $number;
+    }
+  } @else if $exponent < 0 {
+    @for $i from 1 through abs($exponent) {
+      $value: $value / $number;
+    }
+  }
+  
+  @return $value;
+}
+
+@function sqrt($number) {
+  $guess: $number / 2;
+  $root: $guess;
+  
+  @for $i from 1 through 10 {
+    $root: ($root + $number / $root) / 2;
+  }
+  
+  @return $root;
+}

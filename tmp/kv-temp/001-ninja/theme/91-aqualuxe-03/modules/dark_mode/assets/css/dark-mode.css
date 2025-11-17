@@ -1,0 +1,23 @@
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #1a202c;
+    color: #cbd5e0;
+}
+
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background-color: #4a5568;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+body.dark-mode .dark-mode-toggle {
+    background-color: #e2e8f0;
+    color: #1a202c;
+}

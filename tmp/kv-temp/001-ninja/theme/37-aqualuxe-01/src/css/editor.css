@@ -1,0 +1,263 @@
+/* AquaLuxe Theme Editor Stylesheet
+ * This file contains styles for the WordPress block editor
+ */
+
+/* Tailwind CSS Base Styles */
+@import 'tailwindcss/base';
+
+/* Editor-specific base styles */
+@layer base {
+  /* Typography for editor */
+  .editor-styles-wrapper {
+    @apply font-sans text-base text-secondary-700;
+  }
+  
+  .editor-styles-wrapper h1,
+  .editor-styles-wrapper h2,
+  .editor-styles-wrapper h3,
+  .editor-styles-wrapper h4,
+  .editor-styles-wrapper h5,
+  .editor-styles-wrapper h6 {
+    @apply font-serif font-bold text-secondary-900;
+  }
+  
+  .editor-styles-wrapper h1 {
+    @apply text-4xl md:text-5xl mb-6;
+  }
+  
+  .editor-styles-wrapper h2 {
+    @apply text-3xl md:text-4xl mb-5;
+  }
+  
+  .editor-styles-wrapper h3 {
+    @apply text-2xl md:text-3xl mb-4;
+  }
+  
+  .editor-styles-wrapper h4 {
+    @apply text-xl md:text-2xl mb-4;
+  }
+  
+  .editor-styles-wrapper h5 {
+    @apply text-lg md:text-xl mb-3;
+  }
+  
+  .editor-styles-wrapper h6 {
+    @apply text-base md:text-lg mb-3;
+  }
+  
+  .editor-styles-wrapper a {
+    @apply text-primary-500;
+  }
+  
+  .editor-styles-wrapper p {
+    @apply mb-4;
+  }
+  
+  .editor-styles-wrapper blockquote {
+    @apply pl-4 border-l-4 border-primary-500 italic my-6;
+  }
+  
+  .editor-styles-wrapper code {
+    @apply font-mono text-sm bg-secondary-100 px-1 py-0.5 rounded;
+  }
+  
+  .editor-styles-wrapper pre {
+    @apply font-mono text-sm bg-secondary-100 p-4 rounded my-6 overflow-x-auto;
+  }
+  
+  .editor-styles-wrapper ul,
+  .editor-styles-wrapper ol {
+    @apply mb-4 ml-6;
+  }
+  
+  .editor-styles-wrapper ul {
+    @apply list-disc;
+  }
+  
+  .editor-styles-wrapper ol {
+    @apply list-decimal;
+  }
+  
+  .editor-styles-wrapper li {
+    @apply mb-1;
+  }
+  
+  .editor-styles-wrapper table {
+    @apply w-full border-collapse mb-6;
+  }
+  
+  .editor-styles-wrapper th {
+    @apply border border-secondary-200 px-4 py-2 text-left bg-secondary-100;
+  }
+  
+  .editor-styles-wrapper td {
+    @apply border border-secondary-200 px-4 py-2;
+  }
+}
+
+/* Tailwind CSS Components */
+@import 'tailwindcss/components';
+
+/* Editor-specific components */
+@layer components {
+  /* Block editor width */
+  .wp-block {
+    @apply max-w-4xl;
+  }
+  
+  .wp-block[data-align="wide"] {
+    @apply max-w-5xl;
+  }
+  
+  .wp-block[data-align="full"] {
+    @apply max-w-none;
+  }
+  
+  /* Block editor buttons */
+  .wp-block-button__link {
+    @apply inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .is-style-fill .wp-block-button__link {
+    @apply bg-primary-500 text-white hover:bg-primary-600 focus:ring-primary-500;
+  }
+  
+  .is-style-outline .wp-block-button__link {
+    @apply bg-transparent border-secondary-300 text-secondary-700 hover:bg-secondary-50 focus:ring-secondary-500;
+  }
+  
+  /* Block editor image */
+  .wp-block-image figcaption {
+    @apply text-sm text-secondary-500 text-center mt-2;
+  }
+  
+  /* Block editor cover */
+  .wp-block-cover,
+  .wp-block-cover-image {
+    @apply rounded-lg overflow-hidden;
+  }
+  
+  /* Block editor quote */
+  .wp-block-quote {
+    @apply pl-4 border-l-4 border-primary-500 italic my-6;
+  }
+  
+  .wp-block-quote cite {
+    @apply block text-sm text-secondary-500 mt-2 not-italic;
+  }
+  
+  /* Block editor pullquote */
+  .wp-block-pullquote {
+    @apply border-t-4 border-b-4 border-primary-500 py-6 my-8;
+  }
+  
+  .wp-block-pullquote blockquote {
+    @apply border-l-0 pl-0;
+  }
+  
+  /* Block editor table */
+  .wp-block-table table {
+    @apply w-full border-collapse mb-6;
+  }
+  
+  .wp-block-table th {
+    @apply border border-secondary-200 px-4 py-2 text-left bg-secondary-100;
+  }
+  
+  .wp-block-table td {
+    @apply border border-secondary-200 px-4 py-2;
+  }
+  
+  /* Block editor separator */
+  .wp-block-separator {
+    @apply border-b border-secondary-200 my-8;
+  }
+  
+  /* Block editor media & text */
+  .wp-block-media-text {
+    @apply grid gap-4;
+  }
+  
+  /* Block editor columns */
+  .wp-block-columns {
+    @apply flex flex-wrap gap-4;
+  }
+  
+  .wp-block-column {
+    @apply flex-1 min-w-0;
+  }
+  
+  /* Block editor group */
+  .wp-block-group {
+    @apply my-8;
+  }
+  
+  .wp-block-group.has-background {
+    @apply p-6 rounded-lg;
+  }
+  
+  /* Block editor gallery */
+  .wp-block-gallery {
+    @apply grid gap-4 my-8;
+  }
+  
+  /* Block editor embed */
+  .wp-block-embed figcaption {
+    @apply text-sm text-secondary-500 text-center mt-2;
+  }
+  
+  /* Block editor file */
+  .wp-block-file {
+    @apply flex items-center justify-between p-4 bg-secondary-50 rounded-md my-4;
+  }
+  
+  .wp-block-file__button {
+    @apply ml-4 px-3 py-1 bg-primary-500 text-white rounded-md text-sm hover:bg-primary-600;
+  }
+}
+
+/* Tailwind CSS Utilities */
+@import 'tailwindcss/utilities';
+
+/* Editor-specific utilities */
+@layer utilities {
+  .has-primary-color {
+    @apply text-primary-500;
+  }
+  
+  .has-primary-background-color {
+    @apply bg-primary-500;
+  }
+  
+  .has-secondary-color {
+    @apply text-secondary-500;
+  }
+  
+  .has-secondary-background-color {
+    @apply bg-secondary-500;
+  }
+  
+  .has-accent-color {
+    @apply text-accent-500;
+  }
+  
+  .has-accent-background-color {
+    @apply bg-accent-500;
+  }
+  
+  .has-white-color {
+    @apply text-white;
+  }
+  
+  .has-white-background-color {
+    @apply bg-white;
+  }
+  
+  .has-black-color {
+    @apply text-black;
+  }
+  
+  .has-black-background-color {
+    @apply bg-black;
+  }
+}

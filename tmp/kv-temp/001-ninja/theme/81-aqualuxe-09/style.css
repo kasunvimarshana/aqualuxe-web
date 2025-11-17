@@ -1,0 +1,181 @@
+/*
+Theme Name: AquaLuxe
+Theme URI: https://aqualuxe.example
+Author: AquaLuxe Team
+Author URI: https://aqualuxe.example
+Description: Modular, dual-state (with/without WooCommerce) AquaLuxe theme: multitenant, multilingual, multicurrency-ready. Mobile-first, accessible, and performance-optimized.
+Version: 1.0.0
+License: GPL-2.0-or-later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: aqualuxe
+Tags: e-commerce, accessibility-ready, custom-logo, custom-colors, custom-menu, tailwindcss, one-column, two-columns, grid-layout, theme-options
+Requires at least: 6.0
+Tested up to: 6.6
+Requires PHP: 8.0
+*/
+
+/* This file is intentionally minimal. All CSS is built and enqueued from assets/dist via mix-manifest.json */
+
+/* Lightweight, safe enhancements for header/mobile nav */
+#ax-mobile-menu.hidden { display: none !important; }
+.hidden { display: none !important; }
+#ax-nav-toggle { line-height: 1; }
+#ax-mobile-menu ul { margin: 0; padding: 0; list-style: none; }
+#ax-mobile-menu a { display: block; padding: 0.625rem 0.25rem; text-decoration: none; }
+#ax-mobile-menu a:focus-visible { outline: 2px solid #0ea5e9; outline-offset: 2px; border-radius: 0.375rem; }
+/* Mobile menu item styles */
+#ax-mobile-menu li { list-style: none; border-bottom: 1px solid rgba(15,23,42,0.08); }
+#ax-mobile-menu li:last-child { border-bottom: 0; }
+#ax-mobile-menu a:hover { color: #0ea5e9; }
+#ax-mobile-menu .current-menu-item > a,
+#ax-mobile-menu .current-menu-ancestor > a { font-weight: 600; }
+/* Submenu toggles */
+#ax-mobile-menu .menu-item-has-children { position: relative; }
+#ax-mobile-menu .menu-item-has-children > a { padding-right: 2.25rem; }
+#ax-mobile-menu .ax-sub-toggle {
+	position: absolute; right: .25rem; top: .4rem; width: 2rem; height: 2rem;
+	border: 1px solid rgba(15,23,42,0.2); border-radius: .375rem; background: transparent;
+}
+#ax-mobile-menu .ax-sub-toggle:focus-visible { outline: 2px solid #0ea5e9; outline-offset: 2px; }
+#ax-mobile-menu .menu-item-has-children > .sub-menu { display: none; padding-left: .75rem; margin: .25rem 0 .5rem; }
+#ax-mobile-menu .menu-item-has-children.ax-sub-open > .sub-menu { display: block; }
+header a:focus-visible { outline: 2px solid #0ea5e9; outline-offset: 2px; border-radius: 0.25rem; }
+/* Logo sizing guard */
+header .custom-logo-link img { max-height: 48px; height: auto; width: auto; }
+/* Improve skip-link reveal without relying on utility classes */
+.skip-link { position: absolute; left: -999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+.skip-link:focus { left: 0; top: 0; width: auto; height: auto; background: #0ea5e9; color: #fff; padding: 0.5rem 0.75rem; z-index: 9999; }
+
+/* Mobile menu animation helpers */
+#ax-mobile-menu { overflow: hidden; }
+#ax-mobile-menu.ax-collapsed { max-height: 0; opacity: 0; }
+#ax-mobile-menu.ax-expanded { max-height: 80vh; opacity: 1; }
+#ax-mobile-menu.ax-anim { transition: max-height 220ms ease, opacity 180ms ease; }
+@media (prefers-reduced-motion: reduce) {
+	#ax-mobile-menu.ax-anim { transition: none; }
+}
+
+/* Header currency switcher compact styles (dark-friendly) */
+.ax-currency { display:inline-flex !important; align-items:center; gap:.5rem; margin-left:.25rem; white-space:nowrap; flex:0 0 auto; }
+.ax-currency-control { position: relative; display:inline-block; }
+.ax-currency-control::after{
+	content: "";
+	position: absolute;
+	right: .5rem;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 12px; height: 8px;
+	background-color: currentColor;
+	opacity: .9;
+	-webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1.41.59 6 5.17 10.59.59 12 2 6 8 0 2z'/%3E%3C/svg%3E");
+	-webkit-mask-repeat: no-repeat; -webkit-mask-position: center; -webkit-mask-size: contain;
+	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1.41.59 6 5.17 10.59.59 12 2 6 8 0 2z'/%3E%3C/svg%3E");
+	mask-repeat: no-repeat; mask-position: center; mask-size: contain;
+	pointer-events: none;
+}
+/* Header currency switcher compact styles (final consolidated) */
+.ax-currency { display:inline-flex !important; align-items:center; gap:.5rem; margin-left:.25rem; white-space:nowrap; flex:0 0 auto; }
+.ax-currency-group { display:inline-flex !important; align-items:center; gap:.5rem; margin-left:.25rem; letter-spacing:.02em; }
+.ax-cur-pill { display:inline-flex; align-items:center; justify-content:center; height:1.9rem; min-width:2.1rem; padding:0 .5rem; border-radius:.375rem; text-decoration:none; border:1px solid rgba(148,163,184,0.5); color:inherit; background:transparent; font-size:.8125rem; line-height:1; transition: background-color .15s ease, border-color .15s ease, color .15s ease; -webkit-tap-highlight-color: transparent; }
+.ax-cur-pill:hover { border-color: rgba(148,163,184,0.7); background: rgba(255,255,255,0.08); }
+.ax-cur-pill.is-active { background: rgba(255,255,255,0.08); border-color: rgba(148,163,184,0.6); font-weight:600; }
+.ax-cur-pill.is-active { cursor: default; }
+.dark .ax-cur-pill.is-active { background: rgba(255,255,255,0.10); }
+.ax-cur-pill:focus-visible { outline: 2px solid #0ea5e9; outline-offset: 2px; }
+.ax-cur-sep { opacity:.5; margin: 0 .125rem; }
+/* Hide separators when CSS is active; spacing handled by gap */
+.ax-currency-group .ax-cur-sep { display:none; }
+.ax-currency-label { font-size:.875rem; opacity:.8; margin-right:.25rem; white-space:nowrap; }
+.dark .ax-currency-label { color:#cbd5e1; opacity:.9; }
+.ax-currency-select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-color: transparent;
+	color: inherit;
+	border: 0;
+	border-radius: .375rem;
+	padding: .375rem .75rem; /* vertical rhythm */
+	padding-right: 1.5rem;
+	line-height: 1.2;
+	height: 2rem;
+	min-width: 4.25rem; /* fits 3-letter codes */
+	font-size: .875rem;
+	cursor: pointer;
+	transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+			background-image: none; /* caret handled by wrapper */
+			/* no color-scheme base; let OS default render for dropdown list */
+}
+/* Legacy select styles kept below for backward compatibility if any page cache holds old markup */
+.dark .ax-currency-select { color: #e2e8f0; }
+.ax-currency-select:hover { border-color: rgba(15,23,42,0.35); }
+.dark .ax-currency-select:hover { border-color: rgba(148,163,184,0.55); }
+.ax-currency-select:focus-visible { outline: 2px solid #0ea5e9; outline-offset: 2px; }
+/* Hide old Edge arrow */
+.ax-currency-select::-ms-expand { display:none; }
+
+/* Remove any UA white background bleed in some browsers */
+.ax-currency .ax-currency-select { background-clip: padding-box; }
+
+/* The control provides the border/background so select can stay transparent */
+.ax-currency-control { border: 1px solid rgba(148,163,184,0.35); border-radius: .375rem; padding-right: 1.25rem; }
+.dark .ax-currency-control { border-color: rgba(148,163,184,0.35); background-color: rgba(255,255,255,0.06); }
+.ax-currency-control:focus-within { outline: 2px solid #0ea5e9; outline-offset: 2px; }
+
+/* On very small screens, hide the text label to save space while keeping association for a11y */
+@media (max-width: 420px) {
+	.ax-currency-label { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+}
+@media (max-width: 640px) {
+	.ax-currency-label { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+}
+
+/* Header hardening: defeat UA/Tailwind form paints in dark header */
+header .ax-currency .ax-currency-select {
+	background-color: rgba(255,255,255,0.06) !important;
+	color: inherit !important;
+	border-color: rgba(148,163,184,0.35) !important;
+	background-image: none !important;
+	box-shadow: none !important;
+}
+
+/* Stronger rule when using the control wrapper: keep the inner select fully transparent */
+header .ax-currency .ax-currency-control .ax-currency-select {
+	-webkit-appearance: none !important;
+	-moz-appearance: none !important;
+	appearance: none !important;
+	background: transparent !important;
+	color: inherit !important;
+	border: 0 !important;
+	box-shadow: none !important;
+}
+
+/* Fallback if wrapper not present (older markup): style the select directly */
+header select[name="ax_currency"]:not(.ax-currency-select) {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: transparent;
+	color: inherit;
+	border: 1px solid rgba(148,163,184,0.35);
+	border-radius: .375rem;
+	padding: .375rem .75rem;
+	padding-right: 1.5rem;
+	height: 2rem;
+	line-height: 1.2;
+}
+
+/* -------------------- */
+/* Breadcrumbs fallback */
+/* -------------------- */
+.ax-breadcrumb ol { list-style: none; padding: 0; margin: 0; }
+.ax-breadcrumb li { display: inline-flex; align-items: center; white-space: nowrap; }
+.ax-breadcrumb li + li { position: relative; padding-left: .625rem; margin-left: .375rem; }
+.ax-breadcrumb li + li::before { content: "\203A"; /* › */ position: absolute; left: 0; top: 0; transform: translateY(0); opacity: .55; }
+.ax-breadcrumb a.ax-bc-link { text-decoration: none; border-bottom: 1px solid rgba(148,163,184,0.6); padding-bottom: 1px; }
+.ax-breadcrumb a.ax-bc-link:hover { border-bottom-color: rgba(14,165,233,0.9); }
+.ax-breadcrumb [aria-current="page"] { opacity: .9; }
+.ax-breadcrumb li[aria-current="page"] { display:inline-block; max-width:14ch; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; vertical-align:bottom; }
+.dark .ax-breadcrumb { color: inherit; }
+.dark .ax-breadcrumb a.ax-bc-link { color: inherit; border-bottom-color: rgba(203,213,225,0.6); }
+.dark .ax-breadcrumb a.ax-bc-link:hover { border-bottom-color: rgba(56,189,248,0.95); }

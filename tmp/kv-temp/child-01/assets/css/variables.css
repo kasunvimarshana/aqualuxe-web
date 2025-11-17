@@ -1,0 +1,41 @@
+/**
+ * AquaLuxe Theme Variables
+ *
+ * @package AquaLuxe
+ */
+
+:root {
+  /* Color Palette */
+  --primary-color: #0a4f7c; /* Deep ocean blue */
+  --secondary-color: #d4af37; /* Gold */
+  --accent-color: #1e88e5; /* Bright blue */
+  --light-color: #e6f2ff; /* Light blue */
+  --dark-color: #333333; /* Dark gray */
+  --gray-color: #777777; /* Medium gray */
+  --light-gray: #f8f9fa; /* Very light gray */
+
+  /* Typography */
+  --primary-font: 'Playfair Display', serif;
+  --secondary-font: 'Lato', sans-serif;
+
+  /* Spacing */
+  --spacing-small: 10px;
+  --spacing-medium: 20px;
+  --spacing-large: 40px;
+
+  /* Borders */
+  --border-radius: 8px;
+  --border-color: #eaeaea;
+
+  /* Shadows */
+  --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  --box-shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.1);
+
+  /* AquaLuxe */
+  --aqualuxe-primary: #0a4f70; /* Deep blue */
+  --aqualuxe-secondary: #17a2b8; /* Teal */
+  --aqualuxe-accent: #d4af37; /* Gold */
+  --aqualuxe-light: #f8f9fa; /* Light gray */
+  --aqualuxe-dark: #343a40; /* Dark gray */
+  --aqualuxe-white: #ffffff; /* White */
+}

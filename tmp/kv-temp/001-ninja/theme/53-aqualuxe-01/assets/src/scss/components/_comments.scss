@@ -1,0 +1,575 @@
+/* Comments
+--------------------------------------------- */
+.comments-area {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid $border-color;
+}
+
+.comments-title {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: $primary-color;
+  }
+}
+
+.comment-list {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+
+  .children {
+    list-style: none;
+    margin: 1.5rem 0 0 3rem;
+    padding: 0;
+
+    @include breakpoint-down(sm) {
+      margin-left: 1.5rem;
+    }
+  }
+}
+
+.comment {
+  margin-bottom: $comment-margin-bottom;
+  padding: $comment-padding;
+  background-color: $light-color;
+  border: 1px solid $comment-border-color;
+  border-radius: $comment-border-radius;
+  box-shadow: $comment-box-shadow;
+}
+
+.comment-body {
+  position: relative;
+}
+
+.comment-meta {
+  margin-bottom: 1rem;
+}
+
+.comment-author {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+
+  .avatar {
+    margin-right: 1rem;
+    border-radius: 50%;
+  }
+
+  .fn {
+    font-weight: $font-weight-bold;
+    font-style: normal;
+  }
+
+  .says {
+    display: none;
+  }
+}
+
+.comment-metadata {
+  font-size: 0.75rem;
+  color: $gray-600;
+
+  a {
+    color: $gray-600;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: $primary-color;
+      text-decoration: underline;
+    }
+  }
+
+  .edit-link {
+    margin-left: 1rem;
+  }
+}
+
+.comment-content {
+  margin-bottom: 1rem;
+  word-wrap: break-word;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.reply {
+  text-align: right;
+
+  .comment-reply-link {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+    background-color: $gray-200;
+    color: $gray-700;
+    border-radius: $border-radius;
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &:hover,
+    &:focus {
+      background-color: $primary-color;
+      color: $light-color;
+    }
+  }
+}
+
+.bypostauthor {
+  > .comment-body {
+    .comment-author {
+      .fn:after {
+        content: ' (' attr(data-bypostauthor) ')';
+        font-size: 0.875rem;
+        font-weight: normal;
+        font-style: italic;
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+.pingback,
+.trackback {
+  .comment-body {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: $gray-100;
+    border-radius: $border-radius;
+  }
+
+  .comment-metadata {
+    margin-bottom: 0;
+  }
+
+  .comment-content {
+    margin-bottom: 0;
+  }
+}
+
+/* Comment Navigation
+--------------------------------------------- */
+.comment-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+
+  .nav-links {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .nav-previous,
+  .nav-next {
+    max-width: 48%;
+  }
+
+  a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: $gray-200;
+    color: $gray-700;
+    border-radius: $border-radius;
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &:hover,
+    &:focus {
+      background-color: $primary-color;
+      color: $light-color;
+    }
+  }
+}
+
+/* Comment Form
+--------------------------------------------- */
+.comment-respond {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: $gray-100;
+  border-radius: $border-radius;
+}
+
+.comment-reply-title {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: $primary-color;
+  }
+
+  small {
+    font-size: 0.875rem;
+    font-weight: normal;
+    margin-left: 1rem;
+
+    a {
+      color: $gray-600;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        color: $danger-color;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.comment-notes,
+.logged-in-as {
+  font-size: 0.875rem;
+  color: $gray-600;
+  margin-bottom: 1.5rem;
+
+  a {
+    color: $gray-600;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: $primary-color;
+      text-decoration: underline;
+    }
+  }
+}
+
+.comment-form {
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: $font-weight-medium;
+  }
+
+  .required {
+    color: $danger-color;
+  }
+
+  .comment-form-author,
+  .comment-form-email,
+  .comment-form-url {
+    margin-bottom: 1rem;
+  }
+
+  .comment-form-cookies-consent {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+
+    input {
+      margin-top: 0.25rem;
+      margin-right: 0.5rem;
+    }
+
+    label {
+      margin-bottom: 0;
+      font-size: 0.875rem;
+      font-weight: normal;
+    }
+  }
+
+  .form-submit {
+    margin-bottom: 0;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="url"],
+  textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    background-color: $light-color;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:focus {
+      border-color: $primary-color;
+      outline: none;
+      box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+    }
+  }
+
+  textarea {
+    height: 150px;
+  }
+
+  input[type="submit"] {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: $primary-color;
+    color: $light-color;
+    border: none;
+    border-radius: $border-radius;
+    font-weight: $font-weight-medium;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover,
+    &:focus {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+}
+
+/* Comment Moderation
+--------------------------------------------- */
+.comment-awaiting-moderation {
+  font-size: 0.875rem;
+  font-style: italic;
+  color: $warning-color;
+  margin-bottom: 1rem;
+}
+
+/* No Comments
+--------------------------------------------- */
+.no-comments {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: $gray-100;
+  border-radius: $border-radius;
+  text-align: center;
+  font-style: italic;
+  color: $gray-600;
+}
+
+/* Comment Pagination
+--------------------------------------------- */
+.comments-pagination {
+  margin: 2rem 0;
+  text-align: center;
+
+  .page-numbers {
+    display: inline-block;
+    padding: 0.5rem 0.75rem;
+    margin: 0 0.25rem;
+    background-color: $gray-200;
+    color: $gray-700;
+    border-radius: $border-radius;
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &:hover,
+    &:focus {
+      background-color: $gray-300;
+      color: $gray-900;
+    }
+
+    &.current {
+      background-color: $primary-color;
+      color: $light-color;
+    }
+
+    &.dots {
+      background-color: transparent;
+      color: $gray-600;
+    }
+  }
+}
+
+/* Comment Highlight
+--------------------------------------------- */
+.comment-highlight {
+  border-left: 3px solid $primary-color;
+  animation: comment-highlight-fade 2s ease-out;
+}
+
+@keyframes comment-highlight-fade {
+  0% {
+    background-color: rgba($primary-color, 0.1);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+/* Threaded Comments
+--------------------------------------------- */
+.comment-list {
+  .depth-1 {
+    margin-left: 0;
+  }
+
+  .depth-2 {
+    margin-left: 2rem;
+  }
+
+  .depth-3 {
+    margin-left: 4rem;
+  }
+
+  .depth-4 {
+    margin-left: 6rem;
+  }
+
+  .depth-5 {
+    margin-left: 8rem;
+  }
+
+  @include breakpoint-down(md) {
+    .depth-2,
+    .depth-3,
+    .depth-4,
+    .depth-5 {
+      margin-left: 1.5rem;
+    }
+  }
+}
+
+/* Dark Mode Styles
+--------------------------------------------- */
+@include dark-mode {
+  .comments-area {
+    border-top-color: $dark-border-color;
+  }
+
+  .comment {
+    background-color: lighten($dark-body-bg, 3%);
+    border-color: $dark-border-color;
+  }
+
+  .comment-metadata {
+    color: $gray-400;
+
+    a {
+      color: $gray-400;
+
+      &:hover,
+      &:focus {
+        color: $primary-color-light;
+      }
+    }
+  }
+
+  .reply .comment-reply-link {
+    background-color: rgba($light-color, 0.1);
+    color: $gray-300;
+
+    &:hover,
+    &:focus {
+      background-color: $primary-color;
+      color: $light-color;
+    }
+  }
+
+  .bypostauthor > .comment-body .comment-author .fn:after {
+    color: $primary-color-light;
+  }
+
+  .pingback,
+  .trackback {
+    .comment-body {
+      background-color: rgba($light-color, 0.05);
+    }
+  }
+
+  .comment-navigation a {
+    background-color: rgba($light-color, 0.1);
+    color: $gray-300;
+
+    &:hover,
+    &:focus {
+      background-color: $primary-color;
+      color: $light-color;
+    }
+  }
+
+  .comment-respond {
+    background-color: lighten($dark-body-bg, 5%);
+  }
+
+  .comment-notes,
+  .logged-in-as {
+    color: $gray-400;
+
+    a {
+      color: $gray-400;
+
+      &:hover,
+      &:focus {
+        color: $primary-color-light;
+      }
+    }
+  }
+
+  .comment-form {
+    input[type="text"],
+    input[type="email"],
+    input[type="url"],
+    textarea {
+      border-color: $dark-border-color;
+      background-color: rgba($light-color, 0.05);
+      color: $gray-300;
+
+      &:focus {
+        border-color: $primary-color;
+        box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+      }
+    }
+  }
+
+  .comment-awaiting-moderation {
+    color: $warning-color;
+  }
+
+  .no-comments {
+    background-color: lighten($dark-body-bg, 5%);
+    color: $gray-400;
+  }
+
+  .comments-pagination {
+    .page-numbers {
+      background-color: rgba($light-color, 0.1);
+      color: $gray-300;
+
+      &:hover,
+      &:focus {
+        background-color: rgba($light-color, 0.2);
+        color: $light-color;
+      }
+
+      &.current {
+        background-color: $primary-color;
+        color: $light-color;
+      }
+
+      &.dots {
+        background-color: transparent;
+        color: $gray-400;
+      }
+    }
+  }
+
+  .comment-highlight {
+    animation: comment-highlight-fade-dark 2s ease-out;
+  }
+
+  @keyframes comment-highlight-fade-dark {
+    0% {
+      background-color: rgba($primary-color, 0.2);
+    }
+    100% {
+      background-color: transparent;
+    }
+  }
+}

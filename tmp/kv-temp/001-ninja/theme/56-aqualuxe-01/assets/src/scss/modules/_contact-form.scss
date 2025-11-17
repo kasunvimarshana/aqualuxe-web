@@ -1,0 +1,340 @@
+/**
+ * Contact Form Module Styles
+ */
+
+.aqualuxe-contact-form {
+    @apply py-16;
+    color: var(--contact-text-color, #1e293b);
+
+    // Background variations
+    &.bg-color {
+        background-color: var(--contact-bg-color, #f8fafc);
+    }
+
+    &.bg-gradient {
+        @apply bg-gradient-to-br from-gray-50 to-gray-200 dark:from-gray-800 dark:to-gray-900;
+    }
+
+    &.bg-image {
+        @apply bg-cover bg-center bg-no-repeat;
+        position: relative;
+
+        &::before {
+            content: '';
+            @apply absolute inset-0 bg-black bg-opacity-50;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    // Header styles
+    &__header {
+        @apply mb-12;
+    }
+
+    &__title {
+        @apply text-3xl md:text-4xl font-bold mb-4;
+    }
+
+    &__subtitle {
+        @apply text-primary text-sm uppercase tracking-wider font-semibold mb-2;
+    }
+
+    &__description {
+        @apply max-w-2xl mx-auto text-gray-600 dark:text-gray-400;
+    }
+
+    // Form container
+    &__form-container {
+        @apply bg-white dark:bg-gray-800 rounded-lg p-6 md:p-8;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    // Form styles
+    &__form {
+        .form-fields {
+            @apply space-y-6;
+        }
+
+        .form-field {
+            @apply relative;
+
+            label {
+                @apply block mb-2 font-medium;
+            }
+
+            input, textarea, select {
+                @apply w-full px-4 py-3 border border-gray-300 rounded-md;
+                @apply focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-20;
+                @apply dark:bg-gray-700 dark:border-gray-600 dark:text-white;
+                transition: border-color 0.2s, box-shadow 0.2s;
+            }
+
+            .form-error {
+                @apply text-red-500 text-sm mt-1;
+            }
+        }
+
+        .form-response {
+            @apply p-4 mb-6 rounded-md;
+
+            &.success {
+                @apply bg-green-50 text-green-700 border border-green-200;
+                @apply dark:bg-green-900 dark:bg-opacity-20 dark:text-green-300 dark:border-green-800;
+            }
+
+            &.error {
+                @apply bg-red-50 text-red-700 border border-red-200;
+                @apply dark:bg-red-900 dark:bg-opacity-20 dark:text-red-300 dark:border-red-800;
+            }
+        }
+
+        .submit-btn {
+            @apply bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-6 rounded-md;
+            @apply transition-colors duration-300;
+            background-color: var(--contact-accent-color, #0ea5e9);
+
+            &:hover {
+                filter: brightness(0.9);
+            }
+
+            &:disabled {
+                @apply opacity-50 cursor-not-allowed;
+            }
+        }
+    }
+
+    // Contact info styles
+    .contact-info {
+        @apply space-y-6;
+
+        &__item {
+            @apply flex items-start mb-6;
+        }
+
+        &__icon {
+            @apply mr-4 text-primary;
+            color: var(--contact-accent-color, #0ea5e9);
+        }
+
+        &__content {
+            h4 {
+                @apply text-lg font-semibold mb-1;
+            }
+
+            p {
+                @apply text-gray-600 dark:text-gray-400;
+            }
+
+            a {
+                @apply hover:text-primary transition-colors duration-300;
+                &:hover {
+                    color: var(--contact-accent-color, #0ea5e9);
+                }
+            }
+        }
+
+        &__social {
+            @apply mt-8;
+
+            h4 {
+                @apply text-lg font-semibold mb-3;
+            }
+
+            .flex {
+                @apply space-x-4;
+            }
+
+            a {
+                @apply text-gray-600 hover:text-primary dark:text-gray-400 transition-colors duration-300;
+                
+                &:hover {
+                    color: var(--contact-accent-color, #0ea5e9);
+                }
+            }
+        }
+    }
+
+    // Map styles
+    &__map {
+        @apply mt-12;
+
+        #aqualuxe-map {
+            @apply h-96 w-full rounded-lg overflow-hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+    }
+
+    // Layout variations
+    &.layout-default {
+        .aqualuxe-contact-form__form-container {
+            @apply shadow-lg;
+        }
+    }
+
+    &.layout-split {
+        .aqualuxe-contact-form__form-container,
+        .aqualuxe-contact-form__info {
+            @apply bg-white dark:bg-gray-800 rounded-lg p-6 md:p-8 shadow-lg;
+        }
+    }
+
+    &.layout-centered {
+        .aqualuxe-contact-form__form-container {
+            @apply shadow-lg;
+        }
+    }
+
+    &.layout-boxed {
+        .aqualuxe-contact-form__form-container,
+        .aqualuxe-contact-form__info {
+            @apply bg-transparent shadow-none p-0;
+        }
+    }
+
+    &.layout-full-width {
+        .aqualuxe-contact-form__form-container,
+        .aqualuxe-contact-form__info {
+            @apply bg-white dark:bg-gray-800 rounded-lg p-6 md:p-8 shadow-lg;
+        }
+    }
+
+    // Style variations
+    &.style-default {
+        .form-field {
+            input, textarea, select {
+                @apply border border-gray-300 rounded-md;
+                @apply focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-20;
+            }
+        }
+    }
+
+    &.style-bordered {
+        .form-field {
+            input, textarea, select {
+                @apply border-2 border-gray-300 rounded-md;
+                @apply focus:border-primary focus:ring-0;
+            }
+        }
+
+        .aqualuxe-contact-form__form-container,
+        .aqualuxe-contact-form__info {
+            @apply border-2 border-gray-200 dark:border-gray-700;
+        }
+    }
+
+    &.style-minimal {
+        .form-field {
+            input, textarea, select {
+                @apply border-0 border-b-2 border-gray-300 rounded-none;
+                @apply focus:border-primary focus:ring-0;
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+
+        .aqualuxe-contact-form__form-container,
+        .aqualuxe-contact-form__info {
+            @apply shadow-none bg-transparent;
+        }
+    }
+
+    &.style-material {
+        .form-field {
+            @apply mb-8;
+
+            label {
+                @apply absolute -top-6 left-0 text-sm transition-all duration-300;
+                pointer-events: none;
+            }
+
+            input, textarea, select {
+                @apply border-0 border-b-2 border-gray-300 rounded-none;
+                @apply focus:border-primary focus:ring-0;
+                padding-left: 0;
+                padding-right: 0;
+                background-color: transparent;
+            }
+
+            input:focus + label,
+            textarea:focus + label,
+            select:focus + label,
+            input:not(:placeholder-shown) + label,
+            textarea:not(:placeholder-shown) + label,
+            select:not(:placeholder-shown) + label {
+                @apply -top-6 text-sm text-primary;
+            }
+        }
+    }
+
+    // Animation variations
+    &.animation-fade {
+        .aqualuxe-contact-form__form-container,
+        .aqualuxe-contact-form__info {
+            animation: contactFade 0.5s ease-in-out;
+        }
+    }
+
+    &.animation-slide {
+        .aqualuxe-contact-form__form-container,
+        .aqualuxe-contact-form__info {
+            animation: contactSlide 0.5s ease-in-out;
+        }
+    }
+
+    &.animation-zoom {
+        .aqualuxe-contact-form__form-container,
+        .aqualuxe-contact-form__info {
+            animation: contactZoom 0.5s ease-in-out;
+        }
+    }
+}
+
+// Animations
+@keyframes contactFade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes contactSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes contactZoom {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+    .aqualuxe-contact-form {
+        &.layout-split,
+        &.layout-boxed,
+        &.layout-full-width {
+            .aqualuxe-contact-form__info {
+                @apply mb-8;
+            }
+        }
+    }
+}

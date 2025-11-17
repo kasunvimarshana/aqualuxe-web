@@ -1,0 +1,205 @@
+/**
+ * AquaLuxe Accessibility Styles
+ *
+ * This file contains accessibility styles for the theme.
+ *
+ * @package AquaLuxe
+ * @since 1.0.0
+ */
+
+/* Screen Reader Text */
+.screen-reader-text {
+  @include visually-hidden;
+  
+  &:focus {
+    @include not-visually-hidden;
+    background-color: var(--color-background);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    clip: auto !important;
+    color: var(--color-primary);
+    display: block;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+  }
+}
+
+/* Skip Link */
+.skip-link {
+  @include visually-hidden;
+  
+  &:focus {
+    @include not-visually-hidden;
+    background-color: var(--color-background);
+    color: var(--color-primary);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-bold);
+    height: auto;
+    left: 0;
+    line-height: normal;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+    top: 0;
+    width: 100%;
+    z-index: 100000;
+  }
+}
+
+/* Focus Styles */
+:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Keyboard Focus Styles */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.reduce-motion * {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* High Contrast Mode */
+@media (forced-colors: active) {
+  * {
+    border-color: currentColor;
+  }
+  
+  a {
+    text-decoration: underline;
+  }
+  
+  button, 
+  input[type="button"], 
+  input[type="reset"], 
+  input[type="submit"],
+  .button {
+    border: 2px solid currentColor;
+  }
+}
+
+/* ARIA Hidden */
+[aria-hidden="true"] {
+  display: none;
+}
+
+/* Accessible SVG Icons */
+svg {
+  fill: currentColor;
+  
+  &[aria-hidden="true"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+/* Accessible Form Labels */
+.form-label-hidden {
+  @include visually-hidden;
+}
+
+/* Accessible Form Error Messages */
+.form-error {
+  color: var(--color-error);
+  font-weight: var(--font-weight-bold);
+  
+  &::before {
+    content: "⚠ ";
+  }
+}
+
+/* Accessible Tables */
+table {
+  caption-side: top;
+  
+  caption {
+    font-weight: var(--font-weight-bold);
+    text-align: left;
+    margin-bottom: 0.5em;
+  }
+}
+
+/* Accessible Images */
+img {
+  &[alt=""] {
+    outline: 2px dashed var(--color-error);
+  }
+}
+
+/* Accessible Links */
+a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+  
+  &:hover, &:focus {
+    text-decoration-thickness: 2px;
+  }
+}
+
+/* Accessible Buttons */
+button, 
+input[type="button"], 
+input[type="reset"], 
+input[type="submit"],
+.button {
+  &:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
+/* Dark Mode */
+@include dark-mode {
+  .screen-reader-text:focus {
+    background-color: var(--color-dark-background);
+    color: var(--color-primary-light);
+  }
+  
+  .skip-link:focus {
+    background-color: var(--color-dark-background);
+    color: var(--color-primary-light);
+  }
+  
+  :focus {
+    outline-color: var(--color-primary-light);
+  }
+  
+  :focus-visible {
+    outline-color: var(--color-primary-light);
+  }
+}

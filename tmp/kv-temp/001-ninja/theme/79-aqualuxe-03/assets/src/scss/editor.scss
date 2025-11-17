@@ -1,0 +1,13 @@
+/* Editor styles to match frontend */
+@use "sass:color";
+
+:root { --aqlx-primary: #0ea5e9; }
+
+.editor-styles-wrapper {
+  font-family: var(--aqlx-font, ui-sans-serif);
+}
+
+.wp-block-button .wp-block-button__link {
+  background-color: var(--aqlx-primary);
+  border-radius: .375rem;
+}

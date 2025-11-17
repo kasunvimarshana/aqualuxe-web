@@ -1,0 +1,541 @@
+/*!
+ * AquaLuxe Theme - Variables
+ * 
+ * @package AquaLuxe
+ * @since 1.0.0
+ */
+
+// ================================
+// Color Variables
+// ================================
+
+// Primary Brand Colors
+$primary: #3b82f6;
+$primary-dark: #2563eb;
+$primary-light: #60a5fa;
+$primary-rgb: 59, 130, 246;
+
+// Secondary Colors
+$secondary: #10b981;
+$secondary-dark: #059669;
+$secondary-light: #34d399;
+
+// Accent Colors
+$accent: #f59e0b;
+$accent-dark: #d97706;
+$accent-light: #fbbf24;
+
+// Aquatic Theme Colors
+$aqua-50: #ecfeff;
+$aqua-100: #cffafe;
+$aqua-200: #a5f3fc;
+$aqua-300: #67e8f9;
+$aqua-400: #22d3ee;
+$aqua-500: #06b6d4;
+$aqua-600: #0891b2;
+$aqua-700: #0e7490;
+$aqua-800: #155e75;
+$aqua-900: #164e63;
+
+$ocean-50: #f0f9ff;
+$ocean-100: #e0f2fe;
+$ocean-200: #bae6fd;
+$ocean-300: #7dd3fc;
+$ocean-400: #38bdf8;
+$ocean-500: #0ea5e9;
+$ocean-600: #0284c7;
+$ocean-700: #0369a1;
+$ocean-800: #075985;
+$ocean-900: #0c4a6e;
+
+$luxe-50: #fafaf9;
+$luxe-100: #f5f5f4;
+$luxe-200: #e7e5e4;
+$luxe-300: #d6d3d1;
+$luxe-400: #a8a29e;
+$luxe-500: #78716c;
+$luxe-600: #57534e;
+$luxe-700: #44403c;
+$luxe-800: #292524;
+$luxe-900: #1c1917;
+
+// Neutral Colors
+$white: #ffffff;
+$black: #000000;
+
+$gray-50: #f9fafb;
+$gray-100: #f3f4f6;
+$gray-200: #e5e7eb;
+$gray-300: #d1d5db;
+$gray-400: #9ca3af;
+$gray-500: #6b7280;
+$gray-600: #4b5563;
+$gray-700: #374151;
+$gray-800: #1f2937;
+$gray-900: #111827;
+
+// Semantic Colors
+$success: #10b981;
+$success-light: #d1fae5;
+$success-dark: #065f46;
+
+$warning: #f59e0b;
+$warning-light: #fef3c7;
+$warning-dark: #92400e;
+
+$error: #ef4444;
+$error-light: #fee2e2;
+$error-dark: #991b1b;
+
+$info: #3b82f6;
+$info-light: #dbeafe;
+$info-dark: #1e40af;
+
+// ================================
+// Typography Variables
+// ================================
+
+// Font Families
+$font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$font-secondary: 'Playfair Display', Georgia, 'Times New Roman', serif;
+$font-mono: 'Fira Code', 'SF Mono', Monaco, Inconsolata, 'Roboto Mono', 'Source Code Pro', monospace;
+
+// Font Weights
+$font-weight-thin: 100;
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+$font-weight-black: 900;
+
+// Font Sizes
+$text-xs: 0.75rem;     // 12px
+$text-sm: 0.875rem;    // 14px
+$text-base: 1rem;      // 16px
+$text-lg: 1.125rem;    // 18px
+$text-xl: 1.25rem;     // 20px
+$text-2xl: 1.5rem;     // 24px
+$text-3xl: 1.875rem;   // 30px
+$text-4xl: 2.25rem;    // 36px
+$text-5xl: 3rem;       // 48px
+$text-6xl: 3.75rem;    // 60px
+$text-7xl: 4.5rem;     // 72px
+$text-8xl: 6rem;       // 96px
+$text-9xl: 8rem;       // 128px
+
+// Line Heights
+$leading-none: 1;
+$leading-tight: 1.25;
+$leading-snug: 1.375;
+$leading-normal: 1.5;
+$leading-relaxed: 1.625;
+$leading-loose: 2;
+
+// ================================
+// Spacing Variables
+// ================================
+
+$spacing-0: 0;
+$spacing-px: 1px;
+$spacing-0-5: 0.125rem;   // 2px
+$spacing-1: 0.25rem;      // 4px
+$spacing-1-5: 0.375rem;   // 6px
+$spacing-2: 0.5rem;       // 8px
+$spacing-2-5: 0.625rem;   // 10px
+$spacing-3: 0.75rem;      // 12px
+$spacing-3-5: 0.875rem;   // 14px
+$spacing-4: 1rem;         // 16px
+$spacing-5: 1.25rem;      // 20px
+$spacing-6: 1.5rem;       // 24px
+$spacing-7: 1.75rem;      // 28px
+$spacing-8: 2rem;         // 32px
+$spacing-9: 2.25rem;      // 36px
+$spacing-10: 2.5rem;      // 40px
+$spacing-11: 2.75rem;     // 44px
+$spacing-12: 3rem;        // 48px
+$spacing-14: 3.5rem;      // 56px
+$spacing-16: 4rem;        // 64px
+$spacing-20: 5rem;        // 80px
+$spacing-24: 6rem;        // 96px
+$spacing-28: 7rem;        // 112px
+$spacing-32: 8rem;        // 128px
+$spacing-36: 9rem;        // 144px
+$spacing-40: 10rem;       // 160px
+$spacing-44: 11rem;       // 176px
+$spacing-48: 12rem;       // 192px
+$spacing-52: 13rem;       // 208px
+$spacing-56: 14rem;       // 224px
+$spacing-60: 15rem;       // 240px
+$spacing-64: 16rem;       // 256px
+$spacing-72: 18rem;       // 288px
+$spacing-80: 20rem;       // 320px
+$spacing-96: 24rem;       // 384px
+
+// ================================
+// Layout Variables
+// ================================
+
+// Container Sizes
+$container-sm: 640px;
+$container-md: 768px;
+$container-lg: 1024px;
+$container-xl: 1280px;
+$container-2xl: 1536px;
+$container-max: 1600px;
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+// Z-index Scale
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
+$z-index-toast: 1080;
+
+// ================================
+// Border Variables
+// ================================
+
+// Border Widths
+$border-0: 0;
+$border: 1px;
+$border-2: 2px;
+$border-4: 4px;
+$border-8: 8px;
+
+// Border Radius
+$rounded-none: 0;
+$rounded-sm: 0.125rem;    // 2px
+$rounded: 0.25rem;        // 4px
+$rounded-md: 0.375rem;    // 6px
+$rounded-lg: 0.5rem;      // 8px
+$rounded-xl: 0.75rem;     // 12px
+$rounded-2xl: 1rem;       // 16px
+$rounded-3xl: 1.5rem;     // 24px
+$rounded-full: 9999px;
+
+// ================================
+// Shadow Variables
+// ================================
+
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+$shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+$shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+$shadow-none: none;
+
+// ================================
+// Animation Variables
+// ================================
+
+// Transition Durations
+$duration-75: 75ms;
+$duration-100: 100ms;
+$duration-150: 150ms;
+$duration-200: 200ms;
+$duration-300: 300ms;
+$duration-500: 500ms;
+$duration-700: 700ms;
+$duration-1000: 1000ms;
+
+// Transition Timing Functions
+$ease-linear: linear;
+$ease-in: cubic-bezier(0.4, 0, 1, 1);
+$ease-out: cubic-bezier(0, 0, 0.2, 1);
+$ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+// Common Transitions
+$transition-colors: color $duration-150 $ease-in-out, background-color $duration-150 $ease-in-out, border-color $duration-150 $ease-in-out;
+$transition-opacity: opacity $duration-150 $ease-in-out;
+$transition-shadow: box-shadow $duration-150 $ease-in-out;
+$transition-transform: transform $duration-150 $ease-in-out;
+$transition-all: all $duration-150 $ease-in-out;
+
+// ================================
+// Component Variables
+// ================================
+
+// Buttons
+$button-padding-x: $spacing-4;
+$button-padding-y: $spacing-2;
+$button-padding-x-sm: $spacing-3;
+$button-padding-y-sm: $spacing-1-5;
+$button-padding-x-lg: $spacing-6;
+$button-padding-y-lg: $spacing-3;
+
+$button-border-radius: $rounded-md;
+$button-font-weight: $font-weight-medium;
+$button-transition: $transition-colors;
+
+// Forms
+$input-padding-x: $spacing-3;
+$input-padding-y: $spacing-2;
+$input-border-width: $border;
+$input-border-color: $gray-300;
+$input-border-radius: $rounded-md;
+$input-focus-border-color: $primary;
+$input-focus-ring-color: rgba($primary-rgb, 0.1);
+
+// Cards
+$card-padding: $spacing-6;
+$card-border-radius: $rounded-lg;
+$card-shadow: $shadow-md;
+$card-background: $white;
+
+// Navigation
+$nav-link-padding-x: $spacing-4;
+$nav-link-padding-y: $spacing-2;
+$nav-link-color: $gray-700;
+$nav-link-hover-color: $primary;
+
+// Header
+$header-height: 80px;
+$header-background: $white;
+$header-border-color: $gray-200;
+$header-shadow: $shadow-sm;
+
+// Footer
+$footer-background: $gray-900;
+$footer-text-color: $gray-300;
+$footer-link-color: $white;
+
+// ================================
+// Theme Specific Variables
+// ================================
+
+// Hero Section
+$hero-min-height: 75vh;
+$hero-overlay-opacity: 0.4;
+$hero-text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+// Testimonials
+$testimonial-card-background: $white;
+$testimonial-card-shadow: $shadow-md;
+$testimonial-card-border-radius: $rounded-lg;
+
+// Newsletter
+$newsletter-background: $primary;
+$newsletter-text-color: $white;
+
+// Product Cards
+$product-card-background: $white;
+$product-card-border-radius: $rounded-lg;
+$product-card-shadow: $shadow-md;
+$product-card-hover-shadow: $shadow-lg;
+
+// ================================
+// WordPress Specific Variables
+// ================================
+
+// Admin Bar
+$admin-bar-height: 32px;
+$admin-bar-height-mobile: 46px;
+
+// Content Width
+$content-width: 800px;
+$wide-content-width: 1200px;
+
+// Comment Form
+$comment-form-background: $gray-50;
+$comment-form-border-radius: $rounded-lg;
+$comment-form-padding: $spacing-6;
+
+// ================================
+// Utility Maps for Sass Functions
+// ================================
+
+$colors: (
+  'primary': $primary,
+  'primary-dark': $primary-dark,
+  'primary-light': $primary-light,
+  'secondary': $secondary,
+  'secondary-dark': $secondary-dark,
+  'secondary-light': $secondary-light,
+  'accent': $accent,
+  'accent-dark': $accent-dark,
+  'accent-light': $accent-light,
+  'white': $white,
+  'black': $black,
+  'gray-50': $gray-50,
+  'gray-100': $gray-100,
+  'gray-200': $gray-200,
+  'gray-300': $gray-300,
+  'gray-400': $gray-400,
+  'gray-500': $gray-500,
+  'gray-600': $gray-600,
+  'gray-700': $gray-700,
+  'gray-800': $gray-800,
+  'gray-900': $gray-900,
+  'success': $success,
+  'warning': $warning,
+  'error': $error,
+  'info': $info,
+);
+
+$font-sizes: (
+  'xs': $text-xs,
+  'sm': $text-sm,
+  'base': $text-base,
+  'lg': $text-lg,
+  'xl': $text-xl,
+  '2xl': $text-2xl,
+  '3xl': $text-3xl,
+  '4xl': $text-4xl,
+  '5xl': $text-5xl,
+  '6xl': $text-6xl,
+  '7xl': $text-7xl,
+  '8xl': $text-8xl,
+  '9xl': $text-9xl,
+);
+
+$spacing: (
+  '0': $spacing-0,
+  'px': $spacing-px,
+  '0.5': $spacing-0-5,
+  '1': $spacing-1,
+  '1.5': $spacing-1-5,
+  '2': $spacing-2,
+  '2.5': $spacing-2-5,
+  '3': $spacing-3,
+  '3.5': $spacing-3-5,
+  '4': $spacing-4,
+  '5': $spacing-5,
+  '6': $spacing-6,
+  '7': $spacing-7,
+  '8': $spacing-8,
+  '9': $spacing-9,
+  '10': $spacing-10,
+  '11': $spacing-11,
+  '12': $spacing-12,
+  '14': $spacing-14,
+  '16': $spacing-16,
+  '20': $spacing-20,
+  '24': $spacing-24,
+  '28': $spacing-28,
+  '32': $spacing-32,
+  '36': $spacing-36,
+  '40': $spacing-40,
+  '44': $spacing-44,
+  '48': $spacing-48,
+  '52': $spacing-52,
+  '56': $spacing-56,
+  '60': $spacing-60,
+  '64': $spacing-64,
+  '72': $spacing-72,
+  '80': $spacing-80,
+  '96': $spacing-96,
+);
+
+$breakpoints: (
+  'sm': $breakpoint-sm,
+  'md': $breakpoint-md,
+  'lg': $breakpoint-lg,
+  'xl': $breakpoint-xl,
+  '2xl': $breakpoint-2xl,
+);
+
+// ================================
+// Sass Functions
+// ================================
+
+@function color($name) {
+  @return map-get($colors, $name);
+}
+
+@function font-size($size) {
+  @return map-get($font-sizes, $size);
+}
+
+@function spacing($size) {
+  @return map-get($spacing, $size);
+}
+
+@function breakpoint($size) {
+  @return map-get($breakpoints, $size);
+}
+
+// ================================
+// Sass Mixins
+// ================================
+
+@mixin font-size($size) {
+  font-size: font-size($size);
+}
+
+@mixin responsive($breakpoint) {
+  @media (min-width: breakpoint($breakpoint)) {
+    @content;
+  }
+}
+
+@mixin button-variant($bg-color, $text-color: $white, $hover-bg: null) {
+  background-color: $bg-color;
+  color: $text-color;
+  border: 1px solid $bg-color;
+  
+  @if $hover-bg {
+    &:hover {
+      background-color: $hover-bg;
+      border-color: $hover-bg;
+    }
+  } @else {
+    &:hover {
+      background-color: darken($bg-color, 10%);
+      border-color: darken($bg-color, 10%);
+    }
+  }
+}
+
+@mixin button-outline($color) {
+  background-color: transparent;
+  color: $color;
+  border: 1px solid $color;
+  
+  &:hover {
+    background-color: $color;
+    color: $white;
+  }
+}
+
+@mixin card($padding: $card-padding, $shadow: $card-shadow, $radius: $card-border-radius) {
+  background-color: $card-background;
+  padding: $padding;
+  border-radius: $radius;
+  box-shadow: $shadow;
+}
+
+@mixin transition($properties: all, $duration: $duration-300, $timing: $ease-in-out) {
+  transition: $properties $duration $timing;
+}
+
+@mixin visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+@mixin focus-ring($color: $primary, $offset: 2px) {
+  &:focus {
+    outline: 2px solid $color;
+    outline-offset: $offset;
+  }
+}

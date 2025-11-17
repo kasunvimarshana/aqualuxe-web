@@ -1,0 +1,286 @@
+/**
+ * Container Layout
+ *
+ * Container utilities for the AquaLuxe theme.
+ */
+
+// Main container
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  
+  @media (min-width: theme('screens.sm')) {
+    max-width: theme('screens.sm');
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  @media (min-width: theme('screens.md')) {
+    max-width: theme('screens.md');
+  }
+  
+  @media (min-width: theme('screens.lg')) {
+    max-width: theme('screens.lg');
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  @media (min-width: theme('screens.xl')) {
+    max-width: theme('screens.xl');
+  }
+  
+  @media (min-width: theme('screens.2xl')) {
+    max-width: 1280px; // Cap the max width at 1280px
+  }
+}
+
+// Fluid container (full width with padding)
+.container-fluid {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  
+  @media (min-width: theme('screens.sm')) {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  @media (min-width: theme('screens.lg')) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+// Container modifiers
+.container-sm {
+  max-width: theme('screens.sm');
+}
+
+.container-md {
+  max-width: theme('screens.md');
+}
+
+.container-lg {
+  max-width: theme('screens.lg');
+}
+
+.container-xl {
+  max-width: theme('screens.xl');
+}
+
+// Section containers
+.section {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  
+  @media (min-width: theme('screens.md')) {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  
+  @media (min-width: theme('screens.lg')) {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+.section-sm {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  
+  @media (min-width: theme('screens.md')) {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+  
+  @media (min-width: theme('screens.lg')) {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+.section-lg {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  
+  @media (min-width: theme('screens.md')) {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  
+  @media (min-width: theme('screens.lg')) {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+// Section spacing utilities
+.section-py-0 {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.section-pt-0 {
+  padding-top: 0;
+}
+
+.section-pb-0 {
+  padding-bottom: 0;
+}
+
+// Content wrappers
+.content-wrapper {
+  width: 100%;
+  max-width: 65ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content-wrapper-sm {
+  width: 100%;
+  max-width: 45ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content-wrapper-lg {
+  width: 100%;
+  max-width: 75ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Special containers for AquaLuxe
+.aqua-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background-color: theme('colors.primary.50');
+  padding: 2rem;
+  
+  .dark & {
+    background-color: theme('colors.primary.900');
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url('../images/water-pattern.svg');
+    background-size: cover;
+    opacity: 0.05;
+    z-index: 0;
+  }
+  
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.luxe-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background-color: theme('colors.secondary.50');
+  padding: 2rem;
+  
+  .dark & {
+    background-color: theme('colors.secondary.900');
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url('../images/luxe-pattern.svg');
+    background-size: cover;
+    opacity: 0.05;
+    z-index: 0;
+  }
+  
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+// Full-width container that breaks out of the parent container
+.full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+// Container with background
+.bg-container {
+  position: relative;
+  padding: 3rem 0;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+  }
+  
+  &.bg-primary::before {
+    background-color: theme('colors.primary.50');
+    
+    .dark & {
+      background-color: theme('colors.primary.900');
+    }
+  }
+  
+  &.bg-secondary::before {
+    background-color: theme('colors.secondary.50');
+    
+    .dark & {
+      background-color: theme('colors.secondary.900');
+    }
+  }
+  
+  &.bg-accent::before {
+    background-color: theme('colors.accent.50');
+    
+    .dark & {
+      background-color: theme('colors.accent.900');
+    }
+  }
+  
+  &.bg-neutral::before {
+    background-color: theme('colors.neutral.50');
+    
+    .dark & {
+      background-color: theme('colors.neutral.900');
+    }
+  }
+}
+
+// Container with border
+.border-container {
+  border: 1px solid theme('colors.neutral.200');
+  border-radius: 0.5rem;
+  padding: 2rem;
+  
+  .dark & {
+    border-color: theme('colors.neutral.700');
+  }
+}

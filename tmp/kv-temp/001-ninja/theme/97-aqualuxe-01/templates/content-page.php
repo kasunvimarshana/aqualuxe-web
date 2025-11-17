@@ -1,0 +1,58 @@
+<?php
+/**
+ * Template part for displaying page content in page.php
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package AquaLuxe
+ */
+
+?>
+
+<article id="post-<?php the_ID(); ?>" <?php post_class('prose dark:prose-invert max-w-none'); ?>>
+	<header class="entry-header mb-8">
+		<?php the_title( '<h1 class="entry-title text-4xl font-bold">', '</h1>' ); ?>
+	</header><!-- .entry-header -->
+
+	<?php if ( has_post_thumbnail() ) : ?>
+		<div class="post-thumbnail mb-8 rounded-lg overflow-hidden">
+			<?php the_post_thumbnail( 'large', [ 'class' => 'w-full h-auto' ] ); ?>
+		</div>
+	<?php endif; ?>
+
+	<div class="entry-content">
+		<?php
+		the_content();
+
+		wp_link_pages(
+			array(
+				'before' => '<div class="page-links mt-8">' . esc_html__( 'Pages:', 'aqualuxe' ),
+				'after'  => '</div>',
+			)
+		);
+		?>
+	</div><!-- .entry-content -->
+
+	<?php if ( get_edit_post_link() ) : ?>
+		<footer class="entry-footer mt-8">
+			<?php
+			edit_post_link(
+				sprintf(
+					wp_kses(
+						/* translators: %s: Name of current post. Only visible to screen readers */
+						__( 'Edit <span class="screen-reader-text">%s</span>', 'aqualuxe' ),
+						array(
+							'span' => array(
+								'class' => array(),
+							),
+						)
+					),
+					get_the_title()
+				),
+				'<span class="edit-link">',
+				'</span>'
+			);
+			?>
+		</footer><!-- .entry-footer -->
+	<?php endif; ?>
+</article><!-- #post-<?php the_ID(); ?> -->

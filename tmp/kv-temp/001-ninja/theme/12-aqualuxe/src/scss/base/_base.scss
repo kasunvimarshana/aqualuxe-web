@@ -1,0 +1,455 @@
+// AquaLuxe Theme Base Styles
+// ------------------------
+
+// Root variables
+:root {
+  // Primary colors
+  --primary-color: #{$primary-color};
+  --primary-light: #{$primary-light};
+  --primary-dark: #{$primary-dark};
+  
+  // Secondary colors
+  --secondary-color: #{$secondary-color};
+  --secondary-light: #{$secondary-light};
+  --secondary-dark: #{$secondary-dark};
+  
+  // Neutral colors
+  --white: #{$white};
+  --off-white: #{$off-white};
+  --light-gray: #{$light-gray};
+  --gray: #{$gray};
+  --dark-gray: #{$dark-gray};
+  --black: #{$black};
+  
+  // Accent colors
+  --accent-color: #{$accent-color};
+  --success-color: #{$success-color};
+  --warning-color: #{$warning-color};
+  --error-color: #{$error-color};
+  --info-color: #{$info-color};
+}
+
+// HTML & Body
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $white;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+// Main content area
+#content {
+  flex: 1 0 auto;
+}
+
+// Container
+.container {
+  @include container;
+}
+
+// Selection
+::selection {
+  background-color: $primary-color;
+  color: $white;
+}
+
+// Focus styles for accessibility
+:focus {
+  outline: 2px solid $primary-color;
+  outline-offset: 2px;
+}
+
+// Skip link
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: $primary-color;
+  color: $white;
+  padding: $spacing-sm $spacing-md;
+  z-index: 999;
+  
+  &:focus {
+    top: 0;
+  }
+}
+
+// WordPress admin bar adjustment
+.admin-bar {
+  .site-header.sticky-header {
+    top: 32px;
+    
+    @media screen and (max-width: 782px) {
+      top: 46px;
+    }
+  }
+}
+
+// Back to top button
+#back-to-top {
+  position: fixed;
+  bottom: $spacing-lg;
+  right: $spacing-lg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: $primary-color;
+  color: $white;
+  border-radius: 50%;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: $transition-base;
+  z-index: 99;
+  
+  &.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  &:hover {
+    background-color: $primary-dark;
+  }
+}
+
+// Page wrapper
+#page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+// Main content area
+#primary {
+  flex: 1 0 auto;
+  padding: $spacing-xl 0;
+  
+  @include respond-to(md) {
+    padding: $spacing-xxl 0;
+  }
+}
+
+// Section styling
+.section {
+  padding: $spacing-xl 0;
+  
+  @include respond-to(md) {
+    padding: $spacing-xxl 0;
+  }
+  
+  &.section-sm {
+    padding: $spacing-lg 0;
+  }
+  
+  &.section-lg {
+    padding: $spacing-xxl 0;
+    
+    @include respond-to(md) {
+      padding: $spacing-xxl * 1.5 0;
+    }
+  }
+  
+  &.bg-light {
+    background-color: $off-white;
+  }
+  
+  &.bg-primary {
+    background-color: $primary-color;
+    color: $white;
+    
+    .section-title {
+      color: $white;
+      
+      &:after {
+        background-color: $white;
+      }
+    }
+  }
+  
+  &.bg-secondary {
+    background-color: $secondary-color;
+    color: $white;
+    
+    .section-title {
+      color: $white;
+      
+      &:after {
+        background-color: $white;
+      }
+    }
+  }
+  
+  &.bg-dark {
+    background-color: $dark-gray;
+    color: $white;
+    
+    .section-title {
+      color: $white;
+      
+      &:after {
+        background-color: $primary-color;
+      }
+    }
+  }
+}
+
+// Page header
+.page-header {
+  margin-bottom: $spacing-xl;
+  text-align: center;
+  
+  .page-title {
+    margin-bottom: $spacing-sm;
+  }
+  
+  .page-description {
+    font-size: $font-size-lg;
+    color: $gray;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// Entry content (WordPress content)
+.entry-content {
+  margin-bottom: $spacing-xl;
+  
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: $spacing-lg;
+    margin-bottom: $spacing-md;
+    
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  
+  p, ul, ol, dl, table, blockquote, pre {
+    margin-bottom: $spacing-md;
+  }
+  
+  ul, ol {
+    padding-left: $spacing-lg;
+  }
+  
+  ul {
+    list-style-type: disc;
+    
+    ul {
+      list-style-type: circle;
+      
+      ul {
+        list-style-type: square;
+      }
+    }
+  }
+  
+  ol {
+    list-style-type: decimal;
+    
+    ol {
+      list-style-type: lower-alpha;
+      
+      ol {
+        list-style-type: lower-roman;
+      }
+    }
+  }
+  
+  li {
+    margin-bottom: $spacing-xs;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .wp-block-image {
+    margin-bottom: $spacing-lg;
+    
+    figcaption {
+      font-size: $font-size-sm;
+      color: $gray;
+      text-align: center;
+      margin-top: $spacing-xs;
+    }
+  }
+  
+  .wp-block-gallery {
+    margin-bottom: $spacing-lg;
+  }
+  
+  .wp-block-quote {
+    border-left: 4px solid $primary-color;
+    padding-left: $spacing-md;
+    font-style: italic;
+    
+    cite {
+      display: block;
+      font-style: normal;
+      margin-top: $spacing-sm;
+      font-size: $font-size-sm;
+    }
+  }
+  
+  .wp-block-table {
+    width: 100%;
+    margin-bottom: $spacing-lg;
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      
+      th, td {
+        padding: $spacing-sm;
+        border: 1px solid $light-gray;
+      }
+      
+      th {
+        background-color: $off-white;
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+}
+
+// Buttons
+.btn {
+  @include button-base;
+  
+  &.btn-primary {
+    @include button-variant($primary-color, $primary-color, $primary-dark, $primary-dark);
+  }
+  
+  &.btn-secondary {
+    @include button-variant($secondary-color, $secondary-color, $secondary-dark, $secondary-dark);
+  }
+  
+  &.btn-white {
+    @include button-variant($white, $white, $off-white, $light-gray, $dark-gray);
+  }
+  
+  &.btn-outline-primary {
+    @include button-variant(transparent, $primary-color, $primary-color, $primary-color, $primary-color);
+  }
+  
+  &.btn-outline-secondary {
+    @include button-variant(transparent, $secondary-color, $secondary-color, $secondary-color, $secondary-color);
+  }
+  
+  &.btn-outline-white {
+    @include button-variant(transparent, $white, rgba($white, 0.1), $white, $white);
+  }
+  
+  &.btn-sm {
+    padding: $spacing-xs $spacing-md;
+    font-size: $font-size-sm;
+  }
+  
+  &.btn-lg {
+    padding: $spacing-md $spacing-xl;
+    font-size: $font-size-lg;
+  }
+  
+  &.btn-block {
+    display: block;
+    width: 100%;
+  }
+}
+
+// Tables
+table {
+  width: 100%;
+  margin-bottom: $spacing-lg;
+  
+  th, td {
+    padding: $spacing-sm;
+    text-align: left;
+    border-bottom: 1px solid $light-gray;
+  }
+  
+  th {
+    font-weight: $font-weight-bold;
+    background-color: $off-white;
+  }
+}
+
+// Forms
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea,
+select {
+  display: block;
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  font-size: $font-size-base;
+  line-height: 1.5;
+  color: $dark-gray;
+  background-color: $white;
+  background-clip: padding-box;
+  border: 1px solid $light-gray;
+  border-radius: $border-radius;
+  transition: $transition-base;
+  
+  &:focus {
+    color: $dark-gray;
+    background-color: $white;
+    border-color: $primary-light;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+  }
+  
+  &::placeholder {
+    color: $gray;
+    opacity: 1;
+  }
+  
+  &:disabled,
+  &[readonly] {
+    background-color: $light-gray;
+    opacity: 1;
+  }
+}
+
+textarea {
+  height: auto;
+  resize: vertical;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: $spacing-xs;
+  font-weight: $font-weight-medium;
+}
+
+.form-group {
+  margin-bottom: $spacing-md;
+}
+
+// Accessibility
+.screen-reader-text {
+  @include visually-hidden;
+}

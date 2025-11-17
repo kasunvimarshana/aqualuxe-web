@@ -1,0 +1,5 @@
+{
+  "name": "Roles",
+  "enabled": false,
+  "description": "Adds a Wholesale Customer role with filterable capabilities."
+}

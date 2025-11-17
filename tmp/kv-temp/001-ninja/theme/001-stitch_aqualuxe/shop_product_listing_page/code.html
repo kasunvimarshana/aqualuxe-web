@@ -1,0 +1,259 @@
+<html><head>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Be+Vietnam+Pro%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style type="text/tailwindcss">
+      :root {
+        --primary-color: #0d9488;
+        --secondary-color: #f0fdfa;
+        --text-color: #111827;
+      }
+    </style>
+</head>
+<body class="bg-white">
+<div class="relative flex size-full min-h-screen flex-col text-gray-800 group/design-root overflow-x-hidden" style='font-family: "Be Vietnam Pro", "Noto Sans", sans-serif;'>
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 px-10 py-4">
+<div class="flex items-center gap-10">
+<div class="flex items-center gap-3 text-teal-700">
+<svg class="text-teal-600" fill="none" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="28" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.5 12.5c0-4.5 3-8.5 7-8.5s7 4 7 8.5c0 2.5-1.5 5-4 6.5"></path>
+<path d="M12 12.5c-4.5 0-8.5 3-8.5 7s4 7 8.5 7c2.5 0 5-1.5 6.5-4"></path>
+</svg>
+<h1 class="text-2xl font-bold leading-tight tracking-[-0.015em] text-teal-700">AquaLuxe</h1>
+</div>
+<nav class="flex items-center gap-8">
+<a class="text-gray-600 hover:text-teal-600 text-base font-medium leading-normal" href="#">New Arrivals</a>
+<a class="text-gray-600 hover:text-teal-600 text-base font-medium leading-normal" href="#">Fish</a>
+<a class="text-gray-600 hover:text-teal-600 text-base font-medium leading-normal" href="#">Plants</a>
+<a class="text-gray-600 hover:text-teal-600 text-base font-medium leading-normal" href="#">Equipment</a>
+<a class="text-gray-600 hover:text-teal-600 text-base font-medium leading-normal" href="#">Services</a>
+</nav>
+</div>
+<div class="flex flex-1 items-center justify-end gap-6">
+<label class="relative flex w-full max-w-sm">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"> search </span>
+<input class="form-input w-full rounded-full border border-gray-300 bg-gray-50 py-2 pl-10 pr-4 text-gray-800 placeholder-gray-500 focus:border-teal-500 focus:ring-teal-500" placeholder="Search products..." value=""/>
+</label>
+<div class="flex gap-3">
+<button class="flex h-11 w-11 items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-teal-100 hover:text-teal-600">
+<span class="material-symbols-outlined"> favorite_border </span>
+</button>
+<button class="flex h-11 w-11 items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-teal-100 hover:text-teal-600">
+<span class="material-symbols-outlined"> shopping_bag </span>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-12 border-2 border-teal-100" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDSZElRON0BNfXvZyAHP6PaCwe0LCyX2BYzUNXXYrVAhd81TZp5if1Ea2gWSGHKsKa0sI_GCIliWcQNRfDep19Hi6HLuaFA1txN_JOcEdzlQAcKcpx71HwTwamAlLtJ7VijBTkP_GSoYsnS9Jm96Q9j438DiT9-lDhjfgqOHEWiGMD-SaneA0qdP-erjPvq_ZZyRhXVEncj189iLmO8qq7iIr0o7SY1Dn6b_pVbMjl3jZ0GoRHWL2sCiXeh7iVbf1RKi1eHTgv_YUw");'></div>
+</div>
+</header>
+<main class="flex flex-1 gap-8 px-10 py-8">
+<aside class="w-80 flex-shrink-0">
+<h2 class="text-xl font-bold text-gray-800 px-4 pb-4 pt-2">Filter Options</h2>
+<div class="space-y-6 p-4">
+<div>
+<label class="block text-base font-medium text-gray-700 pb-2" for="category">Category</label>
+<select class="form-select w-full rounded-lg border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500" id="category">
+<option>All Categories</option>
+<option>Freshwater Fish</option>
+<option>Marine Fish</option>
+<option>Aquatic Plants</option>
+<option>Equipment</option>
+<option>Feed &amp; Supplements</option>
+</select>
+</div>
+<div>
+<label class="block text-base font-medium text-gray-700 pb-2" for="size">Size</label>
+<select class="form-select w-full rounded-lg border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500" id="size">
+<option>Any Size</option>
+<option>Small</option>
+<option>Medium</option>
+<option>Large</option>
+</select>
+</div>
+<div>
+<label class="block text-base font-medium text-gray-700 pb-2" for="color">Color</label>
+<select class="form-select w-full rounded-lg border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500" id="color">
+<option>Any Color</option>
+<option>Red</option>
+<option>Blue</option>
+<option>Yellow</option>
+<option>Mixed</option>
+</select>
+</div>
+<div>
+<label class="block text-base font-medium text-gray-700 pb-2" for="rarity">Rarity</label>
+<select class="form-select w-full rounded-lg border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500" id="rarity">
+<option>Any Rarity</option>
+<option>Common</option>
+<option>Uncommon</option>
+<option>Rare</option>
+<option>Exotic</option>
+</select>
+</div>
+<div>
+<label class="block text-base font-medium text-gray-700 pb-2">Price Range</label>
+<div class="relative pt-1">
+<input class="w-full" type="range"/>
+<div class="flex justify-between text-sm text-gray-600">
+<span>$0</span>
+<span>$1000</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-end px-4 pt-6">
+<button class="flex w-full items-center justify-center rounded-full bg-teal-600 h-12 px-6 text-white text-base font-bold tracking-wide shadow-md hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2">
+                Apply Filters
+              </button>
+</div>
+</aside>
+<div class="flex-1">
+<div class="flex flex-wrap items-center justify-between gap-4 pb-6">
+<h1 class="text-4xl font-bold tracking-tight text-gray-900">Aquatic Products</h1>
+<div class="flex items-center gap-4">
+<span class="text-sm font-medium text-gray-600">Sort by:</span>
+<div class="flex gap-2">
+<button class="h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-teal-50 px-4 text-sm font-semibold text-teal-700 ring-1 ring-inset ring-teal-200 hover:bg-teal-100">
+                    Popularity
+                  </button>
+<button class="h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white px-4 text-sm font-medium text-gray-600 ring-1 ring-inset ring-gray-200 hover:bg-gray-50">
+                    Price
+                  </button>
+<button class="h-10 shrink-0 items-center justify-center gap-x-2 rounded-full bg-white px-4 text-sm font-medium text-gray-600 ring-1 ring-inset ring-gray-200 hover:bg-gray-50">
+                    New Arrivals
+                  </button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-6">
+<div class="group relative flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all hover:shadow-lg">
+<div class="relative aspect-square w-full">
+<div class="h-full w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBr0nXtHb0rzlQl9CeA-yhmfA1G_Ghn4VPdSC6n8j8TRk_GcKEazelce7ryWHhR5nJNcFh1EAcZ152Sevtl0pDx0B_upFgqu8B0VMy4HSWNwwY8p7twJY8bG6ZG-gti0s87JePcUqVtV3B2RlhSLvpIyCjTTmGoCXKqtX9TVbdjCH1zXzYEICa1p3xOy7QMsXUePJ6DSGzN00b8k6XImyH__ThNBS_8tDE4iIzRwXtG-yjt6DH-kb7xQsaWV3Xiw_Nq3cb98QX-U4c");'></div>
+<div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 opacity-0 transition-all group-hover:bg-opacity-40 group-hover:opacity-100">
+<button class="rounded-full bg-white px-4 py-2 text-sm font-semibold text-teal-600 shadow-md hover:bg-teal-50">Quick View</button>
+</div>
+</div>
+<div class="flex flex-1 flex-col p-4">
+<h3 class="text-lg font-semibold text-gray-800">Neon Tetra</h3>
+<p class="mt-1 text-base font-medium text-gray-600">$2.99</p>
+<button class="mt-4 flex w-full items-center justify-center rounded-full bg-teal-600 h-10 px-4 text-white text-sm font-bold tracking-wide shadow-md hover:bg-teal-700">
+                    Add to Cart
+                  </button>
+</div>
+</div>
+<div class="group relative flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all hover:shadow-lg">
+<div class="relative aspect-square w-full">
+<div class="h-full w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAMniCWwK5S9FVhiWXaOjrqa-OmLAvipH5XfdN4PtmfWVAyob0ekO5FKkeZH_KtXsjF5INIuu74q7yig3RGJTkPJmVWFuYlb7sZWL21bNvjSKDAOWV6MeoHZgfQ_XOUABGYiO5YKzZHDgufjYynaG0frcP6DmcwiQaqTJS8JKkb8V4FEuQfrIn0LVUk8Nl6vP25cUp7KvTnzcFHrQU67Wl8MlBTN-Cq761_l5kYUtOab4OJUEwcs_swfwSm6HdGHvOtzUBA_Hsphlc");'></div>
+<div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 opacity-0 transition-all group-hover:bg-opacity-40 group-hover:opacity-100">
+<button class="rounded-full bg-white px-4 py-2 text-sm font-semibold text-teal-600 shadow-md hover:bg-teal-50">Quick View</button>
+</div>
+</div>
+<div class="flex flex-1 flex-col p-4">
+<h3 class="text-lg font-semibold text-gray-800">Amazon Sword</h3>
+<p class="mt-1 text-base font-medium text-gray-600">$14.99</p>
+<button class="mt-4 flex w-full items-center justify-center rounded-full bg-teal-600 h-10 px-4 text-white text-sm font-bold tracking-wide shadow-md hover:bg-teal-700">
+                    Add to Cart
+                  </button>
+</div>
+</div>
+<div class="group relative flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all hover:shadow-lg">
+<div class="relative aspect-square w-full">
+<div class="h-full w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAZ7l-aNCVseVmaMXGzEw_AJuEzO8tJ_PEZgGM0ZHhTp0CWhlmE6ZWicNKW28rXV2W104qeYEyMD5e8yqgFXT71Mx-C0IuOB3eU6p0QKwRPe8IXOD8dPxOWYgDVY_hilCg_2Ty_-S1j0BJKg0BXEgSWG9aMhspgs8HtnppPnwxbPOVg7rDZgkMZbpKQmDeLM4YQGr9DOQp13GaOtshfl0IX10okjR-G-eo2Ace9CdSmPM3kQff3-T90OP5bZ6vFjnrjUBOW_E_UOQw");'></div>
+<div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 opacity-0 transition-all group-hover:bg-opacity-40 group-hover:opacity-100">
+<button class="rounded-full bg-white px-4 py-2 text-sm font-semibold text-teal-600 shadow-md hover:bg-teal-50">Quick View</button>
+</div>
+</div>
+<div class="flex flex-1 flex-col p-4">
+<h3 class="text-lg font-semibold text-gray-800">LED Aquarium Light</h3>
+<p class="mt-1 text-base font-medium text-gray-600">$49.99</p>
+<button class="mt-4 flex w-full items-center justify-center rounded-full bg-teal-600 h-10 px-4 text-white text-sm font-bold tracking-wide shadow-md hover:bg-teal-700">
+                    Add to Cart
+                  </button>
+</div>
+</div>
+<div class="group relative flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all hover:shadow-lg">
+<div class="relative aspect-square w-full">
+<div class="h-full w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB0zS1wH8WlBLcuXuzOxKnVndDXOgqwHOJmPw79Yk_yuxUPI2iVtHSX-66a5NjHthPEj8Rg24YCLRfFoG8edmZK57NMfkkBQ5D-vGfVhDJKz8ZtrGLPHZvkx6luqCUwhCHq7aYmv5R1MePAjeUvOECvhqws4-uHyD9MyDXgK8jrwtbPgLj3nZsBj1XOWDMjxy3iJJuYBVOK1oprNE1X7By3IOKbI8b1DoO7mO11pRZT9jVe_LYiSaP5rtNgfVtkpSZyO7AsI07Wvrg");'></div>
+<div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 opacity-0 transition-all group-hover:bg-opacity-40 group-hover:opacity-100">
+<button class="rounded-full bg-white px-4 py-2 text-sm font-semibold text-teal-600 shadow-md hover:bg-teal-50">Quick View</button>
+</div>
+</div>
+<div class="flex flex-1 flex-col p-4">
+<h3 class="text-lg font-semibold text-gray-800">Premium Fish Food</h3>
+<p class="mt-1 text-base font-medium text-gray-600">$9.99</p>
+<button class="mt-4 flex w-full items-center justify-center rounded-full bg-teal-600 h-10 px-4 text-white text-sm font-bold tracking-wide shadow-md hover:bg-teal-700">
+                    Add to Cart
+                  </button>
+</div>
+</div>
+<div class="group relative flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all hover:shadow-lg">
+<div class="relative aspect-square w-full">
+<div class="h-full w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBL9COlkYB--pcpHE7lTxYYC-TontLnlwNdDo4M8eJKHxvvWRqr20O3fgg9j7KH9IUy224qV3juB274LUJSnCSZewnsJxgfHoQy_goOufldUyne6_0GOr5fFjVTG3FTTZ16JugPgcjlgJRMndpZ9dWRFun-IZQ5MM7pyabRju8ulC8Gt27ZSHGnyHFGNyIIj_Vl83PmA-2WW9UMyo8J6gDG5mtyvd6fklF-qR63L-_Tqn6fTS-9Poe7KkfQqchA4m2AuJWVOFkjRE8");'></div>
+<div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 opacity-0 transition-all group-hover:bg-opacity-40 group-hover:opacity-100">
+<button class="rounded-full bg-white px-4 py-2 text-sm font-semibold text-teal-600 shadow-md hover:bg-teal-50">Quick View</button>
+</div>
+</div>
+<div class="flex flex-1 flex-col p-4">
+<h3 class="text-lg font-semibold text-gray-800">Red Cherry Shrimp</h3>
+<p class="mt-1 text-base font-medium text-gray-600">$3.49</p>
+<button class="mt-4 flex w-full items-center justify-center rounded-full bg-teal-600 h-10 px-4 text-white text-sm font-bold tracking-wide shadow-md hover:bg-teal-700">
+                    Add to Cart
+                  </button>
+</div>
+</div>
+<div class="group relative flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all hover:shadow-lg">
+<div class="relative aspect-square w-full">
+<div class="h-full w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC5962O4CxrgcxHzGytwvYItvZCY1UZcimmpvVaHzzXwNaMo5TP1r8g_Xo6ai-fxeJZL6xL8BOmJO0qz7u04Ztz4JUOwjvi2ypD_3hef3DWTPgOs1MqCu7OxVWYj4d_8y2ZVz5WWObR-wWP1ZAKq39KKo-oJl7NByEYJoSF_3BrJuTyJPLu-k3rc-SLkillAO4Bplscz7VM085M9wmF-0lZY7oxlcnU68nu-fRyohA6KjoFfDemEZEgh7Wbqap-nsvm8KKJ4xGNKp4");'></div>
+<div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 opacity-0 transition-all group-hover:bg-opacity-40 group-hover:opacity-100">
+<button class="rounded-full bg-white px-4 py-2 text-sm font-semibold text-teal-600 shadow-md hover:bg-teal-50">Quick View</button>
+</div>
+</div>
+<div class="flex flex-1 flex-col p-4">
+<h3 class="text-lg font-semibold text-gray-800">Java Fern</h3>
+<p class="mt-1 text-base font-medium text-gray-600">$8.99</p>
+<button class="mt-4 flex w-full items-center justify-center rounded-full bg-teal-600 h-10 px-4 text-white text-sm font-bold tracking-wide shadow-md hover:bg-teal-700">
+                    Add to Cart
+                  </button>
+</div>
+</div>
+<div class="group relative flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all hover:shadow-lg">
+<div class="relative aspect-square w-full">
+<div class="h-full w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA-gdQ00DhJ_husVK55KaSi_q0tiiYbtfKvGgBWm0mXO9dQucPKZhDvvQTwgfAZu7HAboZjnN2Y-FZNWfswSmbjmdkSFSx8F1qqeN8a9tELrlhIKWryH622FVuQLOQAtJNbDFzipn7vOXZt3tf-yztaq-hyQGNIE-AJkf2TvlR_oK3Vf6MDP0g5RE6Q-IEpiIM6W_7ZlBBWyAaDDhjdj4rOf293LN4Q_KLuRvxPHlNV_ZCeJQxCS2jcWYEVaQzyx5piI94_nQLiK30");'></div>
+<div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 opacity-0 transition-all group-hover:bg-opacity-40 group-hover:opacity-100">
+<button class="rounded-full bg-white px-4 py-2 text-sm font-semibold text-teal-600 shadow-md hover:bg-teal-50">Quick View</button>
+</div>
+</div>
+<div class="flex flex-1 flex-col p-4">
+<h3 class="text-lg font-semibold text-gray-800">CO2 System</h3>
+<p class="mt-1 text-base font-medium text-gray-600">$79.99</p>
+<button class="mt-4 flex w-full items-center justify-center rounded-full bg-teal-600 h-10 px-4 text-white text-sm font-bold tracking-wide shadow-md hover:bg-teal-700">
+                    Add to Cart
+                  </button>
+</div>
+</div>
+<div class="group relative flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all hover:shadow-lg">
+<div class="relative aspect-square w-full">
+<div class="h-full w-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBH3wrp78rw1OWm6P27cCU3lKz9RTsW7norb4LVK9B5ZPYjvQ-YRBvnuJMKnllN6mGPayf3nGkamwNyrZwGI0omqd06iV4TVfyronnjcdm3lC85Fsk9Art4yU4hf4SrSjY9xAkmcezblwOXWwDjWmerd1KQAhirez_bJi76K9jvjyb0Pl9HmHXWzvdez8UKKtXLnSdGfRBGNJ6kvDpnZU9v54YCk67nZ0diFFjBNB8-39YO7MxDJKKE0yYxbtCpVJUONaxCdmbEq80");'></div>
+<div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 opacity-0 transition-all group-hover:bg-opacity-40 group-hover:opacity-100">
+<button class="rounded-full bg-white px-4 py-2 text-sm font-semibold text-teal-600 shadow-md hover:bg-teal-50">Quick View</button>
+</div>
+</div>
+<div class="flex flex-1 flex-col p-4">
+<h3 class="text-lg font-semibold text-gray-800">Water Conditioner</h3>
+<p class="mt-1 text-base font-medium text-gray-600">$5.99</p>
+<button class="mt-4 flex w-full items-center justify-center rounded-full bg-teal-600 h-10 px-4 text-white text-sm font-bold tracking-wide shadow-md hover:bg-teal-700">
+                    Add to Cart
+                  </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>

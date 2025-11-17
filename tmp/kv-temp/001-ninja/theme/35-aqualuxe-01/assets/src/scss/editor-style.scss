@@ -1,0 +1,57 @@
+/*!
+ * AquaLuxe WordPress Theme
+ * Editor Stylesheet
+ */
+
+/**
+ * Import Abstracts
+ */
+@import 'abstracts/variables';
+@import 'abstracts/functions';
+@import 'abstracts/mixins';
+@import 'abstracts/placeholders';
+
+/**
+ * Import Vendors
+ */
+@import 'vendors/normalize';
+@import 'vendors/tailwind';
+
+/**
+ * Import Base
+ */
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/animations';
+@import 'base/utilities';
+
+/**
+ * Import Components
+ */
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/carousel';
+@import 'components/cover';
+
+/**
+ * Editor Specific Styles
+ */
+body {
+  margin: 0;
+  padding: 1rem;
+  font-family: var(--font-family-sans);
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+.wp-block {
+  max-width: var(--container-max-width);
+}
+
+.wp-block[data-align="wide"] {
+  max-width: calc(var(--container-max-width) + 200px);
+}
+
+.wp-block[data-align="full"] {
+  max-width: none;
+}

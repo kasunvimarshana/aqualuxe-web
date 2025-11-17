@@ -1,0 +1,10 @@
+# Asset Directories
+
+This directory contains static assets for the AquaLuxe theme.
+
+## Structure
+
+- `images/` - Theme images, icons, and graphics
+- `fonts/` - Custom fonts and typography assets
+
+These assets are copied to `assets/dist/` during the build process.

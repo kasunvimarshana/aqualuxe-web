@@ -1,0 +1,26 @@
+/* Multicurrency switcher styles */
+.aqualuxe-currency-switcher {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-bottom: 2em;
+}
+.aqualuxe-currency-switcher button {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  padding: 0.4em 1.2em;
+  color: #1e40af;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.aqualuxe-currency-switcher button[style*="font-weight:bold"] {
+  background: #1e40af;
+  color: #fff;
+  border-color: #1e40af;
+}
+.aqualuxe-currency-switcher button:hover {
+  background: #2563eb;
+  color: #fff;
+}

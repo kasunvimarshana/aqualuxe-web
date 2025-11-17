@@ -1,0 +1,220 @@
+/**
+ * AquaLuxe Print Styles
+ * 
+ * Optimizes the theme for printing
+ */
+
+@media print {
+  /* Hide non-essential elements */
+  header.site-header nav,
+  .site-header .search-form,
+  .site-header .header-actions,
+  .menu-toggle,
+  .sidebar,
+  .widget-area,
+  .comments-area,
+  .post-navigation,
+  .pagination,
+  .site-footer,
+  .back-to-top,
+  .woocommerce-breadcrumb,
+  .related.products,
+  button.single_add_to_cart_button,
+  .quantity,
+  .product_meta,
+  .woocommerce-tabs .reviews,
+  .woocommerce-tabs .description,
+  .woocommerce-notices-wrapper,
+  .woocommerce-message,
+  .woocommerce-info,
+  .woocommerce-error,
+  .woocommerce-pagination,
+  .woocommerce-ordering,
+  .woocommerce-result-count,
+  .add_to_cart_button,
+  .social-sharing,
+  .dark-mode-toggle,
+  .mobile-menu,
+  .newsletter-form,
+  .site-search,
+  #secondary,
+  .skip-link {
+    display: none !important;
+  }
+  
+  /* Basic page setup */
+  body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    color: #000;
+    font-size: 12pt;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 1.5;
+  }
+  
+  /* Ensure white background */
+  body, .site, .site-content, .entry-content, .post, .page, .product {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  
+  /* Set container width */
+  .container, .site-content, .content-area, .entry-content {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    float: none !important;
+  }
+  
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  
+  h1 {
+    font-size: 24pt;
+  }
+  
+  h2 {
+    font-size: 20pt;
+  }
+  
+  h3 {
+    font-size: 16pt;
+  }
+  
+  h4, h5, h6 {
+    font-size: 14pt;
+  }
+  
+  p, blockquote, ul, ol, dl, table {
+    page-break-inside: avoid;
+    margin-bottom: 1cm;
+  }
+  
+  /* Links */
+  a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+  
+  /* Show URL after links */
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+    font-style: italic;
+  }
+  
+  /* Don't show URL for internal links and anchors */
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after,
+  a.no-print-url:after,
+  a.button:after,
+  .site-title a:after {
+    content: "";
+  }
+  
+  /* Images */
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+  
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #000;
+    margin-bottom: 1cm;
+  }
+  
+  table th,
+  table td {
+    border: 1px solid #000;
+    padding: 0.5cm;
+    text-align: left;
+  }
+  
+  /* WooCommerce specific */
+  .woocommerce div.product div.images,
+  .woocommerce div.product div.summary {
+    width: 100% !important;
+    float: none !important;
+    margin-bottom: 2cm;
+  }
+  
+  .woocommerce div.product .product_title {
+    font-size: 24pt;
+    margin-bottom: 1cm;
+  }
+  
+  .woocommerce div.product p.price {
+    font-size: 18pt;
+    margin-bottom: 1cm;
+  }
+  
+  /* Product details */
+  .woocommerce div.product .woocommerce-product-details__short-description {
+    margin-bottom: 1cm;
+  }
+  
+  /* Page breaks */
+  .page,
+  .post,
+  .product {
+    page-break-before: always;
+  }
+  
+  /* First page no break */
+  .site-main > article:first-child {
+    page-break-before: avoid;
+  }
+  
+  /* Header simplified */
+  .site-header {
+    border-bottom: 1pt solid #000;
+    margin-bottom: 1cm;
+    text-align: center;
+  }
+  
+  .site-branding {
+    margin: 1cm 0;
+  }
+  
+  .site-title {
+    font-size: 24pt;
+    margin: 0;
+  }
+  
+  .site-description {
+    font-size: 12pt;
+    margin: 0;
+  }
+  
+  /* Add print info */
+  @page {
+    margin: 2cm;
+  }
+  
+  /* Add print footer with URL and date */
+  @page {
+    @bottom-center {
+      content: "Printed from " attr(url) " on " attr(date);
+      font-size: 8pt;
+    }
+  }
+  
+  /* Avoid breaks inside elements */
+  .avoid-break {
+    page-break-inside: avoid;
+  }
+  
+  /* Force page break */
+  .page-break {
+    page-break-before: always;
+  }
+}

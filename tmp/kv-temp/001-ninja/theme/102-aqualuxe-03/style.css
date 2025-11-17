@@ -1,0 +1,32 @@
+/*
+Theme Name: AquaLuxe
+Theme URI: https://github.com/kasunvimarshana/aqualuxe-web
+Author: Kasun Vimarshana
+Author URI: https://github.com/kasunvimarshana
+Description: AquaLuxe is a premium WordPress theme designed for luxury aquatic commerce. Built with modular architecture, it features multi-tenant, multivendor marketplace capabilities, multilingual and multicurrency support, and WooCommerce dual-state compatibility. The theme implements SOLID principles, includes comprehensive accessibility features (WCAG 2.1 AA), SEO optimization, dark mode support, and modern development tools including Webpack and Tailwind CSS. Perfect for aquarium retailers, marine life vendors, and luxury aquatic lifestyle businesses.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.4
+Requires PHP: 8.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: e-commerce, marketplace, woocommerce, multilingual, multicurrency, responsive-layout, accessibility-ready, translation-ready, custom-logo, custom-menu, custom-colors, custom-header, custom-background, featured-images, rtl-language-support, theme-options, block-styles, wide-blocks, editor-style, full-width-template
+Text Domain: aqualuxe
+Domain Path: /languages
+
+Bringing elegance to aquatic life – globally.
+
+Features:
+- Modular, scalable architecture with SOLID principles
+- WooCommerce dual-state compatibility (works with/without WooCommerce)
+- Multi-tenant, multivendor marketplace support
+- Multilingual and multicurrency capabilities
+- Mobile-first responsive design
+- Dark mode with persistent user preference
+- WCAG 2.1 AA accessibility compliance
+- Advanced SEO optimization with schema markup
+- Progressive enhancement and graceful degradation
+- Modern build system with Webpack and Tailwind CSS
+- Comprehensive demo content importer
+- Security hardening and performance optimization
+*/

@@ -1,0 +1,625 @@
+/**
+ * AquaLuxe Theme Dark Mode Styles
+ *
+ * This file contains styles specific to dark mode.
+ */
+
+/* Import variables */
+@import 'variables';
+
+/* Dark Mode Styles */
+.dark-mode {
+  /* Base */
+  background-color: $color-gray-900;
+  color: $color-gray-200;
+  
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    color: $color-gray-100;
+  }
+  
+  a {
+    color: $color-primary-light;
+    
+    &:hover {
+      color: lighten($color-primary-light, 10%);
+    }
+  }
+  
+  blockquote {
+    background-color: $color-gray-800;
+    border-left-color: $color-primary-light;
+  }
+  
+  hr {
+    background-color: $color-gray-700;
+  }
+  
+  code {
+    background-color: $color-gray-800;
+  }
+  
+  pre {
+    background-color: $color-gray-800;
+  }
+  
+  /* Header */
+  .site-header {
+    background-color: $color-gray-900;
+    box-shadow: $box-shadow-sm;
+    
+    &.sticky-header {
+      box-shadow: $box-shadow-md;
+    }
+  }
+  
+  .site-title a {
+    color: $color-white;
+    
+    &:hover {
+      color: $color-primary-light;
+    }
+  }
+  
+  .site-description {
+    color: $color-gray-400;
+  }
+  
+  /* Navigation */
+  .main-navigation {
+    ul {
+      li {
+        a {
+          color: $color-gray-200;
+          
+          &:hover {
+            color: $color-primary-light;
+          }
+        }
+        
+        &.current-menu-item > a {
+          color: $color-primary-light;
+        }
+      }
+    }
+    
+    .dropdown, .mega-menu {
+      background-color: $color-gray-800;
+      box-shadow: $box-shadow-md;
+      
+      ul {
+        li {
+          a {
+            &:hover {
+              background-color: $color-gray-700;
+            }
+          }
+        }
+      }
+    }
+    
+    .mega-menu {
+      .mega-menu-content {
+        .mega-menu-column {
+          h4 {
+            color: $color-gray-100;
+          }
+          
+          ul {
+            li {
+              a {
+                &:hover {
+                  color: $color-primary-light;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  /* Mobile Navigation */
+  .mobile-menu-toggle {
+    span {
+      background-color: $color-gray-100;
+      
+      &::before, &::after {
+        background-color: $color-gray-100;
+      }
+    }
+  }
+  
+  .mobile-menu {
+    background-color: $color-gray-900;
+    
+    .mobile-menu-header {
+      border-bottom-color: $color-gray-700;
+    }
+    
+    .mobile-menu-close {
+      svg {
+        fill: $color-gray-100;
+      }
+    }
+    
+    ul {
+      li {
+        a {
+          color: $color-gray-200;
+          border-bottom-color: $color-gray-700;
+        }
+        
+        &.current-menu-item > a {
+          color: $color-primary-light;
+        }
+      }
+    }
+  }
+  
+  /* Footer */
+  .site-footer {
+    background-color: $color-gray-800;
+  }
+  
+  /* Buttons */
+  .btn {
+    &.btn-primary {
+      background-color: $color-primary;
+      border-color: $color-primary;
+      
+      &:hover {
+        background-color: darken($color-primary, 10%);
+        border-color: darken($color-primary, 10%);
+      }
+    }
+    
+    &.btn-secondary {
+      background-color: $color-secondary;
+      border-color: $color-secondary;
+      
+      &:hover {
+        background-color: darken($color-secondary, 10%);
+        border-color: darken($color-secondary, 10%);
+      }
+    }
+    
+    &.btn-outline-primary {
+      color: $color-primary-light;
+      border-color: $color-primary-light;
+      
+      &:hover {
+        background-color: $color-primary-light;
+        color: $color-gray-900;
+      }
+    }
+    
+    &.btn-outline-secondary {
+      color: $color-secondary;
+      border-color: $color-secondary;
+      
+      &:hover {
+        background-color: $color-secondary;
+        color: $color-gray-900;
+      }
+    }
+  }
+  
+  /* Forms */
+  input[type="text"],
+  input[type="email"],
+  input[type="url"],
+  input[type="password"],
+  input[type="search"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="range"],
+  input[type="date"],
+  input[type="month"],
+  input[type="week"],
+  input[type="time"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="color"],
+  textarea,
+  select {
+    background-color: $color-gray-800;
+    border-color: $color-gray-700;
+    color: $color-gray-200;
+    
+    &:focus {
+      border-color: $color-primary-light;
+    }
+  }
+  
+  label {
+    color: $color-gray-300;
+  }
+  
+  /* Cards */
+  .card {
+    background-color: $color-gray-800;
+    border-color: $color-gray-700;
+    
+    .card-header {
+      background-color: $color-gray-800;
+      border-bottom-color: $color-gray-700;
+    }
+    
+    .card-footer {
+      background-color: $color-gray-800;
+      border-top-color: $color-gray-700;
+    }
+  }
+  
+  /* Tabs */
+  .tabs {
+    .tab-nav {
+      border-bottom-color: $color-gray-700;
+      
+      .tab-nav-item {
+        color: $color-gray-400;
+        
+        &:hover {
+          color: $color-gray-200;
+        }
+        
+        &.active {
+          color: $color-primary-light;
+          border-bottom-color: $color-primary-light;
+        }
+      }
+    }
+    
+    .tab-content {
+      background-color: $color-gray-800;
+    }
+  }
+  
+  /* Accordion */
+  .accordion {
+    .accordion-item {
+      border-color: $color-gray-700;
+      
+      .accordion-header {
+        background-color: $color-gray-800;
+        
+        .accordion-button {
+          color: $color-gray-200;
+          
+          &:hover {
+            color: $color-primary-light;
+          }
+          
+          &[aria-expanded="true"] {
+            color: $color-primary-light;
+          }
+        }
+      }
+      
+      .accordion-content {
+        background-color: $color-gray-800;
+      }
+    }
+  }
+  
+  /* Alerts */
+  .alert {
+    &.alert-info {
+      background-color: rgba($color-info, 0.1);
+      border-color: $color-info;
+      color: lighten($color-info, 20%);
+    }
+    
+    &.alert-success {
+      background-color: rgba($color-success, 0.1);
+      border-color: $color-success;
+      color: lighten($color-success, 20%);
+    }
+    
+    &.alert-warning {
+      background-color: rgba($color-warning, 0.1);
+      border-color: $color-warning;
+      color: lighten($color-warning, 20%);
+    }
+    
+    &.alert-danger {
+      background-color: rgba($color-danger, 0.1);
+      border-color: $color-danger;
+      color: lighten($color-danger, 20%);
+    }
+  }
+  
+  /* Badges */
+  .badge {
+    &.badge-primary {
+      background-color: $color-primary;
+    }
+    
+    &.badge-secondary {
+      background-color: $color-secondary;
+    }
+    
+    &.badge-success {
+      background-color: $color-success;
+    }
+    
+    &.badge-danger {
+      background-color: $color-danger;
+    }
+    
+    &.badge-warning {
+      background-color: $color-warning;
+      color: $color-gray-900;
+    }
+    
+    &.badge-info {
+      background-color: $color-info;
+    }
+  }
+  
+  /* Pagination */
+  .pagination {
+    .page-item {
+      .page-link {
+        background-color: $color-gray-800;
+        border-color: $color-gray-700;
+        color: $color-gray-300;
+        
+        &:hover {
+          background-color: $color-gray-700;
+          color: $color-white;
+        }
+      }
+      
+      &.active {
+        .page-link {
+          background-color: $color-primary;
+          border-color: $color-primary;
+          color: $color-white;
+        }
+      }
+      
+      &.disabled {
+        .page-link {
+          background-color: $color-gray-800;
+          border-color: $color-gray-700;
+          color: $color-gray-600;
+        }
+      }
+    }
+  }
+  
+  /* Breadcrumbs */
+  .breadcrumbs {
+    color: $color-gray-400;
+    
+    a {
+      color: $color-gray-300;
+      
+      &:hover {
+        color: $color-primary-light;
+      }
+    }
+    
+    .separator {
+      color: $color-gray-600;
+    }
+  }
+  
+  /* Tables */
+  table {
+    th, td {
+      border-bottom-color: $color-gray-700;
+    }
+    
+    th {
+      background-color: $color-gray-800;
+    }
+    
+    tr:hover {
+      background-color: $color-gray-800;
+    }
+  }
+  
+  /* WooCommerce */
+  &.woocommerce {
+    .woocommerce-breadcrumb {
+      color: $color-gray-400;
+      
+      a {
+        color: $color-gray-300;
+        
+        &:hover {
+          color: $color-primary-light;
+        }
+      }
+    }
+    
+    .woocommerce-result-count,
+    .woocommerce-ordering select {
+      color: $color-gray-300;
+    }
+    
+    .woocommerce-ordering select {
+      background-color: $color-gray-800;
+      border-color: $color-gray-700;
+    }
+    
+    .woocommerce-message,
+    .woocommerce-info {
+      background-color: $color-gray-800;
+      color: $color-gray-200;
+      border-top-color: $color-primary-light;
+      
+      &::before {
+        color: $color-primary-light;
+      }
+    }
+    
+    .woocommerce-error {
+      background-color: $color-gray-800;
+      color: $color-gray-200;
+      border-top-color: $color-danger;
+      
+      &::before {
+        color: $color-danger;
+      }
+    }
+    
+    .woocommerce-notice {
+      background-color: $color-gray-800;
+      color: $color-gray-200;
+    }
+    
+    .products {
+      .product {
+        .woocommerce-loop-product__title {
+          color: $color-gray-200;
+        }
+        
+        .price {
+          color: $color-primary-light;
+        }
+        
+        .star-rating {
+          color: $color-warning;
+        }
+      }
+    }
+    
+    .product {
+      .summary {
+        .price {
+          color: $color-primary-light;
+        }
+        
+        .woocommerce-product-rating {
+          .star-rating {
+            color: $color-warning;
+          }
+        }
+      }
+      
+      .woocommerce-tabs {
+        ul.tabs {
+          li {
+            background-color: $color-gray-800;
+            border-color: $color-gray-700;
+            
+            a {
+              color: $color-gray-300;
+            }
+            
+            &.active {
+              background-color: $color-gray-900;
+              border-bottom-color: $color-gray-900;
+              
+              a {
+                color: $color-gray-100;
+              }
+            }
+          }
+        }
+        
+        .panel {
+          background-color: $color-gray-900;
+          border-color: $color-gray-700;
+        }
+      }
+    }
+    
+    .cart-collaterals {
+      .cart_totals {
+        background-color: $color-gray-800;
+        border-color: $color-gray-700;
+      }
+    }
+    
+    .woocommerce-checkout {
+      #payment {
+        background-color: $color-gray-800;
+        
+        div.payment_box {
+          background-color: $color-gray-700;
+          color: $color-gray-200;
+          
+          &::before {
+            border-bottom-color: $color-gray-700;
+          }
+        }
+      }
+    }
+    
+    .woocommerce-account {
+      .woocommerce-MyAccount-navigation {
+        ul {
+          li {
+            a {
+              color: $color-gray-300;
+              
+              &:hover {
+                color: $color-primary-light;
+              }
+            }
+            
+            &.is-active {
+              a {
+                color: $color-primary-light;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: $color-gray-900;
+  
+  .dark-mode & {
+    color: $color-gray-100;
+  }
+  
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+  }
+  
+  .sun-icon,
+  .moon-icon {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .sun-icon {
+    .dark-mode & {
+      opacity: 0;
+      transform: scale(0.5);
+      position: absolute;
+    }
+  }
+  
+  .moon-icon {
+    opacity: 0;
+    transform: scale(0.5);
+    position: absolute;
+    
+    .dark-mode & {
+      opacity: 1;
+      transform: scale(1);
+      position: static;
+    }
+  }
+}

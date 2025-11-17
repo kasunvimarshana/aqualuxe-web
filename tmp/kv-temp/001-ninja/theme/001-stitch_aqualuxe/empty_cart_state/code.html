@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Manrope%3Awght%40400%3B500%3B700%3B800&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>AquaLuxe - Your Cart</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+      :root {
+        --primary-color: #197fe6;
+      }
+    </style>
+</head>
+<body class="bg-white" style='font-family: Manrope, "Noto Sans", sans-serif;'>
+<div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 px-10 py-4">
+<div class="flex items-center gap-10">
+<a class="flex items-center gap-3 text-[#111418]" href="#">
+<svg class="h-8 w-8 text-[var(--primary-color)]" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+<h1 class="text-2xl font-bold tracking-tight">AquaLuxe</h1>
+</a>
+<nav class="flex items-center gap-8">
+<a class="text-base font-medium text-gray-700 hover:text-[var(--primary-color)] transition-colors" href="#">Shop</a>
+<a class="text-base font-medium text-gray-700 hover:text-[var(--primary-color)] transition-colors" href="#">Learn</a>
+<a class="text-base font-medium text-gray-700 hover:text-[var(--primary-color)] transition-colors" href="#">Community</a>
+<a class="text-base font-medium text-gray-700 hover:text-[var(--primary-color)] transition-colors" href="#">Services</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end items-center gap-6">
+<label class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"> search </span>
+<input class="form-input w-full rounded-lg border-gray-200 bg-gray-100 pl-10 pr-4 py-2 text-base text-gray-900 placeholder:text-gray-500 focus:ring-2 focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)]" placeholder="Search" type="search"/>
+</label>
+<div class="flex gap-2">
+<button aria-label="Wishlist" class="flex items-center justify-center rounded-lg h-10 w-10 bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors">
+<span class="material-symbols-outlined"> favorite_border </span>
+</button>
+<button aria-label="Shopping Cart" class="relative flex items-center justify-center rounded-lg h-10 w-10 bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors">
+<span class="material-symbols-outlined"> shopping_bag </span>
+</button>
+</div>
+<button aria-label="User account">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAi2jM7Y-vyG1EY9QPKHKROizUZsa0U58zzv6ZCW6vIdq38k-6SL6lUGl7jfasutIqHQy_Y4SSzvQJCO3bIg0l4ro8mI8wt7cetswhYdTkiFcSxC5XlD6guY9IWTPERsV5FH5rJrKWYrNvCY5yva_HOkq7UDlfSJJ7vrwMMYxXKHNeoIVOqe_lKfP-c1dFjZYaL2HK-c07ecEP3F_uG_Y6wy-VMv15gUPyNxfCQNmJhJ_ySGjCRFnFoztnm6kBtDrUAAvSBmBlPFus");'></div>
+</button>
+</div>
+</header>
+<main class="flex-1 px-10 py-8">
+<div class="max-w-4xl mx-auto">
+<div class="flex items-center gap-2 text-sm text-gray-500 mb-8">
+<a class="hover:text-[var(--primary-color)]" href="#">Shop</a>
+<span class="material-symbols-outlined text-base">chevron_right</span>
+<span class="font-medium text-gray-800">Shopping Cart</span>
+</div>
+<div class="flex flex-col items-center text-center py-16 px-6 bg-gray-50 rounded-lg">
+<div class="w-64 h-64 mb-8">
+<img alt="Empty shopping cart illustration" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALGphVNEjeOoBSPzw7ceMePqg1-psUbyuNWVNyeqGSK8v8EQ8CYSkHkaxNVu4GsUncUD5iTEcfE29P2x5CZHiDyZ1b1ocsSGr1_CeFrziCj4mjzd0F_xOO2Z4vUEK2MumtOEFCI0ntM9cjuFSz25oiWtu9OxvqN3CArR0tLlPLchZVXwhE7xdK10kKAg2sJabHPMCH8T0xZj69IbX-dS2V7F5Z3fBYSmNiHCy5YdJJOpoV1NVYsVId8WgseCznB7oyb69xiUt6NUA"/>
+</div>
+<h2 class="text-3xl font-bold text-gray-900 mb-2">Your cart is currently empty</h2>
+<p class="text-gray-600 max-w-md mx-auto mb-8">
+                Looks like you haven't made your choice yet. Browse our collections to find the perfect aquatic additions for your home.
+              </p>
+<div class="flex gap-4">
+<a class="flex items-center justify-center rounded-lg h-12 px-6 bg-[var(--primary-color)] text-white text-base font-bold shadow-sm hover:bg-opacity-90 transition-all" href="#">
+<span class="material-symbols-outlined mr-2"> store </span>
+                  Start Shopping
+                </a>
+<a class="flex items-center justify-center rounded-lg h-12 px-6 bg-gray-200 text-gray-800 text-base font-bold hover:bg-gray-300 transition-all" href="#">
+<span class="material-symbols-outlined mr-2"> star </span>
+                  Featured Products
+                </a>
+</div>
+</div>
+<section class="mt-16">
+<h3 class="text-2xl font-bold text-gray-900 mb-6">You Might Also Like</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+<div class="flex flex-col gap-4 rounded-lg group">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg overflow-hidden">
+<img alt="Lush Aquatic Plants" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSpDaD4Tx312ilQ1G1U8HfY7qbk-A8JjLEUo91MFgbyfXqKh8DA2SWCSl5wxHW_E79jhCgGeANje0o_k0akXuJhjlht3YfRLbPUGCclbZYKC4XhsHx1dF6gWTpAbkudyYwUKqU_PSMRDranNG7mHw2A8f0MrYt8RQ-p9fIf57XGJosi0ms_JSgImsU_2yDS5tzVPmidybPClU1HeDbSFd-BYyFNAOJHEslM4CDAXfx4X0oEIzbXzFaj4T2rwAhR2m3mR6bFWR_wYs"/>
+</div>
+<p class="text-lg font-semibold text-gray-800">Lush Aquatic Plants</p>
+</div>
+<div class="flex flex-col gap-4 rounded-lg group">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg overflow-hidden">
+<img alt="Exotic Ornamental Fish" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPGr_BRwPY66hWevGHCvE3Zt3R04M3nGGFCLx6GvhQNKaTrEMwtkESElw0K0T5vdoR2H_veUVk4NXuL5fsGqNSJ2CdS3LqwV2CD2BOjAg55JnzF08bQ1cU0WkAUGqc-gt59ikb_PmjCtHAnYp81tLhu5RIUQoPrkgLRw6oG1NNp6nEUTnlW3xm1GC4cR2ERIf2q5FXlnW3OdqmRezOfVo0ONlX_FV_5_TYZ_bpve8Bjp0yXLRzfxphrR0pihlZCKwZFlfoxB5obkw"/>
+</div>
+<p class="text-lg font-semibold text-gray-800">Exotic Ornamental Fish</p>
+</div>
+<div class="flex flex-col gap-4 rounded-lg group">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg overflow-hidden">
+<img alt="Premium Aquarium Equipment" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzyXjrNt9wSyRVGGrPpjKWgYQaC_ag2Zg1WSriqj6RuPFXkRCxhIGP7oJPegdnS9vv0aHdLP0ukybFqJt7E5O-S35bu3Iv-nChnJ5jJgzho_WUaHXDj-4yI3DXT3WpIWjGV6HcfLuxrvXffJDuuWVQCp1NjanOhitjEUQDzqVV3qodjb14tGj6gPAwcyrDQdQt68BdmcaGqSJIzRX9DnfeSKWMhJcAfg__wToolnKrL2NjdxdQ4Os3PgPo6z6iI4pAy9HMW5AkgGQ"/>
+</div>
+<p class="text-lg font-semibold text-gray-800">Premium Aquarium Equipment</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<footer class="border-t border-gray-200">
+<div class="max-w-7xl mx-auto px-10 py-8">
+<div class="flex flex-wrap items-center justify-between gap-6">
+<div class="flex flex-wrap gap-x-8 gap-y-4">
+<a class="text-gray-600 hover:text-[var(--primary-color)] transition-colors" href="#">About</a>
+<a class="text-gray-600 hover:text-[var(--primary-color)] transition-colors" href="#">Contact</a>
+<a class="text-gray-600 hover:text-[var(--primary-color)] transition-colors" href="#">FAQ</a>
+<a class="text-gray-600 hover:text-[var(--primary-color)] transition-colors" href="#">Terms of Service</a>
+<a class="text-gray-600 hover:text-[var(--primary-color)] transition-colors" href="#">Privacy Policy</a>
+</div>
+<p class="text-gray-500">© 2024 AquaLuxe. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</div>
+</div>
+
+</body></html>

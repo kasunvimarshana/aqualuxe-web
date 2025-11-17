@@ -1,0 +1,9 @@
+{
+  "name": "Multilingual",
+  "description": "Provides a language switcher with support for Polylang and WPML.",
+  "version": "1.0.0",
+  "enabled": true,
+  "requires": [
+    "class:AquaLuxe\\Core\\Contracts\\ModuleInterface"
+  ]
+}

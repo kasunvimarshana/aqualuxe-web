@@ -1,0 +1,146 @@
+{
+  "name": "AquaLuxe - Premium Aquatic Solutions",
+  "short_name": "AquaLuxe",
+  "description": "Bringing elegance to aquatic life – globally. Premium ornamental fish, aquatic plants, and luxury aquarium solutions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#006B7D",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["business", "shopping", "lifestyle"],
+  "icons": [
+    {
+      "src": "assets/dist/images/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/dist/images/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/dist/images/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/dist/images/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/dist/images/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/dist/images/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/dist/images/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/dist/images/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Shop Fish",
+      "short_name": "Fish",
+      "description": "Browse our collection of premium ornamental fish",
+      "url": "/shop/fish/",
+      "icons": [{ "src": "assets/dist/images/fish-icon-96x96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Aquatic Plants",
+      "short_name": "Plants",
+      "description": "Explore aquatic plants for your aquarium",
+      "url": "/shop/plants/",
+      "icons": [{ "src": "assets/dist/images/plant-icon-96x96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Equipment",
+      "short_name": "Equipment",
+      "description": "Professional aquarium equipment and supplies",
+      "url": "/shop/equipment/",
+      "icons": [{ "src": "assets/dist/images/equipment-icon-96x96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Services",
+      "short_name": "Services",
+      "description": "Professional aquarium design and maintenance",
+      "url": "/services/",
+      "icons": [{ "src": "assets/dist/images/service-icon-96x96.png", "sizes": "96x96" }]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/dist/images/screenshot-mobile-1.png",
+      "sizes": "320x640",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "assets/dist/images/screenshot-mobile-2.png",
+      "sizes": "320x640",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "assets/dist/images/screenshot-desktop-1.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "assets/dist/images/screenshot-desktop-2.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "file_handlers": [
+    {
+      "action": "/import/",
+      "accept": {
+        "application/json": [".json"],
+        "text/csv": [".csv"]
+      },
+      "icons": [
+        {
+          "src": "assets/dist/images/import-icon-96x96.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ],
+      "launch_type": "single-client"
+    }
+  ],
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
+  "handle_links": "preferred",
+  "capture_links": "existing-client-navigate"
+}

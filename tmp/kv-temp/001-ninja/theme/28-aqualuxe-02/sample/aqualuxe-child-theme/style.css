@@ -1,0 +1,40 @@
+/*
+Theme Name: AquaLuxe Child
+Theme URI: https://aqualuxe.com
+Description: Child theme for AquaLuxe - Premium WordPress + WooCommerce theme for aquatic businesses
+Author: Your Name
+Author URI: https://yoursite.com
+Template: aqualuxe
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: aqualuxe-child
+Tags: e-commerce, custom-colors, custom-menu, custom-logo, featured-images, flexible-header, footer-widgets, full-width-template, theme-options, translation-ready, woocommerce
+*/
+
+/* 
+This file is used for basic CSS customizations.
+For more extensive customizations, consider using a build process with Tailwind CSS.
+*/
+
+/* Example customizations */
+
+/* Change primary button color */
+.wp-block-button__link,
+.woocommerce #respond input#submit.alt, 
+.woocommerce a.button.alt, 
+.woocommerce button.button.alt, 
+.woocommerce input.button.alt {
+    background-color: #00a8e8; /* Custom blue color */
+}
+
+/* Change heading font styles */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+/* Custom footer styling */
+.site-footer {
+    border-top: 4px solid #00a8e8;
+}

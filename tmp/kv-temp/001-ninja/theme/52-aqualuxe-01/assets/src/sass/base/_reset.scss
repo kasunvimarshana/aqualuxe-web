@@ -1,0 +1,279 @@
+// AquaLuxe Theme Reset
+// -------------------
+
+// Modern CSS Reset
+// Based on Andy Bell's Modern CSS Reset with modifications
+
+// Box sizing
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+// Remove default margin and padding
+html, body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd {
+  margin: 0;
+  padding: 0;
+}
+
+// Set core body defaults
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+}
+
+// Remove list styles on ul, ol elements with a class attribute
+ul[class], ol[class] {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+// Elements that don't have a class get default styles
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: var(--color-primary);
+  
+  &:hover {
+    color: var(--color-primary-600);
+  }
+}
+
+// Make images easier to work with
+img, picture, svg {
+  max-width: 100%;
+  display: block;
+}
+
+// Inherit fonts for inputs and buttons
+input, button, textarea, select {
+  font: inherit;
+}
+
+// Remove all animations and transitions for people that prefer not to see them
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// Additional resets for WordPress and WooCommerce
+
+// WordPress alignment classes
+.alignleft {
+  float: left;
+  margin-right: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.alignright {
+  float: right;
+  margin-left: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.aligncenter {
+  clear: both;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5em;
+}
+
+// WordPress captions
+.wp-caption {
+  margin-bottom: 1.5em;
+  max-width: 100%;
+  
+  img[class*="wp-image-"] {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .wp-caption-text {
+    margin: 0.8075em 0;
+    font-size: $font-size-sm;
+    font-style: italic;
+    color: var(--color-text-secondary);
+  }
+}
+
+// WordPress galleries
+.gallery {
+  margin-bottom: 1.5em;
+  display: grid;
+  grid-gap: $spacing-4;
+  
+  &.gallery-columns-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  &.gallery-columns-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  &.gallery-columns-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  &.gallery-columns-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  
+  &.gallery-columns-6 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  
+  &.gallery-columns-7 {
+    grid-template-columns: repeat(7, 1fr);
+  }
+  
+  &.gallery-columns-8 {
+    grid-template-columns: repeat(8, 1fr);
+  }
+  
+  &.gallery-columns-9 {
+    grid-template-columns: repeat(9, 1fr);
+  }
+}
+
+.gallery-item {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+.gallery-caption {
+  display: block;
+  font-size: $font-size-sm;
+  color: var(--color-text-secondary);
+  padding: $spacing-2 0;
+}
+
+// Screen reader text
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+  
+  &:focus {
+    background-color: var(--color-bg-primary);
+    border-radius: $border-radius;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto !important;
+    clip-path: none;
+    color: var(--color-text-primary);
+    display: block;
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+  }
+}
+
+// Skip link
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  padding: $spacing-2 $spacing-4;
+  z-index: 999;
+  text-decoration: none;
+  
+  &:focus {
+    top: 0;
+  }
+}
+
+// Clear floats
+.clear::before,
+.clear::after,
+.entry-content::before,
+.entry-content::after,
+.comment-content::before,
+.comment-content::after,
+.site-header::before,
+.site-header::after,
+.site-content::before,
+.site-content::after,
+.site-footer::before,
+.site-footer::after {
+  content: '';
+  display: table;
+  table-layout: fixed;
+}
+
+.clear::after,
+.entry-content::after,
+.comment-content::after,
+.site-header::after,
+.site-content::after,
+.site-footer::after {
+  clear: both;
+}
+
+// WooCommerce specific resets
+.woocommerce-active {
+  // Reset button styles that might be overridden by WooCommerce
+  .button {
+    background-color: var(--color-primary);
+    color: $color-white;
+    border: none;
+    padding: $spacing-2 $spacing-4;
+    border-radius: $border-radius;
+    cursor: pointer;
+    transition: background-color $transition-duration-300 $transition-timing-ease-in-out;
+    
+    &:hover {
+      background-color: var(--color-primary-600);
+    }
+  }
+  
+  // Reset form styles
+  form {
+    .form-row {
+      padding: 0;
+      margin-bottom: $spacing-4;
+      
+      label {
+        line-height: 2;
+      }
+      
+      input.input-text,
+      textarea {
+        border: 1px solid var(--color-border-primary);
+        border-radius: $border-radius;
+        padding: $spacing-2;
+        
+        &:focus {
+          outline: none;
+          border-color: var(--color-primary);
+          box-shadow: 0 0 0 1px var(--color-primary);
+        }
+      }
+    }
+  }
+}

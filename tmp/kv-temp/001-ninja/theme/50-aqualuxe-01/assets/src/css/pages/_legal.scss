@@ -1,0 +1,419 @@
+/* Legal Pages Styles (Privacy Policy, Terms & Conditions, Return Policy) */
+
+/* Page Header */
+.page-header {
+    margin-bottom: 3rem;
+}
+
+.page-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+.last-updated {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+/* Legal Content Layout */
+.legal-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+@media (min-width: 992px) {
+    .legal-content {
+        grid-template-columns: 280px 1fr;
+    }
+}
+
+/* Table of Contents */
+.legal-toc {
+    background-color: var(--color-background-light);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    position: relative;
+}
+
+@media (min-width: 992px) {
+    .legal-toc {
+        position: sticky;
+        top: 100px;
+        align-self: start;
+        max-height: calc(100vh - 150px);
+        overflow-y: auto;
+    }
+}
+
+.legal-toc h2 {
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    color: var(--color-primary);
+}
+
+.toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toc-item {
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.toc-item.level-3 {
+    padding-left: 1rem;
+    font-size: 0.9rem;
+}
+
+.toc-item a {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.3s;
+    display: block;
+    padding: 0.25rem 0;
+}
+
+.toc-item a:hover {
+    color: var(--color-primary);
+}
+
+/* Legal Document Content */
+.legal-document {
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.legal-document h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1.25rem;
+    font-size: 1.75rem;
+    color: var(--color-primary);
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.legal-document h2:first-child {
+    margin-top: 0;
+}
+
+.legal-document h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.35rem;
+    color: var(--color-text);
+}
+
+.legal-document p {
+    margin-bottom: 1.25rem;
+}
+
+.legal-document ul, 
+.legal-document ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.legal-document li {
+    margin-bottom: 0.5rem;
+}
+
+.legal-document a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+.legal-document a:hover {
+    color: var(--color-primary-dark);
+}
+
+/* Related Documents */
+.related-documents {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background-color: var(--color-background-light);
+    border-radius: 0.5rem;
+}
+
+.related-documents h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+
+.document-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.document-list li {
+    flex: 1 1 300px;
+}
+
+.document-link {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    color: var(--color-text);
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.document-link:hover {
+    background-color: rgba(var(--color-primary-rgb), 0.05);
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.document-link svg {
+    margin-right: 0.75rem;
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+/* Legal Contact */
+.legal-contact {
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding: 3rem 2rem;
+    background-color: var(--color-background-light);
+    border-radius: 0.5rem;
+}
+
+.legal-contact h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+    font-size: 1.75rem;
+}
+
+.legal-contact p {
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Terms Acceptance */
+.legal-acceptance {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background-color: var(--color-background-light);
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+.legal-acceptance h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+    font-size: 1.5rem;
+}
+
+.acceptance-checkbox {
+    margin: 2rem 0;
+}
+
+.acceptance-checkbox label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    cursor: pointer;
+}
+
+.acceptance-checkbox input[type="checkbox"] {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.acceptance-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Return Policy Specific Styles */
+.return-policy-summary {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.return-policy-summary h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+    font-size: 1.75rem;
+}
+
+.return-table-wrapper {
+    overflow-x: auto;
+}
+
+.return-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+.return-table th,
+.return-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.return-table th {
+    background-color: var(--color-background-light);
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.return-table tr:last-child td {
+    border-bottom: none;
+}
+
+.return-table tr:hover td {
+    background-color: rgba(var(--color-primary-rgb), 0.05);
+}
+
+/* Return Process */
+.return-process {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.return-process h2 {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    color: var(--color-primary);
+    font-size: 1.75rem;
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .process-steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .process-steps {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.process-step {
+    background-color: var(--color-background-light);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.step-number {
+    background-color: var(--color-primary);
+    color: white;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.step-title {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+    color: var(--color-text);
+}
+
+.step-description {
+    margin: 0;
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.return-form-cta {
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background-color: var(--color-background-light);
+    border-radius: 0.5rem;
+}
+
+.return-form-cta h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+    font-size: 1.5rem;
+}
+
+.return-form-cta p {
+    margin-bottom: 1.5rem;
+}
+
+/* Dark Mode Styles */
+.dark-mode .legal-toc,
+.dark-mode .related-documents,
+.dark-mode .legal-contact,
+.dark-mode .legal-acceptance,
+.dark-mode .return-form-cta,
+.dark-mode .process-step {
+    background-color: var(--color-background-dark);
+}
+
+.dark-mode .return-table th {
+    background-color: var(--color-background-dark);
+}
+
+.dark-mode .document-link {
+    background-color: var(--color-background-darker);
+    border-color: var(--color-border-dark);
+}
+
+.dark-mode .document-link:hover {
+    background-color: rgba(var(--color-primary-rgb), 0.1);
+}
+
+.dark-mode .legal-document h2 {
+    border-bottom-color: var(--color-border-dark);
+}
+
+.dark-mode .return-table td,
+.dark-mode .return-table th {
+    border-bottom-color: var(--color-border-dark);
+}

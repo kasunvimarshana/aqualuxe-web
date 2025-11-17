@@ -1,0 +1,4 @@
+/* Entry kept for potential additional screen-specific CSS via Tailwind layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

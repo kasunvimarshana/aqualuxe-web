@@ -1,0 +1,27 @@
+/*!
+ * AquaLuxe WordPress Theme
+ * WooCommerce Stylesheet
+ */
+
+/**
+ * Import Abstracts
+ */
+@import 'abstracts/variables';
+@import 'abstracts/functions';
+@import 'abstracts/mixins';
+@import 'abstracts/placeholders';
+
+/**
+ * Import WooCommerce Styles
+ */
+@import 'woocommerce/buttons';
+@import 'woocommerce/cart';
+@import 'woocommerce/checkout';
+@import 'woocommerce/forms';
+@import 'woocommerce/mini-cart';
+@import 'woocommerce/my-account';
+@import 'woocommerce/product-archives';
+@import 'woocommerce/product-single';
+@import 'woocommerce/shop';
+@import 'woocommerce/widgets';
+@import 'woocommerce/wishlist';

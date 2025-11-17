@@ -1,0 +1,642 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0"
+	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:wp="http://wordpress.org/export/1.2/"
+>
+<channel>
+	<title>AquaLuxe Demo</title>
+	<link>https://aqualuxe.example.com</link>
+	<description>AquaLuxe Demo Content</description>
+	<pubDate>Tue, 13 Aug 2025 22:48:49 +0000</pubDate>
+	<language>en-US</language>
+	<wp:wxr_version>1.2</wp:wxr_version>
+	<wp:base_site_url>https://aqualuxe.example.com</wp:base_site_url>
+	<wp:base_blog_url>https://aqualuxe.example.com</wp:base_blog_url>
+
+	<!-- Pages -->
+	<item>
+		<title>Home</title>
+		<link>https://aqualuxe.example.com/</link>
+		<pubDate>Tue, 13 Aug 2025 10:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://aqualuxe.example.com/?page_id=2</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:cover {"url":"https://aqualuxe.example.com/wp-content/uploads/2025/08/hero-aquarium.jpg","id":123,"dimRatio":50,"overlayColor":"primary","minHeight":800,"contentPosition":"center center","align":"full"} -->
+<div class="wp-block-cover alignfull has-primary-background-color" style="min-height:800px"><span aria-hidden="true" class="wp-block-cover__background has-primary-background-color has-background-dim"></span><img class="wp-block-cover__image-background wp-image-123" alt="Luxury Aquarium" src="https://aqualuxe.example.com/wp-content/uploads/2025/08/hero-aquarium.jpg" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:heading {"textAlign":"center","level":1,"style":{"typography":{"fontStyle":"normal","fontWeight":"700"}},"textColor":"white","fontSize":"huge"} -->
+<h1 class="wp-block-heading has-text-align-center has-white-color has-text-color has-huge-font-size" style="font-style:normal;font-weight:700">Premium Aquarium Solutions</h1>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"center","textColor":"white","fontSize":"large"} -->
+<p class="has-text-align-center has-white-color has-text-color has-large-font-size">Bringing the ocean's beauty into your space with expert design and maintenance</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+<div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"secondary","textColor":"white","style":{"border":{"radius":"0px"}}} -->
+<div class="wp-block-button"><a class="wp-block-button__link has-white-color has-secondary-background-color has-text-color has-background wp-element-button" style="border-radius:0px">Our Services</a></div>
+<!-- /wp:button -->
+
+<!-- wp:button {"textColor":"white","style":{"border":{"radius":"0px"},"color":{"background":"transparent"}},"className":"is-style-outline"} -->
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-white-color has-text-color has-background wp-element-button" style="border-radius:0px;background-color:transparent">Shop Now</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div></div>
+<!-- /wp:cover -->
+
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","right":"var:preset|spacing|40","bottom":"var:preset|spacing|60","left":"var:preset|spacing|40"},"margin":{"top":"0"}}},"backgroundColor":"background","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull has-background-background-color has-background" style="margin-top:0;padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--40)"><!-- wp:heading {"textAlign":"center","style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"x-large"} -->
+<h2 class="wp-block-heading has-text-align-center has-x-large-font-size" style="font-style:normal;font-weight:600">Our Featured Services</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center">Discover our range of premium aquarium services designed to create and maintain stunning aquatic environments</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:columns {"align":"wide"} -->
+<div class="wp-block-columns alignwide"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"id":124,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="https://aqualuxe.example.com/wp-content/uploads/2025/08/custom-design.jpg" alt="Custom Aquarium Design" class="wp-image-124"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"textAlign":"center","level":3} -->
+<h3 class="wp-block-heading has-text-align-center">Custom Design</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center">Bespoke aquarium designs tailored to your space and aesthetic preferences</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"id":125,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="https://aqualuxe.example.com/wp-content/uploads/2025/08/maintenance.jpg" alt="Professional Maintenance" class="wp-image-125"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"textAlign":"center","level":3} -->
+<h3 class="wp-block-heading has-text-align-center">Professional Maintenance</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center">Regular maintenance services to keep your aquarium in pristine condition</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"id":126,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="https://aqualuxe.example.com/wp-content/uploads/2025/08/consultation.jpg" alt="Expert Consultation" class="wp-image-126"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"textAlign":"center","level":3} -->
+<h3 class="wp-block-heading has-text-align-center">Expert Consultation</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center">Professional advice on species selection, equipment, and aquarium care</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+<div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"primary"} -->
+<div class="wp-block-button"><a class="wp-block-button__link has-primary-background-color has-background wp-element-button">View All Services</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","right":"var:preset|spacing|40","bottom":"var:preset|spacing|60","left":"var:preset|spacing|40"},"margin":{"top":"0"}},"color":{"background":"#f8fafc"}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull has-background" style="background-color:#f8fafc;margin-top:0;padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--40)"><!-- wp:heading {"textAlign":"center","style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"x-large"} -->
+<h2 class="wp-block-heading has-text-align-center has-x-large-font-size" style="font-style:normal;font-weight:600">Featured Products</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center">Explore our selection of premium aquarium products and accessories</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:woocommerce/product-new {"columns":4,"rows":1,"alignButtons":true,"contentVisibility":{"image":true,"title":true,"price":true,"rating":true,"button":true}} /--></div>
+<!-- /wp:group -->
+
+<!-- wp:cover {"url":"https://aqualuxe.example.com/wp-content/uploads/2025/08/testimonial-bg.jpg","id":127,"dimRatio":80,"overlayColor":"primary","minHeight":400,"contentPosition":"center center","align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","right":"var:preset|spacing|40","bottom":"var:preset|spacing|60","left":"var:preset|spacing|40"}}}} -->
+<div class="wp-block-cover alignfull has-primary-background-color" style="padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--40);min-height:400px"><span aria-hidden="true" class="wp-block-cover__background has-primary-background-color has-background-dim-80 has-background-dim"></span><img class="wp-block-cover__image-background wp-image-127" alt="Testimonial Background" src="https://aqualuxe.example.com/wp-content/uploads/2025/08/testimonial-bg.jpg" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:heading {"textAlign":"center","textColor":"white","fontSize":"x-large"} -->
+<h2 class="wp-block-heading has-text-align-center has-white-color has-text-color has-x-large-font-size">What Our Clients Say</h2>
+<!-- /wp:heading -->
+
+<!-- wp:quote {"align":"center","className":"is-style-plain"} -->
+<blockquote class="wp-block-quote has-text-align-center is-style-plain"><!-- wp:paragraph {"textColor":"white"} -->
+<p class="has-white-color has-text-color">"AquaLuxe transformed our office space with a stunning custom aquarium that has become the centerpiece of our reception area. Their maintenance service is impeccable, and the team is always professional and knowledgeable."</p>
+<!-- /wp:paragraph --><cite class="has-white-color has-text-color">Michael Johnson, CEO of Modern Spaces</cite></blockquote>
+<!-- /wp:quote -->
+
+<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+<div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"white","textColor":"primary"} -->
+<div class="wp-block-button"><a class="wp-block-button__link has-primary-color has-white-background-color has-text-color has-background wp-element-button">Read More Testimonials</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div></div>
+<!-- /wp:cover -->
+
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","right":"var:preset|spacing|40","bottom":"var:preset|spacing|60","left":"var:preset|spacing|40"},"margin":{"top":"0"}}},"backgroundColor":"background","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull has-background-background-color has-background" style="margin-top:0;padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--40)"><!-- wp:columns {"align":"wide"} -->
+<div class="wp-block-columns alignwide"><!-- wp:column {"width":"50%"} -->
+<div class="wp-block-column" style="flex-basis:50%"><!-- wp:heading {"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"x-large"} -->
+<h2 class="wp-block-heading has-x-large-font-size" style="font-style:normal;font-weight:600">Subscribe to Our Newsletter</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Stay updated with our latest products, services, and aquarium care tips. Subscribe to our newsletter for exclusive content and special offers.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul><!-- wp:list-item -->
+<li>Monthly aquarium maintenance tips</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>New product announcements</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Exclusive subscriber discounts</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Invitations to special events</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"width":"50%"} -->
+<div class="wp-block-column" style="flex-basis:50%"><!-- wp:html -->
+<div class="newsletter-form">
+  <form>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Your Email" required>
+    </div>
+    <div class="form-group">
+      <label>Interests</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="interests[]" value="freshwater"> Freshwater Aquariums</label>
+        <label><input type="checkbox" name="interests[]" value="saltwater"> Saltwater Aquariums</label>
+        <label><input type="checkbox" name="interests[]" value="products"> Aquarium Products</label>
+        <label><input type="checkbox" name="interests[]" value="maintenance"> Maintenance Tips</label>
+      </div>
+    </div>
+    <button type="submit" class="submit-button">Subscribe Now</button>
+  </form>
+</div>
+<!-- /wp:html --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></div>
+<!-- /wp:group -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>2</wp:post_id>
+		<wp:post_date>2025-08-13 10:00:00</wp:post_date>
+		<wp:post_date_gmt>2025-08-13 10:00:00</wp:post_date_gmt>
+		<wp:post_modified>2025-08-13 10:00:00</wp:post_modified>
+		<wp:post_modified_gmt>2025-08-13 10:00:00</wp:post_modified_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>home</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>page</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key>_wp_page_template</wp:meta_key>
+			<wp:meta_value><![CDATA[front-page.php]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	
+	<item>
+		<title>About</title>
+		<link>https://aqualuxe.example.com/about/</link>
+		<pubDate>Tue, 13 Aug 2025 10:05:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://aqualuxe.example.com/?page_id=3</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:cover {"url":"https://aqualuxe.example.com/wp-content/uploads/2025/08/about-hero.jpg","id":128,"dimRatio":50,"overlayColor":"primary","minHeight":400,"contentPosition":"center center","align":"full"} -->
+<div class="wp-block-cover alignfull has-primary-background-color" style="min-height:400px"><span aria-hidden="true" class="wp-block-cover__background has-primary-background-color has-background-dim"></span><img class="wp-block-cover__image-background wp-image-128" alt="About AquaLuxe" src="https://aqualuxe.example.com/wp-content/uploads/2025/08/about-hero.jpg" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:heading {"textAlign":"center","level":1,"textColor":"white"} -->
+<h1 class="wp-block-heading has-text-align-center has-white-color has-text-color">About AquaLuxe</h1>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"center","textColor":"white"} -->
+<p class="has-text-align-center has-white-color has-text-color">Bringing the ocean's beauty into your space since 2015</p>
+<!-- /wp:paragraph --></div></div>
+<!-- /wp:cover -->
+
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","right":"var:preset|spacing|40","bottom":"var:preset|spacing|60","left":"var:preset|spacing|40"},"margin":{"top":"0"}}},"backgroundColor":"background","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull has-background-background-color has-background" style="margin-top:0;padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--40)"><!-- wp:columns {"align":"wide"} -->
+<div class="wp-block-columns alignwide"><!-- wp:column {"width":"60%"} -->
+<div class="wp-block-column" style="flex-basis:60%"><!-- wp:heading {"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"x-large"} -->
+<h2 class="wp-block-heading has-x-large-font-size" style="font-style:normal;font-weight:600">Our Story</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Founded in 2015 by marine biologist Dr. Sarah Chen, AquaLuxe began with a simple mission: to bring the beauty and tranquility of the ocean into homes and businesses through expertly designed and maintained aquariums.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>What started as a small consultation service has grown into a full-service aquarium design and maintenance company with a team of dedicated aquatic specialists, designers, and technicians. Our passion for marine life and commitment to sustainability drives everything we do.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Today, AquaLuxe is recognized as a leader in custom aquarium solutions, serving clients across the country with bespoke designs that transform spaces and create stunning focal points in homes, offices, restaurants, and hotels.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:quote -->
+<blockquote class="wp-block-quote"><!-- wp:paragraph -->
+<p>"Our goal is not just to create beautiful aquariums, but to foster a deeper appreciation for marine ecosystems and promote conservation through education and sustainable practices."</p>
+<!-- /wp:paragraph --><cite>Dr. Sarah Chen, Founder</cite></blockquote>
+<!-- /wp:quote --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"width":"40%"} -->
+<div class="wp-block-column" style="flex-basis:40%"><!-- wp:image {"id":129,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="https://aqualuxe.example.com/wp-content/uploads/2025/08/founder.jpg" alt="Dr. Sarah Chen, Founder of AquaLuxe" class="wp-image-129"/><figcaption class="wp-element-caption">Dr. Sarah Chen, Founder of AquaLuxe</figcaption></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","right":"var:preset|spacing|40","bottom":"var:preset|spacing|60","left":"var:preset|spacing|40"},"margin":{"top":"0"}},"color":{"background":"#f8fafc"}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull has-background" style="background-color:#f8fafc;margin-top:0;padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--40)"><!-- wp:heading {"textAlign":"center","style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"x-large"} -->
+<h2 class="wp-block-heading has-text-align-center has-x-large-font-size" style="font-style:normal;font-weight:600">Our Values</h2>
+<!-- /wp:heading -->
+
+<!-- wp:columns {"align":"wide"} -->
+<div class="wp-block-columns alignwide"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"align":"center","id":130,"width":80,"height":80,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image aligncenter size-full is-resized"><img src="https://aqualuxe.example.com/wp-content/uploads/2025/08/icon-excellence.png" alt="Excellence Icon" class="wp-image-130" width="80" height="80"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"textAlign":"center","level":3} -->
+<h3 class="wp-block-heading has-text-align-center">Excellence</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center">We strive for excellence in every aspect of our work, from design and installation to maintenance and customer service.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"align":"center","id":131,"width":80,"height":80,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image aligncenter size-full is-resized"><img src="https://aqualuxe.example.com/wp-content/uploads/2025/08/icon-sustainability.png" alt="Sustainability Icon" class="wp-image-131" width="80" height="80"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"textAlign":"center","level":3} -->
+<h3 class="wp-block-heading has-text-align-center">Sustainability</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center">We are committed to sustainable practices, responsible sourcing, and promoting conservation of marine ecosystems.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"align":"center","id":132,"width":80,"height":80,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image aligncenter size-full is-resized"><img src="https://aqualuxe.example.com/wp-content/uploads/2025/08/icon-innovation.png" alt="Innovation Icon" class="wp-image-132" width="80" height="80"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"textAlign":"center","level":3} -->
+<h3 class="wp-block-heading has-text-align-center">Innovation</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center">We continuously explore new technologies, designs, and methods to create unique and efficient aquatic environments.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","right":"var:preset|spacing|40","bottom":"var:preset|spacing|60","left":"var:preset|spacing|40"},"margin":{"top":"0"}}},"backgroundColor":"background","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull has-background-background-color has-background" style="margin-top:0;padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--40)"><!-- wp:heading {"textAlign":"center","style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"x-large"} -->
+<h2 class="wp-block-heading has-text-align-center has-x-large-font-size" style="font-style:normal;font-weight:600">Our Team</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center">Meet the experts behind AquaLuxe's stunning aquarium designs and services</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:columns {"align":"wide"} -->
+<div class="wp-block-columns alignwide"><!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"id":133,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="https://aqualuxe.example.com/wp-content/uploads/2025/08/team-member-1.jpg" alt="Dr. Sarah Chen" class="wp-image-133"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"textAlign":"center","level":3} -->
+<h3 class="wp-block-heading has-text-align-center">Dr. Sarah Chen</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center">Founder & Marine Biologist</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"id":134,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="https://aqualuxe.example.com/wp-content/uploads/2025/08/team-member-2.jpg" alt="Marcus Rodriguez" class="wp-image-134"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"textAlign":"center","level":3} -->
+<h3 class="wp-block-heading has-text-align-center">Marcus Rodriguez</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center">Lead Designer</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"id":135,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="https://aqualuxe.example.com/wp-content/uploads/2025/08/team-member-3.jpg" alt="Aisha Patel" class="wp-image-135"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"textAlign":"center","level":3} -->
+<h3 class="wp-block-heading has-text-align-center">Aisha Patel</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center">Maintenance Specialist</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column -->
+<div class="wp-block-column"><!-- wp:image {"id":136,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="https://aqualuxe.example.com/wp-content/uploads/2025/08/team-member-4.jpg" alt="David Kim" class="wp-image-136"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"textAlign":"center","level":3} -->
+<h3 class="wp-block-heading has-text-align-center">David Kim</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center">Technical Director</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+<div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"primary"} -->
+<div class="wp-block-button"><a class="wp-block-button__link has-primary-background-color has-background wp-element-button">Meet the Full Team</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>3</wp:post_id>
+		<wp:post_date>2025-08-13 10:05:00</wp:post_date>
+		<wp:post_date_gmt>2025-08-13 10:05:00</wp:post_date_gmt>
+		<wp:post_modified>2025-08-13 10:05:00</wp:post_modified>
+		<wp:post_modified_gmt>2025-08-13 10:05:00</wp:post_modified_gmt>
+		<wp:comment_status>closed</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>about</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>page</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:postmeta>
+			<wp:meta_key>_wp_page_template</wp:meta_key>
+			<wp:meta_value><![CDATA[page-about.php]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	
+	<!-- Blog Posts -->
+	<item>
+		<title>The Ultimate Guide to Freshwater Aquarium Maintenance</title>
+		<link>https://aqualuxe.example.com/ultimate-guide-freshwater-aquarium-maintenance/</link>
+		<pubDate>Mon, 11 Aug 2025 14:30:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://aqualuxe.example.com/?p=10</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>Maintaining a freshwater aquarium is both an art and a science. A well-maintained tank not only looks beautiful but also provides a healthy environment for your aquatic pets. In this comprehensive guide, we'll cover everything you need to know about keeping your freshwater aquarium in pristine condition.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2>Weekly Maintenance Tasks</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Regular weekly maintenance is crucial for the health of your aquarium. Here are the essential tasks you should perform each week:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul><li><strong>Water Testing</strong>: Check ammonia, nitrite, nitrate, and pH levels using a reliable test kit.</li><li><strong>Water Changes</strong>: Replace 20-30% of the water with dechlorinated water at a similar temperature.</li><li><strong>Filter Inspection</strong>: Check that your filter is running properly and clean if necessary.</li><li><strong>Plant Care</strong>: Trim any overgrown plants and remove dead leaves.</li><li><strong>Glass Cleaning</strong>: Use an algae scraper to clean the inside glass of the aquarium.</li></ul>
+<!-- /wp:list -->
+
+<!-- wp:image {"id":150,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://aqualuxe.example.com/wp-content/uploads/2025/08/water-testing-kit.jpg" alt="Aquarium Water Testing Kit" class="wp-image-150"/><figcaption class="wp-element-caption">Regular water testing is essential for maintaining water quality</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading -->
+<h2>Monthly Maintenance Tasks</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>In addition to your weekly routine, these monthly tasks will help keep your aquarium in top condition:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul><li><strong>Deep Substrate Cleaning</strong>: Use a gravel vacuum to remove debris from the substrate.</li><li><strong>Filter Media Replacement</strong>: Replace or clean filter media according to manufacturer recommendations.</li><li><strong>Equipment Check</strong>: Inspect heaters, pumps, and other equipment for proper functioning.</li><li><strong>Algae Control</strong>: Address any algae issues with appropriate treatments or adjustments.</li><li><strong>Prune and Replant</strong>: Manage plant growth by pruning heavily and replanting as needed.</li></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2>Water Quality Management</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The key to a healthy aquarium is maintaining excellent water quality. Here are some important parameters to monitor:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table><thead><tr><th>Parameter</th><th>Ideal Range</th><th>Testing Frequency</th></tr></thead><tbody><tr><td>Ammonia</td><td>0 ppm</td><td>Weekly</td></tr><tr><td>Nitrite</td><td>0 ppm</td><td>Weekly</td></tr><tr><td>Nitrate</td><td>&lt;20 ppm</td><td>Weekly</td></tr><tr><td>pH</td><td>6.5-7.5 (varies by species)</td><td>Weekly</td></tr><tr><td>Temperature</td><td>75-80°F (varies by species)</td><td>Daily</td></tr><tr><td>GH (General Hardness)</td><td>4-8 dGH</td><td>Monthly</td></tr><tr><td>KH (Carbonate Hardness)</td><td>4-8 dKH</td><td>Monthly</td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2>Common Problems and Solutions</h2>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"level":3} -->
+<h3>Algae Overgrowth</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Algae is a common issue in freshwater aquariums. To control algae growth:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul><li>Reduce lighting duration to 8-10 hours per day</li><li>Avoid placing the aquarium in direct sunlight</li><li>Maintain regular water changes</li><li>Add live plants to compete with algae for nutrients</li><li>Consider adding algae-eating fish or invertebrates</li><li>Use phosphate-removing media in your filter</li></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading {"level":3} -->
+<h3>Cloudy Water</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Cloudy water can be caused by several factors:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul><li><strong>White cloudiness</strong>: Usually a bacterial bloom. Improve filtration and avoid overfeeding.</li><li><strong>Green cloudiness</strong>: Algae bloom. Reduce lighting and nutrients.</li><li><strong>Brown cloudiness</strong>: Suspended particles or tannins. Improve mechanical filtration and use activated carbon.</li></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2>Seasonal Considerations</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Your maintenance routine may need to adjust with the seasons:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul><li><strong>Summer</strong>: Monitor temperature closely and consider a chiller if necessary. Increase water changes if temperatures rise.</li><li><strong>Winter</strong>: Check heater functionality and insulate the tank if room temperatures fluctuate.</li><li><strong>Spring/Fall</strong>: These are good times for deep cleaning and rearranging the aquascape if desired.</li></ul>
+<!-- /wp:list -->
+
+<!-- wp:image {"id":151,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="https://aqualuxe.example.com/wp-content/uploads/2025/08/aquarium-maintenance.jpg" alt="Aquarium Maintenance" class="wp-image-151"/><figcaption class="wp-element-caption">Regular maintenance ensures a healthy and beautiful aquarium</figcaption></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading -->
+<h2>Professional Maintenance Services</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>While regular maintenance can be managed by most hobbyists, there are times when professional help is beneficial:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul><li>Setting up a new aquarium</li><li>Addressing persistent water quality issues</li><li>Major aquascaping changes</li><li>During extended absences (vacation care)</li><li>Deep cleaning and equipment overhauls</li></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>At AquaLuxe, we offer comprehensive maintenance services tailored to your specific needs. Our team of experts can help you maintain a beautiful and healthy aquarium with minimal effort on your part.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2>Conclusion</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Consistent maintenance is the key to a thriving freshwater aquarium. By establishing a regular routine and staying attentive to your aquarium's needs, you'll create a beautiful underwater world that brings joy and tranquility to your space.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Remember that each aquarium is unique, and you may need to adjust your maintenance routine based on your specific setup, stocking levels, and the needs of your aquatic inhabitants.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>For more information on aquarium maintenance or to schedule a professional service, contact our team at AquaLuxe.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[Maintaining a freshwater aquarium is both an art and a science. A well-maintained tank not only looks beautiful but also provides a healthy environment for your aquatic pets. In this comprehensive guide, we'll cover everything you need to know about keeping your freshwater aquarium in pristine condition.]]></excerpt:encoded>
+		<wp:post_id>10</wp:post_id>
+		<wp:post_date>2025-08-11 14:30:00</wp:post_date>
+		<wp:post_date_gmt>2025-08-11 14:30:00</wp:post_date_gmt>
+		<wp:post_modified>2025-08-11 14:30:00</wp:post_modified>
+		<wp:post_modified_gmt>2025-08-11 14:30:00</wp:post_modified_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>ultimate-guide-freshwater-aquarium-maintenance</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="category" nicename="maintenance"><![CDATA[Maintenance]]></category>
+		<category domain="category" nicename="guides"><![CDATA[Guides]]></category>
+		<category domain="post_tag" nicename="freshwater"><![CDATA[Freshwater]]></category>
+		<category domain="post_tag" nicename="maintenance"><![CDATA[Maintenance]]></category>
+		<category domain="post_tag" nicename="water-quality"><![CDATA[Water Quality]]></category>
+	</item>
+
+	<!-- WooCommerce Products -->
+	<item>
+		<title>Premium Reef LED Light System</title>
+		<link>https://aqualuxe.example.com/product/premium-reef-led-light-system/</link>
+		<pubDate>Mon, 11 Aug 2025 10:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[admin]]></dc:creator>
+		<guid isPermaLink="false">https://aqualuxe.example.com/?post_type=product&#038;p=20</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>The Premium Reef LED Light System is designed to provide optimal lighting for coral growth and fish health in reef aquariums. With customizable spectrum settings and programmable timing, this lighting system simulates natural reef conditions for a thriving marine ecosystem.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2>Features</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul><li>Full spectrum LED technology with customizable channels</li><li>Programmable sunrise/sunset and moonlight cycles</li><li>Weather simulation including cloud cover and storm effects</li><li>Wireless control via smartphone app</li><li>Energy-efficient design with minimal heat output</li><li>Slim profile with adjustable mounting options</li><li>Durable aluminum housing with cooling system</li><li>5-year manufacturer warranty</li></ul>
+<!-- /wp:list -->
+
+<!-- wp:heading -->
+<h2>Specifications</h2>
+<!-- /wp:heading -->
+
+<!-- wp:table -->
+<figure class="wp-block-table"><table><tbody><tr><td>Dimensions</td><td>24" x 8" x 1.5"</td></tr><tr><td>Weight</td><td>5.2 lbs</td></tr><tr><td>Power Consumption</td><td>165W max</td></tr><tr><td>Input Voltage</td><td>100-240V AC</td></tr><tr><td>LED Channels</td><td>6 independently controllable</td></tr><tr><td>Coverage Area</td><td>24" x 24" for reef, 30" x 30" for fish-only</td></tr><tr><td>Mounting Options</td><td>Tank mount, hanging kit, or bracket mount (all included)</td></tr></tbody></table></figure>
+<!-- /wp:table -->
+
+<!-- wp:heading -->
+<h2>Recommended For</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>This lighting system is ideal for reef aquariums up to 75 gallons with SPS, LPS, and soft corals. It provides sufficient PAR values for even the most light-demanding coral species while offering customization for specific needs.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2>Package Includes</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul><li>Premium Reef LED Light System</li><li>Power supply and cord</li><li>Mounting hardware (tank mount, hanging kit, and bracket mount)</li><li>Wireless controller</li><li>User manual and quick start guide</li><li>Access to smartphone app</li></ul>
+<!-- /wp:list -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[The Premium Reef LED Light System is designed to provide optimal lighting for coral growth and fish health in reef aquariums. With customizable spectrum settings and programmable timing, this lighting system simulates natural reef conditions for a thriving marine ecosystem.]]></excerpt:encoded>
+		<wp:post_id>20</wp:post_id>
+		<wp:post_date>2025-08-11 10:00:00</wp:post_date>
+		<wp:post_date_gmt>2025-08-11 10:00:00</wp:post_date_gmt>
+		<wp:post_modified>2025-08-11 10:00:00</wp:post_modified>
+		<wp:post_modified_gmt>2025-08-11 10:00:00</wp:post_modified_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>premium-reef-led-light-system</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>product</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="product_cat" nicename="lighting"><![CDATA[Lighting]]></category>
+		<category domain="product_cat" nicename="equipment"><![CDATA[Equipment]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_regular_price</wp:meta_key>
+			<wp:meta_value><![CDATA[349.99]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_sale_price</wp:meta_key>
+			<wp:meta_value><![CDATA[299.99]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_price</wp:meta_key>
+			<wp:meta_value><![CDATA[299.99]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_stock_status</wp:meta_key>
+			<wp:meta_value><![CDATA[instock]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_sku</wp:meta_key>
+			<wp:meta_value><![CDATA[AL-LED-001]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+</channel>
+</rss>

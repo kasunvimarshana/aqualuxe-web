@@ -1,0 +1,26 @@
+/* AquaLuxe WooCommerce Styles */
+.woocommerce ul.products li.product {
+  border: 1px solid #eee;
+  padding: 15px;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+.woocommerce ul.products li.product:hover {
+  border-color: #ccc;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.woocommerce div.product .product_title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.cart-count {
+  background: #e74c3c;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  margin-left: 5px;
+}

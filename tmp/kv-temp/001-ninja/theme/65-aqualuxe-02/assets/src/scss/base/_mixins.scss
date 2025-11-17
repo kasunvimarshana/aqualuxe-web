@@ -1,0 +1,251 @@
+/**
+ * AquaLuxe Theme Mixins
+ */
+
+// Responsive breakpoints
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == "sm" {
+    @media (min-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $breakpoint == "md" {
+    @media (min-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $breakpoint == "lg" {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
+  } @else if $breakpoint == "xl" {
+    @media (min-width: $breakpoint-xl) {
+      @content;
+    }
+  } @else if $breakpoint == "2xl" {
+    @media (min-width: $breakpoint-2xl) {
+      @content;
+    }
+  }
+}
+
+// Flexbox
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $wrap: nowrap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+}
+
+// Grid
+@mixin grid($columns: 1, $gap: $grid-gap) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+// Absolute positioning
+@mixin absolute($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+// Fixed positioning
+@mixin fixed($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  position: fixed;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+// Sticky positioning
+@mixin sticky($top: 0) {
+  position: sticky;
+  top: $top;
+}
+
+// Transition
+@mixin transition($properties: all, $duration: 0.3s, $timing: ease) {
+  transition-property: $properties;
+  transition-duration: $duration;
+  transition-timing-function: $timing;
+}
+
+// Box shadow
+@mixin box-shadow($shadow: $box-shadow) {
+  box-shadow: $shadow;
+}
+
+// Text truncate
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Multi-line text truncate
+@mixin text-truncate-multiline($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Clearfix
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// Visually hidden (accessible for screen readers)
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+// Aspect ratio
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  
+  &::before {
+    content: "";
+    display: block;
+    padding-top: ($height / $width) * 100%;
+  }
+  
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// Container
+@mixin container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $container-padding;
+  padding-right: $container-padding;
+  
+  @include respond-to("sm") {
+    max-width: $container-max-width-sm;
+  }
+  
+  @include respond-to("md") {
+    max-width: $container-max-width-md;
+  }
+  
+  @include respond-to("lg") {
+    max-width: $container-max-width-lg;
+  }
+  
+  @include respond-to("xl") {
+    max-width: $container-max-width-xl;
+  }
+  
+  @include respond-to("2xl") {
+    max-width: $container-max-width-2xl;
+  }
+}
+
+// Button
+@mixin button($bg-color: $color-primary, $text-color: $color-white, $hover-bg-color: darken($color-primary, 10%), $hover-text-color: $color-white) {
+  display: inline-block;
+  padding: $spacing-2 $spacing-4;
+  background-color: $bg-color;
+  color: $text-color;
+  border-radius: $border-radius;
+  font-weight: $font-weight-medium;
+  text-align: center;
+  cursor: pointer;
+  @include transition;
+  
+  &:hover,
+  &:focus {
+    background-color: $hover-bg-color;
+    color: $hover-text-color;
+  }
+}
+
+// Form input
+@mixin form-input {
+  display: block;
+  width: 100%;
+  padding: $spacing-2 $spacing-3;
+  border: 1px solid $color-gray-300;
+  border-radius: $border-radius;
+  background-color: $color-white;
+  color: $color-gray-900;
+  @include transition;
+  
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.2);
+  }
+  
+  &::placeholder {
+    color: $color-gray-400;
+  }
+  
+  &:disabled {
+    background-color: $color-gray-100;
+    cursor: not-allowed;
+  }
+}
+
+// Dark mode
+@mixin dark-mode {
+  .dark-mode & {
+    @content;
+  }
+}
+
+// RTL support
+@mixin rtl {
+  [dir="rtl"] & {
+    @content;
+  }
+}
+
+// Hover focus
+@mixin hover-focus {
+  &:hover,
+  &:focus {
+    @content;
+  }
+}
+
+// Responsive font size
+@mixin responsive-font-size($min-size, $max-size, $min-width: $breakpoint-sm, $max-width: $breakpoint-xl) {
+  font-size: $min-size;
+  
+  @media (min-width: $min-width) {
+    font-size: calc(#{$min-size} + #{strip-unit($max-size - $min-size)} * ((100vw - #{$min-width}) / #{strip-unit($max-width - $min-width)}));
+  }
+  
+  @media (min-width: $max-width) {
+    font-size: $max-size;
+  }
+}
+
+// Strip unit
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}

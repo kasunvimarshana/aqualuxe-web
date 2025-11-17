@@ -1,0 +1,66 @@
+/**
+ * AquaLuxe Theme Main Stylesheet
+ *
+ * This is the main stylesheet for the AquaLuxe theme.
+ * It imports all the necessary partials and components.
+ */
+
+// Abstract
+@import 'abstracts/variables';
+@import 'abstracts/functions';
+@import 'abstracts/mixins';
+@import 'abstracts/placeholders';
+
+// Base
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/animations';
+@import 'base/utilities';
+
+// Layout
+@import 'layout/grid';
+@import 'layout/header';
+@import 'layout/navigation';
+@import 'layout/sidebar';
+@import 'layout/footer';
+@import 'layout/forms';
+
+// Components
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/modals';
+@import 'components/sliders';
+@import 'components/tabs';
+@import 'components/accordions';
+@import 'components/pagination';
+@import 'components/breadcrumbs';
+@import 'components/alerts';
+@import 'components/badges';
+@import 'components/tooltips';
+@import 'components/loaders';
+@import 'components/icons';
+@import 'components/tables';
+@import 'components/dropdowns';
+@import 'components/hero';
+@import 'components/testimonials';
+@import 'components/newsletter';
+@import 'components/social-icons';
+@import 'components/search';
+@import 'components/offcanvas';
+
+// Pages
+@import 'pages/home';
+@import 'pages/about';
+@import 'pages/contact';
+@import 'pages/services';
+@import 'pages/faq';
+@import 'pages/blog';
+@import 'pages/single-post';
+@import 'pages/404';
+
+// Themes
+@import 'themes/default';
+@import 'themes/dark-mode';
+
+// Vendors
+@import 'vendors/tailwind';

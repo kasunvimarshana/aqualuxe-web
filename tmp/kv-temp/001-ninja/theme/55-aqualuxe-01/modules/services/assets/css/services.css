@@ -1,0 +1,779 @@
+/**
+ * Services Module Styles
+ *
+ * @package AquaLuxe
+ * @subpackage Modules/Services
+ */
+
+/* Services Archive */
+.aqualuxe-services-archive {
+    margin-bottom: 3rem;
+}
+
+.aqualuxe-services-archive-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.aqualuxe-services-archive-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--aqualuxe-primary);
+}
+
+.aqualuxe-services-archive-description {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    text-align: center;
+    color: var(--aqualuxe-text-light);
+}
+
+.aqualuxe-services-archive-filters {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: var(--aqualuxe-bg-light);
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.aqualuxe-services-archive-filters-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.aqualuxe-services-archive-filters-form select,
+.aqualuxe-services-archive-filters-form input {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--aqualuxe-border);
+    border-radius: 0.25rem;
+    background-color: var(--aqualuxe-bg);
+}
+
+.aqualuxe-services-archive-filters-form button {
+    padding: 0.5rem 1.5rem;
+    background-color: var(--aqualuxe-primary);
+    color: var(--aqualuxe-white);
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.aqualuxe-services-archive-filters-form button:hover {
+    background-color: var(--aqualuxe-primary-dark);
+}
+
+/* Services Grid */
+.aqualuxe-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.aqualuxe-services-layout-list .aqualuxe-services-grid {
+    grid-template-columns: 1fr;
+}
+
+.aqualuxe-services-layout-masonry .aqualuxe-services-grid {
+    display: block;
+    column-count: 3;
+    column-gap: 2rem;
+}
+
+@media (max-width: 992px) {
+    .aqualuxe-services-layout-masonry .aqualuxe-services-grid {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 576px) {
+    .aqualuxe-services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .aqualuxe-services-layout-masonry .aqualuxe-services-grid {
+        column-count: 1;
+    }
+}
+
+/* Service Card */
+.aqualuxe-service {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--aqualuxe-bg);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.aqualuxe-services-layout-masonry .aqualuxe-service {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.aqualuxe-service:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.aqualuxe-services-layout-list .aqualuxe-service {
+    flex-direction: row;
+}
+
+.aqualuxe-service-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.aqualuxe-services-layout-list .aqualuxe-service-inner {
+    flex-direction: row;
+}
+
+.aqualuxe-service-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.aqualuxe-services-layout-list .aqualuxe-service-image {
+    flex: 0 0 300px;
+}
+
+.aqualuxe-service-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.aqualuxe-service:hover .aqualuxe-service-image img {
+    transform: scale(1.05);
+}
+
+.aqualuxe-service-content {
+    flex: 1;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.aqualuxe-service-title {
+    font-size: 1.25rem;
+    margin: 0 0 1rem;
+    color: var(--aqualuxe-heading);
+}
+
+.aqualuxe-service-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.aqualuxe-service-meta {
+    margin-bottom: 1rem;
+    color: var(--aqualuxe-text-light);
+    font-size: 0.9rem;
+}
+
+.aqualuxe-service-price {
+    font-weight: bold;
+    color: var(--aqualuxe-primary);
+    margin-bottom: 0.5rem;
+}
+
+.aqualuxe-service-price del {
+    color: var(--aqualuxe-text-light);
+    font-weight: normal;
+    margin-right: 0.5rem;
+}
+
+.aqualuxe-service-price ins {
+    text-decoration: none;
+}
+
+.aqualuxe-service-price-type {
+    font-size: 0.8rem;
+    color: var(--aqualuxe-text-light);
+    font-weight: normal;
+}
+
+.aqualuxe-service-duration,
+.aqualuxe-service-location {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.aqualuxe-service-duration-icon,
+.aqualuxe-service-location-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 0.5rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.aqualuxe-service-duration-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='16' height='16'%3E%3Cpath fill='%23666' d='M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm.5-13H11v6l5.2 3.2.8-1.3-4.5-2.7V7z'/%3E%3C/svg%3E");
+}
+
+.aqualuxe-service-location-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='16' height='16'%3E%3Cpath fill='%23666' d='M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5s1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5z'/%3E%3C/svg%3E");
+}
+
+.aqualuxe-service-excerpt {
+    flex: 1;
+    margin-bottom: 1.5rem;
+    color: var(--aqualuxe-text);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.aqualuxe-service-button {
+    margin-top: auto;
+}
+
+.aqualuxe-service-button .button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--aqualuxe-primary);
+    color: var(--aqualuxe-white);
+    border: none;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.aqualuxe-service-button .button:hover {
+    background-color: var(--aqualuxe-primary-dark);
+}
+
+/* Single Service */
+.aqualuxe-single-service {
+    margin-bottom: 3rem;
+}
+
+.aqualuxe-single-service-header {
+    margin-bottom: 2rem;
+}
+
+.aqualuxe-single-service-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--aqualuxe-primary);
+}
+
+.aqualuxe-single-service-featured-image {
+    margin-bottom: 2rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.aqualuxe-single-service-featured-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.aqualuxe-single-service-meta {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: var(--aqualuxe-bg-light);
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.aqualuxe-single-service-meta-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.aqualuxe-single-service-meta-item:last-child {
+    margin-bottom: 0;
+}
+
+.aqualuxe-single-service-meta-label {
+    flex: 0 0 120px;
+    font-weight: bold;
+    color: var(--aqualuxe-heading);
+}
+
+.aqualuxe-single-service-meta-value {
+    flex: 1;
+    color: var(--aqualuxe-text);
+}
+
+.aqualuxe-single-service-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--aqualuxe-primary);
+}
+
+.aqualuxe-single-service-price del {
+    color: var(--aqualuxe-text-light);
+    font-weight: normal;
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+}
+
+.aqualuxe-single-service-price ins {
+    text-decoration: none;
+}
+
+.aqualuxe-single-service-price-type {
+    font-size: 1rem;
+    color: var(--aqualuxe-text-light);
+    font-weight: normal;
+}
+
+.aqualuxe-single-service-content {
+    margin-bottom: 2rem;
+    color: var(--aqualuxe-text);
+    line-height: 1.8;
+}
+
+.aqualuxe-single-service-booking-form {
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background-color: var(--aqualuxe-bg-light);
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.aqualuxe-single-service-booking-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--aqualuxe-heading);
+}
+
+.aqualuxe-single-service-related-services {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--aqualuxe-border);
+}
+
+.aqualuxe-single-service-related-title {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: var(--aqualuxe-heading);
+}
+
+.aqualuxe-single-service-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--aqualuxe-border);
+}
+
+.aqualuxe-single-service-navigation-prev,
+.aqualuxe-single-service-navigation-next {
+    max-width: 45%;
+}
+
+.aqualuxe-single-service-navigation a {
+    display: inline-block;
+    color: var(--aqualuxe-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.aqualuxe-single-service-navigation a:hover {
+    color: var(--aqualuxe-primary-dark);
+}
+
+.aqualuxe-single-service-navigation-label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--aqualuxe-text-light);
+    margin-bottom: 0.25rem;
+}
+
+.aqualuxe-single-service-navigation-title {
+    font-weight: 500;
+}
+
+/* Service Categories */
+.aqualuxe-service-categories {
+    margin-bottom: 3rem;
+}
+
+.aqualuxe-service-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.aqualuxe-service-categories-layout-list .aqualuxe-service-categories-grid {
+    grid-template-columns: 1fr;
+}
+
+.aqualuxe-service-category {
+    background-color: var(--aqualuxe-bg);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.aqualuxe-service-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.aqualuxe-service-category-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.aqualuxe-service-categories-layout-list .aqualuxe-service-category-inner {
+    flex-direction: row;
+}
+
+.aqualuxe-service-category-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.aqualuxe-service-categories-layout-list .aqualuxe-service-category-image {
+    flex: 0 0 300px;
+}
+
+.aqualuxe-service-category-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.aqualuxe-service-category:hover .aqualuxe-service-category-image img {
+    transform: scale(1.05);
+}
+
+.aqualuxe-service-category-content {
+    flex: 1;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.aqualuxe-service-category-title {
+    font-size: 1.25rem;
+    margin: 0 0 0.5rem;
+    color: var(--aqualuxe-heading);
+}
+
+.aqualuxe-service-category-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.aqualuxe-service-category-count {
+    margin-bottom: 1rem;
+    color: var(--aqualuxe-text-light);
+    font-size: 0.9rem;
+}
+
+.aqualuxe-service-category-description {
+    color: var(--aqualuxe-text);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Service Booking Form */
+.aqualuxe-service-booking {
+    padding: 2rem;
+    background-color: var(--aqualuxe-bg-light);
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.aqualuxe-service-booking-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--aqualuxe-heading);
+}
+
+.aqualuxe-service-booking-form .wpcf7-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.aqualuxe-service-booking-form .wpcf7-form p {
+    margin: 0;
+}
+
+.aqualuxe-service-booking-form .wpcf7-form-control-wrap {
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.aqualuxe-service-booking-form input[type="text"],
+.aqualuxe-service-booking-form input[type="email"],
+.aqualuxe-service-booking-form input[type="tel"],
+.aqualuxe-service-booking-form input[type="date"],
+.aqualuxe-service-booking-form input[type="time"],
+.aqualuxe-service-booking-form select,
+.aqualuxe-service-booking-form textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--aqualuxe-border);
+    border-radius: 0.25rem;
+    background-color: var(--aqualuxe-bg);
+}
+
+.aqualuxe-service-booking-form textarea {
+    height: 150px;
+}
+
+.aqualuxe-service-booking-form .wpcf7-submit {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--aqualuxe-primary);
+    color: var(--aqualuxe-white);
+    border: none;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.aqualuxe-service-booking-form .wpcf7-submit:hover {
+    background-color: var(--aqualuxe-primary-dark);
+}
+
+/* Widgets */
+.aqualuxe-services-widget-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.aqualuxe-services-widget-item {
+    display: flex;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--aqualuxe-border);
+}
+
+.aqualuxe-services-widget-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.aqualuxe-services-widget-image {
+    flex: 0 0 80px;
+    margin-right: 1rem;
+}
+
+.aqualuxe-services-widget-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.25rem;
+}
+
+.aqualuxe-services-widget-content {
+    flex: 1;
+}
+
+.aqualuxe-services-widget-title {
+    font-size: 1rem;
+    margin: 0 0 0.5rem;
+}
+
+.aqualuxe-services-widget-title a {
+    color: var(--aqualuxe-heading);
+    text-decoration: none;
+}
+
+.aqualuxe-services-widget-price {
+    font-size: 0.9rem;
+    color: var(--aqualuxe-primary);
+    font-weight: bold;
+}
+
+.aqualuxe-services-widget-excerpt {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    color: var(--aqualuxe-text);
+}
+
+.aqualuxe-service-categories-widget-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.aqualuxe-service-categories-widget-list li {
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--aqualuxe-border);
+}
+
+.aqualuxe-service-categories-widget-list li:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.aqualuxe-service-categories-widget-list a {
+    color: var(--aqualuxe-text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.aqualuxe-service-categories-widget-list a:hover {
+    color: var(--aqualuxe-primary);
+}
+
+.aqualuxe-service-categories-widget-list .count {
+    color: var(--aqualuxe-text-light);
+    font-size: 0.9rem;
+}
+
+.aqualuxe-featured-service {
+    background-color: var(--aqualuxe-bg-light);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.aqualuxe-featured-service-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.aqualuxe-featured-service-content {
+    padding: 1.5rem;
+}
+
+.aqualuxe-featured-service-title {
+    font-size: 1.25rem;
+    margin: 0 0 1rem;
+}
+
+.aqualuxe-featured-service-title a {
+    color: var(--aqualuxe-heading);
+    text-decoration: none;
+}
+
+.aqualuxe-featured-service-meta {
+    margin-bottom: 1rem;
+    color: var(--aqualuxe-text-light);
+    font-size: 0.9rem;
+}
+
+.aqualuxe-featured-service-price {
+    font-weight: bold;
+    color: var(--aqualuxe-primary);
+    margin-bottom: 0.5rem;
+}
+
+.aqualuxe-featured-service-excerpt {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    color: var(--aqualuxe-text);
+}
+
+.aqualuxe-featured-service-button .button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--aqualuxe-primary);
+    color: var(--aqualuxe-white);
+    border: none;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.aqualuxe-featured-service-button .button:hover {
+    background-color: var(--aqualuxe-primary-dark);
+}
+
+.aqualuxe-service-search-form {
+    margin-bottom: 1.5rem;
+}
+
+.aqualuxe-service-search-category {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--aqualuxe-border);
+    border-radius: 0.25rem;
+    background-color: var(--aqualuxe-bg);
+}
+
+.aqualuxe-service-search-input-wrapper {
+    display: flex;
+}
+
+.aqualuxe-service-search-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--aqualuxe-border);
+    border-right: none;
+    border-radius: 0.25rem 0 0 0.25rem;
+    background-color: var(--aqualuxe-bg);
+}
+
+.aqualuxe-service-search-button {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--aqualuxe-primary);
+    color: var(--aqualuxe-white);
+    border: none;
+    border-radius: 0 0.25rem 0.25rem 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.aqualuxe-service-search-button:hover {
+    background-color: var(--aqualuxe-primary-dark);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .aqualuxe-services-layout-list .aqualuxe-service-inner {
+        flex-direction: column;
+    }
+
+    .aqualuxe-services-layout-list .aqualuxe-service-image {
+        flex: 0 0 auto;
+    }
+
+    .aqualuxe-service-categories-layout-list .aqualuxe-service-category-inner {
+        flex-direction: column;
+    }
+
+    .aqualuxe-service-categories-layout-list .aqualuxe-service-category-image {
+        flex: 0 0 auto;
+    }
+
+    .aqualuxe-single-service-meta-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .aqualuxe-single-service-meta-label {
+        flex: 0 0 auto;
+        margin-bottom: 0.25rem;
+    }
+
+    .aqualuxe-service-booking-form .wpcf7-form {
+        grid-template-columns: 1fr;
+    }
+}

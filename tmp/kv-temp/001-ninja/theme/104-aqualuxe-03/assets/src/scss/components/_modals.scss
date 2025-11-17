@@ -1,0 +1,190 @@
+// Modal component styles
+@layer components {
+  .modal {
+    @apply fixed inset-0 z-50 overflow-y-auto;
+
+    &.hidden {
+      @apply invisible opacity-0;
+    }
+
+    .modal-backdrop {
+      @apply fixed inset-0 bg-black bg-opacity-50 transition-opacity;
+    }
+
+    .modal-container {
+      @apply flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0;
+    }
+
+    .modal-content {
+      @apply relative transform overflow-hidden rounded-lg bg-white dark:bg-gray-800 text-left shadow-xl transition-all w-full;
+
+      &.modal-sm {
+        @apply max-w-sm;
+      }
+
+      &.modal-md {
+        @apply max-w-md;
+      }
+
+      &.modal-lg {
+        @apply max-w-lg;
+      }
+
+      &.modal-xl {
+        @apply max-w-xl;
+      }
+
+      &.modal-2xl {
+        @apply max-w-2xl;
+      }
+
+      &.modal-full {
+        @apply max-w-full m-4;
+      }
+    }
+
+    .modal-header {
+      @apply flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700;
+
+      .modal-title {
+        @apply text-lg font-semibold text-gray-900 dark:text-white;
+      }
+
+      .modal-close {
+        @apply text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors;
+      }
+    }
+
+    .modal-body {
+      @apply p-6;
+    }
+
+    .modal-footer {
+      @apply flex items-center justify-end space-x-3 p-6 border-t border-gray-200 dark:border-gray-700;
+    }
+  }
+
+  .drawer {
+    @apply fixed inset-y-0 z-50 w-full max-w-sm bg-white dark:bg-gray-800 shadow-xl transform transition-transform duration-300;
+
+    &.drawer-left {
+      @apply left-0 -translate-x-full;
+
+      &.open {
+        @apply translate-x-0;
+      }
+    }
+
+    &.drawer-right {
+      @apply right-0 translate-x-full;
+
+      &.open {
+        @apply translate-x-0;
+      }
+    }
+
+    .drawer-header {
+      @apply flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700;
+
+      .drawer-title {
+        @apply text-lg font-semibold text-gray-900 dark:text-white;
+      }
+
+      .drawer-close {
+        @apply text-gray-400 hover:text-gray-600 dark:hover:text-gray-300;
+      }
+    }
+
+    .drawer-body {
+      @apply p-4 overflow-y-auto;
+    }
+
+    .drawer-footer {
+      @apply p-4 border-t border-gray-200 dark:border-gray-700;
+    }
+  }
+
+  .alert {
+    @apply p-4 rounded-lg border;
+
+    &.alert-success {
+      @apply bg-green-50 border-green-200 text-green-800 dark:bg-green-900 dark:border-green-700 dark:text-green-300;
+    }
+
+    &.alert-error {
+      @apply bg-red-50 border-red-200 text-red-800 dark:bg-red-900 dark:border-red-700 dark:text-red-300;
+    }
+
+    &.alert-warning {
+      @apply bg-yellow-50 border-yellow-200 text-yellow-800 dark:bg-yellow-900 dark:border-yellow-700 dark:text-yellow-300;
+    }
+
+    &.alert-info {
+      @apply bg-blue-50 border-blue-200 text-blue-800 dark:bg-blue-900 dark:border-blue-700 dark:text-blue-300;
+    }
+
+    .alert-icon {
+      @apply w-5 h-5 mr-2 flex-shrink-0;
+    }
+
+    .alert-content {
+      @apply flex-1;
+
+      .alert-title {
+        @apply font-semibold mb-1;
+      }
+
+      .alert-message {
+        @apply text-sm;
+      }
+    }
+
+    .alert-close {
+      @apply ml-2 text-current opacity-70 hover:opacity-100;
+    }
+  }
+
+  .tooltip {
+    @apply absolute z-50 px-2 py-1 text-sm text-white bg-gray-900 rounded shadow-lg opacity-0 pointer-events-none transition-opacity duration-200;
+
+    &.tooltip-top {
+      @apply bottom-full left-1/2 transform -translate-x-1/2 mb-1;
+
+      &::after {
+        content: "''";
+        @apply absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900;
+      }
+    }
+
+    &.tooltip-bottom {
+      @apply top-full left-1/2 transform -translate-x-1/2 mt-1;
+
+      &::after {
+        content: "''";
+        @apply absolute bottom-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-b-4 border-transparent border-b-gray-900;
+      }
+    }
+
+    &.tooltip-left {
+      @apply right-full top-1/2 transform -translate-y-1/2 mr-1;
+
+      &::after {
+        content: "''";
+        @apply absolute left-full top-1/2 transform -translate-y-1/2 w-0 h-0 border-t-4 border-b-4 border-l-4 border-transparent border-l-gray-900;
+      }
+    }
+
+    &.tooltip-right {
+      @apply left-full top-1/2 transform -translate-y-1/2 ml-1;
+
+      &::after {
+        content: "''";
+        @apply absolute right-full top-1/2 transform -translate-y-1/2 w-0 h-0 border-t-4 border-b-4 border-r-4 border-transparent border-r-gray-900;
+      }
+    }
+
+    &.show {
+      @apply opacity-100;
+    }
+  }
+}

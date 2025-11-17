@@ -1,0 +1,145 @@
+/* Import Tailwind CSS */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Editor-specific styles */
+.editor-styles-wrapper {
+  @apply font-sans text-dark-500;
+}
+
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h5,
+.editor-styles-wrapper h6 {
+  @apply font-serif font-bold mb-4;
+}
+
+.editor-styles-wrapper h1 {
+  @apply text-4xl md:text-5xl;
+}
+
+.editor-styles-wrapper h2 {
+  @apply text-3xl md:text-4xl;
+}
+
+.editor-styles-wrapper h3 {
+  @apply text-2xl md:text-3xl;
+}
+
+.editor-styles-wrapper h4 {
+  @apply text-xl md:text-2xl;
+}
+
+.editor-styles-wrapper h5 {
+  @apply text-lg md:text-xl;
+}
+
+.editor-styles-wrapper h6 {
+  @apply text-base md:text-lg;
+}
+
+.editor-styles-wrapper a {
+  @apply text-primary-500;
+}
+
+.editor-styles-wrapper p {
+  @apply mb-4;
+}
+
+/* Block editor specific styles */
+.wp-block {
+  @apply max-w-screen-lg;
+}
+
+.wp-block[data-align="wide"] {
+  @apply max-w-screen-xl;
+}
+
+.wp-block[data-align="full"] {
+  @apply max-w-full;
+}
+
+/* Button block */
+.wp-block-button__link {
+  @apply inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md font-medium transition-colors duration-200;
+}
+
+.is-style-fill .wp-block-button__link {
+  @apply bg-primary-500 text-white hover:bg-primary-600;
+}
+
+.is-style-outline .wp-block-button__link {
+  @apply border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white;
+}
+
+/* Quote block */
+.wp-block-quote {
+  @apply border-l-4 border-primary-500 pl-4 italic;
+}
+
+/* Table block */
+.wp-block-table table {
+  @apply min-w-full divide-y divide-gray-300;
+}
+
+.wp-block-table thead {
+  @apply bg-gray-100;
+}
+
+.wp-block-table th {
+  @apply px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider;
+}
+
+.wp-block-table td {
+  @apply px-6 py-4 whitespace-nowrap text-sm text-gray-500;
+}
+
+/* Image block */
+.wp-block-image figcaption {
+  @apply text-sm text-gray-600 mt-1;
+}
+
+/* Cover block */
+.wp-block-cover {
+  @apply min-h-[400px];
+}
+
+/* Columns block */
+.wp-block-columns {
+  @apply flex flex-wrap;
+}
+
+.wp-block-column {
+  @apply flex-1 min-w-0;
+}
+
+/* Gallery block */
+.wp-block-gallery {
+  @apply grid grid-cols-2 md:grid-cols-3 gap-4;
+}
+
+/* Media & Text block */
+.wp-block-media-text {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+}
+
+/* Separator block */
+.wp-block-separator {
+  @apply border-t border-gray-300 my-8;
+}
+
+.is-style-wide {
+  @apply border-t border-gray-300;
+}
+
+.is-style-dots {
+  @apply border-none text-center;
+}
+
+.is-style-dots::before {
+  content: "···";
+  @apply text-gray-500 text-2xl tracking-widest;
+}

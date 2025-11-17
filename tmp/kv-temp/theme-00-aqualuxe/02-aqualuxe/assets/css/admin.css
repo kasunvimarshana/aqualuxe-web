@@ -1,0 +1,217 @@
+/**
+ * AquaLuxe Admin Styles
+ * 
+ * @package AquaLuxe
+ * @since 1.0.0
+ */
+
+/* Demo Content Page */
+.aqualuxe-demo-content-wrapper {
+    max-width: 800px;
+    margin: 20px 0;
+}
+
+.aqualuxe-demo-content-section {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.aqualuxe-demo-content-section h2 {
+    margin-top: 0;
+}
+
+/* Customizer Styles */
+#customize-control-aqualuxe_primary_color .customize-control-title {
+    font-weight: 600;
+}
+
+#customize-control-aqualuxe_body_font .customize-control-title {
+    font-weight: 600;
+}
+
+/* Product Meta Boxes */
+.aqualuxe-product-meta-box {
+    padding: 10px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    margin: 10px 0;
+}
+
+.aqualuxe-product-meta-box h3 {
+    margin-top: 0;
+}
+
+.aqualuxe-product-meta-box p {
+    margin: 10px 0;
+}
+
+.aqualuxe-product-meta-box label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.aqualuxe-product-meta-box input,
+.aqualuxe-product-meta-box textarea,
+.aqualuxe-product-meta-box select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Settings Page */
+.aqualuxe-settings-page {
+    max-width: 800px;
+}
+
+.aqualuxe-settings-section {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.aqualuxe-settings-section h2 {
+    margin-top: 0;
+}
+
+.aqualuxe-settings-section table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.aqualuxe-settings-section th,
+.aqualuxe-settings-section td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+.aqualuxe-settings-section th {
+    width: 30%;
+    font-weight: 600;
+}
+
+.aqualuxe-settings-section input[type="text"],
+.aqualuxe-settings-section input[type="email"],
+.aqualuxe-settings-section input[type="url"],
+.aqualuxe-settings-section input[type="password"],
+.aqualuxe-settings-section textarea,
+.aqualuxe-settings-section select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.aqualuxe-settings-section .button {
+    margin-top: 10px;
+}
+
+/* Help Page */
+.aqualuxe-help-page {
+    max-width: 800px;
+}
+
+.aqualuxe-help-section {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.aqualuxe-help-section h2 {
+    margin-top: 0;
+}
+
+.aqualuxe-help-section ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.aqualuxe-help-section li {
+    margin-bottom: 10px;
+}
+
+/* Import/Export */
+.aqualuxe-import-export {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.aqualuxe-import-export h2 {
+    margin-top: 0;
+}
+
+.aqualuxe-import-export .button {
+    margin-right: 10px;
+}
+
+/* Status Report */
+.aqualuxe-status-report {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.aqualuxe-status-report h2 {
+    margin-top: 0;
+}
+
+.aqualuxe-status-report table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.aqualuxe-status-report th,
+.aqualuxe-status-report td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+.aqualuxe-status-report th {
+    width: 30%;
+    font-weight: 600;
+}
+
+.aqualuxe-status-report .status-ok {
+    color: #46b450;
+}
+
+.aqualuxe-status-report .status-error {
+    color: #dc3232;
+}
+
+/* Responsive Admin */
+@media (max-width: 768px) {
+    .aqualuxe-demo-content-wrapper,
+    .aqualuxe-settings-page,
+    .aqualuxe-help-page {
+        padding: 0 10px;
+    }
+    
+    .aqualuxe-demo-content-section,
+    .aqualuxe-settings-section,
+    .aqualuxe-help-section {
+        padding: 15px;
+    }
+    
+    .aqualuxe-settings-section th,
+    .aqualuxe-settings-section td {
+        display: block;
+        width: 100%;
+        padding: 5px 0;
+    }
+}

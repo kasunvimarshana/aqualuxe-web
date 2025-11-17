@@ -1,0 +1,426 @@
+/**
+ * AquaLuxe Theme Typography
+ *
+ * Typography styles for the theme.
+ */
+
+// Base typography
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-normal;
+  color: $color-gray-900;
+}
+
+// Headings
+h1, .h1 {
+  @include heading-1;
+  font-size: $font-size-4xl;
+  
+  @include respond-below(md) {
+    font-size: $font-size-3xl;
+  }
+}
+
+h2, .h2 {
+  @include heading-2;
+  font-size: $font-size-3xl;
+  
+  @include respond-below(md) {
+    font-size: $font-size-2xl;
+  }
+}
+
+h3, .h3 {
+  @include heading-3;
+  font-size: $font-size-2xl;
+  
+  @include respond-below(md) {
+    font-size: $font-size-xl;
+  }
+}
+
+h4, .h4 {
+  @include heading-4;
+  font-size: $font-size-xl;
+  
+  @include respond-below(md) {
+    font-size: $font-size-lg;
+  }
+}
+
+h5, .h5 {
+  @include heading-5;
+  font-size: $font-size-lg;
+}
+
+h6, .h6 {
+  @include heading-6;
+  font-size: $font-size-base;
+}
+
+// Paragraphs
+p {
+  margin-top: 0;
+  margin-bottom: $spacing-4;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Lead paragraph
+.lead {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-light;
+  line-height: $line-height-relaxed;
+  margin-bottom: $spacing-6;
+  
+  @include respond-to(md) {
+    font-size: $font-size-xl;
+  }
+}
+
+// Small text
+small, .small {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-normal;
+}
+
+// Text emphasis
+.text-muted {
+  color: $color-gray-600 !important;
+}
+
+.text-primary {
+  color: $color-primary !important;
+}
+
+.text-secondary {
+  color: $color-secondary !important;
+}
+
+.text-success {
+  color: $color-success !important;
+}
+
+.text-info {
+  color: $color-info !important;
+}
+
+.text-warning {
+  color: $color-warning !important;
+}
+
+.text-danger {
+  color: $color-danger !important;
+}
+
+.text-light {
+  color: $color-gray-100 !important;
+}
+
+.text-dark {
+  color: $color-gray-900 !important;
+}
+
+// Text alignment
+.text-left {
+  text-align: left !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-justify {
+  text-align: justify !important;
+}
+
+// Text transform
+.text-lowercase {
+  text-transform: lowercase !important;
+}
+
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+
+.text-capitalize {
+  text-transform: capitalize !important;
+}
+
+// Font weight
+.font-weight-light {
+  font-weight: $font-weight-light !important;
+}
+
+.font-weight-normal {
+  font-weight: $font-weight-normal !important;
+}
+
+.font-weight-medium {
+  font-weight: $font-weight-medium !important;
+}
+
+.font-weight-semibold {
+  font-weight: $font-weight-semibold !important;
+}
+
+.font-weight-bold {
+  font-weight: $font-weight-bold !important;
+}
+
+// Font style
+.font-italic {
+  font-style: italic !important;
+}
+
+// Text decoration
+.text-decoration-none {
+  text-decoration: none !important;
+}
+
+.text-decoration-underline {
+  text-decoration: underline !important;
+}
+
+.text-decoration-line-through {
+  text-decoration: line-through !important;
+}
+
+// Lists
+ul, ol {
+  margin-top: 0;
+  margin-bottom: $spacing-4;
+  padding-left: $spacing-6;
+  
+  ul, ol {
+    margin-bottom: 0;
+  }
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+// List unstyled
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+// List inline
+.list-inline {
+  padding-left: 0;
+  list-style: none;
+  
+  .list-inline-item {
+    display: inline-block;
+    
+    &:not(:last-child) {
+      margin-right: $spacing-3;
+    }
+  }
+}
+
+// Description lists
+dl {
+  margin-top: 0;
+  margin-bottom: $spacing-4;
+}
+
+dt {
+  font-weight: $font-weight-bold;
+  margin-bottom: $spacing-1;
+}
+
+dd {
+  margin-bottom: $spacing-3;
+  margin-left: 0;
+}
+
+// Blockquotes
+blockquote {
+  margin: 0 0 $spacing-4;
+  padding: $spacing-4;
+  border-left: 5px solid $color-primary;
+  background-color: $color-gray-100;
+  font-style: italic;
+  
+  p:last-child {
+    margin-bottom: 0;
+  }
+  
+  footer, cite {
+    display: block;
+    font-size: $font-size-sm;
+    color: $color-gray-600;
+    margin-top: $spacing-2;
+    
+    &::before {
+      content: "\2014\00A0"; // Em dash and non-breaking space
+    }
+  }
+}
+
+// Code
+code {
+  font-family: $font-family-mono;
+  font-size: 0.9em;
+  padding: 0.2em 0.4em;
+  color: $color-secondary-dark;
+  background-color: $color-gray-100;
+  border-radius: $border-radius;
+}
+
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: $spacing-4;
+  overflow: auto;
+  font-size: 0.9em;
+  padding: $spacing-3;
+  color: $color-gray-800;
+  background-color: $color-gray-100;
+  border-radius: $border-radius;
+  
+  code {
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+    border-radius: 0;
+  }
+}
+
+// Abbreviations
+abbr[title] {
+  text-decoration: underline dotted;
+  cursor: help;
+  border-bottom: 0;
+}
+
+// Address
+address {
+  margin-bottom: $spacing-4;
+  font-style: normal;
+  line-height: inherit;
+}
+
+// Links
+a {
+  color: $color-primary;
+  text-decoration: none;
+  background-color: transparent;
+  transition: $transition-base;
+  
+  &:hover {
+    color: $color-primary-dark;
+    text-decoration: underline;
+  }
+  
+  &:focus {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+  }
+}
+
+// Horizontal rule
+hr {
+  margin-top: $spacing-6;
+  margin-bottom: $spacing-6;
+  border: 0;
+  border-top: 1px solid $color-gray-300;
+}
+
+// Responsive typography
+@include respond-below(md) {
+  body {
+    font-size: 0.95rem;
+  }
+  
+  h1, .h1 {
+    font-size: $font-size-3xl;
+  }
+  
+  h2, .h2 {
+    font-size: $font-size-2xl;
+  }
+  
+  h3, .h3 {
+    font-size: $font-size-xl;
+  }
+  
+  h4, .h4 {
+    font-size: $font-size-lg;
+  }
+  
+  h5, .h5 {
+    font-size: $font-size-base;
+  }
+  
+  h6, .h6 {
+    font-size: $font-size-sm;
+  }
+}
+
+// Dark mode overrides
+@include dark-mode {
+  body {
+    color: $dark-text;
+  }
+  
+  .text-muted {
+    color: darken($dark-text, 20%) !important;
+  }
+  
+  .text-dark {
+    color: $dark-text !important;
+  }
+  
+  .text-light {
+    color: $color-gray-300 !important;
+  }
+  
+  blockquote {
+    background-color: $dark-bg-light;
+    border-left-color: lighten($color-primary, 10%);
+    
+    footer, cite {
+      color: darken($dark-text, 15%);
+    }
+  }
+  
+  code {
+    color: lighten($color-secondary, 15%);
+    background-color: $dark-bg-light;
+  }
+  
+  pre {
+    color: $dark-text;
+    background-color: $dark-bg-light;
+  }
+  
+  hr {
+    border-top-color: $dark-border;
+  }
+  
+  a {
+    color: lighten($color-primary, 15%);
+    
+    &:hover {
+      color: lighten($color-primary, 25%);
+    }
+  }
+}
